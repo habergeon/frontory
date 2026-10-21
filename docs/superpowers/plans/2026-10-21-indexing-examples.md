@@ -13,7 +13,7 @@
 - [x] Add 550 unit-specific editable examples, with companion sources where compiler/Node/device capabilities require them. Independent authors own disjoint series directories and metadata files.
 - [x] Integrate example metadata, download links and accurate generated learning documents. Update source coverage tests to 644 and validate metadata/file paths.
 - [x] Run syntax/type/content/build/Pages checks. Inspect representative interactive examples in each domain, cleanup, responsive layout and console errors. Report unexecuted external environments.
-- [ ] Commit and push, verify deployed canonical pages and sitemap, then submit the sitemap through the verified URL-prefix Search Console property. Indexing remains Google's decision.
+- [x] Commit and push, verify deployed canonical pages and sitemap, then submit the sitemap through the verified URL-prefix Search Console property. Indexing remains Google's decision.
 
 ## Review focus
 
@@ -34,3 +34,5 @@ Initial working tree clean at dd2f599. Official Google guidance: https://develop
 - Browser mount/dispose coverage completed across split runs: the first 448 units passed before the long-running test tab stalled; a separate 196-unit run (WGSL through Playwright) passed without failures. The harness now disposes on the ready message rather than depending on a background-tab delay. This checks initial execution and cleanup, not every exercise interaction or external runtime.
 - React snapshot/updater interaction produced 1 versus 3 as expected. Companion captions.vtt downloaded through the UI. Public React document rendered at desktop and mobile width with no horizontal overflow.
 - External limitations: WebGPU adapter execution and the complete Playwright runner suite remain unverified in this environment. Svelte companions compile; WASM companion modules and Node assertions pass separately.
+- Deployed dbd4e13 via habergeon. GitHub verify and Cloudflare Pages checks succeeded. Public sitemap responds 200 with valid XML and 669 URLs; canonical learning document responds 200; unknown learning path responds 404.
+- Search Console accepted sitemap.xml on 2026-10-21. Google live URL test reports crawl allowed and page fetch successful, but the Sitemaps report still says "Couldn't fetch" with zero discovered pages after one resubmission. This is unresolved; do not report sitemap processing or indexing as complete.

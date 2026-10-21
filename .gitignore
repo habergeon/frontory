@@ -1,0 +1,18 @@
+node_modules/
+dist/
+*.local
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+.DS_Store
+src/preview/runtime.generated.js
+
+# 대형 데이터와 외부 실험 자산은 저장소에서 제외합니다.
+public/assets/*
+!public/assets/README.md
+*.ply
+*.splat
+*.ksplat
+*.spz
+*.sog

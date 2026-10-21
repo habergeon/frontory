@@ -29,9 +29,11 @@ WebGL은 브라우저에서 GPU에 그래픽 작업을 요청하는 API입니다
 
 ## 실습 과제
 
-1. 첫 예제에서 Scene/Camera/Renderer를 찾고 역할을 적습니다.
-2. ROTATE를 false로 고정한 뒤 CUBE_COLOR를 바꾸고 실제 픽셀 변화가 보이는지 확인합니다.
-3. 괄호 하나를 지워 구문 오류를 만든 뒤 복구하고, 오류 중에도 필기를 쓸 수 있는지 확인합니다.
+1. 먼저 실습 화면의 큐브를 드래그하고 휠로 확대·축소하세요. 코드에서 `Scene`, `PerspectiveCamera`, `WebGLRenderer`를 찾아 각각 무엇을 담당하는지 필기에 적습니다.
+2. 코드 위쪽의 `const ROTATE = true`를 `false`로 바꿔 움직임을 멈춥니다. `CUBE_COLOR`를 `'#3179bf'`에서 `'#e86a33'`으로 바꾸고, 입력을 멈춘 뒤 색이 반영되는지 확인하세요.
+3. `ROTATE = false`를 유지하고 `CAMERA_POSITION`을 `[3, 2, 5]` → `[0, 2, 5]` → `[5, 2, 0]`으로 한 번씩 바꾸세요. 매번 어느 면이 보일지 먼저 예상하고 실제 화면과 비교합니다. `FOV = 50`과 큐브 크기는 그대로 둡니다.
+4. `ROTATE`를 다시 `true`로 바꾸고 `cube.rotation.y += delta * 0.5`의 `0.5`를 `1.0`으로 바꾸세요. 색·카메라를 고정한 채 회전 속도의 차이를 관찰합니다.
+5. 괄호 하나를 지워 구문 오류를 만든 뒤 다시 넣어 복구하세요. 오류 메시지와 마지막 정상 화면 유지 여부를 확인하고, 필기에 예상·실제 결과·배운 점을 기록합니다.
 
 화면 코드는 src/labs/01-scene/example.js 원본 또는 이 단위에 저장한 편집본입니다. Monaco에서 JavaScript/TypeScript를 선택하고 600ms 동안 입력이 없으면 문법·타입 검사 후 새 iframe에서 실행합니다. TypeScript는 JavaScript로 변환합니다. 오류 목록을 클릭하면 해당 줄로 이동합니다. 기존 createScene.ts와 SceneLab.tsx는 비교용으로 보존되어 있으며 현재 편집기의 실행 소스는 아닙니다.
 
@@ -43,7 +45,7 @@ ROTATE를 false로 고정한 뒤 CAMERA_POSITION을 [3, 2, 5] → [0, 2, 5] → 
 
 ## 관찰할 변수
 
-CUBE_COLOR, ROTATE. 카메라·geometry·광원은 고정합니다.
+`CUBE_COLOR`: 표면 색, `CAMERA_POSITION`: 보이는 면, `ROTATE`와 `delta * 0.5`: 회전 여부·속도. 각 단계에서는 지정한 변수만 바꾸고 나머지는 고정합니다. 카메라 실험 중에는 마우스로 시점을 추가 변경하지 말고 코드 변경 직후 화면을 비교하세요.
 
 ## 완료 조건
 

@@ -4,6 +4,7 @@ import { Workspace } from './Workspace'
 import { DocumentDialog } from './DocumentDialog'
 import { BackupControls } from './BackupControls'
 import { LearningNavigator } from './LearningNavigator'
+import { PracticeGuide } from './PracticeGuide'
 
 const fromHash = () => units.find(unit => unit.id === window.location.hash.slice(1)) ?? units[0]
 export function App() {
@@ -28,6 +29,7 @@ export function App() {
       <nav aria-label="학습 안내"><button onClick={() => setDocumentPath('/docs/labs/README.md')}>전체 기술 지도</button><button onClick={() => setDocumentPath('/docs/learning-workspace.md')}>사용법</button></nav>
     </header>
     <LearningNavigator selected={selected} onSelect={select} onDocument={setDocumentPath} />
+    <PracticeGuide key={selected.id} unit={selected} onDocument={setDocumentPath} />
     <details className="backup-disclosure"><summary>학습 아카이브 · 전체 JSON 내보내기 / 가져오기</summary><BackupControls selectedId={selected.id} onRestore={id => { select(id); setRestoreRevision(value => value + 1) }} /></details>
     <Workspace key={selected.id + ':' + restoreRevision} unit={selected} onProgressChange={() => refreshProgress(value => value + 1)} />
     {documentPath && <DocumentDialog initialPath={documentPath} unitPath={selected.docPath} onClose={() => setDocumentPath(null)} />}

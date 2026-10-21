@@ -2,6 +2,27 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 
+test('home and learning pages provide complete social metadata and site identity', async () => {
+  const { generateSearchPages } = await import('../scripts/search-pages.mjs')
+  const pages = [fs.readFileSync('index.html', 'utf8'), ...[...generateSearchPages()].filter(([name]) => name.endsWith('.html')).map(([, html]) => html)]
+  for (const html of pages) {
+    assert.match(html, /property="og:site_name" content="Frontory"/)
+    assert.match(html, /property="og:locale" content="ko_KR"/)
+    assert.match(html, /property="og:image" content="https:\/\/frontory.pages.dev\/og\/frontory.png"/)
+    assert.match(html, /name="twitter:card" content="summary_large_image"/)
+    assert.match(html, /property="og:image:alt"/)
+  }
+  const home = pages[0]
+  const schema = JSON.parse(home.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])
+  assert.equal(schema['@type'], 'WebSite')
+  assert.equal(schema.name, 'Frontory')
+  assert.equal(schema.url, 'https://frontory.pages.dev/')
+  const png = fs.readFileSync('public/og/frontory.png')
+  assert.equal(png.subarray(1, 4).toString(), 'PNG')
+  assert.equal(png.readUInt32BE(16), 1200)
+  assert.equal(png.readUInt32BE(20), 630)
+})
+
 test('search documents expose all curriculum pages without executing JavaScript', async () => {
   assert.ok(fs.existsSync('scripts/search-pages.mjs'), 'static search-page generator exists')
   const { generateSearchPages } = await import('../scripts/search-pages.mjs')

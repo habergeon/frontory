@@ -4,6 +4,7 @@ import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { socialMeta } from './social-meta.mjs'
 
 const root = path.resolve(import.meta.dirname, '..')
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'src/app/catalog.json'), 'utf8'))
@@ -33,7 +34,7 @@ export function renderDocument(markdown, docPath) {
 }
 
 function page(title, description, route, body, noindex = false) {
-  return `<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)} · Frontory</title><meta name="description" content="${escape(description)}"><meta name="robots" content="${noindex ? 'noindex,follow' : 'index,follow'}"><link rel="canonical" href="${origin + route}"><meta property="og:type" content="website"><meta property="og:title" content="${escape(title)} · Frontory"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${origin + route}"><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/learn.css"></head><body><header><a class="brand" href="/">Frontory</a><nav aria-label="사이트 탐색"><a href="/learn/">전체 커리큘럼</a><a href="/">실습 홈</a></nav></header><main>${body}</main><footer>Frontory · 개념을 읽고, 실험하고, 경험을 기록하세요. <a href="https://github.com/habergeon/frontory">GitHub</a></footer></body></html>`
+  return `<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)} · Frontory</title><meta name="description" content="${escape(description)}"><meta name="robots" content="${noindex ? 'noindex,follow' : 'index,follow'}"><link rel="canonical" href="${origin + route}"><meta property="og:type" content="website"><meta property="og:title" content="${escape(title)} · Frontory"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${origin + route}">${socialMeta}<link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/learn.css"></head><body><header><a class="brand" href="/">Frontory</a><nav aria-label="사이트 탐색"><a href="/learn/">전체 커리큘럼</a><a href="/">실습 홈</a></nav></header><main>${body}</main><footer>Frontory · 개념을 읽고, 실험하고, 경험을 기록하세요. <a href="https://github.com/habergeon/frontory">GitHub</a></footer></body></html>`
 }
 
 export function generateSearchPages() {

@@ -1,0 +1,75 @@
+# 03 · Geometry·Material·Mesh
+
+1주 차 / 원문 Day 3 · 문서 제공 / 실행 예제 준비 중 · 고정된 하루 분량이 아닌 학습 순서입니다.
+
+[전체 로드맵](../README.md) · [학습 화면 사용법](../../../../learning-workspace.md)
+
+## 목표
+
+형상과 표면 표현을 분리하여 실험한다.
+
+## 선수 지식
+
+01~02, 객체 참조와 생성자.
+
+## 핵심 개념과 설명
+
+Geometry는 정점·면·UV 같은 구조를 담고 Material은 표면이 보이는 방식을 정의합니다. Mesh는 두 객체를 결합합니다. 같은 geometry를 다른 material과 함께 사용할 수 있습니다.
+
+MeshStandardMaterial은 광원의 영향을 받지만 MeshBasicMaterial은 조명 계산 없이 색을 보여 줍니다. 검게 보이는 원인을 geometry와 광원·재질 중 어디에서 찾아야 할지 구분합니다. 공유한 geometry를 수정하거나 해제하면 다른 mesh에도 영향을 줄 수 있습니다.
+
+## 학습 후 얻을 역량
+
+- 형상과 표면 표현을 분리하여 실험한다.
+- 아래 완료 조건을 재현하고 자가 점검 질문에 자신의 말로 답할 수 있습니다.
+
+## 실습 과제
+
+1. 01 소스를 복사한 로컬 실험에서 BoxGeometry의 가로 길이만 바꿉니다.
+2. 같은 geometry에 MeshBasicMaterial과 MeshStandardMaterial을 각각 연결해 광원 유무를 비교합니다.
+3. 큐브 두 개가 geometry를 공유하는 경우와 각각 갖는 경우의 소유권을 적습니다.
+
+이 단위의 실행 예제는 아직 준비 중입니다. 현재 화면에서는 문서를 읽고 단위별 필기를 쓸 수 있습니다. 01 예제에서 수행할 수 있는 작은 변수 실험은 그 화면에서 진행하고, 새 shader/GS 등의 코드 과제는 후속 로컬 실습으로 추가합니다. 제공되지 않은 기능을 완료된 것으로 표시하지 않습니다.
+
+## 관찰할 변수
+
+geometry 크기, material 종류, color, roughness. 카메라는 고정합니다.
+
+## 완료 조건
+
+- [ ] 형상과 표면 변경을 구분한다.
+- [ ] 광원 없이 보이는 재질과 아닌 재질을 비교했다.
+- [ ] 공유 자원 해제 책임을 설명했다.
+
+## 자가 점검 질문
+
+1. 재질만 바꾸면 정점 수도 변하나요?
+2. 공유 geometry를 한 mesh 제거 때 해제해도 될까요?
+
+## 공식 참고
+
+- [Mesh](https://threejs.org/docs/pages/Mesh.html)
+- [BufferGeometry](https://threejs.org/docs/pages/BufferGeometry.html)
+- [MeshStandardMaterial](https://threejs.org/docs/pages/MeshStandardMaterial.html)
+
+## 실험 기록 — 직접 작성
+
+### 목표
+<!-- 이번에 답하려는 질문 -->
+
+### 핵심 개념
+<!-- 자기 말로 설명 -->
+
+### 바꾼 변수와 예상
+<!-- 기준값 → 변경값 / 고정 조건 / 실행 전 예상 -->
+
+### 실제 결과
+<!-- 실제 관찰 내용, 화면, 측정값. 실행 전에는 비워 둡니다. -->
+
+### 배운 점
+<!-- 예상과 실제의 차이, 이유 -->
+
+### 남은 질문
+<!-- 다음 실험으로 확인할 것 -->
+
+[이전: Scene·Camera·Renderer](../02-camera/README.md) · [다음: 좌표계·Vector3·Matrix4](../04-coordinates/README.md)

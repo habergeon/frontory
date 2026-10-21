@@ -23,10 +23,9 @@ function harness(mount) {
   vm.runInNewContext(compiled, context)
   return { ...context, messages, frames, listeners, start: module.exports.start }
 }
-test('successful mount reports ready after a frame', async () => {
+test('successful mount reports ready even when background animation frames never run', async () => {
   const h = harness(() => () => {})
   await h.start('', 'token')
-  h.frames.forEach(fn => fn())
   assert.deepEqual(h.messages.map(m => m.status), ['ready'])
 })
 test('early async errors stay visible instead of being overwritten by ready', async () => {
@@ -62,7 +61,7 @@ test('only correct parent and token dispose the example, once', async () => {
   registered.get('pagehide')()
   assert.equal(count, 1)
   other.frames.forEach(fn => fn())
-  assert.deepEqual(other.messages.map(m => m.status), ['disposed'])
+  assert.deepEqual(other.messages.map(m => m.status), ['ready', 'disposed'])
 })
 
 test('async mount resolves to cleanup and late completion after dispose is released', async () => {

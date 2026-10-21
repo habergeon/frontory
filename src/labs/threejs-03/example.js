@@ -1,0 +1,12 @@
+// renderer.info reports draw calls/resources, not GPU VRAM or GPU elapsed time.
+export function mount({ THREE, container }) {
+  const mode=document.createElement('button');mode.textContent='Switch to instancing';const remove=document.createElement('button');remove.textContent='Delete resources';const rebuild=document.createElement('button');rebuild.textContent='Rebuild';const log=document.createElement('pre');container.append(mode,remove,rebuild,log)
+  const renderer=new THREE.WebGLRenderer();container.append(renderer.domElement);const scene=new THREE.Scene();scene.background=new THREE.Color('#edf2f7');const camera=new THREE.PerspectiveCamera(45,1,.1,100);camera.position.z=16
+  let instanced=false,group=null,geometry=null,material=null,texture=null,cycles=0
+  const render=()=>{renderer.render(scene,camera);log.textContent=`${instanced?'InstancedMesh':'100 Meshes'} · calls ${renderer.info.render.calls}\ngeometries ${renderer.info.memory.geometries} · textures ${renderer.info.memory.textures} · rebuilds ${cycles}\nCounts are renderer resources, not VRAM.`}
+  const clear=()=>{if(group){scene.remove(group);group.traverse(o=>{if(o.isInstancedMesh)o.dispose()});group=null}geometry?.dispose();material?.dispose();texture?.dispose();geometry=material=texture=null}
+  const build=()=>{clear();cycles++;geometry=new THREE.BoxGeometry(.65,.65,.65);texture=new THREE.DataTexture(new Uint8Array([49,121,191,255]),1,1);texture.needsUpdate=true;material=new THREE.MeshBasicMaterial({map:texture});group=new THREE.Group();const matrix=new THREE.Matrix4();if(instanced){const mesh=new THREE.InstancedMesh(geometry,material,100);for(let i=0;i<100;i++){matrix.makeTranslation((i%10-4.5)*.9,(Math.floor(i/10)-4.5)*.9,0);mesh.setMatrixAt(i,matrix)}mesh.instanceMatrix.needsUpdate=true;group.add(mesh)}else for(let i=0;i<100;i++){const mesh=new THREE.Mesh(geometry,material);mesh.position.set((i%10-4.5)*.9,(Math.floor(i/10)-4.5)*.9,0);group.add(mesh)}scene.add(group);render()}
+  mode.onclick=()=>{instanced=!instanced;mode.textContent=instanced?'Switch to individual meshes':'Switch to instancing';build()};remove.onclick=()=>{clear();render()};rebuild.onclick=build
+  const resize=()=>{const w=Math.max(1,container.clientWidth),h=Math.max(1,container.clientHeight-125);renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();render()};const observer=new ResizeObserver(resize);observer.observe(container);resize();build()
+  return()=>{observer.disconnect();clear();renderer.dispose();renderer.forceContextLoss();container.replaceChildren()}
+}

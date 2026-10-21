@@ -24,7 +24,7 @@ function SeriesDialog({ current, onSelect, onClose }: { current: string; onSelec
       return <button className="series-card" key={item.id} aria-current={item.id === current ? 'true' : undefined} onClick={() => { onSelect(lessons.find(unit => statusOf(unit) === 'in-progress')?.id ?? lessons[0].id); onClose() }}>
         <span className="eyebrow">{categories[item.category]} · {'★'.repeat(item.priority)}</span><strong>{item.title}</strong><span>{lessons.length}개 단위 · 완료 {count}개</span>
         <progress value={count} max={lessons.length} aria-label={item.title + ' 완료율'} />
-        <small>선수: {item.prerequisites}</small><span className="badge">{item.id === 'playwright' ? '별도 실행용 테스트 소스' : '대표 예제 ' + lessons.filter(unit => unit.source !== undefined).length + '개'}</span>
+        <small>선수: {item.prerequisites}</small><span className="badge">{item.id === 'playwright' ? '별도 실행용 테스트 소스' : '연결된 예제 ' + lessons.filter(unit => unit.source !== undefined).length + '개'}</span>
       </button>
     })}{filtered.length === 0 && <p>일치하는 시리즈가 없습니다. 검색어나 분야를 바꿔보세요.</p>}</div>
   </dialog>
@@ -50,7 +50,7 @@ export function LearningNavigator({ selected, onSelect, onDocument }: { selected
     <div className="unit-outline"><button className="outline-toggle" aria-expanded={expanded} aria-controls="unit-outline-list" onClick={() => setExpanded(value => !value)}>{current.stages[selected.week-1]} 목차 {expanded ? '접기 −' : '펼치기 +'}</button><span>현재 {index + 1} / {lessons.length} 단위 · {labels[statusOf(selected)]}</span></div>
     {expanded && <nav id="unit-outline-list" className="unit-grid" aria-label="단계별 학습 목차">{phase.map(unit => <button key={unit.id} aria-current={selected.id === unit.id ? 'page' : undefined} onClick={() => onSelect(unit.id)}><span className={'unit-state ' + statusOf(unit)}>{statusOf(unit) === 'completed' ? '✓' : String(unit.day).padStart(2,'0')}</span><span><strong>{unit.title}</strong><small>{labels[statusOf(unit)]} · {unit.source === undefined ? '문서·필기' : '실행 실습'}</small></span></button>)}</nav>}
     <div className="current-lesson"><div><span className="eyebrow">UNIT {String(selected.day).padStart(2,'0')} / {current.stages[selected.week-1]}</span><h3>{selected.title}</h3><p>{selected.goal}</p></div><button className="primary-button" onClick={() => onDocument(selected.docPath)}>학습 문서 열기</button></div>
-    <div className="unit-pagination"><button disabled={index === 0} onClick={() => onSelect(lessons[index-1].id)}>← 이전 단위</button><span>{selected.source === undefined ? '문서·필기 제공 / 실행 예제 준비 중' : selected.id === 'playwright-01' ? '별도 환경 실행용 예제' : '실행 가능한 예제 제공'}</span><button disabled={index === lessons.length-1} onClick={() => onSelect(lessons[index+1].id)}>다음 단위 →</button></div>
+    <div className="unit-pagination"><button disabled={index === 0} onClick={() => onSelect(lessons[index-1].id)}>← 이전 단위</button><span>{selected.source === undefined ? '문서·필기 제공 / 실행 예제 준비 중' : selected.seriesId === 'playwright' ? '별도 환경 실행용 예제' : '실행 가능한 예제 제공'}</span><button disabled={index === lessons.length-1} onClick={() => onSelect(lessons[index+1].id)}>다음 단위 →</button></div>
     {showCatalog && <SeriesDialog current={current.id} onSelect={onSelect} onClose={() => setShowCatalog(false)} />}
   </section>
 }

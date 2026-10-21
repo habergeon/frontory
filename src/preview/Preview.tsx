@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import runtime from './runtime.generated.js?raw'
 import { createPreviewDocument } from './document'
 
@@ -39,7 +39,7 @@ export function Preview({ code, revision, notice }: { code: string; revision: nu
     }, 0)
     return () => { cancelled = true; window.clearTimeout(timer); clear() }
   }, [code, revision])
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!frame) return
     const element = iframe.current
     const listen = (event: MessageEvent) => {

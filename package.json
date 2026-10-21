@@ -9,9 +9,10 @@
     "dev": "pnpm prepare:preview && vite --host 127.0.0.1 --port 5173 --strictPort",
     "test": "node --test tests/*.test.mjs",
     "typecheck": "tsc --noEmit",
-    "build": "pnpm prepare:preview && pnpm typecheck && vite build",
+    "build": "pnpm prepare:preview && pnpm typecheck && pnpm check:examples && vite build",
     "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort",
-    "check:deploy": "node scripts/check-deploy.mjs"
+    "check:deploy": "node scripts/check-deploy.mjs",
+    "check:examples": "tsc -p tsconfig.examples.json"
   },
   "keywords": [],
   "author": "",

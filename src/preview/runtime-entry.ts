@@ -45,7 +45,8 @@ export async function start(source: string, token: string) {
     if (typeof result !== 'function') throw new Error('mount는 자원을 정리하는 함수를 반환해야 합니다.')
     if (closed) { result(); return }
     cleanup = result
-    requestAnimationFrame(() => { if (!closed && !failed) send('ready') })
+    // Mount completion must not depend on rAF: background tabs may suspend it.
+    if (!closed && !failed) send('ready')
   } catch (error) { report(error) }
   finally { URL.revokeObjectURL(url) }
 }

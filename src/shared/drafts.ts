@@ -34,18 +34,22 @@ export function restoreCode(draft: Draft, original: string): Draft {
 export function createDraftStore(getStorage: () => StorageAccess) {
   const memory = new Map<string, DraftResult>()
   const snapshotKey = 'web-gl-study:all:v1'
-  const readSnapshot = (): Record<string, Draft> | null => {
+  let snapshotCache: Record<string, Draft> | null | undefined
+  const readSnapshot = (fresh = false): Record<string, Draft> | null => {
+    if (!fresh && snapshotCache !== undefined) return snapshotCache
     const raw = getStorage().getItem(snapshotKey)
-    if (raw === null) return null
+    if (raw === null) { snapshotCache = null; return null }
     const value: unknown = JSON.parse(raw)
     if (!value || typeof value !== 'object' || Array.isArray(value) || !Object.values(value).every(isDraft)) throw new Error('Invalid snapshot')
-    return value as Record<string, Draft>
+    snapshotCache = value as Record<string, Draft>
+    return snapshotCache
   }
   return {
     replaceAll(drafts: Record<string, Draft>) {
       if (!Object.values(drafts).every(isDraft)) throw new Error('Invalid snapshot')
       // A single setItem is atomic on failure; never commit memory before storage.
       getStorage().setItem(snapshotKey, JSON.stringify(drafts))
+      snapshotCache = undefined
       memory.clear()
     },
     load(id: string, original: string): DraftResult {
@@ -75,8 +79,12 @@ export function createDraftStore(getStorage: () => StorageAccess) {
         warning: null,
       }
       try {
-        const snapshot = readSnapshot()
-        if (snapshot) getStorage().setItem(snapshotKey, JSON.stringify({ ...snapshot, [id]: result.draft }))
+        const snapshot = readSnapshot(true)
+        if (snapshot) {
+          const nextSnapshot = { ...snapshot, [id]: result.draft }
+          getStorage().setItem(snapshotKey, JSON.stringify(nextSnapshot))
+          snapshotCache = nextSnapshot
+        }
         else getStorage().setItem(draftKey(id), JSON.stringify(result.draft))
       } catch {
         result.warning = '브라우저 저장에 실패했습니다. 현재 탭에서만 유지됩니다. 새로고침하거나 닫기 전에 필기를 다운로드하고 코드를 복사하세요.'

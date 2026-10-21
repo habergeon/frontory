@@ -6,51 +6,51 @@ Frontend + Story + Repository. 개념을 읽고, 변수를 실험하고, 결과�
 
 기존 React/TypeScript 경험을 활용해 **WebGL Journey를 계속 진행**합니다. 기초가 막히면 JavaScript·HTML·CSS·Canvas 2D로 돌아갑니다. Three.js·GLSL·Gaussian Splatting으로 이어진 뒤 WebGPU·WGSL을 별도 경로로 학습합니다. Framework·Animation·Engineering·Testing 시리즈는 필요한 기능에 맞춰 병행합니다. 별 개수는 학습 우선순위이며 선수 지식을 건너뛰라는 뜻이 아닙니다. 기본 목록에 없던 우선순위는 이 프로젝트의 제안입니다.
 
-현재 **23개 시리즈 / 94개 단위**입니다. 94개 단위 모두에 예제를 연결했습니다. [실행 환경과 제한](../examples.md)을 확인하세요. 각 단위에는 문서·과제·필기도 함께 제공됩니다. 학습 완료와 성능 개선을 미리 주장하지 않습니다.
+현재 **23개 시리즈 / 644개 단위**입니다. 모든 시리즈는 4단계, 28단위로 구성됩니다. 기존 94개 단위는 예제가 연결되어 있고 추가 550개는 문서 기반 직접 구현 과제입니다. [실행 환경과 제한](../examples.md)을 확인하세요. 각 단위에는 목표·개념 설명·실습 절차·비교 변수·완료 조건·자가 점검을 제공합니다. 학습 완료와 성능 개선을 미리 주장하지 않습니다.
 
 ## 언어와 웹 기초
 
-- [JavaScript](fundamentals/javascript/README.md) — ★★★★★ / 3단위 / 선수: HTML 요소와 이벤트
-- [TypeScript](fundamentals/typescript/README.md) — ★★★★★ / 3단위 / 선수: JavaScript 객체·함수·모듈
-- [HTML](fundamentals/html/README.md) — ★★★★★ / 3단위 / 선수: 브라우저와 파일 경로
-- [CSS](fundamentals/css/README.md) — ★★★★★ / 3단위 / 선수: HTML 구조
+- [JavaScript](fundamentals/javascript/README.md) — ★★★★★ / 28단위 / 선수: HTML 요소와 이벤트
+- [TypeScript](fundamentals/typescript/README.md) — ★★★★★ / 28단위 / 선수: JavaScript 객체·함수·모듈
+- [HTML](fundamentals/html/README.md) — ★★★★★ / 28단위 / 선수: 브라우저와 파일 경로
+- [CSS](fundamentals/css/README.md) — ★★★★★ / 28단위 / 선수: HTML 구조
 
 ## UI 프레임워크
 
-- [React](frameworks/react/README.md) — ★★★★★ / 3단위 / 선수: JavaScript·TypeScript, DOM 이벤트
-- [Vue](frameworks/vue/README.md) — ★★★★ / 3단위 / 선수: JavaScript·HTML, React와 비교할 상태 개념
-- [Svelte](frameworks/svelte/README.md) — ★★★ / 3단위 / 선수: JavaScript·HTML·CSS
+- [React](frameworks/react/README.md) — ★★★★★ / 28단위 / 선수: JavaScript·TypeScript, DOM 이벤트
+- [Vue](frameworks/vue/README.md) — ★★★★ / 28단위 / 선수: JavaScript·HTML, React와 비교할 상태 개념
+- [Svelte](frameworks/svelte/README.md) — ★★★ / 28단위 / 선수: JavaScript·HTML·CSS
 
 ## 그래픽스
 
 - [WebGL Journey](graphics/webgl/README.md) — ★★★★★ / 28단위 / 선수: React·TypeScript 경험
-- [Canvas 2D](graphics/canvas-2d/README.md) — ★★★★★ / 3단위 / 선수: JavaScript·좌표와 함수
-- [SVG](graphics/svg/README.md) — ★★★★ / 3단위 / 선수: HTML·CSS, 좌표
-- [Three.js](graphics/threejs/README.md) — ★★★★★ / 3단위 / 선수: WebGL 첫 장면, 벡터·행렬
-- [Gaussian Splatting](graphics/gaussian-splatting/README.md) — ★★★★★ / 3단위 / 선수: Three.js 카메라·투영, alpha blending
-- [WebGPU](graphics/webgpu/README.md) — ★★★★★ / 3단위 / 선수: WebGL 파이프라인, TypedArray·비동기
-- [React Three Fiber](graphics/react-three-fiber/README.md) — ★★★★★ / 3단위 / 선수: React effect·ref, Three.js
-- [PixiJS](graphics/pixijs/README.md) — ★★★★ / 3단위 / 선수: Canvas 2D 루프와 텍스처
+- [Canvas 2D](graphics/canvas-2d/README.md) — ★★★★★ / 28단위 / 선수: JavaScript·좌표와 함수
+- [SVG](graphics/svg/README.md) — ★★★★ / 28단위 / 선수: HTML·CSS, 좌표
+- [Three.js](graphics/threejs/README.md) — ★★★★★ / 28단위 / 선수: WebGL 첫 장면, 벡터·행렬
+- [Gaussian Splatting](graphics/gaussian-splatting/README.md) — ★★★★★ / 28단위 / 선수: Three.js 카메라·투영, alpha blending
+- [WebGPU](graphics/webgpu/README.md) — ★★★★★ / 28단위 / 선수: WebGL 파이프라인, TypedArray·비동기
+- [React Three Fiber](graphics/react-three-fiber/README.md) — ★★★★★ / 28단위 / 선수: React effect·ref, Three.js
+- [PixiJS](graphics/pixijs/README.md) — ★★★★ / 28단위 / 선수: Canvas 2D 루프와 텍스처
 
 ## 셰이더
 
-- [GLSL](shader/glsl/README.md) — ★★★★★ / 3단위 / 선수: WebGL 파이프라인·벡터
-- [WGSL](shader/wgsl/README.md) — ★★★★★ / 3단위 / 선수: WebGPU buffer·pipeline, 벡터
+- [GLSL](shader/glsl/README.md) — ★★★★★ / 28단위 / 선수: WebGL 파이프라인·벡터
+- [WGSL](shader/wgsl/README.md) — ★★★★★ / 28단위 / 선수: WebGPU buffer·pipeline, 벡터
 
 ## 애니메이션
 
-- [GSAP](animation/gsap/README.md) — ★★★★ / 3단위 / 선수: DOM·CSS transform, 시간
-- [Motion](animation/motion/README.md) — ★★★★ / 3단위 / 선수: React 상태, CSS transform
+- [GSAP](animation/gsap/README.md) — ★★★★ / 28단위 / 선수: DOM·CSS transform, 시간
+- [Motion](animation/motion/README.md) — ★★★★ / 28단위 / 선수: React 상태, CSS transform
 
 ## 엔지니어링
 
-- [Web Workers](engineering/web-workers/README.md) — ★★★★★ / 3단위 / 선수: JavaScript 비동기·TypedArray
-- [OffscreenCanvas](engineering/offscreen-canvas/README.md) — ★★★★★ / 3단위 / 선수: Canvas 2D·Web Workers
-- [WebAssembly](engineering/webassembly/README.md) — ★★★★ / 3단위 / 선수: JavaScript·TypedArray, 선택한 컴파일 언어 기초
+- [Web Workers](engineering/web-workers/README.md) — ★★★★★ / 28단위 / 선수: JavaScript 비동기·TypedArray
+- [OffscreenCanvas](engineering/offscreen-canvas/README.md) — ★★★★★ / 28단위 / 선수: Canvas 2D·Web Workers
+- [WebAssembly](engineering/webassembly/README.md) — ★★★★ / 28단위 / 선수: JavaScript·TypedArray, 선택한 컴파일 언어 기초
 
 ## 테스트
 
-- [Playwright](testing/playwright/README.md) — ★★★★ / 3단위 / 선수: DOM 역할·비동기, 테스트 기본
+- [Playwright](testing/playwright/README.md) — ★★★★ / 28단위 / 선수: DOM 역할·비동기, 테스트 기본
 
 ## 공통 기록
 

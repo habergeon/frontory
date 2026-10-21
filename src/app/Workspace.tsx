@@ -61,17 +61,17 @@ export function Workspace({ unit, onProgressChange }: { unit: Unit; onProgressCh
           {unit.source !== undefined && <button onClick={() => setRevision(value => value + 1)}>다시 실행</button>}
         </header>
         {unit.source !== undefined ? (executable !== null ? <Preview code={executable} revision={revision} notice={notice} /> : <div className="empty-state"><p>{compilation?.error ? '코드 오류를 수정하면 장면이 실행됩니다.' : '편집기와 언어 서비스를 준비하고 있습니다…'}</p></div>) :
-          <div className="empty-state"><span>준비 중</span><h3>이 단위의 실행 예제는 준비 중입니다.</h3><p>학습 문서의 개념과 과제를 먼저 읽고 필기를 남겨보세요. 현재 실행 가능한 예제는 01 첫 화면입니다.</p></div>}
+          <div className="empty-state"><span>문서 기반 실습</span><h3>과제를 따라 직접 구현하는 단위입니다.</h3><p>상단의 순서와 학습 문서의 준비 환경을 확인해 별도 프로젝트에서 실습하세요. 이 단위에는 내장 실행 예제가 없습니다. 결과와 코드 파일 위치를 오른쪽 필기에 기록할 수 있습니다.</p></div>}
       </section>
       <section id="panel-code" className={'panel ' + (panel === 'code' ? 'mobile-active' : '')} aria-label="실행 코드 편집">
         <header className="panel-header"><div><span className="eyebrow">02 / SOURCE</span><h2>실행 코드</h2></div>
           <button disabled={unit.source === undefined} onClick={() => setConfirmReset(true)}>원본 코드로</button>
         </header>
         {confirmReset && <div className="reset-confirm" role="alert"><p>코드를 원본 JavaScript로 되돌립니다. 필기는 유지됩니다.</p><div><button onClick={reset}>코드만 되돌리기</button><button onClick={() => setConfirmReset(false)}>취소</button></div></div>}
-        <div className="editor-caption">{unit.source !== undefined ? <><label htmlFor="code-language">언어 </label><select id="code-language" value={language} onChange={event => save({ ...draft, language: event.target.value as CodeLanguage })}><option value="javascript">JavaScript</option><option value="typescript">TypeScript</option></select><span> · Monaco · 600ms 후 검사·반영</span></> : '실행 예제 준비 중'}</div>
+        <div className="editor-caption">{unit.source !== undefined ? <><label htmlFor="code-language">언어 </label><select id="code-language" value={language} onChange={event => save({ ...draft, language: event.target.value as CodeLanguage })}><option value="javascript">JavaScript</option><option value="typescript">TypeScript</option></select><span> · Monaco · 600ms 후 검사·반영</span></> : '문서 기반 직접 구현'}</div>
         {unit.source !== undefined ? <Suspense fallback={<div className="empty-state">코드 편집기 로딩 중…</div>}><CodeEditor value={draft.code} language={language} unitId={unit.id}
-          onChange={code => save({ ...draft, code })} onCompile={result => { setCompilation(result); if (result.output !== null) setExecutable(result.output) }} /></Suspense> : <div className="empty-state">이 단위의 실행 코드는 아직 제공되지 않습니다.</div>}
-        <p className="panel-hint">mount 함수가 실제로 실행됩니다. 원본 복원은 코드·언어를 되돌리고 필기를 유지합니다.</p>
+          onChange={code => save({ ...draft, code })} onCompile={result => { setCompilation(result); if (result.output !== null) setExecutable(result.output) }} /></Suspense> : <div className="empty-state">이 단위는 별도 프로젝트에서 구현합니다. 준비 환경과 과제는 상단 학습 문서에서 확인하세요.</div>}
+        <p className="panel-hint">{unit.source !== undefined ? 'mount 함수가 실제로 실행됩니다. 원본 복원은 코드·언어를 되돌리고 필기를 유지합니다.' : '별도 프로젝트의 코드는 작업 폴더에서 보관하세요. Frontory에는 필기와 학습 상태를 저장합니다.'}</p>
       </section>
       <section id="panel-notes" className={'panel ' + (panel === 'notes' ? 'mobile-active' : '')} aria-label="Markdown 필기">
         <header className="panel-header"><div><span className="eyebrow">03 / NOTES</span><h2>Markdown 필기</h2></div>

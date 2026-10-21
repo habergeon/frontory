@@ -1,0 +1,1373 @@
+{
+  "seriesId": "html",
+  "stages": [
+    "문서 의미와 콘텐츠",
+    "표와 폼 입력",
+    "네이티브 UI와 미디어",
+    "접근성 검토와 카드 통합"
+  ],
+  "goal": "문서 의미와 입력 계약을 마크업으로 표현하고 키보드·리소스 실패·확대 조건에서 확인합니다.",
+  "capstone": "제목·목차·이미지 대체 설명·폼을 갖춘 접근 가능한 학습 카드 문서",
+  "units": [
+    {
+      "day": 1,
+      "id": "html-01",
+      "title": "의미와 문서 구조",
+      "prerequisites": "브라우저와 파일 경로",
+      "concepts": [
+        {
+          "title": "제목 계층",
+          "explanation": "heading은 글의 제목 관계를 표현합니다. 글자 크기를 바꾸려는 이유로 단계를 고르면 구조가 흐려집니다."
+        },
+        {
+          "title": "영역 의미",
+          "explanation": "header·nav·main·article은 문서 안의 역할을 나타냅니다. 링크는 이동에, 버튼은 동작에 사용합니다."
+        }
+      ],
+      "outcomes": [
+        "접근성 트리에 주 영역과 탐색 영역이 구분된다.",
+        "영역 3개의 제목 단계와 이동·동작 요소를 설명한다."
+      ],
+      "steps": [
+        "index.html 파일에 페이지 제목 1개와 주제 영역 3개 조건을 준비하세요.",
+        "학습 페이지를 의미 있는 영역으로 나누고 링크 이동과 버튼 동작을 구분하세요.",
+        "페이지 제목 1개와 주제 영역 3개 조건으로 실행하세요. 확인할 결과: 접근성 트리에 주 영역과 탐색 영역이 구분된다. 영역 3개의 제목 단계와 이동·동작 요소를 설명한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "제목 단계",
+          "baseline": "h1 아래 h2",
+          "change": "h1 아래 h4",
+          "expected": "실행 전 가설: 접근성 트리에서 제목 관계가 불규칙하게 보일 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "접근성 트리에 주 영역과 탐색 영역이 구분된다.",
+        "영역 3개의 제목 단계와 이동·동작 요소를 설명한다."
+      ],
+      "questions": [
+        "글자 크기는 어디서 바꾸는 편이 맞나요?",
+        "독립 콘텐츠와 일반 묶음은 어떻게 구분하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "Frontory의 기존 미리보기는 제한된 시작 예제이며 전체 과제의 완성본이 아닙니다. 추가 파일과 기능은 별도 로컬 프로젝트에서 직접 구현하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 2,
+      "id": "html-step-02",
+      "title": "문서 골격과 문자 인코딩",
+      "prerequisites": "1단위 「의미와 문서 구조」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "문서 모드",
+          "explanation": "DOCTYPE은 브라우저가 표준 모드로 해석하도록 합니다. 생략 시 호환 모드가 적용될 수 있습니다."
+        },
+        {
+          "title": "문자와 언어",
+          "explanation": "charset은 문자의 해석을 지정하고 lang은 문서 언어를 알립니다. 두 속성은 서로 다른 문제를 다룹니다."
+        }
+      ],
+      "outcomes": [
+        "document.compatMode가 CSS1Compat인지 확인한다.",
+        "한글 본문과 탭 제목을 확인하고 인코딩 값을 남긴다."
+      ],
+      "steps": [
+        "document.html 파일에 한글 제목과 영문 인용문 조건을 준비하세요.",
+        "DOCTYPE·html lang·head·body와 UTF-8 선언을 작성하고 제목과 한글을 표시하세요.",
+        "한글 제목과 영문 인용문 조건으로 실행하세요. 확인할 결과: document.compatMode가 CSS1Compat인지 확인한다. 한글 본문과 탭 제목을 확인하고 인코딩 값을 남긴다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "lang",
+          "baseline": "ko",
+          "change": "en",
+          "expected": "실행 전 가설: 보조 기술의 언어 해석이 달라질 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "document.compatMode가 CSS1Compat인지 확인한다.",
+        "한글 본문과 탭 제목을 확인하고 인코딩 값을 남긴다."
+      ],
+      "questions": [
+        "lang과 charset은 어떤 차이가 있나요?",
+        "DOCTYPE은 일반 HTML 요소인가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 3,
+      "id": "html-step-03",
+      "title": "메타데이터와 문서 제목",
+      "prerequisites": "2단위 「문서 골격과 문자 인코딩」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "탭 제목",
+          "explanation": "title은 탭과 방문 기록 등에서 문서를 식별합니다. 화면의 h1과 일치할 필요는 없지만 목적은 연결되어야 합니다."
+        },
+        {
+          "title": "뷰포트",
+          "explanation": "viewport 메타는 모바일의 레이아웃 뷰포트 설정에 관여합니다. 확대를 막는 설정은 읽기를 방해할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "두 페이지의 탭 제목이 서로 구분된다.",
+        "모바일 에뮬레이션에서 설정 전후 화면 폭을 기록한다."
+      ],
+      "steps": [
+        "head.html 파일에 목록 페이지와 상세 페이지 두 파일 조건을 준비하세요.",
+        "고유 title과 description, width=device-width·initial-scale=1 설정을 작성하세요.",
+        "목록 페이지와 상세 페이지 두 파일 조건으로 실행하세요. 확인할 결과: 두 페이지의 탭 제목이 서로 구분된다. 모바일 에뮬레이션에서 설정 전후 화면 폭을 기록한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "viewport",
+          "baseline": "선언 없음",
+          "change": "기본 모바일 선언",
+          "expected": "실행 전 가설: 좁은 화면에서 의도한 레이아웃 폭에 가까워질 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "두 페이지의 탭 제목이 서로 구분된다.",
+        "모바일 에뮬레이션에서 설정 전후 화면 폭을 기록한다."
+      ],
+      "questions": [
+        "description이 항상 검색 결과에 쓰이나요?",
+        "확대 금지 설정을 넣으면 누가 영향을 받나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 4,
+      "id": "html-step-04",
+      "title": "문단과 텍스트 의미",
+      "prerequisites": "3단위 「메타데이터와 문서 제목」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "문단 구분",
+          "explanation": "p는 문단을 나타냅니다. 간격 조절 목적으로 br을 반복하면 문서 구조와 표시가 뒤섞입니다."
+        },
+        {
+          "title": "강조 의미",
+          "explanation": "strong은 중요성을, em은 문장 안의 강조를 표현합니다. 굵기와 기울기만 필요하면 CSS를 사용합니다."
+        }
+      ],
+      "outcomes": [
+        "본문 3문단이 p 3개로 구성된다.",
+        "strong과 em의 선택 이유를 각 1개 적는다."
+      ],
+      "steps": [
+        "text.html 파일에 설명 3문단과 중요 경고 1개 조건을 준비하세요.",
+        "학습 설명을 p로 나누고 중요 경고와 문장 강조에 알맞은 요소를 쓰세요.",
+        "설명 3문단과 중요 경고 1개 조건으로 실행하세요. 확인할 결과: 본문 3문단이 p 3개로 구성된다. strong과 em의 선택 이유를 각 1개 적는다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "문단 구분",
+          "baseline": "br 반복",
+          "change": "p 요소",
+          "expected": "실행 전 가설: 문단 단위 탐색과 구조가 분명해질 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "본문 3문단이 p 3개로 구성된다.",
+        "strong과 em의 선택 이유를 각 1개 적는다."
+      ],
+      "questions": [
+        "b·i와 strong·em은 어떤 차이가 있나요?",
+        "시각적 강조가 없을 때도 문장 의미가 남나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 5,
+      "id": "html-step-05",
+      "title": "목록과 용어 설명",
+      "prerequisites": "4단위 「문단과 텍스트 의미」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "목록 순서",
+          "explanation": "ol은 순서가 의미 있는 항목을 표현합니다. ul은 순서와 무관한 묶음에 적합합니다."
+        },
+        {
+          "title": "정의 목록",
+          "explanation": "dl은 용어와 설명을 연결합니다. 단순 들여쓰기를 위해 dt와 dd를 선택하지 않습니다."
+        }
+      ],
+      "outcomes": [
+        "항목 수가 각각 4·3·2개인지 DOM에서 확인한다.",
+        "용어 두 개에 대응하는 설명이 연결된다."
+      ],
+      "steps": [
+        "lists.html 파일에 실습 4단계, 준비물 3개, 용어 2개 조건을 준비하세요.",
+        "실습 순서를 ol, 준비물을 ul, 용어집을 dl로 작성하세요.",
+        "실습 4단계, 준비물 3개, 용어 2개 조건으로 실행하세요. 확인할 결과: 항목 수가 각각 4·3·2개인지 DOM에서 확인한다. 용어 두 개에 대응하는 설명이 연결된다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "절차 요소",
+          "baseline": "ul",
+          "change": "ol",
+          "expected": "실행 전 가설: 순서 정보가 목록 의미에 포함될 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "항목 수가 각각 4·3·2개인지 DOM에서 확인한다.",
+        "용어 두 개에 대응하는 설명이 연결된다."
+      ],
+      "questions": [
+        "정렬된 시각 표현이면 항상 ol인가요?",
+        "중첩 목록은 어떤 항목 안에 들어가야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 6,
+      "id": "html-step-06",
+      "title": "링크 경로와 페이지 내 이동",
+      "prerequisites": "5단위 「목록과 용어 설명」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "경로 해석",
+          "explanation": "상대 URL은 현재 문서의 기준 URL로 해석됩니다. 폴더를 옮기면 같은 문자열의 목적지가 바뀔 수 있습니다."
+        },
+        {
+          "title": "프래그먼트",
+          "explanation": "id를 가리키는 링크는 문서 내부 위치로 이동합니다. 중복 id는 목적지 식별을 불명확하게 합니다."
+        }
+      ],
+      "outcomes": [
+        "세 목차 링크가 서로 다른 제목으로 이동한다.",
+        "네트워크에서 정상 경로와 실패 경로를 구분한다."
+      ],
+      "steps": [
+        "links/index.html 파일에 하위 폴더 상세 페이지와 섹션 3개 조건을 준비하세요.",
+        "상세 페이지 링크와 목차의 #section 링크를 만들고 링크 텍스트에 목적을 적으세요.",
+        "하위 폴더 상세 페이지와 섹션 3개 조건으로 실행하세요. 확인할 결과: 세 목차 링크가 서로 다른 제목으로 이동한다. 네트워크에서 정상 경로와 실패 경로를 구분한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "상대 경로",
+          "baseline": "./detail.html",
+          "change": "../detail.html",
+          "expected": "실행 전 가설: 요청 위치가 상위 폴더로 바뀔 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "세 목차 링크가 서로 다른 제목으로 이동한다.",
+        "네트워크에서 정상 경로와 실패 경로를 구분한다."
+      ],
+      "questions": [
+        "링크 텍스트가 여기만 있으면 어떤 문제가 생기나요?",
+        "중복 id를 어떻게 찾을까요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 7,
+      "id": "html-step-07",
+      "title": "이미지와 대체 텍스트",
+      "prerequisites": "6단위 「링크 경로와 페이지 내 이동」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "대체 정보",
+          "explanation": "alt는 이미지가 전달하는 목적을 텍스트로 표현합니다. 장식 이미지는 빈 alt로 중복 정보를 줄입니다."
+        },
+        {
+          "title": "공간 예약",
+          "explanation": "width와 height는 이미지의 비율 정보를 전달합니다. 적절한 크기 지정은 로딩 중 배치 변화를 줄일 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "정보·장식·링크 이미지의 alt 정책 3개를 기록한다.",
+        "이미지 실패 상태에서도 링크 목적과 본문 내용을 이해한다."
+      ],
+      "steps": [
+        "images.html 파일에 정보 이미지 1개, 장식 1개, 링크 이미지 1개 조건을 준비하세요.",
+        "설명 그림·장식 그림·링크 이미지에 목적에 맞는 alt와 크기를 지정하세요.",
+        "정보 이미지 1개, 장식 1개, 링크 이미지 1개 조건으로 실행하세요. 확인할 결과: 정보·장식·링크 이미지의 alt 정책 3개를 기록한다. 이미지 실패 상태에서도 링크 목적과 본문 내용을 이해한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "이미지 요청",
+          "baseline": "정상 src",
+          "change": "없는 경로",
+          "expected": "실행 전 가설: 대체 텍스트로 목적을 확인할 수 있을 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "정보·장식·링크 이미지의 alt 정책 3개를 기록한다.",
+        "이미지 실패 상태에서도 링크 목적과 본문 내용을 이해한다."
+      ],
+      "questions": [
+        "이미지 파일명을 alt로 쓰면 충분한가요?",
+        "캡션과 alt는 어떤 내용을 나눠 담나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 8,
+      "id": "html-step-08",
+      "title": "figure와 복합 설명",
+      "prerequisites": "7단위 「이미지와 대체 텍스트」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "독립 자료",
+          "explanation": "figure는 본문에서 참조하는 독립 자료를 묶습니다. 그림뿐 아니라 코드나 표도 문맥에 따라 포함할 수 있습니다."
+        },
+        {
+          "title": "캡션",
+          "explanation": "figcaption은 figure의 설명을 제공합니다. 이미지 alt와 무조건 같은 문장을 반복할 필요는 없습니다."
+        }
+      ],
+      "outcomes": [
+        "자료 2개와 공통 비교 조건을 확인한다.",
+        "이미지 차이 설명과 캡션의 역할을 구분해 적는다."
+      ],
+      "steps": [
+        "figure.html 파일에 같은 장면의 전후 이미지와 본문 참조 조건을 준비하세요.",
+        "실험 전후 이미지 두 개를 figure로 묶고 figcaption에 비교 조건을 적으세요.",
+        "같은 장면의 전후 이미지와 본문 참조 조건으로 실행하세요. 확인할 결과: 자료 2개와 공통 비교 조건을 확인한다. 이미지 차이 설명과 캡션의 역할을 구분해 적는다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "설명 위치",
+          "baseline": "일반 p",
+          "change": "figcaption",
+          "expected": "실행 전 가설: 자료와 설명의 관계가 구조에 나타날 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "자료 2개와 공통 비교 조건을 확인한다.",
+        "이미지 차이 설명과 캡션의 역할을 구분해 적는다."
+      ],
+      "questions": [
+        "자료를 본문에서 이동해도 이해되나요?",
+        "figure 안에 여러 이미지를 넣어도 되나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 9,
+      "id": "html-step-09",
+      "title": "표의 행과 열 관계",
+      "prerequisites": "8단위 「figure와 복합 설명」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "데이터 표",
+          "explanation": "table은 행과 열의 관계가 있는 자료에 사용합니다. 페이지 배치 목적으로 사용하면 읽기 관계가 어긋납니다."
+        },
+        {
+          "title": "헤더 연결",
+          "explanation": "th와 scope는 셀의 헤더 방향을 표현합니다. 복잡한 표는 headers와 id 같은 추가 연결이 필요할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "3행의 각 값이 어떤 헤더에 속하는지 확인한다.",
+        "caption에 표 목적과 단위를 명시한다."
+      ],
+      "steps": [
+        "table.html 파일에 실험 3행과 시간·메모리 2열 조건을 준비하세요.",
+        "caption·thead·tbody와 행·열 th를 사용해 실험 결과표를 작성하세요.",
+        "실험 3행과 시간·메모리 2열 조건으로 실행하세요. 확인할 결과: 3행의 각 값이 어떤 헤더에 속하는지 확인한다. caption에 표 목적과 단위를 명시한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "헤더 요소",
+          "baseline": "td",
+          "change": "th scope",
+          "expected": "실행 전 가설: 셀과 헤더 관계를 더 분명히 전달할 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "3행의 각 값이 어떤 헤더에 속하는지 확인한다.",
+        "caption에 표 목적과 단위를 명시한다."
+      ],
+      "questions": [
+        "표가 꼭 필요한 데이터인가요?",
+        "병합 셀이 많아지면 어떤 연결을 확인해야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 10,
+      "id": "html-step-10",
+      "title": "인용과 기계 판독 날짜",
+      "prerequisites": "9단위 「표의 행과 열 관계」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "인용 표현",
+          "explanation": "blockquote와 q는 인용 범위를 나타냅니다. cite 요소는 작품 제목에 쓰며 사람 이름 표기와 혼동하지 않습니다."
+        },
+        {
+          "title": "날짜 표현",
+          "explanation": "time의 datetime은 기계가 읽을 값을 전달합니다. 보이는 지역 형식과 표준 값은 다르게 쓸 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "인용 범위와 출처 링크를 구분한다.",
+        "표시 날짜와 datetime이 같은 날짜를 뜻한다."
+      ],
+      "steps": [
+        "quotes.html 파일에 인용 1개와 2026-10-21 날짜 조건을 준비하세요.",
+        "짧은 인용과 출처 링크를 넣고 학습 날짜를 time으로 표시하세요.",
+        "인용 1개와 2026-10-21 날짜 조건으로 실행하세요. 확인할 결과: 인용 범위와 출처 링크를 구분한다. 표시 날짜와 datetime이 같은 날짜를 뜻한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "datetime",
+          "baseline": "정상 날짜",
+          "change": "자연어 문장",
+          "expected": "실행 전 가설: 기계 판독용 값으로 부적절해질 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "인용 범위와 출처 링크를 구분한다.",
+        "표시 날짜와 datetime이 같은 날짜를 뜻한다."
+      ],
+      "questions": [
+        "cite 속성과 cite 요소는 같은 역할인가요?",
+        "자연어 날짜를 datetime에 그대로 써도 되나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 11,
+      "id": "html-step-11",
+      "title": "폼의 제출 계약",
+      "prerequisites": "10단위 「인용과 기계 판독 날짜」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "폼 소유",
+          "explanation": "form은 입력과 제출 동작을 묶습니다. 버튼 type을 생략하면 폼 안에서 제출 버튼이 될 수 있습니다."
+        },
+        {
+          "title": "전송 이름",
+          "explanation": "name은 제출 데이터의 키가 됩니다. id는 label 연결 등에 쓰이며 name을 대신하지 않습니다."
+        }
+      ],
+      "outcomes": [
+        "검색 후 URL에 q 값이 나타난다.",
+        "보조 버튼이 의도치 않은 제출을 하지 않는다."
+      ],
+      "steps": [
+        "form-basics.html 파일에 q 입력과 검색·초기화 동작 조건을 준비하세요.",
+        "GET 검색 폼에 label·name 있는 입력과 submit·button 버튼을 작성하세요.",
+        "q 입력과 검색·초기화 동작 조건으로 실행하세요. 확인할 결과: 검색 후 URL에 q 값이 나타난다. 보조 버튼이 의도치 않은 제출을 하지 않는다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "버튼 type",
+          "baseline": "button",
+          "change": "submit",
+          "expected": "실행 전 가설: 클릭 시 폼 제출이 일어날 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "검색 후 URL에 q 값이 나타난다.",
+        "보조 버튼이 의도치 않은 제출을 하지 않는다."
+      ],
+      "questions": [
+        "id만 있는 입력이 제출되나요?",
+        "GET과 POST는 어떤 목적 차이가 있나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 12,
+      "id": "html-step-12",
+      "title": "입력 종류와 자동 완성",
+      "prerequisites": "11단위 「폼의 제출 계약」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "입력 의미",
+          "explanation": "type은 네이티브 UI와 검증 규칙에 영향을 줍니다. 숫자로 보인다고 전화번호를 number로 지정하지 않습니다."
+        },
+        {
+          "title": "자동 완성",
+          "explanation": "autocomplete 토큰은 입력 목적을 전달합니다. 사용자 입력 부담을 줄이되 실제 필드 의미와 맞춰야 합니다."
+        }
+      ],
+      "outcomes": [
+        "세 필드의 label과 name이 각각 연결된다.",
+        "올바른 이메일과 잘못된 이메일의 validity를 비교한다."
+      ],
+      "steps": [
+        "input-types.html 파일에 이메일, 전화번호, 학습 분 입력 조건을 준비하세요.",
+        "email·tel·number 입력과 적절한 autocomplete·inputmode를 작성하세요.",
+        "이메일, 전화번호, 학습 분 입력 조건으로 실행하세요. 확인할 결과: 세 필드의 label과 name이 각각 연결된다. 올바른 이메일과 잘못된 이메일의 validity를 비교한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "이메일 type",
+          "baseline": "text",
+          "change": "email",
+          "expected": "실행 전 가설: 잘못된 이메일 형식에 제약 오류가 생길 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "세 필드의 label과 name이 각각 연결된다.",
+        "올바른 이메일과 잘못된 이메일의 validity를 비교한다."
+      ],
+      "questions": [
+        "inputmode가 입력 검증을 수행하나요?",
+        "전화번호의 앞자리 0은 보존되나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        },
+        {
+          "title": "MDN input",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 13,
+      "id": "html-step-13",
+      "title": "그룹 입력과 선택 의미",
+      "prerequisites": "12단위 「입력 종류와 자동 완성」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "그룹 이름",
+          "explanation": "fieldset과 legend는 관련 입력 묶음의 이름을 전달합니다. 개별 label만으로 표현하기 어려운 질문을 그룹에 적습니다."
+        },
+        {
+          "title": "선택 규칙",
+          "explanation": "같은 name의 radio는 한 그룹에서 하나를 선택합니다. checkbox는 독립적인 여러 선택을 표현합니다."
+        }
+      ],
+      "outcomes": [
+        "올바른 그룹에서 radio 한 개만 선택된다.",
+        "checkbox 두 개 선택 시 제출 값 두 개를 확인한다."
+      ],
+      "steps": [
+        "choices.html 파일에 난이도 3개와 주제 3개 조건을 준비하세요.",
+        "난이도 radio와 관심 주제 checkbox를 fieldset으로 나누세요.",
+        "난이도 3개와 주제 3개 조건으로 실행하세요. 확인할 결과: 올바른 그룹에서 radio 한 개만 선택된다. checkbox 두 개 선택 시 제출 값 두 개를 확인한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "radio name",
+          "baseline": "모두 level",
+          "change": "각각 다른 name",
+          "expected": "실행 전 가설: 여러 radio가 동시에 선택될 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "올바른 그룹에서 radio 한 개만 선택된다.",
+        "checkbox 두 개 선택 시 제출 값 두 개를 확인한다."
+      ],
+      "questions": [
+        "legend와 label은 어떤 정보를 나누나요?",
+        "같은 name의 여러 값을 어떻게 읽나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 14,
+      "id": "html-02",
+      "title": "폼과 키보드",
+      "prerequisites": "13단위 「그룹 입력과 선택 의미」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "입력 이름",
+          "explanation": "label은 입력의 이름을 제공합니다. placeholder는 입력 후 사라져 label을 대신하지 못합니다."
+        },
+        {
+          "title": "제약과 설명",
+          "explanation": "required와 길이 제약은 기본 검증을 수행합니다. 오류 설명은 해당 입력과 연결해 원인을 알립니다."
+        }
+      ],
+      "outcomes": [
+        "Tab과 Enter만으로 정상 제목을 저장한다.",
+        "실패 필드의 이름과 설명을 접근성 트리에서 확인한다."
+      ],
+      "steps": [
+        "keyboard-form.html 파일에 빈 값, 짧은 제목, 정상 제목 조건을 준비하세요.",
+        "필기 제목과 저장 폼에 required·minlength·aria-describedby를 연결하고 오류 안내를 작성하세요.",
+        "빈 값, 짧은 제목, 정상 제목 조건으로 실행하세요. 확인할 결과: Tab과 Enter만으로 정상 제목을 저장한다. 실패 필드의 이름과 설명을 접근성 트리에서 확인한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "제목 길이",
+          "baseline": "5자",
+          "change": "1자",
+          "expected": "실행 전 가설: minlength 제약에 따라 제출이 막힐 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "Tab과 Enter만으로 정상 제목을 저장한다.",
+        "실패 필드의 이름과 설명을 접근성 트리에서 확인한다."
+      ],
+      "questions": [
+        "placeholder만 남으면 입력 후 이름을 알 수 있나요?",
+        "오류가 발생하면 포커스는 어디에 있어야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        },
+        {
+          "title": "MDN input",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input"
+        }
+      ],
+      "environment": "Frontory의 기존 미리보기는 제한된 시작 예제이며 전체 과제의 완성본이 아닙니다. 추가 파일과 기능은 별도 로컬 프로젝트에서 직접 구현하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 15,
+      "id": "html-step-15",
+      "title": "disabled와 readonly의 차이",
+      "prerequisites": "14단위 「폼과 키보드」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "비활성 입력",
+          "explanation": "disabled 컨트롤은 일반적으로 제출 데이터에서 제외됩니다. 포커스 이동에서도 빠져 설명 확인에 영향을 줄 수 있습니다."
+        },
+        {
+          "title": "읽기 전용",
+          "explanation": "지원하는 입력의 readonly는 편집을 막습니다. disabled와 달리 제출과 포커스 동작이 다를 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "세 입력의 제출 포함 여부를 기록한다.",
+        "키보드 이동에서 도달하는 입력을 기록한다."
+      ],
+      "steps": [
+        "readonly.html 파일에 값이 같은 텍스트 입력 3개 조건을 준비하세요.",
+        "같은 식별자 입력을 일반·readonly·disabled 상태로 비교하고 FormData를 출력하세요.",
+        "값이 같은 텍스트 입력 3개 조건으로 실행하세요. 확인할 결과: 세 입력의 제출 포함 여부를 기록한다. 키보드 이동에서 도달하는 입력을 기록한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "상태",
+          "baseline": "readonly",
+          "change": "disabled",
+          "expected": "실행 전 가설: 제출 데이터에서 해당 입력이 빠질 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "세 입력의 제출 포함 여부를 기록한다.",
+        "키보드 이동에서 도달하는 입력을 기록한다."
+      ],
+      "questions": [
+        "값을 숨기거나 비활성화하면 서버가 신뢰해도 되나요?",
+        "readonly를 모든 입력 type에 쓸 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 16,
+      "id": "html-step-16",
+      "title": "details로 접히는 목차",
+      "prerequisites": "15단위 「disabled와 readonly의 차이」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "공개 상태",
+          "explanation": "details는 네이티브로 열고 닫는 내용을 표현합니다. summary가 조작 이름과 표면을 제공합니다."
+        },
+        {
+          "title": "문서 흐름",
+          "explanation": "접힌 내용은 필요한 시점에 펼쳐 읽도록 배치합니다. 핵심 안내를 숨겨 사용자가 놓치지 않는지 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "키보드로 두 번 토글해 원래 상태로 돌아간다.",
+        "열린 상태에서 목차 링크 4개에 도달한다."
+      ],
+      "steps": [
+        "details.html 파일에 닫힌 상태와 열린 상태 조건을 준비하세요.",
+        "summary에 주제명을 적고 내부 목차 링크 4개를 작성하세요.",
+        "닫힌 상태와 열린 상태 조건으로 실행하세요. 확인할 결과: 키보드로 두 번 토글해 원래 상태로 돌아간다. 열린 상태에서 목차 링크 4개에 도달한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "open 속성",
+          "baseline": "없음",
+          "change": "있음",
+          "expected": "실행 전 가설: 처음부터 내부 목차가 보일 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "키보드로 두 번 토글해 원래 상태로 돌아간다.",
+        "열린 상태에서 목차 링크 4개에 도달한다."
+      ],
+      "questions": [
+        "summary 안에 복잡한 조작을 넣으면 어떤 문제가 있나요?",
+        "초기 open은 어떤 기준으로 정할까요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        },
+        {
+          "title": "MDN details",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 17,
+      "id": "html-step-17",
+      "title": "dialog와 모달 흐름",
+      "prerequisites": "16단위 「details로 접히는 목차」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "모달 동작",
+          "explanation": "showModal은 dialog를 최상위 레이어에 표시하고 바깥 상호작용을 제한합니다. open 속성만 설정하는 것과 모달 동작이 다릅니다."
+        },
+        {
+          "title": "포커스 복귀",
+          "explanation": "대화상자를 닫은 뒤 원래 작업으로 돌아갈 수 있어야 합니다. 초기 포커스와 Escape 동작을 실제 브라우저에서 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "모달 안에서 키보드 조작과 Escape 종료를 확인한다.",
+        "닫은 뒤 열기 버튼으로 포커스가 돌아오는지 기록한다."
+      ],
+      "steps": [
+        "dialog.html 파일에 키보드로 열기, 닫기, Escape 조건을 준비하세요.",
+        "제목 있는 dialog와 열기·닫기 버튼을 만들고 보조 JS로 showModal과 close를 연결하세요.",
+        "키보드로 열기, 닫기, Escape 조건으로 실행하세요. 확인할 결과: 모달 안에서 키보드 조작과 Escape 종료를 확인한다. 닫은 뒤 열기 버튼으로 포커스가 돌아오는지 기록한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "열기 방식",
+          "baseline": "showModal",
+          "change": "open 속성",
+          "expected": "실행 전 가설: 바깥 상호작용 제한이 달라질 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "모달 안에서 키보드 조작과 Escape 종료를 확인한다.",
+        "닫은 뒤 열기 버튼으로 포커스가 돌아오는지 기록한다."
+      ],
+      "questions": [
+        "dialog 제목을 어떻게 연결하나요?",
+        "모달 안의 첫 포커스를 어디에 두는 것이 적절한가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        },
+        {
+          "title": "MDN dialog",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 18,
+      "id": "html-step-18",
+      "title": "미디어 자막과 대체 경로",
+      "prerequisites": "17단위 「dialog와 모달 흐름」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "미디어 제어",
+          "explanation": "audio와 video의 controls는 네이티브 재생 UI를 제공합니다. 자동 재생에 의존하면 환경 정책과 사용자 선호에 영향을 받습니다."
+        },
+        {
+          "title": "시간 텍스트",
+          "explanation": "track과 WebVTT로 자막을 연결합니다. 음성 정보는 대본으로도 접근할 수 있도록 구성합니다."
+        }
+      ],
+      "outcomes": [
+        "자막 큐 2개가 정한 시점에 표시된다.",
+        "영상 로딩 실패 때 대본 링크에 접근한다."
+      ],
+      "steps": [
+        "media.html 파일에 영상 파일, captions.vtt, 대본 조건을 준비하세요.",
+        "로컬 짧은 영상에 controls와 한국어 자막 track을 연결하고 대본 링크를 추가하세요.",
+        "영상 파일, captions.vtt, 대본 조건으로 실행하세요. 확인할 결과: 자막 큐 2개가 정한 시점에 표시된다. 영상 로딩 실패 때 대본 링크에 접근한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "자막 경로",
+          "baseline": "정상 파일",
+          "change": "없는 파일",
+          "expected": "실행 전 가설: 영상은 재생되어도 자막은 표시되지 않을 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "자막 큐 2개가 정한 시점에 표시된다.",
+        "영상 로딩 실패 때 대본 링크에 접근한다."
+      ],
+      "questions": [
+        "captions와 subtitles는 어떤 차이가 있나요?",
+        "소리만으로 전달한 정보가 남아 있나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 19,
+      "id": "html-step-19",
+      "title": "반응형 이미지 선택",
+      "prerequisites": "18단위 「미디어 자막과 대체 경로」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "소스 후보",
+          "explanation": "srcset은 해상도 또는 폭별 이미지 후보를 제공합니다. 브라우저는 화면 조건과 후보 정보를 함께 판단합니다."
+        },
+        {
+          "title": "표시 크기",
+          "explanation": "sizes는 폭 기술자 후보를 선택할 때 예상 표시 폭을 알려줍니다. CSS의 실제 표시 크기와 어긋나면 불필요한 다운로드가 생길 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "두 화면의 currentSrc와 실제 표시 폭을 기록한다.",
+        "모든 후보에 동일한 의미의 alt를 유지한다."
+      ],
+      "steps": [
+        "responsive-images.html 파일에 좁은 화면과 넓은 화면, 캐시 비운 요청 조건을 준비하세요.",
+        "폭이 다른 이미지 3개와 srcset·sizes를 작성하고 currentSrc와 요청 크기를 확인하세요.",
+        "좁은 화면과 넓은 화면, 캐시 비운 요청 조건으로 실행하세요. 확인할 결과: 두 화면의 currentSrc와 실제 표시 폭을 기록한다. 모든 후보에 동일한 의미의 alt를 유지한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "뷰포트",
+          "baseline": "360px",
+          "change": "1200px",
+          "expected": "실행 전 가설: 선택 후보가 달라질 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "두 화면의 currentSrc와 실제 표시 폭을 기록한다.",
+        "모든 후보에 동일한 의미의 alt를 유지한다."
+      ],
+      "questions": [
+        "브라우저가 항상 가장 작은 후보를 고르나요?",
+        "sizes와 width 속성은 무엇이 다른가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 20,
+      "id": "html-step-20",
+      "title": "picture와 형식 대체",
+      "prerequisites": "19단위 「반응형 이미지 선택」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "아트 디렉션",
+          "explanation": "picture의 media 조건으로 구도가 다른 이미지를 고를 수 있습니다. 단순 해상도 선택과 목적이 다릅니다."
+        },
+        {
+          "title": "대체 이미지",
+          "explanation": "img는 picture의 기본 표시와 대체 경로를 담당합니다. source의 type은 브라우저가 지원 형식을 판단하는 데 쓰입니다."
+        }
+      ],
+      "outcomes": [
+        "두 폭에서 선택 이미지와 구도를 기록한다.",
+        "source 조건에 맞지 않아도 img가 표시된다."
+      ],
+      "steps": [
+        "picture.html 파일에 좁은 구도와 넓은 구도 두 이미지 조건을 준비하세요.",
+        "모바일 자르기 이미지와 넓은 구도를 source로 나누고 img 기본값을 작성하세요.",
+        "좁은 구도와 넓은 구도 두 이미지 조건으로 실행하세요. 확인할 결과: 두 폭에서 선택 이미지와 구도를 기록한다. source 조건에 맞지 않아도 img가 표시된다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "media 조건",
+          "baseline": "600px 미만",
+          "change": "600px 이상",
+          "expected": "실행 전 가설: 정보를 유지한 다른 구도가 선택될 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "두 폭에서 선택 이미지와 구도를 기록한다.",
+        "source 조건에 맞지 않아도 img가 표시된다."
+      ],
+      "questions": [
+        "해상도만 다르면 picture가 꼭 필요한가요?",
+        "구도가 바뀌어도 alt가 유효한가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 21,
+      "id": "html-step-21",
+      "title": "iframe과 포함 콘텐츠 경계",
+      "prerequisites": "20단위 「picture와 형식 대체」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "프레임 이름",
+          "explanation": "iframe의 title은 포함된 영역의 목적을 식별합니다. 내부 페이지의 title과 역할이 다릅니다."
+        },
+        {
+          "title": "제한 정책",
+          "explanation": "sandbox는 포함 문서의 허용 기능을 제한합니다. 필요한 권한만 선택하고 효과를 실제로 확인해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "프레임 목적을 접근성 이름으로 확인한다.",
+        "두 정책에서 버튼 실행 여부를 기록한다."
+      ],
+      "steps": [
+        "embed.html 파일에 스크립트 없는 문서와 버튼 스크립트 포함 문서 조건을 준비하세요.",
+        "로컬 안내 문서를 iframe으로 포함하고 title과 sandbox를 설정하세요.",
+        "스크립트 없는 문서와 버튼 스크립트 포함 문서 조건으로 실행하세요. 확인할 결과: 프레임 목적을 접근성 이름으로 확인한다. 두 정책에서 버튼 실행 여부를 기록한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "sandbox",
+          "baseline": "빈 값",
+          "change": "allow-scripts",
+          "expected": "실행 전 가설: 내부 스크립트 실행 여부가 달라질 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "프레임 목적을 접근성 이름으로 확인한다.",
+        "두 정책에서 버튼 실행 여부를 기록한다."
+      ],
+      "questions": [
+        "sandbox 토큰을 모두 허용하면 무엇이 남나요?",
+        "부모 문서와 프레임의 언어는 각각 어디에 적나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 22,
+      "id": "html-step-22",
+      "title": "template과 반복 콘텐츠",
+      "prerequisites": "21단위 「iframe과 포함 콘텐츠 경계」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "비활성 템플릿",
+          "explanation": "template 안의 내용은 바로 표시되지 않습니다. content를 복제해 문서에 삽입할 수 있습니다."
+        },
+        {
+          "title": "식별자 중복",
+          "explanation": "복제한 노드에 같은 id가 남으면 연결이 모호해집니다. label과 설명 id도 함께 갱신해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "카드 3개가 표시되고 중복 id가 없다.",
+        "각 label 클릭이 해당 카드 입력에 포커스를 준다."
+      ],
+      "steps": [
+        "template.html 파일에 카드 3개와 각 카드의 입력 label 조건을 준비하세요.",
+        "학습 카드 template를 만들고 최소 JS로 3개 복제하며 id와 연결 속성을 갱신하세요.",
+        "카드 3개와 각 카드의 입력 label 조건으로 실행하세요. 확인할 결과: 카드 3개가 표시되고 중복 id가 없다. 각 label 클릭이 해당 카드 입력에 포커스를 준다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "복제 id",
+          "baseline": "동일 id 유지",
+          "change": "고유 접미사",
+          "expected": "실행 전 가설: 각 label이 자기 입력을 가리킬 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "카드 3개가 표시되고 중복 id가 없다.",
+        "각 label 클릭이 해당 카드 입력에 포커스를 준다."
+      ],
+      "questions": [
+        "template 내용은 처음부터 접근성 트리에 있나요?",
+        "복제 시 어떤 참조 속성도 바꿔야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 23,
+      "id": "html-step-23",
+      "title": "스크립트 로딩과 문서 파싱",
+      "prerequisites": "22단위 「template과 반복 콘텐츠」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "로딩 시점",
+          "explanation": "일반 스크립트는 위치에 따라 파싱을 막을 수 있습니다. defer는 문서 파싱 후 순서대로 실행하도록 합니다."
+        },
+        {
+          "title": "독립 실행",
+          "explanation": "async는 준비되는 시점에 실행해 문서 순서를 보장하지 않습니다. 모듈 스크립트의 기본 지연 동작도 구분합니다."
+        }
+      ],
+      "outcomes": [
+        "세 로딩 방식의 실행 로그와 요소 존재 여부를 기록한다.",
+        "의존하는 스크립트가 안정적으로 순서대로 실행되는 구성을 고른다."
+      ],
+      "steps": [
+        "scripts.html 파일에 head의 스크립트와 body 아래 대상 요소 조건을 준비하세요.",
+        "DOM을 읽는 스크립트 두 개를 일반·defer·async 방식으로 비교하세요.",
+        "head의 스크립트와 body 아래 대상 요소 조건으로 실행하세요. 확인할 결과: 세 로딩 방식의 실행 로그와 요소 존재 여부를 기록한다. 의존하는 스크립트가 안정적으로 순서대로 실행되는 구성을 고른다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "속성",
+          "baseline": "defer",
+          "change": "async",
+          "expected": "실행 전 가설: DOM 준비나 스크립트 순서를 가정한 코드가 달라질 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "세 로딩 방식의 실행 로그와 요소 존재 여부를 기록한다.",
+        "의존하는 스크립트가 안정적으로 순서대로 실행되는 구성을 고른다."
+      ],
+      "questions": [
+        "async가 항상 더 빠른 페이지를 만드나요?",
+        "type=module과 defer의 관계는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 24,
+      "id": "html-step-24",
+      "title": "접근성 이름과 설명",
+      "prerequisites": "23단위 「스크립트 로딩과 문서 파싱」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "이름 계산",
+          "explanation": "접근성 이름은 조작을 식별합니다. 보이는 label과 aria-label이 다르면 사용자가 혼동할 수 있습니다."
+        },
+        {
+          "title": "설명 연결",
+          "explanation": "aria-describedby는 추가 설명을 연결합니다. 이름을 대신하는 용도로 쓰지 않습니다."
+        }
+      ],
+      "outcomes": [
+        "세 조작의 이름과 설명을 표로 남긴다.",
+        "버튼의 화면 문구와 접근성 이름이 일치한다."
+      ],
+      "steps": [
+        "names.html 파일에 보이는 저장 텍스트와 다른 aria-label 조건을 준비하세요.",
+        "텍스트 버튼·아이콘 버튼·입력 세 종류의 이름과 설명을 접근성 패널에서 확인하세요.",
+        "보이는 저장 텍스트와 다른 aria-label 조건으로 실행하세요. 확인할 결과: 세 조작의 이름과 설명을 표로 남긴다. 버튼의 화면 문구와 접근성 이름이 일치한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "이름 속성",
+          "baseline": "보이는 텍스트 사용",
+          "change": "다른 aria-label",
+          "expected": "실행 전 가설: 접근성 이름이 화면 문구와 달라질 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "세 조작의 이름과 설명을 표로 남긴다.",
+        "버튼의 화면 문구와 접근성 이름이 일치한다."
+      ],
+      "questions": [
+        "aria-label이 항상 필요한가요?",
+        "설명이 너무 길면 어떤 사용 부담이 생기나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 25,
+      "id": "html-step-25",
+      "title": "읽기 순서와 건너뛰기 링크",
+      "prerequisites": "24단위 「접근성 이름과 설명」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "소스 순서",
+          "explanation": "보조 기술과 키보드 이동은 문서 순서의 영향을 받습니다. 시각적 위치만 바꾸어도 논리 순서가 자동 정리되지는 않습니다."
+        },
+        {
+          "title": "바로가기",
+          "explanation": "건너뛰기 링크는 반복 탐색을 지나 주요 내용으로 이동합니다. 목적지와 포커스 동작을 브라우저에서 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "첫 키보드 조작에서 바로가기 링크를 사용할 수 있다.",
+        "본문 이동 전후 포커스와 스크롤 위치를 기록한다."
+      ],
+      "steps": [
+        "reading-order.html 파일에 긴 탐색 링크 10개와 본문 조건을 준비하세요.",
+        "상단에 본문 바로가기 링크를 두고 main 목적지와 논리적인 카드 순서를 구성하세요.",
+        "긴 탐색 링크 10개와 본문 조건으로 실행하세요. 확인할 결과: 첫 키보드 조작에서 바로가기 링크를 사용할 수 있다. 본문 이동 전후 포커스와 스크롤 위치를 기록한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "탐색 방식",
+          "baseline": "Tab 반복",
+          "change": "건너뛰기 링크",
+          "expected": "실행 전 가설: 본문까지 필요한 조작 수가 줄어들 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "첫 키보드 조작에서 바로가기 링크를 사용할 수 있다.",
+        "본문 이동 전후 포커스와 스크롤 위치를 기록한다."
+      ],
+      "questions": [
+        "양수 tabindex로 순서를 고치면 어떤 유지 문제가 있나요?",
+        "CSS를 껐을 때 읽기 순서도 자연스러운가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 26,
+      "id": "html-step-26",
+      "title": "HTML 오류와 브라우저 복구",
+      "prerequisites": "25단위 「읽기 순서와 건너뛰기 링크」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "오류 복구",
+          "explanation": "브라우저는 잘못된 마크업도 DOM으로 복구합니다. 화면이 보인다고 문법과 구조가 맞는 것은 아닙니다."
+        },
+        {
+          "title": "콘텐츠 모델",
+          "explanation": "요소마다 허용되는 자식과 중첩 규칙이 있습니다. 잘못된 중첩은 소스와 실제 DOM을 다르게 만들 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "오류 2개의 복구된 DOM을 기록한다.",
+        "수정본에서 해당 검증 오류가 0개다."
+      ],
+      "steps": [
+        "invalid.html 파일에 오류 2건과 수정본 조건을 준비하세요.",
+        "p 안의 div와 중첩 button 같은 오류 예제를 만들고 Elements 트리와 검증기 결과를 비교하세요.",
+        "오류 2건과 수정본 조건으로 실행하세요. 확인할 결과: 오류 2개의 복구된 DOM을 기록한다. 수정본에서 해당 검증 오류가 0개다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "중첩",
+          "baseline": "p 안 div",
+          "change": "형제 p와 div",
+          "expected": "실행 전 가설: 소스와 DOM 구조가 일치할 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "오류 2개의 복구된 DOM을 기록한다.",
+        "수정본에서 해당 검증 오류가 0개다."
+      ],
+      "questions": [
+        "브라우저가 닫는 태그를 어디에 삽입했나요?",
+        "시각 검사만으로 어떤 오류를 놓치나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 27,
+      "id": "html-step-27",
+      "title": "이미지 실패와 확대 점검",
+      "prerequisites": "26단위 「HTML 오류와 브라우저 복구」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "대체 경로",
+          "explanation": "리소스가 없어도 핵심 정보와 조작 의미가 남아야 합니다. alt와 본문 설명은 장애 상황에서 함께 작동합니다."
+        },
+        {
+          "title": "확대 환경",
+          "explanation": "확대하면 동시에 보이는 영역이 줄어듭니다. 잘린 내용과 포커스 이동 문제는 실제 조작으로 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "실패 이미지 6개에서도 카드 제목과 동작 목적이 남는다.",
+        "두 확대 배율에서 모든 조작에 도달한 기록이 있다."
+      ],
+      "steps": [
+        "audit.html 파일에 카드 6개, 이미지 실패, 확대 두 배율 조건을 준비하세요.",
+        "카드 페이지의 이미지 경로를 끊고 200%·400% 확대에서 키보드로 탐색하세요.",
+        "카드 6개, 이미지 실패, 확대 두 배율 조건으로 실행하세요. 확인할 결과: 실패 이미지 6개에서도 카드 제목과 동작 목적이 남는다. 두 확대 배율에서 모든 조작에 도달한 기록이 있다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "확대",
+          "baseline": "100%",
+          "change": "400%",
+          "expected": "실행 전 가설: 더 많은 줄바꿈과 스크롤이 필요할 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "실패 이미지 6개에서도 카드 제목과 동작 목적이 남는다.",
+        "두 확대 배율에서 모든 조작에 도달한 기록이 있다."
+      ],
+      "questions": [
+        "대체 텍스트와 본문이 불필요하게 반복되나요?",
+        "잘린 조작은 HTML과 CSS 중 어디서 고칠까요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    },
+    {
+      "day": 28,
+      "id": "html-03",
+      "title": "접근 가능한 학습 카드",
+      "prerequisites": "27단위 「이미지 실패와 확대 점검」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "구조 통합",
+          "explanation": "카드 제목·설명·링크는 읽는 순서대로 배치합니다. 시각적 배치가 달라도 문서의 의미가 유지되어야 합니다."
+        },
+        {
+          "title": "조작 검증",
+          "explanation": "네이티브 details와 버튼·링크를 목적에 맞게 조합합니다. 이미지 실패와 키보드 사용을 별도 시나리오로 검사합니다."
+        }
+      ],
+      "outcomes": [
+        "이미지 없이 카드 6개의 주제와 이동 목적을 식별한다.",
+        "키보드로 목차 열기와 모든 카드 이동을 수행하고 순서를 기록한다."
+      ],
+      "steps": [
+        "cards.html 파일에 이미지 정상·실패와 100%·400% 확대 조건을 준비하세요.",
+        "학습 카드 6개와 details 목차를 만들고 이미지 alt·제목 계층·목적 있는 링크를 통합하세요.",
+        "이미지 정상·실패와 100%·400% 확대 조건으로 실행하세요. 확인할 결과: 이미지 없이 카드 6개의 주제와 이동 목적을 식별한다. 키보드로 목차 열기와 모든 카드 이동을 수행하고 순서를 기록한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "이미지",
+          "baseline": "정상 로드",
+          "change": "모두 실패",
+          "expected": "실행 전 가설: 주제와 조작 목적을 계속 이해할 수 있을 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "이미지 없이 카드 6개의 주제와 이동 목적을 식별한다.",
+        "키보드로 목차 열기와 모든 카드 이동을 수행하고 순서를 기록한다."
+      ],
+      "questions": [
+        "CSS를 제거해도 의미가 남나요?",
+        "자동 검사로 확인하지 못한 사용 경험은 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        }
+      ],
+      "environment": "Frontory의 기존 미리보기는 제한된 시작 예제이며 전체 과제의 완성본이 아닙니다. 추가 파일과 기능은 별도 로컬 프로젝트에서 직접 구현하세요. 별도 폴더에 HTML과 필요한 이미지·미디어 파일을 직접 준비하고 로컬 HTTP 서버로 여세요. Elements·접근성 패널과 실제 키보드 조작으로 확인합니다."
+    }
+  ]
+}

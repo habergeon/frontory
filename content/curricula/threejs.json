@@ -1,0 +1,1453 @@
+{
+  "seriesId": "threejs",
+  "stages": [
+    "장면 좌표·카메라·기하",
+    "조명·재질·모델 선택",
+    "애니메이션·인스턴싱·렌더 패스",
+    "자원 수명·접근성·측정"
+  ],
+  "goal": "장면 그래프부터 모델 로딩과 GPU 자원 수명까지 이해하고 측정 가능한 3D 검사기를 만든다.",
+  "capstone": "모델 선택·카메라 맞춤·애니메이션·미니맵·오류 복구를 갖춘 3D 검사기와 자원·성능 보고서",
+  "units": [
+    {
+      "day": 1,
+      "id": "threejs-01",
+      "title": "장면 그래프와 카메라",
+      "prerequisites": "JavaScript ES 모듈, 벡터·행렬 기초와 WebGL 첫 장면을 이해해야 합니다.",
+      "concepts": [
+        {
+          "title": "부모 변환",
+          "explanation": "Group의 변환은 자식의 world 좌표에 누적됩니다. 자식 position은 부모 기준이므로 화면 위치와 같은 값이 아닙니다."
+        },
+        {
+          "title": "시선과 위치",
+          "explanation": "카메라 위치와 바라보는 지점은 서로 다른 값입니다. FOV를 바꾸면 위치를 고정해도 투영 크기가 변합니다."
+        }
+      ],
+      "outcomes": [
+        "local과 world 좌표 변화를 출력한다.",
+        "FOV와 카메라 이동의 효과를 구별한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-01.js와 index.html을 준비하세요. 기존 threejs-01의 Group에 두 Mesh를 넣고 AxesHelper를 추가하세요.",
+        "부모 회전과 카메라 FOV를 입력받아 getWorldPosition 결과를 HTML output에 표시하세요.",
+        "입력 조건 0에서 출력을 저장한 뒤 PI/2 조건으로 다시 실행하세요. 예상: 자식 local 좌표는 같아도 world 좌표는 회전합니다. 실제 화면·로그와 대조하고 day-01-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "부모 회전",
+          "baseline": "0",
+          "change": "PI/2",
+          "expected": "자식 local 좌표는 같아도 world 좌표는 회전합니다"
+        }
+      ],
+      "criteria": [
+        "local과 world 좌표 변화를 출력한다.",
+        "FOV와 카메라 이동의 효과를 구별한다."
+      ],
+      "questions": [
+        "부모만 이동했는데 자식 position이 그대로인 이유는 무엇인가요?",
+        "lookAt과 position은 어떻게 다른가요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js Fundamentals",
+          "url": "https://threejs.org/manual/pages/fundamentals.html"
+        }
+      ],
+      "environment": "기존 내장 예제는 출발점만 제공합니다. 확장 요구사항 전체가 구현된 예제가 아니며 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 2,
+      "id": "threejs-step-02",
+      "title": "렌더러와 화면 크기",
+      "prerequisites": "선수 개념: 부모 변환, 시선과 위치. 1단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "버퍼 크기",
+          "explanation": "렌더러의 drawing buffer는 CSS 표시 크기와 다릅니다. pixelRatio를 올리면 같은 화면에 더 많은 픽셀을 처리합니다."
+        },
+        {
+          "title": "종횡비",
+          "explanation": "PerspectiveCamera의 aspect는 viewport 비율입니다. 크기를 바꾼 뒤 updateProjectionMatrix를 호출해야 새 투영이 적용됩니다."
+        }
+      ],
+      "outcomes": [
+        "리사이즈 뒤 도형 비율이 유지된다.",
+        "숨김 컨테이너의 0 크기를 처리한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-02.js와 index.html을 준비하세요. ResizeObserver로 컨테이너를 읽어 renderer.setSize(w,h,false)를 호출하세요.",
+        "camera.aspect와 투영을 갱신하고 CSS 크기·버퍼 크기를 output으로 비교하세요.",
+        "입력 조건 1:1에서 출력을 저장한 뒤 2:1 조건으로 다시 실행하세요. 예상: aspect를 갱신하면 구가 타원처럼 늘어나지 않습니다. 실제 화면·로그와 대조하고 day-02-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "viewport 비율",
+          "baseline": "1:1",
+          "change": "2:1",
+          "expected": "aspect를 갱신하면 구가 타원처럼 늘어나지 않습니다"
+        }
+      ],
+      "criteria": [
+        "리사이즈 뒤 도형 비율이 유지된다.",
+        "숨김 컨테이너의 0 크기를 처리한다."
+      ],
+      "questions": [
+        "setSize의 세 번째 인자는 무엇을 제어하나요?",
+        "DPR을 높일 때 화면 면적 비용은 어떻게 변하나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js WebGLRenderer",
+          "url": "https://threejs.org/docs/pages/WebGLRenderer.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 3,
+      "id": "threejs-step-03",
+      "title": "원근과 직교 투영",
+      "prerequisites": "선수 개념: 버퍼 크기, 종횡비. 2단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "원근 투영",
+          "explanation": "PerspectiveCamera는 먼 물체를 작게 표현합니다. near와 far는 보이는 깊이 범위를 제한합니다."
+        },
+        {
+          "title": "직교 투영",
+          "explanation": "OrthographicCamera에서는 거리가 크기를 바꾸지 않습니다. CAD식 배치와 비교 도식에 유용합니다."
+        }
+      ],
+      "outcomes": [
+        "같은 장면을 두 투영으로 표시한다.",
+        "near 바깥 물체가 잘리는 경우를 재현한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-03.js와 index.html을 준비하세요. 같은 크기의 큐브 두 개를 서로 다른 깊이에 배치하세요.",
+        "원근·직교 카메라 전환 버튼을 만들고 두 큐브의 화면 폭을 비교하세요.",
+        "입력 조건 PerspectiveCamera에서 출력을 저장한 뒤 OrthographicCamera 조건으로 다시 실행하세요. 예상: 깊이가 다른 큐브가 같은 화면 크기로 보입니다. 실제 화면·로그와 대조하고 day-03-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "카메라",
+          "baseline": "PerspectiveCamera",
+          "change": "OrthographicCamera",
+          "expected": "깊이가 다른 큐브가 같은 화면 크기로 보입니다"
+        }
+      ],
+      "criteria": [
+        "같은 장면을 두 투영으로 표시한다.",
+        "near 바깥 물체가 잘리는 경우를 재현한다."
+      ],
+      "questions": [
+        "FOV가 없는 직교 카메라는 확대를 어떻게 정하나요?",
+        "near를 과도하게 작게 두면 어떤 문제가 생길까요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js Fundamentals",
+          "url": "https://threejs.org/manual/pages/fundamentals.html"
+        },
+        {
+          "title": "Three.js WebGLRenderer",
+          "url": "https://threejs.org/docs/pages/WebGLRenderer.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 4,
+      "id": "threejs-step-04",
+      "title": "회전과 피벗",
+      "prerequisites": "선수 개념: 원근 투영, 직교 투영. 3단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "피벗 그룹",
+          "explanation": "회전 기준을 바꾸려면 부모 그룹과 자식 오프셋을 나눌 수 있습니다. geometry 자체를 매번 수정할 필요는 없습니다."
+        },
+        {
+          "title": "Euler 순서",
+          "explanation": "여러 축의 회전은 적용 순서에 따라 결과가 달라집니다. 복잡한 자세에서는 quaternion 표현도 검토해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "geometry 수정 없이 피벗을 구현한다.",
+        "부모 축과 자식 축을 구별한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-04.js와 index.html을 준비하세요. 문 경첩 위치에 Group을 만들고 문 Mesh를 절반 폭만큼 이동시키세요.",
+        "회전 슬라이더로 문을 열고 두 축 회전 순서를 바꾼 결과를 비교하세요.",
+        "입력 조건 문 중심에서 출력을 저장한 뒤 문 가장자리 조건으로 다시 실행하세요. 예상: 문이 중심 회전 대신 경첩을 따라 움직입니다. 실제 화면·로그와 대조하고 day-04-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "피벗 위치",
+          "baseline": "문 중심",
+          "change": "문 가장자리",
+          "expected": "문이 중심 회전 대신 경첩을 따라 움직입니다"
+        }
+      ],
+      "criteria": [
+        "geometry 수정 없이 피벗을 구현한다.",
+        "부모 축과 자식 축을 구별한다."
+      ],
+      "questions": [
+        "회전 뒤 translate가 어느 축으로 적용되나요?",
+        "Euler 순서가 다른 두 회전은 왜 같지 않나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js Fundamentals",
+          "url": "https://threejs.org/manual/pages/fundamentals.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 5,
+      "id": "threejs-step-05",
+      "title": "버퍼 지오메트리",
+      "prerequisites": "선수 개념: 피벗 그룹, Euler 순서. 4단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "정점 속성",
+          "explanation": "BufferGeometry는 position과 normal 같은 배열을 묶습니다. itemSize는 한 정점을 구성하는 성분 수입니다."
+        },
+        {
+          "title": "인덱스 공유",
+          "explanation": "인덱스는 정점을 재사용해 삼각형을 연결합니다. 같은 위치라도 UV나 normal이 다르면 별도 정점이 필요할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "정점 수와 삼각형 수를 구별한다.",
+        "인덱스 범위를 벗어난 값을 넣지 않는다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-05.js와 index.html을 준비하세요. Float32Array와 BufferAttribute로 사각형의 정점을 작성하세요.",
+        "setIndex로 두 삼각형을 연결하고 wireframe 재질로 winding과 면 방향을 확인하세요.",
+        "입력 조건 반시계에서 출력을 저장한 뒤 시계 조건으로 다시 실행하세요. 예상: 기본 앞면 판단이 바뀌어 면이 사라질 수 있습니다. 실제 화면·로그와 대조하고 day-05-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "인덱스 순서",
+          "baseline": "반시계",
+          "change": "시계",
+          "expected": "기본 앞면 판단이 바뀌어 면이 사라질 수 있습니다"
+        }
+      ],
+      "criteria": [
+        "정점 수와 삼각형 수를 구별한다.",
+        "인덱스 범위를 벗어난 값을 넣지 않는다."
+      ],
+      "questions": [
+        "같은 좌표의 정점을 항상 합칠 수 없는 이유는 무엇인가요?",
+        "itemSize를 2로 잘못 주면 무엇이 달라지나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js BufferGeometry",
+          "url": "https://threejs.org/docs/pages/BufferGeometry.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 6,
+      "id": "threejs-step-06",
+      "title": "법선과 표면 방향",
+      "prerequisites": "선수 개념: 정점 속성, 인덱스 공유. 5단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "법선 역할",
+          "explanation": "법선은 빛이 표면에 닿는 방향을 계산하는 데 쓰입니다. 위치가 같아도 법선이 다르면 경계가 다르게 보입니다."
+        },
+        {
+          "title": "평활화",
+          "explanation": "공유 정점의 법선을 평균내면 면 사이가 부드럽게 보입니다. 날카로운 모서리를 유지하려면 속성을 분리해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "법선이 없는 경우와 있는 경우를 비교한다.",
+        "평면 경계와 부드러운 경계를 의도대로 만든다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-06.js와 index.html을 준비하세요. 직접 만든 geometry에 computeVertexNormals를 적용하세요.",
+        "MeshNormalMaterial과 조명 재질을 번갈아 사용하고 정점 공유 여부를 비교하세요.",
+        "입력 조건 면별 분리에서 출력을 저장한 뒤 모서리 공유 조건으로 다시 실행하세요. 예상: 평균 법선 때문에 모서리가 부드럽게 보일 수 있습니다. 실제 화면·로그와 대조하고 day-06-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "정점 공유",
+          "baseline": "면별 분리",
+          "change": "모서리 공유",
+          "expected": "평균 법선 때문에 모서리가 부드럽게 보일 수 있습니다"
+        }
+      ],
+      "criteria": [
+        "법선이 없는 경우와 있는 경우를 비교한다.",
+        "평면 경계와 부드러운 경계를 의도대로 만든다."
+      ],
+      "questions": [
+        "법선 색상은 실제 재질 색인가요?",
+        "비균일 scale이 법선 처리에 영향을 주는 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js BufferGeometry",
+          "url": "https://threejs.org/docs/pages/BufferGeometry.html"
+        },
+        {
+          "title": "Three.js MeshStandardMaterial",
+          "url": "https://threejs.org/docs/pages/MeshStandardMaterial.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 7,
+      "id": "threejs-step-07",
+      "title": "공유 지오메트리와 복제",
+      "prerequisites": "선수 개념: 법선 역할, 평활화. 6단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "참조 공유",
+          "explanation": "여러 Mesh가 하나의 geometry나 material을 참조할 수 있습니다. 공유 자원을 바꾸면 모든 참조 객체가 영향을 받습니다."
+        },
+        {
+          "title": "소유권",
+          "explanation": "객체 복제는 모든 GPU 자원을 독립 복사한다는 뜻이 아닙니다. 수정·해제 전에 공유 범위를 확인해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "공유와 독립 재질의 차이를 재현한다.",
+        "재질 소유자를 기록한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-07.js와 index.html을 준비하세요. 같은 geometry와 material을 쓰는 큐브 세 개를 배치하세요.",
+        "한 큐브의 material 색을 바꾼 뒤 material.clone으로 분리한 버전을 비교하세요.",
+        "입력 조건 공유 참조에서 출력을 저장한 뒤 clone된 개별 재질 조건으로 다시 실행하세요. 예상: 한 큐브의 색 수정이 다른 큐브에 전파되지 않습니다. 실제 화면·로그와 대조하고 day-07-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "재질",
+          "baseline": "공유 참조",
+          "change": "clone된 개별 재질",
+          "expected": "한 큐브의 색 수정이 다른 큐브에 전파되지 않습니다"
+        }
+      ],
+      "criteria": [
+        "공유와 독립 재질의 차이를 재현한다.",
+        "재질 소유자를 기록한다."
+      ],
+      "questions": [
+        "clone이 geometry도 깊게 복제하나요?",
+        "공유 자원을 언제 dispose할 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js Fundamentals",
+          "url": "https://threejs.org/manual/pages/fundamentals.html"
+        },
+        {
+          "title": "Three.js Cleanup",
+          "url": "https://threejs.org/manual/pages/cleanup.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 8,
+      "id": "threejs-step-08",
+      "title": "조명 종류와 배치",
+      "prerequisites": "선수 개념: 참조 공유, 소유권. 7단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "방향광",
+          "explanation": "DirectionalLight는 일정 방향에서 오는 빛을 표현합니다. 위치뿐 아니라 target이 빛의 방향에 영향을 줍니다."
+        },
+        {
+          "title": "점광원",
+          "explanation": "PointLight는 한 지점에서 여러 방향으로 빛을 냅니다. 물체와의 거리에 따른 변화도 관찰해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "광원 위치와 target을 구별한다.",
+        "광원을 껐을 때 재질 반응을 설명한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-08.js와 index.html을 준비하세요. 바닥과 구를 만들고 방향광과 점광원을 전환하세요.",
+        "광원 위치를 슬라이더로 움직이며 하이라이트와 밝기 변화를 기록하세요.",
+        "입력 조건 DirectionalLight에서 출력을 저장한 뒤 PointLight 조건으로 다시 실행하세요. 예상: 거리와 위치 변화에 대한 표면 반응이 달라집니다. 실제 화면·로그와 대조하고 day-08-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "광원 종류",
+          "baseline": "DirectionalLight",
+          "change": "PointLight",
+          "expected": "거리와 위치 변화에 대한 표면 반응이 달라집니다"
+        }
+      ],
+      "criteria": [
+        "광원 위치와 target을 구별한다.",
+        "광원을 껐을 때 재질 반응을 설명한다."
+      ],
+      "questions": [
+        "MeshBasicMaterial은 왜 광원을 꺼도 보이나요?",
+        "주변광만으로 형체가 평평해지는 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js MeshStandardMaterial",
+          "url": "https://threejs.org/docs/pages/MeshStandardMaterial.html"
+        },
+        {
+          "title": "Three.js Shadows",
+          "url": "https://threejs.org/manual/pages/shadows.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 9,
+      "id": "threejs-step-09",
+      "title": "거칠기와 금속성",
+      "prerequisites": "선수 개념: 방향광, 점광원. 8단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "거칠기",
+          "explanation": "roughness는 미세 표면에 의한 반사 퍼짐을 조절합니다. 낮은 값은 선명한 하이라이트를 만들기 쉽습니다."
+        },
+        {
+          "title": "금속성",
+          "explanation": "metalness는 금속과 비금속의 반응을 구분합니다. 환경 반사가 부족하면 금속이 기대보다 어둡게 보일 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "두 재질 변수를 독립적으로 비교한다.",
+        "광원 조건을 기록한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-09.js와 index.html을 준비하세요. MeshStandardMaterial 구를 roughness와 metalness 격자로 배치하세요.",
+        "광원과 카메라를 고정하고 두 값 중 하나만 바꿔 스크린샷을 남기세요.",
+        "입력 조건 0.1에서 출력을 저장한 뒤 0.8 조건으로 다시 실행하세요. 예상: 반사 하이라이트가 더 넓고 흐려집니다. 실제 화면·로그와 대조하고 day-09-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "roughness",
+          "baseline": "0.1",
+          "change": "0.8",
+          "expected": "반사 하이라이트가 더 넓고 흐려집니다"
+        }
+      ],
+      "criteria": [
+        "두 재질 변수를 독립적으로 비교한다.",
+        "광원 조건을 기록한다."
+      ],
+      "questions": [
+        "금속성 1이 단순히 더 반짝임을 뜻하나요?",
+        "환경맵 없는 금속을 어떻게 해석해야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js MeshStandardMaterial",
+          "url": "https://threejs.org/docs/pages/MeshStandardMaterial.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 10,
+      "id": "threejs-step-10",
+      "title": "텍스처와 UV",
+      "prerequisites": "선수 개념: 거칠기, 금속성. 9단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "UV 매핑",
+          "explanation": "UV는 정점과 이미지 위치를 연결합니다. geometry를 늘리면 텍스처도 함께 늘어날 수 있습니다."
+        },
+        {
+          "title": "반복 설정",
+          "explanation": "repeat만 바꾸어도 wrapping 설정이 맞지 않으면 반복되지 않습니다. 원본 텍스처 크기와 표면 비율을 함께 고려합니다."
+        }
+      ],
+      "outcomes": [
+        "UV와 world 좌표를 구별한다.",
+        "실패한 텍스처 URL을 오류 UI로 알린다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-10.js와 index.html을 준비하세요. 로컬 체크 이미지를 TextureLoader로 읽어 평면 map에 지정하세요.",
+        "wrapS와 wrapT를 RepeatWrapping으로 바꾸고 repeat.set 값을 입력받으세요.",
+        "입력 조건 1,1에서 출력을 저장한 뒤 4,2 조건으로 다시 실행하세요. 예상: 표면 위 체크 패턴이 가로 네 번 세로 두 번 반복됩니다. 실제 화면·로그와 대조하고 day-10-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "repeat",
+          "baseline": "1,1",
+          "change": "4,2",
+          "expected": "표면 위 체크 패턴이 가로 네 번 세로 두 번 반복됩니다"
+        }
+      ],
+      "criteria": [
+        "UV와 world 좌표를 구별한다.",
+        "실패한 텍스처 URL을 오류 UI로 알린다."
+      ],
+      "questions": [
+        "반복 설정을 바꿔도 모서리 색만 늘어나는 이유는 무엇인가요?",
+        "normal map과 색 이미지의 역할은 어떻게 다른가요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js MeshStandardMaterial",
+          "url": "https://threejs.org/docs/pages/MeshStandardMaterial.html"
+        },
+        {
+          "title": "Three.js Color Management",
+          "url": "https://threejs.org/manual/pages/color-management.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 11,
+      "id": "threejs-step-11",
+      "title": "색 공간과 출력",
+      "prerequisites": "선수 개념: UV 매핑, 반복 설정. 10단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "색 데이터",
+          "explanation": "색 텍스처와 수치 데이터 텍스처는 의미가 다릅니다. 색 이미지는 적절한 colorSpace를 지정해야 조명 계산이 맞습니다."
+        },
+        {
+          "title": "출력 변환",
+          "explanation": "렌더러의 출력 색 공간은 화면 표시 단계에 해당합니다. 입력과 출력을 혼동해 이중 변환하면 색이 달라집니다."
+        }
+      ],
+      "outcomes": [
+        "색 맵과 normal·roughness 맵을 구분한다.",
+        "입력·작업·출력 색 공간을 설명한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-11.js와 index.html을 준비하세요. 컬러 체크 텍스처에 SRGBColorSpace를 지정하고 중성 조명에서 표시하세요.",
+        "같은 재질에 잘못된 입력 색 공간을 적용한 비교를 만들고 설정값을 표로 기록하세요.",
+        "입력 조건 SRGBColorSpace에서 출력을 저장한 뒤 NoColorSpace 조건으로 다시 실행하세요. 예상: 동일 이미지의 밝기 해석이 달라질 수 있습니다. 실제 화면·로그와 대조하고 day-11-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "색 텍스처 colorSpace",
+          "baseline": "SRGBColorSpace",
+          "change": "NoColorSpace",
+          "expected": "동일 이미지의 밝기 해석이 달라질 수 있습니다"
+        }
+      ],
+      "criteria": [
+        "색 맵과 normal·roughness 맵을 구분한다.",
+        "입력·작업·출력 색 공간을 설명한다."
+      ],
+      "questions": [
+        "모든 텍스처에 sRGB를 넣으면 안 되는 이유는 무엇인가요?",
+        "CSS 색과 렌더 결과 비교 시 어떤 조건이 필요한가요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js Color Management",
+          "url": "https://threejs.org/manual/pages/color-management.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 12,
+      "id": "threejs-step-12",
+      "title": "그림자 지도",
+      "prerequisites": "선수 개념: 색 데이터, 출력 변환. 11단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "추가 렌더링",
+          "explanation": "그림자는 광원 시점의 깊이 렌더링을 필요로 합니다. 광원과 캐스터 수에 따라 추가 비용이 생깁니다."
+        },
+        {
+          "title": "그림자 범위",
+          "explanation": "shadow camera의 범위는 그림자가 계산되는 영역입니다. 범위를 과도하게 넓히면 같은 지도 크기의 해상도가 희석됩니다."
+        }
+      ],
+      "outcomes": [
+        "캐스터와 리시버 설정을 구별한다.",
+        "그림자 잘림과 해상도 저하를 구별한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-12.js와 index.html을 준비하세요. renderer.shadowMap.enabled와 castShadow·receiveShadow를 설정하세요.",
+        "DirectionalLight의 shadow camera helper를 띄우고 범위를 좁힌 전후를 비교하세요.",
+        "입력 조건 넓은 영역에서 출력을 저장한 뒤 대상 주변 작은 영역 조건으로 다시 실행하세요. 예상: 동일 mapSize에서 대상 부근 그림자가 더 세밀해질 수 있습니다. 실제 화면·로그와 대조하고 day-12-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "shadow 범위",
+          "baseline": "넓은 영역",
+          "change": "대상 주변 작은 영역",
+          "expected": "동일 mapSize에서 대상 부근 그림자가 더 세밀해질 수 있습니다"
+        }
+      ],
+      "criteria": [
+        "캐스터와 리시버 설정을 구별한다.",
+        "그림자 잘림과 해상도 저하를 구별한다."
+      ],
+      "questions": [
+        "mapSize만 키우는 것의 비용은 무엇인가요?",
+        "bias를 크게 하면 왜 그림자가 떨어져 보이나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js Shadows",
+          "url": "https://threejs.org/manual/pages/shadows.html"
+        },
+        {
+          "title": "Three.js WebGLRenderer",
+          "url": "https://threejs.org/docs/pages/WebGLRenderer.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 13,
+      "id": "threejs-step-13",
+      "title": "정규화 좌표와 선택",
+      "prerequisites": "선수 개념: 추가 렌더링, 그림자 범위. 12단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "NDC 입력",
+          "explanation": "Raycaster.setFromCamera는 정규화 장치 좌표를 받습니다. canvas 사각형을 기준으로 x는 -1부터 1, y는 위쪽이 1이 되게 계산합니다."
+        },
+        {
+          "title": "교차 결과",
+          "explanation": "intersectObjects는 거리순 교차 정보를 반환합니다. 복합 모델은 하위 Mesh에서 업무상 선택 대상까지 올라가는 규칙이 필요합니다."
+        }
+      ],
+      "outcomes": [
+        "페이지 여백이 있어도 선택 위치가 맞는다.",
+        "가장 가까운 교차 대상을 선택한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-13.js와 index.html을 준비하세요. pointerdown의 client 좌표를 NDC로 바꾸고 raycaster.setFromCamera를 호출하세요.",
+        "겹친 두 Mesh의 교차 거리와 이름을 HTML 목록으로 표시하세요.",
+        "입력 조건 캔버스 중앙에서 출력을 저장한 뒤 왼쪽 상단 조건으로 다시 실행하세요. 예상: NDC는 대략 0,0에서 -1,1로 바뀝니다. 실제 화면·로그와 대조하고 day-13-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "포인터 위치",
+          "baseline": "캔버스 중앙",
+          "change": "왼쪽 상단",
+          "expected": "NDC는 대략 0,0에서 -1,1로 바뀝니다"
+        }
+      ],
+      "criteria": [
+        "페이지 여백이 있어도 선택 위치가 맞는다.",
+        "가장 가까운 교차 대상을 선택한다."
+      ],
+      "questions": [
+        "window 크기로 정규화하면 언제 틀리나요?",
+        "recursive 옵션과 부모 선택 규칙은 무엇이 다른가요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js Raycaster",
+          "url": "https://threejs.org/docs/pages/Raycaster.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 14,
+      "id": "threejs-02",
+      "title": "재질·로딩·선택",
+      "prerequisites": "선수 개념: NDC 입력, 교차 결과. 13단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "로딩 상태",
+          "explanation": "GLTFLoader의 비동기 결과는 요청 순서와 다르게 도착할 수 있습니다. 로딩·성공·오류 상태를 UI에서 구분해야 합니다."
+        },
+        {
+          "title": "선택 강조",
+          "explanation": "공유 재질을 직접 바꾸면 여러 객체가 함께 강조될 수 있습니다. 별도 테두리나 재질 복제로 선택 대상을 분리합니다."
+        }
+      ],
+      "outcomes": [
+        "실패 시 UI가 유지되고 선택한 객체만 강조된다.",
+        "공유 재질의 다른 객체가 변하지 않는다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-14.js와 index.html을 준비하세요. 기존 threejs-02를 읽고 로컬 glb 또는 기본 도형 fallback과 오류 UI를 구현하세요.",
+        "선택 레이어를 설정해 raycast하고 이전 대상의 강조를 복구한 뒤 새 대상만 표시하세요.",
+        "입력 조건 유효 로컬 glb에서 출력을 저장한 뒤 없는 경로 조건으로 다시 실행하세요. 예상: 오류가 표시되어도 기본 도형과 UI는 유지됩니다. 실제 화면·로그와 대조하고 day-14-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "모델 URL",
+          "baseline": "유효 로컬 glb",
+          "change": "없는 경로",
+          "expected": "오류가 표시되어도 기본 도형과 UI는 유지됩니다"
+        }
+      ],
+      "criteria": [
+        "실패 시 UI가 유지되고 선택한 객체만 강조된다.",
+        "공유 재질의 다른 객체가 변하지 않는다."
+      ],
+      "questions": [
+        "이전 로딩 요청이 늦게 도착하면 어떻게 버리나요?",
+        "선택 레이어와 렌더 카메라 레이어는 어떻게 다른가요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js GLTFLoader",
+          "url": "https://threejs.org/docs/pages/GLTFLoader.html"
+        },
+        {
+          "title": "Three.js Raycaster",
+          "url": "https://threejs.org/docs/pages/Raycaster.html"
+        },
+        {
+          "title": "Three.js Cleanup",
+          "url": "https://threejs.org/manual/pages/cleanup.html"
+        }
+      ],
+      "environment": "기존 내장 예제는 출발점만 제공합니다. 확장 요구사항 전체가 구현된 예제가 아니며 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 15,
+      "id": "threejs-step-15",
+      "title": "모델 크기와 카메라 맞춤",
+      "prerequisites": "선수 개념: 로딩 상태, 선택 강조. 14단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "경계 상자",
+          "explanation": "모델마다 단위와 중심이 다릅니다. world 경계 상자로 크기와 중심을 계산하면 일관된 관찰 기준을 만들 수 있습니다."
+        },
+        {
+          "title": "카메라 프레이밍",
+          "explanation": "대상 크기와 FOV를 이용해 거리를 계산할 수 있습니다. aspect가 좁으면 가로 방향도 고려해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "원점에서 먼 모델도 화면 중심에 맞춘다.",
+        "0 크기나 빈 모델을 오류로 처리한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-15.js와 index.html을 준비하세요. Box3.setFromObject로 로딩된 모델의 중심과 크기를 구하세요.",
+        "controls.target을 중심으로 옮기고 모델 크기를 기준으로 카메라 거리와 near·far를 조정하세요.",
+        "입력 조건 1에서 출력을 저장한 뒤 10 조건으로 다시 실행하세요. 예상: 프레이밍 후 화면 점유율이 비슷하게 유지됩니다. 실제 화면·로그와 대조하고 day-15-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "모델 scale",
+          "baseline": "1",
+          "change": "10",
+          "expected": "프레이밍 후 화면 점유율이 비슷하게 유지됩니다"
+        }
+      ],
+      "criteria": [
+        "원점에서 먼 모델도 화면 중심에 맞춘다.",
+        "0 크기나 빈 모델을 오류로 처리한다."
+      ],
+      "questions": [
+        "모델 자체를 원점으로 옮기는 방식과 차이는 무엇인가요?",
+        "세로 FOV만 고려하면 넓은 모델은 어떻게 되나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js GLTFLoader",
+          "url": "https://threejs.org/docs/pages/GLTFLoader.html"
+        },
+        {
+          "title": "Three.js OrbitControls",
+          "url": "https://threejs.org/docs/pages/OrbitControls.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 16,
+      "id": "threejs-step-16",
+      "title": "궤도 제어와 요구 렌더링",
+      "prerequisites": "선수 개념: 경계 상자, 카메라 프레이밍. 15단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "제어 상태",
+          "explanation": "OrbitControls는 camera와 target을 함께 갱신합니다. 수동 카메라 변경 뒤 update로 동기화해야 합니다."
+        },
+        {
+          "title": "정지 장면",
+          "explanation": "움직임이 없는 장면은 항상 렌더할 필요가 없습니다. damping이나 애니메이션이 있으면 정착할 때까지 프레임이 필요합니다."
+        }
+      ],
+      "outcomes": [
+        "입력과 리사이즈 후 화면이 갱신된다.",
+        "damping 중 프레임이 끊기지 않는다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-16.js와 index.html을 준비하세요. OrbitControls의 change 이벤트에서 render를 요청하는 함수를 작성하세요.",
+        "damping을 끈 정적 모드와 켠 연속 갱신 모드를 전환하고 렌더 횟수를 표시하세요.",
+        "입력 조건 항상 루프에서 출력을 저장한 뒤 변경 시 요청 조건으로 다시 실행하세요. 예상: 정적 장면에서 불필요한 렌더 호출이 줄어듭니다. 실제 화면·로그와 대조하고 day-16-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "렌더 정책",
+          "baseline": "항상 루프",
+          "change": "변경 시 요청",
+          "expected": "정적 장면에서 불필요한 렌더 호출이 줄어듭니다"
+        }
+      ],
+      "criteria": [
+        "입력과 리사이즈 후 화면이 갱신된다.",
+        "damping 중 프레임이 끊기지 않는다."
+      ],
+      "questions": [
+        "한 이벤트당 여러 render 요청을 어떻게 합치나요?",
+        "controls.dispose가 필요한 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js OrbitControls",
+          "url": "https://threejs.org/docs/pages/OrbitControls.html"
+        },
+        {
+          "title": "Three.js WebGLRenderer",
+          "url": "https://threejs.org/docs/pages/WebGLRenderer.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 17,
+      "id": "threejs-step-17",
+      "title": "클립 애니메이션",
+      "prerequisites": "선수 개념: 제어 상태, 정지 장면. 16단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "믹서 시간",
+          "explanation": "AnimationMixer.update는 초 단위 delta를 받습니다. 밀리초를 그대로 전달하면 애니메이션이 지나치게 빨라집니다."
+        },
+        {
+          "title": "클립과 액션",
+          "explanation": "AnimationClip은 키프레임 데이터이고 action은 재생 상태입니다. 여러 action이 같은 모델에 영향을 줄 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "클립 없는 모델에도 UI가 유지된다.",
+        "초 단위 시간과 재생 속도를 구별한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-17.js와 index.html을 준비하세요. 애니메이션이 포함된 로컬 glb에서 clip 목록을 HTML select로 표시하세요.",
+        "mixer.clipAction으로 재생하고 timeScale과 정지 버튼을 연결하세요.",
+        "입력 조건 1에서 출력을 저장한 뒤 0.5 조건으로 다시 실행하세요. 예상: 같은 클립이 절반 속도로 재생됩니다. 실제 화면·로그와 대조하고 day-17-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "timeScale",
+          "baseline": "1",
+          "change": "0.5",
+          "expected": "같은 클립이 절반 속도로 재생됩니다"
+        }
+      ],
+      "criteria": [
+        "클립 없는 모델에도 UI가 유지된다.",
+        "초 단위 시간과 재생 속도를 구별한다."
+      ],
+      "questions": [
+        "클립 데이터와 action을 각각 재사용할 수 있나요?",
+        "장면 교체 때 stopAllAction 외에 무엇을 정리하나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js AnimationMixer",
+          "url": "https://threejs.org/docs/pages/AnimationMixer.html"
+        },
+        {
+          "title": "Three.js GLTFLoader",
+          "url": "https://threejs.org/docs/pages/GLTFLoader.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 18,
+      "id": "threejs-step-18",
+      "title": "투명도와 깊이",
+      "prerequisites": "선수 개념: 믹서 시간, 클립과 액션. 17단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "깊이 쓰기",
+          "explanation": "depthWrite는 깊이 버퍼 기록 여부입니다. 반투명 물체가 뒤쪽 물체를 가리는 문제가 생길 수 있습니다."
+        },
+        {
+          "title": "정렬 한계",
+          "explanation": "투명 객체는 순서에 민감합니다. 객체 단위 정렬만으로 교차하는 모든 표면을 완벽히 처리하기 어렵습니다."
+        }
+      ],
+      "outcomes": [
+        "불투명 깊이와 투명 합성을 구별한다.",
+        "남는 정렬 한계를 스크린샷으로 설명한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-18.js와 index.html을 준비하세요. 반투명 평면 두 개와 불투명 큐브를 교차 배치하세요.",
+        "transparent,opacity,depthWrite를 바꾸고 카메라를 한 바퀴 돌려 오류를 기록하세요.",
+        "입력 조건 true에서 출력을 저장한 뒤 false 조건으로 다시 실행하세요. 예상: 가림 양상이 바뀌지만 모든 투명 정렬 문제가 해결되지는 않습니다. 실제 화면·로그와 대조하고 day-18-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "depthWrite",
+          "baseline": "true",
+          "change": "false",
+          "expected": "가림 양상이 바뀌지만 모든 투명 정렬 문제가 해결되지는 않습니다"
+        }
+      ],
+      "criteria": [
+        "불투명 깊이와 투명 합성을 구별한다.",
+        "남는 정렬 한계를 스크린샷으로 설명한다."
+      ],
+      "questions": [
+        "renderOrder만으로 모든 교차를 해결할 수 있나요?",
+        "잘라낸 잎 이미지에는 alphaTest가 왜 유용할까요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js MeshStandardMaterial",
+          "url": "https://threejs.org/docs/pages/MeshStandardMaterial.html"
+        },
+        {
+          "title": "Three.js WebGLRenderer",
+          "url": "https://threejs.org/docs/pages/WebGLRenderer.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 19,
+      "id": "threejs-step-19",
+      "title": "인스턴싱 기초",
+      "prerequisites": "선수 개념: 깊이 쓰기, 정렬 한계. 18단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "공유 드로잉",
+          "explanation": "InstancedMesh는 같은 geometry와 material을 여러 변환으로 그립니다. 객체마다 Mesh를 만드는 것보다 draw call을 줄일 수 있습니다."
+        },
+        {
+          "title": "인스턴스 버퍼",
+          "explanation": "setMatrixAt은 CPU 쪽 인스턴스 데이터를 변경합니다. instanceMatrix.needsUpdate를 설정해야 변경을 업로드합니다."
+        }
+      ],
+      "outcomes": [
+        "화면 배치와 개수가 두 방식에서 같다.",
+        "업로드 플래그 누락을 재현한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-19.js와 index.html을 준비하세요. 동일 큐브 500개를 Mesh 목록과 InstancedMesh로 각각 구성하세요.",
+        "같은 좌표 배열을 setMatrixAt으로 채우고 renderer.info.render.calls를 비교하세요.",
+        "입력 조건 개별 Mesh에서 출력을 저장한 뒤 InstancedMesh 조건으로 다시 실행하세요. 예상: 같은 재질 조건에서 draw call이 줄어듭니다. 실제 화면·로그와 대조하고 day-19-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "표현",
+          "baseline": "개별 Mesh",
+          "change": "InstancedMesh",
+          "expected": "같은 재질 조건에서 draw call이 줄어듭니다"
+        }
+      ],
+      "criteria": [
+        "화면 배치와 개수가 두 방식에서 같다.",
+        "업로드 플래그 누락을 재현한다."
+      ],
+      "questions": [
+        "삼각형 수가 줄지 않아도 호출 수가 줄 수 있나요?",
+        "인스턴스마다 다른 geometry를 넣을 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js InstancedMesh",
+          "url": "https://threejs.org/docs/pages/InstancedMesh.html"
+        },
+        {
+          "title": "Three.js WebGLRenderer",
+          "url": "https://threejs.org/docs/pages/WebGLRenderer.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 20,
+      "id": "threejs-step-20",
+      "title": "인스턴스 선택과 갱신",
+      "prerequisites": "선수 개념: 공유 드로잉, 인스턴스 버퍼. 19단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "인스턴스 식별",
+          "explanation": "Raycaster 결과에는 instanceId가 포함될 수 있습니다. 이를 데이터 id와 매핑해야 개별 선택을 유지할 수 있습니다."
+        },
+        {
+          "title": "범위 갱신",
+          "explanation": "인스턴스 위치가 바뀌면 경계 정보도 검토해야 합니다. 오래된 경계는 컬링이나 선택 판단에 영향을 줄 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "선택 후 다른 인스턴스 색이 보존된다.",
+        "이동한 인스턴스도 새 위치에서 선택된다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-20.js와 index.html을 준비하세요. instanceId를 데이터 id로 변환하고 선택한 인스턴스에 setColorAt을 적용하세요.",
+        "위치를 바꾼 뒤 instanceMatrix와 instanceColor 업로드 및 경계 재계산을 수행하세요.",
+        "입력 조건 첫 인스턴스에서 출력을 저장한 뒤 마지막 인스턴스 조건으로 다시 실행하세요. 예상: 해당 항목만 강조되고 데이터 id가 일치합니다. 실제 화면·로그와 대조하고 day-20-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "선택 대상",
+          "baseline": "첫 인스턴스",
+          "change": "마지막 인스턴스",
+          "expected": "해당 항목만 강조되고 데이터 id가 일치합니다"
+        }
+      ],
+      "criteria": [
+        "선택 후 다른 인스턴스 색이 보존된다.",
+        "이동한 인스턴스도 새 위치에서 선택된다."
+      ],
+      "questions": [
+        "instanceId와 영구 데이터 id를 같게 써도 되나요?",
+        "setColorAt 뒤 needsUpdate는 어디에 설정하나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js InstancedMesh",
+          "url": "https://threejs.org/docs/pages/InstancedMesh.html"
+        },
+        {
+          "title": "Three.js Raycaster",
+          "url": "https://threejs.org/docs/pages/Raycaster.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 21,
+      "id": "threejs-step-21",
+      "title": "화면 밖 객체와 상세도",
+      "prerequisites": "선수 개념: 인스턴스 식별, 범위 갱신. 20단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "절두체 컬링",
+          "explanation": "렌더러는 경계가 카메라 밖에 있는 객체를 생략할 수 있습니다. 잘못된 경계는 보이는 물체가 사라지는 원인이 됩니다."
+        },
+        {
+          "title": "상세도",
+          "explanation": "멀리 있는 물체는 적은 정점으로도 비슷하게 보일 수 있습니다. 전환 시 튀는 정도와 삼각형 감소를 함께 비교합니다."
+        }
+      ],
+      "outcomes": [
+        "거리별 품질 차이를 기록한다.",
+        "컬링 문제와 실제 삭제를 구별한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-21.js와 index.html을 준비하세요. 가까운 구와 먼 구에 서로 다른 세그먼트 수를 적용하세요.",
+        "카메라 거리를 바꾸며 화면 품질과 renderer.info.render.triangles를 기록하세요.",
+        "입력 조건 64에서 출력을 저장한 뒤 12 조건으로 다시 실행하세요. 예상: 삼각형 수는 줄지만 윤곽 품질은 거리별로 달라집니다. 실제 화면·로그와 대조하고 day-21-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "먼 구 세그먼트",
+          "baseline": "64",
+          "change": "12",
+          "expected": "삼각형 수는 줄지만 윤곽 품질은 거리별로 달라집니다"
+        }
+      ],
+      "criteria": [
+        "거리별 품질 차이를 기록한다.",
+        "컬링 문제와 실제 삭제를 구별한다."
+      ],
+      "questions": [
+        "작은 화면 크기와 world 거리는 항상 비례하나요?",
+        "애니메이션으로 커진 물체의 경계는 언제 갱신하나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js BufferGeometry",
+          "url": "https://threejs.org/docs/pages/BufferGeometry.html"
+        },
+        {
+          "title": "Three.js WebGLRenderer",
+          "url": "https://threejs.org/docs/pages/WebGLRenderer.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 22,
+      "id": "threejs-step-22",
+      "title": "렌더 타깃과 미니맵",
+      "prerequisites": "선수 개념: 절두체 컬링, 상세도. 21단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "오프스크린 출력",
+          "explanation": "WebGLRenderTarget은 화면 대신 텍스처에 렌더링합니다. 다른 카메라의 결과를 화면 안 표면에 사용할 수 있습니다."
+        },
+        {
+          "title": "상태 복원",
+          "explanation": "setRenderTarget(null)은 기본 화면으로 돌아갑니다. 이를 놓치면 이후 렌더도 계속 타깃에 기록됩니다."
+        }
+      ],
+      "outcomes": [
+        "메인 화면과 미니맵이 각각 갱신된다.",
+        "렌더 타깃과 화면 상태를 복원한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-22.js와 index.html을 준비하세요. 위에서 내려다보는 카메라로 render target에 장면을 그리세요.",
+        "타깃 텍스처를 미니맵 평면에 연결하고 메인 장면에서 그 평면이 미니맵 카메라에 다시 보이지 않게 분리하세요.",
+        "입력 조건 256×256에서 출력을 저장한 뒤 512×512 조건으로 다시 실행하세요. 예상: 미니맵 선명도와 처리 픽셀 수가 함께 늘어납니다. 실제 화면·로그와 대조하고 day-22-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "타깃 크기",
+          "baseline": "256×256",
+          "change": "512×512",
+          "expected": "미니맵 선명도와 처리 픽셀 수가 함께 늘어납니다"
+        }
+      ],
+      "criteria": [
+        "메인 화면과 미니맵이 각각 갱신된다.",
+        "렌더 타깃과 화면 상태를 복원한다."
+      ],
+      "questions": [
+        "자기 텍스처를 다시 읽는 피드백을 어떻게 피하나요?",
+        "render target은 언제 dispose해야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js WebGLRenderer",
+          "url": "https://threejs.org/docs/pages/WebGLRenderer.html"
+        },
+        {
+          "title": "Three.js Cleanup",
+          "url": "https://threejs.org/manual/pages/cleanup.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 23,
+      "id": "threejs-step-23",
+      "title": "자원 소유권 장부",
+      "prerequisites": "선수 개념: 오프스크린 출력, 상태 복원. 22단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "명시적 해제",
+          "explanation": "scene.remove는 장면 연결만 끊습니다. geometry·material·texture의 GPU 관련 자원은 별도 dispose가 필요합니다."
+        },
+        {
+          "title": "공유 수명",
+          "explanation": "한 자원을 여러 객체가 쓸 수 있습니다. 마지막 사용자가 끝나기 전에 해제하지 않도록 소유자와 참조 범위를 기록합니다."
+        }
+      ],
+      "outcomes": [
+        "객체 제거와 자원 해제를 구별한다.",
+        "같은 자원을 중복 dispose하지 않는다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-23.js와 index.html을 준비하세요. 생성한 geometry,material,texture를 Set으로 추적하는 resourceTracker를 작성하세요.",
+        "공유 재질 두 Mesh 중 하나만 제거한 뒤 나머지 렌더를 유지하고 최종 종료 때 한 번씩 해제하세요.",
+        "입력 조건 한 사용자만에서 출력을 저장한 뒤 모든 사용자 조건으로 다시 실행하세요. 예상: 공유 자원은 마지막 사용자 종료 뒤 해제해야 합니다. 실제 화면·로그와 대조하고 day-23-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "삭제 범위",
+          "baseline": "한 사용자만",
+          "change": "모든 사용자",
+          "expected": "공유 자원은 마지막 사용자 종료 뒤 해제해야 합니다"
+        }
+      ],
+      "criteria": [
+        "객체 제거와 자원 해제를 구별한다.",
+        "같은 자원을 중복 dispose하지 않는다."
+      ],
+      "questions": [
+        "material.dispose가 texture도 자동 해제하나요?",
+        "glTF ImageBitmap의 수명에는 무엇을 추가 확인하나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js Cleanup",
+          "url": "https://threejs.org/manual/pages/cleanup.html"
+        },
+        {
+          "title": "Three.js GLTFLoader",
+          "url": "https://threejs.org/docs/pages/GLTFLoader.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 24,
+      "id": "threejs-step-24",
+      "title": "비동기 장면 교체",
+      "prerequisites": "선수 개념: 명시적 해제, 공유 수명. 23단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "오래된 결과",
+          "explanation": "이전 요청의 모델이 늦게 도착할 수 있습니다. 요청 토큰을 비교해 현재 장면에 붙일지 결정합니다."
+        },
+        {
+          "title": "버려진 자원",
+          "explanation": "사용하지 않는 로딩 결과도 자원을 가질 수 있습니다. 화면에 붙이지 않았더라도 소유한 자원을 정리해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "늦은 응답이 새 모델을 바꾸지 않는다.",
+        "버린 결과의 정리 경로가 있다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-24.js와 index.html을 준비하세요. 모델 선택마다 증가하는 requestId를 저장하고 loadAsync 완료 시 비교하세요.",
+        "느린 모델 A와 빠른 B를 교대로 요청해 B만 보이며 A의 자원이 정리되는지 로그를 남기세요.",
+        "입력 조건 요청순에서 출력을 저장한 뒤 역순 조건으로 다시 실행하세요. 예상: 현재 요청과 다른 결과는 장면을 덮지 않습니다. 실제 화면·로그와 대조하고 day-24-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "완료 순서",
+          "baseline": "요청순",
+          "change": "역순",
+          "expected": "현재 요청과 다른 결과는 장면을 덮지 않습니다"
+        }
+      ],
+      "criteria": [
+        "늦은 응답이 새 모델을 바꾸지 않는다.",
+        "버린 결과의 정리 경로가 있다."
+      ],
+      "questions": [
+        "토큰 검사가 네트워크 요청도 취소하나요?",
+        "실패한 이전 요청의 오류를 현재 UI에 보여야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js GLTFLoader",
+          "url": "https://threejs.org/docs/pages/GLTFLoader.html"
+        },
+        {
+          "title": "Three.js Cleanup",
+          "url": "https://threejs.org/manual/pages/cleanup.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 25,
+      "id": "threejs-step-25",
+      "title": "HTML 제어와 접근성",
+      "prerequisites": "선수 개념: 오래된 결과, 버려진 자원. 24단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "대체 조작",
+          "explanation": "3D 픽셀만으로 개별 물체 의미가 전달되지는 않습니다. HTML 객체 목록과 버튼으로 선택과 카메라 이동을 제공할 수 있습니다."
+        },
+        {
+          "title": "상태 알림",
+          "explanation": "선택 이름과 로딩 오류는 텍스트로 전달해야 합니다. 매 프레임 좌표를 알리면 중요한 알림이 묻힐 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "마우스 없이 주요 기능을 사용한다.",
+        "오류와 선택이 색 외 텍스트로 전달된다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-25.js와 index.html을 준비하세요. 객체별 HTML 버튼과 선택 설명 영역을 만들고 raycast와 같은 selectObject를 호출하세요.",
+        "키보드로 객체 선택·카메라 맞춤·일시정지를 실행하고 포커스 복귀를 확인하세요.",
+        "입력 조건 포인터에서 출력을 저장한 뒤 키보드만 조건으로 다시 실행하세요. 예상: 같은 객체와 카메라 목표를 선택할 수 있습니다. 실제 화면·로그와 대조하고 day-25-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "입력",
+          "baseline": "포인터",
+          "change": "키보드만",
+          "expected": "같은 객체와 카메라 목표를 선택할 수 있습니다"
+        }
+      ],
+      "criteria": [
+        "마우스 없이 주요 기능을 사용한다.",
+        "오류와 선택이 색 외 텍스트로 전달된다."
+      ],
+      "questions": [
+        "캔버스 aria-label만으로 객체 목록이 제공되나요?",
+        "장면 교체 후 사라진 버튼의 포커스는 어디로 옮기나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js Raycaster",
+          "url": "https://threejs.org/docs/pages/Raycaster.html"
+        },
+        {
+          "title": "Three.js OrbitControls",
+          "url": "https://threejs.org/docs/pages/OrbitControls.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 26,
+      "id": "threejs-step-26",
+      "title": "렌더 통계와 프로파일",
+      "prerequisites": "선수 개념: 대체 조작, 상태 알림. 25단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "통계 범위",
+          "explanation": "renderer.info는 렌더 호출·삼각형·일부 자원 수를 보여 줍니다. 전체 GPU VRAM이나 정확한 GPU 실행 시간을 측정하는 도구는 아닙니다."
+        },
+        {
+          "title": "다중 패스",
+          "explanation": "한 프레임에 여러 render가 있으면 초기화 시점이 중요합니다. autoReset을 조정하고 프레임 단위로 reset하면 합계를 비교할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "통계가 프레임 전체를 포함하는지 명시한다.",
+        "자원 수를 바이트나 전체 VRAM으로 표현하지 않는다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-26.js와 index.html을 준비하세요. 메인 화면과 미니맵의 렌더를 묶어 info.autoReset=false로 통계를 수집하세요.",
+        "프레임 시작에 info.reset을 호출하고 calls·triangles·memory 항목과 CPU 프레임 간격을 따로 저장하세요.",
+        "입력 조건 메인만에서 출력을 저장한 뒤 메인과 미니맵 조건으로 다시 실행하세요. 예상: 한 프레임의 호출·삼각형 합계가 증가할 수 있습니다. 실제 화면·로그와 대조하고 day-26-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "렌더 패스",
+          "baseline": "메인만",
+          "change": "메인과 미니맵",
+          "expected": "한 프레임의 호출·삼각형 합계가 증가할 수 있습니다"
+        }
+      ],
+      "criteria": [
+        "통계가 프레임 전체를 포함하는지 명시한다.",
+        "자원 수를 바이트나 전체 VRAM으로 표현하지 않는다."
+      ],
+      "questions": [
+        "렌더 호출 시간이 GPU 완료 시간과 다른 이유는 무엇인가요?",
+        "내부 캐시 때문에 dispose 뒤 0이 아닐 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js WebGLRenderer",
+          "url": "https://threejs.org/docs/pages/WebGLRenderer.html"
+        },
+        {
+          "title": "Three.js Cleanup",
+          "url": "https://threejs.org/manual/pages/cleanup.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 27,
+      "id": "threejs-step-27",
+      "title": "장면 검사기 통합",
+      "prerequisites": "선수 개념: 통계 범위, 다중 패스. 26단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "기능 계약",
+          "explanation": "로딩·선택·카메라·애니메이션을 한 상태 모델로 연결해야 합니다. 각각의 오류 경로가 다른 기능까지 멈추지 않도록 나눕니다."
+        },
+        {
+          "title": "재실행 검증",
+          "explanation": "정리 누락은 첫 실행에서 드러나지 않을 수 있습니다. 생성과 종료를 반복하며 이벤트와 자원 수의 추세를 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "오류 후에도 카메라와 UI가 반응한다.",
+        "종료 후 렌더 루프가 멈춘다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-27.js와 index.html을 준비하세요. 모델 검사기에 로컬 로딩·fallback·선택 목록·미니맵·통계 패널을 결합하세요.",
+        "생성→선택→모델 교체→오류→종료를 5회 반복하고 루프와 controls·observer 정리를 기록하세요.",
+        "입력 조건 1회에서 출력을 저장한 뒤 5회 조건으로 다시 실행하세요. 예상: 수명 관리가 맞으면 이벤트와 활성 루프가 누적되지 않습니다. 실제 화면·로그와 대조하고 day-27-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "실행 횟수",
+          "baseline": "1회",
+          "change": "5회",
+          "expected": "수명 관리가 맞으면 이벤트와 활성 루프가 누적되지 않습니다"
+        }
+      ],
+      "criteria": [
+        "오류 후에도 카메라와 UI가 반응한다.",
+        "종료 후 렌더 루프가 멈춘다."
+      ],
+      "questions": [
+        "자원 수 증가가 항상 누수를 뜻하나요?",
+        "사용자 설정과 GPU 자원은 각각 어디에 보관하나요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js GLTFLoader",
+          "url": "https://threejs.org/docs/pages/GLTFLoader.html"
+        },
+        {
+          "title": "Three.js Cleanup",
+          "url": "https://threejs.org/manual/pages/cleanup.html"
+        },
+        {
+          "title": "Three.js WebGLRenderer",
+          "url": "https://threejs.org/docs/pages/WebGLRenderer.html"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    },
+    {
+      "day": 28,
+      "id": "threejs-03",
+      "title": "렌더링 자원과 측정",
+      "prerequisites": "선수 개념: 기능 계약, 재실행 검증. 27단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "병목 분리",
+          "explanation": "draw call 감소와 픽셀 비용 감소는 서로 다른 개선입니다. 같은 장면에서 한 변수씩 바꿔야 효과를 해석할 수 있습니다."
+        },
+        {
+          "title": "반복 정리",
+          "explanation": "종료 시 루프·컨트롤·관찰자와 소유 자원을 함께 해제합니다. renderer.info의 안정 추세는 참고 자료이며 전체 VRAM의 해제 증명은 아닙니다."
+        }
+      ],
+      "outcomes": [
+        "동일 조건의 지표와 자원 정리 과정을 기록한다.",
+        "성능 개선과 품질·선택 기능의 유지 여부를 함께 설명한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-28.js와 index.html을 준비하세요. 기존 threejs-03 출발 코드에 장면 생성·삭제와 개별 Mesh/InstancedMesh 전환을 연결하세요.",
+        "같은 카메라·수량·DPR로 전후 calls와 프레임 분포를 기록하고 geometry·material·texture·render target 정리 장부를 제출하세요.",
+        "입력 조건 개별 Mesh에서 출력을 저장한 뒤 InstancedMesh 조건으로 다시 실행하세요. 예상: 동일 geometry와 material 조건에서 호출 수를 줄일 수 있으나 전체 프레임 효과는 측정해야 합니다. 실제 화면·로그와 대조하고 day-28-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "반복 객체 표현",
+          "baseline": "개별 Mesh",
+          "change": "InstancedMesh",
+          "expected": "동일 geometry와 material 조건에서 호출 수를 줄일 수 있으나 전체 프레임 효과는 측정해야 합니다"
+        }
+      ],
+      "criteria": [
+        "동일 조건의 지표와 자원 정리 과정을 기록한다.",
+        "성능 개선과 품질·선택 기능의 유지 여부를 함께 설명한다."
+      ],
+      "questions": [
+        "draw call은 줄었는데 프레임이 같다면 무엇을 의심하나요?",
+        "renderer.info로 알 수 없는 메모리 정보는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "Three.js InstancedMesh",
+          "url": "https://threejs.org/docs/pages/InstancedMesh.html"
+        },
+        {
+          "title": "Three.js WebGLRenderer",
+          "url": "https://threejs.org/docs/pages/WebGLRenderer.html"
+        },
+        {
+          "title": "Three.js Cleanup",
+          "url": "https://threejs.org/manual/pages/cleanup.html"
+        }
+      ],
+      "environment": "기존 내장 예제는 출발점만 제공합니다. 확장 요구사항 전체가 구현된 예제가 아니며 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+    }
+  ]
+}

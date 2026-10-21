@@ -1,0 +1,1433 @@
+{
+  "seriesId": "react-three-fiber",
+  "stages": [
+    "선언적 장면과 프레임 좌표",
+    "3D 입력과 UI 상태",
+    "모델·공유 자원·인스턴싱",
+    "demand 정책과 성능 검증"
+  ],
+  "goal": "Three.js 장면을 React 컴포넌트로 구성하고 프레임 값·선택 상태·공유 자원의 수명을 나누어 관리한다.",
+  "capstone": "선택과 필기가 있는 3D 학습 장면, 개별 mesh와 instancing 비교, demand 동작 검증 및 자원 소유권 보고서.",
+  "units": [
+    {
+      "day": 1,
+      "id": "react-three-fiber-01",
+      "title": "선언적 장면",
+      "prerequisites": "React state·ref·Effect와 cleanup, Three.js geometry·material·카메라, 벡터와 delta.",
+      "concepts": [
+        {
+          "title": "React renderer",
+          "explanation": "R3F는 Three.js 객체를 React 트리로 표현합니다. Canvas 내부의 mesh는 DOM 요소가 아니며 별도의 renderer가 관리합니다."
+        },
+        {
+          "title": "객체 소유권",
+          "explanation": "JSX로 선언한 geometry와 material은 장면 트리에 연결됩니다. 외부에서 만든 객체를 전달하는 경우 수명 책임을 별도로 확인해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "큐브·카메라·조명의 대응 코드가 기록된다.",
+        "scale 변경 뒤 큐브 크기가 달라진다."
+      ],
+      "steps": [
+        "외부 React Vite 프로젝트에 호환되는 React·Three.js·@react-three/fiber 버전을 설치하고 기록하세요.",
+        "src/Scene.jsx의 Canvas 안에 mesh·boxGeometry·meshStandardMaterial·조명을 선언하세요.",
+        "기존 명령형 큐브의 생성·추가·제거 코드와 JSX를 notes/day01.md에서 대응시키세요."
+      ],
+      "variables": [
+        {
+          "name": "scale prop",
+          "baseline": "1",
+          "change": "1.5",
+          "expected": "같은 geometry를 사용하는 큐브의 표시 크기가 커진다."
+        }
+      ],
+      "criteria": [
+        "큐브·카메라·조명의 대응 코드가 기록된다.",
+        "scale 변경 뒤 큐브 크기가 달라진다."
+      ],
+      "questions": [
+        "Canvas 안에 일반 div를 넣으면 왜 문제가 되나요?",
+        "mesh 선언과 geometry 생성은 어떤 객체를 만들나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 시작과 React 버전 호환",
+          "url": "https://r3f.docs.pmnd.rs/getting-started/introduction"
+        },
+        {
+          "title": "R3F 객체와 자원 해제",
+          "url": "https://r3f.docs.pmnd.rs/api/objects"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. 기존 react-three-fiber-01 미리보기는 출발점입니다. 본문의 확장 결과물은 별도 프로젝트에서 구현합니다."
+    },
+    {
+      "day": 2,
+      "id": "react-three-fiber-step-02",
+      "title": "Canvas 크기와 카메라",
+      "prerequisites": "2단위는 1단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "Canvas 영역",
+          "explanation": "Canvas는 부모 요소의 크기를 기준으로 렌더 영역을 잡습니다. 부모 높이가 없으면 장면이 보이지 않을 수 있습니다."
+        },
+        {
+          "title": "시야",
+          "explanation": "카메라 위치와 fov는 화면에 들어오는 범위를 결정합니다. 객체 크기와 카메라 설정을 동시에 바꾸면 원인 비교가 어렵습니다."
+        }
+      ],
+      "outcomes": [
+        "부모 크기 변경에도 Canvas 영역이 갱신된다.",
+        "두 fov의 화면 점유 크기를 같은 viewport에서 기록한다."
+      ],
+      "steps": [
+        "src/App.jsx에서 Canvas 부모에 높이 400px를 지정하세요.",
+        "camera position [0,0,5]와 fov 50을 설정해 큐브를 보세요.",
+        "부모 폭을 바꾸고 fov만 75로 변경한 화면을 별도로 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "fov",
+          "baseline": "50",
+          "change": "75",
+          "expected": "같은 거리의 큐브가 화면에서 더 작게 보인다."
+        }
+      ],
+      "criteria": [
+        "부모 크기 변경에도 Canvas 영역이 갱신된다.",
+        "두 fov의 화면 점유 크기를 같은 viewport에서 기록한다."
+      ],
+      "questions": [
+        "부모 높이 0과 카메라 뒤 객체는 어떻게 구분하나요?",
+        "fov 변경과 카메라 거리 변경은 항상 같은 효과인가요?"
+      ],
+      "references": [
+        {
+          "title": "R3F Canvas 설정",
+          "url": "https://r3f.docs.pmnd.rs/api/canvas"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 3,
+      "id": "react-three-fiber-step-03",
+      "title": "args와 객체 재생성",
+      "prerequisites": "3단위는 2단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "생성자 인자",
+          "explanation": "args는 Three.js 생성자 인자를 전달합니다. args가 바뀌면 해당 객체를 다시 만들 수 있으므로 단순 변환과 구분합니다."
+        },
+        {
+          "title": "속성 갱신",
+          "explanation": "position·rotation·scale은 기존 객체의 변환 속성입니다. geometry 크기를 다시 만드는 것과 scale을 바꾸는 것은 비용이 다릅니다."
+        }
+      ],
+      "outcomes": [
+        "scale 변경만으로 geometry uuid가 바뀌지 않는다.",
+        "args 변경 전후 uuid를 기록한다."
+      ],
+      "steps": [
+        "src/Box.jsx에 boxGeometry args와 mesh scale을 각각 prop으로 받으세요.",
+        "geometry uuid를 Effect 로그로 기록하세요.",
+        "폭 args 변경과 scale 변경을 각각 수행해 uuid와 화면을 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "크기 변경 방식",
+          "baseline": "mesh scale",
+          "change": "geometry args",
+          "expected": "args 변경에서 geometry 정체성이 달라진다."
+        }
+      ],
+      "criteria": [
+        "scale 변경만으로 geometry uuid가 바뀌지 않는다.",
+        "args 변경 전후 uuid를 기록한다."
+      ],
+      "questions": [
+        "render 안에서 new BoxGeometry를 계속 호출하면 무엇이 생기나요?",
+        "scale로 표현하면 안 되는 geometry 변경은 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 객체와 자원 해제",
+          "url": "https://r3f.docs.pmnd.rs/api/objects"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 4,
+      "id": "react-three-fiber-step-04",
+      "title": "group과 로컬 좌표",
+      "prerequisites": "4단위는 3단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "장면 계층",
+          "explanation": "group은 자식 변환의 기준 좌표계를 만듭니다. 자식의 position은 부모에 대한 로컬 위치입니다."
+        },
+        {
+          "title": "변환 순서",
+          "explanation": "부모 회전은 자식 위치와 방향 모두에 영향을 줍니다. 월드 좌표를 확인하면 단순 숫자 대입과 실제 위치의 차이를 볼 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "자식 position.x가 2로 유지된다.",
+        "월드 위치와 화면 이동 방향을 대응해 기록한다."
+      ],
+      "steps": [
+        "src/OrbitGroup.jsx에 group과 x=2인 자식 큐브를 만드세요.",
+        "group rotation-y를 0에서 Math.PI/2로 바꾸세요.",
+        "getWorldPosition 결과를 로그로 적고 화면 이동과 대조하세요."
+      ],
+      "variables": [
+        {
+          "name": "부모 회전",
+          "baseline": "0",
+          "change": "Math.PI/2",
+          "expected": "자식 로컬 x는 유지되지만 월드 위치가 이동한다."
+        }
+      ],
+      "criteria": [
+        "자식 position.x가 2로 유지된다.",
+        "월드 위치와 화면 이동 방향을 대응해 기록한다."
+      ],
+      "questions": [
+        "부모 이동과 자식 이동을 언제 구분해야 하나요?",
+        "회전축을 바꾸면 궤도는 어떻게 달라지나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 객체와 자원 해제",
+          "url": "https://r3f.docs.pmnd.rs/api/objects"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 5,
+      "id": "react-three-fiber-step-05",
+      "title": "재질과 조명",
+      "prerequisites": "5단위는 4단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "조명 의존",
+          "explanation": "MeshStandardMaterial은 조명의 영향을 받습니다. MeshBasicMaterial은 조명 없이도 기본 색을 보여 줍니다."
+        },
+        {
+          "title": "표면 입력",
+          "explanation": "roughness와 metalness는 표면 반응을 바꿉니다. 조명·카메라를 고정해야 재질 변수의 영향을 비교할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "두 재질의 조명 반응 차이를 기록한다.",
+        "동일 카메라에서 roughness 두 조건도 구분한다."
+      ],
+      "steps": [
+        "src/MaterialStudy.jsx에 같은 geometry의 두 mesh를 배치하세요.",
+        "한쪽은 basic·다른 쪽은 standard material을 사용하세요.",
+        "directionalLight intensity를 0과 3으로 바꾸고 두 표면을 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "조명 intensity",
+          "baseline": "0",
+          "change": "3",
+          "expected": "standard 표면은 달라지고 basic 색은 조명에 직접 의존하지 않는다."
+        }
+      ],
+      "criteria": [
+        "두 재질의 조명 반응 차이를 기록한다.",
+        "동일 카메라에서 roughness 두 조건도 구분한다."
+      ],
+      "questions": [
+        "standard가 검게 보이면 재질 색만 고쳐야 하나요?",
+        "metalness를 올렸는데 반사가 안 보이면 무엇을 확인하나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 객체와 자원 해제",
+          "url": "https://r3f.docs.pmnd.rs/api/objects"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 6,
+      "id": "react-three-fiber-step-06",
+      "title": "ref로 Three.js 객체 읽기",
+      "prerequisites": "6단위는 5단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "객체 ref",
+          "explanation": "mesh ref는 DOM이 아닌 Three.js Mesh를 가리킵니다. 커밋 이후 현재 객체의 위치·회전·uuid를 읽을 수 있습니다."
+        },
+        {
+          "title": "소유자 일치",
+          "explanation": "같은 속성을 props와 명령형 코드가 동시에 쓰면 갱신이 충돌할 수 있습니다. 어떤 경로가 해당 속성을 소유하는지 정합니다."
+        }
+      ],
+      "outcomes": [
+        "ref.current의 객체 타입과 uuid가 기록된다.",
+        "최종 구현은 rotation을 한 경로에서만 갱신한다."
+      ],
+      "steps": [
+        "src/InspectableBox.jsx의 mesh에 useRef를 연결하세요.",
+        "버튼 입력을 받은 Effect에서 rotation.y를 변경하고 uuid를 기록하세요.",
+        "동일 rotation을 props에서도 전달한 대조군과 결과를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "회전 소유자",
+          "baseline": "ref 한 경로",
+          "change": "ref와 props 두 경로",
+          "expected": "두 경로는 재렌더 때 값을 덮을 수 있다."
+        }
+      ],
+      "criteria": [
+        "ref.current의 객체 타입과 uuid가 기록된다.",
+        "최종 구현은 rotation을 한 경로에서만 갱신한다."
+      ],
+      "questions": [
+        "ref가 null인 시점은 언제인가요?",
+        "React state와 Three.js 객체 속성을 모두 저장할 필요가 있나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 객체와 자원 해제",
+          "url": "https://r3f.docs.pmnd.rs/api/objects"
+        },
+        {
+          "title": "R3F Hooks",
+          "url": "https://r3f.docs.pmnd.rs/api/hooks"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 7,
+      "id": "react-three-fiber-step-07",
+      "title": "useFrame과 시간 기반 회전",
+      "prerequisites": "7단위는 6단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "프레임 콜백",
+          "explanation": "useFrame은 Canvas 렌더 루프에 참여합니다. 컴포넌트가 제거되면 등록도 해제되므로 별도 RAF를 겹쳐 만들지 않습니다."
+        },
+        {
+          "title": "delta",
+          "explanation": "delta는 지난 프레임과의 시간 차이입니다. 각도에 속도와 delta를 곱하면 프레임 수에 따른 속도 차이를 줄입니다."
+        }
+      ],
+      "outcomes": [
+        "회전량이 speed × 누적 delta와 허용 오차 안에서 맞는다.",
+        "프레임 콜백에 React setState가 없다."
+      ],
+      "steps": [
+        "src/RotatingBox.jsx에서 useFrame((_state,delta) => ...)로 ref 회전을 갱신하세요.",
+        "speed prop을 0·1·2로 전달하고 React setState는 프레임 안에서 쓰지 마세요.",
+        "누적 delta와 회전량을 5초 구간으로 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "speed",
+          "baseline": "1 rad/s",
+          "change": "2 rad/s",
+          "expected": "같은 누적 delta에서 회전량이 두 배다."
+        }
+      ],
+      "criteria": [
+        "회전량이 speed × 누적 delta와 허용 오차 안에서 맞는다.",
+        "프레임 콜백에 React setState가 없다."
+      ],
+      "questions": [
+        "매 프레임 0.01을 더하면 어떤 기기 차이가 생기나요?",
+        "탭 복귀의 큰 delta를 제한하면 어떤 의미가 달라지나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F Hooks",
+          "url": "https://r3f.docs.pmnd.rs/api/hooks"
+        },
+        {
+          "title": "R3F 성능 함정",
+          "url": "https://r3f.docs.pmnd.rs/advanced/pitfalls"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 8,
+      "id": "react-three-fiber-step-08",
+      "title": "useThree의 범위와 선택",
+      "prerequisites": "8단위는 7단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "Canvas Context",
+          "explanation": "useThree는 Canvas 내부 컴포넌트에서만 사용할 수 있습니다. Canvas를 반환하는 부모에서 호출하면 아직 해당 Context가 없습니다."
+        },
+        {
+          "title": "선택 구독",
+          "explanation": "selector로 필요한 상태만 읽으면 의존 범위가 명확해집니다. 카메라 내부 속성의 모든 명령형 변경이 자동 구독된다고 가정하지 않습니다."
+        }
+      ],
+      "outcomes": [
+        "useThree 호출이 Canvas 자식 안에 있다.",
+        "size와 viewport를 서로 다른 단위로 기록한다."
+      ],
+      "steps": [
+        "src/SceneInfo.jsx를 Canvas 자식으로 만들고 size·viewport를 읽으세요.",
+        "DOM 패널에 저빈도 보고 콜백으로 측정값을 표시하세요.",
+        "부모 폭을 400에서 800으로 바꾸고 픽셀 size와 월드 viewport를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "부모 폭",
+          "baseline": "400px",
+          "change": "800px",
+          "expected": "픽셀 size와 카메라 기준 월드 범위가 각각 갱신된다."
+        }
+      ],
+      "criteria": [
+        "useThree 호출이 Canvas 자식 안에 있다.",
+        "size와 viewport를 서로 다른 단위로 기록한다."
+      ],
+      "questions": [
+        "size.width와 viewport.width는 같은 값인가요?",
+        "camera.position.x 변경을 selector가 자동 추적하나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F Hooks",
+          "url": "https://r3f.docs.pmnd.rs/api/hooks"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 9,
+      "id": "react-three-fiber-step-09",
+      "title": "카메라 조작과 projection 갱신",
+      "prerequisites": "9단위는 8단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "투영 설정",
+          "explanation": "카메라 fov·near·far는 투영 행렬에 영향을 줍니다. 명령형으로 변경했다면 updateProjectionMatrix 호출이 필요할 수 있습니다."
+        },
+        {
+          "title": "관측 조건",
+          "explanation": "카메라 이동은 모든 객체의 화면 위치를 바꿉니다. 객체 이동 실험과 별도로 기록해야 좌표 변화를 해석할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "입력 fov와 camera.fov가 일치한다.",
+        "행렬 갱신 호출 전후 결과를 구분해 기록한다."
+      ],
+      "steps": [
+        "src/CameraRig.jsx에서 useThree로 camera를 읽으세요.",
+        "UI fov 값 변경 Effect에서 fov를 대입하고 updateProjectionMatrix를 호출하세요.",
+        "fov 40·70과 camera z 5·8을 한 번에 하나씩 바꿔 화면을 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "fov",
+          "baseline": "40",
+          "change": "70",
+          "expected": "투영 갱신 후 같은 큐브가 더 작게 보인다."
+        }
+      ],
+      "criteria": [
+        "입력 fov와 camera.fov가 일치한다.",
+        "행렬 갱신 호출 전후 결과를 구분해 기록한다."
+      ],
+      "questions": [
+        "camera prop 갱신과 직접 대입은 어떤 경로가 다른가요?",
+        "near를 너무 크게 하면 무엇이 잘리나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F Hooks",
+          "url": "https://r3f.docs.pmnd.rs/api/hooks"
+        },
+        {
+          "title": "R3F Canvas 설정",
+          "url": "https://r3f.docs.pmnd.rs/api/canvas"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 10,
+      "id": "react-three-fiber-step-10",
+      "title": "포인터 교차와 선택",
+      "prerequisites": "10단위는 9단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "raycast 이벤트",
+          "explanation": "R3F 포인터 이벤트는 3D 객체와의 교차를 기준으로 전달됩니다. event.point는 교차한 월드 위치 정보를 담습니다."
+        },
+        {
+          "title": "선택 상태",
+          "explanation": "선택 id는 UI와 공유할 저빈도 상태입니다. 움직이는 좌표를 매 포인터 이동마다 React state에 복사할 필요는 없습니다."
+        }
+      ],
+      "outcomes": [
+        "선택 강조가 정확히 1개다.",
+        "DOM 상세 id와 클릭한 mesh id가 일치한다."
+      ],
+      "steps": [
+        "src/SelectableBox.jsx의 onClick에서 id를 부모에 전달하세요.",
+        "선택 색과 DOM 상세 패널을 같은 selectedId에서 계산하세요.",
+        "세 큐브를 차례로 클릭하고 id·event.point를 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "선택 대상",
+          "baseline": "왼쪽 큐브",
+          "change": "오른쪽 큐브",
+          "expected": "색과 상세 패널이 같은 id로 바뀐다."
+        }
+      ],
+      "criteria": [
+        "선택 강조가 정확히 1개다.",
+        "DOM 상세 id와 클릭한 mesh id가 일치한다."
+      ],
+      "questions": [
+        "event.point는 로컬 좌표인가요 월드 좌표인가요?",
+        "pointermove와 click의 상태 갱신 빈도를 왜 나누나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 포인터 이벤트",
+          "url": "https://r3f.docs.pmnd.rs/api/events"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 11,
+      "id": "react-three-fiber-step-11",
+      "title": "이벤트 전파와 가림",
+      "prerequisites": "11단위는 10단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "교차 전파",
+          "explanation": "이벤트는 교차한 가까운 객체와 조상으로 전달되고 뒤 객체에도 갈 수 있습니다. DOM의 겹침 모델과 동일하다고 가정하지 않습니다."
+        },
+        {
+          "title": "전파 차단",
+          "explanation": "stopPropagation은 뒤쪽 교차 객체로 전달되는 동작에도 영향을 줍니다. 선택을 하나로 제한할지 관통시킬지 요구에 맞게 정합니다."
+        }
+      ],
+      "outcomes": [
+        "차단 모드에서 뒤 큐브가 선택되지 않는다.",
+        "허용·차단 각각의 이벤트 순서를 기록한다."
+      ],
+      "steps": [
+        "src/OverlapScene.jsx에서 카메라 앞뒤로 겹친 큐브 두 개를 만드세요.",
+        "각 mesh와 부모 group의 클릭 로그를 기록하세요.",
+        "앞 큐브에 stopPropagation을 추가해 같은 위치 클릭 결과를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "전파 정책",
+          "baseline": "허용",
+          "change": "앞 객체에서 차단",
+          "expected": "뒤 객체와 조상 로그의 전달 범위가 달라진다."
+        }
+      ],
+      "criteria": [
+        "차단 모드에서 뒤 큐브가 선택되지 않는다.",
+        "허용·차단 각각의 이벤트 순서를 기록한다."
+      ],
+      "questions": [
+        "투명 재질이면 이벤트도 자동으로 통과하나요?",
+        "부모 group의 핸들러가 받은 object와 eventObject는 어떻게 다른가요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 포인터 이벤트",
+          "url": "https://r3f.docs.pmnd.rs/api/events"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 12,
+      "id": "react-three-fiber-step-12",
+      "title": "드래그와 포인터 캡처",
+      "prerequisites": "12단위는 11단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "포인터 캡처",
+          "explanation": "캡처는 포인터가 객체 밖으로 움직여도 드래그를 이어 가는 데 사용합니다. R3F 캡처는 교차 목록 처리와 함께 동작하므로 DOM과 차이를 확인합니다."
+        },
+        {
+          "title": "좌표 평면",
+          "explanation": "화면 이동량을 그대로 월드 위치에 더하면 카메라에 따라 속도가 달라집니다. 정한 평면과 ray의 교차로 이동 좌표를 구합니다."
+        }
+      ],
+      "outcomes": [
+        "객체 밖에서 놓아도 dragging 상태가 false다.",
+        "드래그 중 매 이벤트 React setState를 사용하지 않는다."
+      ],
+      "steps": [
+        "src/DraggableBox.jsx에서 pointerdown에 pointerId를 캡처하세요.",
+        "pointermove에서 ray와 z=0 평면의 교차를 ref 위치에 적용하세요.",
+        "pointerup·취소에서 캡처를 해제하고 객체 밖 이동도 시험하세요."
+      ],
+      "variables": [
+        {
+          "name": "캡처",
+          "baseline": "없음",
+          "change": "있음",
+          "expected": "객체 경계를 벗어나도 드래그 종료를 처리할 수 있다."
+        }
+      ],
+      "criteria": [
+        "객체 밖에서 놓아도 dragging 상태가 false다.",
+        "드래그 중 매 이벤트 React setState를 사용하지 않는다."
+      ],
+      "questions": [
+        "드래그 평면을 카메라에 수직으로 두면 어떤 차이가 있나요?",
+        "캡처만으로 다른 객체 이벤트가 모두 차단되나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 포인터 이벤트",
+          "url": "https://r3f.docs.pmnd.rs/api/events"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 13,
+      "id": "react-three-fiber-step-13",
+      "title": "UI 상태와 프레임 목표",
+      "prerequisites": "13단위는 12단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "목표 상태",
+          "explanation": "슬라이더의 목표 각도는 React 상태로 표현할 수 있습니다. 실제 프레임 보간값은 ref의 객체 속성에 둡니다."
+        },
+        {
+          "title": "보간",
+          "explanation": "현재값을 목표값으로 점진적으로 이동시키면 부드러운 전환을 만들 수 있습니다. 시간 의존 계수를 사용해 프레임 수 차이를 줄입니다."
+        }
+      ],
+      "outcomes": [
+        "목표가 고정되면 각도 오차가 감소한다.",
+        "프레임 경로에 setState가 없다."
+      ],
+      "steps": [
+        "src/SmoothBox.jsx에 targetAngle prop을 전달하세요.",
+        "useFrame에서 1-exp(-k*delta) 계수로 현재 각도를 목표에 접근시키세요.",
+        "목표 0→1과 k 2→8을 각각 바꾸고 도달 오차를 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "보간 k",
+          "baseline": "2",
+          "change": "8",
+          "expected": "같은 시간 뒤 목표와의 오차가 더 작다."
+        }
+      ],
+      "criteria": [
+        "목표가 고정되면 각도 오차가 감소한다.",
+        "프레임 경로에 setState가 없다."
+      ],
+      "questions": [
+        "목표와 현재 각도를 같은 state로 두면 무엇이 복잡해지나요?",
+        "계수 0.1 고정 보간은 기기마다 같은 시간인가요?"
+      ],
+      "references": [
+        {
+          "title": "R3F Hooks",
+          "url": "https://r3f.docs.pmnd.rs/api/hooks"
+        },
+        {
+          "title": "R3F 성능 함정",
+          "url": "https://r3f.docs.pmnd.rs/advanced/pitfalls"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 14,
+      "id": "react-three-fiber-02",
+      "title": "프레임과 이벤트",
+      "prerequisites": "14단위는 13단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "역할 분리",
+          "explanation": "useFrame은 잦은 좌표·회전을 ref로 갱신합니다. hover·클릭 선택처럼 UI 의미가 바뀔 때만 React 상태를 갱신합니다."
+        },
+        {
+          "title": "전파 정책",
+          "explanation": "겹친 객체에서는 포인터 전파 규칙이 선택 결과를 결정합니다. 이벤트 로그로 실제 교차 순서와 중복 선택을 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "클릭 10회에 의도한 선택 변경 10회만 발생한다.",
+        "회전 중 React 상태가 프레임마다 갱신되지 않는다."
+      ],
+      "steps": [
+        "src/InteractiveScene.jsx에 hover 색·클릭 선택·delta 회전을 통합하세요.",
+        "겹친 큐브에서 stopPropagation 정책과 onPointerMissed 선택 해제를 구현하세요.",
+        "10회 클릭과 5초 회전을 기록하고 프레임 setState가 없는지 검사하세요."
+      ],
+      "variables": [
+        {
+          "name": "전파",
+          "baseline": "허용",
+          "change": "앞 mesh에서 차단",
+          "expected": "한 클릭이 뒤 객체 선택까지 바꾸지 않는다."
+        }
+      ],
+      "criteria": [
+        "클릭 10회에 의도한 선택 변경 10회만 발생한다.",
+        "회전 중 React 상태가 프레임마다 갱신되지 않는다."
+      ],
+      "questions": [
+        "hover와 실제 선택은 같은 상태인가요?",
+        "빈 공간 클릭과 drag 종료 클릭을 어떻게 구분할 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F Hooks",
+          "url": "https://r3f.docs.pmnd.rs/api/hooks"
+        },
+        {
+          "title": "R3F 포인터 이벤트",
+          "url": "https://r3f.docs.pmnd.rs/api/events"
+        },
+        {
+          "title": "R3F 성능 함정",
+          "url": "https://r3f.docs.pmnd.rs/advanced/pitfalls"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. 기존 react-three-fiber-02 미리보기는 출발점입니다. 본문의 확장 결과물은 별도 프로젝트에서 구현합니다."
+    },
+    {
+      "day": 15,
+      "id": "react-three-fiber-step-15",
+      "title": "모델 로딩과 Suspense",
+      "prerequisites": "15단위는 14단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "로더",
+          "explanation": "useLoader는 로더와 URL로 자원을 읽고 캐시합니다. 같은 URL의 결과를 공유할 수 있으므로 소유권을 확인해야 합니다."
+        },
+        {
+          "title": "대기와 실패",
+          "explanation": "Suspense는 로딩 중 대체 화면을 표시합니다. 로딩 실패는 별도의 오류 경계와 복구 동작으로 처리합니다."
+        }
+      ],
+      "outcomes": [
+        "정상 URL에서 모델이 표시된다.",
+        "잘못된 URL에서 흰 화면 대신 오류 안내가 있다."
+      ],
+      "steps": [
+        "public/models에 사용 권한을 확인한 작은 GLB와 출처 기록을 두세요.",
+        "src/Model.jsx에서 useLoader(GLTFLoader,url)와 primitive를 사용하세요.",
+        "Suspense 대체 장면과 Canvas 밖 오류 경계를 두고 정상·없는 URL을 시험하세요."
+      ],
+      "variables": [
+        {
+          "name": "모델 URL",
+          "baseline": "유효 GLB",
+          "change": "없는 GLB",
+          "expected": "실패 안내가 나오고 다른 UI 조작은 가능하다."
+        }
+      ],
+      "criteria": [
+        "정상 URL에서 모델이 표시된다.",
+        "잘못된 URL에서 흰 화면 대신 오류 안내가 있다."
+      ],
+      "questions": [
+        "Suspense fallback이 로딩 오류도 자동 처리하나요?",
+        "URL 캐시를 공유할 때 dispose를 누가 해야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 모델 로딩",
+          "url": "https://r3f.docs.pmnd.rs/tutorials/loading-models"
+        },
+        {
+          "title": "R3F Hooks",
+          "url": "https://r3f.docs.pmnd.rs/api/hooks"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 16,
+      "id": "react-three-fiber-step-16",
+      "title": "캐시 모델의 복제와 공유",
+      "prerequisites": "16단위는 15단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "장면 객체",
+          "explanation": "같은 Object3D를 두 부모에 동시에 붙일 수 없습니다. 여러 인스턴스가 필요하면 복제 전략과 공유 자원을 구분합니다."
+        },
+        {
+          "title": "복제 범위",
+          "explanation": "scene.clone은 객체 계층을 복제해도 geometry·material을 공유할 수 있습니다. 골격 모델은 별도의 적절한 복제 방식을 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "두 인스턴스가 서로 다른 위치에 동시에 보인다.",
+        "객체와 geometry/material의 공유 여부를 기록한다."
+      ],
+      "steps": [
+        "src/ModelPair.jsx에서 비골격 GLB scene을 두 번 쓰는 대조를 만드세요.",
+        "각 인스턴스에 scene.clone()을 한 번씩 만들고 다른 위치에 배치하세요.",
+        "객체·geometry·material uuid를 비교하고 색상 변경의 공유 영향을 적으세요."
+      ],
+      "variables": [
+        {
+          "name": "복제 방식",
+          "baseline": "같은 scene 참조",
+          "change": "객체 계층 복제",
+          "expected": "두 위치에 모델이 보이지만 일부 자원은 공유될 수 있다."
+        }
+      ],
+      "criteria": [
+        "두 인스턴스가 서로 다른 위치에 동시에 보인다.",
+        "객체와 geometry/material의 공유 여부를 기록한다."
+      ],
+      "questions": [
+        "복제한 모델 한 개의 material 색이 다른 모델에도 바뀌는 이유는 무엇인가요?",
+        "스킨 모델에 단순 clone을 적용하기 전에 무엇을 확인하나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 모델 로딩",
+          "url": "https://r3f.docs.pmnd.rs/tutorials/loading-models"
+        },
+        {
+          "title": "R3F 객체와 자원 해제",
+          "url": "https://r3f.docs.pmnd.rs/api/objects"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 17,
+      "id": "react-three-fiber-step-17",
+      "title": "텍스처 입력과 갱신",
+      "prerequisites": "17단위는 16단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "텍스처 의미",
+          "explanation": "색상 텍스처와 normal·roughness 같은 데이터 텍스처는 의미가 다릅니다. 색 공간 설정을 종류에 맞게 확인해야 합니다."
+        },
+        {
+          "title": "메모리 비용",
+          "explanation": "텍스처 해상도는 다운로드 크기뿐 아니라 GPU 메모리에도 영향을 줍니다. 화면에서 얻는 품질과 함께 비교합니다."
+        }
+      ],
+      "outcomes": [
+        "텍스처 종류와 색 공간 설정을 기록한다.",
+        "같은 카메라에서 두 해상도 비교 이미지가 있다."
+      ],
+      "steps": [
+        "public/textures에 권한을 확인한 작은 색상 텍스처를 준비하세요.",
+        "src/TexturedBox.jsx에서 TextureLoader와 material map을 연결하세요.",
+        "256과 1024 해상도 버전을 같은 카메라에서 비교하고 치수·파일 크기를 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "텍스처 해상도",
+          "baseline": "256×256",
+          "change": "1024×1024",
+          "expected": "세부 표현과 메모리 비용이 함께 달라질 수 있다."
+        }
+      ],
+      "criteria": [
+        "텍스처 종류와 색 공간 설정을 기록한다.",
+        "같은 카메라에서 두 해상도 비교 이미지가 있다."
+      ],
+      "questions": [
+        "압축 파일 크기가 GPU 메모리와 같은가요?",
+        "roughness 텍스처를 색상 데이터처럼 처리하면 어떤 오차가 생기나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F Hooks",
+          "url": "https://r3f.docs.pmnd.rs/api/hooks"
+        },
+        {
+          "title": "R3F 모델 로딩",
+          "url": "https://r3f.docs.pmnd.rs/tutorials/loading-models"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 18,
+      "id": "react-three-fiber-step-18",
+      "title": "공유 geometry와 material",
+      "prerequisites": "18단위는 17단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "자원 공유",
+          "explanation": "동일한 geometry와 material을 여러 mesh에 전달하면 중복 생성을 줄일 수 있습니다. transform은 mesh마다 독립적으로 유지됩니다."
+        },
+        {
+          "title": "해제 책임",
+          "explanation": "공유 자원을 자식 하나가 해제하면 다른 소비자도 영향을 받습니다. dispose={null}을 사용한다면 마지막 소유자가 명시적으로 해제해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "36개 mesh의 geometry uuid가 같다.",
+        "전체 종료 때 소유자가 각 자원을 한 번 해제한다."
+      ],
+      "steps": [
+        "src/SharedGrid.jsx에서 geometry와 material을 소유 컴포넌트에서 한 번 만드세요.",
+        "36개 mesh에 같은 참조를 전달하고 자식 자동 해제 정책을 명시하세요.",
+        "mesh 하나 제거와 전체 grid 제거를 나눠 uuid·dispose 로그를 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "자원 생성",
+          "baseline": "mesh마다 생성",
+          "change": "상위에서 한 번 공유",
+          "expected": "36개 mesh가 geometry·material 각 1개를 참조한다."
+        }
+      ],
+      "criteria": [
+        "36개 mesh의 geometry uuid가 같다.",
+        "전체 종료 때 소유자가 각 자원을 한 번 해제한다."
+      ],
+      "questions": [
+        "useMemo는 영구 수명 저장소로 보장되나요?",
+        "dispose=null을 넣고 cleanup을 생략하면 무엇이 남나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 객체와 자원 해제",
+          "url": "https://r3f.docs.pmnd.rs/api/objects"
+        },
+        {
+          "title": "R3F 성능 확장과 demand 렌더링",
+          "url": "https://r3f.docs.pmnd.rs/advanced/scaling-performance"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 19,
+      "id": "react-three-fiber-step-19",
+      "title": "프레임 중 할당 줄이기",
+      "prerequisites": "19단위는 18단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "할당 비용",
+          "explanation": "프레임마다 Vector3 같은 객체를 만들면 가비지 수집 압력이 늘 수 있습니다. 재사용 가능한 임시 객체를 프레임 밖에 준비합니다."
+        },
+        {
+          "title": "측정",
+          "explanation": "짧은 프레임 지연은 평균 FPS에 잘 드러나지 않을 수 있습니다. 같은 장면에서 프레임 시간 분포와 할당을 함께 관찰합니다."
+        }
+      ],
+      "outcomes": [
+        "재사용 경로의 프레임 내부 new Vector3가 0개다.",
+        "동일 조건 두 성능 기록에 평균과 긴 프레임을 남긴다."
+      ],
+      "steps": [
+        "src/MovingCloud.jsx에서 프레임마다 생성하는 Vector3 대조군을 만드세요.",
+        "재사용 Vector3를 ref나 안정된 초기화 경로에 두고 set·copy로 갱신하세요.",
+        "동일 500개 객체로 두 방식의 10초 성능 기록을 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "임시 객체",
+          "baseline": "매 프레임 new",
+          "change": "재사용",
+          "expected": "할당량이 줄어들 수 있으나 실제 시간 변화는 측정한다."
+        }
+      ],
+      "criteria": [
+        "재사용 경로의 프레임 내부 new Vector3가 0개다.",
+        "동일 조건 두 성능 기록에 평균과 긴 프레임을 남긴다."
+      ],
+      "questions": [
+        "객체 재사용 때문에 값이 공유되어 버리는 경우는 언제인가요?",
+        "메모리 할당 감소가 항상 FPS 증가로 이어지나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 성능 함정",
+          "url": "https://r3f.docs.pmnd.rs/advanced/pitfalls"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 20,
+      "id": "react-three-fiber-step-20",
+      "title": "instancedMesh로 반복 객체 그리기",
+      "prerequisites": "20단위는 19단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "인스턴싱",
+          "explanation": "InstancedMesh는 같은 geometry·material의 여러 변환을 한 객체로 묶습니다. 개별 mesh와 이벤트·업데이트 방식이 달라집니다."
+        },
+        {
+          "title": "행렬 업로드",
+          "explanation": "setMatrixAt 후 instanceMatrix.needsUpdate로 변경을 알립니다. CPU 배열 변경과 GPU 반영을 구분합니다."
+        }
+      ],
+      "outcomes": [
+        "100개 객체가 같은 배치로 보인다.",
+        "두 표현의 draw call을 동일 패스 조건에서 기록한다."
+      ],
+      "steps": [
+        "src/InstancedGrid.jsx에 instancedMesh와 100개 위치를 만드세요.",
+        "임시 Object3D로 행렬을 계산해 setMatrixAt 후 needsUpdate를 설정하세요.",
+        "동일 100개 개별 mesh와 renderer.info.render.calls를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "표현",
+          "baseline": "개별 mesh 100개",
+          "change": "instancedMesh 100개",
+          "expected": "동일 자원 조건에서 draw call 수가 줄어들 수 있다."
+        }
+      ],
+      "criteria": [
+        "100개 객체가 같은 배치로 보인다.",
+        "두 표현의 draw call을 동일 패스 조건에서 기록한다."
+      ],
+      "questions": [
+        "재질이 모두 다르면 하나의 instancedMesh로 묶기 쉬운가요?",
+        "needsUpdate를 빼면 CPU 변경이 화면에 나타나나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 성능 확장과 demand 렌더링",
+          "url": "https://r3f.docs.pmnd.rs/advanced/scaling-performance"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 21,
+      "id": "react-three-fiber-step-21",
+      "title": "인스턴스 선택과 경계",
+      "prerequisites": "21단위는 20단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "인스턴스 id",
+          "explanation": "교차 이벤트의 instanceId는 묶음 안의 항목을 식별합니다. 배열 순번과 실제 도메인 id의 매핑을 보관해야 합니다."
+        },
+        {
+          "title": "경계 갱신",
+          "explanation": "인스턴스 행렬 변경은 경계 계산에도 영향을 줄 수 있습니다. 이동 후 picking이나 culling 오류가 있으면 bounding 정보도 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "클릭 id와 DOM 선택 패널이 일치한다.",
+        "새 위치에서도 선택·표시 동작을 확인한다."
+      ],
+      "steps": [
+        "src/InstancedGrid.jsx의 onClick에서 instanceId를 도메인 id로 변환하세요.",
+        "setColorAt과 instanceColor.needsUpdate로 선택 색을 바꾸세요.",
+        "인스턴스를 멀리 옮긴 뒤 경계 재계산과 클릭 결과를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "인스턴스 위치",
+          "baseline": "초기 격자",
+          "change": "격자 밖으로 이동",
+          "expected": "경계 정보를 갱신해야 새 위치의 picking·culling을 판단할 수 있다."
+        }
+      ],
+      "criteria": [
+        "클릭 id와 DOM 선택 패널이 일치한다.",
+        "새 위치에서도 선택·표시 동작을 확인한다."
+      ],
+      "questions": [
+        "instanceId를 영구 데이터 id로 써도 되나요?",
+        "행렬과 색상 버퍼의 needsUpdate는 같은 속성인가요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 포인터 이벤트",
+          "url": "https://r3f.docs.pmnd.rs/api/events"
+        },
+        {
+          "title": "R3F 성능 확장과 demand 렌더링",
+          "url": "https://r3f.docs.pmnd.rs/advanced/scaling-performance"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 22,
+      "id": "react-three-fiber-step-22",
+      "title": "demand 렌더링",
+      "prerequisites": "22단위는 21단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "필요할 때 그리기",
+          "explanation": "frameloop='demand'는 변화가 있을 때 프레임을 요청하는 정책입니다. 정지 장면에서 계속 렌더하지 않도록 할 수 있습니다."
+        },
+        {
+          "title": "수동 무효화",
+          "explanation": "ref로 직접 객체를 바꾸면 React가 변화를 알지 못할 수 있습니다. invalidate로 다음 프레임을 요청해 화면에 반영합니다."
+        }
+      ],
+      "outcomes": [
+        "demand 정지 구간에서 불필요한 연속 프레임이 없다.",
+        "버튼 클릭 뒤 각도가 화면에 반영된다."
+      ],
+      "steps": [
+        "src/DemandScene.jsx의 Canvas frameloop을 demand로 설정하세요.",
+        "버튼 Effect에서 group.rotation.y를 바꾸고 invalidate를 호출하세요.",
+        "always와 demand에서 정지 5초·버튼 조작 5회의 프레임 수를 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "frameloop",
+          "baseline": "always",
+          "change": "demand",
+          "expected": "정지 중 프레임은 줄고 버튼 변화는 계속 보여야 한다."
+        }
+      ],
+      "criteria": [
+        "demand 정지 구간에서 불필요한 연속 프레임이 없다.",
+        "버튼 클릭 뒤 각도가 화면에 반영된다."
+      ],
+      "questions": [
+        "invalidate는 즉시 동기 렌더 명령인가요?",
+        "여러 invalidate 호출이 같은 수의 프레임을 보장하나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 성능 확장과 demand 렌더링",
+          "url": "https://r3f.docs.pmnd.rs/advanced/scaling-performance"
+        },
+        {
+          "title": "R3F Hooks",
+          "url": "https://r3f.docs.pmnd.rs/api/hooks"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 23,
+      "id": "react-three-fiber-step-23",
+      "title": "demand와 움직임의 종료",
+      "prerequisites": "23단위는 22단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "연속 동작",
+          "explanation": "demand에서도 애니메이션 중에는 다음 프레임이 필요합니다. 목표에 도달할 때까지 invalidate를 이어 요청하고 끝나면 멈춥니다."
+        },
+        {
+          "title": "수렴 조건",
+          "explanation": "보간은 정확히 목표에 닿지 않을 수 있습니다. 허용 오차 이하에서 목표로 맞추고 루프를 종료합니다."
+        }
+      ],
+      "outcomes": [
+        "최종 각도 오차가 0.001 이하이다.",
+        "수렴 후 3초 동안 연속 프레임이 누적되지 않는다."
+      ],
+      "steps": [
+        "src/DemandMotion.jsx에서 목표 각도와 현재 각도 오차를 계산하세요.",
+        "useFrame에서 보간 후 오차가 0.001 이상이면 invalidate를 호출하세요.",
+        "버튼으로 새 목표를 주고 움직임 종료 전후 프레임 수를 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "종료 오차",
+          "baseline": "0",
+          "change": "0.001",
+          "expected": "작은 오차에서 정확히 목표로 맞추고 프레임 요청을 멈춘다."
+        }
+      ],
+      "criteria": [
+        "최종 각도 오차가 0.001 이하이다.",
+        "수렴 후 3초 동안 연속 프레임이 누적되지 않는다."
+      ],
+      "questions": [
+        "demand에서 첫 프레임은 누가 요청하나요?",
+        "애니메이션 종료 뒤에도 invalidate하면 어떤 이점이 사라지나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 성능 확장과 demand 렌더링",
+          "url": "https://r3f.docs.pmnd.rs/advanced/scaling-performance"
+        },
+        {
+          "title": "R3F Hooks",
+          "url": "https://r3f.docs.pmnd.rs/api/hooks"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 24,
+      "id": "react-three-fiber-step-24",
+      "title": "DPR과 그림자 비용",
+      "prerequisites": "24단위는 23단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "픽셀 수",
+          "explanation": "DPR이 커지면 같은 CSS 영역의 렌더 픽셀 수가 늘어납니다. 화면 품질과 GPU 비용을 같은 카메라에서 비교해야 합니다."
+        },
+        {
+          "title": "그림자 패스",
+          "explanation": "그림자는 별도 렌더 작업과 shadow map을 요구할 수 있습니다. 모든 객체와 조명에 켜기보다 필요한 범위를 정합니다."
+        }
+      ],
+      "outcomes": [
+        "CSS 크기를 고정한 버퍼 치수 기록이 있다.",
+        "DPR와 그림자 변수를 각각 따로 비교한다."
+      ],
+      "steps": [
+        "src/QualityScene.jsx에 dpr 1·2 선택을 추가하세요.",
+        "그림자를 만드는 조명 하나와 castShadow·receiveShadow 대상을 지정하세요.",
+        "DPR만 바꾼 실험과 그림자만 바꾼 실험을 나누어 10초씩 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "DPR",
+          "baseline": "1",
+          "change": "2",
+          "expected": "버퍼 픽셀 수가 약 네 배가 되어 비용과 품질이 달라질 수 있다."
+        }
+      ],
+      "criteria": [
+        "CSS 크기를 고정한 버퍼 치수 기록이 있다.",
+        "DPR와 그림자 변수를 각각 따로 비교한다."
+      ],
+      "questions": [
+        "DPR을 두 배로 하면 FPS는 반드시 절반인가요?",
+        "그림자 map 해상도와 Canvas DPR은 같은 설정인가요?"
+      ],
+      "references": [
+        {
+          "title": "R3F Canvas 설정",
+          "url": "https://r3f.docs.pmnd.rs/api/canvas"
+        },
+        {
+          "title": "R3F 성능 확장과 demand 렌더링",
+          "url": "https://r3f.docs.pmnd.rs/advanced/scaling-performance"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 25,
+      "id": "react-three-fiber-step-25",
+      "title": "장면 전환과 자원 감사",
+      "prerequisites": "25단위는 24단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "보이기와 제거",
+          "explanation": "visible=false는 객체를 장면에 남겨 둡니다. unmount는 트리에서 제거하므로 재생성 비용과 해제 정책이 달라집니다."
+        },
+        {
+          "title": "자원 추적",
+          "explanation": "renderer.info의 메모리 수는 내부 캐시 때문에 즉시 0이 아닐 수 있습니다. 반복 전환의 증가 추세와 소유자별 dispose 기록을 함께 봅니다."
+        }
+      ],
+      "outcomes": [
+        "10회 전환의 자원 수 추세를 기록한다.",
+        "공유·외부 primitive·선언 자원의 해제 주체가 명시된다."
+      ],
+      "steps": [
+        "src/SceneSwitcher.jsx에 두 장면과 visible·unmount 전환 정책을 만드세요.",
+        "같은 장면을 10회 교대하며 geometry·texture 수와 dispose 기록을 수집하세요.",
+        "공유 자원과 primitive 자원의 소유자 표를 작성하세요."
+      ],
+      "variables": [
+        {
+          "name": "전환 정책",
+          "baseline": "visible 숨김",
+          "change": "unmount",
+          "expected": "재생성과 해제 횟수 및 유지 자원 수가 달라진다."
+        }
+      ],
+      "criteria": [
+        "10회 전환의 자원 수 추세를 기록한다.",
+        "공유·외부 primitive·선언 자원의 해제 주체가 명시된다."
+      ],
+      "questions": [
+        "geometry 수가 0이 아니면 항상 누수인가요?",
+        "숨긴 장면의 useFrame도 자동으로 멈추나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 객체와 자원 해제",
+          "url": "https://r3f.docs.pmnd.rs/api/objects"
+        },
+        {
+          "title": "R3F 성능 함정",
+          "url": "https://r3f.docs.pmnd.rs/advanced/pitfalls"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 26,
+      "id": "react-three-fiber-step-26",
+      "title": "3D UI의 대체 조작과 오류",
+      "prerequisites": "26단위는 25단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "DOM 조작 경로",
+          "explanation": "3D 클릭만으로 모든 기능을 제공하면 키보드 사용자가 접근하기 어렵습니다. 같은 선택 상태를 바꾸는 DOM 목록을 함께 제공합니다."
+        },
+        {
+          "title": "지원 실패",
+          "explanation": "Canvas fallback은 지원되지 않는 GL 환경의 안내에 사용합니다. 런타임 로딩 실패는 별도 오류 경계로 다뤄야 합니다."
+        }
+      ],
+      "outcomes": [
+        "키보드만으로 모든 객체를 선택한다.",
+        "지원 실패와 모델 실패 안내가 서로 구분된다."
+      ],
+      "steps": [
+        "src/App.jsx에 mesh id와 연결된 DOM 선택 버튼을 추가하세요.",
+        "Canvas fallback과 모델 오류 메시지를 구분해 구현하세요.",
+        "키보드만으로 선택·해제하고 지원 실패 대체 화면의 설명을 검토하세요."
+      ],
+      "variables": [
+        {
+          "name": "입력 방식",
+          "baseline": "3D 클릭",
+          "change": "DOM 키보드 버튼",
+          "expected": "같은 selectedId와 상세 결과를 만든다."
+        }
+      ],
+      "criteria": [
+        "키보드만으로 모든 객체를 선택한다.",
+        "지원 실패와 모델 실패 안내가 서로 구분된다."
+      ],
+      "questions": [
+        "Canvas 내부 mesh에 HTML label만 붙이면 접근성이 해결되나요?",
+        "대체 화면에서 유지할 필기 기능은 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "R3F Canvas 설정",
+          "url": "https://r3f.docs.pmnd.rs/api/canvas"
+        },
+        {
+          "title": "R3F 포인터 이벤트",
+          "url": "https://r3f.docs.pmnd.rs/api/events"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 27,
+      "id": "react-three-fiber-step-27",
+      "title": "통합 장면의 성능 실험",
+      "prerequisites": "27단위는 26단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "분리된 지표",
+          "explanation": "React 커밋·draw call·프레임 시간·자원 수는 서로 다른 비용을 설명합니다. 하나의 숫자로 전체 성능을 단정하지 않습니다."
+        },
+        {
+          "title": "단일 변수",
+          "explanation": "객체 수·DPR·frameloop을 동시에 바꾸면 원인을 구분하기 어렵습니다. 기준 장면을 고정하고 한 조건씩 비교합니다."
+        }
+      ],
+      "outcomes": [
+        "각 조건의 정지·조작 10초 기록이 있다.",
+        "초안 보존과 선택 정확성이 모든 조건에서 확인된다."
+      ],
+      "steps": [
+        "src/StudyScene.jsx에 선택·모델·instanced grid·DOM 필기를 통합하세요.",
+        "100·1000개 객체의 동일 조작을 always와 demand에서 별도 실행하세요.",
+        "notes/bench.md에 조건·프레임 시간·draw call·자원 수와 실패를 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "객체 수",
+          "baseline": "100개",
+          "change": "1000개",
+          "expected": "같은 품질에서 CPU·GPU·선택 비용이 어떻게 변하는지 측정한다."
+        }
+      ],
+      "criteria": [
+        "각 조건의 정지·조작 10초 기록이 있다.",
+        "초안 보존과 선택 정확성이 모든 조건에서 확인된다."
+      ],
+      "questions": [
+        "React 렌더 감소만으로 GPU 비용 감소를 주장할 수 있나요?",
+        "실험 결과가 기기마다 달라지면 무엇을 함께 적어야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 성능 확장과 demand 렌더링",
+          "url": "https://r3f.docs.pmnd.rs/advanced/scaling-performance"
+        },
+        {
+          "title": "R3F 성능 함정",
+          "url": "https://r3f.docs.pmnd.rs/advanced/pitfalls"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 28,
+      "id": "react-three-fiber-03",
+      "title": "자원 공유와 프레임 정책",
+      "prerequisites": "28단위는 27단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "공유 수명",
+          "explanation": "공유 geometry·material은 여러 객체가 함께 사용합니다. 마지막 소비자가 끝날 때 해제하도록 소유권과 자동 dispose 정책을 맞춥니다."
+        },
+        {
+          "title": "프레임 정책",
+          "explanation": "정지 장면은 demand로 프레임을 줄일 수 있습니다. 직접 변경과 애니메이션에는 시작·진행·종료에 맞는 invalidate가 필요합니다."
+        }
+      ],
+      "outcomes": [
+        "정지·클릭·애니메이션 종료가 demand에서 모두 정상이다.",
+        "같은 조건의 draw call·프레임·해제 기록으로 최종 정책을 설명한다."
+      ],
+      "steps": [
+        "src/StudyScene.jsx에서 공유 grid와 instanced 대조군을 같은 배치로 준비하세요.",
+        "always·demand의 정지와 조작을 비교하고 10회 장면 전환 후 자원 추세를 기록하세요.",
+        "notes/final.md에 선택·필기 보존·프레임 정책·자원 소유권·측정 한계를 묶어 제출하세요."
+      ],
+      "variables": [
+        {
+          "name": "장면 표현",
+          "baseline": "공유 자원 개별 mesh",
+          "change": "instancedMesh",
+          "expected": "자원 공유와 draw call 감소의 차이를 측정으로 구분한다."
+        }
+      ],
+      "criteria": [
+        "정지·클릭·애니메이션 종료가 demand에서 모두 정상이다.",
+        "같은 조건의 draw call·프레임·해제 기록으로 최종 정책을 설명한다."
+      ],
+      "questions": [
+        "공유 geometry와 instancing은 무엇을 각각 줄이나요?",
+        "demand로 바꾼 뒤 화면이 멈췄다면 어떤 변경 경로를 확인하나요?"
+      ],
+      "references": [
+        {
+          "title": "R3F 성능 확장과 demand 렌더링",
+          "url": "https://r3f.docs.pmnd.rs/advanced/scaling-performance"
+        },
+        {
+          "title": "R3F 객체와 자원 해제",
+          "url": "https://r3f.docs.pmnd.rs/api/objects"
+        }
+      ],
+      "environment": "별도 React Vite 프로젝트에서 JSX를 사용합니다. React와 @react-three/fiber의 호환 메이저 버전, Three.js 버전과 lockfile을 기록하세요. 이 과정은 WebGL 기반 안정 버전 API를 사용하며 alpha WebGPU API를 혼용하지 않습니다. 프레임 갱신은 useFrame과 ref로 처리합니다. 기존 react-three-fiber-03 미리보기는 출발점입니다. 본문의 확장 결과물은 별도 프로젝트에서 구현합니다."
+    }
+  ]
+}

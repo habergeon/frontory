@@ -6,12 +6,12 @@
 
 ## 무엇을 할 수 있나요?
 
-- 23개 기술 시리즈와 94개 학습 단위를 분야·단계별로 탐색합니다.
+- 23개 기술 시리즈와 644개 학습 단위를 분야·단계별로 탐색합니다. 각 시리즈는 4단계, 28단위로 구성됩니다.
 - 학습 목표와 과제를 읽고, 진행 상태를 직접 표시하고, Markdown으로 필기합니다.
 - WebGL 첫 장면에서 Monaco Editor로 JavaScript/TypeScript를 수정하고 실행 결과를 확인합니다.
 - 전체 학습 내용을 JSON 파일로 내보내고 다른 브라우저에서 가져옵니다.
 
-현재 **23개 시리즈 · 94개 학습 단위 모두에 예제**가 연결되어 있습니다. 예제 제공은 학습 완료를 의미하지 않습니다. WebGPU 지원 조건, GS 교육용 CPU 뷰어의 제한, Svelte 컴포넌트와 WebAssembly·Playwright 별도 실행 방법은 [예제 안내](docs/examples.md)를 확인하세요.
+현재 **644개 학습 문서와 94개 연결 예제**를 제공합니다. 추가된 550개 단위는 개념 설명·실습 절차·비교 변수·완료 조건을 따라 별도 프로젝트에서 직접 구현하는 과제이며, 내장 실행 예제는 없습니다. 예제 제공은 학습 완료를 의미하지 않습니다. WebGPU 지원 조건, GS 교육용 CPU 뷰어의 제한, Svelte 컴포넌트와 WebAssembly·Playwright 별도 실행 방법은 [예제 안내](docs/examples.md)를 확인하세요.
 
 | 분야 | 시리즈 |
 | --- | --- |
@@ -59,10 +59,14 @@ build에는 타입 검사와 미리보기 런타임 생성이 포함됩니다. �
 - src/shared: 저장, 백업 검증, 안전한 Markdown 렌더링
 - src/labs/01-scene: 첫 실행 예제
 - docs/labs/분야/기술/학습단위/README.md: 학습 문서
-- content/series.json, src/app/catalog.json: 콘텐츠와 탐색 메타데이터
+- content/curricula/*.json: 시리즈별 28단위의 학습 콘텐츠 원본
+- content/catalog-v2.json: 기존 94개 단위 ID·경로와 백업 호환 기준
+- src/app/catalog.json: 콘텐츠에서 생성한 탐색 메타데이터
 - tests: 저장·백업·문서·미리보기 회귀 검사
 
 기존 저장 키와 WebGL 단위 ID는 백업 호환성을 위해 유지합니다. 새 단위를 추가할 때는 백업 마이그레이션 정책도 함께 검토해야 합니다.
+
+커리큘럼은 `content/curricula/*.json`에서 수정하고 `pnpm build:curricula`로 문서와 목차를 함께 갱신합니다. `pnpm check:curricula`는 생성물이 원본과 일치하는지 검사합니다. 기존 `content/series.json`은 최초 3단위 설계의 이력이며 현재 생성 입력으로 사용하지 않습니다. WebGL 문서는 기존 경로에서 직접 관리합니다.
 
 ## 공개 저장소 원칙
 

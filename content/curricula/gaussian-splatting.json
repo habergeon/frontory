@@ -1,0 +1,1469 @@
+{
+  "seriesId": "gaussian-splatting",
+  "stages": [
+    "표현과 투영의 기초",
+    "파일 검증과 뷰어 통합",
+    "가시성과 품질 실험",
+    "측정 가능한 GS 전시 뷰어"
+  ],
+  "goal": "3D Gaussian의 데이터와 투영·합성 경로를 이해하고 출처를 확인한 소형 데이터로 오류에 견디는 뷰어를 설계합니다.",
+  "capstone": "고정 카메라 경로, 로딩 상태, 선택 정책과 품질 비교 보고서를 갖춘 로컬 GS 뷰어",
+  "units": [
+    {
+      "day": 1,
+      "id": "gaussian-splatting-01",
+      "title": "3DGS 표현과 데이터",
+      "prerequisites": "Three.js 카메라·투영과 alpha blending",
+      "concepts": [
+        {
+          "title": "표현 단위",
+          "explanation": "mesh는 표면 연결 관계를 저장하고 Gaussian은 공간상의 분포를 저장합니다. NeRF의 신경망 질의와도 저장·렌더링 경로가 다릅니다."
+        },
+        {
+          "title": "파라미터",
+          "explanation": "위치만으로 Gaussian의 형태와 색을 복원할 수 없습니다. scale·rotation·opacity와 색 표현의 의미를 함께 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "세 장면 표현의 차이를 설명한다.",
+        "Gaussian 속성의 역할을 분류한다."
+      ],
+      "steps": [
+        "representation.md에 mesh·NeRF·3DGS의 입력과 렌더링 출력을 표로 적으세요.",
+        "data.js에 위치·scale·quaternion·opacity·색을 가진 Gaussian 두 개를 작성하세요.",
+        "기존 gaussian-splatting-01 CPU 예제에서 scale·opacity가 2D radial gradient 출력에 연결되는 경로를 그리세요. 3D 투영 구현은 gaussian-splatting-02 뷰어에서 별도로 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "scale",
+          "baseline": "두 축 0.1",
+          "change": "한 축만 0.3",
+          "expected": "같은 중심에서 타원 방향의 폭만 커질 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 표현의 저장 단위와 렌더 경로를 각각 한 줄 이상 작성한다.",
+        "Gaussian 두 개의 필수 속성과 단위를 빠짐없이 적는다."
+      ],
+      "questions": [
+        "일반 점 구름에는 어떤 속성이 부족한가요?",
+        "카메라가 이동하면 어떤 입력을 다시 계산하나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "기존 gaussian-splatting-01 미리보기는 출발점입니다. 이후 과제 전체의 구현이나 검증을 대신하지 않습니다. 별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 2,
+      "id": "gaussian-splatting-step-02",
+      "title": "출처와 파일 계약",
+      "prerequisites": "1단위 결과물과 기록을 이어 사용합니다. 출처와 파일 계약 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "데이터 출처",
+          "explanation": "파일을 열 수 있다는 사실은 재배포 허가를 뜻하지 않습니다. 원본 URL·저작자·라이선스·변환 이력을 별도로 기록합니다."
+        },
+        {
+          "title": "범위 제한",
+          "explanation": "작은 합성 데이터로도 파서와 합성을 검증할 수 있습니다. 교육 뷰어의 용량 제한을 실서비스의 처리 능력으로 해석하지 않습니다."
+        }
+      ],
+      "outcomes": [
+        "데이터 사용 근거를 기록한다.",
+        "입력 크기 계약을 검증한다."
+      ],
+      "steps": [
+        "assets-manifest.json에 직접 만든 fixture의 출처와 허용 용도를 적으세요.",
+        "validateFile.js에 file.size 1 MiB와 Gaussian 512개 한도를 검사하는 함수를 만드세요.",
+        "빈 파일과 한도 초과 메타데이터를 입력하여 로딩 전에 거절 메시지를 출력하세요."
+      ],
+      "variables": [
+        {
+          "name": "파일 크기",
+          "baseline": "1 KiB",
+          "change": "1 MiB 초과",
+          "expected": "내용 해석 전에 크기 오류가 표시될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "manifest에 출처·라이선스·변환 여부 세 필드가 있다.",
+        "빈 파일과 한도 초과 입력이 서로 다른 사유로 거절된다."
+      ],
+      "questions": [
+        "저장소에서 데이터 대신 어떤 정보를 공유할 수 있나요?",
+        "압축 크기만 제한하면 어떤 문제가 남나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 3,
+      "id": "gaussian-splatting-step-03",
+      "title": "좌표계와 단위",
+      "prerequisites": "2단위 결과물과 기록을 이어 사용합니다. 좌표계와 단위 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "기준 축",
+          "explanation": "카메라와 데이터의 위쪽 축이 다르면 장면이 기울어집니다. 축 변환은 카메라 조작으로 숨기지 말고 데이터 변환 행렬로 명시합니다."
+        },
+        {
+          "title": "크기 기준",
+          "explanation": "복원 결과의 길이 단위는 실제 미터와 일치하지 않을 수 있습니다. 기준 물체 또는 명시적인 가상 단위를 사용합니다."
+        }
+      ],
+      "outcomes": [
+        "데이터 좌표계를 명시한다.",
+        "축 변환을 수치로 검증한다."
+      ],
+      "steps": [
+        "coordinates.js에 원점과 X/Y/Z 표식 세 개를 만드세요.",
+        "입력 점에 축 교환 행렬을 적용하고 변환 전후 좌표를 표로 출력하세요.",
+        "camera.json에 eye·target·up을 저장하고 동일 표식을 재투영하세요."
+      ],
+      "variables": [
+        {
+          "name": "up 축",
+          "baseline": "Y-up",
+          "change": "Z-up 데이터를 변환 없이 입력",
+          "expected": "세로 표식 방향이 어긋날 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "원점과 축 표식 세 개의 변환 좌표를 기록한다.",
+        "역변환 후 원래 점과의 최대 오차가 1e-6 이하이다."
+      ],
+      "questions": [
+        "축 교환과 반사는 어떻게 다른가요?",
+        "카메라 reset에 단위 정보가 필요한 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 4,
+      "id": "gaussian-splatting-step-04",
+      "title": "Quaternion과 비등방성",
+      "prerequisites": "3단위 결과물과 기록을 이어 사용합니다. Quaternion과 비등방성 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "회전 표현",
+          "explanation": "quaternion은 단위 길이를 유지해야 회전으로 사용할 수 있습니다. 파일의 성분 순서는 라이브러리 생성자의 순서와 다를 수 있습니다."
+        },
+        {
+          "title": "비등방성",
+          "explanation": "세 scale이 다르면 방향에 따라 폭이 달라집니다. 등방성 Gaussian에서는 회전을 바꿔도 같은 모양이 됩니다."
+        }
+      ],
+      "outcomes": [
+        "회전 성분을 안전하게 해석한다.",
+        "scale과 회전의 결합을 설명한다."
+      ],
+      "steps": [
+        "shape.js에 정규화 함수와 성분 순서 변환 함수를 작성하세요.",
+        "scale [0.3,0.1,0.1]과 90도 회전을 CPU 투영 입력에 넣으세요.",
+        "등방성 [0.1,0.1,0.1]에도 같은 회전을 적용하고 bounding box를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "회전각",
+          "baseline": "0도",
+          "change": "Z축 90도",
+          "expected": "비등방성 타원의 긴 축이 바뀌고 등방성은 유지될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "정규화한 quaternion 길이가 1에서 1e-6 이내이다.",
+        "등방성·비등방성 두 입력의 회전 결과를 각각 기록한다."
+      ],
+      "questions": [
+        "0 길이 quaternion은 어떻게 처리하나요?",
+        "성분 순서 오류가 어떤 모양으로 나타나나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 5,
+      "id": "gaussian-splatting-step-05",
+      "title": "공분산으로 형태 읽기",
+      "prerequisites": "4단위 결과물과 기록을 이어 사용합니다. 공분산으로 형태 읽기 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "공분산",
+          "explanation": "회전과 축별 분산을 결합하면 공간상의 타원체를 나타낼 수 있습니다. scale을 표준편차로 해석할 때 분산에는 제곱이 들어갑니다."
+        },
+        {
+          "title": "대칭성",
+          "explanation": "공분산은 대칭이어야 하며 유효한 분산은 음수가 될 수 없습니다. 잘못된 입력을 그대로 투영하면 수치 계산이 불안정해집니다."
+        }
+      ],
+      "outcomes": [
+        "공분산 행렬을 구성한다.",
+        "형태 입력의 유효성을 검사한다."
+      ],
+      "steps": [
+        "covariance.js에서 R·diag(scale²)·Rᵀ를 계산하세요.",
+        "대각 scale과 회전 scale의 3×3 결과를 JSON으로 저장하세요.",
+        "대칭 오차와 음수 scale 입력 거절 결과를 출력하세요."
+      ],
+      "variables": [
+        {
+          "name": "긴 축 scale",
+          "baseline": "0.1",
+          "change": "0.2",
+          "expected": "해당 축의 분산은 네 배가 될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "대칭 원소의 최대 차이가 1e-6 이하이다.",
+        "scale 두 배에 대한 분산 네 배 관계를 수치로 확인한다."
+      ],
+      "questions": [
+        "scale과 분산을 혼동하면 무엇이 달라지나요?",
+        "공분산을 저장하면 회전 정보를 따로 필요로 하나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 6,
+      "id": "gaussian-splatting-step-06",
+      "title": "카메라 투영과 화면 타원",
+      "prerequisites": "5단위 결과물과 기록을 이어 사용합니다. 카메라 투영과 화면 타원 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "원근 투영",
+          "explanation": "가까운 Gaussian은 같은 월드 크기라도 더 크게 보입니다. 화면 공분산은 투영의 국소 변화율을 반영해야 합니다."
+        },
+        {
+          "title": "근평면",
+          "explanation": "카메라 뒤나 근평면 근처의 점은 단순 나눗셈으로 안전하게 처리되지 않습니다. 투영 전에 가시 범위와 유한값을 검사합니다."
+        }
+      ],
+      "outcomes": [
+        "월드 크기와 화면 크기를 구분한다.",
+        "투영 경계 사례를 처리한다."
+      ],
+      "steps": [
+        "project.js에 view 공간 변환과 perspective divide를 분리하세요.",
+        "깊이 2와 4의 같은 Gaussian을 투영하고 화면 중심·반지름을 출력하세요.",
+        "근평면 전후와 카메라 뒤 입력을 넣어 제외 여부를 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "카메라 거리",
+          "baseline": "2",
+          "change": "4",
+          "expected": "작은 Gaussian의 화면 폭이 대략 절반이 될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "두 깊이의 화면 폭 비율을 계산한다.",
+        "세 경계 입력에서 NaN·Infinity가 화면 좌표에 남지 않는다."
+      ],
+      "questions": [
+        "큰 Gaussian에서도 선형 근사가 정확한가요?",
+        "중심이 화면 밖이면 Gaussian 전체가 안 보이나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 7,
+      "id": "gaussian-splatting-step-07",
+      "title": "가우시안 커널과 알파",
+      "prerequisites": "6단위 결과물과 기록을 이어 사용합니다. 가우시안 커널과 알파 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "커널",
+          "explanation": "중심에서 멀어질수록 Gaussian의 가중치가 줄어듭니다. 픽셀 거리보다 공분산으로 정규화한 거리를 사용해야 타원이 유지됩니다."
+        },
+        {
+          "title": "불투명도",
+          "explanation": "opacity는 커널 가중치와 결합해 픽셀 알파를 만듭니다. 같은 총량처럼 보이더라도 크기와 opacity 변경은 같은 효과가 아닙니다."
+        }
+      ],
+      "outcomes": [
+        "픽셀 알파를 계산한다.",
+        "커널과 불투명도를 구분한다."
+      ],
+      "steps": [
+        "kernel.js에서 exp(-0.5*r²)를 계산하는 함수를 만드세요.",
+        "r=0,1,2,3의 가중치를 표로 출력하고 opacity를 곱하세요.",
+        "Canvas ImageData에 한 타원을 그려 중심과 가장자리 알파를 읽으세요."
+      ],
+      "variables": [
+        {
+          "name": "opacity",
+          "baseline": "0.5",
+          "change": "1.0",
+          "expected": "중심 알파는 두 배가 되지만 타원의 정규화 거리 구조는 유지될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "중심 가중치가 1이며 거리 증가에 따라 네 값이 감소한다.",
+        "opacity 변경 전후 중심 알파의 비율을 기록한다."
+      ],
+      "questions": [
+        "커널을 유한 반경에서 자르면 어떤 흔적이 생기나요?",
+        "scale과 opacity를 동시에 바꾸면 원인 분석이 왜 어려운가요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 8,
+      "id": "gaussian-splatting-step-08",
+      "title": "알파 합성과 순서",
+      "prerequisites": "7단위 결과물과 기록을 이어 사용합니다. 알파 합성과 순서 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "합성",
+          "explanation": "서로 다른 색의 반투명 splat은 그리는 순서에 따라 색이 달라집니다. 색만 더하는 방식으로는 가림을 재현할 수 없습니다."
+        },
+        {
+          "title": "표현 일치",
+          "explanation": "premultiplied alpha 여부는 색 저장 방식과 합성식을 함께 결정합니다. 서로 다른 규칙을 섞으면 경계가 어둡거나 밝아집니다."
+        }
+      ],
+      "outcomes": [
+        "투명 합성을 수치로 추적한다.",
+        "알파 규칙을 일관되게 적용한다."
+      ],
+      "steps": [
+        "blend.js에 명시적인 source-over 합성 함수를 작성하세요.",
+        "빨강·파랑 알파 0.5 두 픽셀을 두 순서로 합성하세요.",
+        "premultiplied 입력 변환을 추가하고 동일 결과가 나오는지 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "그리기 순서",
+          "baseline": "빨강 다음 파랑",
+          "change": "파랑 다음 빨강",
+          "expected": "알파는 같아도 RGB가 달라질 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "두 순서의 RGB와 alpha를 수치로 기록한다.",
+        "일관된 두 알파 표현의 결과 차이가 채널당 1e-6 이하이다."
+      ],
+      "questions": [
+        "색이 같은 두 splat도 순서 차이를 보이나요?",
+        "정렬과 알파 표현 오류를 어떻게 구분하나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 9,
+      "id": "gaussian-splatting-step-09",
+      "title": "깊이 정렬의 한계",
+      "prerequisites": "8단위 결과물과 기록을 이어 사용합니다. 깊이 정렬의 한계 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "중심 정렬",
+          "explanation": "중심 깊이 정렬은 간단하지만 넓고 겹치는 타원체의 모든 픽셀 순서를 보장하지 않습니다. 카메라 회전 시 순서가 바뀌는 순간을 관찰해야 합니다."
+        },
+        {
+          "title": "안정성",
+          "explanation": "같은 깊이의 항목에 안정적인 보조 키를 두면 불필요한 순서 흔들림을 줄일 수 있습니다. 이것이 기하학적 정렬 오류를 해결하는 것은 아닙니다."
+        }
+      ],
+      "outcomes": [
+        "깊이 정렬을 구현한다.",
+        "정렬 근사의 한계를 관찰한다."
+      ],
+      "steps": [
+        "sort.js에 view-space 깊이와 원래 id를 사용하는 비교 함수를 만드세요.",
+        "겹치는 긴 Gaussian 세 개의 카메라 각도를 10도 간격으로 바꾸세요.",
+        "각 각도의 id 순서와 합성 이미지를 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "카메라 각도",
+          "baseline": "0도",
+          "change": "90도",
+          "expected": "중심 깊이 순서가 바뀌며 일부 겹침 영역의 색이 변할 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "열 개 시점의 정렬 순서를 저장한다.",
+        "같은 깊이 입력을 다섯 번 정렬해 id 순서가 같음을 확인한다."
+      ],
+      "questions": [
+        "안정 정렬만으로 가림 오류가 사라지나요?",
+        "중심 정렬을 타일별 정렬과 어떻게 비교하나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 10,
+      "id": "gaussian-splatting-step-10",
+      "title": "PLY 헤더 검사",
+      "prerequisites": "9단위 결과물과 기록을 이어 사용합니다. PLY 헤더 검사 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "컨테이너",
+          "explanation": "PLY는 여러 종류의 점·면 속성을 담는 형식입니다. 확장자만 보고 GS 파라미터가 있다고 가정하면 안 됩니다."
+        },
+        {
+          "title": "속성 계약",
+          "explanation": "학습 코드마다 scale·회전·색의 저장 규약이 다를 수 있습니다. 지원하는 필드 이름과 인코딩을 파서의 계약으로 선언합니다."
+        }
+      ],
+      "outcomes": [
+        "PLY와 GS 데이터를 구분한다.",
+        "헤더 계약을 검증한다."
+      ],
+      "steps": [
+        "plyHeader.js에 ASCII 헤더의 format·element·property 읽기를 작성하세요.",
+        "위치만 있는 PLY와 명시한 GS 속성을 가진 작은 문자열 fixture를 만드세요.",
+        "필수 속성 누락·binary 형식·과도한 vertex 수를 구분해 거절하세요."
+      ],
+      "variables": [
+        {
+          "name": "속성 집합",
+          "baseline": "위치와 GS 필수 속성",
+          "change": "위치 x/y/z만 유지",
+          "expected": "점 구름으로 판별하고 GS 로딩은 거절할 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 오류 종류가 서로 다른 메시지를 출력한다.",
+        "헤더의 vertex 수와 실제 행 수가 다른 입력을 거절한다."
+      ],
+      "questions": [
+        "PLY 헤더가 같아도 값의 의미가 다를 수 있나요?",
+        "지원하지 않는 binary PLY를 자동으로 읽으면 왜 위험한가요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 11,
+      "id": "gaussian-splatting-step-11",
+      "title": "값 디코딩과 유효성",
+      "prerequisites": "10단위 결과물과 기록을 이어 사용합니다. 값 디코딩과 유효성 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "활성화 함수",
+          "explanation": "학습용 파일은 scale이나 opacity를 변환된 공간에 저장할 수 있습니다. 파일 생산자의 규약을 확인한 뒤에만 exp·sigmoid 같은 복원을 적용합니다."
+        },
+        {
+          "title": "비정상값",
+          "explanation": "유한하지 않은 수는 정렬과 투영을 망가뜨릴 수 있습니다. 변환 후에도 범위와 quaternion 길이를 검사합니다."
+        }
+      ],
+      "outcomes": [
+        "저장값과 렌더값을 구분한다.",
+        "디코딩 오류를 위치와 함께 보고한다."
+      ],
+      "steps": [
+        "decode.js에 encoding 설정을 받아 scale·opacity를 복원하는 함수를 작성하세요.",
+        "raw와 log-scale 두 fixture에 같은 실제 scale을 넣고 디코딩 결과를 비교하세요.",
+        "NaN·매우 큰 값·0 quaternion 입력을 넣고 필드 위치가 담긴 오류를 출력하세요."
+      ],
+      "variables": [
+        {
+          "name": "scale 인코딩",
+          "baseline": "raw 0.1",
+          "change": "log(0.1)와 log 설정",
+          "expected": "두 입력의 복원 scale이 같을 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "두 인코딩 결과의 차이가 1e-6 이하이다.",
+        "세 잘못된 값이 렌더 이전에 거절된다."
+      ],
+      "questions": [
+        "sigmoid를 이미 변환된 opacity에 다시 적용하면 어떻게 되나요?",
+        "파일 생산자의 규약은 어디에 기록하나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 12,
+      "id": "gaussian-splatting-step-12",
+      "title": "구면조화 색상",
+      "prerequisites": "11단위 결과물과 기록을 이어 사용합니다. 구면조화 색상 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "시점 의존성",
+          "explanation": "SH 계수는 방향에 따라 변하는 색을 표현합니다. 상수항만 쓰면 시점에 따른 변화가 사라집니다."
+        },
+        {
+          "title": "차수와 근거",
+          "explanation": "차수를 높여도 원본에 유효한 계수가 없으면 품질이 좋아지지 않습니다. 메모리·계산량과 실제 관찰 품질을 함께 비교해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "SH의 시점 의존성을 설명한다.",
+        "차수와 품질 주장을 구분한다."
+      ],
+      "steps": [
+        "sh.js에 상수항과 합성한 1차 방향 항만 계산하는 함수를 만드세요.",
+        "계수의 정규화·방향 규약을 notes.md에 쓰고 여섯 축 방향을 입력하세요.",
+        "고정 Gaussian 주위로 카메라 위치를 이동하며 Gaussian에서 카메라로 향하는 방향별 색을 표로 출력하세요. 같은 위치에서 카메라 방향만 회전한 대조군도 비교하고 합성 데이터임을 표시하세요."
+      ],
+      "variables": [
+        {
+          "name": "사용 SH 항",
+          "baseline": "상수항만",
+          "change": "합성 1차 항 포함",
+          "expected": "방향별 색이 달라지지만 학습 품질 향상의 증거는 아닐 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "여섯 방향의 RGB를 저장한다.",
+        "상수항 모드에서 방향별 색 차이가 1e-6 이하이다."
+      ],
+      "questions": [
+        "원본 계수가 없는데 차수만 올릴 수 있나요?",
+        "카메라 방향의 부호를 뒤집으면 색이 어떻게 바뀌나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 13,
+      "id": "gaussian-splatting-step-13",
+      "title": "로더 상태와 취소",
+      "prerequisites": "12단위 결과물과 기록을 이어 사용합니다. 로더 상태와 취소 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "비동기 상태",
+          "explanation": "읽기 완료와 데이터 검증 완료는 서로 다른 단계입니다. 상태를 구분해야 실패 위치를 사용자에게 알려 줄 수 있습니다."
+        },
+        {
+          "title": "최신 요청",
+          "explanation": "이전 파일의 읽기가 늦게 끝나면 새 장면을 덮어쓸 수 있습니다. 요청 id로 최신 결과만 반영하고 취소된 결과를 폐기합니다."
+        }
+      ],
+      "outcomes": [
+        "로딩 상태를 모델링한다.",
+        "늦게 도착한 결과를 차단한다."
+      ],
+      "steps": [
+        "loader.js에 idle·reading·validating·ready·error 상태를 정의하세요.",
+        "지연을 주입한 두 fixture를 연속 선택하고 요청 id를 결과에 포함하세요.",
+        "새 선택과 dispose 시 이전 결과 반영을 막고 상태 전이 로그를 출력하세요."
+      ],
+      "variables": [
+        {
+          "name": "완료 순서",
+          "baseline": "A 다음 B",
+          "change": "B 다음 A",
+          "expected": "마지막 선택인 B만 화면에 남을 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "역순 완료에서도 B의 id가 유지된다.",
+        "잘못된 파일 이후 정상 파일을 선택하면 ready로 복구한다."
+      ],
+      "questions": [
+        "File 읽기 취소와 결과 폐기는 어떻게 다른가요?",
+        "검증 실패 시 이전 장면을 유지할지 비울지 어떻게 정하나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 14,
+      "id": "gaussian-splatting-02",
+      "title": "로딩과 카메라 통합",
+      "prerequisites": "13단위 결과물과 기록을 이어 사용합니다. 로딩과 카메라 통합 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "통합 경계",
+          "explanation": "Spark의 형식 지원과 API는 설치 버전의 문서로 확인합니다. 기존 CPU 교육 뷰어에서 Spark 실행 성공을 추론하지 않습니다."
+        },
+        {
+          "title": "선택 계약",
+          "explanation": "GS 선택은 사용할 렌더러의 picking 방식이나 별도 근사를 필요로 합니다. 일반 mesh raycaster가 Gaussian의 픽셀 기여도를 그대로 반환하지는 않습니다."
+        }
+      ],
+      "outcomes": [
+        "로더와 카메라 상태를 통합한다.",
+        "GS picking의 의미를 명시한다."
+      ],
+      "steps": [
+        "integration.md에 설치 후보 버전과 공식 문서의 지원 형식·dispose·picking 항목을 정리하세요.",
+        "별도 viewer.js에 Three.js 카메라와 로딩 상태를 연결하고 직접 만든 작은 fixture로 축을 검증하세요.",
+        "camera.json reset을 적용하고 지원하지 않는 형식 입력 시 오류 화면과 선택 정책을 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "카메라 up",
+          "baseline": "검증한 Y-up",
+          "change": "축이 다른 fixture",
+          "expected": "보정 전에는 방향이 어긋나고 보정 후 reset이 재현될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "지원 형식과 비지원 형식 각 하나의 경로가 기록된다.",
+        "reset 전후 view 행렬 최대 차이가 1e-6 이하이며 picking 정책이 문서화된다."
+      ],
+      "questions": [
+        "CPU 뷰어 결과로 Spark 성능을 말할 수 있나요?",
+        "선택의 기준을 중심 거리와 픽셀 기여도 중 무엇으로 정하나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "기존 gaussian-splatting-02 미리보기는 출발점입니다. 이후 과제 전체의 구현이나 검증을 대신하지 않습니다. 별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 15,
+      "id": "gaussian-splatting-step-15",
+      "title": "화면 공간 선택 근사",
+      "prerequisites": "14단위 결과물과 기록을 이어 사용합니다. 화면 공간 선택 근사 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "거리 기준",
+          "explanation": "투영 중심에 가장 가까운 항목을 고르는 방식은 구현이 단순합니다. 큰 splat의 실제 보이는 경계나 투명 가림을 정확히 반영하지는 않습니다."
+        },
+        {
+          "title": "선택 모호성",
+          "explanation": "겹친 Gaussian에서 사용자 의도는 하나로 정해지지 않을 수 있습니다. 후보와 선택 기준을 표시하면 근사의 한계를 확인할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "선택 근사를 구현한다.",
+        "선택 모호성을 사용자에게 보여 준다."
+      ],
+      "steps": [
+        "pick.js에서 pointer를 canvas 로컬 픽셀로 변환하세요.",
+        "투영 중심까지의 거리와 화면 반경으로 후보를 거르고 id를 표시하세요.",
+        "두 Gaussian이 겹친 장면에서 임계 반경을 바꾸며 후보 목록을 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "선택 반경",
+          "baseline": "8px",
+          "change": "24px",
+          "expected": "더 많은 후보가 포함되어 모호성이 늘 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "DPR 1과 2에서 같은 CSS 위치의 선택 id가 같다.",
+        "겹침 입력에서 후보 개수와 최종 선택 이유를 출력한다."
+      ],
+      "questions": [
+        "중심이 멀지만 크게 보이는 splat은 선택되나요?",
+        "이 결과를 실제 표면 충돌점이라고 불러도 되나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 16,
+      "id": "gaussian-splatting-step-16",
+      "title": "가시 범위와 보수적 제외",
+      "prerequisites": "15단위 결과물과 기록을 이어 사용합니다. 가시 범위와 보수적 제외 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "경계 사용",
+          "explanation": "중심만으로 화면 밖 항목을 제거하면 가장자리에 걸친 splat이 사라집니다. 화면 타원의 경계를 이용해 보수적으로 제외합니다."
+        },
+        {
+          "title": "수치 안전",
+          "explanation": "너무 가까운 Gaussian은 화면 반경이 커질 수 있습니다. 무한 영역을 반복하지 않도록 클리핑과 작업량 제한을 분리합니다."
+        }
+      ],
+      "outcomes": [
+        "화면 범위로 안전하게 제외한다.",
+        "처리량과 누락을 함께 비교한다."
+      ],
+      "steps": [
+        "cull.js에 화면 bounding box와 viewport의 교차 검사를 추가하세요.",
+        "중심이 화면 밖이지만 타원 일부가 들어오는 fixture를 만드세요.",
+        "제외 수와 픽셀 평가 수를 로그로 남기고 결과 이미지를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "제외 기준",
+          "baseline": "중심만",
+          "change": "타원 bounding box",
+          "expected": "가장자리 누락은 줄고 처리 항목은 늘 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "가장자리 fixture가 보수적 검사에서 남는다.",
+        "완전히 화면 밖인 fixture가 픽셀 평가 전에 제외된다."
+      ],
+      "questions": [
+        "보수적 검사는 왜 과잉 포함을 허용하나요?",
+        "근평면과 화면 경계 처리를 하나로 합치면 어떤 문제가 생기나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 17,
+      "id": "gaussian-splatting-step-17",
+      "title": "정렬 갱신 간격",
+      "prerequisites": "16단위 결과물과 기록을 이어 사용합니다. 정렬 갱신 간격 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "재사용",
+          "explanation": "카메라가 멈추면 깊이 순서를 재사용할 수 있습니다. 카메라가 움직이는 동안 오래된 순서를 쓰면 합성 오류가 늘 수 있습니다."
+        },
+        {
+          "title": "지연 관찰",
+          "explanation": "정렬 주기를 낮추면 CPU 작업은 줄지만 화면 반응이 늦어질 수 있습니다. 평균 시간만으로 이런 변화가 드러나지는 않습니다."
+        }
+      ],
+      "outcomes": [
+        "정렬 결과를 재사용한다.",
+        "갱신 지연을 시각적으로 평가한다."
+      ],
+      "steps": [
+        "scheduler.js에 매 프레임과 4프레임 간격 정렬 모드를 만드세요.",
+        "같은 camera-path.json을 두 모드에서 재생하세요.",
+        "정렬 횟수·CPU 시간·순서 갱신 시점의 이미지 차이를 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "정렬 주기",
+          "baseline": "1프레임",
+          "change": "4프레임",
+          "expected": "정렬 호출은 줄고 빠른 회전에서 오래된 순서의 흔적이 늘 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "동일 길이 재생에서 정렬 호출 수를 비교한다.",
+        "순서가 바뀌는 구간 두 곳의 이미지를 보관한다."
+      ],
+      "questions": [
+        "카메라 이동량 기반 갱신은 무엇을 개선하나요?",
+        "정렬 시간 감소를 전체 프레임 개선으로 바로 볼 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 18,
+      "id": "gaussian-splatting-step-18",
+      "title": "해상도와 픽셀 작업량",
+      "prerequisites": "17단위 결과물과 기록을 이어 사용합니다. 해상도와 픽셀 작업량 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "픽셀 비용",
+          "explanation": "화면 해상도를 줄이면 Gaussian 수가 같아도 평가할 픽셀 수가 줄어듭니다. 실루엣과 얇은 구조의 표현도 함께 달라집니다."
+        },
+        {
+          "title": "비교 조건",
+          "explanation": "CSS 크기와 실제 drawing buffer 크기를 분리해 기록해야 합니다. 다른 카메라나 DPR을 섞으면 해상도 효과를 판단하기 어렵습니다."
+        }
+      ],
+      "outcomes": [
+        "해상도 비용을 분리한다.",
+        "품질 손실을 같은 시점에서 비교한다."
+      ],
+      "steps": [
+        "quality.js에 고정 CSS 크기와 render scale 입력을 추가하세요.",
+        "camera-path.json과 데이터 id를 고정하고 1.0·0.5 배율로 재생하세요.",
+        "실제 buffer 크기·프레임 간격 중앙값·얇은 구조 이미지를 저장하세요."
+      ],
+      "variables": [
+        {
+          "name": "render scale",
+          "baseline": "1.0",
+          "change": "0.5",
+          "expected": "픽셀 수는 약 1/4이 되지만 세부 표현이 줄 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "두 모드의 width×height를 기록한다.",
+        "동일 시점 세 장의 세부 손실을 주석으로 남긴다."
+      ],
+      "questions": [
+        "프레임 시간이 픽셀 수에 정비례하지 않는 이유는 무엇인가요?",
+        "DPR과 render scale은 어떻게 결합하나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 19,
+      "id": "gaussian-splatting-step-19",
+      "title": "Gaussian 수 줄이기",
+      "prerequisites": "18단위 결과물과 기록을 이어 사용합니다. Gaussian 수 줄이기 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "부분 선택",
+          "explanation": "항목 수를 줄이면 저장량과 정렬량이 줄어듭니다. 무작위 제거는 얇은 구조나 낮은 불투명도 영역을 불균형하게 훼손할 수 있습니다."
+        },
+        {
+          "title": "재현성",
+          "explanation": "매번 다른 난수를 쓰면 감축 전략끼리 비교하기 어렵습니다. seed와 선택 id를 저장해 같은 부분집합을 사용합니다."
+        }
+      ],
+      "outcomes": [
+        "재현 가능한 부분집합을 만든다.",
+        "감축 전략의 시각 영향을 평가한다."
+      ],
+      "steps": [
+        "subset.js에 seed 기반 선택과 opacity 순 선택을 각각 구현하세요.",
+        "256개 합성 fixture에서 128개를 고르고 id 목록을 저장하세요.",
+        "같은 세 시점의 빈 영역·정렬 시간·파일 바이트를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "유지 수",
+          "baseline": "256",
+          "change": "128",
+          "expected": "정렬량은 줄지만 일부 영역에 구멍이 늘 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "같은 seed를 두 번 사용했을 때 id 목록이 일치한다.",
+        "두 선택 전략의 세 시점 이미지를 비교한다."
+      ],
+      "questions": [
+        "불투명도가 낮은 항목은 항상 덜 중요한가요?",
+        "학습 과정의 pruning과 단순 파일 감축은 어떻게 다른가요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 20,
+      "id": "gaussian-splatting-step-20",
+      "title": "색 공간과 배경",
+      "prerequisites": "19단위 결과물과 기록을 이어 사용합니다. 색 공간과 배경 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "색 계산",
+          "explanation": "선형 공간의 합성과 화면 표시용 색 변환은 서로 다른 작업입니다. 색 변환을 중복 적용하면 밝기 비교가 왜곡됩니다."
+        },
+        {
+          "title": "배경 의존성",
+          "explanation": "투명 영역은 배경색에 따라 다르게 보입니다. 품질 비교에는 배경과 알파 표시 정책도 고정해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "합성과 표시 공간을 구분한다.",
+        "배경 조건을 통제한다."
+      ],
+      "steps": [
+        "color.js에 합성 공간과 최종 표시 변환 위치를 주석으로 명시하세요.",
+        "회색 반투명 fixture를 검정·흰색 배경 위에 합성하세요.",
+        "입력 RGB·합성 RGB·표시 RGB를 단계별 표로 저장하세요."
+      ],
+      "variables": [
+        {
+          "name": "배경",
+          "baseline": "검정",
+          "change": "흰색",
+          "expected": "같은 splat도 투과 영역의 밝기가 달라질 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 색 단계의 값과 변환 횟수를 기록한다.",
+        "배경 두 개에서 동일 opacity가 사용됨을 확인한다."
+      ],
+      "questions": [
+        "색 변환 중복을 어떤 테스트 값으로 찾을 수 있나요?",
+        "배경이 다른 두 스크린샷으로 품질을 비교해도 되나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 21,
+      "id": "gaussian-splatting-step-21",
+      "title": "품질 평가 기준 만들기",
+      "prerequisites": "20단위 결과물과 기록을 이어 사용합니다. 품질 평가 기준 만들기 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "기준 이미지",
+          "explanation": "비교 대상이 합성 기준인지 실제 관측 사진인지에 따라 해석이 달라집니다. 정답 사진 없이 계산한 이미지 차이를 복원 정확도로 부르지 않습니다."
+        },
+        {
+          "title": "다중 관찰",
+          "explanation": "평균 오차 하나는 얇은 구조나 깜빡임을 숨길 수 있습니다. 지정 영역과 카메라 경로를 함께 평가합니다."
+        }
+      ],
+      "outcomes": [
+        "비교 기준을 고정한다.",
+        "수치와 시각 증거를 함께 해석한다."
+      ],
+      "steps": [
+        "evaluation.json에 세 시점·두 관심 영역·배경을 정의하세요.",
+        "baseline 모드와 감축 모드의 같은 크기 ImageData를 저장하세요.",
+        "채널 평균 절대 차이와 관심 영역 손실 설명을 report.md에 작성하세요."
+      ],
+      "variables": [
+        {
+          "name": "평가 영역",
+          "baseline": "전체 화면",
+          "change": "얇은 구조 ROI",
+          "expected": "전체 평균보다 국소 손실이 더 크게 드러날 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 시점에서 같은 ROI 좌표를 사용한다.",
+        "수치 차이와 시각 설명을 각각 두 항목 이상 작성한다."
+      ],
+      "questions": [
+        "기준 이미지가 틀렸으면 차이 수치는 무엇을 말하나요?",
+        "정지 화면 평가로 놓치는 오류는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 22,
+      "id": "gaussian-splatting-step-22",
+      "title": "프로파일 구간 분리",
+      "prerequisites": "21단위 결과물과 기록을 이어 사용합니다. 프로파일 구간 분리 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "단계 비용",
+          "explanation": "읽기·파싱·정렬·투영·합성은 서로 다른 병목을 가질 수 있습니다. 전체 로딩 시간만 보면 개선할 위치를 찾기 어렵습니다."
+        },
+        {
+          "title": "측정 범위",
+          "explanation": "performance.now는 CPU 구간의 경과 시간을 측정합니다. GPU 렌더러를 사용할 때 이 값을 GPU 실행 시간으로 부르면 안 됩니다."
+        }
+      ],
+      "outcomes": [
+        "처리 단계별 비용을 측정한다.",
+        "CPU와 GPU 시간 주장을 구분한다."
+      ],
+      "steps": [
+        "metrics.js에 각 단계 시작·종료 표시를 추가하세요.",
+        "같은 fixture를 예열 후 다섯 번 처리하고 단계별 표를 만드세요.",
+        "CPU 교육 뷰어와 별도 Spark 실험을 다른 결과 파일로 분리하세요."
+      ],
+      "variables": [
+        {
+          "name": "데이터 수",
+          "baseline": "64",
+          "change": "512",
+          "expected": "정렬·투영 구간이 증가하되 합성은 화면 면적에도 영향을 받을 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "다섯 실행의 단계별 시간과 환경 정보를 저장한다.",
+        "측정하지 않은 GPU 실행 시간은 미측정으로 표시한다."
+      ],
+      "questions": [
+        "전체 시간과 단계 시간 합이 다른 이유는 무엇인가요?",
+        "CPU 뷰어의 병목을 Spark에 그대로 적용할 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 23,
+      "id": "gaussian-splatting-step-23",
+      "title": "자원 수명과 반복 로딩",
+      "prerequisites": "22단위 결과물과 기록을 이어 사용합니다. 자원 수명과 반복 로딩 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "소유권",
+          "explanation": "장면 객체를 제거하는 것과 관련 자원을 해제하는 것은 별개입니다. 누가 만든 buffer·texture·listener인지 목록으로 관리합니다."
+        },
+        {
+          "title": "반복 사용",
+          "explanation": "한 번 정상 동작한 뷰어도 교체와 종료를 반복하면 누수가 드러납니다. 렌더러별 해제 API는 해당 버전 문서로 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "자원 소유권을 관리한다.",
+        "반복 교체 후 정리 상태를 검증한다."
+      ],
+      "steps": [
+        "lifecycle.js에 생성한 자원과 해제 함수를 등록하세요.",
+        "작은 fixture A/B를 열 번 교체하고 마지막에 dispose를 두 번 호출하세요.",
+        "활성 listener·animation loop·객체 수를 기록하고 참조를 비우세요."
+      ],
+      "variables": [
+        {
+          "name": "교체 횟수",
+          "baseline": "1회",
+          "change": "10회",
+          "expected": "정상 정리 시 활성 루프와 현재 데이터 참조 수가 누적되지 않을 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "교체 후 활성 렌더 루프가 하나 이하이다.",
+        "중복 dispose가 예외 없이 끝나며 해제 목록을 남긴다."
+      ],
+      "questions": [
+        "scene.remove만으로 충분하지 않은 이유는 무엇인가요?",
+        "라이브러리 캐시와 실제 누수를 어떻게 구분하나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 24,
+      "id": "gaussian-splatting-step-24",
+      "title": "키보드와 카메라 복구",
+      "prerequisites": "23단위 결과물과 기록을 이어 사용합니다. 키보드와 카메라 복구 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "조작 경로",
+          "explanation": "카메라 조작을 포인터에만 묶으면 일부 사용자는 장면을 탐색하기 어렵습니다. 키보드 이동과 명시적인 reset 버튼을 제공합니다."
+        },
+        {
+          "title": "범위 제한",
+          "explanation": "카메라가 데이터 내부로 과도하게 들어가면 장면이 이해하기 어려워집니다. 이동 범위를 데이터 경계와 함께 정합니다."
+        }
+      ],
+      "outcomes": [
+        "여러 입력 수단을 제공한다.",
+        "카메라 복구 상태를 완전하게 저장한다."
+      ],
+      "steps": [
+        "controls.js에 방향키 이동·확대 축소·reset 동작을 정의하세요.",
+        "입력 중인 폼에서는 카메라 단축키가 작동하지 않게 하세요.",
+        "키보드만으로 세 시점 이동과 reset을 수행하고 camera.json을 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "이동 속도",
+          "baseline": "경계 크기의 1%",
+          "change": "10%",
+          "expected": "탐색은 빨라지지만 작은 특징을 지나치기 쉬울 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "마우스 없이 이동·확대·reset 세 기능을 수행한다.",
+        "입력창에서 방향키를 눌러도 카메라 값이 바뀌지 않는다."
+      ],
+      "questions": [
+        "이동 단위를 고정 숫자로 두면 데이터마다 무엇이 달라지나요?",
+        "reset에는 position 외에 어떤 값이 필요하나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 25,
+      "id": "gaussian-splatting-step-25",
+      "title": "실패 상태 통합 시험",
+      "prerequisites": "24단위 결과물과 기록을 이어 사용합니다. 실패 상태 통합 시험 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "오류 분류",
+          "explanation": "형식·값·용량·지원 환경 오류는 대응 방법이 다릅니다. 한 가지 실패 문구로 합치면 사용자가 수정할 수 없습니다."
+        },
+        {
+          "title": "복구 경로",
+          "explanation": "실패 후 다시 정상 파일을 열 수 있어야 합니다. 실패 상태가 렌더 루프와 입력 처리를 영구히 막지 않도록 설계합니다."
+        }
+      ],
+      "outcomes": [
+        "실패 원인을 분류한다.",
+        "오류 이후 복구를 검증한다."
+      ],
+      "steps": [
+        "cases.json에 빈 파일·누락 속성·비정상값·초과 크기·정상 입력을 적으세요.",
+        "loader.js에 각 case를 순서대로 주입하고 상태와 오류 코드를 저장하세요.",
+        "각 오류 뒤 정상 fixture를 열어 카메라와 선택 기능을 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "입력 순서",
+          "baseline": "정상만",
+          "change": "오류 후 정상",
+          "expected": "오류를 표시한 뒤 새 요청에서 ready로 복구될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "네 오류가 각기 지정된 코드로 분류된다.",
+        "네 복구 경로 모두 정상 데이터 id와 ready 상태를 출력한다."
+      ],
+      "questions": [
+        "오류 상태에서 이전 장면을 남길 때 어떤 표시가 필요한가요?",
+        "어떤 오류는 재시도로 해결되지 않나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 26,
+      "id": "gaussian-splatting-step-26",
+      "title": "재현 가능한 카메라 벤치마크",
+      "prerequisites": "25단위 결과물과 기록을 이어 사용합니다. 재현 가능한 카메라 벤치마크 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "고정 경로",
+          "explanation": "입력 경로가 달라지면 같은 품질 설정도 다른 비용을 만듭니다. 시간별 카메라 변환과 데이터 id를 고정해 비교합니다."
+        },
+        {
+          "title": "프레임 분포",
+          "explanation": "평균만 기록하면 드물게 긴 프레임이 숨겨집니다. 중앙값과 상위 지연 구간을 함께 남깁니다."
+        }
+      ],
+      "outcomes": [
+        "고정 경로 벤치마크를 구성한다.",
+        "프레임 분포를 해석한다."
+      ],
+      "steps": [
+        "benchmark.js에 camera-path.json을 시간 기반으로 재생하는 함수를 만드세요.",
+        "기준 설정과 해상도 감소 설정을 같은 길이로 각각 세 번 실행하세요.",
+        "프레임 간격의 중앙값·95백분위·관심 시점 이미지를 결과 JSON에 저장하세요."
+      ],
+      "variables": [
+        {
+          "name": "설정",
+          "baseline": "해상도 1.0",
+          "change": "해상도 0.5",
+          "expected": "픽셀 병목일 때 프레임 간격이 줄고 CPU 정렬 병목이면 변화가 작을 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "두 설정에 동일 경로 해시와 데이터 id가 기록된다.",
+        "세 반복의 분포와 품질 이미지를 보관한다."
+      ],
+      "questions": [
+        "requestAnimationFrame 간격을 GPU 시간이라고 할 수 있나요?",
+        "백그라운드 탭 결과를 섞으면 어떤 왜곡이 생기나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 27,
+      "id": "gaussian-splatting-step-27",
+      "title": "결과물 설명과 인수 조건",
+      "prerequisites": "26단위 결과물과 기록을 이어 사용합니다. 결과물 설명과 인수 조건 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "제공 범위",
+          "explanation": "구현한 기능과 문서로만 검토한 후보를 구분해야 결과물을 재현할 수 있습니다. CPU 원리 실험을 대규모 GPU 제품으로 소개하지 않습니다."
+        },
+        {
+          "title": "배포 근거",
+          "explanation": "원본 데이터의 허가와 변환 이력을 결과 보고서에 연결합니다. 큰 데이터 대신 재생성 가능한 작은 fixture를 제공할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "실제 제공 범위를 문서화한다.",
+        "재현 가능한 인수 절차를 만든다."
+      ],
+      "steps": [
+        "README.md에 실행 환경·CPU 또는 Spark 경로·지원 형식·제한을 적으세요.",
+        "manifest와 fixtures 생성 절차를 연결하고 큰 원본 파일이 저장소 대상에 없는지 확인하세요.",
+        "새 실행 세션에서 로딩·reset·오류 복구·선택·벤치마크 순서로 인수 기록을 작성하세요."
+      ],
+      "variables": [
+        {
+          "name": "검증 시작 상태",
+          "baseline": "현재 세션",
+          "change": "초기화한 새 세션",
+          "expected": "숨은 상태 의존성이 있으면 새 세션에서 차이가 드러날 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "다섯 인수 항목에 실제 관찰 또는 미실행 표시가 있다.",
+        "출처·허가·변환·크기 정보가 결과물에 포함된다."
+      ],
+      "questions": [
+        "다른 사람이 재현하려면 어떤 환경 정보가 필요한가요?",
+        "검토만 한 기능을 어떻게 표시하나요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    },
+    {
+      "day": 28,
+      "id": "gaussian-splatting-03",
+      "title": "정렬·품질·성능",
+      "prerequisites": "27단위 결과물과 기록을 이어 사용합니다. 정렬·품질·성능 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "공동 평가",
+          "explanation": "해상도와 Gaussian 수는 비용과 시각 품질을 동시에 바꿉니다. 한 변수씩 바꾼 기록을 먼저 만든 뒤 조합을 평가합니다."
+        },
+        {
+          "title": "채택 판단",
+          "explanation": "가장 빠른 설정이 목적에 가장 적합한 설정은 아닐 수 있습니다. 데이터 출처·기능 제한·관찰 품질을 포함해 선택 이유를 씁니다."
+        }
+      ],
+      "outcomes": [
+        "품질과 비용을 함께 비교한다.",
+        "근거를 갖춘 GS 뷰어 결과물을 완성한다."
+      ],
+      "steps": [
+        "최종 viewer.js에서 기준·해상도 감소·항목 감소 세 설정을 같은 경로로 실행하세요.",
+        "report.md에 프레임 분포·정렬 시간·ROI 이미지·출처 manifest 링크를 모으세요.",
+        "채택 설정과 허용하지 않을 품질 손실을 정하고 오류 복구 및 dispose를 다시 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "Gaussian 수",
+          "baseline": "512",
+          "change": "256",
+          "expected": "정렬 부담은 줄어도 일부 구조 손실이 생길 수 있다고 예상하고 측정하세요."
+        }
+      ],
+      "criteria": [
+        "세 설정의 같은 경로 결과와 품질 증거를 제시한다.",
+        "대형 데이터 없이 출처와 재현 절차를 제공하고 선택 근거 두 가지를 적는다."
+      ],
+      "questions": [
+        "측정된 병목이 달라지면 선택 설정도 달라지나요?",
+        "이번 결과로 주장할 수 없는 범위는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "Spark 공식 문서",
+          "url": "https://sparkjs.dev/docs/"
+        },
+        {
+          "title": "3D Gaussian Splatting 연구 프로젝트",
+          "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
+        }
+      ],
+      "environment": "기존 gaussian-splatting-03 미리보기는 출발점입니다. 이후 과제 전체의 구현이나 검증을 대신하지 않습니다. 별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+    }
+  ]
+}

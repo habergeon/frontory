@@ -1,0 +1,1509 @@
+{
+  "seriesId": "vue",
+  "stages": [
+    "반응형 데이터와 템플릿",
+    "컴포넌트 계약과 감시",
+    "Composable과 저장소 수명",
+    "Canvas 통합과 갱신 검증"
+  ],
+  "goal": "Composition API로 상태·파생 값·부수 효과를 구분하고 필기와 Canvas의 수명을 관리한다.",
+  "capstone": "단위별 필기와 Canvas가 있는 Vue 작업공간, props/emits 계약표, React 수명 비교 및 자원 감사 기록.",
+  "units": [
+    {
+      "day": 1,
+      "id": "vue-01",
+      "title": "반응성과 템플릿",
+      "prerequisites": "JavaScript 객체·배열·함수, HTML 폼, npm 프로젝트 실행.",
+      "concepts": [
+        {
+          "title": "ref",
+          "explanation": "ref는 반응형 값을 감싸며 스크립트에서는 .value로 읽고 씁니다. 템플릿에서는 최상위 ref를 자동으로 풀어 표시합니다."
+        },
+        {
+          "title": "computed",
+          "explanation": "computed는 읽은 반응형 값에서 결과를 계산합니다. 완료 수처럼 원본에서 구할 값은 별도 ref에 복사하지 않습니다."
+        }
+      ],
+      "outcomes": [
+        "토글 한 번에 완료 수가 1 증가한다.",
+        "필터 해제 뒤 원본 카드 3개가 유지된다."
+      ],
+      "steps": [
+        "외부 Vue Vite 프로젝트 src/App.vue의 script setup에 카드 3개 ref를 만드세요.",
+        "computed로 완료 수와 미완료 목록을 만들고 템플릿에 표시하세요.",
+        "완료 버튼을 연결하고 목록·합계가 함께 바뀌는 과정을 notes/day01.md에 적으세요."
+      ],
+      "variables": [
+        {
+          "name": "완료 카드",
+          "baseline": "0개",
+          "change": "1개",
+          "expected": "완료 수는 1이고 미완료 목록은 2개다."
+        }
+      ],
+      "criteria": [
+        "토글 한 번에 완료 수가 1 증가한다.",
+        "필터 해제 뒤 원본 카드 3개가 유지된다."
+      ],
+      "questions": [
+        "스크립트와 템플릿에서 ref 접근이 왜 다른가요?",
+        "완료 수를 watch로 복사하면 어떤 비용이 생기나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue 반응성 기초",
+          "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html"
+        },
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. 기존 vue-01 미리보기는 출발점입니다. 본문의 확장 결과물은 별도 프로젝트에서 구현합니다."
+    },
+    {
+      "day": 2,
+      "id": "vue-step-02",
+      "title": "SFC와 템플릿 바인딩",
+      "prerequisites": "2단위는 1단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "SFC",
+          "explanation": ".vue 파일은 템플릿·로직·스타일을 한 컴포넌트로 컴파일합니다. 런타임 h 함수 예제와 빌드가 필요한 SFC를 구분합니다."
+        },
+        {
+          "title": "바인딩",
+          "explanation": "v-bind는 속성에 표현식 결과를 전달합니다. 문자열 속성과 동적 boolean 속성은 브라우저에서 의미가 다릅니다."
+        }
+      ],
+      "outcomes": [
+        "false 바인딩에서 버튼을 클릭할 수 있다.",
+        "true 바인딩에서 버튼이 비활성이다."
+      ],
+      "steps": [
+        "src/Card.vue에 script setup과 template을 작성하세요.",
+        ":disabled와 :aria-pressed를 완료 상태에 연결하세요.",
+        "고정 문자열 disabled와 boolean 바인딩을 비교하고 DOM 속성을 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "disabled 값",
+          "baseline": "false",
+          "change": "true",
+          "expected": "버튼의 실제 조작 가능 여부가 바뀐다."
+        }
+      ],
+      "criteria": [
+        "false 바인딩에서 버튼을 클릭할 수 있다.",
+        "true 바인딩에서 버튼이 비활성이다."
+      ],
+      "questions": [
+        "disabled='false'가 왜 비활성이 될 수 있나요?",
+        "SFC 파일을 일반 JS 실행기에 넣으면 왜 실행되지 않나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue 반응성 기초",
+          "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html"
+        },
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 3,
+      "id": "vue-step-03",
+      "title": "reactive와 참조 유지",
+      "prerequisites": "3단위는 2단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "reactive",
+          "explanation": "reactive는 객체 속성 접근을 추적하는 Proxy를 만듭니다. 반응형 객체를 일반 값으로 구조 분해하면 연결이 끊길 수 있습니다."
+        },
+        {
+          "title": "ref 선택",
+          "explanation": "ref는 객체 교체를 포함한 하나의 값에 적합합니다. 객체 속성을 따로 전달해야 한다면 toRefs 같은 연결 수단을 검토합니다."
+        }
+      ],
+      "outcomes": [
+        "원본 입력과 연결된 query가 일치한다.",
+        "일반 구조 분해의 초기값 유지 현상을 재현한다."
+      ],
+      "steps": [
+        "src/Filters.vue에 reactive({query:'',onlyOpen:false})를 만드세요.",
+        "구조 분해한 query와 toRefs로 받은 query를 각각 표시하세요.",
+        "입력에서 원본 query를 바꾸고 두 표시의 차이를 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "속성 추출",
+          "baseline": "일반 구조 분해",
+          "change": "toRefs",
+          "expected": "toRefs로 연결한 표시만 원본 변경을 따라간다."
+        }
+      ],
+      "criteria": [
+        "원본 입력과 연결된 query가 일치한다.",
+        "일반 구조 분해의 초기값 유지 현상을 재현한다."
+      ],
+      "questions": [
+        "객체 전체를 바꿔야 하면 reactive와 ref 중 무엇이 편한가요?",
+        "중첩 속성도 같은 방식으로 추적되나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue 반응성 기초",
+          "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html"
+        },
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 4,
+      "id": "vue-step-04",
+      "title": "computed의 순수한 계산",
+      "prerequisites": "4단위는 3단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "파생 계산",
+          "explanation": "computed getter는 의존성이 바뀔 때 계산 결과를 갱신합니다. getter 안에서 저장이나 원본 변경을 수행하지 않습니다."
+        },
+        {
+          "title": "캐시",
+          "explanation": "반응형 의존성이 바뀌지 않으면 계산 결과를 재사용합니다. 일반 함수 호출과 구분해 비용과 의미를 판단합니다."
+        }
+      ],
+      "outcomes": [
+        "검색어와 표시 카드 제목이 일치한다.",
+        "theme만 바꿀 때 원본 items가 변하지 않는다."
+      ],
+      "steps": [
+        "src/App.vue에 query와 items를 읽는 filteredCards computed를 작성하세요.",
+        "계산 횟수 로그를 넣고 관련 없는 theme ref를 변경하세요.",
+        "query를 바꾼 뒤 결과와 계산 로그가 어떻게 달라지는지 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "변경 대상",
+          "baseline": "theme",
+          "change": "query",
+          "expected": "query 변경이 필터 계산의 의존성을 갱신한다."
+        }
+      ],
+      "criteria": [
+        "검색어와 표시 카드 제목이 일치한다.",
+        "theme만 바꿀 때 원본 items가 변하지 않는다."
+      ],
+      "questions": [
+        "Date.now만 읽는 computed는 스스로 갱신되나요?",
+        "getter에서 items.sort를 호출하면 무엇이 변하나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue 반응성 기초",
+          "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html"
+        },
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 5,
+      "id": "vue-step-05",
+      "title": "목록 key와 조건부 수명",
+      "prerequisites": "5단위는 4단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "목록 정체성",
+          "explanation": "v-for의 key는 각 항목을 식별합니다. 순번 key는 재정렬 시 입력 상태와 데이터의 연결을 흐릴 수 있습니다."
+        },
+        {
+          "title": "조건부 표시",
+          "explanation": "v-if는 컴포넌트를 생성하거나 제거합니다. v-show는 DOM을 남기고 표시 스타일을 바꿉니다."
+        }
+      ],
+      "outcomes": [
+        "id key로 정렬해도 메모가 같은 카드에 남는다.",
+        "두 숨김 방식의 메모 보존 결과를 각각 기록한다."
+      ],
+      "steps": [
+        "src/CardRow.vue에 로컬 입력을 두고 id key로 목록을 만드세요.",
+        "첫 행에 메모를 입력한 뒤 카드 배열을 역순으로 정렬하세요.",
+        "v-if와 v-show로 목록을 각각 숨겨 로컬 메모가 유지되는지 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "숨김 방식",
+          "baseline": "v-show",
+          "change": "v-if",
+          "expected": "v-if 제거 뒤 로컬 메모는 새 인스턴스의 초기값이 된다."
+        }
+      ],
+      "criteria": [
+        "id key로 정렬해도 메모가 같은 카드에 남는다.",
+        "두 숨김 방식의 메모 보존 결과를 각각 기록한다."
+      ],
+      "questions": [
+        "v-show로 숨긴 타이머는 계속 실행되나요?",
+        "key에 제목을 쓰면 제목 수정 시 어떤 일이 생기나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue 반응성 기초",
+          "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html"
+        },
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 6,
+      "id": "vue-step-06",
+      "title": "이벤트와 입력 변환",
+      "prerequisites": "6단위는 5단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "이벤트",
+          "explanation": "v-on은 템플릿 이벤트를 함수에 연결합니다. 이벤트 객체와 직접 전달한 인자를 구분해 변경 의도를 명확히 합니다."
+        },
+        {
+          "title": "입력 모델",
+          "explanation": "v-model은 입력값과 상태의 연결을 간결하게 표현합니다. 숫자 입력과 빈 문자열은 별도 경계 조건이므로 변환 결과를 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "Enter 제출 한 번에 카드가 1개 추가된다.",
+        "빈 횟수 입력의 처리 규칙과 실제 결과가 일치한다."
+      ],
+      "steps": [
+        "src/CardForm.vue에 제목 v-model과 목표 횟수 v-model.number를 만드세요.",
+        "form @submit.prevent에서 공백 제목을 거절하고 새 카드를 추가하세요.",
+        "횟수 3·빈 입력·한글 제목을 제출해 저장한 값과 타입을 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "횟수 입력",
+          "baseline": "3",
+          "change": "빈 문자열",
+          "expected": "빈 입력을 숫자 0으로 무조건 가정하지 않고 검증한다."
+        }
+      ],
+      "criteria": [
+        "Enter 제출 한 번에 카드가 1개 추가된다.",
+        "빈 횟수 입력의 처리 규칙과 실제 결과가 일치한다."
+      ],
+      "questions": [
+        ".prevent는 이벤트 전파도 막나요?",
+        "number 수식어만으로 범위 검증이 끝나나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue 반응성 기초",
+          "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html"
+        },
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 7,
+      "id": "vue-step-07",
+      "title": "클래스와 스타일의 상태 표현",
+      "prerequisites": "7단위는 6단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "선언적 스타일",
+          "explanation": "class와 style 바인딩은 상태에서 표시를 계산합니다. DOM 클래스를 직접 수정하면 다음 렌더 결과와 충돌할 수 있습니다."
+        },
+        {
+          "title": "의미 전달",
+          "explanation": "색상만으로 완료를 표시하면 의미를 놓칠 수 있습니다. 텍스트와 aria 속성도 같은 상태에서 계산합니다."
+        }
+      ],
+      "outcomes": [
+        "네 조합에서 완료 텍스트와 aria-pressed가 일치한다.",
+        "선택 스타일 변경이 다른 카드에 번지지 않는다."
+      ],
+      "steps": [
+        "src/Card.vue에서 :class에 done과 selected 조건을 전달하세요.",
+        "완료 텍스트와 aria-pressed를 연결하고 scoped CSS로 두 상태를 구분하세요.",
+        "완료·선택의 네 조합을 만들어 스크린샷과 DOM 값을 적으세요."
+      ],
+      "variables": [
+        {
+          "name": "상태 조합",
+          "baseline": "완료 false·선택 false",
+          "change": "완료 true·선택 true",
+          "expected": "두 상태가 충돌하지 않고 각각 표현된다."
+        }
+      ],
+      "criteria": [
+        "네 조합에서 완료 텍스트와 aria-pressed가 일치한다.",
+        "선택 스타일 변경이 다른 카드에 번지지 않는다."
+      ],
+      "questions": [
+        "scoped CSS는 전역 스타일을 완전히 차단하나요?",
+        "클래스 직접 수정과 바인딩을 섞으면 누가 최종 값을 정하나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue 반응성 기초",
+          "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html"
+        },
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 8,
+      "id": "vue-step-08",
+      "title": "props의 단방향 계약",
+      "prerequisites": "8단위는 7단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "props",
+          "explanation": "props는 부모가 소유한 입력입니다. 자식이 직접 변경하면 소유권과 변경 경로를 추적하기 어렵습니다."
+        },
+        {
+          "title": "기본값과 검증",
+          "explanation": "props의 타입과 기본값은 컴포넌트 사용 조건을 드러냅니다. 런타임 데이터 검증 전체를 자동으로 대신하지는 않습니다."
+        }
+      ],
+      "outcomes": [
+        "자식 코드에 props 직접 대입이 없다.",
+        "부모 제목 변경 후 자식 제목이 일치한다."
+      ],
+      "steps": [
+        "src/Card.vue에서 defineProps로 id·title·done을 선언하세요.",
+        "부모가 입력을 바꾸면 자식 표시가 달라지도록 연결하세요.",
+        "자식 내부 직접 변경 코드를 제거하고 읽기 전용 역할을 notes/contracts.md에 적으세요."
+      ],
+      "variables": [
+        {
+          "name": "title 입력",
+          "baseline": "상태",
+          "change": "반응성",
+          "expected": "부모 변경이 자식 제목에 반영된다."
+        }
+      ],
+      "criteria": [
+        "자식 코드에 props 직접 대입이 없다.",
+        "부모 제목 변경 후 자식 제목이 일치한다."
+      ],
+      "questions": [
+        "객체 props 내부 변경도 부모에 영향을 주나요?",
+        "초기값을 로컬 ref로 복사하면 이후 props 변경을 따라가나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 9,
+      "id": "vue-step-09",
+      "title": "emits로 변경 의도 전달",
+      "prerequisites": "9단위는 8단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "컴포넌트 이벤트",
+          "explanation": "defineEmits는 자식이 알릴 사건을 선언합니다. 부모는 사건을 받아 실제 상태 변경을 결정합니다."
+        },
+        {
+          "title": "payload",
+          "explanation": "이벤트에는 변경 대상 id와 필요한 값을 전달합니다. DOM 이벤트 객체 전체를 넘기는 것보다 계약이 분명해집니다."
+        }
+      ],
+      "outcomes": [
+        "클릭 1회에 toggle 이벤트가 1개 발생한다.",
+        "정렬 후 클릭한 카드만 완료 상태가 바뀐다."
+      ],
+      "steps": [
+        "src/Card.vue에 toggle 이벤트를 선언하고 id를 전달하세요.",
+        "App.vue의 @toggle에서 해당 id의 done만 바꾸세요.",
+        "세 카드의 이벤트 로그를 남기고 클릭한 id와 변경한 id를 대조하세요."
+      ],
+      "variables": [
+        {
+          "name": "payload",
+          "baseline": "배열 순번",
+          "change": "카드 id",
+          "expected": "정렬 후에도 같은 대상이 변경된다."
+        }
+      ],
+      "criteria": [
+        "클릭 1회에 toggle 이벤트가 1개 발생한다.",
+        "정렬 후 클릭한 카드만 완료 상태가 바뀐다."
+      ],
+      "questions": [
+        "컴포넌트 emits가 DOM처럼 조상까지 자동 전파되나요?",
+        "자식에서 부모 배열을 직접 바꾸는 것보다 어떤 점이 나은가요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 10,
+      "id": "vue-step-10",
+      "title": "컴포넌트 v-model",
+      "prerequisites": "10단위는 9단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "모델 계약",
+          "explanation": "컴포넌트 v-model은 값 전달과 갱신 이벤트를 묶은 계약입니다. modelValue와 update:modelValue를 직접 구현하면 소유권을 볼 수 있습니다."
+        },
+        {
+          "title": "초안 관리",
+          "explanation": "에디터가 사라져도 필요한 초안은 부모가 보관합니다. 자식은 현재 값을 보여 주고 새 문자열만 알립니다."
+        }
+      ],
+      "outcomes": [
+        "A 에디터 입력이 B 에디터에 반영된다.",
+        "자식을 제거하고 다시 표시해도 부모 초안이 남는다."
+      ],
+      "steps": [
+        "src/NoteEditor.vue에 modelValue prop과 update:modelValue emit을 작성하세요.",
+        "textarea의 value와 input을 연결하고 App에서 v-model을 사용하세요.",
+        "두 에디터에 같은 ref를 연결해 한쪽 입력이 다른 쪽에 보이는지 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "초안 소유자",
+          "baseline": "자식 로컬 ref",
+          "change": "부모 ref",
+          "expected": "두 에디터가 같은 문자열을 표시한다."
+        }
+      ],
+      "criteria": [
+        "A 에디터 입력이 B 에디터에 반영된다.",
+        "자식을 제거하고 다시 표시해도 부모 초안이 남는다."
+      ],
+      "questions": [
+        "defineModel을 써도 값 소유권은 어디에 있나요?",
+        "기본값이 부모 초기값과 다르면 어떤 불일치가 생기나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 11,
+      "id": "vue-step-11",
+      "title": "슬롯으로 화면 조합하기",
+      "prerequisites": "11단위는 10단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "슬롯",
+          "explanation": "슬롯은 부모가 제공한 내용을 자식 레이아웃에 배치합니다. 부모가 쓴 템플릿 표현식은 부모 범위를 사용합니다."
+        },
+        {
+          "title": "범위 슬롯",
+          "explanation": "자식 데이터를 부모가 렌더해야 할 때 슬롯 props로 전달합니다. 데이터 소유권과 표시 책임을 나누어 재사용합니다."
+        }
+      ],
+      "outcomes": [
+        "두 패널의 footer가 서로 다른 내용을 표시한다.",
+        "슬롯 변경 후 필터 결과 개수가 유지된다."
+      ],
+      "steps": [
+        "src/Panel.vue에 header·default·footer 슬롯을 만드세요.",
+        "목록과 메모 패널에 서로 다른 header와 footer를 넣으세요.",
+        "CardList의 item 슬롯으로 부모가 제목과 완료 배지를 그리게 하세요."
+      ],
+      "variables": [
+        {
+          "name": "item 슬롯",
+          "baseline": "기본 제목",
+          "change": "제목과 배지",
+          "expected": "목록 계산은 유지되고 행 표시만 달라진다."
+        }
+      ],
+      "criteria": [
+        "두 패널의 footer가 서로 다른 내용을 표시한다.",
+        "슬롯 변경 후 필터 결과 개수가 유지된다."
+      ],
+      "questions": [
+        "부모 슬롯에서 자식 지역 변수에 바로 접근할 수 있나요?",
+        "props와 슬롯을 어떤 기준으로 선택하나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 12,
+      "id": "vue-step-12",
+      "title": "watch의 대상과 시점",
+      "prerequisites": "12단위는 11단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "명시적 감시",
+          "explanation": "watch는 지정한 반응형 소스 변화에 부수 효과를 실행합니다. 계산 결과 자체가 필요하면 computed가 더 직접적입니다."
+        },
+        {
+          "title": "감시 범위",
+          "explanation": "객체 전체의 깊은 감시는 많은 변경에 반응할 수 있습니다. getter로 필요한 필드만 읽으면 감시 의도를 좁힐 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "theme 변경은 검색 요청을 시작하지 않는다.",
+        "query 변경 후 요청 로그에 최신 문자열이 남는다."
+      ],
+      "steps": [
+        "src/useSearch.js에서 watch(() => filters.query, ...)를 작성하세요.",
+        "query 변경 횟수와 요청 시작 로그를 표시하세요.",
+        "theme·onlyOpen·query를 차례로 바꾸고 감시가 실행된 항목을 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "감시 소스",
+          "baseline": "전체 filters 깊은 감시",
+          "change": "query getter",
+          "expected": "검색어 변경에만 요청 시작이 연결된다."
+        }
+      ],
+      "criteria": [
+        "theme 변경은 검색 요청을 시작하지 않는다.",
+        "query 변경 후 요청 로그에 최신 문자열이 남는다."
+      ],
+      "questions": [
+        "watchEffect와 watch는 의존성을 어떻게 결정하나요?",
+        "DOM 갱신 뒤 측정하려면 어떤 실행 시점을 확인해야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 13,
+      "id": "vue-step-13",
+      "title": "감시 정리와 요청 역전",
+      "prerequisites": "13단위는 12단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "cleanup",
+          "explanation": "watch 콜백의 onCleanup은 이전 작업을 정리할 함수를 등록합니다. 재실행 전에 타이머나 요청을 취소해 이전 작업의 영향을 제한합니다."
+        },
+        {
+          "title": "응답 정합성",
+          "explanation": "늦은 응답이 최신 검색 결과를 덮을 수 있습니다. 요청 id를 함께 검사하면 취소만으로 처리하지 못한 완료 경로도 구분합니다."
+        }
+      ],
+      "outcomes": [
+        "최종 결과가 최신 B 입력과 일치한다.",
+        "컴포넌트 제거 후 요청 갱신이 반영되지 않는다."
+      ],
+      "steps": [
+        "src/useSearch.js에 AbortController와 onCleanup을 추가하세요.",
+        "fakeSearch에서 A 800ms·B 100ms 지연을 만드세요.",
+        "A 다음 B를 입력하고 최종 query·결과 id·취소 기록을 대조하세요."
+      ],
+      "variables": [
+        {
+          "name": "응답 지연",
+          "baseline": "동일 100ms",
+          "change": "A 800ms·B 100ms",
+          "expected": "B 결과를 늦은 A가 덮지 않는다."
+        }
+      ],
+      "criteria": [
+        "최종 결과가 최신 B 입력과 일치한다.",
+        "컴포넌트 제거 후 요청 갱신이 반영되지 않는다."
+      ],
+      "questions": [
+        "watch를 비동기 콜백 안에서 만들면 자동 정리 범위가 어떻게 달라지나요?",
+        "AbortError를 사용자 오류로 표시해야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 14,
+      "id": "vue-02",
+      "title": "컴포넌트 계약과 감시",
+      "prerequisites": "14단위는 13단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "초안과 저장",
+          "explanation": "부모가 단위별 초안을 소유하면 에디터 교체에도 문자열을 보존합니다. 저장 대기 상태는 실제 저장 완료와 구분해야 합니다."
+        },
+        {
+          "title": "지연 작업의 식별",
+          "explanation": "타이머가 실행될 때 현재 단위를 읽으면 다른 필기를 덮을 수 있습니다. 시작 시 id와 문자열을 캡처하고 이전 타이머를 정리합니다."
+        }
+      ],
+      "outcomes": [
+        "A 입력 후 B 전환에도 B 저장값이 오염되지 않는다.",
+        "연속 입력 5회 뒤 마지막 값만 저장 완료된다."
+      ],
+      "steps": [
+        "src/NoteEditor.vue를 props/emits로 연결하고 draftsById를 부모에 만드세요.",
+        "watch의 입력에서 id·text·delay를 캡처해 지연 저장하고 onCleanup으로 clearTimeout하세요.",
+        "A 입력 직후 B로 전환한 뒤 savedById와 draftsById를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "저장 지연",
+          "baseline": "100ms",
+          "change": "1000ms",
+          "expected": "전환 시 이전 예약은 취소되고 다른 단위는 덮이지 않는다."
+        }
+      ],
+      "criteria": [
+        "A 입력 후 B 전환에도 B 저장값이 오염되지 않는다.",
+        "연속 입력 5회 뒤 마지막 값만 저장 완료된다."
+      ],
+      "questions": [
+        "취소된 A 초안은 어디에 남겨야 하나요?",
+        "타이머 안에서 unit.value를 읽으면 어떤 문제가 생기나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. 기존 vue-02 미리보기는 출발점입니다. 본문의 확장 결과물은 별도 프로젝트에서 구현합니다."
+    },
+    {
+      "day": 15,
+      "id": "vue-step-15",
+      "title": "템플릿 ref와 nextTick",
+      "prerequisites": "15단위는 14단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "DOM 참조",
+          "explanation": "템플릿 ref는 연결된 DOM이나 컴포넌트를 가리킵니다. 조건부 요소가 없을 때는 null일 수 있습니다."
+        },
+        {
+          "title": "갱신 배치",
+          "explanation": "Vue는 DOM 갱신을 배치합니다. 상태 변경 뒤 실제 DOM 크기나 포커스를 다루려면 nextTick 이후를 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "패널을 열 때 textarea가 활성 요소다.",
+        "숨김 상태에서 null 접근 오류가 없다."
+      ],
+      "steps": [
+        "src/EditorPanel.vue에 조건부 textarea와 ref를 만드세요.",
+        "표시 상태를 true로 바꾼 뒤 await nextTick과 focus를 연결하세요.",
+        "표시·숨김을 5회 반복하며 활성 요소와 null 처리를 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "포커스 시점",
+          "baseline": "상태 변경 직후",
+          "change": "nextTick 이후",
+          "expected": "생성된 textarea에 포커스를 줄 수 있다."
+        }
+      ],
+      "criteria": [
+        "패널을 열 때 textarea가 활성 요소다.",
+        "숨김 상태에서 null 접근 오류가 없다."
+      ],
+      "questions": [
+        "nextTick이 네트워크 완료도 기다려 주나요?",
+        "DOM 참조를 computed 결과로 대체할 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        },
+        {
+          "title": "Vue Composable과 수명 관리",
+          "url": "https://vuejs.org/guide/reusability/composables.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 16,
+      "id": "vue-step-16",
+      "title": "Composable의 수명",
+      "prerequisites": "16단위는 15단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "로직 묶기",
+          "explanation": "Composable은 Composition API를 사용하는 재사용 함수입니다. 호출마다 독립 상태를 만들지 공유할지 명시해야 합니다."
+        },
+        {
+          "title": "정리 책임",
+          "explanation": "컴포넌트 안에서 등록한 수명주기 Hook은 그 인스턴스에 연결됩니다. 외부 리스너도 동일한 종료 지점에 해제합니다."
+        }
+      ],
+      "outcomes": [
+        "남은 패널의 크기가 계속 갱신된다.",
+        "모든 패널 제거 뒤 활성 리스너가 0이다."
+      ],
+      "steps": [
+        "src/composables/useWindowSize.js에 ref·resize 리스너·onUnmounted를 묶으세요.",
+        "두 패널에서 호출해 크기를 표시하세요.",
+        "패널을 하나씩 제거하고 리스너 계수와 남은 표시를 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "소비자 수",
+          "baseline": "1개",
+          "change": "2개",
+          "expected": "독립 Composable이면 리스너도 두 개이며 하나씩 해제된다."
+        }
+      ],
+      "criteria": [
+        "남은 패널의 크기가 계속 갱신된다.",
+        "모든 패널 제거 뒤 활성 리스너가 0이다."
+      ],
+      "questions": [
+        "모듈 범위 ref를 쓰면 호출별 상태가 독립인가요?",
+        "onMounted를 setTimeout 안에서 등록하면 왜 문제가 되나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        },
+        {
+          "title": "Vue Composable과 수명 관리",
+          "url": "https://vuejs.org/guide/reusability/composables.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 17,
+      "id": "vue-step-17",
+      "title": "provide와 inject",
+      "prerequisites": "17단위는 16단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "의존성 전달",
+          "explanation": "provide는 하위 트리에 값을 전달합니다. inject는 가장 가까운 제공자의 값을 읽어 중간 props 전달을 줄입니다."
+        },
+        {
+          "title": "변경 위치",
+          "explanation": "반응형 값을 전달해도 변경 책임은 별도로 정해야 합니다. readonly 값과 변경 함수를 함께 제공하면 경계가 드러납니다."
+        }
+      ],
+      "outcomes": [
+        "두 Workspace 선택이 서로 섞이지 않는다.",
+        "소비자에서 직접 대입하지 않고 select 함수로 변경한다."
+      ],
+      "steps": [
+        "src/Workspace.vue에서 Symbol 키로 readonly 선택 ref와 select 함수를 provide하세요.",
+        "세 단계 아래 Detail.vue에서 inject해 제목을 표시하세요.",
+        "중첩 Workspace를 추가하고 각 트리의 선택이 독립인지 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "Provider 배치",
+          "baseline": "공통 한 개",
+          "change": "중첩 두 개",
+          "expected": "내부 소비자는 가장 가까운 제공자의 선택을 읽는다."
+        }
+      ],
+      "criteria": [
+        "두 Workspace 선택이 서로 섞이지 않는다.",
+        "소비자에서 직접 대입하지 않고 select 함수로 변경한다."
+      ],
+      "questions": [
+        "주입값에 기본값이 없고 제공자도 없으면 어떻게 처리하나요?",
+        "문자열 키 대신 Symbol을 쓰는 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        },
+        {
+          "title": "Vue Composable과 수명 관리",
+          "url": "https://vuejs.org/guide/reusability/composables.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 18,
+      "id": "vue-step-18",
+      "title": "공유 저장소의 범위",
+      "prerequisites": "18단위는 17단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "공유 반응성",
+          "explanation": "모듈 범위 reactive는 여러 컴포넌트가 같은 객체를 읽게 합니다. 컴포넌트별 초기화 함수와는 수명이 다릅니다."
+        },
+        {
+          "title": "초기화 경계",
+          "explanation": "테스트나 여러 앱 인스턴스가 같은 모듈 상태를 공유하면 데이터가 섞일 수 있습니다. store factory로 범위를 명시할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "두 작업공간이 서로 다른 문자열을 보존한다.",
+        "reset이 지정한 작업공간만 비운다."
+      ],
+      "steps": [
+        "src/createNotesStore.js에 drafts·update·reset을 반환하는 함수를 작성하세요.",
+        "Workspace마다 저장소를 만들고 provide하세요.",
+        "서로 다른 두 Workspace에 같은 단위 id로 다른 문자열을 입력하세요."
+      ],
+      "variables": [
+        {
+          "name": "저장소 생성",
+          "baseline": "모듈 한 개",
+          "change": "Workspace별 factory",
+          "expected": "같은 id라도 두 작업공간의 초안이 분리된다."
+        }
+      ],
+      "criteria": [
+        "두 작업공간이 서로 다른 문자열을 보존한다.",
+        "reset이 지정한 작업공간만 비운다."
+      ],
+      "questions": [
+        "모든 상태를 전역으로 옮기면 테스트가 왜 어려워지나요?",
+        "공유가 필요한 값과 인스턴스별 값을 어떻게 나누나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        },
+        {
+          "title": "Vue Composable과 수명 관리",
+          "url": "https://vuejs.org/guide/reusability/composables.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 19,
+      "id": "vue-step-19",
+      "title": "저장 복원과 데이터 검증",
+      "prerequisites": "19단위는 18단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "직렬화",
+          "explanation": "JSON에는 반응형 Proxy 자체보다 저장할 데이터 구조를 기록합니다. 버전과 필드 검증을 거쳐야 오래된 데이터를 안전하게 읽습니다."
+        },
+        {
+          "title": "실패 대응",
+          "explanation": "저장소 쓰기는 예외를 던질 수 있습니다. 메모리 초안을 유지하고 저장 실패를 별도로 알려야 입력을 잃지 않습니다."
+        }
+      ],
+      "outcomes": [
+        "유효한 A·B 초안이 각각 복원된다.",
+        "잘못된 데이터에서도 새 입력을 유지한다."
+      ],
+      "steps": [
+        "src/persistence.js에 버전 있는 notes JSON 읽기·쓰기 함수를 만드세요.",
+        "초기 로딩 때 유효한 데이터만 store에 넣으세요.",
+        "깨진 JSON과 쓰기 예외를 주입하고 화면 오류·초안 유지 결과를 적으세요."
+      ],
+      "variables": [
+        {
+          "name": "복원 입력",
+          "baseline": "정상 JSON",
+          "change": "잘린 JSON",
+          "expected": "오류를 알리고 빈 저장소로 편집을 계속한다."
+        }
+      ],
+      "criteria": [
+        "유효한 A·B 초안이 각각 복원된다.",
+        "잘못된 데이터에서도 새 입력을 유지한다."
+      ],
+      "questions": [
+        "watch immediate 저장이 초기 복원보다 먼저 실행되면 무엇을 잃나요?",
+        "deep watch가 모든 저장 요구에 적합한가요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 20,
+      "id": "vue-step-20",
+      "title": "비동기 컴포넌트와 로딩 UI",
+      "prerequisites": "20단위는 19단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "지연 로딩",
+          "explanation": "defineAsyncComponent는 컴포넌트 코드 로딩을 지연합니다. 데이터 요청 상태와 코드 로딩 상태는 서로 다른 실패 경로입니다."
+        },
+        {
+          "title": "오류 경계",
+          "explanation": "로딩·오류 컴포넌트는 사용자에게 현재 상태를 설명합니다. 실패했을 때 돌아갈 화면이나 재시도 정책이 있어야 합니다."
+        }
+      ],
+      "outcomes": [
+        "지연 중 빈 화면 대신 로딩 안내가 있다.",
+        "실패 후 목록과 필기 조작이 가능하다."
+      ],
+      "steps": [
+        "src/App.vue에서 무거운 PreviewPanel.vue를 defineAsyncComponent로 불러오세요.",
+        "loadingComponent와 errorComponent를 지정하세요.",
+        "모의 import Promise에 지연과 실패를 각각 넣고 안내 상태를 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "코드 로딩",
+          "baseline": "즉시 성공",
+          "change": "지연 후 실패",
+          "expected": "로딩 안내를 거쳐 오류 안내가 나타난다."
+        }
+      ],
+      "criteria": [
+        "지연 중 빈 화면 대신 로딩 안내가 있다.",
+        "실패 후 목록과 필기 조작이 가능하다."
+      ],
+      "questions": [
+        "코드 로딩 실패와 검색 실패를 같은 변수로 관리해도 되나요?",
+        "분리한 번들의 크기만으로 체감 성능을 판단할 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 21,
+      "id": "vue-step-21",
+      "title": "KeepAlive와 일시 정지",
+      "prerequisites": "21단위는 20단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "인스턴스 보존",
+          "explanation": "KeepAlive는 비활성 컴포넌트 인스턴스를 캐시합니다. 제거와 달리 로컬 상태를 유지할 수 있습니다."
+        },
+        {
+          "title": "활성 수명",
+          "explanation": "캐시된 컴포넌트는 비활성 상태에서도 자원을 가질 수 있습니다. onActivated와 onDeactivated에서 일시 정지·재개를 설계합니다."
+        }
+      ],
+      "outcomes": [
+        "복귀한 Editor의 로컬 문자열이 남는다.",
+        "비활성 Preview의 tick이 증가하지 않는다."
+      ],
+      "steps": [
+        "src/Workspace.vue에 Editor와 Preview 동적 컴포넌트를 KeepAlive로 감싸세요.",
+        "Preview 타이머를 onActivated에서 시작하고 onDeactivated에서 정지하세요.",
+        "패널을 5회 교대하며 로컬 값과 활성 타이머 수를 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "보존 방식",
+          "baseline": "일반 동적 컴포넌트",
+          "change": "KeepAlive",
+          "expected": "로컬 값은 보존되고 비활성 타이머는 멈춰야 한다."
+        }
+      ],
+      "criteria": [
+        "복귀한 Editor의 로컬 문자열이 남는다.",
+        "비활성 Preview의 tick이 증가하지 않는다."
+      ],
+      "questions": [
+        "onUnmounted만으로 캐시된 화면의 루프가 멈추나요?",
+        "캐시 수를 제한해야 할 때 어떤 정보를 보나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        },
+        {
+          "title": "Vue Composable과 수명 관리",
+          "url": "https://vuejs.org/guide/reusability/composables.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 22,
+      "id": "vue-step-22",
+      "title": "Canvas 생성과 해제",
+      "prerequisites": "22단위는 21단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "외부 자원",
+          "explanation": "Canvas context와 RAF는 Vue 반응성 밖의 객체입니다. onMounted에서 DOM이 준비된 뒤 생성합니다."
+        },
+        {
+          "title": "종료 처리",
+          "explanation": "onUnmounted에서 RAF·observer·리스너를 해제합니다. 반복 표시에도 한 세대의 자원만 남아야 합니다."
+        }
+      ],
+      "outcomes": [
+        "제거 후 tick 로그가 멈춘다.",
+        "재표시 후 원 하나만 움직인다."
+      ],
+      "steps": [
+        "src/CanvasPanel.vue에 canvas ref와 onMounted에서 2D context를 만드세요.",
+        "RAF로 원을 그리고 onUnmounted에 취소와 ResizeObserver.disconnect를 넣으세요.",
+        "v-if로 5회 표시·제거해 활성 루프 수를 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "표시 횟수",
+          "baseline": "1회",
+          "change": "5회",
+          "expected": "표시 중 1개·제거 후 0개의 루프를 유지한다."
+        }
+      ],
+      "criteria": [
+        "제거 후 tick 로그가 멈춘다.",
+        "재표시 후 원 하나만 움직인다."
+      ],
+      "questions": [
+        "v-show로 바꾸면 cleanup이 실행되나요?",
+        "외부 자원 전체를 reactive로 감쌀 필요가 있나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        },
+        {
+          "title": "Vue Composable과 수명 관리",
+          "url": "https://vuejs.org/guide/reusability/composables.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 23,
+      "id": "vue-step-23",
+      "title": "프레임 값과 UI 값 분리",
+      "prerequisites": "23단위는 22단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "갱신 빈도",
+          "explanation": "프레임 좌표는 매 프레임 바뀌지만 UI 설정은 드물게 바뀝니다. 모두 ref로 표시하면 불필요한 화면 갱신이 생깁니다."
+        },
+        {
+          "title": "시간 기반 이동",
+          "explanation": "RAF timestamp 차이를 초 단위 delta로 바꿔 이동량을 계산합니다. 탭 복귀의 큰 간격은 제한 정책을 명시합니다."
+        }
+      ],
+      "outcomes": [
+        "speed 0에서 원 위치가 멈춘다.",
+        "speed 변경 때 Canvas 생성 계수가 늘지 않는다."
+      ],
+      "steps": [
+        "src/CanvasPanel.vue에서 angle을 지역 변수로 두고 speed만 prop으로 받으세요.",
+        "angle += delta * speed로 이동시키고 delta 상한을 기록하세요.",
+        "speed 0·1·2를 입력해 정지와 속도 변화가 renderer 재생성 없이 반영되는지 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "speed",
+          "baseline": "1",
+          "change": "2",
+          "expected": "같은 시간의 회전량이 약 두 배가 된다."
+        }
+      ],
+      "criteria": [
+        "speed 0에서 원 위치가 멈춘다.",
+        "speed 변경 때 Canvas 생성 계수가 늘지 않는다."
+      ],
+      "questions": [
+        "지역 angle 변경이 템플릿에 자동 표시되나요?",
+        "탭 복귀 delta를 제한하면 실제 시간과 어떤 차이가 생기나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        },
+        {
+          "title": "Vue Composable과 수명 관리",
+          "url": "https://vuejs.org/guide/reusability/composables.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 24,
+      "id": "vue-step-24",
+      "title": "얕은 반응성과 외부 객체",
+      "prerequisites": "24단위는 23단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "shallowRef",
+          "explanation": "shallowRef는 .value 교체를 추적하고 내부 객체를 깊게 감싸지 않습니다. Three.js 같은 외부 객체 수명을 관리할 때 검토할 수 있습니다."
+        },
+        {
+          "title": "수동 알림",
+          "explanation": "내부 값을 직접 바꿔도 Vue 갱신이 필요한 것은 아닙니다. 화면 요약이 필요하면 별도 ref나 명시적 교체로 통지합니다."
+        }
+      ],
+      "outcomes": [
+        "renderer 핸들 교체 시 소비자가 새 핸들을 읽는다.",
+        "프레임 변화마다 템플릿 통계가 갱신되지 않는다."
+      ],
+      "steps": [
+        "src/useRenderer.js에 외부 renderer 핸들을 shallowRef로 보관하세요.",
+        "장면 객체 내부 회전은 루프에서 변경하고 UI에는 별도 저빈도 통계를 표시하세요.",
+        "깊은 ref 대조군과 객체 식별·UI 갱신 로그를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "보관 방식",
+          "baseline": "깊은 ref",
+          "change": "shallowRef",
+          "expected": "외부 객체 내부 변경이 Vue의 깊은 추적 대상에서 빠진다."
+        }
+      ],
+      "criteria": [
+        "renderer 핸들 교체 시 소비자가 새 핸들을 읽는다.",
+        "프레임 변화마다 템플릿 통계가 갱신되지 않는다."
+      ],
+      "questions": [
+        "shallowRef 내부 변경 후 UI를 갱신하려면 어떤 선택지가 있나요?",
+        "markRaw와 shallowRef는 무엇을 다르게 제어하나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        },
+        {
+          "title": "Vue Composable과 수명 관리",
+          "url": "https://vuejs.org/guide/reusability/composables.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 25,
+      "id": "vue-step-25",
+      "title": "Vue 성능 관찰",
+      "prerequisites": "25단위는 24단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "업데이트 범위",
+          "explanation": "props 안정성과 computed 의존성이 갱신 범위에 영향을 줍니다. 최적화 전에 어떤 컴포넌트가 바뀌는지 확인해야 합니다."
+        },
+        {
+          "title": "측정 조건",
+          "explanation": "개발 도구 로그 자체도 실행 비용을 만듭니다. 같은 데이터·입력·빌드 조건으로 비교하고 측정 한계를 기록합니다."
+        }
+      ],
+      "outcomes": [
+        "두 방식의 같은 입력 10회 기록이 있다.",
+        "최적화 뒤 선택 표시가 정확히 1개다."
+      ],
+      "steps": [
+        "src/CardList.vue에 1000개 카드를 공급하고 업데이트 횟수를 계측하세요.",
+        "선택 id 전체 대신 행별 selected boolean을 전달하는 대조를 만드세요.",
+        "선택 10회의 업데이트 수와 시간을 notes/performance.md에 적으세요."
+      ],
+      "variables": [
+        {
+          "name": "props",
+          "baseline": "모든 행에 selectedId",
+          "change": "행별 selected",
+          "expected": "선택이 바뀐 행으로 갱신 범위가 줄 수 있다."
+        }
+      ],
+      "criteria": [
+        "두 방식의 같은 입력 10회 기록이 있다.",
+        "최적화 뒤 선택 표시가 정확히 1개다."
+      ],
+      "questions": [
+        "반응형 의존성이 적으면 항상 빠른가요?",
+        "측정에 개발 모드 여부를 왜 적나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 26,
+      "id": "vue-step-26",
+      "title": "동작 회귀와 저장 경합 검증",
+      "prerequisites": "26단위는 25단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "사용자 흐름",
+          "explanation": "컴포넌트 계약은 입력과 관찰 가능한 출력으로 확인합니다. 내부 ref 이름에 의존하면 구현 변경 때 검증이 쉽게 깨집니다."
+        },
+        {
+          "title": "시간 제어",
+          "explanation": "지연 저장은 빠른 전환에서 다른 단위를 덮지 않아야 합니다. 고정 대기보다 저장 완료 조건이나 제어된 타이머를 사용합니다."
+        }
+      ],
+      "outcomes": [
+        "A 문자열이 B 저장값에 들어가지 않는다.",
+        "추가·토글·검색·전환 네 흐름이 통과한다."
+      ],
+      "steps": [
+        "tests/workspace.spec.js에 추가·토글·검색·A/B 초안 전환을 작성하세요.",
+        "저장 지연 1000ms에서 A 입력 후 B 전환을 재현하세요.",
+        "Canvas 제거 후 활성 루프 0과 재표시 후 1도 검증하세요."
+      ],
+      "variables": [
+        {
+          "name": "입력 간격",
+          "baseline": "저장 지연보다 김",
+          "change": "저장 지연보다 짧음",
+          "expected": "짧은 간격에도 초안의 단위 id가 유지된다."
+        }
+      ],
+      "criteria": [
+        "A 문자열이 B 저장값에 들어가지 않는다.",
+        "추가·토글·검색·전환 네 흐름이 통과한다."
+      ],
+      "questions": [
+        "가짜 타이머와 실제 브라우저 RAF 검증은 어떻게 다른가요?",
+        "테스트 전 저장소를 초기화하지 않으면 무엇이 달라지나요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 27,
+      "id": "vue-step-27",
+      "title": "Composition API 통합 검토",
+      "prerequisites": "27단위는 26단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "관심사 분리",
+          "explanation": "Composable은 검색·저장·렌더러처럼 수명이 다른 책임을 나눕니다. 지나친 분리는 데이터 흐름을 숨길 수 있어 실제 소유자를 문서화합니다."
+        },
+        {
+          "title": "비교 가능한 계약",
+          "explanation": "React와 비교하려면 같은 입력·결과·수명 요구를 사용합니다. 코드 줄 수만으로 구조나 성능을 판단하지 않습니다."
+        }
+      ],
+      "outcomes": [
+        "상태·파생·외부 작업의 소유자가 각각 적혀 있다.",
+        "5회 전환 후 활성 Canvas가 1개다."
+      ],
+      "steps": [
+        "src/Workspace.vue에 카드·필기·Canvas를 통합하세요.",
+        "notes/ownership.md에 ref·computed·watch·onUnmounted의 소유 대상을 적으세요.",
+        "같은 5회 전환 시나리오로 React 구현의 Effect와 Vue Hook 대응을 표로 작성하세요."
+      ],
+      "variables": [
+        {
+          "name": "전환 방식",
+          "baseline": "한 단위 유지",
+          "change": "A/B 5회 전환",
+          "expected": "초안은 보존되고 외부 루프 수는 누적되지 않는다."
+        }
+      ],
+      "criteria": [
+        "상태·파생·외부 작업의 소유자가 각각 적혀 있다.",
+        "5회 전환 후 활성 Canvas가 1개다."
+      ],
+      "questions": [
+        "watch로 계산한 값 중 computed로 바꿀 것은 무엇인가요?",
+        "React cleanup과 Vue onUnmounted가 완전히 같은 시점인가요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        },
+        {
+          "title": "Vue Composable과 수명 관리",
+          "url": "https://vuejs.org/guide/reusability/composables.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. Frontory 내장 실행 예제가 없는 확장 단위이며 아래 파일은 외부 실습 프로젝트에 작성합니다."
+    },
+    {
+      "day": 28,
+      "id": "vue-03",
+      "title": "Canvas 수명주기",
+      "prerequisites": "28단위는 27단위 결과물과 실험 기록을 이어 사용합니다.",
+      "concepts": [
+        {
+          "title": "렌더 루프 경계",
+          "explanation": "onMounted와 onUnmounted는 외부 Canvas의 생성·종료를 연결합니다. 프레임 좌표는 지역 값으로 두고 사용자 설정만 반응형 입력으로 받습니다."
+        },
+        {
+          "title": "수명 비교",
+          "explanation": "React Effect는 의존성 변경에도 정리·재설정을 수행합니다. Vue에서는 mount 수명과 watch 재실행 수명을 따로 확인해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "최종 제거 뒤 RAF·observer·리스너 활성 수가 0이다.",
+        "속도 조절과 10회 재마운트 후 초안·Canvas 조작이 정상이다."
+      ],
+      "steps": [
+        "src/Workspace.vue의 Canvas를 speed 조절·크기 변경·단위 전환과 통합하세요.",
+        "10회 재마운트와 숨김 후 복귀에서 RAF·observer·리스너 계수를 기록하세요.",
+        "notes/final.md에 React 대응표·초안 보존 결과·성능 측정·실패 복구를 묶어 제출하세요."
+      ],
+      "variables": [
+        {
+          "name": "프레임 저장",
+          "baseline": "반응형 angle",
+          "change": "지역 angle",
+          "expected": "동일한 이동을 유지하면서 UI 갱신 빈도가 달라진다."
+        }
+      ],
+      "criteria": [
+        "최종 제거 뒤 RAF·observer·리스너 활성 수가 0이다.",
+        "속도 조절과 10회 재마운트 후 초안·Canvas 조작이 정상이다."
+      ],
+      "questions": [
+        "watch cleanup과 onUnmounted가 각각 처리할 자원은 무엇인가요?",
+        "지역 프레임 값과 반응형 설정을 분리한 근거는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "Vue Composition API 가이드",
+          "url": "https://vuejs.org/guide/introduction.html"
+        },
+        {
+          "title": "Vue Watchers와 cleanup",
+          "url": "https://vuejs.org/guide/essentials/watchers.html"
+        },
+        {
+          "title": "Vue Composable과 수명 관리",
+          "url": "https://vuejs.org/guide/reusability/composables.html"
+        }
+      ],
+      "environment": "별도 Vue Vite 프로젝트에서 .vue SFC와 script setup을 사용합니다. 패키지 버전과 lockfile을 기록하고 개발 서버에서 실행하세요. 내장 Vue 예제는 h 함수 기반이며 범용 SFC 컴파일러가 아닙니다. 기존 vue-03 미리보기는 출발점입니다. 본문의 확장 결과물은 별도 프로젝트에서 구현합니다."
+    }
+  ]
+}

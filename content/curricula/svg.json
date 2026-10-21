@@ -1,0 +1,1389 @@
+{
+  "seriesId": "svg",
+  "stages": [
+    "벡터 경로와 좌표",
+    "스타일·효과·DOM 입력",
+    "접근성과 데이터 지도",
+    "내보내기·대규모 비교"
+  ],
+  "goal": "벡터 좌표와 DOM 의미를 연결해 접근 가능한 데이터 지도를 만든다.",
+  "capstone": "키보드로 편집 가능한 SVG 노드 지도, 독립 SVG 내보내기와 동일 데이터 Canvas 비교 보고서",
+  "units": [
+    {
+      "day": 1,
+      "id": "svg-01",
+      "title": "viewBox와 벡터",
+      "prerequisites": "JavaScript 함수·배열, DOM 이벤트와 좌표를 다룰 수 있어야 합니다.",
+      "concepts": [
+        {
+          "title": "사용자 좌표",
+          "explanation": "viewBox는 내부 좌표 범위를 정의합니다. 화면 크기를 바꿔도 도형 데이터 자체는 바뀌지 않습니다."
+        },
+        {
+          "title": "비율 보존",
+          "explanation": "preserveAspectRatio는 내부 사각형을 viewport에 맞추는 방식을 정합니다. meet와 slice는 여백 또는 잘림을 서로 다르게 만듭니다."
+        }
+      ],
+      "outcomes": [
+        "내부 좌표와 화면 크기를 구별한다.",
+        "크기 변경의 위치·굵기 차이를 설명한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-01.js와 index.html을 준비하세요. inline svg에 rect,circle,path로 300×150 배지를 작성하세요.",
+        "viewBox와 preserveAspectRatio를 select로 바꾸고 화면 크기와 내부 좌표를 표시하세요.",
+        "입력 조건 0 0 300 150에서 출력을 저장한 뒤 0 0 600 300 조건으로 다시 실행하세요. 같은 좌표의 도형이 화면에서 더 작게 보입니다라는 가설을 화면·로그와 대조하고 day-01-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "viewBox",
+          "baseline": "0 0 300 150",
+          "change": "0 0 600 300",
+          "expected": "같은 좌표의 도형이 화면에서 더 작게 보입니다"
+        }
+      ],
+      "criteria": [
+        "내부 좌표와 화면 크기를 구별한다.",
+        "크기 변경의 위치·굵기 차이를 설명한다."
+      ],
+      "questions": [
+        "viewBox를 바꾸면 path 데이터도 바뀌나요?",
+        "meet와 slice 중 어느 쪽이 도형을 자를 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "기존 내장 예제는 출발점만 제공합니다. 확장 요구사항 전체가 구현된 예제가 아니며 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 2,
+      "id": "svg-step-02",
+      "title": "기본 도형과 속성",
+      "prerequisites": "선수 개념: 사용자 좌표, 비율 보존. 1단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "기하 속성",
+          "explanation": "rect의 x,y,width,height는 도형의 위치와 크기를 정합니다. CSS 배치 속성과 역할을 구분해야 합니다."
+        },
+        {
+          "title": "칠과 선",
+          "explanation": "fill은 내부를 채우고 stroke는 윤곽을 그립니다. fill을 none으로 지정해도 선은 남길 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "선과 채우기를 독립적으로 변경한다.",
+        "두꺼운 선의 잘림을 확인한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-02.js와 index.html을 준비하세요. rect,circle,ellipse를 서로 다른 fill과 stroke로 배치하세요.",
+        "입력 폼에서 radius와 stroke-width를 바꾸고 실제 속성값을 output에 표시하세요.",
+        "입력 조건 1에서 출력을 저장한 뒤 12 조건으로 다시 실행하세요. 윤곽이 도형 경계 양쪽으로 두꺼워집니다라는 가설을 화면·로그와 대조하고 day-02-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "stroke-width",
+          "baseline": "1",
+          "change": "12",
+          "expected": "윤곽이 도형 경계 양쪽으로 두꺼워집니다"
+        }
+      ],
+      "criteria": [
+        "선과 채우기를 독립적으로 변경한다.",
+        "두꺼운 선의 잘림을 확인한다."
+      ],
+      "questions": [
+        "stroke가 도형 바깥에도 그려지는 이유는 무엇인가요?",
+        "투명한 fill과 none의 입력 동작은 같을까요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 3,
+      "id": "svg-step-03",
+      "title": "경로 명령과 닫기",
+      "prerequisites": "선수 개념: 기하 속성, 칠과 선. 2단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "절대·상대 좌표",
+          "explanation": "대문자 경로 명령은 절대 좌표를 사용합니다. 소문자는 현재 점을 기준으로 움직입니다."
+        },
+        {
+          "title": "경로 닫기",
+          "explanation": "Z는 시작점까지 연결해 경로를 닫습니다. 마지막 점을 수동으로 시작점에 놓는 것과 선 결합이 달라질 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "두 명령 방식으로 같은 화살표를 만든다.",
+        "닫힌 경로와 열린 경로를 구별한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-03.js와 index.html을 준비하세요. M,L,H,V,Z로 화살표 path를 작성하고 꼭짓점에 원을 덧그리세요.",
+        "같은 모양을 상대 명령으로 다시 쓰고 시작점을 이동시키세요.",
+        "입력 조건 20,20에서 출력을 저장한 뒤 80,20 조건으로 다시 실행하세요. 상대 명령 도형은 전체 모양을 유지하며 이동합니다라는 가설을 화면·로그와 대조하고 day-03-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "시작점",
+          "baseline": "20,20",
+          "change": "80,20",
+          "expected": "상대 명령 도형은 전체 모양을 유지하며 이동합니다"
+        }
+      ],
+      "criteria": [
+        "두 명령 방식으로 같은 화살표를 만든다.",
+        "닫힌 경로와 열린 경로를 구별한다."
+      ],
+      "questions": [
+        "상대 명령에서 현재 점은 언제 갱신되나요?",
+        "Z를 빼면 fill과 stroke는 각각 어떻게 되나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 4,
+      "id": "svg-step-04",
+      "title": "베지어 곡선 조절",
+      "prerequisites": "선수 개념: 절대·상대 좌표, 경로 닫기. 3단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "제어점",
+          "explanation": "Q는 한 제어점을 사용하는 이차 곡선입니다. 제어점은 보통 곡선이 직접 통과하는 점이 아닙니다."
+        },
+        {
+          "title": "접선",
+          "explanation": "C의 두 제어점은 시작과 끝의 접선 방향에 영향을 줍니다. 연결 지점의 방향을 맞추면 곡선의 꺾임을 줄일 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "보조점과 실제 곡선을 구별한다.",
+        "제어점 이동이 접선에 주는 영향을 설명한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-04.js와 index.html을 준비하세요. Q와 C 경로를 만들고 제어점을 작은 circle과 보조선으로 표시하세요.",
+        "슬라이더로 제어점 y를 바꾸고 path의 d 속성을 갱신하세요.",
+        "입력 조건 20에서 출력을 저장한 뒤 120 조건으로 다시 실행하세요. 곡선의 휘어지는 방향과 높이가 달라집니다라는 가설을 화면·로그와 대조하고 day-04-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "제어점 y",
+          "baseline": "20",
+          "change": "120",
+          "expected": "곡선의 휘어지는 방향과 높이가 달라집니다"
+        }
+      ],
+      "criteria": [
+        "보조점과 실제 곡선을 구별한다.",
+        "제어점 이동이 접선에 주는 영향을 설명한다."
+      ],
+      "questions": [
+        "제어점 위를 곡선이 지나지 않는 이유는 무엇인가요?",
+        "두 곡선을 부드럽게 연결하려면 어떤 점을 정렬하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 5,
+      "id": "svg-step-05",
+      "title": "호와 도넛 조각",
+      "prerequisites": "선수 개념: 제어점, 접선. 4단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "호 플래그",
+          "explanation": "A 명령은 반지름과 두 플래그로 타원호를 선택합니다. 같은 끝점에도 큰 호와 작은 호가 가능합니다."
+        },
+        {
+          "title": "각도 데이터",
+          "explanation": "비율을 각도로 바꾼 뒤 원 위 좌표를 계산합니다. 전체 원은 시작점과 끝점이 같아 별도 경로 구성이 필요합니다."
+        }
+      ],
+      "outcomes": [
+        "절반을 넘는 비율을 올바르게 그린다.",
+        "0과 100의 경계 사례를 처리한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-05.js와 index.html을 준비하세요. sin과 cos로 원 위 두 점을 계산하고 A 명령으로 진행률 호를 만드세요.",
+        "0%,50%,99%,100% 입력을 각각 처리하고 큰 호 플래그를 표시하세요.",
+        "입력 조건 25%에서 출력을 저장한 뒤 75% 조건으로 다시 실행하세요. large-arc-flag를 바꿔 더 긴 호를 선택해야 합니다라는 가설을 화면·로그와 대조하고 day-05-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "진행률",
+          "baseline": "25%",
+          "change": "75%",
+          "expected": "large-arc-flag를 바꿔 더 긴 호를 선택해야 합니다"
+        }
+      ],
+      "criteria": [
+        "절반을 넘는 비율을 올바르게 그린다.",
+        "0과 100의 경계 사례를 처리한다."
+      ],
+      "questions": [
+        "sweep-flag는 무엇을 바꾸나요?",
+        "시작과 끝이 같은 한 개의 호가 왜 충분하지 않나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 6,
+      "id": "svg-step-06",
+      "title": "그룹과 변환 순서",
+      "prerequisites": "선수 개념: 호 플래그, 각도 데이터. 5단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "그룹 변환",
+          "explanation": "g의 transform은 자식들에게 함께 적용됩니다. 아이콘 내부 좌표를 유지한 채 여러 위치에 배치할 수 있습니다."
+        },
+        {
+          "title": "행렬 순서",
+          "explanation": "이동과 회전은 순서에 민감합니다. 회전 중심을 명시하면 의도하지 않은 공전을 줄입니다."
+        }
+      ],
+      "outcomes": [
+        "그룹을 이동해도 내부 배치가 유지된다.",
+        "회전 중심을 시각적으로 표시한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-06.js와 index.html을 준비하세요. g 안에 바늘과 중심점을 만들고 transform으로 회전시키세요.",
+        "이동 그룹과 회전 그룹을 중첩한 버전과 단일 transform 버전을 비교하세요.",
+        "입력 조건 0,0에서 출력을 저장한 뒤 100,100 조건으로 다시 실행하세요. 바늘이 도는 기준점이 달라집니다라는 가설을 화면·로그와 대조하고 day-06-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "회전 중심",
+          "baseline": "0,0",
+          "change": "100,100",
+          "expected": "바늘이 도는 기준점이 달라집니다"
+        }
+      ],
+      "criteria": [
+        "그룹을 이동해도 내부 배치가 유지된다.",
+        "회전 중심을 시각적으로 표시한다."
+      ],
+      "questions": [
+        "부모와 자식의 transform은 어떻게 합쳐지나요?",
+        "transform 문자열 순서를 어떻게 검증할 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 7,
+      "id": "svg-step-07",
+      "title": "심벌과 재사용",
+      "prerequisites": "선수 개념: 그룹 변환, 행렬 순서. 6단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "정의와 인스턴스",
+          "explanation": "defs의 내용은 그 자체로 보이지 않습니다. use가 정의를 참조할 때 같은 도형을 여러 곳에 표시합니다."
+        },
+        {
+          "title": "식별자 범위",
+          "explanation": "id는 문서 안에서 충돌하지 않아야 합니다. 여러 SVG를 합치면 같은 이름의 gradient나 symbol 참조가 엉킬 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "하나의 정의 수정이 인스턴스에 반영된다.",
+        "두 SVG의 참조 id가 충돌하지 않는다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-07.js와 index.html을 준비하세요. symbol에 배지를 정의하고 use href로 세 크기의 인스턴스를 만드세요.",
+        "접두사를 붙인 id 규칙을 정하고 두 SVG를 같은 HTML에 배치하세요.",
+        "입력 조건 모두 badge에서 출력을 저장한 뒤 각 SVG별 접두사 조건으로 다시 실행하세요. 다른 정의를 잘못 참조하는 충돌을 피합니다라는 가설을 화면·로그와 대조하고 day-07-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "id 규칙",
+          "baseline": "모두 badge",
+          "change": "각 SVG별 접두사",
+          "expected": "다른 정의를 잘못 참조하는 충돌을 피합니다"
+        }
+      ],
+      "criteria": [
+        "하나의 정의 수정이 인스턴스에 반영된다.",
+        "두 SVG의 참조 id가 충돌하지 않는다."
+      ],
+      "questions": [
+        "use의 색을 인스턴스별로 바꾸려면 어떻게 설계하나요?",
+        "symbol의 viewBox는 왜 유용한가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 8,
+      "id": "svg-step-08",
+      "title": "스타일과 테마",
+      "prerequisites": "선수 개념: 정의와 인스턴스, 식별자 범위. 7단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "캐스케이드",
+          "explanation": "SVG 표현 속성은 CSS의 영향을 받습니다. 속성값만 읽어서는 최종 색을 알 수 없는 경우가 있습니다."
+        },
+        {
+          "title": "상속 색상",
+          "explanation": "currentColor는 주변 color를 사용합니다. 아이콘 테마를 페이지 텍스트 색과 맞추기 쉽습니다."
+        }
+      ],
+      "outcomes": [
+        "테마 변경 시 아이콘이 함께 바뀐다.",
+        "최종 색의 출처를 개발자 도구로 찾는다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-08.js와 index.html을 준비하세요. stroke와 fill에 currentColor를 사용하는 아이콘을 작성하세요.",
+        "테마 버튼으로 CSS 변수를 전환하고 getComputedStyle로 최종 fill을 기록하세요.",
+        "입력 조건 fill 속성만에서 출력을 저장한 뒤 CSS fill 규칙 추가 조건으로 다시 실행하세요. 캐스케이드에 따라 화면 색이 속성 문자열과 달라질 수 있습니다라는 가설을 화면·로그와 대조하고 day-08-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "색 지정",
+          "baseline": "fill 속성만",
+          "change": "CSS fill 규칙 추가",
+          "expected": "캐스케이드에 따라 화면 색이 속성 문자열과 달라질 수 있습니다"
+        }
+      ],
+      "criteria": [
+        "테마 변경 시 아이콘이 함께 바뀐다.",
+        "최종 색의 출처를 개발자 도구로 찾는다."
+      ],
+      "questions": [
+        "외부 img SVG에도 같은 CSS가 적용되나요?",
+        "currentColor는 어느 요소의 color를 사용하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 9,
+      "id": "svg-step-09",
+      "title": "그라디언트 좌표",
+      "prerequisites": "선수 개념: 캐스케이드, 상속 색상. 8단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "경계 상자 단위",
+          "explanation": "objectBoundingBox는 도형의 경계 상자를 기준으로 합니다. 같은 정의도 도형 비율에 따라 다르게 보일 수 있습니다."
+        },
+        {
+          "title": "사용자 공간",
+          "explanation": "userSpaceOnUse는 사용자 좌표로 그라디언트를 정의합니다. 여러 도형에 걸쳐 연속된 색 띠를 만들 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "두 좌표 방식의 결과를 비교한다.",
+        "단위 변경 때 좌표값도 맞춘다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-09.js와 index.html을 준비하세요. linearGradient를 defs에 만들고 서로 다른 폭의 사각형에 적용하세요.",
+        "gradientUnits를 전환하고 시작·끝 좌표를 함께 조정하세요.",
+        "입력 조건 objectBoundingBox에서 출력을 저장한 뒤 userSpaceOnUse 조건으로 다시 실행하세요. 도형마다 늘어나던 색 띠가 공통 좌표에 정렬됩니다라는 가설을 화면·로그와 대조하고 day-09-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "gradientUnits",
+          "baseline": "objectBoundingBox",
+          "change": "userSpaceOnUse",
+          "expected": "도형마다 늘어나던 색 띠가 공통 좌표에 정렬됩니다"
+        }
+      ],
+      "criteria": [
+        "두 좌표 방식의 결과를 비교한다.",
+        "단위 변경 때 좌표값도 맞춘다."
+      ],
+      "questions": [
+        "폭 0인 도형의 경계 상자는 어떤 문제가 있나요?",
+        "하나의 빛 효과를 여러 도형에 연결하려면 어느 단위를 쓰나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 10,
+      "id": "svg-step-10",
+      "title": "클립과 마스크",
+      "prerequisites": "선수 개념: 경계 상자 단위, 사용자 공간. 9단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "클리핑",
+          "explanation": "clipPath는 보이는 기하 영역을 제한합니다. 경계 안팎을 잘라내는 데 적합합니다."
+        },
+        {
+          "title": "마스크 농도",
+          "explanation": "mask는 알파나 밝기로 가시성을 조절합니다. 흐린 경계를 만들 때 단순 클리핑과 다른 결과를 줍니다."
+        }
+      ],
+      "outcomes": [
+        "클립과 마스크 결과를 나란히 설명한다.",
+        "마스크 영역 밖의 잘림을 확인한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-10.js와 index.html을 준비하세요. 원형 clipPath로 이미지를 잘라 아바타를 만드세요.",
+        "별도 mask에 그라디언트를 넣어 같은 이미지가 서서히 사라지게 하세요.",
+        "입력 조건 단색 흰색에서 출력을 저장한 뒤 흰색에서 검정 그라디언트 조건으로 다시 실행하세요. 휘도 마스크에서 가시성이 점진적으로 줄어듭니다라는 가설을 화면·로그와 대조하고 day-10-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "마스크",
+          "baseline": "단색 흰색",
+          "change": "흰색에서 검정 그라디언트",
+          "expected": "휘도 마스크에서 가시성이 점진적으로 줄어듭니다"
+        }
+      ],
+      "criteria": [
+        "클립과 마스크 결과를 나란히 설명한다.",
+        "마스크 영역 밖의 잘림을 확인한다."
+      ],
+      "questions": [
+        "mask-type을 바꾸면 검정의 의미는 어떻게 달라지나요?",
+        "clipPath를 반투명으로 만들면 흐린 마스크가 되나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 11,
+      "id": "svg-step-11",
+      "title": "필터 영역과 비용",
+      "prerequisites": "선수 개념: 클리핑, 마스크 농도. 10단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "필터 그래프",
+          "explanation": "필터 primitive는 입력 이미지를 받아 출력으로 이어집니다. 입력을 잘못 연결하면 원본 대신 이전 효과가 처리됩니다."
+        },
+        {
+          "title": "필터 경계",
+          "explanation": "블러는 도형 바깥으로 번집니다. 필터 영역이 좁으면 가장자리가 잘릴 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "그림자 잘림을 영역 설정으로 해결한다.",
+        "블러 범위와 화면 품질을 기록한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-11.js와 index.html을 준비하세요. filter에 feGaussianBlur와 feOffset을 연결해 그림자를 만드세요.",
+        "stdDeviation과 필터 x,y,width,height를 조절해 잘림 전후를 저장하세요.",
+        "입력 조건 2에서 출력을 저장한 뒤 12 조건으로 다시 실행하세요. 그림자가 넓어져 기존 필터 영역 밖에서 잘릴 수 있습니다라는 가설을 화면·로그와 대조하고 day-11-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "stdDeviation",
+          "baseline": "2",
+          "change": "12",
+          "expected": "그림자가 넓어져 기존 필터 영역 밖에서 잘릴 수 있습니다"
+        }
+      ],
+      "criteria": [
+        "그림자 잘림을 영역 설정으로 해결한다.",
+        "블러 범위와 화면 품질을 기록한다."
+      ],
+      "questions": [
+        "SourceGraphic과 이전 결과는 어떻게 다른가요?",
+        "큰 필터 영역이 비용에 영향을 주는 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 12,
+      "id": "svg-step-12",
+      "title": "텍스트와 데이터 라벨",
+      "prerequisites": "선수 개념: 필터 그래프, 필터 경계. 11단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "글자 배치",
+          "explanation": "text-anchor는 x좌표에 대한 정렬 기준입니다. 문자열 폭이 달라도 데이터 점에 라벨을 맞출 수 있습니다."
+        },
+        {
+          "title": "대체 정보",
+          "explanation": "그림 속 텍스트가 복잡한 데이터 전체를 설명하지 못할 수 있습니다. 표나 설명을 함께 두면 정보를 다른 방식으로 탐색할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "라벨이 해당 데이터 점과 연결된다.",
+        "같은 데이터가 읽을 수 있는 표로 제공된다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-12.js와 index.html을 준비하세요. text와 tspan으로 노드 이름과 수치를 표시하세요.",
+        "긴 이름을 입력하고 겹치는 라벨의 위치를 조정한 뒤 같은 데이터를 HTML 표로 출력하세요.",
+        "입력 조건 짧은 이름에서 출력을 저장한 뒤 긴 한글 이름 조건으로 다시 실행하세요. 고정 간격에서는 겹침이 생겨 배치 정책이 필요합니다라는 가설을 화면·로그와 대조하고 day-12-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "라벨 길이",
+          "baseline": "짧은 이름",
+          "change": "긴 한글 이름",
+          "expected": "고정 간격에서는 겹침이 생겨 배치 정책이 필요합니다"
+        }
+      ],
+      "criteria": [
+        "라벨이 해당 데이터 점과 연결된다.",
+        "같은 데이터가 읽을 수 있는 표로 제공된다."
+      ],
+      "questions": [
+        "text-anchor와 CSS text-align은 같은가요?",
+        "글자 크기를 줄이는 것 외에 겹침을 해결할 방법은 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        },
+        {
+          "title": "MDN SVG title 접근 가능한 이름",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/title"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 13,
+      "id": "svg-step-13",
+      "title": "화면 좌표를 SVG로",
+      "prerequisites": "선수 개념: 글자 배치, 대체 정보. 12단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "역행렬",
+          "explanation": "getScreenCTM은 SVG 좌표를 화면으로 옮기는 행렬입니다. inverse로 변환하면 포인터 위치를 사용자 좌표로 돌릴 수 있습니다."
+        },
+        {
+          "title": "변환 합성",
+          "explanation": "viewBox와 그룹 변환이 모두 좌표에 영향을 줍니다. 선택 대상 그룹의 행렬을 사용하면 수동 비율 계산을 줄일 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "확대 후에도 십자선이 포인터를 따라간다.",
+        "행렬을 얻지 못하는 숨김 상태를 처리한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-13.js와 index.html을 준비하세요. DOMPoint(clientX,clientY).matrixTransform(group.getScreenCTM().inverse())로 포인터를 변환하세요.",
+        "그룹을 회전·확대하고 포인터 위치에 로컬 좌표 십자선을 추가하세요.",
+        "입력 조건 1에서 출력을 저장한 뒤 2 조건으로 다시 실행하세요. 화면 이동량의 절반이 그룹 로컬 이동량이 됩니다라는 가설을 화면·로그와 대조하고 day-13-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "그룹 scale",
+          "baseline": "1",
+          "change": "2",
+          "expected": "화면 이동량의 절반이 그룹 로컬 이동량이 됩니다"
+        }
+      ],
+      "criteria": [
+        "확대 후에도 십자선이 포인터를 따라간다.",
+        "행렬을 얻지 못하는 숨김 상태를 처리한다."
+      ],
+      "questions": [
+        "루트 SVG와 내부 g 중 어느 행렬을 써야 하나요?",
+        "단순 boundingRect 비율 계산이 회전에 약한 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN getScreenCTM 좌표 변환",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/SVGGraphicsElement/getScreenCTM"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 14,
+      "id": "svg-02",
+      "title": "DOM 인터랙션",
+      "prerequisites": "선수 개념: 역행렬, 변환 합성. 13단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "공통 선택 상태",
+          "explanation": "SVG 요소는 이벤트 대상이지만 선택 의미는 직접 정의해야 합니다. 포인터와 HTML 버튼이 같은 id 상태를 사용하면 결과가 일치합니다."
+        },
+        {
+          "title": "키보드 경로",
+          "explanation": "시각적 path만으로 버튼 동작이 생기지 않습니다. 네이티브 버튼 목록을 제공하면 키보드와 접근 가능한 이름을 안정적으로 연결할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "키보드와 포인터로 같은 항목을 선택한다.",
+        "포커스 표시와 선택 표시를 구별한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-14.js와 index.html을 준비하세요. 기존 svg-02 예제를 읽고 노드 지도와 대응하는 HTML button 목록을 구성하세요.",
+        "click과 버튼 활성화를 selectNode(id)에 연결하고 선택 테두리·설명·aria-pressed를 갱신하세요.",
+        "입력 조건 노드 클릭에서 출력을 저장한 뒤 Tab과 Enter 조건으로 다시 실행하세요. 동일 노드 id와 설명이 선택됩니다라는 가설을 화면·로그와 대조하고 day-14-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "입력 경로",
+          "baseline": "노드 클릭",
+          "change": "Tab과 Enter",
+          "expected": "동일 노드 id와 설명이 선택됩니다"
+        }
+      ],
+      "criteria": [
+        "키보드와 포인터로 같은 항목을 선택한다.",
+        "포커스 표시와 선택 표시를 구별한다."
+      ],
+      "questions": [
+        "선택 상태와 포커스 상태가 왜 다를 수 있나요?",
+        "노드가 삭제되면 포커스를 어디로 옮기나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG title 접근 가능한 이름",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/title"
+        },
+        {
+          "title": "MDN getScreenCTM 좌표 변환",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/SVGGraphicsElement/getScreenCTM"
+        }
+      ],
+      "environment": "기존 내장 예제는 출발점만 제공합니다. 확장 요구사항 전체가 구현된 예제가 아니며 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 15,
+      "id": "svg-step-15",
+      "title": "접근 가능한 이름과 설명",
+      "prerequisites": "선수 개념: 공통 선택 상태, 키보드 경로. 14단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "이름 연결",
+          "explanation": "title은 SVG의 짧은 설명에 사용됩니다. aria-labelledby로 연결할 때 id가 정확해야 이름을 찾을 수 있습니다."
+        },
+        {
+          "title": "장식 구분",
+          "explanation": "의미 없는 장식은 보조기술 탐색에서 제외할 수 있습니다. 의미 있는 데이터 그림까지 숨기면 정보가 사라집니다."
+        }
+      ],
+      "outcomes": [
+        "정보용 SVG의 접근 가능한 이름이 확인된다.",
+        "장식과 데이터 그림을 근거로 구분한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-15.js와 index.html을 준비하세요. 정보용 SVG에 title,desc와 aria-labelledby를 연결하세요.",
+        "같은 배지를 장식용 aria-hidden 버전과 정보용 버전으로 나누고 접근성 트리를 검사하세요.",
+        "입력 조건 정보용 이름 있음에서 출력을 저장한 뒤 장식용 aria-hidden 조건으로 다시 실행하세요. 장식은 탐색에서 제외되고 정보용 이름은 남습니다라는 가설을 화면·로그와 대조하고 day-15-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "그림 역할",
+          "baseline": "정보용 이름 있음",
+          "change": "장식용 aria-hidden",
+          "expected": "장식은 탐색에서 제외되고 정보용 이름은 남습니다"
+        }
+      ],
+      "criteria": [
+        "정보용 SVG의 접근 가능한 이름이 확인된다.",
+        "장식과 데이터 그림을 근거로 구분한다."
+      ],
+      "questions": [
+        "title만으로 복잡한 차트를 충분히 설명할 수 있나요?",
+        "중복 id가 이름 연결에 어떤 영향을 주나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG title 접근 가능한 이름",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/title"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 16,
+      "id": "svg-step-16",
+      "title": "포인터 이벤트 영역",
+      "prerequisites": "선수 개념: 이름 연결, 장식 구분. 15단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "페인트와 입력",
+          "explanation": "pointer-events는 어떤 영역이 이벤트를 받을지 정합니다. 보이는 선이 가늘면 선택 영역도 좁아 조작이 어려울 수 있습니다."
+        },
+        {
+          "title": "버블링",
+          "explanation": "자식 이벤트는 부모로 전달됩니다. 그룹 단위 선택에서는 target과 currentTarget을 구분해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "선 주변에서도 연결선을 선택한다.",
+        "라벨 클릭도 올바른 그룹 id로 처리한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-16.js와 index.html을 준비하세요. 얇은 연결선 위에 투명한 굵은 hit path를 추가하세요.",
+        "부모 g에서 이벤트를 받고 target과 currentTarget의 id를 로그로 출력하세요.",
+        "입력 조건 2px에서 출력을 저장한 뒤 16px 조건으로 다시 실행하세요. 보이는 선은 그대로 두면서 조작 가능한 범위가 넓어집니다라는 가설을 화면·로그와 대조하고 day-16-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "선택 폭",
+          "baseline": "2px",
+          "change": "16px",
+          "expected": "보이는 선은 그대로 두면서 조작 가능한 범위가 넓어집니다"
+        }
+      ],
+      "criteria": [
+        "선 주변에서도 연결선을 선택한다.",
+        "라벨 클릭도 올바른 그룹 id로 처리한다."
+      ],
+      "questions": [
+        "투명한 선에 어떤 pointer-events 설정이 필요한가요?",
+        "stopPropagation을 남용하면 무엇이 어려워지나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 17,
+      "id": "svg-step-17",
+      "title": "드래그와 캡처",
+      "prerequisites": "선수 개념: 페인트와 입력, 버블링. 16단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "드래그 오프셋",
+          "explanation": "포인터와 노드 중심의 차이를 저장하면 시작 시 점프를 막습니다. 좌표는 같은 사용자 공간에서 계산해야 합니다."
+        },
+        {
+          "title": "취소 경로",
+          "explanation": "pointercancel은 정상 종료와 다를 수 있습니다. 캡처 해제와 임시 상태 정리를 공통 함수로 묶습니다."
+        }
+      ],
+      "outcomes": [
+        "영역 밖에서 놓아도 드래그가 끝난다.",
+        "확대 상태에서도 이동 비율이 맞는다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-17.js와 index.html을 준비하세요. pointerdown에서 역행렬 좌표와 노드 위치 차이를 저장하고 캡처하세요.",
+        "pointermove로 transform을 갱신하며 pointerup·pointercancel에서 종료하세요.",
+        "입력 조건 노드 중앙에서 출력을 저장한 뒤 노드 가장자리 조건으로 다시 실행하세요. 오프셋을 유지하면 노드가 갑자기 이동하지 않습니다라는 가설을 화면·로그와 대조하고 day-17-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "시작 위치",
+          "baseline": "노드 중앙",
+          "change": "노드 가장자리",
+          "expected": "오프셋을 유지하면 노드가 갑자기 이동하지 않습니다"
+        }
+      ],
+      "criteria": [
+        "영역 밖에서 놓아도 드래그가 끝난다.",
+        "확대 상태에서도 이동 비율이 맞는다."
+      ],
+      "questions": [
+        "pointerId가 바뀌면 드래그 상태를 어떻게 다루나요?",
+        "원래 위치로 복구할 취소 정책은 어디에 저장하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN getScreenCTM 좌표 변환",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/SVGGraphicsElement/getScreenCTM"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 18,
+      "id": "svg-step-18",
+      "title": "확대와 이동",
+      "prerequisites": "선수 개념: 드래그 오프셋, 취소 경로. 17단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "카메라 그룹",
+          "explanation": "콘텐츠 그룹에 변환을 주면 전체 지도를 이동할 수 있습니다. 화면 위 컨트롤은 그룹 밖에 둬 같은 크기로 유지합니다."
+        },
+        {
+          "title": "포인터 중심 확대",
+          "explanation": "확대 전후 같은 로컬 점이 같은 화면 위치에 있어야 자연스럽습니다. 배율만 바꾸면 그림이 원점 쪽으로 튑니다."
+        }
+      ],
+      "outcomes": [
+        "확대 중 관심 노드가 튀지 않는다.",
+        "최소·최대 배율과 초기화 버튼이 있다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-18.js와 index.html을 준비하세요. 콘텐츠 g의 translate와 scale을 상태로 관리하세요.",
+        "확대 버튼과 wheel 입력에서 포인터 아래 로컬 점을 계산해 이동량을 보정하세요.",
+        "입력 조건 원점에서 출력을 저장한 뒤 포인터 위치 조건으로 다시 실행하세요. 포인터 아래 노드가 확대 후에도 같은 화면 점에 머뭅니다라는 가설을 화면·로그와 대조하고 day-18-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "확대 중심",
+          "baseline": "원점",
+          "change": "포인터 위치",
+          "expected": "포인터 아래 노드가 확대 후에도 같은 화면 점에 머뭅니다"
+        }
+      ],
+      "criteria": [
+        "확대 중 관심 노드가 튀지 않는다.",
+        "최소·최대 배율과 초기화 버튼이 있다."
+      ],
+      "questions": [
+        "화면 컨트롤을 콘텐츠 그룹에 넣으면 어떻게 되나요?",
+        "wheel의 페이지 스크롤과 확대를 어떻게 구분하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN getScreenCTM 좌표 변환",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/SVGGraphicsElement/getScreenCTM"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 19,
+      "id": "svg-step-19",
+      "title": "데이터와 DOM 갱신",
+      "prerequisites": "선수 개념: 카메라 그룹, 포인터 중심 확대. 18단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "안정적인 id",
+          "explanation": "데이터 id는 DOM 요소와 데이터의 연결점입니다. 배열 순서가 바뀌어도 같은 객체를 식별할 수 있습니다."
+        },
+        {
+          "title": "증분 갱신",
+          "explanation": "전체 innerHTML 교체는 포커스와 이벤트 연결을 잃을 수 있습니다. 필요한 속성과 요소만 수정하면 상태를 보존하기 쉽습니다."
+        }
+      ],
+      "outcomes": [
+        "재정렬 뒤 선택 id가 바뀌지 않는다.",
+        "삭제한 id의 DOM과 Map 참조를 정리한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-19.js와 index.html을 준비하세요. id→SVGElement Map으로 노드 생성·수정·삭제를 구현하세요.",
+        "데이터 순서를 바꾸고 한 노드를 제거한 뒤 선택·포커스 유지 여부를 기록하세요.",
+        "입력 조건 전체 교체에서 출력을 저장한 뒤 id 기반 속성 수정 조건으로 다시 실행하세요. 변경되지 않은 요소의 정체성과 포커스가 유지됩니다라는 가설을 화면·로그와 대조하고 day-19-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "갱신 방식",
+          "baseline": "전체 교체",
+          "change": "id 기반 속성 수정",
+          "expected": "변경되지 않은 요소의 정체성과 포커스가 유지됩니다"
+        }
+      ],
+      "criteria": [
+        "재정렬 뒤 선택 id가 바뀌지 않는다.",
+        "삭제한 id의 DOM과 Map 참조를 정리한다."
+      ],
+      "questions": [
+        "같은 id가 두 번 들어오면 어떻게 처리하나요?",
+        "DOM 재사용이 항상 가장 빠른가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 20,
+      "id": "svg-step-20",
+      "title": "연결선과 그래프 배치",
+      "prerequisites": "선수 개념: 안정적인 id, 증분 갱신. 19단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "파생 경로",
+          "explanation": "연결선은 두 노드의 좌표에서 계산되는 데이터입니다. 별도로 저장하면 이동 후 좌표가 오래된 상태로 남을 수 있습니다."
+        },
+        {
+          "title": "레이어 순서",
+          "explanation": "SVG는 문서 순서로 그립니다. 연결선을 먼저 두면 노드와 라벨 아래에 표시할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "없는 노드를 참조한 간선을 거부한다.",
+        "노드 이동 뒤 연결선 끝점이 일치한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-20.js와 index.html을 준비하세요. 노드 배열과 sourceId,targetId 간선 배열로 작은 학습 지도를 만드세요.",
+        "드래그마다 양 끝 좌표로 path d를 갱신하고 연결선 그룹을 노드 앞에 배치하세요.",
+        "입력 조건 고정에서 출력을 저장한 뒤 한 노드 80단위 이동 조건으로 다시 실행하세요. 해당 노드와 연결된 경로만 새 위치를 향합니다라는 가설을 화면·로그와 대조하고 day-20-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "노드 위치",
+          "baseline": "고정",
+          "change": "한 노드 80단위 이동",
+          "expected": "해당 노드와 연결된 경로만 새 위치를 향합니다"
+        }
+      ],
+      "criteria": [
+        "없는 노드를 참조한 간선을 거부한다.",
+        "노드 이동 뒤 연결선 끝점이 일치한다."
+      ],
+      "questions": [
+        "연결선 좌표를 저장하지 않고 계산하는 이유는 무엇인가요?",
+        "레이어 순서를 바꾸면 선택에도 영향이 있나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 21,
+      "id": "svg-step-21",
+      "title": "애니메이션과 동작 줄이기",
+      "prerequisites": "선수 개념: 파생 경로, 레이어 순서. 20단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "보간",
+          "explanation": "시작값과 끝값 사이를 시간 비율로 계산하면 이동을 부드럽게 만들 수 있습니다. 프레임 수를 기준으로 하면 주사율에 따라 속도가 달라집니다."
+        },
+        {
+          "title": "동작 선호",
+          "explanation": "prefers-reduced-motion은 불필요한 움직임을 줄이는 신호입니다. 상태 변화는 애니메이션 없이도 전달되어야 합니다."
+        }
+      ],
+      "outcomes": [
+        "애니메이션을 끄더라도 정보가 남는다.",
+        "중복 전환 시 이전 프레임 요청을 정리한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-21.js와 index.html을 준비하세요. requestAnimationFrame 시간으로 노드 transform을 보간하세요.",
+        "matchMedia로 동작 줄이기를 감지해 즉시 최종 상태를 적용하는 경로를 추가하세요.",
+        "입력 조건 일반에서 출력을 저장한 뒤 reduced-motion 조건으로 다시 실행하세요. 중간 이동 없이 최종 배치와 선택 상태가 표시됩니다라는 가설을 화면·로그와 대조하고 day-21-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "동작 설정",
+          "baseline": "일반",
+          "change": "reduced-motion",
+          "expected": "중간 이동 없이 최종 배치와 선택 상태가 표시됩니다"
+        }
+      ],
+      "criteria": [
+        "애니메이션을 끄더라도 정보가 남는다.",
+        "중복 전환 시 이전 프레임 요청을 정리한다."
+      ],
+      "questions": [
+        "중간에 새 목표가 오면 시작값은 무엇이어야 하나요?",
+        "깜빡임과 이동 중 어떤 것을 줄여야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 22,
+      "id": "svg-step-22",
+      "title": "SVG 파일 내보내기",
+      "prerequisites": "선수 개념: 보간, 동작 선호. 21단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "직렬화",
+          "explanation": "XMLSerializer는 DOM을 문자열로 만듭니다. 외부 CSS만으로 지정된 스타일은 파일에 함께 포함되지 않을 수 있습니다."
+        },
+        {
+          "title": "독립 자원",
+          "explanation": "내보낸 SVG는 원래 페이지와 떨어져 열립니다. 폰트와 이미지 참조가 상대 경로라면 결과가 달라질 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "내보낸 파일이 독립적으로 열린다.",
+        "임시 Object URL을 revoke한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-22.js와 index.html을 준비하세요. 복제한 SVG에 xmlns와 필요한 스타일을 넣고 XMLSerializer로 저장하세요.",
+        "Blob URL로 다운로드한 파일을 별도 문서에서 열어 색·텍스트·이미지 참조를 확인하세요.",
+        "입력 조건 페이지 CSS만에서 출력을 저장한 뒤 SVG 내부 style 조건으로 다시 실행하세요. 독립 파일에서도 지정한 색과 선이 유지됩니다라는 가설을 화면·로그와 대조하고 day-22-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "스타일 위치",
+          "baseline": "페이지 CSS만",
+          "change": "SVG 내부 style",
+          "expected": "독립 파일에서도 지정한 색과 선이 유지됩니다"
+        }
+      ],
+      "criteria": [
+        "내보낸 파일이 독립적으로 열린다.",
+        "임시 Object URL을 revoke한다."
+      ],
+      "questions": [
+        "외부 폰트 없이 텍스트가 어떻게 달라지나요?",
+        "직렬화가 사용자 입력의 안전성을 보장하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 23,
+      "id": "svg-step-23",
+      "title": "큰 데이터와 갱신 비용",
+      "prerequisites": "선수 개념: 직렬화, 독립 자원. 22단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "DOM 규모",
+          "explanation": "각 SVG 노드는 스타일·이벤트·레이아웃 작업의 대상입니다. 점 개수뿐 아니라 라벨과 필터도 비교 조건에 포함해야 합니다."
+        },
+        {
+          "title": "측정 구간",
+          "explanation": "performance.now의 동기 구간만으로 화면 완료를 알 수는 없습니다. 프로파일에서 스타일과 렌더링 작업도 함께 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "데이터 생성 시간과 DOM 반영 시간을 분리한다.",
+        "환경과 표본 조건을 기록한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-23.js와 index.html을 준비하세요. 고정 seed로 100,1000,5000개 점 데이터를 생성하세요.",
+        "생성·속성 갱신 시간과 다음 프레임 간격을 따로 기록하고 필터 없는 조건을 유지하세요.",
+        "입력 조건 100에서 출력을 저장한 뒤 5000 조건으로 다시 실행하세요. DOM 생성과 스타일 갱신 부담이 증가할 가능성이 있습니다라는 가설을 화면·로그와 대조하고 day-23-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "점 수",
+          "baseline": "100",
+          "change": "5000",
+          "expected": "DOM 생성과 스타일 갱신 부담이 증가할 가능성이 있습니다"
+        }
+      ],
+      "criteria": [
+        "데이터 생성 시간과 DOM 반영 시간을 분리한다.",
+        "환경과 표본 조건을 기록한다."
+      ],
+      "questions": [
+        "이벤트 리스너 수를 줄이면 어떤 비용이 바뀌나요?",
+        "데이터 생성 시간을 제외해야 하는 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 24,
+      "id": "svg-step-24",
+      "title": "가시 영역과 세부 수준",
+      "prerequisites": "선수 개념: DOM 규모, 측정 구간. 23단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "가시 영역",
+          "explanation": "보이지 않는 노드를 생략하면 작업 대상을 줄일 수 있습니다. 선택된 노드의 의미 정보까지 사라지지 않도록 정책이 필요합니다."
+        },
+        {
+          "title": "세부 수준",
+          "explanation": "확대 수준에 따라 라벨이나 장식을 줄일 수 있습니다. 데이터 자체를 삭제하는 것과 표시만 줄이는 것은 다릅니다."
+        }
+      ],
+      "outcomes": [
+        "확대 후 숨긴 라벨이 복구된다.",
+        "가시성 최적화 후에도 선택 데이터가 남는다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-24.js와 index.html을 준비하세요. 현재 viewBox와 노드 경계로 가시 노드를 계산하세요.",
+        "축소 시 라벨을 숨기되 HTML 목록과 선택 설명은 유지하세요.",
+        "입력 조건 1에서 출력을 저장한 뒤 0.2 조건으로 다시 실행하세요. 라벨을 줄이면 겹침이 완화되고 DOM 작업이 줄 수 있습니다라는 가설을 화면·로그와 대조하고 day-24-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "축척",
+          "baseline": "1",
+          "change": "0.2",
+          "expected": "라벨을 줄이면 겹침이 완화되고 DOM 작업이 줄 수 있습니다"
+        }
+      ],
+      "criteria": [
+        "확대 후 숨긴 라벨이 복구된다.",
+        "가시성 최적화 후에도 선택 데이터가 남는다."
+      ],
+      "questions": [
+        "화면 밖 노드에 키보드 포커스가 있으면 어떻게 하나요?",
+        "필터나 큰 선을 가진 도형의 경계는 어떻게 판단하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        },
+        {
+          "title": "MDN SVG title 접근 가능한 이름",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/title"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 25,
+      "id": "svg-step-25",
+      "title": "Canvas 대조 렌더러",
+      "prerequisites": "선수 개념: 가시 영역, 세부 수준. 24단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "공통 데이터",
+          "explanation": "렌더러가 같은 데이터와 좌표 변환을 사용해야 공정하게 비교할 수 있습니다. 난수 분포가 다르면 성능과 선택 조건도 달라집니다."
+        },
+        {
+          "title": "선택 구현",
+          "explanation": "SVG는 DOM 대상을 제공하지만 Canvas는 별도 히트 테스트가 필요합니다. 기능 수준을 맞춰야 구현 비용을 비교할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "두 화면의 점 좌표와 선택 id가 같다.",
+        "접근 가능한 HTML 목록을 양쪽에서 공유한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-25.js와 index.html을 준비하세요. 동일 점 배열을 SVG circle과 Canvas arc로 각각 그리세요.",
+        "같은 확대·선택 상태를 두 렌더러에 전달하고 Canvas에는 거리 기반 히트 테스트를 구현하세요.",
+        "입력 조건 SVG에서 출력을 저장한 뒤 Canvas 2D 조건으로 다시 실행하세요. 선택 기능의 구현 책임과 DOM 수가 달라집니다라는 가설을 화면·로그와 대조하고 day-25-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "렌더러",
+          "baseline": "SVG",
+          "change": "Canvas 2D",
+          "expected": "선택 기능의 구현 책임과 DOM 수가 달라집니다"
+        }
+      ],
+      "criteria": [
+        "두 화면의 점 좌표와 선택 id가 같다.",
+        "접근 가능한 HTML 목록을 양쪽에서 공유한다."
+      ],
+      "questions": [
+        "그리기만 비교하면 무엇을 놓치나요?",
+        "Canvas의 선택 허용 반경은 어떤 좌표로 정하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        },
+        {
+          "title": "MDN CanvasRenderingContext2D API",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 26,
+      "id": "svg-step-26",
+      "title": "지도 편집기 통합",
+      "prerequisites": "선수 개념: 공통 데이터, 선택 구현. 25단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "상태 일관성",
+          "explanation": "선택·배율·노드 데이터는 서로 영향을 줍니다. 상태 변경을 명령 함수로 모으면 입력 경로별 차이를 줄일 수 있습니다."
+        },
+        {
+          "title": "복구 가능성",
+          "explanation": "잘못된 가져오기가 기존 작업을 망가뜨리지 않아야 합니다. 검증된 새 데이터를 한 번에 적용하는 방식이 도움이 됩니다."
+        }
+      ],
+      "outcomes": [
+        "불완전한 데이터가 기존 장면을 덮지 않는다.",
+        "키보드로 가져오기 오류에서 복구할 수 있다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-26.js와 index.html을 준비하세요. JSON 가져오기·노드 드래그·키보드 선택·SVG 내보내기를 결합하세요.",
+        "없는 간선 id와 중복 노드를 입력해 오류 표시와 기존 장면 보존을 확인하세요.",
+        "입력 조건 정상 그래프에서 출력을 저장한 뒤 중복 id 조건으로 다시 실행하세요. 새 데이터 적용을 거부하고 편집 상태를 유지합니다라는 가설을 화면·로그와 대조하고 day-26-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "가져오기 데이터",
+          "baseline": "정상 그래프",
+          "change": "중복 id",
+          "expected": "새 데이터 적용을 거부하고 편집 상태를 유지합니다"
+        }
+      ],
+      "criteria": [
+        "불완전한 데이터가 기존 장면을 덮지 않는다.",
+        "키보드로 가져오기 오류에서 복구할 수 있다."
+      ],
+      "questions": [
+        "입력 검증은 렌더 이전 어느 단계에서 하나요?",
+        "배율을 저장할 때 데이터 좌표와 혼동하지 않으려면 어떻게 하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        },
+        {
+          "title": "MDN SVG title 접근 가능한 이름",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/title"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 27,
+      "id": "svg-step-27",
+      "title": "재현 가능한 비교 실험",
+      "prerequisites": "선수 개념: 상태 일관성, 복구 가능성. 26단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "비교 계약",
+          "explanation": "점 수·크기·색·입력 기능이 같아야 렌더러 차이를 해석할 수 있습니다. 어느 한쪽만 라벨이나 필터가 있으면 별도 조건으로 기록합니다."
+        },
+        {
+          "title": "분포 기록",
+          "explanation": "한 번의 시간값보다 여러 표본의 분포가 유용합니다. 초기 생성과 연속 확대를 별도 시나리오로 나눕니다."
+        }
+      ],
+      "outcomes": [
+        "기능과 입력 조건을 맞춘 비교 표가 있다.",
+        "측정 범위와 확인하지 못한 부분을 명시한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-27.js와 index.html을 준비하세요. 동일 데이터로 초기 생성과 확대·선택 시나리오를 자동 순서로 재생하세요.",
+        "브라우저 프로파일과 frame 간격을 수집하고 중앙값·긴 프레임·DOM 수를 표로 남기세요.",
+        "입력 조건 1000점에서 출력을 저장한 뒤 5000점 조건으로 다시 실행하세요. 렌더러별 비용 증가 양상이 다를 수 있습니다라는 가설을 화면·로그와 대조하고 day-27-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "장면 크기",
+          "baseline": "1000점",
+          "change": "5000점",
+          "expected": "렌더러별 비용 증가 양상이 다를 수 있습니다"
+        }
+      ],
+      "criteria": [
+        "기능과 입력 조건을 맞춘 비교 표가 있다.",
+        "측정 범위와 확인하지 못한 부분을 명시한다."
+      ],
+      "questions": [
+        "초기 생성이 빠르면 상호작용도 빠른가요?",
+        "선택 테스트의 위치를 고정해야 하는 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        },
+        {
+          "title": "MDN CanvasRenderingContext2D API",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D"
+        }
+      ],
+      "environment": "새 단원의 내장 실행 예제는 제공하지 않습니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    },
+    {
+      "day": 28,
+      "id": "svg-03",
+      "title": "Canvas와 비교",
+      "prerequisites": "선수 개념: 비교 계약, 분포 기록. 27단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "concepts": [
+        {
+          "title": "표현 모델",
+          "explanation": "SVG는 개별 요소를 DOM으로 유지합니다. Canvas는 픽셀을 갱신하며 객체의 의미를 별도로 관리합니다."
+        },
+        {
+          "title": "선택 근거",
+          "explanation": "성능만으로 표현 방식을 결정하기 어렵습니다. 접근성·편집·내보내기·구현 복잡도까지 요구사항과 함께 평가합니다."
+        }
+      ],
+      "outcomes": [
+        "기능·접근성·성능의 장단점을 근거로 선택한다.",
+        "동일 데이터와 조건의 결과물·측정 기록을 제출한다."
+      ],
+      "steps": [
+        "외부 실습 프로젝트의 day-28.js와 index.html을 준비하세요. 기존 svg-03 비교 예제를 출발점으로 같은 점 분포·선택·확대를 갖춘 두 구현을 완성하세요.",
+        "노드 지도의 접근성 점검과 성능 표, 내보내기 결과를 모아 렌더러 선택 보고서를 작성하세요.",
+        "입력 조건 SVG DOM에서 출력을 저장한 뒤 Canvas 픽셀 조건으로 다시 실행하세요. 요소 접근과 히트 테스트의 구현 방식이 달라지며 성능은 장면별로 검증해야 합니다라는 가설을 화면·로그와 대조하고 day-28-notes.md에 실제 결과와 차이의 원인을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "표현 방식",
+          "baseline": "SVG DOM",
+          "change": "Canvas 픽셀",
+          "expected": "요소 접근과 히트 테스트의 구현 방식이 달라지며 성능은 장면별로 검증해야 합니다"
+        }
+      ],
+      "criteria": [
+        "기능·접근성·성능의 장단점을 근거로 선택한다.",
+        "동일 데이터와 조건의 결과물·측정 기록을 제출한다."
+      ],
+      "questions": [
+        "이번 지도에서 SVG를 고를 근거는 무엇인가요?",
+        "다른 규모나 입력 요구에서는 결론이 어떻게 달라지나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN SVG 기초 튜토리얼",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch"
+        },
+        {
+          "title": "MDN CanvasRenderingContext2D API",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D"
+        },
+        {
+          "title": "MDN SVG title 접근 가능한 이름",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/title"
+        }
+      ],
+      "environment": "기존 내장 예제는 출발점만 제공합니다. 확장 요구사항 전체가 구현된 예제가 아니며 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. 브라우저 버전과 viewport, DPR을 기록하세요."
+    }
+  ]
+}

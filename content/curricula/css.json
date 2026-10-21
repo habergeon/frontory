@@ -1,0 +1,1373 @@
+{
+  "seriesId": "css",
+  "stages": [
+    "Cascade와 크기 계산",
+    "Flex·Grid와 반응형",
+    "상태·위치·접근성",
+    "모션·토큰·렌더링 검증"
+  ],
+  "goal": "스타일 충돌과 배치 제약을 계산값으로 설명하고 반응형·접근성·렌더 비용을 함께 검증합니다.",
+  "capstone": "반응형 학습 카드 테마와 동일 조건의 width·transform 성능 비교 기록",
+  "units": [
+    {
+      "day": 1,
+      "id": "css-01",
+      "title": "Cascade와 레이아웃",
+      "prerequisites": "HTML 구조",
+      "concepts": [
+        {
+          "title": "선언 선택",
+          "explanation": "cascade는 출처·중요도·레이어·우선순위 등의 규칙으로 선언을 선택합니다. 개발자 도구의 계산값으로 실제 적용 이유를 확인합니다."
+        },
+        {
+          "title": "배치 모델",
+          "explanation": "Grid는 행과 열의 관계를, Flex는 한 축의 항목 배치를 다룹니다. 항목의 최소 크기 때문에 긴 텍스트가 넘칠 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "두 배치 방식의 넘침 원인을 계산값으로 설명한다.",
+        "360px에서 카드 제목과 조작이 잘리지 않는다."
+      ],
+      "steps": [
+        "index.html에 긴 제목 카드와 360px·1000px 컨테이너 조건의 콘텐츠를 준비하고 layout.css를 연결하세요.",
+        "같은 카드 6개를 Grid와 Flex로 배치하고 min-width:0 전후와 승리한 선언을 확인하세요.",
+        "긴 제목 카드와 360px·1000px 컨테이너 조건으로 실행하세요. 확인할 결과: 두 배치 방식의 넘침 원인을 계산값으로 설명한다. 360px에서 카드 제목과 조작이 잘리지 않는다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "최소 너비",
+          "baseline": "auto",
+          "change": "0",
+          "expected": "실행 전 가설: 항목이 줄어들어 가로 넘침이 줄어들 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "두 배치 방식의 넘침 원인을 계산값으로 설명한다.",
+        "360px에서 카드 제목과 조작이 잘리지 않는다."
+      ],
+      "questions": [
+        "min-width가 width보다 배치를 제한할 수 있나요?",
+        "승리한 선언은 왜 선택됐나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "Frontory의 기존 미리보기는 제한된 시작 예제이며 전체 과제의 완성본이 아닙니다. 추가 파일과 기능은 별도 로컬 프로젝트에서 직접 구현하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 2,
+      "id": "css-step-02",
+      "title": "선택자와 우선순위",
+      "prerequisites": "1단위 「Cascade와 레이아웃」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "선택자 범위",
+          "explanation": "선택자는 스타일을 적용할 요소를 찾습니다. 자손과 자식 결합자는 서로 다른 범위를 선택합니다."
+        },
+        {
+          "title": "우선순위",
+          "explanation": "같은 cascade 조건 안에서는 specificity가 선언 선택에 관여합니다. !important를 반복하면 이후 조정이 어려워질 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "각 선택자의 매칭 개수를 기록한다.",
+        "충돌 선언 두 개의 승리 이유를 specificity로 설명한다."
+      ],
+      "steps": [
+        "index.html에 중첩 버튼 2개와 바깥 버튼 1개 조건의 콘텐츠를 준비하고 selectors.css를 연결하세요.",
+        "카드 안 버튼과 바깥 버튼에 자손·자식·클래스 선택자를 적용해 매칭을 비교하세요.",
+        "중첩 버튼 2개와 바깥 버튼 1개 조건으로 실행하세요. 확인할 결과: 각 선택자의 매칭 개수를 기록한다. 충돌 선언 두 개의 승리 이유를 specificity로 설명한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "결합자",
+          "baseline": "공백",
+          "change": "직접 자식 기호",
+          "expected": "실행 전 가설: 중첩 버튼 일부가 선택 대상에서 빠질 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "각 선택자의 매칭 개수를 기록한다.",
+        "충돌 선언 두 개의 승리 이유를 specificity로 설명한다."
+      ],
+      "questions": [
+        "id 선택자가 필요한 상황인가요?",
+        "우선순위가 높아도 지는 cascade 조건은 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 3,
+      "id": "css-step-03",
+      "title": "상속과 초기화",
+      "prerequisites": "2단위 「선택자와 우선순위」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "상속 속성",
+          "explanation": "글자색 같은 속성은 부모에서 이어받을 수 있습니다. margin 같은 속성은 일반적으로 자동 상속되지 않습니다."
+        },
+        {
+          "title": "초기화 키워드",
+          "explanation": "inherit·initial·unset은 서로 다른 초기화 규칙을 따릅니다. 속성이 상속되는지에 따라 unset의 결과가 달라집니다."
+        }
+      ],
+      "outcomes": [
+        "color와 border의 계산값 6개를 기록한다.",
+        "unset이 상속 속성과 비상속 속성에서 다르게 작동함을 확인한다."
+      ],
+      "steps": [
+        "index.html에 부모 1개와 자식 3개 조건의 콘텐츠를 준비하고 inheritance.css를 연결하세요.",
+        "부모에 color와 border를 지정하고 자식에 세 초기화 키워드를 번갈아 적용하세요.",
+        "부모 1개와 자식 3개 조건으로 실행하세요. 확인할 결과: color와 border의 계산값 6개를 기록한다. unset이 상속 속성과 비상속 속성에서 다르게 작동함을 확인한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "초기화",
+          "baseline": "initial",
+          "change": "inherit",
+          "expected": "실행 전 가설: 부모의 계산값을 따를 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "color와 border의 계산값 6개를 기록한다.",
+        "unset이 상속 속성과 비상속 속성에서 다르게 작동함을 확인한다."
+      ],
+      "questions": [
+        "초기값은 브라우저 기본 스타일과 같은가요?",
+        "모든 속성을 상속시키면 어떤 문제가 생기나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 4,
+      "id": "css-step-04",
+      "title": "박스 모델과 실측 크기",
+      "prerequisites": "3단위 「상속과 초기화」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "크기 합산",
+          "explanation": "content-box의 width는 콘텐츠 영역 크기입니다. padding과 border가 바깥 크기에 더해집니다."
+        },
+        {
+          "title": "포함 계산",
+          "explanation": "border-box는 지정 크기에 padding과 border를 포함합니다. margin은 여전히 외부 간격입니다."
+        }
+      ],
+      "outcomes": [
+        "두 카드의 실제 너비를 기록한다.",
+        "콘텐츠·padding·border·margin 영역을 도구에서 구분한다."
+      ],
+      "steps": [
+        "index.html에 동일 카드 두 개 조건의 콘텐츠를 준비하고 box.css를 연결하세요.",
+        "width 200px 카드에 padding 20px와 border 2px를 넣고 getBoundingClientRect로 너비를 재세요.",
+        "동일 카드 두 개 조건으로 실행하세요. 확인할 결과: 두 카드의 실제 너비를 기록한다. 콘텐츠·padding·border·margin 영역을 도구에서 구분한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "box-sizing",
+          "baseline": "content-box",
+          "change": "border-box",
+          "expected": "실행 전 가설: 바깥 너비가 244px에서 200px로 바뀔 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "두 카드의 실제 너비를 기록한다.",
+        "콘텐츠·padding·border·margin 영역을 도구에서 구분한다."
+      ],
+      "questions": [
+        "margin이 width 안에 포함되나요?",
+        "최소 콘텐츠 크기는 계산에 어떤 영향을 주나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 5,
+      "id": "css-step-05",
+      "title": "단위와 유동 글자 크기",
+      "prerequisites": "4단위 「박스 모델과 실측 크기」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "상대 단위",
+          "explanation": "rem은 루트 글자 크기를 기준으로 합니다. em은 사용한 속성과 요소의 글자 크기 관계를 확인해야 합니다."
+        },
+        {
+          "title": "범위 제한",
+          "explanation": "clamp는 최소·선호·최대 크기를 정합니다. 화면 폭만 따라 글자를 작게 만들지 않도록 최소값을 둡니다."
+        }
+      ],
+      "outcomes": [
+        "두 화면에서 제목 크기가 지정 범위 안에 있다.",
+        "루트 변경 전후 글자와 간격 계산값을 기록한다."
+      ],
+      "steps": [
+        "index.html에 360px·1200px 화면과 루트 16px 조건의 콘텐츠를 준비하고 units.css를 연결하세요.",
+        "제목에 clamp를 쓰고 간격을 rem으로 지정해 루트 크기와 뷰포트를 바꾸세요.",
+        "360px·1200px 화면과 루트 16px 조건으로 실행하세요. 확인할 결과: 두 화면에서 제목 크기가 지정 범위 안에 있다. 루트 변경 전후 글자와 간격 계산값을 기록한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "루트 크기",
+          "baseline": "16px",
+          "change": "20px",
+          "expected": "실행 전 가설: rem 기반 글자와 간격이 커질 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "두 화면에서 제목 크기가 지정 범위 안에 있다.",
+        "루트 변경 전후 글자와 간격 계산값을 기록한다."
+      ],
+      "questions": [
+        "vw만 쓰면 확대나 작은 화면에서 어떤 문제가 있나요?",
+        "em 중첩은 크기를 어떻게 바꾸나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 6,
+      "id": "css-step-06",
+      "title": "일반 흐름과 마진 상쇄",
+      "prerequisites": "5단위 「단위와 유동 글자 크기」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "일반 흐름",
+          "explanation": "블록 요소는 문서 흐름에 따라 쌓입니다. 위치 지정 없이도 콘텐츠 높이에 따라 뒤 요소가 이동합니다."
+        },
+        {
+          "title": "마진 상쇄",
+          "explanation": "일부 블록의 세로 margin은 합쳐질 수 있습니다. 레이아웃 맥락이 달라지면 상쇄 여부도 달라집니다."
+        }
+      ],
+      "outcomes": [
+        "형제 간격과 부모 경계 위치를 각각 측정한다.",
+        "합산되지 않은 margin 사례를 설명한다."
+      ],
+      "steps": [
+        "index.html에 문단 2개와 배경 있는 부모 조건의 콘텐츠를 준비하고 flow.css를 연결하세요.",
+        "연속 문단의 margin을 20px와 30px로 두고 부모에 flow-root 전후를 비교하세요.",
+        "문단 2개와 배경 있는 부모 조건으로 실행하세요. 확인할 결과: 형제 간격과 부모 경계 위치를 각각 측정한다. 합산되지 않은 margin 사례를 설명한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "부모 표시",
+          "baseline": "block",
+          "change": "flow-root",
+          "expected": "실행 전 가설: 부모와 자식 사이 마진 상쇄가 달라질 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "형제 간격과 부모 경계 위치를 각각 측정한다.",
+        "합산되지 않은 margin 사례를 설명한다."
+      ],
+      "questions": [
+        "형제와 부모·자식 상쇄는 같은 조건인가요?",
+        "빈 요소의 margin은 어떻게 보이나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 7,
+      "id": "css-step-07",
+      "title": "크기 제약과 overflow",
+      "prerequisites": "6단위 「일반 흐름과 마진 상쇄」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "최소 크기",
+          "explanation": "min-content와 max-content는 콘텐츠 기반 크기를 표현합니다. 긴 단어는 예상보다 큰 최소 너비를 만들 수 있습니다."
+        },
+        {
+          "title": "넘침 정책",
+          "explanation": "overflow는 넘친 내용을 보이거나 자르거나 스크롤하도록 정합니다. hidden만 적용하면 핵심 내용이 사라질 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "URL 전체를 확인할 수 있고 페이지 가로 넘침이 없다.",
+        "자르기와 내부 스크롤의 차이를 두 화면으로 기록한다."
+      ],
+      "steps": [
+        "index.html에 80자 URL과 280px 카드 조건의 콘텐츠를 준비하고 overflow.css를 연결하세요.",
+        "긴 URL 카드에 overflow-wrap과 min-width를 조합하고 스크롤 영역을 따로 만드세요.",
+        "80자 URL과 280px 카드 조건으로 실행하세요. 확인할 결과: URL 전체를 확인할 수 있고 페이지 가로 넘침이 없다. 자르기와 내부 스크롤의 차이를 두 화면으로 기록한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "줄바꿈",
+          "baseline": "normal",
+          "change": "anywhere",
+          "expected": "실행 전 가설: 긴 문자열이 카드 안에서 나뉠 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "URL 전체를 확인할 수 있고 페이지 가로 넘침이 없다.",
+        "자르기와 내부 스크롤의 차이를 두 화면으로 기록한다."
+      ],
+      "questions": [
+        "ellipsis만 쓰면 전체 값은 어디서 확인하나요?",
+        "overflow를 숨기기 전에 원인을 찾았나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 8,
+      "id": "css-step-08",
+      "title": "Flex 축과 정렬",
+      "prerequisites": "7단위 「크기 제약과 overflow」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "주축과 교차축",
+          "explanation": "flex-direction이 주축을 정합니다. justify-content와 align-items는 서로 다른 축을 다룹니다."
+        },
+        {
+          "title": "분배 공간",
+          "explanation": "정렬 결과는 남는 공간에 따라 달라집니다. 항목이 공간을 모두 쓰면 일부 정렬 차이가 보이지 않을 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "두 방향의 주축·교차축을 스케치한다.",
+        "시작·중앙·끝 정렬의 위치를 측정한다."
+      ],
+      "steps": [
+        "index.html에 크기가 다른 버튼 3개와 높이 200px 조건의 콘텐츠를 준비하고 flex-axis.css를 연결하세요.",
+        "툴바를 row와 column으로 바꾸고 두 정렬 속성의 축을 표시하세요.",
+        "크기가 다른 버튼 3개와 높이 200px 조건으로 실행하세요. 확인할 결과: 두 방향의 주축·교차축을 스케치한다. 시작·중앙·끝 정렬의 위치를 측정한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "방향",
+          "baseline": "row",
+          "change": "column",
+          "expected": "실행 전 가설: 정렬이 적용되는 축이 바뀔 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "두 방향의 주축·교차축을 스케치한다.",
+        "시작·중앙·끝 정렬의 위치를 측정한다."
+      ],
+      "questions": [
+        "텍스트 방향도 시작점에 영향을 주나요?",
+        "남는 공간이 없으면 space-between은 어떻게 보이나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 9,
+      "id": "css-step-09",
+      "title": "Flex 성장과 축소",
+      "prerequisites": "8단위 「Flex 축과 정렬」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "공간 분배",
+          "explanation": "flex-grow는 남는 공간의 분배 비율을 정합니다. 실제 너비는 basis와 최소 크기도 함께 반영합니다."
+        },
+        {
+          "title": "축소 비율",
+          "explanation": "flex-shrink는 부족한 공간을 줄이는 데 관여합니다. 긴 콘텐츠의 자동 최소 크기가 축소를 막을 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "각 폭의 패널 실제 너비 3개를 기록한다.",
+        "min-width:0의 효과를 shrink와 구분한다."
+      ],
+      "steps": [
+        "index.html에 컨테이너 900px와 420px 조건의 콘텐츠를 준비하고 flex-size.css를 연결하세요.",
+        "세 패널의 basis를 200px로 두고 grow·shrink와 min-width를 조절하세요.",
+        "컨테이너 900px와 420px 조건으로 실행하세요. 확인할 결과: 각 폭의 패널 실제 너비 3개를 기록한다. min-width:0의 효과를 shrink와 구분한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "shrink",
+          "baseline": "1",
+          "change": "0",
+          "expected": "실행 전 가설: 좁은 컨테이너에서 넘침이 생길 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "각 폭의 패널 실제 너비 3개를 기록한다.",
+        "min-width:0의 효과를 shrink와 구분한다."
+      ],
+      "questions": [
+        "grow 2가 항상 너비 두 배인가요?",
+        "basis와 width가 함께 있으면 무엇을 확인해야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 10,
+      "id": "css-step-10",
+      "title": "Grid 트랙과 간격",
+      "prerequisites": "9단위 「Flex 성장과 축소」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "트랙 정의",
+          "explanation": "grid-template-columns는 열의 크기와 개수를 정합니다. fr은 고정 크기와 간격을 제외한 공간 분배에 사용됩니다."
+        },
+        {
+          "title": "최소 제약",
+          "explanation": "1fr에도 콘텐츠의 최소 크기가 영향을 줄 수 있습니다. minmax(0,1fr)로 축소 허용 범위를 명시할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "열 너비와 gap의 합을 컨테이너 폭과 비교한다.",
+        "좁은 폭에서 넘치는 요소를 식별하고 수정한다."
+      ],
+      "steps": [
+        "index.html에 긴 제목 포함 카드 6개 조건의 콘텐츠를 준비하고 grid-tracks.css를 연결하세요.",
+        "3열 카드에 1fr과 minmax(0,1fr)을 비교하고 gap을 바꾸세요.",
+        "긴 제목 포함 카드 6개 조건으로 실행하세요. 확인할 결과: 열 너비와 gap의 합을 컨테이너 폭과 비교한다. 좁은 폭에서 넘치는 요소를 식별하고 수정한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "트랙",
+          "baseline": "1fr",
+          "change": "minmax(0,1fr)",
+          "expected": "실행 전 가설: 긴 콘텐츠가 열을 밀어내는 현상이 줄어들 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "열 너비와 gap의 합을 컨테이너 폭과 비교한다.",
+        "좁은 폭에서 넘치는 요소를 식별하고 수정한다."
+      ],
+      "questions": [
+        "fr은 전체 너비의 단순 백분율인가요?",
+        "minmax의 최소값 0은 어떤 제약을 푸나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 11,
+      "id": "css-step-11",
+      "title": "자동 반복과 카드 수",
+      "prerequisites": "10단위 「Grid 트랙과 간격」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "자동 열",
+          "explanation": "auto-fit과 auto-fill은 가능한 트랙 수를 계산합니다. 빈 트랙을 접는 방식이 달라 적은 카드에서 차이가 납니다."
+        },
+        {
+          "title": "최소 카드 폭",
+          "explanation": "minmax로 카드의 최소·최대 범위를 정합니다. 최소 폭이 뷰포트보다 크면 넘침 대책이 필요합니다."
+        }
+      ],
+      "outcomes": [
+        "카드 수별 열 개수와 카드 너비를 기록한다.",
+        "320px 컨테이너에서도 가로 스크롤이 없다."
+      ],
+      "steps": [
+        "index.html에 카드 2개와 8개, 컨테이너 1000px 조건의 콘텐츠를 준비하고 auto-grid.css를 연결하세요.",
+        "repeat와 minmax로 카드 목록을 만들고 auto-fit·auto-fill을 비교하세요.",
+        "카드 2개와 8개, 컨테이너 1000px 조건으로 실행하세요. 확인할 결과: 카드 수별 열 개수와 카드 너비를 기록한다. 320px 컨테이너에서도 가로 스크롤이 없다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "반복",
+          "baseline": "auto-fill",
+          "change": "auto-fit",
+          "expected": "실행 전 가설: 적은 카드가 남은 공간을 더 넓게 사용할 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "카드 수별 열 개수와 카드 너비를 기록한다.",
+        "320px 컨테이너에서도 가로 스크롤이 없다."
+      ],
+      "questions": [
+        "빈 트랙이 남는 편이 적합한 UI는 무엇인가요?",
+        "최소 카드 폭을 고정하면 어떤 화면에서 깨지나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 12,
+      "id": "css-step-12",
+      "title": "배치 영역과 소스 순서",
+      "prerequisites": "11단위 「자동 반복과 카드 수」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "명시 배치",
+          "explanation": "grid-area로 시각적 영역을 지정할 수 있습니다. 시각 순서 변경이 DOM 읽기 순서를 바꾸지는 않습니다."
+        },
+        {
+          "title": "순서 일치",
+          "explanation": "키보드와 보조 기술의 순서를 함께 확인합니다. order나 영역 배치로 논리 흐름을 뒤집지 않도록 합니다."
+        }
+      ],
+      "outcomes": [
+        "두 화면의 시각 순서와 Tab 순서를 비교한다.",
+        "최종 배치에서 주요 내용의 논리 순서가 유지된다."
+      ],
+      "steps": [
+        "index.html에 탐색·본문·보조 영역과 링크 6개 조건의 콘텐츠를 준비하고 grid-areas.css를 연결하세요.",
+        "header·nav·main·aside를 영역으로 배치하고 좁은 화면용 한 열 배치를 작성하세요.",
+        "탐색·본문·보조 영역과 링크 6개 조건으로 실행하세요. 확인할 결과: 두 화면의 시각 순서와 Tab 순서를 비교한다. 최종 배치에서 주요 내용의 논리 순서가 유지된다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "배치",
+          "baseline": "본문 다음 aside",
+          "change": "aside를 시각적으로 앞에",
+          "expected": "실행 전 가설: 키보드 순서와 보이는 순서가 어긋날 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "두 화면의 시각 순서와 Tab 순서를 비교한다.",
+        "최종 배치에서 주요 내용의 논리 순서가 유지된다."
+      ],
+      "questions": [
+        "CSS 배치가 접근성 트리 순서를 바꾸나요?",
+        "모바일에서 어떤 정보를 먼저 보여야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 13,
+      "id": "css-step-13",
+      "title": "미디어 쿼리와 중단점",
+      "prerequisites": "12단위 「배치 영역과 소스 순서」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "조건 분기",
+          "explanation": "미디어 쿼리는 뷰포트 등 환경 조건에 따라 선언을 적용합니다. 장치 이름보다 콘텐츠가 깨지는 지점에서 중단점을 찾습니다."
+        },
+        {
+          "title": "연속 범위",
+          "explanation": "중단점 바로 전후도 검사해야 합니다. 지정한 대표 폭만 맞으면 경계에서 레이아웃이 튈 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "중단점 전후 계산 스타일과 열 수를 기록한다.",
+        "네 검사 폭에서 조작이 겹치지 않는다."
+      ],
+      "steps": [
+        "index.html에 중단점 전후 1px와 360px·1200px 조건의 콘텐츠를 준비하고 media.css를 연결하세요.",
+        "카드와 탐색이 충돌하는 폭을 찾고 한 열에서 세 열로 전환하는 규칙을 작성하세요.",
+        "중단점 전후 1px와 360px·1200px 조건으로 실행하세요. 확인할 결과: 중단점 전후 계산 스타일과 열 수를 기록한다. 네 검사 폭에서 조작이 겹치지 않는다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "뷰포트",
+          "baseline": "699px",
+          "change": "700px",
+          "expected": "실행 전 가설: 설정한 미디어 조건의 적용 여부가 바뀔 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "중단점 전후 계산 스타일과 열 수를 기록한다.",
+        "네 검사 폭에서 조작이 겹치지 않는다."
+      ],
+      "questions": [
+        "중단점을 콘텐츠로 정한 근거는 무엇인가요?",
+        "확대하면 CSS 뷰포트 폭은 어떻게 달라지나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 14,
+      "id": "css-02",
+      "title": "반응형과 모션",
+      "prerequisites": "13단위 「미디어 쿼리와 중단점」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "사용자 선호",
+          "explanation": "prefers-reduced-motion은 모션 감소 선호를 감지합니다. 불필요한 이동을 줄여도 상태 변화 정보는 남겨야 합니다."
+        },
+        {
+          "title": "표시와 조작",
+          "explanation": "레이아웃 전환에서 현재 포커스를 유지합니다. 요소를 제거하거나 숨기면 키보드 위치가 예상 밖으로 이동할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "좁은 화면 전환 후 포커스 대상이 유지된다.",
+        "reduce 조건에서 불필요한 이동이 사라지고 상태를 구분한다."
+      ],
+      "steps": [
+        "index.html에 360px·1200px와 모션 선호 두 상태 조건의 콘텐츠를 준비하고 responsive-motion.css를 연결하세요.",
+        "3열을 좁은 폭에서 단일 열로 바꾸고 카드 전환의 transform을 감소 모션 조건에서 제거하세요.",
+        "360px·1200px와 모션 선호 두 상태 조건으로 실행하세요. 확인할 결과: 좁은 화면 전환 후 포커스 대상이 유지된다. reduce 조건에서 불필요한 이동이 사라지고 상태를 구분한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "모션 선호",
+          "baseline": "no-preference",
+          "change": "reduce",
+          "expected": "실행 전 가설: 이동 효과가 줄어도 선택 상태는 보일 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "좁은 화면 전환 후 포커스 대상이 유지된다.",
+        "reduce 조건에서 불필요한 이동이 사라지고 상태를 구분한다."
+      ],
+      "questions": [
+        "애니메이션 제거 뒤 완료 신호가 남나요?",
+        "탭으로 바꾸면 어떤 추가 키보드 계약이 필요한가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        },
+        {
+          "title": "MDN prefers-reduced-motion",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion"
+        }
+      ],
+      "environment": "Frontory의 기존 미리보기는 제한된 시작 예제이며 전체 과제의 완성본이 아닙니다. 추가 파일과 기능은 별도 로컬 프로젝트에서 직접 구현하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 15,
+      "id": "css-step-15",
+      "title": "컨테이너 쿼리와 재사용",
+      "prerequisites": "14단위 「반응형과 모션」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "컨테이너 기준",
+          "explanation": "크기 쿼리는 지정한 조상 컨테이너의 크기를 기준으로 합니다. 같은 뷰포트에서도 배치된 영역에 따라 카드가 달라질 수 있습니다."
+        },
+        {
+          "title": "포함 범위",
+          "explanation": "container-type은 크기 질의와 관련된 포함 규칙을 만듭니다. 적용할 요소와 자식의 관계를 확인해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "동일 뷰포트에서 두 카드가 서로 다른 배치를 보인다.",
+        "쿼리 컨테이너를 개발자 도구에서 식별한다."
+      ],
+      "steps": [
+        "index.html에 300px 사이드바와 800px 본문 조건의 콘텐츠를 준비하고 container.css를 연결하세요.",
+        "wrapper에 container-type:inline-size를 두고 @container로 카드의 가로·세로 배치를 바꾸세요.",
+        "300px 사이드바와 800px 본문 조건으로 실행하세요. 확인할 결과: 동일 뷰포트에서 두 카드가 서로 다른 배치를 보인다. 쿼리 컨테이너를 개발자 도구에서 식별한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "부모 폭",
+          "baseline": "300px",
+          "change": "800px",
+          "expected": "실행 전 가설: 같은 카드가 가로 배치로 전환될 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "동일 뷰포트에서 두 카드가 서로 다른 배치를 보인다.",
+        "쿼리 컨테이너를 개발자 도구에서 식별한다."
+      ],
+      "questions": [
+        "카드 자신을 자신의 크기 쿼리 대상으로 삼을 수 있나요?",
+        "미디어 쿼리와 어떤 조건을 나눠 맡길까요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        },
+        {
+          "title": "MDN Container queries",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 16,
+      "id": "css-step-16",
+      "title": "논리 속성과 쓰기 방향",
+      "prerequisites": "15단위 「컨테이너 쿼리와 재사용」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "논리 방향",
+          "explanation": "inline과 block 축은 문서의 쓰기 방향에 맞춰집니다. left와 right 같은 물리 방향과 항상 같지는 않습니다."
+        },
+        {
+          "title": "방향 대응",
+          "explanation": "margin-inline과 padding-block으로 관계를 표현합니다. 아이콘과 정렬도 RTL에서 자연스러운지 따로 검사합니다."
+        }
+      ],
+      "outcomes": [
+        "두 방향에서 시작 경계와 간격을 기록한다.",
+        "텍스트와 조작이 겹치거나 잘리지 않는다."
+      ],
+      "steps": [
+        "index.html에 LTR과 RTL 카드 목록 조건의 콘텐츠를 준비하고 logical.css를 연결하세요.",
+        "카드 여백과 테두리를 논리 속성으로 바꾸고 dir을 토글하세요.",
+        "LTR과 RTL 카드 목록 조건으로 실행하세요. 확인할 결과: 두 방향에서 시작 경계와 간격을 기록한다. 텍스트와 조작이 겹치거나 잘리지 않는다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "방향",
+          "baseline": "ltr",
+          "change": "rtl",
+          "expected": "실행 전 가설: inline 시작쪽 여백과 테두리가 반대로 이동할 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "두 방향에서 시작 경계와 간격을 기록한다.",
+        "텍스트와 조작이 겹치거나 잘리지 않는다."
+      ],
+      "questions": [
+        "물리 속성을 유지해야 하는 부분은 무엇인가요?",
+        "writing-mode도 바꾸면 축이 어떻게 되나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 17,
+      "id": "css-step-17",
+      "title": "타이포그래피와 줄 길이",
+      "prerequisites": "16단위 「논리 속성과 쓰기 방향」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "행간",
+          "explanation": "단위 없는 line-height는 글자 크기에 비례해 계산됩니다. 자식의 글자 크기가 달라도 비율을 유지하기 쉽습니다."
+        },
+        {
+          "title": "읽기 폭",
+          "explanation": "줄 길이는 글자 크기와 컨테이너 폭의 조합으로 결정됩니다. 긴 본문은 카드 제목과 다른 최대 폭이 필요할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "두 행간의 계산 높이와 총 본문 높이를 기록한다.",
+        "200% 확대에서 글줄과 조작이 겹치지 않는다."
+      ],
+      "steps": [
+        "index.html에 한국어 장문과 영문 긴 단어 조건의 콘텐츠를 준비하고 type.css를 연결하세요.",
+        "본문에 max-width와 단위 없는 행간을 적용하고 제목·본문·보조 텍스트를 비교하세요.",
+        "한국어 장문과 영문 긴 단어 조건으로 실행하세요. 확인할 결과: 두 행간의 계산 높이와 총 본문 높이를 기록한다. 200% 확대에서 글줄과 조작이 겹치지 않는다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "line-height",
+          "baseline": "1.2",
+          "change": "1.7",
+          "expected": "실행 전 가설: 본문의 줄 사이 여백이 늘어날 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "두 행간의 계산 높이와 총 본문 높이를 기록한다.",
+        "200% 확대에서 글줄과 조작이 겹치지 않는다."
+      ],
+      "questions": [
+        "px 행간을 상속하면 어떤 문제가 생기나요?",
+        "한글과 영문의 줄바꿈 정책이 같아야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 18,
+      "id": "css-step-18",
+      "title": "색상과 대비",
+      "prerequisites": "17단위 「타이포그래피와 줄 길이」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "대비 관계",
+          "explanation": "글자색은 배경색과 함께 평가해야 합니다. 같은 색도 배경에 따라 읽기 어려울 수 있습니다."
+        },
+        {
+          "title": "상태 전달",
+          "explanation": "색만으로 오류나 선택을 표시하면 정보가 부족할 수 있습니다. 텍스트·아이콘·테두리 같은 표시를 함께 둡니다."
+        }
+      ],
+      "outcomes": [
+        "일반 본문 텍스트의 대비 목표 4.5:1 이상을 확인한다.",
+        "오류와 선택을 색 없이도 구분하는 표시가 있다."
+      ],
+      "steps": [
+        "index.html에 밝은 배경과 어두운 배경 조건의 콘텐츠를 준비하고 colors.css를 연결하세요.",
+        "기본·선택·오류 카드의 색을 정하고 개발자 도구로 텍스트 대비를 확인하세요.",
+        "밝은 배경과 어두운 배경 조건으로 실행하세요. 확인할 결과: 일반 본문 텍스트의 대비 목표 4.5:1 이상을 확인한다. 오류와 선택을 색 없이도 구분하는 표시가 있다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "배경",
+          "baseline": "흰색",
+          "change": "짙은 회색",
+          "expected": "실행 전 가설: 동일 글자색의 대비가 달라질 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "일반 본문 텍스트의 대비 목표 4.5:1 이상을 확인한다.",
+        "오류와 선택을 색 없이도 구분하는 표시가 있다."
+      ],
+      "questions": [
+        "투명도가 있는 색은 어떤 배경으로 측정하나요?",
+        "큰 글자와 일반 본문의 기준은 같은가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 19,
+      "id": "css-step-19",
+      "title": "포커스와 입력 상태",
+      "prerequisites": "18단위 「색상과 대비」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "포커스 표시",
+          "explanation": ":focus-visible은 입력 방식 등의 판단에 따라 포커스 표시를 조절합니다. outline 제거 후 대체 표시가 없으면 위치를 잃습니다."
+        },
+        {
+          "title": "상태 선택자",
+          "explanation": "disabled·checked·invalid는 서로 다른 상태를 나타냅니다. 오류 표시가 입력 시작 전부터 과도하지 않은지 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "모든 조작에서 포커스가 보이고 잘리지 않는다.",
+        "checked·disabled·invalid 상태 3개를 기록한다."
+      ],
+      "steps": [
+        "index.html에 키보드 이동, 체크 전환, 잘못된 입력 조건의 콘텐츠를 준비하고 states.css를 연결하세요.",
+        "버튼·링크·입력에 focus-visible과 상태 스타일을 작성하고 Tab으로 탐색하세요.",
+        "키보드 이동, 체크 전환, 잘못된 입력 조건으로 실행하세요. 확인할 결과: 모든 조작에서 포커스가 보이고 잘리지 않는다. checked·disabled·invalid 상태 3개를 기록한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "outline",
+          "baseline": "없음",
+          "change": "2px 실선과 offset",
+          "expected": "실행 전 가설: 키보드 위치를 식별하기 쉬워질 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "모든 조작에서 포커스가 보이고 잘리지 않는다.",
+        "checked·disabled·invalid 상태 3개를 기록한다."
+      ],
+      "questions": [
+        "hover가 없어도 상태를 알 수 있나요?",
+        "부모 overflow가 outline을 자르나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 20,
+      "id": "css-step-20",
+      "title": "위치 지정과 기준 블록",
+      "prerequisites": "19단위 「포커스와 입력 상태」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "위치 기준",
+          "explanation": "absolute는 포함 블록을 기준으로 배치됩니다. 가장 가까운 positioned 조상이 흔한 기준이지만 다른 속성도 영향을 줄 수 있습니다."
+        },
+        {
+          "title": "고정과 부착",
+          "explanation": "fixed와 sticky는 스크롤에서 서로 다른 동작을 합니다. sticky에는 임계 위치와 스크롤 맥락이 중요합니다."
+        }
+      ],
+      "outcomes": [
+        "배지의 기준 요소와 계산 위치를 기록한다.",
+        "문서 스크롤과 부모 스크롤의 sticky 동작을 비교한다."
+      ],
+      "steps": [
+        "index.html에 긴 문서와 높이가 제한된 부모 조건의 콘텐츠를 준비하고 position.css를 연결하세요.",
+        "카드 배지와 sticky 목차를 만들고 부모 position과 overflow를 바꾸세요.",
+        "긴 문서와 높이가 제한된 부모 조건으로 실행하세요. 확인할 결과: 배지의 기준 요소와 계산 위치를 기록한다. 문서 스크롤과 부모 스크롤의 sticky 동작을 비교한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "부모 overflow",
+          "baseline": "visible",
+          "change": "auto",
+          "expected": "실행 전 가설: sticky가 반응하는 스크롤 영역이 달라질 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "배지의 기준 요소와 계산 위치를 기록한다.",
+        "문서 스크롤과 부모 스크롤의 sticky 동작을 비교한다."
+      ],
+      "questions": [
+        "sticky에 top이 없으면 어떻게 되나요?",
+        "fixed의 기준도 변할 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 21,
+      "id": "css-step-21",
+      "title": "쌓임 맥락과 겹침",
+      "prerequisites": "20단위 「위치 지정과 기준 블록」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "쌓임 맥락",
+          "explanation": "z-index는 같은 맥락의 순서 안에서 해석합니다. 자식 값을 크게 해도 부모 맥락 바깥을 자유롭게 넘지 못합니다."
+        },
+        {
+          "title": "맥락 생성",
+          "explanation": "transform이나 opacity 같은 속성이 새 맥락을 만들 수 있습니다. 의도하지 않은 겹침의 원인을 조상부터 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "겹침 순서를 조상 맥락까지 도식화한다.",
+        "최종 배지가 의도한 카드 위에 표시된다."
+      ],
+      "steps": [
+        "index.html에 카드 2개와 배지 z-index 999 조건의 콘텐츠를 준비하고 stacking.css를 연결하세요.",
+        "겹치는 카드와 배지를 만들고 부모 transform 유무에서 z-index 효과를 비교하세요.",
+        "카드 2개와 배지 z-index 999 조건으로 실행하세요. 확인할 결과: 겹침 순서를 조상 맥락까지 도식화한다. 최종 배지가 의도한 카드 위에 표시된다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "부모 transform",
+          "baseline": "none",
+          "change": "translateZ(0)",
+          "expected": "실행 전 가설: 배지가 별도 쌓임 맥락에 묶일 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "겹침 순서를 조상 맥락까지 도식화한다.",
+        "최종 배지가 의도한 카드 위에 표시된다."
+      ],
+      "questions": [
+        "z-index 9999가 해결하지 못하는 이유는 무엇인가요?",
+        "isolation으로 어떤 경계를 만들 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 22,
+      "id": "css-step-22",
+      "title": "전환과 중간 상태",
+      "prerequisites": "21단위 「쌓임 맥락과 겹침」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "전환 대상",
+          "explanation": "transition은 값 변화의 중간 상태를 표시합니다. all보다 필요한 속성을 지정하면 의도하지 않은 전환을 줄입니다."
+        },
+        {
+          "title": "중단 처리",
+          "explanation": "사용자가 전환 도중 반대 동작을 할 수 있습니다. 끝 상태만 검사하면 빠른 입력에서 튀는 동작을 놓칩니다."
+        }
+      ],
+      "outcomes": [
+        "빠른 클릭 뒤 최종 선택 상태가 맞는다.",
+        "두 지속 시간의 중간 상태와 reduce 대체를 기록한다."
+      ],
+      "steps": [
+        "index.html에 연속 클릭 5회와 두 지속 시간 조건의 콘텐츠를 준비하고 transition.css를 연결하세요.",
+        "선택 카드의 transform과 opacity만 전환하고 버튼을 빠르게 반복 조작하세요.",
+        "연속 클릭 5회와 두 지속 시간 조건으로 실행하세요. 확인할 결과: 빠른 클릭 뒤 최종 선택 상태가 맞는다. 두 지속 시간의 중간 상태와 reduce 대체를 기록한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "duration",
+          "baseline": "150ms",
+          "change": "800ms",
+          "expected": "실행 전 가설: 중간 상태에서 역전하는 구간이 더 잘 보일 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "빠른 클릭 뒤 최종 선택 상태가 맞는다.",
+        "두 지속 시간의 중간 상태와 reduce 대체를 기록한다."
+      ],
+      "questions": [
+        "transition:all이 어떤 속성까지 바꾸나요?",
+        "전환 완료 이벤트에 기능을 의존해도 되나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 23,
+      "id": "css-step-23",
+      "title": "키프레임과 재생 제어",
+      "prerequisites": "22단위 「전환과 중간 상태」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "시간 구간",
+          "explanation": "@keyframes는 진행률별 속성 값을 정의합니다. 반복 횟수와 방향에 따라 전체 움직임이 달라집니다."
+        },
+        {
+          "title": "일시 정지",
+          "explanation": "animation-play-state로 재생을 멈출 수 있습니다. 감소 모션 설정에서는 비필수 반복 자체를 없애는 방법도 고려합니다."
+        }
+      ],
+      "outcomes": [
+        "정지 후 위치가 유지되고 재개 시 이어진다.",
+        "reduce 조건에서 비필수 반복이 중지된다."
+      ],
+      "steps": [
+        "index.html에 1회·무한 반복과 정지·재개 조건의 콘텐츠를 준비하고 keyframes.css를 연결하세요.",
+        "진행 표시를 키프레임으로 만들고 정지 버튼 상태에 따라 재생을 전환하세요.",
+        "1회·무한 반복과 정지·재개 조건으로 실행하세요. 확인할 결과: 정지 후 위치가 유지되고 재개 시 이어진다. reduce 조건에서 비필수 반복이 중지된다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "반복",
+          "baseline": "1회",
+          "change": "infinite",
+          "expected": "실행 전 가설: 종료되지 않으므로 중지 수단이 필요할 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "정지 후 위치가 유지되고 재개 시 이어진다.",
+        "reduce 조건에서 비필수 반복이 중지된다."
+      ],
+      "questions": [
+        "진행 표시가 실제 작업 진행률을 뜻하나요?",
+        "fill-mode는 종료 후 어떤 값을 남기나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 24,
+      "id": "css-step-24",
+      "title": "Cascade layers로 규칙 정리",
+      "prerequisites": "23단위 「키프레임과 재생 제어」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "레이어 순서",
+          "explanation": "@layer는 스타일 묶음의 우선순서를 명시합니다. 같은 중요도에서도 레이어와 비레이어 규칙의 우선순서를 확인해야 합니다."
+        },
+        {
+          "title": "변경 가능성",
+          "explanation": "기본·컴포넌트·유틸리티 규칙을 나누면 충돌을 추적하기 쉽습니다. !important는 레이어 우선순서도 다르게 작동합니다."
+        }
+      ],
+      "outcomes": [
+        "일반 선언의 승리 레이어를 계산 스타일에서 확인한다.",
+        "important 사례를 별도로 기록해 일반 규칙과 구분한다."
+      ],
+      "steps": [
+        "index.html에 동일 속성 선언 3개와 비레이어 선언 조건의 콘텐츠를 준비하고 layers.css를 연결하세요.",
+        "base·components·utilities 레이어를 선언하고 같은 버튼 색 충돌을 만들어 비교하세요.",
+        "동일 속성 선언 3개와 비레이어 선언 조건으로 실행하세요. 확인할 결과: 일반 선언의 승리 레이어를 계산 스타일에서 확인한다. important 사례를 별도로 기록해 일반 규칙과 구분한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "선언 위치",
+          "baseline": "components",
+          "change": "utilities",
+          "expected": "실행 전 가설: 선언한 레이어 순서에 따라 승리 규칙이 바뀔 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "일반 선언의 승리 레이어를 계산 스타일에서 확인한다.",
+        "important 사례를 별도로 기록해 일반 규칙과 구분한다."
+      ],
+      "questions": [
+        "레이어 안에서 specificity는 언제 비교하나요?",
+        "비레이어 선언이 예상보다 강한 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        },
+        {
+          "title": "MDN Cascade layers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@layer"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 25,
+      "id": "css-step-25",
+      "title": "사용자 정의 속성과 테마",
+      "prerequisites": "24단위 「Cascade layers로 규칙 정리」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "값 공유",
+          "explanation": "CSS 사용자 정의 속성은 cascade와 상속에 참여합니다. 선언 위치에 따라 같은 이름의 값이 다르게 해석됩니다."
+        },
+        {
+          "title": "대체값",
+          "explanation": "var의 fallback은 참조 변수가 없거나 유효하지 않을 때 사용됩니다. 최종 속성 문법에 맞지 않는 값은 계산 시 문제가 될 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "세 요소의 색·간격 토큰 연결을 기록한다.",
+        "두 테마에서 본문 대비와 포커스 표시를 확인한다."
+      ],
+      "steps": [
+        "index.html에 카드·입력·버튼과 두 테마 조건의 콘텐츠를 준비하고 tokens.css를 연결하세요.",
+        "색상·간격·반경 토큰을 :root에 정의하고 data-theme로 어두운 테마를 덮으세요.",
+        "카드·입력·버튼과 두 테마 조건으로 실행하세요. 확인할 결과: 세 요소의 색·간격 토큰 연결을 기록한다. 두 테마에서 본문 대비와 포커스 표시를 확인한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "테마",
+          "baseline": "light",
+          "change": "dark",
+          "expected": "실행 전 가설: 공유 토큰을 쓰는 요소가 함께 바뀔 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "세 요소의 색·간격 토큰 연결을 기록한다.",
+        "두 테마에서 본문 대비와 포커스 표시를 확인한다."
+      ],
+      "questions": [
+        "사용자 정의 속성은 전역 상수인가요?",
+        "토큰 값이 속성 문법과 맞지 않으면 어떻게 되나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 26,
+      "id": "css-step-26",
+      "title": "레이아웃과 페인트 관찰",
+      "prerequisites": "25단위 「사용자 정의 속성과 테마」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "렌더링 단계",
+          "explanation": "속성 변화는 스타일·레이아웃·페인트·합성에 서로 다른 영향을 줄 수 있습니다. 실제 경로는 브라우저와 요소 조건에 따라 확인합니다."
+        },
+        {
+          "title": "측정 비교",
+          "explanation": "같은 요소 수와 지속 시간으로 비교해야 합니다. transform이 언제나 비용이 없다고 단정하지 않습니다."
+        }
+      ],
+      "outcomes": [
+        "두 기록에서 Layout·Paint 구간을 구분한다.",
+        "동일 조건의 기록 2개와 관찰 한계를 남긴다."
+      ],
+      "steps": [
+        "index.html에 카드 50개, 지속 시간 500ms, 같은 브라우저 조건의 콘텐츠를 준비하고 render-cost.css를 연결하세요.",
+        "같은 카드 이동을 width 변경과 transform 변경으로 구현하고 성능 기록을 각각 수집하세요.",
+        "카드 50개, 지속 시간 500ms, 같은 브라우저 조건으로 실행하세요. 확인할 결과: 두 기록에서 Layout·Paint 구간을 구분한다. 동일 조건의 기록 2개와 관찰 한계를 남긴다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "변경 속성",
+          "baseline": "width",
+          "change": "transform",
+          "expected": "실행 전 가설: 레이아웃 작업량이 줄어들 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "두 기록에서 Layout·Paint 구간을 구분한다.",
+        "동일 조건의 기록 2개와 관찰 한계를 남긴다."
+      ],
+      "questions": [
+        "합성만 일어난다고 어떻게 확인하나요?",
+        "레이어가 늘면 메모리 비용은 어떨까요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 27,
+      "id": "css-step-27",
+      "title": "contain과 오프스크린 콘텐츠",
+      "prerequisites": "26단위 「레이아웃과 페인트 관찰」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "포함 경계",
+          "explanation": "contain은 요소의 계산·배치·그리기 관계를 제한합니다. 잘못 적용하면 넘치는 내용이나 크기 계산이 달라질 수 있습니다."
+        },
+        {
+          "title": "렌더 생략",
+          "explanation": "content-visibility:auto는 화면 밖 콘텐츠의 렌더 작업을 줄일 수 있습니다. 예상 크기와 접근성 동작도 함께 점검합니다."
+        }
+      ],
+      "outcomes": [
+        "초기 기록과 스크롤 중 높이 변화를 비교한다.",
+        "검색·키보드 이동으로 화면 밖 카드에 도달한다."
+      ],
+      "steps": [
+        "index.html에 높이가 다른 카드 200개 조건의 콘텐츠를 준비하고 containment.css를 연결하세요.",
+        "긴 카드 목록에 content-visibility와 contain-intrinsic-size를 적용하고 스크롤을 비교하세요.",
+        "높이가 다른 카드 200개 조건으로 실행하세요. 확인할 결과: 초기 기록과 스크롤 중 높이 변화를 비교한다. 검색·키보드 이동으로 화면 밖 카드에 도달한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "렌더 정책",
+          "baseline": "기본",
+          "change": "content-visibility:auto",
+          "expected": "실행 전 가설: 초기 렌더 작업이 줄 수 있으나 스크롤 크기 변화가 생길 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "초기 기록과 스크롤 중 높이 변화를 비교한다.",
+        "검색·키보드 이동으로 화면 밖 카드에 도달한다."
+      ],
+      "questions": [
+        "예상 높이를 틀리게 주면 어떤 변화가 있나요?",
+        "contain이 잘라버리는 내용은 없나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        },
+        {
+          "title": "MDN content-visibility",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    },
+    {
+      "day": 28,
+      "id": "css-03",
+      "title": "토큰과 렌더링 관찰",
+      "prerequisites": "27단위 「contain과 오프스크린 콘텐츠」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "디자인 결정",
+          "explanation": "색상·간격 토큰은 여러 요소에 같은 결정을 적용합니다. 테마를 바꿔도 텍스트 대비와 상태 구분을 유지해야 합니다."
+        },
+        {
+          "title": "근거 있는 조정",
+          "explanation": "성능 개선은 실제 레이아웃과 페인트 기록으로 판단합니다. 요소 수와 속도가 다른 결과를 직접 비교하지 않습니다."
+        }
+      ],
+      "outcomes": [
+        "동일 조건의 두 성능 기록과 단계별 관찰이 있다.",
+        "두 테마의 본문 대비와 키보드 포커스를 문서화한다."
+      ],
+      "steps": [
+        "index.html에 카드 50개, 500ms 전환, 밝은·어두운 테마 조건의 콘텐츠를 준비하고 theme-report.css를 연결하세요.",
+        "토큰 기반 두 테마를 완성하고 width·transform 전환을 같은 조건에서 기록해 report.md로 비교하세요.",
+        "카드 50개, 500ms 전환, 밝은·어두운 테마 조건으로 실행하세요. 확인할 결과: 동일 조건의 두 성능 기록과 단계별 관찰이 있다. 두 테마의 본문 대비와 키보드 포커스를 문서화한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "요소 수",
+          "baseline": "50개",
+          "change": "200개",
+          "expected": "실행 전 가설: 렌더 작업량이 늘 수 있으며 경로별 차이는 측정으로 확인해야 한다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "동일 조건의 두 성능 기록과 단계별 관찰이 있다.",
+        "두 테마의 본문 대비와 키보드 포커스를 문서화한다."
+      ],
+      "questions": [
+        "최적화 결론을 뒷받침하는 구간은 어디인가요?",
+        "유지보수나 접근성을 희생한 조정은 없나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN CSS",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        }
+      ],
+      "environment": "Frontory의 기존 미리보기는 제한된 시작 예제이며 전체 과제의 완성본이 아닙니다. 추가 파일과 기능은 별도 로컬 프로젝트에서 직접 구현하세요. 별도 폴더의 index.html에 콘텐츠를 만들고 link rel=\"stylesheet\"로 실습 CSS를 연결하세요. 개발자 도구에서 뷰포트·계산 스타일·성능 기록을 확인합니다."
+    }
+  ]
+}

@@ -1,0 +1,1473 @@
+{
+  "seriesId": "motion",
+  "stages": [
+    "상태와 Transition",
+    "Layout과 Presence",
+    "제스처와 동등한 조작",
+    "Motion 시스템 검증"
+  ],
+  "goal": "현대 Motion React API로 상태·레이아웃·제스처를 연결하고 접근 가능한 전환을 구현한다.",
+  "capstone": "재정렬 가능한 학습 카드 보드에 버튼 대안, exit, 모션 감소와 복구를 구현한다.",
+  "units": [
+    {
+      "day": 1,
+      "id": "motion-01",
+      "title": "상태 기반 애니메이션",
+      "prerequisites": "React 상태, CSS transform를 이해하고 기존 시작 예제의 입력과 출력을 읽을 수 있다.",
+      "concepts": [
+        {
+          "title": "목표 상태",
+          "explanation": "UI 상태는 도착할 값을 결정한다. 중간 프레임을 React 상태에 저장할 필요는 없다."
+        },
+        {
+          "title": "API 경계",
+          "explanation": "기존 미리보기는 Motion JS animate API다. React 실습은 별도 프로젝트에서 motion/react를 사용한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 목표 상태의 역할을 설명한다. 입력 사례: 선택·해제 카드.",
+        "산출물: 상태값과 최종 opacity·x 표. API 경계 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-1.tsx에 React 프로젝트에 motion을 설치하고 motion.div의 animate를 선택 상태에 연결한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 선택·해제 카드. 기준: 0.3초. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-1.md에 남긴다.",
+        "변경 변수: duration. 변경값: 0.8초. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 상태값과 최종 opacity·x 표. 확인할 가설: 최종 상태는 같고 중간 전환만 길어진다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "duration",
+          "baseline": "0.3초",
+          "change": "0.8초",
+          "expected": "최종 상태는 같고 중간 전환만 길어진다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 상태값과 최종 opacity·x 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 목표 상태, API 경계. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 목표 상태 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 선택·해제 카드.",
+        "변경 변수: duration. 확인할 가설: 최종 상태는 같고 중간 전환만 길어진다. 실제 결과가 가설과 일치했는가? API 경계 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 2,
+      "id": "motion-step-02",
+      "title": "Initial과 Animate",
+      "prerequisites": "1단위 「상태 기반 애니메이션」의 목표 상태 및 API 경계 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "Initial",
+          "explanation": "initial은 처음 나타날 때의 출발 상태다. 현재 선택 상태와 항상 같지는 않다."
+        },
+        {
+          "title": "첫 표시",
+          "explanation": "초기 모션을 생략할 때 initial=false를 사용할 수 있다. 재마운트와 일반 렌더를 구분한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: Initial의 역할을 설명한다. 입력 사례: 첫 마운트와 상태 변경.",
+        "산출물: 최초·전환 후 스타일 표. 첫 표시 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-2.tsx에 motion.div의 initial·animate와 initial=false 버전을 만든다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 첫 마운트와 상태 변경. 기준: 명시적 시작값. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-2.md에 남긴다.",
+        "변경 변수: initial. 변경값: false. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 최초·전환 후 스타일 표. 확인할 가설: 첫 등장은 생략하고 후속 상태 전환은 유지된다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "initial",
+          "baseline": "명시적 시작값",
+          "change": "false",
+          "expected": "첫 등장은 생략하고 후속 상태 전환은 유지된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 최초·전환 후 스타일 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Initial, 첫 표시. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 Initial 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 첫 마운트와 상태 변경.",
+        "변경 변수: initial. 확인할 가설: 첫 등장은 생략하고 후속 상태 전환은 유지된다. 실제 결과가 가설과 일치했는가? 첫 표시 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 3,
+      "id": "motion-step-03",
+      "title": "Transition 구성",
+      "prerequisites": "2단위 「Initial과 Animate」의 Initial 및 첫 표시 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "Tween",
+          "explanation": "duration 기반 전환은 정해진 시간 곡선을 따른다. ease가 중간 속도를 바꾼다."
+        },
+        {
+          "title": "속성별 설정",
+          "explanation": "각 속성에 다른 transition을 줄 수 있다. opacity와 위치의 의도를 분리하면 읽기 쉽다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: Tween의 역할을 설명한다. 입력 사례: 선택 버튼 한 번.",
+        "산출물: 두 속성의 중간·종료 관찰 표. 속성별 설정 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-3.tsx에 x와 opacity에 서로 다른 transition을 설정한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 선택 버튼 한 번. 기준: 0.2초. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-3.md에 남긴다.",
+        "변경 변수: opacity duration. 변경값: 0.6초. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 두 속성의 중간·종료 관찰 표. 확인할 가설: 위치와 투명도의 완료 시점이 달라진다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "opacity duration",
+          "baseline": "0.2초",
+          "change": "0.6초",
+          "expected": "위치와 투명도의 완료 시점이 달라진다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 두 속성의 중간·종료 관찰 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Tween, 속성별 설정. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 Tween 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 선택 버튼 한 번.",
+        "변경 변수: opacity duration. 확인할 가설: 위치와 투명도의 완료 시점이 달라진다. 실제 결과가 가설과 일치했는가? 속성별 설정 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 4,
+      "id": "motion-step-04",
+      "title": "Spring의 물리 변수",
+      "prerequisites": "3단위 「Transition 구성」의 Tween 및 속성별 설정 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "Stiffness",
+          "explanation": "stiffness는 목표로 돌아가는 힘과 관련된다. 값이 커지면 응답이 달라진다."
+        },
+        {
+          "title": "Damping",
+          "explanation": "damping은 진동을 억제한다. duration 기반 spring 설정과 물리 설정을 섞어 해석하지 않는다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: Stiffness의 역할을 설명한다. 입력 사례: x=0과 x=160.",
+        "산출물: 초과 이동과 안정화 관찰 기록. Damping 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-4.tsx에 type:spring에 stiffness·damping을 명시하고 목표를 전환한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: x=0과 x=160. 기준: 10. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-4.md에 남긴다.",
+        "변경 변수: damping. 변경값: 30. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 초과 이동과 안정화 관찰 기록. 확인할 가설: 진동이 줄어드는 경향을 보인다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "damping",
+          "baseline": "10",
+          "change": "30",
+          "expected": "진동이 줄어드는 경향을 보인다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 초과 이동과 안정화 관찰 기록. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Stiffness, Damping. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 Stiffness 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: x=0과 x=160.",
+        "변경 변수: damping. 확인할 가설: 진동이 줄어드는 경향을 보인다. 실제 결과가 가설과 일치했는가? Damping 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 5,
+      "id": "motion-step-05",
+      "title": "Keyframes",
+      "prerequisites": "4단위 「Spring의 물리 변수」의 Stiffness 및 Damping 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "키프레임",
+          "explanation": "배열은 중간 목표를 정의한다. 시작과 끝만 있는 전환과 궤적이 달라진다."
+        },
+        {
+          "title": "Times",
+          "explanation": "times는 각 목표의 정규화 시점을 정한다. 배열 길이와 순서가 맞아야 한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 키프레임의 역할을 설명한다. 입력 사례: 0→100→60 위치.",
+        "산출물: 각 지정 시점의 위치 표. Times 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-5.tsx에 animate의 x 배열과 transition.times를 구성한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 0→100→60 위치. 기준: 0.5. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-5.md에 남긴다.",
+        "변경 변수: 중간 시점. 변경값: 0.2. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 각 지정 시점의 위치 표. 확인할 가설: 중간 목표에 더 일찍 도달한다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "중간 시점",
+          "baseline": "0.5",
+          "change": "0.2",
+          "expected": "중간 목표에 더 일찍 도달한다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 각 지정 시점의 위치 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 키프레임, Times. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 키프레임 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 0→100→60 위치.",
+        "변경 변수: 중간 시점. 확인할 가설: 중간 목표에 더 일찍 도달한다. 실제 결과가 가설과 일치했는가? Times 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 6,
+      "id": "motion-step-06",
+      "title": "Variants",
+      "prerequisites": "5단위 「Keyframes」의 키프레임 및 Times 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "이름 있는 상태",
+          "explanation": "variants는 시각 상태를 이름으로 묶는다. 도메인 상태에서 이름을 선택할 수 있다."
+        },
+        {
+          "title": "전파",
+          "explanation": "부모 variant는 자식에게 전달될 수 있다. 자식에 독립 animate를 주면 관계가 달라진다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 이름 있는 상태의 역할을 설명한다. 입력 사례: 두 카드 선택 변경.",
+        "산출물: 부모·자식 목표 상태 표. 전파 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-6.tsx에 idle·selected variants를 카드와 아이콘에 정의한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 두 카드 선택 변경. 기준: 부모 상속. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-6.md에 남긴다.",
+        "변경 변수: 자식 제어. 변경값: 독립 animate. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 부모·자식 목표 상태 표. 확인할 가설: 자식의 상태 전파 경로가 달라진다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "자식 제어",
+          "baseline": "부모 상속",
+          "change": "독립 animate",
+          "expected": "자식의 상태 전파 경로가 달라진다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 부모·자식 목표 상태 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 이름 있는 상태, 전파. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 이름 있는 상태 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 두 카드 선택 변경.",
+        "변경 변수: 자식 제어. 확인할 가설: 자식의 상태 전파 경로가 달라진다. 실제 결과가 가설과 일치했는가? 전파 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 7,
+      "id": "motion-step-07",
+      "title": "자식 등장 순서",
+      "prerequisites": "6단위 「Variants」의 이름 있는 상태 및 전파 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "Orchestration",
+          "explanation": "부모와 자식의 전환 순서를 정할 수 있다. 콘텐츠 읽기 순서를 먼저 유지해야 한다."
+        },
+        {
+          "title": "Stagger",
+          "explanation": "stagger는 자식 시작 시점을 벌린다. 긴 목록에 큰 지연을 주면 끝 항목이 늦게 보인다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: Orchestration의 역할을 설명한다. 입력 사례: 카드 4개와 12개.",
+        "산출물: 첫·마지막 카드 등장 시각. Stagger 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-7.tsx에 현대 Motion stagger 함수와 delayChildren으로 카드 등장을 구성한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 카드 4개와 12개. 기준: 0.05초. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-7.md에 남긴다.",
+        "변경 변수: 간격. 변경값: 0.2초. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 첫·마지막 카드 등장 시각. 확인할 가설: 마지막 카드의 대기 시간이 증가한다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "간격",
+          "baseline": "0.05초",
+          "change": "0.2초",
+          "expected": "마지막 카드의 대기 시간이 증가한다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 첫·마지막 카드 등장 시각. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Orchestration, Stagger. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 Orchestration 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 카드 4개와 12개.",
+        "변경 변수: 간격. 확인할 가설: 마지막 카드의 대기 시간이 증가한다. 실제 결과가 가설과 일치했는가? Stagger 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 8,
+      "id": "motion-step-08",
+      "title": "Layout 측정",
+      "prerequisites": "7단위 「자식 등장 순서」의 Orchestration 및 Stagger 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "Layout",
+          "explanation": "layout은 이전과 다음 레이아웃 차이를 애니메이션한다. 최종 문서 배치는 React와 CSS가 결정한다."
+        },
+        {
+          "title": "Transform 보간",
+          "explanation": "시각적 이동과 실제 배치를 구별해야 한다. 크기 변화는 자식 콘텐츠에 왜곡을 줄 수 있다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: Layout의 역할을 설명한다. 입력 사례: 1열·3열 토글.",
+        "산출물: 최종 배치와 전환 중 텍스트 관찰 기록. Transform 보간 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-8.tsx에 motion 카드에 layout을 넣고 Grid 열 수를 변경한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 1열·3열 토글. 기준: 3열. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-8.md에 남긴다.",
+        "변경 변수: 열 수. 변경값: 1열. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 최종 배치와 전환 중 텍스트 관찰 기록. 확인할 가설: 배치는 바뀌고 카드가 새 위치로 보간된다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "열 수",
+          "baseline": "3열",
+          "change": "1열",
+          "expected": "배치는 바뀌고 카드가 새 위치로 보간된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 최종 배치와 전환 중 텍스트 관찰 기록. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Layout, Transform 보간. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 Layout 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 1열·3열 토글.",
+        "변경 변수: 열 수. 확인할 가설: 배치는 바뀌고 카드가 새 위치로 보간된다. 실제 결과가 가설과 일치했는가? Transform 보간 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 9,
+      "id": "motion-step-09",
+      "title": "안정적인 Key",
+      "prerequisites": "8단위 「Layout 측정」의 Layout 및 Transform 보간 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "정체성",
+          "explanation": "React key는 항목의 정체성을 나타낸다. 배열 index는 재정렬 시 다른 항목을 가리킬 수 있다."
+        },
+        {
+          "title": "로컬 상태",
+          "explanation": "입력값은 해당 카드에 남아야 한다. 애니메이션이 자연스러워도 데이터 연결은 별도 검증이 필요하다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 정체성의 역할을 설명한다. 입력 사례: 카드별 다른 메모.",
+        "산출물: 정렬 전후 ID·메모 대응 표. 로컬 상태 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-9.tsx에 ID key와 index key 목록에 입력 필드를 넣고 정렬한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 카드별 다른 메모. 기준: index. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-9.md에 남긴다.",
+        "변경 변수: key. 변경값: item.id. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 정렬 전후 ID·메모 대응 표. 확인할 가설: 메모가 올바른 카드에 유지된다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "key",
+          "baseline": "index",
+          "change": "item.id",
+          "expected": "메모가 올바른 카드에 유지된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 정렬 전후 ID·메모 대응 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 정체성, 로컬 상태. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 정체성 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 카드별 다른 메모.",
+        "변경 변수: key. 확인할 가설: 메모가 올바른 카드에 유지된다. 실제 결과가 가설과 일치했는가? 로컬 상태 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 10,
+      "id": "motion-step-10",
+      "title": "AnimatePresence 기초",
+      "prerequisites": "9단위 「안정적인 Key」의 정체성 및 로컬 상태 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "Presence",
+          "explanation": "조건부 제거와 화면에서 사라지는 시점은 다르다. AnimatePresence는 exit 동안 요소를 유지한다."
+        },
+        {
+          "title": "경계 배치",
+          "explanation": "Presence 자체가 함께 제거되면 자식 exit를 관리하기 어렵다. 제거 조건 바깥에 경계를 둔다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: Presence의 역할을 설명한다. 입력 사례: 카드 표시·삭제.",
+        "산출물: 삭제 요청과 DOM 제거 시각. 경계 배치 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-10.tsx에 AnimatePresence 안에 key가 있는 motion 카드를 조건부 렌더한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 카드 표시·삭제. 기준: 0초. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-10.md에 남긴다.",
+        "변경 변수: exit duration. 변경값: 0.5초. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 삭제 요청과 DOM 제거 시각. 확인할 가설: 데이터 제거 뒤 DOM이 잠시 남는다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "exit duration",
+          "baseline": "0초",
+          "change": "0.5초",
+          "expected": "데이터 제거 뒤 DOM이 잠시 남는다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 삭제 요청과 DOM 제거 시각. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Presence, 경계 배치. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 Presence 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 카드 표시·삭제.",
+        "변경 변수: exit duration. 확인할 가설: 데이터 제거 뒤 DOM이 잠시 남는다. 실제 결과가 가설과 일치했는가? 경계 배치 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 11,
+      "id": "motion-step-11",
+      "title": "Presence 모드",
+      "prerequisites": "10단위 「AnimatePresence 기초」의 Presence 및 경계 배치 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "동시 전환",
+          "explanation": "sync 모드는 등장과 퇴장을 함께 허용한다. 두 화면이 겹칠 수 있다."
+        },
+        {
+          "title": "순차 전환",
+          "explanation": "wait는 한 자식 전환의 순서를 조정한다. 여러 목록 항목의 일반 정렬 해결책으로 쓰지 않는다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 동시 전환의 역할을 설명한다. 입력 사례: A→B 선택.",
+        "산출물: 등장·퇴장 순서 로그. 순차 전환 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-11.tsx에 단일 상세 카드 전환에 mode sync와 wait를 비교한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: A→B 선택. 기준: sync. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-11.md에 남긴다.",
+        "변경 변수: mode. 변경값: wait. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 등장·퇴장 순서 로그. 확인할 가설: B 등장이 A 퇴장 뒤로 이동한다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "mode",
+          "baseline": "sync",
+          "change": "wait",
+          "expected": "B 등장이 A 퇴장 뒤로 이동한다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 등장·퇴장 순서 로그. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 동시 전환, 순차 전환. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 동시 전환 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: A→B 선택.",
+        "변경 변수: mode. 확인할 가설: B 등장이 A 퇴장 뒤로 이동한다. 실제 결과가 가설과 일치했는가? 순차 전환 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 12,
+      "id": "motion-step-12",
+      "title": "LayoutId 공유",
+      "prerequisites": "11단위 「Presence 모드」의 동시 전환 및 순차 전환 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "시각적 연결",
+          "explanation": "layoutId는 대응 요소 사이의 전환을 연결한다. 같은 ID를 무관한 여러 대상에 쓰면 의미가 흐려진다."
+        },
+        {
+          "title": "영역 분리",
+          "explanation": "독립 목록의 layoutId가 같으면 전환 대상이 충돌할 수 있다. 서로 다른 LayoutGroup id를 지정하거나 전역적으로 고유한 layoutId를 사용해 이름 공간을 나눈다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 시각적 연결의 역할을 설명한다. 입력 사례: 두 목록의 다른 카드 선택.",
+        "산출물: 목록별 표시선 위치 표. 영역 분리 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 React 프로젝트의 src/day-12.tsx에서 두 목록의 선택 표시선에 같은 layoutId를 사용한다. 각각을 LayoutGroup으로 감싸고 id는 list-a와 list-b로 서로 다르게 지정한다. 단순히 LayoutGroup만 두 개 만드는 것과 구분한다.",
+        "두 목록에서 서로 다른 카드를 선택한다. LayoutGroup id를 생략한 조건에서 표시선의 출발·도착 목록을 notes/day-12.md에 기록한다.",
+        "LayoutGroup id를 list-a와 list-b로 지정한 뒤 같은 선택 순서를 반복한다. 목록별 표시선 위치를 저장하고 전환 대상이 각 이름 공간 안에 남는지 확인한다. 대안으로 전역적으로 고유한 layoutId를 사용하는 방식도 설명한다."
+      ],
+      "variables": [
+        {
+          "name": "LayoutGroup id 이름 공간",
+          "baseline": "LayoutGroup 두 개에 id 생략",
+          "change": "서로 다른 id: list-a 및 list-b",
+          "expected": "동일한 layoutId를 사용해도 각 목록 안에서만 표시선 전환이 연결된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 목록별 표시선 위치 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "LayoutGroup id를 생략한 조건과 서로 다르게 지정한 조건의 두 선택 경로를 기록하고, 이름 공간을 지정한 조건에서 다른 목록으로 잘못 연결되는 전환이 0회인지 확인했다."
+      ],
+      "questions": [
+        "이번 실습에서 시각적 연결 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 두 목록의 다른 카드 선택.",
+        "LayoutGroup을 단순히 두 개 만드는 것과 서로 다른 id를 지정하는 것은 무엇이 다른가? 전역적으로 고유한 layoutId는 어떤 대안이 되는가?"
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        },
+        {
+          "title": "Motion LayoutGroup: namespace layoutId",
+          "url": "https://motion.dev/docs/react-layout-group#namespace-layoutid"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 13,
+      "id": "motion-step-13",
+      "title": "삭제 중 포커스",
+      "prerequisites": "12단위 「LayoutId 공유」의 시각적 연결 및 영역 분리 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "DOM 수명",
+          "explanation": "exit 중인 요소는 화면에 남을 수 있다. 데이터상 제거된 카드에 추가 조작을 허용할지 결정해야 한다."
+        },
+        {
+          "title": "포커스 복구",
+          "explanation": "삭제한 버튼의 포커스는 다음 유효 위치로 옮긴다. 애니메이션 완료만 기다리면 조작 공백이 생긴다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: DOM 수명의 역할을 설명한다. 입력 사례: 첫·중간·마지막 카드 삭제.",
+        "산출물: 삭제 위치별 activeElement 기록. 포커스 복구 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-13.tsx에 삭제 버튼에 ref를 두고 다음 카드 또는 추가 버튼으로 포커스를 옮긴다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 첫·중간·마지막 카드 삭제. 기준: 중간. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-13.md에 남긴다.",
+        "변경 변수: 삭제 위치. 변경값: 마지막. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 삭제 위치별 activeElement 기록. 확인할 가설: 남은 유효 조작으로 포커스가 이동한다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "삭제 위치",
+          "baseline": "중간",
+          "change": "마지막",
+          "expected": "남은 유효 조작으로 포커스가 이동한다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 삭제 위치별 activeElement 기록. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: DOM 수명, 포커스 복구. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 DOM 수명 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 첫·중간·마지막 카드 삭제.",
+        "변경 변수: 삭제 위치. 확인할 가설: 남은 유효 조작으로 포커스가 이동한다. 실제 결과가 가설과 일치했는가? 포커스 복구 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 14,
+      "id": "motion-02",
+      "title": "Layout과 Exit",
+      "prerequisites": "13단위 「삭제 중 포커스」의 DOM 수명 및 포커스 복구 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "정렬과 제거",
+          "explanation": "layout은 위치 변화를 다룬다. exit는 제거될 요소의 수명을 다룬다."
+        },
+        {
+          "title": "정체성",
+          "explanation": "안정적인 key가 카드 상태를 보존한다. 빠른 연속 삭제는 퇴장과 정렬을 동시에 발생시킨다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 정렬과 제거의 역할을 설명한다. 입력 사례: 다른 메모가 있는 카드 5개.",
+        "산출물: 정렬·연속 삭제 후 ID·메모·DOM 표. 정체성 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-14.tsx에 별도 React 앱에서 layout·AnimatePresence·ID key로 정렬·삭제 목록을 만든다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 다른 메모가 있는 카드 5개. 기준: index. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-14.md에 남긴다.",
+        "변경 변수: key. 변경값: item.id. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 정렬·연속 삭제 후 ID·메모·DOM 표. 확인할 가설: 남은 카드의 상태가 섞이지 않는다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "key",
+          "baseline": "index",
+          "change": "item.id",
+          "expected": "남은 카드의 상태가 섞이지 않는다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 정렬·연속 삭제 후 ID·메모·DOM 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 정렬과 제거, 정체성. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 정렬과 제거 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 다른 메모가 있는 카드 5개.",
+        "변경 변수: key. 확인할 가설: 남은 카드의 상태가 섞이지 않는다. 실제 결과가 가설과 일치했는가? 정체성 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 15,
+      "id": "motion-step-15",
+      "title": "Hover와 Focus",
+      "prerequisites": "14단위 「Layout과 Exit」의 정렬과 제거 및 정체성 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "포인터 상태",
+          "explanation": "whileHover는 포인터 피드백을 준다. 터치와 키보드에는 같은 이벤트가 없을 수 있다."
+        },
+        {
+          "title": "Focus",
+          "explanation": "whileFocus와 focus-visible 스타일은 키보드 경로를 드러낸다. 시각 효과만으로 선택 상태를 전달하지 않는다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 포인터 상태의 역할을 설명한다. 입력 사례: 마우스 진입과 Tab.",
+        "산출물: 두 입력의 강조와 선택 표시 표. Focus 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-15.tsx에 카드 버튼에 whileHover·whileFocus와 명시적 선택 텍스트를 둔다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 마우스 진입과 Tab. 기준: 포인터. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-15.md에 남긴다.",
+        "변경 변수: 입력. 변경값: 키보드. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 두 입력의 강조와 선택 표시 표. 확인할 가설: 키보드에서도 조작 대상을 확인한다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "입력",
+          "baseline": "포인터",
+          "change": "키보드",
+          "expected": "키보드에서도 조작 대상을 확인한다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 두 입력의 강조와 선택 표시 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 포인터 상태, Focus. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 포인터 상태 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 마우스 진입과 Tab.",
+        "변경 변수: 입력. 확인할 가설: 키보드에서도 조작 대상을 확인한다. 실제 결과가 가설과 일치했는가? Focus 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 16,
+      "id": "motion-step-16",
+      "title": "Tap 피드백",
+      "prerequisites": "15단위 「Hover와 Focus」의 포인터 상태 및 Focus 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "누름 상태",
+          "explanation": "whileTap은 누르는 동안의 모습을 표현한다. 완료 상태를 뜻하지 않는다."
+        },
+        {
+          "title": "기능 이벤트",
+          "explanation": "실제 동작은 button의 클릭 계약을 사용한다. 스케일 효과가 없어도 기능은 실행되어야 한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 누름 상태의 역할을 설명한다. 입력 사례: 클릭·Enter·Space.",
+        "산출물: 입력별 증가 횟수. 기능 이벤트 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-16.tsx에 motion.button에 whileTap을 넣고 클릭 횟수를 표시한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 클릭·Enter·Space. 기준: 0.92. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-16.md에 남긴다.",
+        "변경 변수: scale. 변경값: 1. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 입력별 증가 횟수. 확인할 가설: 시각 효과 없이도 한 번씩 동작한다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "scale",
+          "baseline": "0.92",
+          "change": "1",
+          "expected": "시각 효과 없이도 한 번씩 동작한다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 입력별 증가 횟수. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 누름 상태, 기능 이벤트. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 누름 상태 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 클릭·Enter·Space.",
+        "변경 변수: scale. 확인할 가설: 시각 효과 없이도 한 번씩 동작한다. 실제 결과가 가설과 일치했는가? 기능 이벤트 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 17,
+      "id": "motion-step-17",
+      "title": "Drag 좌표와 경계",
+      "prerequisites": "16단위 「Tap 피드백」의 누름 상태 및 기능 이벤트 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "Drag",
+          "explanation": "drag는 포인터 이동을 좌표 변화로 연결한다. x축 제한은 y 이동과 구분된다."
+        },
+        {
+          "title": "Constraints",
+          "explanation": "경계는 드래그 가능한 범위를 정한다. 반응형 컨테이너에서는 ref 기준 범위가 유용하다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: Drag의 역할을 설명한다. 입력 사례: 왼쪽·오른쪽 경계 밖 이동.",
+        "산출물: 최종 x와 컨테이너 폭 표. Constraints 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-17.tsx에 drag=x와 dragConstraints ref를 설정한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 왼쪽·오른쪽 경계 밖 이동. 기준: 500px. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-17.md에 남긴다.",
+        "변경 변수: 컨테이너 폭. 변경값: 280px. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 최종 x와 컨테이너 폭 표. 확인할 가설: 카드가 새 경계 안에 머문다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "컨테이너 폭",
+          "baseline": "500px",
+          "change": "280px",
+          "expected": "카드가 새 경계 안에 머문다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 최종 x와 컨테이너 폭 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Drag, Constraints. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 Drag 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 왼쪽·오른쪽 경계 밖 이동.",
+        "변경 변수: 컨테이너 폭. 확인할 가설: 카드가 새 경계 안에 머문다. 실제 결과가 가설과 일치했는가? Constraints 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 18,
+      "id": "motion-step-18",
+      "title": "관성과 탄성",
+      "prerequisites": "17단위 「Drag 좌표와 경계」의 Drag 및 Constraints 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "Momentum",
+          "explanation": "드래그 종료 뒤 관성이 이어질 수 있다. 드롭 완료 시점과 움직임 정지 시점이 다르다."
+        },
+        {
+          "title": "Elastic",
+          "explanation": "elastic은 경계 밖으로 당기는 정도를 조절한다. 허용 범위를 데이터 좌표와 혼동하지 않는다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: Momentum의 역할을 설명한다. 입력 사례: 같은 방향의 짧은 드래그.",
+        "산출물: 포인터 해제·최종 위치 표. Elastic 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-18.tsx에 dragMomentum·dragElastic을 조합하고 종료 좌표를 기록한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 같은 방향의 짧은 드래그. 기준: true. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-18.md에 남긴다.",
+        "변경 변수: momentum. 변경값: false. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 포인터 해제·최종 위치 표. 확인할 가설: 해제 뒤 추가 이동이 줄어든다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "momentum",
+          "baseline": "true",
+          "change": "false",
+          "expected": "해제 뒤 추가 이동이 줄어든다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 포인터 해제·최종 위치 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Momentum, Elastic. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 Momentum 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 같은 방향의 짧은 드래그.",
+        "변경 변수: momentum. 확인할 가설: 해제 뒤 추가 이동이 줄어든다. 실제 결과가 가설과 일치했는가? Elastic 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 19,
+      "id": "motion-step-19",
+      "title": "버튼으로 재배치",
+      "prerequisites": "18단위 「관성과 탄성」의 Momentum 및 Elastic 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "명시적 순서",
+          "explanation": "데이터 배열이 순서의 기준이다. 드래그 결과도 같은 배열을 갱신해야 한다."
+        },
+        {
+          "title": "동등한 대안",
+          "explanation": "위·아래 버튼은 포인터 없이 재정렬하게 한다. 변경 결과를 텍스트로 알려야 한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 명시적 순서의 역할을 설명한다. 입력 사례: 가운데 카드를 한 칸 위로 이동.",
+        "산출물: 입력 방식별 ID 배열. 동등한 대안 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-19.tsx에 카드에 위·아래 버튼과 순서 상태 안내를 추가한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 가운데 카드를 한 칸 위로 이동. 기준: drag. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-19.md에 남긴다.",
+        "변경 변수: 조작. 변경값: 위 버튼. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 입력 방식별 ID 배열. 확인할 가설: 두 방식이 같은 순서 배열을 만든다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "조작",
+          "baseline": "drag",
+          "change": "위 버튼",
+          "expected": "두 방식이 같은 순서 배열을 만든다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 입력 방식별 ID 배열. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 명시적 순서, 동등한 대안. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 명시적 순서 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 가운데 카드를 한 칸 위로 이동.",
+        "변경 변수: 조작. 확인할 가설: 두 방식이 같은 순서 배열을 만든다. 실제 결과가 가설과 일치했는가? 동등한 대안 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 20,
+      "id": "motion-step-20",
+      "title": "MotionValue",
+      "prerequisites": "19단위 「버튼으로 재배치」의 명시적 순서 및 동등한 대안 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "별도 값",
+          "explanation": "MotionValue는 매 프레임 React 렌더 없이 갱신할 수 있다. UI의 영속 데이터와 역할이 다르다."
+        },
+        {
+          "title": "구독",
+          "explanation": "값 변경 구독은 수명에 맞게 정리해야 한다. 모든 프레임을 state로 복사하면 이점이 줄어든다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 별도 값의 역할을 설명한다. 입력 사례: 드래그 1회.",
+        "산출물: 값 변경 수와 React 렌더 수. 구독 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-20.tsx에 useMotionValue와 useMotionValueEvent로 x를 추적하고 렌더 횟수를 센다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 드래그 1회. 기준: 매 변경 setState. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-20.md에 남긴다.",
+        "변경 변수: 저장 방식. 변경값: MotionValue. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 값 변경 수와 React 렌더 수. 확인할 가설: 값 변경과 렌더 횟수가 분리된다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "저장 방식",
+          "baseline": "매 변경 setState",
+          "change": "MotionValue",
+          "expected": "값 변경과 렌더 횟수가 분리된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 값 변경 수와 React 렌더 수. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 별도 값, 구독. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 별도 값 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 드래그 1회.",
+        "변경 변수: 저장 방식. 확인할 가설: 값 변경과 렌더 횟수가 분리된다. 실제 결과가 가설과 일치했는가? 구독 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 21,
+      "id": "motion-step-21",
+      "title": "Transform과 Spring 연결",
+      "prerequisites": "20단위 「MotionValue」의 별도 값 및 구독 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "파생 값",
+          "explanation": "useTransform은 입력 범위를 다른 출력 범위로 바꾼다. clamp 여부에 따라 범위 밖 출력이 달라진다."
+        },
+        {
+          "title": "추종 값",
+          "explanation": "useSpring은 값 변화에 부드럽게 따라간다. 원본 값과 지연된 값을 구분한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 파생 값의 역할을 설명한다. 입력 사례: x=-100·0·100.",
+        "산출물: 원본·파생·추종 값 표. 추종 값 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-21.tsx에 x를 opacity로 매핑하고 useSpring으로 표시선을 추종시킨다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: x=-100·0·100. 기준: true. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-21.md에 남긴다.",
+        "변경 변수: clamp. 변경값: false. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 원본·파생·추종 값 표. 확인할 가설: 범위 밖 입력의 출력 정책이 달라진다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "clamp",
+          "baseline": "true",
+          "change": "false",
+          "expected": "범위 밖 입력의 출력 정책이 달라진다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 원본·파생·추종 값 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 파생 값, 추종 값. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 파생 값 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: x=-100·0·100.",
+        "변경 변수: clamp. 확인할 가설: 범위 밖 입력의 출력 정책이 달라진다. 실제 결과가 가설과 일치했는가? 추종 값 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 22,
+      "id": "motion-step-22",
+      "title": "스크롤 연동",
+      "prerequisites": "21단위 「Transform과 Spring 연결」의 파생 값 및 추종 값 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "UseScroll",
+          "explanation": "useScroll은 스크롤 진행도를 MotionValue로 제공한다. viewport와 target 기준을 구별한다."
+        },
+        {
+          "title": "Offset",
+          "explanation": "offset은 측정 구간의 만남을 정의한다. 긴 콘텐츠가 끝까지 읽히는지 확인해야 한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: UseScroll의 역할을 설명한다. 입력 사례: 상단·중간·하단 스크롤.",
+        "산출물: 진행도와 표시선 길이. Offset 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-22.tsx에 useScroll target과 useTransform으로 읽기 진행 표시선을 만든다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 상단·중간·하단 스크롤. 기준: start end·end start. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-22.md에 남긴다.",
+        "변경 변수: offset. 변경값: start start·end end. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 진행도와 표시선 길이. 확인할 가설: 진행 구간의 시작과 끝이 바뀐다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "offset",
+          "baseline": "start end·end start",
+          "change": "start start·end end",
+          "expected": "진행 구간의 시작과 끝이 바뀐다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 진행도와 표시선 길이. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: UseScroll, Offset. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 UseScroll 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 상단·중간·하단 스크롤.",
+        "변경 변수: offset. 확인할 가설: 진행 구간의 시작과 끝이 바뀐다. 실제 결과가 가설과 일치했는가? Offset 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 23,
+      "id": "motion-step-23",
+      "title": "화면 진입 애니메이션",
+      "prerequisites": "22단위 「스크롤 연동」의 UseScroll 및 Offset 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "InView",
+          "explanation": "화면 진입 감지는 요소가 보이는 조건을 다룬다. 렌더 여부와 같은 의미가 아니다."
+        },
+        {
+          "title": "Once",
+          "explanation": "once는 최초 진입만 실행하도록 한다. 반복 노출 콘텐츠의 의도와 맞춰야 한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: InView의 역할을 설명한다. 입력 사례: 스크롤로 진입·이탈 3회.",
+        "산출물: 회차별 실행 횟수. Once 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-23.tsx에 whileInView와 viewport.once를 설정한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 스크롤로 진입·이탈 3회. 기준: false. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-23.md에 남긴다.",
+        "변경 변수: once. 변경값: true. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 회차별 실행 횟수. 확인할 가설: 두 번째 진입부터 반복 모션이 생략된다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "once",
+          "baseline": "false",
+          "change": "true",
+          "expected": "두 번째 진입부터 반복 모션이 생략된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 회차별 실행 횟수. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: InView, Once. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 InView 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 스크롤로 진입·이탈 3회.",
+        "변경 변수: once. 확인할 가설: 두 번째 진입부터 반복 모션이 생략된다. 실제 결과가 가설과 일치했는가? Once 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 24,
+      "id": "motion-step-24",
+      "title": "UseAnimate 정리",
+      "prerequisites": "23단위 「화면 진입 애니메이션」의 InView 및 Once 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "범위",
+          "explanation": "useAnimate는 scope 내부의 요소를 제어한다. 전역 선택자보다 소유 범위가 분명하다."
+        },
+        {
+          "title": "비동기 순서",
+          "explanation": "await로 모션 순서를 구성할 수 있다. unmount 뒤 후속 작업의 유효성도 확인해야 한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 범위의 역할을 설명한다. 입력 사례: 실행·중간 제거.",
+        "산출물: 완료 로그와 제거 후 작업 기록. 비동기 순서 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-24.tsx에 useAnimate로 제목 다음 카드 순서를 만들고 중간에 unmount한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 실행·중간 제거. 기준: 완료 뒤. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-24.md에 남긴다.",
+        "변경 변수: 제거 시점. 변경값: 첫 동작 중. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 완료 로그와 제거 후 작업 기록. 확인할 가설: 제거 후 UI 갱신이 남지 않는다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "제거 시점",
+          "baseline": "완료 뒤",
+          "change": "첫 동작 중",
+          "expected": "제거 후 UI 갱신이 남지 않는다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 완료 로그와 제거 후 작업 기록. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 범위, 비동기 순서. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 범위 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 실행·중간 제거.",
+        "변경 변수: 제거 시점. 확인할 가설: 제거 후 UI 갱신이 남지 않는다. 실제 결과가 가설과 일치했는가? 비동기 순서 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 25,
+      "id": "motion-step-25",
+      "title": "모션 감소 정책",
+      "prerequisites": "24단위 「UseAnimate 정리」의 범위 및 비동기 순서 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "선호 감지",
+          "explanation": "useReducedMotion은 사용자 선호를 읽는다. MotionConfig의 reducedMotion 정책도 사용할 수 있다."
+        },
+        {
+          "title": "내용 보존",
+          "explanation": "이동을 줄여도 선택과 순서는 남아야 한다. 투명도 변화도 내용을 못 읽게 만들면 조정한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 선호 감지의 역할을 설명한다. 입력 사례: 선택·정렬·삭제.",
+        "산출물: 기본·감소 모드의 최종 데이터와 내용 표. 내용 보존 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-25.tsx에 useReducedMotion 결과로 x 전환을 생략하고 동일 목표 상태를 적용한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 선택·정렬·삭제. 기준: 기본. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-25.md에 남긴다.",
+        "변경 변수: 선호. 변경값: reduce. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 기본·감소 모드의 최종 데이터와 내용 표. 확인할 가설: 기능 결과와 읽을 내용이 같다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "선호",
+          "baseline": "기본",
+          "change": "reduce",
+          "expected": "기능 결과와 읽을 내용이 같다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 기본·감소 모드의 최종 데이터와 내용 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 선호 감지, 내용 보존. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 선호 감지 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 선택·정렬·삭제.",
+        "변경 변수: 선호. 확인할 가설: 기능 결과와 읽을 내용이 같다. 실제 결과가 가설과 일치했는가? 내용 보존 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 26,
+      "id": "motion-step-26",
+      "title": "렌더와 성능 관찰",
+      "prerequisites": "25단위 「모션 감소 정책」의 선호 감지 및 내용 보존 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "렌더 비용",
+          "explanation": "React 렌더와 애니메이션 프레임은 다른 작업이다. 두 지표를 구분해서 관찰한다."
+        },
+        {
+          "title": "실측",
+          "explanation": "카드 수 증가는 레이아웃 비용을 바꿀 수 있다. 자동으로 더 빠르다고 결론내리지 않는다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 렌더 비용의 역할을 설명한다. 입력 사례: 카드 20개와 100개.",
+        "산출물: 렌더 수·프레임 분포 기록. 실측 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-26.tsx에 Profiler와 Performance로 재정렬을 기록한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 카드 20개와 100개. 기준: 20개. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-26.md에 남긴다.",
+        "변경 변수: 카드 수. 변경값: 100개. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 렌더 수·프레임 분포 기록. 확인할 가설: 측정된 비용과 병목이 달라질 수 있다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "카드 수",
+          "baseline": "20개",
+          "change": "100개",
+          "expected": "측정된 비용과 병목이 달라질 수 있다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 렌더 수·프레임 분포 기록. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 렌더 비용, 실측. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 렌더 비용 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 카드 20개와 100개.",
+        "변경 변수: 카드 수. 확인할 가설: 측정된 비용과 병목이 달라질 수 있다. 실제 결과가 가설과 일치했는가? 실측 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 27,
+      "id": "motion-step-27",
+      "title": "재마운트와 상태 복구",
+      "prerequisites": "26단위 「렌더와 성능 관찰」의 렌더 비용 및 실측 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "수명",
+          "explanation": "컴포넌트 제거는 구독과 모션의 수명을 끝낸다. 데이터 저장 위치는 별도로 정한다."
+        },
+        {
+          "title": "복구",
+          "explanation": "다시 보일 때 이전 순서를 유지할지 정해야 한다. key 변경을 임의 초기화 수단으로 남용하지 않는다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 수명의 역할을 설명한다. 입력 사례: 재정렬 후 숨김·표시.",
+        "산출물: 순서·구독·포커스 복구 표. 복구 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-27.tsx에 보드 표시 토글과 상위 순서 상태를 연결하고 5회 재마운트한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 재정렬 후 숨김·표시. 기준: 카드 내부. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-27.md에 남긴다.",
+        "변경 변수: 상태 위치. 변경값: 보드 상위. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 순서·구독·포커스 복구 표. 확인할 가설: 보드 재표시 뒤 순서가 보존된다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "상태 위치",
+          "baseline": "카드 내부",
+          "change": "보드 상위",
+          "expected": "보드 재표시 뒤 순서가 보존된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 순서·구독·포커스 복구 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 수명, 복구. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 수명 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 재정렬 후 숨김·표시.",
+        "변경 변수: 상태 위치. 확인할 가설: 보드 재표시 뒤 순서가 보존된다. 실제 결과가 가설과 일치했는가? 복구 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    },
+    {
+      "day": 28,
+      "id": "motion-03",
+      "title": "제스처와 접근성",
+      "prerequisites": "27단위 「재마운트와 상태 복구」의 수명 및 복구 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "동등한 기능",
+          "explanation": "drag와 hover는 유일한 조작 수단이 되어서는 안 된다. 버튼과 키보드로 같은 결과를 제공한다."
+        },
+        {
+          "title": "종합 검증",
+          "explanation": "모션 감소는 이동을 단순화한다. 최종 데이터·포커스·안내는 유지되어야 한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 동등한 기능의 역할을 설명한다. 입력 사례: 포인터 없는 재정렬·연속 삭제·reduce.",
+        "산출물: 입력별 ID 배열과 포커스·내용 검증 보고서. 종합 검증 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-28.tsx에 기존 motion-03 JS 예제의 의도를 참고해 React 카드 보드를 완성한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 포인터 없는 재정렬·연속 삭제·reduce. 기준: drag. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-28.md에 남긴다.",
+        "변경 변수: 조작 방식. 변경값: 키보드 버튼. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 입력별 ID 배열과 포커스·내용 검증 보고서. 확인할 가설: 같은 완료 상태를 확인할 수 있다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "조작 방식",
+          "baseline": "drag",
+          "change": "키보드 버튼",
+          "expected": "같은 완료 상태를 확인할 수 있다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 입력별 ID 배열과 포커스·내용 검증 보고서. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 동등한 기능, 종합 검증. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 동등한 기능 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 포인터 없는 재정렬·연속 삭제·reduce.",
+        "변경 변수: 조작 방식. 확인할 가설: 같은 완료 상태를 확인할 수 있다. 실제 결과가 가설과 일치했는가? 종합 검증 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "Motion React animation",
+          "url": "https://motion.dev/docs/react-animation"
+        },
+        {
+          "title": "Motion AnimatePresence",
+          "url": "https://motion.dev/docs/react-animate-presence"
+        }
+      ],
+      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+    }
+  ]
+}

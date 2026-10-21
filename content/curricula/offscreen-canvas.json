@@ -1,0 +1,1469 @@
+{
+  "seriesId": "offscreen-canvas",
+  "stages": [
+    "제어권과 첫 렌더",
+    "크기와 입력 동기화",
+    "렌더 수명과 복구",
+    "응답성 비교 프로젝트"
+  ],
+  "goal": "Canvas 소유권과 크기·입력 프로토콜을 설계하고 Worker 렌더링의 이점과 비용을 검증한다.",
+  "capstone": "동일한 입자 장면을 메인과 Worker에서 실행하며 resize·입력·오류·종료·재시작을 비교한다.",
+  "units": [
+    {
+      "day": 1,
+      "id": "offscreen-canvas-01",
+      "title": "Canvas 제어권 이전",
+      "prerequisites": "Canvas 2D·Web Workers를 이해하고 기존 시작 예제의 입력과 출력을 읽을 수 있다.",
+      "concepts": [
+        {
+          "title": "소유권",
+          "explanation": "transferControlToOffscreen은 표시 Canvas의 제어를 옮긴다. 이전 전에 같은 Canvas에 렌더 context를 만들면 안 된다."
+        },
+        {
+          "title": "대체 경로",
+          "explanation": "지원 여부와 실제 초기화 성공은 다르다. 실패 시 새 Canvas의 메인 렌더링으로 복구한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 소유권의 역할을 설명한다. 입력 사례: 지원 경로와 강제 미지원 경로.",
+        "산출물: 선택 모드·첫 프레임·오류 안내 표. 대체 경로 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-1.js에 기능 검사 후 OffscreenCanvas를 Worker에 transfer하고 메인 fallback을 만든다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 지원 경로와 강제 미지원 경로. 기준: 지원. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-1.md에 남긴다.",
+        "변경 변수: 지원 플래그. 변경값: 미지원 강제. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 선택 모드·첫 프레임·오류 안내 표. 확인할 가설: 빈 화면 대신 메인 렌더 또는 명확한 안내가 나온다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "지원 플래그",
+          "baseline": "지원",
+          "change": "미지원 강제",
+          "expected": "빈 화면 대신 메인 렌더 또는 명확한 안내가 나온다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 선택 모드·첫 프레임·오류 안내 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 소유권, 대체 경로. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 소유권 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 지원 경로와 강제 미지원 경로.",
+        "변경 변수: 지원 플래그. 확인할 가설: 빈 화면 대신 메인 렌더 또는 명확한 안내가 나온다. 실제 결과가 가설과 일치했는가? 대체 경로 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 2,
+      "id": "offscreen-canvas-step-02",
+      "title": "렌더러 계약",
+      "prerequisites": "1단위 「Canvas 제어권 이전」의 소유권 및 대체 경로 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "순수 상태",
+          "explanation": "렌더러는 DOM 대신 전달받은 상태로 그린다. 같은 draw 함수로 실행 위치를 바꿀 수 있다."
+        },
+        {
+          "title": "소유 범위",
+          "explanation": "메인은 DOM과 입력을 관리한다. Worker는 Canvas와 장면 상태를 관리한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 순수 상태의 역할을 설명한다. 입력 사례: 같은 원 세 개.",
+        "산출물: 두 어댑터의 좌표·색상 표. 소유 범위 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-2.js에 draw(ctx,state)와 main·worker 어댑터를 나눈다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 같은 원 세 개. 기준: 메인. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-2.md에 남긴다.",
+        "변경 변수: 실행 위치. 변경값: Worker. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 두 어댑터의 좌표·색상 표. 확인할 가설: 동일 상태에서 같은 도형이 나온다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "실행 위치",
+          "baseline": "메인",
+          "change": "Worker",
+          "expected": "동일 상태에서 같은 도형이 나온다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 두 어댑터의 좌표·색상 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 순수 상태, 소유 범위. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 순수 상태 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 같은 원 세 개.",
+        "변경 변수: 실행 위치. 확인할 가설: 동일 상태에서 같은 도형이 나온다. 실제 결과가 가설과 일치했는가? 소유 범위 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 3,
+      "id": "offscreen-canvas-step-03",
+      "title": "초기화 핸드셰이크",
+      "prerequisites": "2단위 「렌더러 계약」의 순수 상태 및 소유 범위 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "Ready",
+          "explanation": "Canvas 전달 뒤 바로 입력을 보내면 초기화 전 도착할 수 있다. ready 응답으로 준비 상태를 알린다."
+        },
+        {
+          "title": "대기 입력",
+          "explanation": "준비 전 입력은 보류하거나 마지막 값만 저장한다. 무한 대기에는 오류 경로가 필요하다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: Ready의 역할을 설명한다. 입력 사례: 초기화 직후 색 변경.",
+        "산출물: 메시지 순서와 첫 적용 색상. 대기 입력 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-3.js에 init·ready·error 메시지와 준비 전 마지막 입력 보관을 구현한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 초기화 직후 색 변경. 기준: ready 뒤. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-3.md에 남긴다.",
+        "변경 변수: 입력 시점. 변경값: ready 전. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 메시지 순서와 첫 적용 색상. 확인할 가설: 준비 후 마지막 입력이 반영된다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "입력 시점",
+          "baseline": "ready 뒤",
+          "change": "ready 전",
+          "expected": "준비 후 마지막 입력이 반영된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 메시지 순서와 첫 적용 색상. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Ready, 대기 입력. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 Ready 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 초기화 직후 색 변경.",
+        "변경 변수: 입력 시점. 확인할 가설: 준비 후 마지막 입력이 반영된다. 실제 결과가 가설과 일치했는가? 대기 입력 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 4,
+      "id": "offscreen-canvas-step-04",
+      "title": "Context 생성 실패",
+      "prerequisites": "3단위 「초기화 핸드셰이크」의 Ready 및 대기 입력 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "Context",
+          "explanation": "getContext는 요청한 종류를 만들지 못할 수 있다. null을 정상 렌더러처럼 사용하면 안 된다."
+        },
+        {
+          "title": "복구 Canvas",
+          "explanation": "이미 이전한 HTML Canvas는 그대로 재이전하지 않는다. 새 DOM Canvas로 대체해 fallback을 만든다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: Context의 역할을 설명한다. 입력 사례: 강제 context 실패.",
+        "산출물: 실패 안내와 대체 Canvas 렌더 결과. 복구 Canvas 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-4.js에 Worker getContext 결과를 검사하고 실패를 메인으로 보낸다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 강제 context 실패. 기준: 정상. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-4.md에 남긴다.",
+        "변경 변수: 초기화. 변경값: 실패 주입. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 실패 안내와 대체 Canvas 렌더 결과. 확인할 가설: 새 Canvas에서 메인 렌더가 복구된다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "초기화",
+          "baseline": "정상",
+          "change": "실패 주입",
+          "expected": "새 Canvas에서 메인 렌더가 복구된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 실패 안내와 대체 Canvas 렌더 결과. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Context, 복구 Canvas. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 Context 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 강제 context 실패.",
+        "변경 변수: 초기화. 확인할 가설: 새 Canvas에서 메인 렌더가 복구된다. 실제 결과가 가설과 일치했는가? 복구 Canvas 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 5,
+      "id": "offscreen-canvas-step-05",
+      "title": "좌표 단위의 기준",
+      "prerequisites": "4단위 「Context 생성 실패」의 Context 및 복구 Canvas 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "CSS 크기",
+          "explanation": "CSS 크기는 화면 배치를 정한다. 실제 픽셀 저장소 크기와 다르다."
+        },
+        {
+          "title": "DPR",
+          "explanation": "DPR은 CSS 픽셀과 저장소 픽셀의 비율이다. 렌더와 입력이 같은 단위를 사용해야 한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: CSS 크기의 역할을 설명한다. 입력 사례: 100 CSS px 정사각형.",
+        "산출물: CSS·buffer 크기와 도형 폭. DPR 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-5.js에 CSS 크기와 DPR로 buffer 크기를 설정하고 setTransform을 적용한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 100 CSS px 정사각형. 기준: 1. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-5.md에 남긴다.",
+        "변경 변수: DPR. 변경값: 2. 같은 입력 경로로 다시 실행한다. 저장할 산출물: CSS·buffer 크기와 도형 폭. 확인할 가설: 도형의 화면 크기는 같고 저장소 해상도는 증가한다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "DPR",
+          "baseline": "1",
+          "change": "2",
+          "expected": "도형의 화면 크기는 같고 저장소 해상도는 증가한다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: CSS·buffer 크기와 도형 폭. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: CSS 크기, DPR. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 CSS 크기 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 100 CSS px 정사각형.",
+        "변경 변수: DPR. 확인할 가설: 도형의 화면 크기는 같고 저장소 해상도는 증가한다. 실제 결과가 가설과 일치했는가? DPR 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 6,
+      "id": "offscreen-canvas-step-06",
+      "title": "프레임 시간",
+      "prerequisites": "5단위 「좌표 단위의 기준」의 CSS 크기 및 DPR 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "Delta",
+          "explanation": "프레임 번호만으로 이동하면 주사율에 따라 속도가 달라진다. 시간 차이로 위치를 적분한다."
+        },
+        {
+          "title": "큰 간격",
+          "explanation": "복귀 후 큰 delta는 점프를 만들 수 있다. 제한 또는 시뮬레이션 재설정 정책을 둔다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: Delta의 역할을 설명한다. 입력 사례: 정상 프레임과 긴 간격 입력.",
+        "산출물: 동일 경과 시간의 위치 표. 큰 간격 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-6.js에 Worker requestAnimationFrame 지원을 확인하고 delta 기반 이동을 만든다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 정상 프레임과 긴 간격 입력. 기준: 없음. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-6.md에 남긴다.",
+        "변경 변수: delta 제한. 변경값: 상한 적용. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 동일 경과 시간의 위치 표. 확인할 가설: 큰 간격 뒤 급격한 이동이 줄어든다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "delta 제한",
+          "baseline": "없음",
+          "change": "상한 적용",
+          "expected": "큰 간격 뒤 급격한 이동이 줄어든다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 동일 경과 시간의 위치 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Delta, 큰 간격. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 Delta 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 정상 프레임과 긴 간격 입력.",
+        "변경 변수: delta 제한. 확인할 가설: 큰 간격 뒤 급격한 이동이 줄어든다. 실제 결과가 가설과 일치했는가? 큰 간격 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 7,
+      "id": "offscreen-canvas-step-07",
+      "title": "기초 렌더 검증",
+      "prerequisites": "6단위 「프레임 시간」의 Delta 및 큰 간격 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "동등성",
+          "explanation": "같은 초기 상태로 비교해야 실행 위치의 차이를 볼 수 있다. 랜덤 초기값은 seed를 고정한다."
+        },
+        {
+          "title": "검증 범위",
+          "explanation": "픽셀 비교는 환경 차이의 영향을 받는다. 좌표와 색상 같은 상태 검증도 함께 사용한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 동등성의 역할을 설명한다. 입력 사례: 동일 seed와 입자 10개.",
+        "산출물: 좌표 배열과 정지 화면 기록. 검증 범위 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-7.js에 seed와 draw 함수를 공유해 두 모드의 정지 장면을 출력한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 동일 seed와 입자 10개. 기준: 7. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-7.md에 남긴다.",
+        "변경 변수: seed. 변경값: 11. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 좌표 배열과 정지 화면 기록. 확인할 가설: 같은 seed끼리는 같고 다른 seed는 다른 배치를 만든다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "seed",
+          "baseline": "7",
+          "change": "11",
+          "expected": "같은 seed끼리는 같고 다른 seed는 다른 배치를 만든다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 좌표 배열과 정지 화면 기록. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 동등성, 검증 범위. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 동등성 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 동일 seed와 입자 10개.",
+        "변경 변수: seed. 확인할 가설: 같은 seed끼리는 같고 다른 seed는 다른 배치를 만든다. 실제 결과가 가설과 일치했는가? 검증 범위 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 8,
+      "id": "offscreen-canvas-step-08",
+      "title": "Resize 메시지",
+      "prerequisites": "7단위 「기초 렌더 검증」의 동등성 및 검증 범위 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "측정",
+          "explanation": "Worker는 DOM 크기를 읽을 수 없다. 메인의 ResizeObserver가 관측 값을 전달한다."
+        },
+        {
+          "title": "변경 비용",
+          "explanation": "Canvas 크기를 바꾸면 상태가 초기화될 수 있다. 크기 적용 뒤 transform과 스타일을 다시 설정한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 측정의 역할을 설명한다. 입력 사례: 가로·세로 크기 변경.",
+        "산출물: 저장소 크기와 도형 스타일 표. 변경 비용 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-8.js에 ResizeObserver에서 cssWidth·cssHeight·dpr를 보내고 Worker에서 재설정한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 가로·세로 크기 변경. 기준: 400×240. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-8.md에 남긴다.",
+        "변경 변수: 크기. 변경값: 240×400. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 저장소 크기와 도형 스타일 표. 확인할 가설: 비율 변경 뒤에도 스타일과 좌표 규칙이 유지된다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "크기",
+          "baseline": "400×240",
+          "change": "240×400",
+          "expected": "비율 변경 뒤에도 스타일과 좌표 규칙이 유지된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 저장소 크기와 도형 스타일 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 측정, 변경 비용. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 측정 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 가로·세로 크기 변경.",
+        "변경 변수: 크기. 확인할 가설: 비율 변경 뒤에도 스타일과 좌표 규칙이 유지된다. 실제 결과가 가설과 일치했는가? 변경 비용 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 9,
+      "id": "offscreen-canvas-step-09",
+      "title": "Resize 순서 번호",
+      "prerequisites": "8단위 「Resize 메시지」의 측정 및 변경 비용 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "최신 크기",
+          "explanation": "빠른 resize는 여러 메시지를 만든다. 최신 크기만 유효하도록 seq를 붙인다."
+        },
+        {
+          "title": "응답 확인",
+          "explanation": "적용 seq를 응답하면 메인 요청과 대응할 수 있다. 오래된 확인 메시지를 최신 완료로 해석하지 않는다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 최신 크기의 역할을 설명한다. 입력 사례: seq 1·3·2 순서 입력.",
+        "산출물: 적용 seq와 최종 크기. 응답 확인 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-9.js에 resize seq와 lastApplied 검사를 구현한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: seq 1·3·2 순서 입력. 기준: 1·2·3. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-9.md에 남긴다.",
+        "변경 변수: 전달 순서. 변경값: 1·3·2. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 적용 seq와 최종 크기. 확인할 가설: seq 2가 마지막 크기를 덮지 않는다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "전달 순서",
+          "baseline": "1·2·3",
+          "change": "1·3·2",
+          "expected": "seq 2가 마지막 크기를 덮지 않는다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 적용 seq와 최종 크기. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 최신 크기, 응답 확인. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 최신 크기 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: seq 1·3·2 순서 입력.",
+        "변경 변수: 전달 순서. 확인할 가설: seq 2가 마지막 크기를 덮지 않는다. 실제 결과가 가설과 일치했는가? 응답 확인 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 10,
+      "id": "offscreen-canvas-step-10",
+      "title": "DPR 변경 감지",
+      "prerequisites": "9단위 「Resize 순서 번호」의 최신 크기 및 응답 확인 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "환경 변화",
+          "explanation": "모니터 이동과 확대는 DPR을 바꿀 수 있다. CSS 크기가 같아도 저장소 크기 재계산이 필요하다."
+        },
+        {
+          "title": "해상도 상한",
+          "explanation": "DPR 상한은 품질과 메모리의 절충이다. 적용한 값과 실제 장치 값을 구분해 기록한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 환경 변화의 역할을 설명한다. 입력 사례: DPR 1·2·3 조건.",
+        "산출물: 실제·적용 DPR과 buffer 픽셀 수. 해상도 상한 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-10.js에 resize 시 DPR을 다시 읽고 선택한 상한으로 저장소를 만든다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: DPR 1·2·3 조건. 기준: 3. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-10.md에 남긴다.",
+        "변경 변수: 상한. 변경값: 2. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 실제·적용 DPR과 buffer 픽셀 수. 확인할 가설: 고DPR 환경의 저장소 크기가 줄어든다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "상한",
+          "baseline": "3",
+          "change": "2",
+          "expected": "고DPR 환경의 저장소 크기가 줄어든다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 실제·적용 DPR과 buffer 픽셀 수. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 환경 변화, 해상도 상한. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 환경 변화 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: DPR 1·2·3 조건.",
+        "변경 변수: 상한. 확인할 가설: 고DPR 환경의 저장소 크기가 줄어든다. 실제 결과가 가설과 일치했는가? 해상도 상한 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 11,
+      "id": "offscreen-canvas-step-11",
+      "title": "포인터 좌표 변환",
+      "prerequisites": "10단위 「DPR 변경 감지」의 환경 변화 및 해상도 상한 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "로컬 좌표",
+          "explanation": "clientX/Y는 viewport 기준이다. Canvas rect의 위치를 빼 로컬 CSS 좌표로 바꾼다."
+        },
+        {
+          "title": "스케일 일치",
+          "explanation": "렌더가 CSS 단위이면 포인터에 DPR을 다시 곱하지 않는다. 중복 배율은 선택 위치를 어긋나게 한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 로컬 좌표의 역할을 설명한다. 입력 사례: 중앙·네 모서리 클릭.",
+        "산출물: 입력 좌표와 선택 입자 ID. 스케일 일치 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-11.js에 getBoundingClientRect로 좌표를 바꾸고 Worker에 pointer 메시지를 보낸다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 중앙·네 모서리 클릭. 기준: 1. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-11.md에 남긴다.",
+        "변경 변수: DPR. 변경값: 2. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 입력 좌표와 선택 입자 ID. 확인할 가설: 같은 화면 위치에서 같은 입자를 선택한다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "DPR",
+          "baseline": "1",
+          "change": "2",
+          "expected": "같은 화면 위치에서 같은 입자를 선택한다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 입력 좌표와 선택 입자 ID. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 로컬 좌표, 스케일 일치. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 로컬 좌표 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 중앙·네 모서리 클릭.",
+        "변경 변수: DPR. 확인할 가설: 같은 화면 위치에서 같은 입자를 선택한다. 실제 결과가 가설과 일치했는가? 스케일 일치 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 12,
+      "id": "offscreen-canvas-step-12",
+      "title": "입력 병합",
+      "prerequisites": "11단위 「포인터 좌표 변환」의 로컬 좌표 및 스케일 일치 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "최신 값",
+          "explanation": "포인터 이벤트 모두를 보낼 필요가 없는 장면이 있다. 마지막 위치만 프레임당 한 번 보낼 수 있다."
+        },
+        {
+          "title": "이벤트 성격",
+          "explanation": "down·up 같은 경계 이벤트는 버리면 안 된다. 연속 move와 이산 이벤트를 구분한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 최신 값의 역할을 설명한다. 입력 사례: 빠른 이동과 클릭.",
+        "산출물: 메시지 수와 down/up 짝 기록. 이벤트 성격 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-12.js에 move는 rAF에서 병합하고 down/up은 즉시 전달한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 빠른 이동과 클릭. 기준: 모든 move. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-12.md에 남긴다.",
+        "변경 변수: 전송. 변경값: 프레임당 마지막 move. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 메시지 수와 down/up 짝 기록. 확인할 가설: move 수가 줄어도 클릭 경계는 보존된다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "전송",
+          "baseline": "모든 move",
+          "change": "프레임당 마지막 move",
+          "expected": "move 수가 줄어도 클릭 경계는 보존된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 메시지 수와 down/up 짝 기록. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 최신 값, 이벤트 성격. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 최신 값 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 빠른 이동과 클릭.",
+        "변경 변수: 전송. 확인할 가설: move 수가 줄어도 클릭 경계는 보존된다. 실제 결과가 가설과 일치했는가? 이벤트 성격 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 13,
+      "id": "offscreen-canvas-step-13",
+      "title": "Pointer Capture와 취소",
+      "prerequisites": "12단위 「입력 병합」의 최신 값 및 이벤트 성격 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "Capture",
+          "explanation": "드래그 중 포인터가 Canvas 밖으로 나갈 수 있다. capture로 입력 수명을 유지한다."
+        },
+        {
+          "title": "Cancel",
+          "explanation": "pointercancel은 정상 up과 다르다. Worker의 dragging 상태도 종료해야 한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: Capture의 역할을 설명한다. 입력 사례: 내부 드래그·외부 이동·취소.",
+        "산출물: 입력 종료 뒤 dragging 값. Cancel 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-13.js에 메인 setPointerCapture와 pointercancel 메시지를 연결한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 내부 드래그·외부 이동·취소. 기준: pointerup. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-13.md에 남긴다.",
+        "변경 변수: 종료. 변경값: pointercancel. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 입력 종료 뒤 dragging 값. 확인할 가설: 두 경로 모두 드래그 상태를 해제한다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "종료",
+          "baseline": "pointerup",
+          "change": "pointercancel",
+          "expected": "두 경로 모두 드래그 상태를 해제한다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 입력 종료 뒤 dragging 값. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Capture, Cancel. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 Capture 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 내부 드래그·외부 이동·취소.",
+        "변경 변수: 종료. 확인할 가설: 두 경로 모두 드래그 상태를 해제한다. 실제 결과가 가설과 일치했는가? Cancel 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 14,
+      "id": "offscreen-canvas-02",
+      "title": "Resize와 입력 프로토콜",
+      "prerequisites": "13단위 「Pointer Capture와 취소」의 Capture 및 Cancel 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "단위 계약",
+          "explanation": "크기·DPR·포인터는 같은 좌표 기준으로 해석해야 한다. Worker는 DOM 배치를 추측하지 않는다."
+        },
+        {
+          "title": "순서 보존",
+          "explanation": "최신 resize seq와 입력 시점을 함께 기록한다. 오래된 크기가 최신 선택을 덮으면 안 된다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 단위 계약의 역할을 설명한다. 입력 사례: 빠른 resize 중 중앙 선택.",
+        "산출물: 크기 seq·선택 ID·선명도 기록. 순서 보존 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-14.js에 기존 offscreen-canvas-02를 확장해 ResizeObserver·seq·로컬 입력을 통합한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 빠른 resize 중 중앙 선택. 기준: 1. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-14.md에 남긴다.",
+        "변경 변수: DPR. 변경값: 2. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 크기 seq·선택 ID·선명도 기록. 확인할 가설: 선명도와 선택 위치가 유지된다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "DPR",
+          "baseline": "1",
+          "change": "2",
+          "expected": "선명도와 선택 위치가 유지된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 크기 seq·선택 ID·선명도 기록. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 단위 계약, 순서 보존. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 단위 계약 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 빠른 resize 중 중앙 선택.",
+        "변경 변수: DPR. 확인할 가설: 선명도와 선택 위치가 유지된다. 실제 결과가 가설과 일치했는가? 순서 보존 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 15,
+      "id": "offscreen-canvas-step-15",
+      "title": "장면 상태 갱신",
+      "prerequisites": "14단위 「Resize와 입력 프로토콜」의 단위 계약 및 순서 보존 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "패치",
+          "explanation": "전체 상태를 매번 보내면 데이터량이 늘어난다. 변경 필드만 보내는 패치 계약을 만들 수 있다."
+        },
+        {
+          "title": "버전",
+          "explanation": "패치는 적용 기준 상태가 필요하다. 버전이 어긋나면 전체 상태 재동기화 경로를 둔다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 패치의 역할을 설명한다. 입력 사례: 정상 패치와 오래된 패치.",
+        "산출물: 버전별 최종 장면 값. 버전 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-15.js에 색·속도 패치와 stateVersion 검사를 구현한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 정상 패치와 오래된 패치. 기준: 현재. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-15.md에 남긴다.",
+        "변경 변수: 패치 버전. 변경값: 오래된 버전. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 버전별 최종 장면 값. 확인할 가설: 오래된 패치를 거부하고 현재 상태를 유지한다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "패치 버전",
+          "baseline": "현재",
+          "change": "오래된 버전",
+          "expected": "오래된 패치를 거부하고 현재 상태를 유지한다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 버전별 최종 장면 값. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 패치, 버전. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 패치 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 정상 패치와 오래된 패치.",
+        "변경 변수: 패치 버전. 확인할 가설: 오래된 패치를 거부하고 현재 상태를 유지한다. 실제 결과가 가설과 일치했는가? 버전 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 16,
+      "id": "offscreen-canvas-step-16",
+      "title": "입자 데이터 배치",
+      "prerequisites": "15단위 「장면 상태 갱신」의 패치 및 버전 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "TypedArray",
+          "explanation": "입자 속성을 연속 배열로 저장할 수 있다. 속성별 stride와 offset을 명확히 정한다."
+        },
+        {
+          "title": "소유권",
+          "explanation": "transfer한 배열은 메인에서 재사용하지 않는다. UI에 필요한 요약은 별도 메시지로 받는다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: TypedArray의 역할을 설명한다. 입력 사례: 입자 100개.",
+        "산출물: byteLength와 입자 좌표 범위. 소유권 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-16.js에 Float32Array 위치를 transfer하고 Worker에서 입자를 그린다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 입자 100개. 기준: 복사. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-16.md에 남긴다.",
+        "변경 변수: 전송. 변경값: transfer. 같은 입력 경로로 다시 실행한다. 저장할 산출물: byteLength와 입자 좌표 범위. 확인할 가설: 이전 후 메인 buffer가 detach된다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "전송",
+          "baseline": "복사",
+          "change": "transfer",
+          "expected": "이전 후 메인 buffer가 detach된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: byteLength와 입자 좌표 범위. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: TypedArray, 소유권. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 TypedArray 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 입자 100개.",
+        "변경 변수: 전송. 확인할 가설: 이전 후 메인 buffer가 detach된다. 실제 결과가 가설과 일치했는가? 소유권 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 17,
+      "id": "offscreen-canvas-step-17",
+      "title": "정지와 재개",
+      "prerequisites": "16단위 「입자 데이터 배치」의 TypedArray 및 소유권 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "Pause",
+          "explanation": "정지는 상태를 보존하면서 프레임 예약을 멈춘다. 종료와 달리 Canvas 소유권은 유지된다."
+        },
+        {
+          "title": "시간 기준",
+          "explanation": "재개 시 이전 타임스탬프를 재설정한다. 정지 시간을 이동 시간으로 더하면 점프가 생긴다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: Pause의 역할을 설명한다. 입력 사례: 2초 정지 후 재개.",
+        "산출물: 정지 중 프레임 수와 재개 위치. 시간 기준 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-17.js에 pause/resume 메시지와 마지막 시각 초기화를 구현한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 2초 정지 후 재개. 기준: 이전 값 유지. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-17.md에 남긴다.",
+        "변경 변수: 재개 시각. 변경값: 초기화. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 정지 중 프레임 수와 재개 위치. 확인할 가설: 재개 첫 프레임의 큰 점프가 줄어든다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "재개 시각",
+          "baseline": "이전 값 유지",
+          "change": "초기화",
+          "expected": "재개 첫 프레임의 큰 점프가 줄어든다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 정지 중 프레임 수와 재개 위치. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Pause, 시간 기준. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 Pause 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 2초 정지 후 재개.",
+        "변경 변수: 재개 시각. 확인할 가설: 재개 첫 프레임의 큰 점프가 줄어든다. 실제 결과가 가설과 일치했는가? 시간 기준 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 18,
+      "id": "offscreen-canvas-step-18",
+      "title": "페이지 숨김 정책",
+      "prerequisites": "17단위 「정지와 재개」의 Pause 및 시간 기준 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "가시성",
+          "explanation": "Worker는 문서 가시성 정책을 메인에서 전달받을 수 있다. 보이지 않는 장면도 계속 계산하면 비용이 남는다."
+        },
+        {
+          "title": "동기화",
+          "explanation": "복귀 시 상태 보존 또는 시간 따라잡기를 선택한다. 시뮬레이션 목적에 따라 정책을 문서화한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 가시성의 역할을 설명한다. 입력 사례: 탭 숨김과 복귀.",
+        "산출물: 숨김 동안 계산 수와 복귀 상태. 동기화 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-18.js에 visibilitychange를 pause/resume으로 변환한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 탭 숨김과 복귀. 기준: 계속 계산. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-18.md에 남긴다.",
+        "변경 변수: 정책. 변경값: 숨김 때 pause. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 숨김 동안 계산 수와 복귀 상태. 확인할 가설: 숨김 동안 계산이 멈추고 복귀 정책대로 이어진다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "정책",
+          "baseline": "계속 계산",
+          "change": "숨김 때 pause",
+          "expected": "숨김 동안 계산이 멈추고 복귀 정책대로 이어진다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 숨김 동안 계산 수와 복귀 상태. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 가시성, 동기화. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 가시성 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 탭 숨김과 복귀.",
+        "변경 변수: 정책. 확인할 가설: 숨김 동안 계산이 멈추고 복귀 정책대로 이어진다. 실제 결과가 가설과 일치했는가? 동기화 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 19,
+      "id": "offscreen-canvas-step-19",
+      "title": "정리 프로토콜",
+      "prerequisites": "18단위 「페이지 숨김 정책」의 가시성 및 동기화 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "Dispose",
+          "explanation": "프레임·이벤트·observer·Worker는 각각 종료해야 한다. DOM 제거만으로 모든 작업이 정리되지는 않는다."
+        },
+        {
+          "title": "확인과 종료",
+          "explanation": "정리 응답을 기다리되 무한 대기는 피한다. 필요하면 메인에서 terminate로 종료한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: Dispose의 역할을 설명한다. 입력 사례: 렌더 중 dispose.",
+        "산출물: 프레임·메시지·observer 잔여 수. 확인과 종료 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-19.js에 dispose 메시지·ack와 observer.disconnect 및 terminate 경로를 만든다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 렌더 중 dispose. 기준: DOM만 제거. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-19.md에 남긴다.",
+        "변경 변수: 종료. 변경값: 전체 dispose. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 프레임·메시지·observer 잔여 수. 확인할 가설: 제거 뒤 반복 작업이 남지 않는다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "종료",
+          "baseline": "DOM만 제거",
+          "change": "전체 dispose",
+          "expected": "제거 뒤 반복 작업이 남지 않는다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 프레임·메시지·observer 잔여 수. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Dispose, 확인과 종료. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 Dispose 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 렌더 중 dispose.",
+        "변경 변수: 종료. 확인할 가설: 제거 뒤 반복 작업이 남지 않는다. 실제 결과가 가설과 일치했는가? 확인과 종료 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 20,
+      "id": "offscreen-canvas-step-20",
+      "title": "재시작 Canvas",
+      "prerequisites": "19단위 「정리 프로토콜」의 Dispose 및 확인과 종료 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "재이전 제한",
+          "explanation": "이전된 HTML Canvas를 다시 이전하려 하면 실패할 수 있다. 새 DOM 요소로 수명을 시작한다."
+        },
+        {
+          "title": "재시작 상태",
+          "explanation": "새 렌더러는 장면 데이터를 다시 받아야 한다. 포인터와 크기 listener도 새 요소에 연결한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 재이전 제한의 역할을 설명한다. 입력 사례: 시작·종료 5회.",
+        "산출물: 회차별 Canvas·Worker 수와 첫 프레임. 재시작 상태 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-20.js에 stop 후 새 canvas를 생성해 init 상태를 재전송한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 시작·종료 5회. 기준: 기존 Canvas 재사용. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-20.md에 남긴다.",
+        "변경 변수: 재시작. 변경값: 새 Canvas. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 회차별 Canvas·Worker 수와 첫 프레임. 확인할 가설: 중복 이전 오류 없이 다시 그린다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "재시작",
+          "baseline": "기존 Canvas 재사용",
+          "change": "새 Canvas",
+          "expected": "중복 이전 오류 없이 다시 그린다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 회차별 Canvas·Worker 수와 첫 프레임. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 재이전 제한, 재시작 상태. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 재이전 제한 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 시작·종료 5회.",
+        "변경 변수: 재시작. 확인할 가설: 중복 이전 오류 없이 다시 그린다. 실제 결과가 가설과 일치했는가? 재시작 상태 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 21,
+      "id": "offscreen-canvas-step-21",
+      "title": "Worker 장애 복구",
+      "prerequisites": "20단위 「재시작 Canvas」의 재이전 제한 및 재시작 상태 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "오류 구분",
+          "explanation": "렌더 계산 오류와 Worker 로딩 오류는 원인이 다르다. 메인에서 상태를 복구할 책임이 있다."
+        },
+        {
+          "title": "대체",
+          "explanation": "오류 뒤 새 Canvas의 메인 렌더러로 전환할 수 있다. 이미 이전된 context를 되찾는 방식은 아니다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 오류 구분의 역할을 설명한다. 입력 사례: 초기 오류와 렌더 중 오류.",
+        "산출물: 오류 안내·선택 모드·장면 보존 표. 대체 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-21.js에 worker.onerror 및 error 메시지에서 fallback 재초기화를 수행한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 초기 오류와 렌더 중 오류. 기준: 초기화. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-21.md에 남긴다.",
+        "변경 변수: 실패 시점. 변경값: 렌더 중. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 오류 안내·선택 모드·장면 보존 표. 확인할 가설: 두 경로 모두 안내와 조작이 복구된다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "실패 시점",
+          "baseline": "초기화",
+          "change": "렌더 중",
+          "expected": "두 경로 모두 안내와 조작이 복구된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 오류 안내·선택 모드·장면 보존 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 오류 구분, 대체. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 오류 구분 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 초기 오류와 렌더 중 오류.",
+        "변경 변수: 실패 시점. 확인할 가설: 두 경로 모두 안내와 조작이 복구된다. 실제 결과가 가설과 일치했는가? 대체 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 22,
+      "id": "offscreen-canvas-step-22",
+      "title": "ImageBitmap 전달",
+      "prerequisites": "21단위 「Worker 장애 복구」의 오류 구분 및 대체 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "프레임 전달",
+          "explanation": "OffscreenCanvas 결과를 ImageBitmap으로 넘길 수 있다. 직접 제어권 이전과 다른 출력 방식이다."
+        },
+        {
+          "title": "자원 수명",
+          "explanation": "bitmap을 표시한 뒤 더 쓰지 않으면 닫는다. 전달 속도가 표시 속도를 넘으면 큐를 제한한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 프레임 전달의 역할을 설명한다. 입력 사례: 연속 프레임 30개.",
+        "산출물: 표시·폐기·close 횟수. 자원 수명 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-22.js에 Worker의 transferToImageBitmap과 메인의 bitmap 표시 경로를 만든다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 연속 프레임 30개. 기준: 즉시. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-22.md에 남긴다.",
+        "변경 변수: 소비 속도. 변경값: 느리게. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 표시·폐기·close 횟수. 확인할 가설: 느린 소비에서도 대기 bitmap 수가 제한된다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "소비 속도",
+          "baseline": "즉시",
+          "change": "느리게",
+          "expected": "느린 소비에서도 대기 bitmap 수가 제한된다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 표시·폐기·close 횟수. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 프레임 전달, 자원 수명. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 프레임 전달 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 연속 프레임 30개.",
+        "변경 변수: 소비 속도. 확인할 가설: 느린 소비에서도 대기 bitmap 수가 제한된다. 실제 결과가 가설과 일치했는가? 자원 수명 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 23,
+      "id": "offscreen-canvas-step-23",
+      "title": "Canvas Context 손실",
+      "prerequisites": "22단위 「ImageBitmap 전달」의 프레임 전달 및 자원 수명 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "손실",
+          "explanation": "렌더 context는 환경에 따라 손실될 수 있다. 이벤트 지원 여부와 실제 경로를 구분한다."
+        },
+        {
+          "title": "복구 자료",
+          "explanation": "장면 상태와 자원 생성 정보를 보관해야 다시 그릴 수 있다. Canvas 픽셀만으로 원래 상태를 복원하기 어렵다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 손실의 역할을 설명한다. 입력 사례: 지원 환경의 손실 또는 명시적 실패 주입.",
+        "산출물: 중단 안내와 장면 재생성 기록. 복구 자료 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-23.js에 contextlost/contextrestored 처리와 초기화 함수 재호출 경로를 작성한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 지원 환경의 손실 또는 명시적 실패 주입. 기준: 상태 보관 없음. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-23.md에 남긴다.",
+        "변경 변수: 복구 상태. 변경값: 상태 보관. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 중단 안내와 장면 재생성 기록. 확인할 가설: 재생성 뒤 같은 장면 데이터를 그릴 수 있다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "복구 상태",
+          "baseline": "상태 보관 없음",
+          "change": "상태 보관",
+          "expected": "재생성 뒤 같은 장면 데이터를 그릴 수 있다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 중단 안내와 장면 재생성 기록. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 손실, 복구 자료. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 손실 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 지원 환경의 손실 또는 명시적 실패 주입.",
+        "변경 변수: 복구 상태. 확인할 가설: 재생성 뒤 같은 장면 데이터를 그릴 수 있다. 실제 결과가 가설과 일치했는가? 복구 자료 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 24,
+      "id": "offscreen-canvas-step-24",
+      "title": "요청과 화면 지연",
+      "prerequisites": "23단위 「Canvas Context 손실」의 손실 및 복구 자료 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "시각 반영",
+          "explanation": "메시지 도착과 화면 반영은 같은 시각이 아니다. 처리 ack만으로 표시 지연 전체를 단정하지 않는다."
+        },
+        {
+          "title": "측정 구분",
+          "explanation": "메인 왕복과 Worker 처리 duration을 나눠 기록한다. 실제 표시 관찰 방법과 한계도 적는다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 시각 반영의 역할을 설명한다. 입력 사례: 색 변경 요청 20회.",
+        "산출물: 왕복·처리·관찰 지연 기록. 측정 구분 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-24.js에 입력 ID를 렌더 프레임 결과에 넣고 시각 반영 관찰 로그를 만든다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 색 변경 요청 20회. 기준: 매 이벤트. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-24.md에 남긴다.",
+        "변경 변수: 전송 주기. 변경값: 프레임당. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 왕복·처리·관찰 지연 기록. 확인할 가설: 입력 지연과 메시지 수의 절충이 보인다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "전송 주기",
+          "baseline": "매 이벤트",
+          "change": "프레임당",
+          "expected": "입력 지연과 메시지 수의 절충이 보인다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 왕복·처리·관찰 지연 기록. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 시각 반영, 측정 구분. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 시각 반영 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 색 변경 요청 20회.",
+        "변경 변수: 전송 주기. 확인할 가설: 입력 지연과 메시지 수의 절충이 보인다. 실제 결과가 가설과 일치했는가? 측정 구분 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 25,
+      "id": "offscreen-canvas-step-25",
+      "title": "해상도와 작업량",
+      "prerequisites": "24단위 「요청과 화면 지연」의 시각 반영 및 측정 구분 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "픽셀 비용",
+          "explanation": "DPR 증가는 저장소 픽셀 수를 제곱으로 늘린다. 입자 수와 별도로 영향을 준다."
+        },
+        {
+          "title": "측정",
+          "explanation": "Worker 분리가 GPU 비용을 없애지는 않는다. 두 모드에서 같은 해상도를 사용한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 픽셀 비용의 역할을 설명한다. 입력 사례: 동일 장면과 두 DPR.",
+        "산출물: 픽셀 수·프레임 분포 표. 측정 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-25.js에 입자 수를 고정하고 DPR별 프레임 duration을 수집한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 동일 장면과 두 DPR. 기준: 1. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-25.md에 남긴다.",
+        "변경 변수: DPR. 변경값: 2. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 픽셀 수·프레임 분포 표. 확인할 가설: 픽셀 수가 네 배가 되고 비용이 달라질 수 있다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "DPR",
+          "baseline": "1",
+          "change": "2",
+          "expected": "픽셀 수가 네 배가 되고 비용이 달라질 수 있다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 픽셀 수·프레임 분포 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 픽셀 비용, 측정. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 픽셀 비용 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 동일 장면과 두 DPR.",
+        "변경 변수: DPR. 확인할 가설: 픽셀 수가 네 배가 되고 비용이 달라질 수 있다. 실제 결과가 가설과 일치했는가? 측정 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 26,
+      "id": "offscreen-canvas-step-26",
+      "title": "메인 스레드 경쟁 실험",
+      "prerequisites": "25단위 「해상도와 작업량」의 픽셀 비용 및 측정 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "경쟁 작업",
+          "explanation": "메인에 긴 작업이 있으면 입력과 렌더가 지연될 수 있다. Worker 렌더와 UI 입력은 서로 다른 지표다."
+        },
+        {
+          "title": "공정한 비교",
+          "explanation": "같은 경쟁 작업과 seed를 사용한다. Worker도 CPU와 GPU 자원을 공유한다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 경쟁 작업의 역할을 설명한다. 입력 사례: 같은 장면과 클릭 카운터.",
+        "산출물: 모드별 입력 지연·프레임 분포. 공정한 비교 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-26.js에 제한된 메인 계산 부하를 켜고 두 렌더 모드를 비교한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 같은 장면과 클릭 카운터. 기준: 없음. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-26.md에 남긴다.",
+        "변경 변수: 메인 부하. 변경값: 제한된 계산 추가. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 모드별 입력 지연·프레임 분포. 확인할 가설: 렌더와 UI 응답의 변화가 서로 다를 수 있다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "메인 부하",
+          "baseline": "없음",
+          "change": "제한된 계산 추가",
+          "expected": "렌더와 UI 응답의 변화가 서로 다를 수 있다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 모드별 입력 지연·프레임 분포. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 경쟁 작업, 공정한 비교. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 경쟁 작업 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 같은 장면과 클릭 카운터.",
+        "변경 변수: 메인 부하. 확인할 가설: 렌더와 UI 응답의 변화가 서로 다를 수 있다. 실제 결과가 가설과 일치했는가? 공정한 비교 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 27,
+      "id": "offscreen-canvas-step-27",
+      "title": "실험 결과 정리",
+      "prerequisites": "26단위 「메인 스레드 경쟁 실험」의 경쟁 작업 및 공정한 비교 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "분포",
+          "explanation": "평균만으로 순간 정지를 볼 수 없다. 중앙값과 긴 프레임을 함께 정리한다."
+        },
+        {
+          "title": "한계",
+          "explanation": "장치·브라우저·전력 상태가 결과에 영향을 준다. 측정하지 않은 환경으로 결론을 확장하지 않는다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 분포의 역할을 설명한다. 입력 사례: 반복 실행 3회.",
+        "산출물: 조건과 원시값을 포함한 비교 표. 한계 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-27.js에 결과 JSON을 모아 모드·입자 수·DPR별 비교 표를 작성한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: 반복 실행 3회. 기준: 메인 먼저. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-27.md에 남긴다.",
+        "변경 변수: 실행 순서. 변경값: Worker 먼저. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 조건과 원시값을 포함한 비교 표. 확인할 가설: 워밍업이나 순서 효과를 확인할 수 있다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "실행 순서",
+          "baseline": "메인 먼저",
+          "change": "Worker 먼저",
+          "expected": "워밍업이나 순서 효과를 확인할 수 있다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 조건과 원시값을 포함한 비교 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 분포, 한계. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 분포 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 반복 실행 3회.",
+        "변경 변수: 실행 순서. 확인할 가설: 워밍업이나 순서 효과를 확인할 수 있다. 실제 결과가 가설과 일치했는가? 한계 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    },
+    {
+      "day": 28,
+      "id": "offscreen-canvas-03",
+      "title": "렌더링 분리 평가",
+      "prerequisites": "27단위 「실험 결과 정리」의 분포 및 한계 실습 결과를 준비한다.",
+      "concepts": [
+        {
+          "title": "분리 효과",
+          "explanation": "Worker는 메인에서 렌더 작업을 옮긴다. GPU 작업 자체를 없애는 것은 아니다."
+        },
+        {
+          "title": "완료 조건",
+          "explanation": "응답성뿐 아니라 종료와 재실행도 기능이다. 오류와 미지원 경로까지 결과를 남긴다."
+        }
+      ],
+      "outcomes": [
+        "학습 결과: 분리 효과의 역할을 설명한다. 입력 사례: resize·입력·종료·재실행·미지원.",
+        "산출물: 입력 지연·프레임·정리·fallback 보고서. 완료 조건 처리 근거를 코드와 연결해 설명한다."
+      ],
+      "steps": [
+        "별도 실습 프로젝트의 src/day-28.js에 기존 offscreen-canvas-03을 참고해 두 모드 입자 장면과 평가 보고서를 완성한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.",
+        "입력 조건: resize·입력·종료·재실행·미지원. 기준: 메인. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-28.md에 남긴다.",
+        "변경 변수: 렌더 모드. 변경값: Worker. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 입력 지연·프레임·정리·fallback 보고서. 확인할 가설: 동일 장면에서 효과와 비용을 근거로 선택한다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다."
+      ],
+      "variables": [
+        {
+          "name": "렌더 모드",
+          "baseline": "메인",
+          "change": "Worker",
+          "expected": "동일 장면에서 효과와 비용을 근거로 선택한다."
+        }
+      ],
+      "criteria": [
+        "필수 산출물: 입력 지연·프레임·정리·fallback 보고서. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.",
+        "두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: 분리 효과, 완료 조건. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다."
+      ],
+      "questions": [
+        "이번 실습에서 분리 효과 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: resize·입력·종료·재실행·미지원.",
+        "변경 변수: 렌더 모드. 확인할 가설: 동일 장면에서 효과와 비용을 근거로 선택한다. 실제 결과가 가설과 일치했는가? 완료 조건 관점에서 근거를 설명하라."
+      ],
+      "references": [
+        {
+          "title": "MDN OffscreenCanvas",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas"
+        },
+        {
+          "title": "MDN Using Web Workers",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+        }
+      ],
+      "environment": "기존 offscreen-canvas-01·02·03은 지원 브라우저에서 사용하는 시작 예제다. 새 단위는 별도 로컬 HTTP 프로젝트의 메인·Worker 파일에서 구현한다. API와 context 지원을 확인하고 이전 실패 시 새 Canvas의 메인 fallback을 제공한다. CSP와 격리는 유지하며 성능 수치를 직접 기록한다."
+    }
+  ]
+}

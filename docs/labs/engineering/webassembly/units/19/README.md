@@ -1,0 +1,84 @@
+# WebAssembly · 19 브라우저 로딩과 MIME
+
+[시리즈 목차](../../README.md) · [전체 기술 지도](../../../../README.md)
+
+단계: 배포와 실행 구조 · 문서 기반 직접 구현 · 저장 ID: `webassembly-step-19`
+
+## 목표와 학습 후 역량
+
+- 학습 결과: Streaming의 역할을 설명한다. 입력 사례: 정상·404·잘못된 MIME.
+- 산출물: 응답 상태와 초기화 결과. 실패 분류 처리 근거를 코드와 연결해 설명한다.
+
+## 선수 지식
+
+18단위 「문자열 바이트 계약」의 인코딩 및 길이 전달 실습 결과를 준비한다.
+
+## 핵심 개념과 설명
+
+### Streaming
+
+instantiateStreaming은 응답을 이용해 모듈을 준비한다. 올바른 MIME와 서버 설정이 필요하다.
+
+### 실패 분류
+
+HTTP 실패와 컴파일 실패는 다르다. fallback을 두더라도 원인을 기록해야 한다.
+
+## 실습 준비
+
+iframe 미리보기는 WebAssembly.Memory와 JS 기준 계산 실험이며 실제 Wasm 모듈 실행으로 표시하지 않는다. 실제 모듈 실습은 별도 Node 22+ 또는 통제한 로컬 웹 프로젝트에서 한다. 기존 src/labs/webassembly-02·03의 kernel.wat·kernel.wasm·benchmark.mjs를 사용하며 WAT 수정 시 공식 wat2wasm 도구로 다시 빌드한다. CSP·격리를 완화하지 않고 측정값은 직접 기록한다.
+
+이 단위에는 내장 실행 예제가 없습니다. 아래 절차에 따라 별도 실습 파일을 만들고 실행 결과를 필기에 남기세요. 코드 파일은 작업 폴더에서 따로 보관하고 Frontory 필기는 JSON 또는 Markdown으로 백업하세요.
+
+## 실습 과제
+
+1. 별도 실습 프로젝트의 day-19.mjs에 외부 로컬 서버에서 application/wasm 응답과 fetch 검사를 구성한다. 기존 1·14·28단위 예제는 출발점으로만 참고한다.
+2. 입력 조건: 정상·404·잘못된 MIME. 기준: application/wasm. 기준 조건에서 실행한 뒤 관찰값과 오류를 notes/day-19.md에 남긴다.
+3. 변경 변수: 서버 MIME. 변경값: text/plain. 같은 입력 경로로 다시 실행한다. 저장할 산출물: 응답 상태와 초기화 결과. 확인할 가설: 스트리밍 경로의 성공 여부가 달라질 수 있다. 실제 결과와 비교해 일치 여부 및 차이의 원인을 기록한다.
+
+## 관찰할 변수
+
+| 변수 | 기준 조건 | 바꿀 조건 | 예상할 변화·검증 가설 |
+| --- | --- | --- | --- |
+| 서버 MIME | application/wasm | text/plain | 스트리밍 경로의 성공 여부가 달라질 수 있다. |
+
+표의 예상은 측정 결과가 아닙니다. 한 번에 한 조건만 바꾸고 실제 결과가 다르면 원인을 기록하세요.
+
+## 완료 조건
+
+- [ ] 필수 산출물: 응답 상태와 초기화 결과. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.
+- [ ] 두 조건의 차이에 관한 설명에 다음 개념을 모두 연결했다: Streaming, 실패 분류. 예상과 다른 항목은 원인 또는 미해결 이유를 1개 이상 적었다.
+
+## 자가 점검
+
+1. 이번 실습에서 Streaming 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 정상·404·잘못된 MIME.
+2. 변경 변수: 서버 MIME. 확인할 가설: 스트리밍 경로의 성공 여부가 달라질 수 있다. 실제 결과가 가설과 일치했는가? 실패 분류 관점에서 근거를 설명하라.
+
+## 공식 참고
+
+- [WebAssembly 개발 도구 안내](https://webassembly.org/getting-started/developers-guide/)
+- [MDN WebAssembly JavaScript API](https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- [MDN WebAssembly.Memory](https://developer.mozilla.org/en-US/docs/WebAssembly/Reference/JavaScript_interface/Memory)
+
+## 연결된 예제와 실행 범위
+
+문서와 필기를 제공합니다. 내장 실행 예제는 아직 제공하지 않습니다.
+
+원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
+
+## 다음 학습
+
+[이전: 문자열 바이트 계약](../18/README.md) · [다음: 초기화 재사용](../20/README.md)
+
+## 실험 기록 — 직접 작성
+
+### 목표
+
+### 핵심 개념
+
+### 바꾼 변수와 예상
+
+### 실제 결과
+
+### 배운 점
+
+### 남은 질문

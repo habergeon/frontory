@@ -1,0 +1,1469 @@
+{
+  "seriesId": "webgpu",
+  "stages": [
+    "장치와 명령의 기초",
+    "렌더 자원과 화면 구성",
+    "Compute와 데이터 이동",
+    "복구·측정·통합 프로젝트"
+  ],
+  "goal": "WebGPU의 장치·자원·명령 모델을 이해하고 렌더링과 compute를 정확성 및 전체 비용으로 검증합니다.",
+  "capstone": "지원 안내와 device loss 복구, compute 갱신, readback 검증을 갖춘 소형 입자 실험",
+  "units": [
+    {
+      "day": 1,
+      "id": "webgpu-01",
+      "title": "Adapter·Device·Pipeline",
+      "prerequisites": "TypedArray, 비동기 JavaScript와 WebGL 파이프라인",
+      "concepts": [
+        {
+          "title": "지원 조건",
+          "explanation": "WebGPU는 보안 컨텍스트와 브라우저·장치 지원을 함께 요구합니다. navigator.gpu가 있어도 adapter 요청이 null이 될 수 있습니다."
+        },
+        {
+          "title": "초기화",
+          "explanation": "adapter에서 device를 얻고 그 device로 자원과 pipeline을 만듭니다. 초기화 실패는 렌더 루프 시작 전에 화면 상태로 처리합니다."
+        }
+      ],
+      "outcomes": [
+        "지원 조건을 점검한다.",
+        "초기화 실패를 복구 가능한 상태로 처리한다."
+      ],
+      "steps": [
+        "main.js에 isSecureContext·navigator.gpu 확인과 상태 표시를 작성하세요.",
+        "requestAdapter와 requestDevice를 순서대로 호출하고 실패 이유를 기록하세요.",
+        "정상·API 없음·adapter null을 주입 가능한 함수로 분리하고 각 화면 출력을 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "adapter 응답",
+          "baseline": "정상 객체",
+          "change": "null 주입",
+          "expected": "예외나 빈 화면 대신 미지원 안내가 표시될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 초기화 분기에서 상태 문자열이 표시된다.",
+        "성공한 경우에만 device 자원을 생성한다."
+      ],
+      "questions": [
+        "API 존재만 검사하면 어떤 실패를 놓치나요?",
+        "보안 컨텍스트와 장치 지원은 어떻게 다른가요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "기존 webgpu-01 미리보기는 출발점입니다. 이후 과제 전체의 구현이나 검증을 대신하지 않습니다. 별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 2,
+      "id": "webgpu-step-02",
+      "title": "기능과 limits 협상",
+      "prerequisites": "1단위 결과물과 기록을 이어 사용합니다. 기능과 limits 협상 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "선택 기능",
+          "explanation": "모든 adapter가 같은 선택 기능을 제공하지 않습니다. 필요한 기능은 지원 목록에서 확인하고 요청해야 합니다."
+        },
+        {
+          "title": "한도",
+          "explanation": "자원 크기와 binding 수에는 장치 한도가 있습니다. 큰 값을 추정하기보다 device.limits에 맞춰 입력을 제한합니다."
+        }
+      ],
+      "outcomes": [
+        "장치 기능을 협상한다.",
+        "한도 기반 입력 검사를 작성한다."
+      ],
+      "steps": [
+        "capabilities.js에서 adapter.features와 limits를 필요한 항목만 표로 표시하세요.",
+        "필수 기능과 선택 기능을 구분해 requestDevice descriptor를 작성하세요.",
+        "지원되지 않는 선택 기능은 비활성화하고 최대 buffer 크기 입력을 검증하세요."
+      ],
+      "variables": [
+        {
+          "name": "선택 기능",
+          "baseline": "사용 안 함",
+          "change": "지원 확인 후 요청",
+          "expected": "지원 장치에서만 기능이 켜지고 나머지는 기본 경로를 유지할 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "필수와 선택 기능을 각각 명시한다.",
+        "한도를 넘는 입력이 자원 생성 전에 거절된다."
+      ],
+      "questions": [
+        "adapter limits와 요청한 device limits를 왜 구분하나요?",
+        "선택 기능 실패 때문에 전체 앱을 종료해야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 3,
+      "id": "webgpu-step-03",
+      "title": "Canvas 구성과 현재 texture",
+      "prerequisites": "2단위 결과물과 기록을 이어 사용합니다. Canvas 구성과 현재 texture 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "표시 대상",
+          "explanation": "canvas context는 device와 화면 형식을 연결합니다. 현재 프레임 texture는 프레임마다 얻어 render attachment로 사용합니다."
+        },
+        {
+          "title": "형식 일치",
+          "explanation": "pipeline의 color target format은 attachment 형식과 일치해야 합니다. 브라우저 선호 형식은 API로 조회합니다."
+        }
+      ],
+      "outcomes": [
+        "Canvas를 GPU 출력에 연결한다.",
+        "화면 형식 계약을 유지한다."
+      ],
+      "steps": [
+        "canvas.js에서 getContext('webgpu')와 getPreferredCanvasFormat을 호출하세요.",
+        "configure 후 getCurrentTexture().createView()로 clear pass를 만드세요.",
+        "배경색을 바꾸며 매 프레임 view를 새로 얻고 configure 값을 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "clear 색",
+          "baseline": "검정",
+          "change": "짙은 파랑",
+          "expected": "기하 없이도 전체 attachment 색이 바뀔 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "현재 texture view를 프레임별로 얻는다.",
+        "선호 형식과 pipeline target 형식이 같은 값으로 기록된다."
+      ],
+      "questions": [
+        "이전 프레임 texture를 계속 보관하면 왜 문제가 되나요?",
+        "CSS 배경색과 attachment clear는 무엇이 다른가요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 4,
+      "id": "webgpu-step-04",
+      "title": "명령 기록과 제출",
+      "prerequisites": "3단위 결과물과 기록을 이어 사용합니다. 명령 기록과 제출 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "기록 단계",
+          "explanation": "command encoder는 작업을 즉시 완료하는 함수가 아닙니다. pass를 끝낸 뒤 command buffer를 만들어 queue에 제출합니다."
+        },
+        {
+          "title": "완료 시점",
+          "explanation": "submit 호출 반환은 GPU 작업 완료를 뜻하지 않습니다. 완료를 기다리는 코드는 필요한 관찰 지점에만 둡니다."
+        }
+      ],
+      "outcomes": [
+        "명령 생명주기를 구성한다.",
+        "제출과 완료를 구분한다."
+      ],
+      "steps": [
+        "commands.js에 createCommandEncoder·beginRenderPass·end·finish·submit 순서를 작성하세요.",
+        "clear 색 두 개를 서로 다른 제출로 기록하고 화면의 마지막 색을 확인하세요.",
+        "submit 전후와 onSubmittedWorkDone 완료 시점을 로그로 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "제출 수",
+          "baseline": "한 번",
+          "change": "두 번",
+          "expected": "마지막 clear 결과가 보이며 제출 로그와 완료 로그가 구분될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "모든 pass가 end 후 finish에 도달한다.",
+        "제출 시점과 완료 시점이 다른 항목으로 기록된다."
+      ],
+      "questions": [
+        "명령 기록 시간은 GPU 실행 시간인가요?",
+        "매 프레임 완료를 기다리면 어떤 병렬성이 줄어드나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 5,
+      "id": "webgpu-step-05",
+      "title": "셰이더 모듈과 진단",
+      "prerequisites": "4단위 결과물과 기록을 이어 사용합니다. 셰이더 모듈과 진단 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "모듈 진단",
+          "explanation": "WGSL 문법과 타입 오류는 shader module의 compilation info로 확인할 수 있습니다. 오류 메시지의 줄 위치를 소스에 연결합니다."
+        },
+        {
+          "title": "Pipeline 검증",
+          "explanation": "유효한 모듈도 entry point나 target 계약이 맞지 않으면 pipeline 생성에 실패합니다. 컴파일과 pipeline 검증을 별도로 기록합니다."
+        }
+      ],
+      "outcomes": [
+        "셰이더 진단을 표시한다.",
+        "모듈과 pipeline 오류를 구분한다."
+      ],
+      "steps": [
+        "shader.wgsl에 최소 vertex·fragment 함수를 작성하세요.",
+        "getCompilationInfo로 메시지와 lineNum을 UI에 출력하세요.",
+        "오타와 잘못된 entryPoint를 각각 넣고 복구 후 삼각형을 출력하세요."
+      ],
+      "variables": [
+        {
+          "name": "entry point",
+          "baseline": "실제 함수 이름",
+          "change": "없는 함수 이름",
+          "expected": "모듈 문법은 통과해도 pipeline 단계에서 실패할 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "문법 오류와 entry point 오류를 별도로 기록한다.",
+        "원래 소스로 복구하면 삼각형이 다시 나타난다."
+      ],
+      "questions": [
+        "모듈에 오류가 없는데 왜 pipeline이 실패하나요?",
+        "진단이 비동기일 때 이전 메시지가 새 코드를 덮지 않게 하려면 무엇이 필요한가요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 6,
+      "id": "webgpu-step-06",
+      "title": "정점 buffer와 속성",
+      "prerequisites": "5단위 결과물과 기록을 이어 사용합니다. 정점 buffer와 속성 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "바이트 계약",
+          "explanation": "vertex buffer layout은 stride와 각 속성 offset·format을 선언합니다. TypedArray의 원소 번호와 byte offset을 혼동하면 잘못된 값을 읽습니다."
+        },
+        {
+          "title": "업로드",
+          "explanation": "GPUBufferUsage는 buffer를 어떤 명령에 사용할지 명시합니다. queue.writeBuffer를 쓰려면 대상에 COPY_DST 사용을 포함합니다."
+        }
+      ],
+      "outcomes": [
+        "정점 데이터 layout을 설계한다.",
+        "CPU 배열을 GPU 정점 입력에 연결한다."
+      ],
+      "steps": [
+        "vertices.js에 위치 두 성분과 색 세 성분을 가진 세 정점을 만드세요.",
+        "20바이트 stride와 0·8바이트 offset을 pipeline에 선언하세요.",
+        "VERTEX|COPY_DST buffer에 업로드하고 각 정점 색을 화면에서 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "arrayStride",
+          "baseline": "20바이트",
+          "change": "24바이트와 맞는 padding 데이터",
+          "expected": "데이터와 layout을 함께 바꾸면 같은 삼각형이 나올 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 정점의 byte offset 표를 작성한다.",
+        "두 layout에서 정점 위치와 색이 일치한다."
+      ],
+      "questions": [
+        "format과 TypedArray 타입은 어떤 관계인가요?",
+        "stride만 바꾸고 데이터는 그대로 두면 어떻게 되나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 7,
+      "id": "webgpu-step-07",
+      "title": "인덱스와 primitive",
+      "prerequisites": "6단위 결과물과 기록을 이어 사용합니다. 인덱스와 primitive 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "재사용",
+          "explanation": "index buffer는 같은 정점 데이터를 여러 삼각형에서 재사용합니다. 인덱스 값은 실제 정점 수 안에 있어야 합니다."
+        },
+        {
+          "title": "도형 해석",
+          "explanation": "primitive topology와 front face 설정은 정점 연결과 앞면 판정에 영향을 줍니다. 같은 데이터도 설정에 따라 다른 결과가 나옵니다."
+        }
+      ],
+      "outcomes": [
+        "인덱스로 정점을 재사용한다.",
+        "도형과 앞면 설정을 검증한다."
+      ],
+      "steps": [
+        "quad.js에 정점 네 개와 Uint16Array 인덱스 여섯 개를 작성하세요.",
+        "INDEX|COPY_DST buffer와 setIndexBuffer('uint16')를 연결해 drawIndexed를 호출하세요.",
+        "삼각형 하나의 순서를 뒤집고 cullMode를 바꿔 결과를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "cullMode",
+          "baseline": "none",
+          "change": "back",
+          "expected": "반대로 감긴 삼각형만 사라질 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "네 정점과 여섯 인덱스로 사각형을 그린다.",
+        "감긴 방향 두 경우와 culling 결과를 기록한다."
+      ],
+      "questions": [
+        "인덱스 형식과 배열 바이트 수가 다르면 무엇이 잘못되나요?",
+        "화면의 앞면은 어떤 좌표 변환에 영향받나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 8,
+      "id": "webgpu-step-08",
+      "title": "Uniform과 bind group",
+      "prerequisites": "7단위 결과물과 기록을 이어 사용합니다. Uniform과 bind group 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "연결 계약",
+          "explanation": "bind group은 shader의 group·binding 위치에 자원을 연결합니다. 자원 유형과 shader visibility도 layout의 일부입니다."
+        },
+        {
+          "title": "작은 갱신",
+          "explanation": "uniform은 여러 invocation이 공유하는 작은 입력에 적합합니다. 매번 pipeline을 만들지 않고 buffer 값을 갱신할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "자원을 binding에 연결한다.",
+        "작은 입력을 재생성 없이 갱신한다."
+      ],
+      "steps": [
+        "uniform.wgsl에 vec4f 색 uniform을 binding 0으로 선언하세요.",
+        "uniforms.js에서 UNIFORM|COPY_DST 16바이트 buffer와 bind group을 만드세요.",
+        "색 슬라이더를 queue.writeBuffer와 연결하고 생성한 pipeline 수를 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "색 입력",
+          "baseline": "[1,0,0,1]",
+          "change": "[0,1,0,1]",
+          "expected": "pipeline 재생성 없이 삼각형 색만 바뀔 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "두 색 입력이 정확히 반영된다.",
+        "색을 열 번 바꿔도 pipeline 생성 횟수는 늘지 않는다."
+      ],
+      "questions": [
+        "binding 번호는 buffer 내부 offset인가요?",
+        "uniform buffer를 vertex buffer 대신 사용할 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 9,
+      "id": "webgpu-step-09",
+      "title": "Uniform 구조체 정렬",
+      "prerequisites": "8단위 결과물과 기록을 이어 사용합니다. Uniform 구조체 정렬 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "내부 배치",
+          "explanation": "WGSL 구조체의 멤버 alignment와 size가 CPU 바이트 배치를 결정합니다. vec3f의 alignment 16과 size 12는 다른 개념입니다."
+        },
+        {
+          "title": "바인딩 offset",
+          "explanation": "구조체 멤버 정렬과 dynamic uniform offset 한도는 별개의 규칙입니다. dynamic offset은 device의 최소 정렬을 따라야 합니다."
+        }
+      ],
+      "outcomes": [
+        "host와 shader 배치를 맞춘다.",
+        "두 정렬 규칙을 구분한다."
+      ],
+      "steps": [
+        "layout.md에 color:vec3f, gain:f32 구조체의 offset 0·12와 크기 16을 계산하세요.",
+        "DataView로 color와 gain을 각각 기록하고 출력 색을 확인하세요.",
+        "두 구조체 슬롯을 만들 때 minUniformBufferOffsetAlignment로 슬롯 stride를 반올림하세요."
+      ],
+      "variables": [
+        {
+          "name": "gain offset",
+          "baseline": "12",
+          "change": "의도적으로 16에 기록",
+          "expected": "shader가 읽는 gain이 갱신되지 않아 layout 오류가 드러날 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "멤버 offset·크기·alignment 표가 있다.",
+        "올바른 배치에서 두 슬롯의 색과 gain이 섞이지 않는다."
+      ],
+      "questions": [
+        "vec3 뒤에 f32를 둘 때 항상 4바이트 padding이 필요한가요?",
+        "dynamic offset 정렬을 구조체 크기와 같게 볼 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 10,
+      "id": "webgpu-step-10",
+      "title": "행렬과 카메라",
+      "prerequisites": "9단위 결과물과 기록을 이어 사용합니다. 행렬과 카메라 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "변환 순서",
+          "explanation": "월드·뷰·투영 행렬의 곱 순서는 위치 해석을 결정합니다. 같은 행렬도 곱하는 순서를 바꾸면 회전 중심과 이동이 달라집니다."
+        },
+        {
+          "title": "깊이 범위",
+          "explanation": "WebGPU의 clip 깊이 범위는 WebGL과 다릅니다. 사용한 projection 함수가 목표 API의 깊이 규약에 맞는지 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "카메라 변환을 구성한다.",
+        "깊이 좌표 규약을 검증한다."
+      ],
+      "steps": [
+        "camera.js에 model·view·projection 행렬을 분리하세요.",
+        "mat4x4f uniform 64바이트를 올리고 vertex에서 곱한 위치를 반환하세요.",
+        "근평면과 원평면에 놓은 표식의 clip z/w를 출력해 0..1 범위를 검사하세요."
+      ],
+      "variables": [
+        {
+          "name": "행렬 순서",
+          "baseline": "이동 뒤 회전 효과를 의도한 곱",
+          "change": "두 행렬 순서 교환",
+          "expected": "객체 중심과 궤도 운동이 달라질 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "근평면·원평면 표식의 정규화 깊이를 기록한다.",
+        "두 행렬 순서의 중심 위치를 수치로 비교한다."
+      ],
+      "questions": [
+        "WebGL용 투영 행렬을 그대로 쓰면 어떤 범위가 달라지나요?",
+        "CPU 행렬 저장 순서와 shader 연산은 어떻게 맞추나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 11,
+      "id": "webgpu-step-11",
+      "title": "Texture와 sampler",
+      "prerequisites": "10단위 결과물과 기록을 이어 사용합니다. Texture와 sampler 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "역할 분리",
+          "explanation": "texture는 texel 데이터를 저장하고 sampler는 보간과 경계 처리를 정합니다. 두 자원을 별도 binding으로 연결합니다."
+        },
+        {
+          "title": "입력 색",
+          "explanation": "이미지의 색 표현과 texture 형식 선택은 표시 결과에 영향을 줍니다. 작은 직접 만든 패턴으로 방향과 채널을 먼저 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "Texture 입력을 연결한다.",
+        "샘플러 설정의 효과를 비교한다."
+      ],
+      "steps": [
+        "texture.js에서 2×2 RGBA 패턴을 만들어 queue.writeTexture로 업로드하세요.",
+        "texture_2d와 sampler binding을 fragment shader에 연결하세요.",
+        "UV 방향·nearest·linear 샘플링을 비교하고 네 모서리 색을 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "filter",
+          "baseline": "nearest",
+          "change": "linear",
+          "expected": "경계에서 색이 부드럽게 섞일 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "2×2 네 모서리 색의 위치를 확인한다.",
+        "두 필터의 경계 출력 차이를 보관한다."
+      ],
+      "questions": [
+        "texture와 sampler를 하나로 보지 않는 이유는 무엇인가요?",
+        "UV의 Y 방향 오류와 이미지 행 순서 오류를 어떻게 구분하나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 12,
+      "id": "webgpu-step-12",
+      "title": "깊이 attachment",
+      "prerequisites": "11단위 결과물과 기록을 이어 사용합니다. 깊이 attachment 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "깊이 검사",
+          "explanation": "depth texture는 fragment의 앞뒤 관계를 저장합니다. color attachment만으로는 그리기 순서와 독립적인 가림을 만들 수 없습니다."
+        },
+        {
+          "title": "수명",
+          "explanation": "크기가 바뀌면 depth texture도 같은 크기로 다시 만들어야 합니다. 교체한 texture는 더 이상 쓰지 않는 시점에 해제합니다."
+        }
+      ],
+      "outcomes": [
+        "깊이 검사를 설정한다.",
+        "attachment 크기와 수명을 관리한다."
+      ],
+      "steps": [
+        "depth.js에 depth24plus texture와 depthStencil 설정을 추가하세요.",
+        "겹친 삼각형 두 개를 서로 다른 깊이에 놓고 draw 순서를 바꾸세요.",
+        "depthClearValue·depthCompare·depthWriteEnabled를 기록하며 결과를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "깊이 검사",
+          "baseline": "비활성",
+          "change": "less와 쓰기 활성",
+          "expected": "불투명 도형의 가림이 draw 순서와 독립적일 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "두 draw 순서에서 앞쪽 도형이 같다.",
+        "depth attachment 크기가 color 출력 크기와 일치한다."
+      ],
+      "questions": [
+        "투명 물체에도 같은 깊이 쓰기 정책이 맞나요?",
+        "깊이 clear 값과 compare를 함께 정해야 하는 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 13,
+      "id": "webgpu-step-13",
+      "title": "Resize와 샘플 수",
+      "prerequisites": "12단위 결과물과 기록을 이어 사용합니다. Resize와 샘플 수 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "실제 해상도",
+          "explanation": "CSS 크기와 drawing buffer 크기는 서로 다를 수 있습니다. DPR을 반영하되 장치 texture 크기 한도를 넘지 않도록 제한합니다."
+        },
+        {
+          "title": "MSAA",
+          "explanation": "다중 샘플 attachment는 resolve target으로 표시 결과를 넘길 수 있습니다. pipeline과 attachment의 sampleCount는 일치해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "해상도를 안전하게 갱신한다.",
+        "MSAA attachment 계약을 유지한다."
+      ],
+      "steps": [
+        "resize.js에서 ResizeObserver로 크기를 읽고 DPR과 limits로 buffer 크기를 정하세요.",
+        "sampleCount 4의 color·depth texture를 만들고 현재 canvas view를 resolveTarget으로 쓰세요.",
+        "resize 때 attachment를 교체하며 sampleCount 1과 4의 경계 이미지를 저장하세요."
+      ],
+      "variables": [
+        {
+          "name": "sampleCount",
+          "baseline": "1",
+          "change": "4",
+          "expected": "삼각형 가장자리 계단이 줄고 attachment 비용이 늘 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 canvas 크기에서 attachment 크기가 일치한다.",
+        "1·4 샘플의 경계 이미지를 같은 시점에서 비교한다."
+      ],
+      "questions": [
+        "MSAA가 모든 shader aliasing을 해결하나요?",
+        "창 크기가 0이 될 때 texture 생성은 어떻게 처리하나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 14,
+      "id": "webgpu-02",
+      "title": "Buffer와 Render pass",
+      "prerequisites": "13단위 결과물과 기록을 이어 사용합니다. Buffer와 Render pass 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "통합 경로",
+          "explanation": "CPU 배열은 buffer와 binding을 거쳐 shader 입력이 됩니다. render pass는 출력 attachment와 pipeline·draw 상태를 묶습니다."
+        },
+        {
+          "title": "오류 범위",
+          "explanation": "validation 오류를 잡을 때는 오류가 날 수 있는 작업 전후에 error scope를 둡니다. 오류를 숨기기보다 descriptor와 메시지를 함께 기록합니다."
+        }
+      ],
+      "outcomes": [
+        "렌더 경로를 통합한다.",
+        "validation 실패를 진단하고 복구한다."
+      ],
+      "steps": [
+        "renderer.js에 정점·색 uniform·attachment·draw 경로를 한 함수로 묶으세요.",
+        "pushErrorScope('validation') 뒤 잘못된 usage buffer를 사용하는 최소 사례를 만들고 popErrorScope 결과를 표시하세요.",
+        "usage를 복구하고 색·해상도 입력을 바꿔 같은 렌더 경로를 재실행하세요."
+      ],
+      "variables": [
+        {
+          "name": "buffer usage",
+          "baseline": "UNIFORM|COPY_DST",
+          "change": "COPY_DST만 지정",
+          "expected": "uniform binding 검증에서 오류가 나고 복구 후 색이 갱신될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "CPU 색 값에서 화면 출력까지 다섯 단계의 연결을 설명한다.",
+        "의도한 validation 오류를 기록하고 정상 렌더링으로 복구한다."
+      ],
+      "questions": [
+        "pass 설정과 pipeline 설정은 어디에서 맞물리나요?",
+        "submit 성공만으로 렌더 정확성을 보장할 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "기존 webgpu-02 미리보기는 출발점입니다. 이후 과제 전체의 구현이나 검증을 대신하지 않습니다. 별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 15,
+      "id": "webgpu-step-15",
+      "title": "Compute 첫 배열 변환",
+      "prerequisites": "14단위 결과물과 기록을 이어 사용합니다. Compute 첫 배열 변환 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "병렬 인덱스",
+          "explanation": "global_invocation_id는 처리할 원소의 위치를 정하는 데 사용할 수 있습니다. dispatch 크기는 원소 수와 workgroup 크기를 함께 고려합니다."
+        },
+        {
+          "title": "경계 검사",
+          "explanation": "마지막 workgroup에는 실제 데이터보다 많은 invocation이 생길 수 있습니다. 독립 원소 커널에서는 길이를 검사한 뒤 접근합니다."
+        }
+      ],
+      "outcomes": [
+        "독립 원소 compute를 구현한다.",
+        "dispatch 경계를 처리한다."
+      ],
+      "steps": [
+        "compute.wgsl에 입력 배열 원소를 두 배로 만드는 kernel을 작성하세요.",
+        "storage buffer 두 개와 compute pipeline을 만들고 ceil(N/64) workgroup을 dispatch하세요.",
+        "N=65를 입력하고 출력 마지막 원소까지 staging buffer로 복사해 검사하세요."
+      ],
+      "variables": [
+        {
+          "name": "배열 길이",
+          "baseline": "64",
+          "change": "65",
+          "expected": "두 번째 workgroup의 한 원소만 유효하게 계산될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "65개 결과가 CPU의 두 배 결과와 일치한다.",
+        "길이보다 큰 invocation이 buffer 접근 전에 제외된다."
+      ],
+      "questions": [
+        "dispatchWorkgroups의 인자는 원소 수인가요?",
+        "barrier를 추가하면 조기 return 조건을 다시 검토해야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 16,
+      "id": "webgpu-step-16",
+      "title": "Storage와 ping-pong",
+      "prerequisites": "15단위 결과물과 기록을 이어 사용합니다. Storage와 ping-pong 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "쓰기 충돌",
+          "explanation": "이웃 값을 읽으며 같은 배열을 갱신하면 실행 순서에 따라 결과가 바뀔 수 있습니다. 입력과 출력을 나눈 ping-pong buffer가 이전 상태를 보존합니다."
+        },
+        {
+          "title": "프레임 교체",
+          "explanation": "한 단계가 끝나면 다음 단계의 읽기·쓰기 역할을 바꿉니다. bind group을 미리 두 개 만들어 교환할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "입출력 상태를 분리한다.",
+        "반복 계산의 데이터 의존성을 관리한다."
+      ],
+      "steps": [
+        "simulation.wgsl에 이웃 세 값의 평균을 출력하는 kernel을 작성하세요.",
+        "A→B와 B→A bind group을 만들고 매 단계 교대하세요.",
+        "세 단계 결과를 CPU의 별도 입력·출력 배열 계산과 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "입출력 자원",
+          "baseline": "분리한 A/B",
+          "change": "같은 배열을 읽고 쓰는 개념 검토",
+          "expected": "같은 배열 방식은 순서 의존성이 생길 수 있어 기준으로 사용하지 않을 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 단계의 최대 오차가 정한 1e-5 이내이다.",
+        "각 단계의 읽기·쓰기 buffer id를 기록한다."
+      ],
+      "questions": [
+        "독립 원소 갱신에서는 제자리 쓰기가 가능한가요?",
+        "workgroupBarrier가 다른 workgroup의 이전 상태를 보장하나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 17,
+      "id": "webgpu-step-17",
+      "title": "Map과 staging buffer",
+      "prerequisites": "16단위 결과물과 기록을 이어 사용합니다. Map과 staging buffer 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "읽기 경로",
+          "explanation": "GPU storage buffer를 곧바로 CPU에서 읽는 방식은 일반적인 readback 계약과 다릅니다. COPY_DST|MAP_READ staging buffer로 복사한 뒤 매핑합니다."
+        },
+        {
+          "title": "매핑 상태",
+          "explanation": "매핑된 buffer는 GPU가 사용할 수 없는 상태입니다. getMappedRange의 데이터를 복사해 보관한 뒤 unmap합니다."
+        }
+      ],
+      "outcomes": [
+        "안전한 readback을 구현한다.",
+        "buffer 매핑 수명을 관리한다."
+      ],
+      "steps": [
+        "readback.js에서 결과 COPY_SRC buffer와 staging buffer를 분리하세요.",
+        "copyBufferToBuffer를 제출한 뒤 mapAsync(GPUMapMode.READ)를 기다리세요.",
+        "getMappedRange를 복사하고 unmap한 뒤 다음 계산을 수행하세요."
+      ],
+      "variables": [
+        {
+          "name": "읽기 횟수",
+          "baseline": "마지막 한 번",
+          "change": "매 단계",
+          "expected": "반복 매핑과 대기가 전체 지연을 늘릴 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "unmap 후에도 복사한 CPU 결과가 유지된다.",
+        "매핑된 staging buffer를 GPU 명령에 다시 사용하지 않는다."
+      ],
+      "questions": [
+        "getMappedRange view를 그대로 보관하면 unmap 후 무엇이 달라지나요?",
+        "GPU 결과를 표시만 할 때 readback이 꼭 필요한가요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 18,
+      "id": "webgpu-step-18",
+      "title": "복사 정렬과 texture 행",
+      "prerequisites": "17단위 결과물과 기록을 이어 사용합니다. 복사 정렬과 texture 행 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "Buffer 복사",
+          "explanation": "copyBufferToBuffer의 offset과 크기에는 4바이트 정렬 조건이 있습니다. buffer 전체 용량과 실제 유효 데이터 길이를 분리해 기록합니다."
+        },
+        {
+          "title": "Texture 행",
+          "explanation": "encoder의 buffer↔texture 복사에서 bytesPerRow는 필요한 경우 256바이트 배수를 사용합니다. queue.writeTexture의 행 규칙과 혼동하지 않습니다."
+        }
+      ],
+      "outcomes": [
+        "복사 정렬을 계산한다.",
+        "texture readback padding을 제거한다."
+      ],
+      "steps": [
+        "copy-layout.js에 13픽셀 RGBA8 행의 유효 52바이트와 padded stride 256을 계산하세요.",
+        "copyTextureToBuffer 결과의 padding을 건너뛰며 CPU 이미지를 복원하세요.",
+        "buffer 복사 offset 4와 잘못된 offset 2를 error scope로 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "행 stride",
+          "baseline": "52바이트 유효 데이터",
+          "change": "256바이트 복사용 stride",
+          "expected": "padding을 제외하면 원본 13픽셀 행이 복원될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "유효 행 바이트와 복사 stride를 각각 기록한다.",
+        "복원 이미지가 원본과 일치하고 잘못된 offset은 검증 오류가 된다."
+      ],
+      "questions": [
+        "writeTexture에도 언제나 256배수 규칙을 적용해야 하나요?",
+        "padding을 픽셀로 읽으면 어떤 줄무늬가 나타나나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 19,
+      "id": "webgpu-step-19",
+      "title": "Workgroup 공유 메모리",
+      "prerequisites": "18단위 결과물과 기록을 이어 사용합니다. Workgroup 공유 메모리 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "공유 범위",
+          "explanation": "var<workgroup>은 같은 workgroup invocation들이 공유합니다. 서로 다른 workgroup 사이에는 이 메모리로 통신할 수 없습니다."
+        },
+        {
+          "title": "동기화",
+          "explanation": "공유 값을 읽기 전에 workgroupBarrier로 해당 단계의 쓰기를 맞춥니다. barrier는 workgroup 전체가 같은 제어 흐름에서 도달해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "공유 메모리 감소 연산을 만든다.",
+        "barrier 도달 조건을 유지한다."
+      ],
+      "steps": [
+        "reduce.wgsl에 64개 값을 workgroup 배열에 넣는 부분합 kernel을 작성하세요.",
+        "범위 밖 lane도 0을 쓰고 barrier에 참여하게 하세요.",
+        "N=65의 두 부분합을 CPU에서 합쳐 전체 합과 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "길이",
+          "baseline": "64",
+          "change": "65",
+          "expected": "두 번째 그룹의 빈 lane은 0으로 참여하고 합은 정확할 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "65개 CPU 합과 GPU 부분합의 합이 허용 오차 내에서 같다.",
+        "barrier 이전에 일부 lane만 return하는 경로가 없다."
+      ],
+      "questions": [
+        "barrier가 dispatch 전체를 동기화하나요?",
+        "범위 밖 lane을 0으로 채우는 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 20,
+      "id": "webgpu-step-20",
+      "title": "Compute 결과 렌더링",
+      "prerequisites": "19단위 결과물과 기록을 이어 사용합니다. Compute 결과 렌더링 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "GPU 내부 연결",
+          "explanation": "계산 결과를 vertex 또는 storage 입력으로 바로 렌더링할 수 있습니다. CPU readback 없이도 다음 pass가 같은 제출의 결과를 소비할 수 있습니다."
+        },
+        {
+          "title": "사용 선언",
+          "explanation": "buffer의 compute 쓰기와 렌더 읽기에 필요한 usage를 함께 선언합니다. pass 사이 역할을 명시해 충돌을 피합니다."
+        }
+      ],
+      "outcomes": [
+        "Compute와 렌더 pass를 연결한다.",
+        "불필요한 데이터 왕복을 줄인다."
+      ],
+      "steps": [
+        "particles.js에 위치 STORAGE|VERTEX|COPY_SRC|COPY_DST buffer와 속도 STORAGE|COPY_DST buffer를 만들고 초기 데이터를 writeBuffer로 기록하세요.",
+        "compute pass에서 위치를 갱신하고 뒤의 render pass에서 정점 위치로 사용하세요.",
+        "readback은 검증 버튼에만 연결하고 프레임별 호출 수를 표시하세요."
+      ],
+      "variables": [
+        {
+          "name": "readback 정책",
+          "baseline": "매 프레임",
+          "change": "검증 버튼 때만",
+          "expected": "시각 결과는 유지하며 CPU 대기 비용이 줄 수 있다고 예상합니다."
+        }
+      ],
+      "criteria": [
+        "일반 프레임에서 mapAsync 호출이 0회이다.",
+        "검증 버튼의 위치 값이 CPU 기준값과 오차 범위 내에서 같다."
+      ],
+      "questions": [
+        "같은 pass 안에서 읽기와 쓰기를 겹치면 왜 검토가 필요한가요?",
+        "usage를 추가하면 데이터가 자동 복사되나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 21,
+      "id": "webgpu-step-21",
+      "title": "Instancing과 데이터 구조",
+      "prerequisites": "20단위 결과물과 기록을 이어 사용합니다. Instancing과 데이터 구조 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "인스턴스",
+          "explanation": "같은 기본 도형을 여러 번 그릴 때 instance index로 개별 데이터를 조회할 수 있습니다. draw 호출 수와 화면 fragment 수는 서로 다른 비용입니다."
+        },
+        {
+          "title": "배열 구조",
+          "explanation": "AoS와 SoA는 데이터 접근 방식에 따라 관리와 접근 패턴이 달라집니다. 구조 변경의 이점은 실제 커널에서 측정합니다."
+        }
+      ],
+      "outcomes": [
+        "인스턴스 렌더링을 구성한다.",
+        "호출 수와 처리량을 구분한다."
+      ],
+      "steps": [
+        "instance.wgsl에서 instance_index로 위치·색 storage 배열을 읽으세요.",
+        "작은 quad를 256개 instance로 그리며 한 draw로 묶으세요.",
+        "입자 수 64·256·512의 draw 수와 프레임 간격을 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "instance 수",
+          "baseline": "64",
+          "change": "512",
+          "expected": "draw 수는 같고 정점·fragment 처리량은 늘 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 수량에서 draw 호출이 한 번이다.",
+        "각 instance가 고유 위치와 색을 읽는지 네 표식을 확인한다."
+      ],
+      "questions": [
+        "draw 호출이 하나면 렌더 비용도 일정한가요?",
+        "AoS와 SoA 중 어느 쪽이 항상 빠른가요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 22,
+      "id": "webgpu-step-22",
+      "title": "Device loss와 재초기화",
+      "prerequisites": "21단위 결과물과 기록을 이어 사용합니다. Device loss와 재초기화 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "손실 상태",
+          "explanation": "device.lost는 장치가 더 이상 유효하지 않음을 알립니다. 이전 device의 자원은 새 device에서 그대로 사용할 수 없습니다."
+        },
+        {
+          "title": "재생성",
+          "explanation": "복구에는 shader·buffer·pipeline을 다시 만드는 경로가 필요합니다. CPU 쪽 설정과 초기 데이터는 재생성 가능한 형태로 보관합니다."
+        }
+      ],
+      "outcomes": [
+        "장치 손실을 처리한다.",
+        "자원 재생성 경로를 검증한다."
+      ],
+      "steps": [
+        "device.js에 device.lost 처리와 렌더 루프 중단을 연결하세요.",
+        "개발용 버튼으로 device.destroy를 호출하고 손실 사유를 표시하세요.",
+        "사용자 재시도 동작에서 새 device와 자원을 만들고 저장한 설정을 복원하세요."
+      ],
+      "variables": [
+        {
+          "name": "장치 상태",
+          "baseline": "정상",
+          "change": "destroy로 의도한 손실",
+          "expected": "루프가 멈추고 명시적 재시도 후 새 자원으로 복구될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "손실 뒤 이전 device로 제출하지 않는다.",
+        "재시도 후 새 device로 동일 초기 장면을 생성한다."
+      ],
+      "questions": [
+        "destroy 사유와 예기치 않은 손실의 재시도 정책은 같아야 하나요?",
+        "복구를 위해 CPU에 어떤 정보가 남아야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 23,
+      "id": "webgpu-step-23",
+      "title": "비동기 오류와 작업 식별",
+      "prerequisites": "22단위 결과물과 기록을 이어 사용합니다. 비동기 오류와 작업 식별 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "오류 통로",
+          "explanation": "error scope와 uncapturederror는 서로 다른 오류 관찰 경로입니다. 예상한 검증 실패와 예상하지 못한 오류를 구분해 보여 줍니다."
+        },
+        {
+          "title": "세대 번호",
+          "explanation": "재초기화 중 이전 비동기 작업이 끝날 수 있습니다. device 세대 번호로 낡은 결과가 새 상태를 바꾸지 못하게 합니다."
+        }
+      ],
+      "outcomes": [
+        "비동기 오류를 작업에 연결한다.",
+        "낡은 결과의 반영을 차단한다."
+      ],
+      "steps": [
+        "errors.js에 uncapturederror listener와 작업 label을 추가하세요.",
+        "pipeline 생성 중 재초기화를 요청하는 지연 fixture를 만드세요.",
+        "완료 결과의 generation을 비교하고 이전 결과를 폐기한 기록을 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "완료 순서",
+          "baseline": "현재 세대 먼저",
+          "change": "이전 세대가 늦게 완료",
+          "expected": "늦은 결과가 새 pipeline을 교체하지 않을 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "오류 로그에 작업 label과 세대가 표시된다.",
+        "두 완료 순서에서 현재 세대 자원만 사용한다."
+      ],
+      "questions": [
+        "error scope를 너무 넓게 잡으면 원인 추적이 왜 어려운가요?",
+        "낡은 pipeline 결과를 버릴 때 어떤 자원 정리가 필요한가요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 24,
+      "id": "webgpu-step-24",
+      "title": "시간 측정의 범위",
+      "prerequisites": "23단위 결과물과 기록을 이어 사용합니다. 시간 측정의 범위 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "전체 지연",
+          "explanation": "CPU 기준의 시작부터 readback 완료까지는 전송과 대기를 포함합니다. 이를 compute kernel 실행 시간과 동일하게 해석하지 않습니다."
+        },
+        {
+          "title": "선택 측정",
+          "explanation": "timestamp-query는 지원과 요청을 확인한 경우에만 사용합니다. 미지원이면 GPU 구간을 미측정으로 남기고 CPU 경과 시간을 제공합니다."
+        }
+      ],
+      "outcomes": [
+        "측정 범위를 명확히 한다.",
+        "선택 측정 기능을 안전하게 사용한다."
+      ],
+      "steps": [
+        "benchmark.js에 입력 생성·업로드·제출·map 완료 구간을 나누세요.",
+        "timestamp-query 지원 여부를 기록하고 지원 시에만 pass timestamp와 resolve 경로를 구성하세요.",
+        "예열 후 다섯 실행의 전체 지연과 가능한 GPU 구간 값을 별도 열로 저장하세요."
+      ],
+      "variables": [
+        {
+          "name": "배열 크기",
+          "baseline": "1024",
+          "change": "65536",
+          "expected": "계산량은 늘지만 작은 입력에서는 고정 전송 비용이 더 두드러질 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "전체 지연과 GPU 구간을 다른 이름으로 기록한다.",
+        "미지원 기능을 요청하지 않으며 미측정 항목을 명시한다."
+      ],
+      "questions": [
+        "onSubmittedWorkDone 경과 시간이 kernel 시간인가요?",
+        "예열 전 첫 실행이 느린 이유에는 무엇이 있나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 25,
+      "id": "webgpu-step-25",
+      "title": "CPU 기준과 오차 예산",
+      "prerequisites": "24단위 결과물과 기록을 이어 사용합니다. CPU 기준과 오차 예산 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "부동소수점",
+          "explanation": "CPU의 JavaScript number와 GPU f32는 연산 정밀도가 다릅니다. 결합 순서가 바뀌는 합 연산에서는 작은 오차가 생길 수 있습니다."
+        },
+        {
+          "title": "검증 기준",
+          "explanation": "절대 오차와 상대 오차는 값의 크기에 따라 역할이 다릅니다. 결과를 보기 전에 허용 기준과 특수값 처리를 정합니다."
+        }
+      ],
+      "outcomes": [
+        "CPU 기준을 작성한다.",
+        "수치 오차를 명시적으로 판정한다."
+      ],
+      "steps": [
+        "reference.js에 입자 갱신 CPU 함수를 작성하고 고정 seed 입력을 생성하세요.",
+        "readback 결과와 절대·상대 오차를 원소별로 계산하세요.",
+        "0·음수·작은 값·큰 값을 포함한 입력에서 최대 오차와 실패 인덱스를 출력하세요."
+      ],
+      "variables": [
+        {
+          "name": "검증 입력",
+          "baseline": "작은 양수",
+          "change": "0·음수·큰 값 혼합",
+          "expected": "규모가 다른 값에서 상대 오차만 쓰는 기준의 한계가 드러날 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "허용 기준 abs<=1e-5+1e-4*abs(reference)를 사전에 기록한다.",
+        "실패 시 원소 index·기준값·GPU값을 출력한다."
+      ],
+      "questions": [
+        "정확히 같은 비트 결과가 꼭 필요한 작업은 무엇인가요?",
+        "NaN을 오차 비교에 넣으면 검사가 통과할 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 26,
+      "id": "webgpu-step-26",
+      "title": "Workgroup 크기 실험",
+      "prerequisites": "25단위 결과물과 기록을 이어 사용합니다. Workgroup 크기 실험 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "구성 제약",
+          "explanation": "workgroup 크기는 장치 한도와 shader 선언을 함께 만족해야 합니다. 크기가 커질수록 항상 빨라지는 것은 아닙니다."
+        },
+        {
+          "title": "공정 비교",
+          "explanation": "같은 입력·같은 연산·같은 readback 정책으로 비교해야 합니다. 커널 구성을 바꾸면서 알고리즘까지 바꾸면 원인을 분리하기 어렵습니다."
+        }
+      ],
+      "outcomes": [
+        "한도 안에서 커널 구성을 비교한다.",
+        "정확성을 유지하며 비용을 측정한다."
+      ],
+      "steps": [
+        "tuning.js에 32·64·128 lane kernel 변형을 준비하고 limits를 검사하세요.",
+        "N=1003의 동일 입력을 각 구성에서 실행하세요.",
+        "정확성 확인 후 전체 지연 다섯 회와 지원 구성 목록을 저장하세요."
+      ],
+      "variables": [
+        {
+          "name": "workgroup 크기",
+          "baseline": "64",
+          "change": "32와 128",
+          "expected": "실행 효율은 장치에 따라 달라지며 모든 구성의 결과는 같아야 한다고 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 구성의 마지막 원소까지 CPU 기준을 통과한다.",
+        "미지원 구성은 실행하지 않고 사유를 기록한다."
+      ],
+      "questions": [
+        "큰 workgroup이 공유 메모리 사용량에 어떤 영향을 주나요?",
+        "한 장치의 최적값을 기본값으로 고정해도 되나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 27,
+      "id": "webgpu-step-27",
+      "title": "통합 입자 실험 인수",
+      "prerequisites": "26단위 결과물과 기록을 이어 사용합니다. 통합 입자 실험 인수 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "구성 분리",
+          "explanation": "초기 데이터·커널·렌더·readback·UI를 분리하면 오류 위치가 명확해집니다. 모듈 간 계약에는 buffer 크기와 수명이 포함됩니다."
+        },
+        {
+          "title": "인수 증거",
+          "explanation": "보이는 애니메이션만으로 계산의 정확성을 증명할 수 없습니다. 실패 복구와 CPU 비교 결과를 함께 남깁니다."
+        }
+      ],
+      "outcomes": [
+        "전체 프로젝트 계약을 문서화한다.",
+        "실패와 재시작을 포함해 인수한다."
+      ],
+      "steps": [
+        "README.md에 모듈별 입력·출력·자원 소유권을 표로 적으세요.",
+        "지원 실패·device loss·resize·N=0·N=1003 다섯 시나리오를 실행하세요.",
+        "현재 설정 JSON과 CPU 비교 결과를 내보내고 새 세션에서 복원하세요."
+      ],
+      "variables": [
+        {
+          "name": "시작 상태",
+          "baseline": "기존 세션",
+          "change": "새 세션과 저장 설정",
+          "expected": "숨은 GPU 상태 없이 같은 초기 데이터가 재현될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "다섯 시나리오에 실제 관찰 또는 미실행 사유가 있다.",
+        "재시작 후 seed와 초기 위치가 일치한다."
+      ],
+      "questions": [
+        "애니메이션이 정상이어도 어떤 계산 오류가 숨을 수 있나요?",
+        "빈 입력에서 만들지 않아도 되는 GPU 작업은 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    },
+    {
+      "day": 28,
+      "id": "webgpu-03",
+      "title": "Compute와 Readback",
+      "prerequisites": "27단위 결과물과 기록을 이어 사용합니다. Compute와 Readback 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "종합 비교",
+          "explanation": "배열 계산을 GPU로 옮길 때 데이터 이동이 전체 이득을 좌우할 수 있습니다. 계산 구간과 사용자에게 결과가 도착하는 지연을 함께 비교합니다."
+        },
+        {
+          "title": "채택 근거",
+          "explanation": "GPU 경로가 빠르지 않은 입력 크기도 결과입니다. 정확성·지원 범위·복구 비용을 포함해 사용할 조건을 정합니다."
+        }
+      ],
+      "outcomes": [
+        "Compute의 정확성과 전체 비용을 비교한다.",
+        "GPU 사용 조건을 근거로 결정한다."
+      ],
+      "steps": [
+        "최종 kernel과 CPU 함수를 65·1003·65536 원소에 같은 seed로 실행하세요.",
+        "readback 없음·최종 한 번·매 단계 세 정책의 전체 지연을 기록하세요.",
+        "report.md에 최대 오차·환경·선택한 workgroup·device loss 복구 결과와 채택 조건을 작성하세요."
+      ],
+      "variables": [
+        {
+          "name": "readback 빈도",
+          "baseline": "최종 한 번",
+          "change": "매 단계",
+          "expected": "결과는 같지만 반복 전송·대기로 전체 지연이 늘 수 있다고 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 길이의 마지막 원소까지 오차 기준을 확인한다.",
+        "세 readback 정책의 전체 비용과 미측정 GPU 항목을 구분한다."
+      ],
+      "questions": [
+        "어떤 입력에서는 CPU 경로가 더 적합한가요?",
+        "결과를 GPU에서 바로 그리면 비교 조건이 어떻게 달라지나요?"
+      ],
+      "references": [
+        {
+          "title": "WebGPU API와 오류 처리",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API"
+        },
+        {
+          "title": "WGSL 명세",
+          "url": "https://www.w3.org/TR/WGSL/"
+        }
+      ],
+      "environment": "기존 webgpu-03 미리보기는 출발점입니다. 이후 과제 전체의 구현이나 검증을 대신하지 않습니다. 별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다."
+    }
+  ]
+}

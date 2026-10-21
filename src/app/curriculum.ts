@@ -1,4 +1,5 @@
 import catalog from './catalog.json'
+import previousCatalog from '../../content/catalog-v2.json'
 
 export interface Unit {
   id: string
@@ -50,6 +51,7 @@ export const units: Unit[] = catalog.units.map(unit => ({
 } as Record<string, string>)[unit.id],
 }))
 export const legacyUnitIds = units.filter(unit => unit.seriesId === 'webgl').map(unit => unit.id)
+export const v2UnitIds = previousCatalog.units.map(unit => unit.id)
 export const categories: Record<string, string> = {
   fundamentals: '언어와 웹 기초', frameworks: 'UI 프레임워크', graphics: '그래픽스',
   shader: '셰이더', animation: '애니메이션', engineering: '엔지니어링', testing: '테스트',

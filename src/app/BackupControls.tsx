@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
-import { units, legacyUnitIds } from './curriculum'
+import { units, legacyUnitIds, v2UnitIds } from './curriculum'
 import { draftStore } from '../shared/drafts'
-import { MAX_BACKUP_BYTES, parseBackup, type StudyBackup } from '../shared/backup'
+import { MAX_BACKUP_BYTES, parseBackup, mergeBackupDrafts, type StudyBackup } from '../shared/backup'
 
 export function BackupControls({ selectedId, onRestore }: { selectedId: string; onRestore: (id: string) => void }) {
   const input = useRef<HTMLInputElement>(null)
@@ -15,7 +15,7 @@ export function BackupControls({ selectedId, onRestore }: { selectedId: string; 
     try {
       let warnings = 0
       const backup: StudyBackup = {
-        format: 'frontory', version: 2, exportedAt: new Date().toISOString(), selectedUnitId: selectedId,
+        format: 'frontory', version: 3, exportedAt: new Date().toISOString(), selectedUnitId: selectedId,
         units: units.map(unit => {
           const result = draftStore.load(unit.id, unit.source ?? '')
           if (result.warning) warnings++
@@ -23,7 +23,7 @@ export function BackupControls({ selectedId, onRestore }: { selectedId: string; 
         }),
       }
       const text = JSON.stringify(backup, null, 2)
-      parseBackup(text, units.map(unit => unit.id), legacyUnitIds)
+      parseBackup(text, units.map(unit => unit.id), legacyUnitIds, v2UnitIds)
       const url = URL.createObjectURL(new Blob([text], { type: 'application/json;charset=utf-8' }))
       const link = document.createElement('a')
       link.href = url
@@ -40,7 +40,7 @@ export function BackupControls({ selectedId, onRestore }: { selectedId: string; 
     setPending(null); setError(''); setMessage(''); setReading(true)
     try {
       if (file.size > MAX_BACKUP_BYTES) throw new Error('파일은 10 MiB 이하여야 합니다.')
-      const backup = parseBackup(await file.text(), units.map(unit => unit.id), legacyUnitIds)
+      const backup = parseBackup(await file.text(), units.map(unit => unit.id), legacyUnitIds, v2UnitIds)
       if (current === request.current) setPending(backup)
     } catch (cause) {
       if (current === request.current) setError('가져오기 중단: ' + (cause instanceof Error ? cause.message : '파일을 읽지 못했습니다.'))
@@ -49,8 +49,10 @@ export function BackupControls({ selectedId, onRestore }: { selectedId: string; 
   const restore = () => {
     if (!pending) return
     try {
-      const preserved = pending.version === 1 ? Object.fromEntries(units.filter(unit => !legacyUnitIds.includes(unit.id)).map(unit => [unit.id, draftStore.load(unit.id, unit.source ?? '').draft])) : {}
-      draftStore.replaceAll({ ...preserved, ...Object.fromEntries(pending.units.map(unit => [unit.id, unit.draft])) })
+      draftStore.replaceAll(mergeBackupDrafts(pending, units.map(unit => unit.id), id => {
+        const unit = units.find(item => item.id === id)!
+        return draftStore.load(id, unit.source ?? '').draft
+      }))
       onRestore(pending.selectedUnitId)
       setPending(null); setError(''); setMessage('전체 학습 내용을 복원하고 저장된 목차로 이동했습니다.')
     } catch {
@@ -66,7 +68,7 @@ export function BackupControls({ selectedId, onRestore }: { selectedId: string; 
     {error && <p role="alert">{error}</p>}
     {pending && <div className="backup-confirm">
       <p>백업 날짜: {new Date(pending.exportedAt).toLocaleString('ko-KR')} · {pending.units.length}개 단위</p>
-      <p>{pending.version === 1 ? '기존 WebGL 28개 단위만 교체하며 다른 시리즈는 유지합니다.' : '모든 시리즈의 코드·필기·학습 상태를 파일 내용으로 교체합니다.'} 복원 목차: {units.find(unit => unit.id === pending.selectedUnitId)?.title}. 해당 예제 코드는 검사 후 실행됩니다. 필요하면 먼저 현재 내용을 내보내세요.</p>
+      <p>{pending.version < 3 ? `기존 ${pending.units.length}개 단위만 교체하며 이후 추가된 단위의 기록은 유지합니다.` : '모든 시리즈의 코드·필기·학습 상태를 파일 내용으로 교체합니다.'} 복원 목차: {units.find(unit => unit.id === pending.selectedUnitId)?.title}. 실행 예제가 있는 단위의 코드는 검사 후 실행됩니다. 필요하면 먼저 현재 내용을 내보내세요.</p>
       <button onClick={restore}>전체 교체하여 복원</button><button onClick={() => { setPending(null); setError('') }}>취소</button>
     </div>}
   </section>

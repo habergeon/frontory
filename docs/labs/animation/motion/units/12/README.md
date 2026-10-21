@@ -1,0 +1,84 @@
+# Motion · 12 LayoutId 공유
+
+[시리즈 목차](../../README.md) · [전체 기술 지도](../../../../README.md)
+
+단계: Layout과 Presence · 문서 기반 직접 구현 · 저장 ID: `motion-step-12`
+
+## 목표와 학습 후 역량
+
+- 학습 결과: 시각적 연결의 역할을 설명한다. 입력 사례: 두 목록의 다른 카드 선택.
+- 산출물: 목록별 표시선 위치 표. 영역 분리 처리 근거를 코드와 연결해 설명한다.
+
+## 선수 지식
+
+11단위 「Presence 모드」의 동시 전환 및 순차 전환 실습 결과를 준비한다.
+
+## 핵심 개념과 설명
+
+### 시각적 연결
+
+layoutId는 대응 요소 사이의 전환을 연결한다. 같은 ID를 무관한 여러 대상에 쓰면 의미가 흐려진다.
+
+### 영역 분리
+
+독립 목록의 layoutId가 같으면 전환 대상이 충돌할 수 있다. 서로 다른 LayoutGroup id를 지정하거나 전역적으로 고유한 layoutId를 사용해 이름 공간을 나눈다.
+
+## 실습 준비
+
+기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다.
+
+이 단위에는 내장 실행 예제가 없습니다. 아래 절차에 따라 별도 실습 파일을 만들고 실행 결과를 필기에 남기세요. 코드 파일은 작업 폴더에서 따로 보관하고 Frontory 필기는 JSON 또는 Markdown으로 백업하세요.
+
+## 실습 과제
+
+1. 별도 React 프로젝트의 src/day-12.tsx에서 두 목록의 선택 표시선에 같은 layoutId를 사용한다. 각각을 LayoutGroup으로 감싸고 id는 list-a와 list-b로 서로 다르게 지정한다. 단순히 LayoutGroup만 두 개 만드는 것과 구분한다.
+2. 두 목록에서 서로 다른 카드를 선택한다. LayoutGroup id를 생략한 조건에서 표시선의 출발·도착 목록을 notes/day-12.md에 기록한다.
+3. LayoutGroup id를 list-a와 list-b로 지정한 뒤 같은 선택 순서를 반복한다. 목록별 표시선 위치를 저장하고 전환 대상이 각 이름 공간 안에 남는지 확인한다. 대안으로 전역적으로 고유한 layoutId를 사용하는 방식도 설명한다.
+
+## 관찰할 변수
+
+| 변수 | 기준 조건 | 바꿀 조건 | 예상할 변화·검증 가설 |
+| --- | --- | --- | --- |
+| LayoutGroup id 이름 공간 | LayoutGroup 두 개에 id 생략 | 서로 다른 id: list-a 및 list-b | 동일한 layoutId를 사용해도 각 목록 안에서만 표시선 전환이 연결된다. |
+
+표의 예상은 측정 결과가 아닙니다. 한 번에 한 조건만 바꾸고 실제 결과가 다르면 원인을 기록하세요.
+
+## 완료 조건
+
+- [ ] 필수 산출물: 목록별 표시선 위치 표. 기준 및 변경 조건 각각의 결과가 있어 총 2조건을 비교할 수 있고, 입력값과 실행 환경을 함께 기록했다.
+- [ ] LayoutGroup id를 생략한 조건과 서로 다르게 지정한 조건의 두 선택 경로를 기록하고, 이름 공간을 지정한 조건에서 다른 목록으로 잘못 연결되는 전환이 0회인지 확인했다.
+
+## 자가 점검
+
+1. 이번 실습에서 시각적 연결 개념은 어느 처리 단계에 영향을 주는가? 입력 사례: 두 목록의 다른 카드 선택.
+2. LayoutGroup을 단순히 두 개 만드는 것과 서로 다른 id를 지정하는 것은 무엇이 다른가? 전역적으로 고유한 layoutId는 어떤 대안이 되는가?
+
+## 공식 참고
+
+- [Motion React animation](https://motion.dev/docs/react-animation)
+- [Motion AnimatePresence](https://motion.dev/docs/react-animate-presence)
+- [Motion LayoutGroup: namespace layoutId](https://motion.dev/docs/react-layout-group#namespace-layoutid)
+
+## 연결된 예제와 실행 범위
+
+문서와 필기를 제공합니다. 내장 실행 예제는 아직 제공하지 않습니다.
+
+원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
+
+## 다음 학습
+
+[이전: Presence 모드](../11/README.md) · [다음: 삭제 중 포커스](../13/README.md)
+
+## 실험 기록 — 직접 작성
+
+### 목표
+
+### 핵심 개념
+
+### 바꾼 변수와 예상
+
+### 실제 결과
+
+### 배운 점
+
+### 남은 질문

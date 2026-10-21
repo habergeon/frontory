@@ -1,0 +1,1357 @@
+{
+  "seriesId": "glsl",
+  "stages": [
+    "셰이더 언어와 데이터 흐름",
+    "좌표·질감·시간 표현",
+    "조명과 절차적 표면",
+    "상호작용·후처리·비용 평가"
+  ],
+  "goal": "GLSL ES의 단계별 입력과 수학을 이해하고 WebGL2에서 시각 효과를 구현·진단·비교합니다.",
+  "capstone": "포인터로 조작하는 절차적 표면과 후처리를 갖추고 컴파일 복구 및 품질·비용 기록을 제공하는 실험",
+  "units": [
+    {
+      "day": 1,
+      "id": "glsl-01",
+      "title": "Vertex와 Fragment",
+      "prerequisites": "벡터 연산과 WebGL 프로그램 생성",
+      "concepts": [
+        {
+          "title": "단계 역할",
+          "explanation": "vertex shader는 clip 위치와 다음 단계에 전달할 값을 계산합니다. fragment shader는 보간된 입력에서 픽셀 후보의 출력을 만듭니다."
+        },
+        {
+          "title": "버전 계약",
+          "explanation": "WebGL1의 GLSL ES 1.00과 WebGL2의 3.00 문법은 구분해야 합니다. 3.00에서는 첫 줄의 #version 300 es와 in/out 및 명시적인 fragment 출력을 사용합니다."
+        }
+      ],
+      "outcomes": [
+        "셰이더 단계의 책임을 설명한다.",
+        "버전별 문법과 오류를 구분한다."
+      ],
+      "steps": [
+        "main.js에서 webgl2 context를 만들고 vertex.glsl·fragment.glsl 소스를 분리하세요.",
+        "위치만 반환하는 vertex와 고정색 fragment를 compileShader·linkProgram으로 연결하세요.",
+        "한 소스의 문법 오류와 두 단계의 인터페이스 오류를 따로 넣고 로그를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "fragment 색",
+          "baseline": "빨강",
+          "change": "초록",
+          "expected": "정점 위치는 그대로이고 출력 색만 바뀔 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "컴파일과 링크 로그를 별도로 출력한다.",
+        "GLSL ES 3.00 소스에서 attribute·varying·gl_FragColor를 혼용하지 않는다."
+      ],
+      "questions": [
+        "fragment 하나가 화면 픽셀 하나와 언제 다를 수 있나요?",
+        "두 shader가 각각 컴파일되어도 링크가 실패하는 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "기존 glsl-01 미리보기는 출발점입니다. 이후 과제 전체의 구현이나 검증을 대신하지 않습니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 2,
+      "id": "glsl-step-02",
+      "title": "스칼라와 벡터 타입",
+      "prerequisites": "1단위 결과물과 기록을 이어 사용합니다. 스칼라와 벡터 타입 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "명시적 타입",
+          "explanation": "float·int·bool은 용도가 다르고 암묵 변환에 의존하면 오류가 생기기 쉽습니다. 생성자를 통해 의도한 타입과 성분 수를 표현합니다."
+        },
+        {
+          "title": "벡터 연산",
+          "explanation": "벡터 곱은 성분별 계산이며 dot은 하나의 스칼라를 만듭니다. 같은 기호처럼 보여도 결과 타입과 의미를 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "타입과 생성자를 사용한다.",
+        "벡터 연산의 결과를 예측한다."
+      ],
+      "steps": [
+        "types.glsl에 vec2·vec3·vec4 생성과 swizzle 예제를 작성하세요.",
+        "입력 색에 성분별 곱과 dot을 각각 적용해 화면 두 영역에 출력하세요.",
+        "잘못된 성분 수를 넣고 compile 로그의 줄을 찾아 수정하세요."
+      ],
+      "variables": [
+        {
+          "name": "계산 방식",
+          "baseline": "color*color",
+          "change": "vec3(dot(color,color))",
+          "expected": "전자는 채널별 값이고 후자는 같은 회색 채널이 될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "두 계산의 CPU 예상값과 shader 출력을 비교한다.",
+        "잘못된 생성자 한 건의 오류와 수정 내용을 기록한다."
+      ],
+      "questions": [
+        "swizzle에 같은 성분을 중복 지정해 대입할 수 있나요?",
+        "길이와 정규화는 어떤 타입을 반환하나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 3,
+      "id": "glsl-step-03",
+      "title": "정밀도와 수치 범위",
+      "prerequisites": "2단위 결과물과 기록을 이어 사용합니다. 정밀도와 수치 범위 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "정밀도",
+          "explanation": "precision qualifier는 표현 가능한 범위와 정확도에 관련됩니다. 특히 fragment의 float 기본 정밀도 선언을 빠뜨리지 않습니다."
+        },
+        {
+          "title": "큰 좌표",
+          "explanation": "큰 수에 작은 변화를 더하면 변화가 표현되지 않을 수 있습니다. 좌표를 국소 기준으로 옮겨 계산 범위를 줄이는 방법을 비교합니다."
+        }
+      ],
+      "outcomes": [
+        "정밀도 정보를 확인한다.",
+        "큰 좌표의 수치 문제를 탐색한다."
+      ],
+      "steps": [
+        "precision.js에서 getShaderPrecisionFormat 결과를 기록하세요.",
+        "fragment.glsl에 highp float를 선언하고 큰 offset에 작은 sin 변화를 더하세요.",
+        "offset 제거 전후의 패턴을 같은 화면 크기에서 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "좌표 offset",
+          "baseline": "0",
+          "change": "100000",
+          "expected": "작은 차이를 표현하기 어려워 패턴이 흔들리거나 뭉칠 수 있다고 예상합니다."
+        }
+      ],
+      "criteria": [
+        "장치의 highp·mediump 범위와 precision을 기록한다.",
+        "두 offset의 같은 시점 이미지를 저장한다."
+      ],
+      "questions": [
+        "highp를 쓰면 모든 수치 문제가 사라지나요?",
+        "큰 월드 좌표를 카메라 기준으로 옮기면 무엇이 개선되나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 4,
+      "id": "glsl-step-04",
+      "title": "Attribute와 보간",
+      "prerequisites": "3단위 결과물과 기록을 이어 사용합니다. Attribute와 보간 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "정점 입력",
+          "explanation": "attribute는 buffer에서 정점별 값을 공급합니다. shader 위치와 vertexAttribPointer의 크기·stride·offset이 맞아야 합니다."
+        },
+        {
+          "title": "보간",
+          "explanation": "vertex의 출력은 삼각형 내부 fragment로 보간됩니다. 정점에 없는 중간 색이 나타나는 이유를 이 데이터 흐름으로 설명할 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "정점 데이터를 shader에 연결한다.",
+        "보간으로 생성되는 값을 설명한다."
+      ],
+      "steps": [
+        "attributes.js에 위치와 RGB가 섞인 정점 세 개를 작성하세요.",
+        "layout(location=0/1) in과 stride 20·offset 0/8을 연결하세요.",
+        "vertex의 out color를 fragment in color로 받고 세 꼭짓점과 중심을 관찰하세요."
+      ],
+      "variables": [
+        {
+          "name": "정점 색",
+          "baseline": "모두 빨강",
+          "change": "빨강·초록·파랑",
+          "expected": "삼각형 내부에 혼합색이 생길 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "정점 속성 byte offset 표를 작성한다.",
+        "세 꼭짓점과 중심의 기대 색을 설명한다."
+      ],
+      "questions": [
+        "flat 보간을 사용하면 중심 색은 어떻게 바뀌나요?",
+        "varying 이름만 같으면 타입은 달라도 되나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 5,
+      "id": "glsl-step-05",
+      "title": "좌표 공간 추적",
+      "prerequisites": "4단위 결과물과 기록을 이어 사용합니다. 좌표 공간 추적 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "공간 구분",
+          "explanation": "모델·월드·뷰·clip 좌표는 같은 점을 다른 기준에서 표현합니다. 서로 다른 공간의 벡터를 연산하면 그럴듯하지만 틀린 결과가 나올 수 있습니다."
+        },
+        {
+          "title": "나눗셈",
+          "explanation": "gl_Position은 clip 좌표이며 원근 나눗셈은 이후 단계에서 일어납니다. shader에서 미리 나누면서 w까지 잘못 처리하지 않도록 합니다."
+        }
+      ],
+      "outcomes": [
+        "좌표 공간을 구분한다.",
+        "변환 행렬의 역할을 추적한다."
+      ],
+      "steps": [
+        "spaces.glsl에서 model·view·projection 행렬을 순서대로 적용하세요.",
+        "원점·X축 표식·카메라 앞 점의 각 공간 좌표를 CPU에서 출력하세요.",
+        "행렬 하나씩 끄며 화면 이동과 표의 값을 연결하세요."
+      ],
+      "variables": [
+        {
+          "name": "model 이동",
+          "baseline": "x=0",
+          "change": "x=1",
+          "expected": "월드 위치와 clip 위치가 바뀌지만 원래 정점 데이터는 유지될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 표식의 네 공간 좌표를 기록한다.",
+        "정점 배열 수정 없이 uniform 행렬로 위치를 바꾼다."
+      ],
+      "questions": [
+        "방향 벡터와 위치 벡터의 w는 왜 다른가요?",
+        "clip 좌표에서 w가 0에 가까우면 어떤 문제가 생기나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 6,
+      "id": "glsl-step-06",
+      "title": "Uniform 조회와 갱신",
+      "prerequisites": "5단위 결과물과 기록을 이어 사용합니다. Uniform 조회와 갱신 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "공통 입력",
+          "explanation": "uniform은 하나의 draw에서 공통으로 사용하는 입력입니다. 정점별로 다른 값을 전달하려면 attribute 같은 다른 경로가 필요합니다."
+        },
+        {
+          "title": "프로그램 소유",
+          "explanation": "uniform location은 특정 연결된 program에 속합니다. 프로그램을 다시 link한 뒤에는 location을 다시 조회합니다."
+        }
+      ],
+      "outcomes": [
+        "draw 공통 입력을 갱신한다.",
+        "uniform location 수명을 관리한다."
+      ],
+      "steps": [
+        "uniforms.js에 getUniformLocation과 uniform1f·uniform3fv 호출을 모으세요.",
+        "uGain과 uColor 슬라이더를 연결하고 draw 전에 값을 업로드하세요.",
+        "program을 다시 link한 뒤 location 캐시를 갱신하는 경로를 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "uGain",
+          "baseline": "0.5",
+          "change": "1.0",
+          "expected": "다른 조건이 같으면 선형 색 출력이 두 배가 될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "두 uniform이 독립적으로 화면에 반영된다.",
+        "재링크 후 location을 새로 조회하고 입력이 계속 동작한다."
+      ],
+      "questions": [
+        "사용하지 않는 uniform의 location이 null인 이유는 무엇인가요?",
+        "uniform 갱신 전에 어떤 program이 활성인지 왜 확인하나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 7,
+      "id": "glsl-step-07",
+      "title": "디버그 출력과 최소 재현",
+      "prerequisites": "6단위 결과물과 기록을 이어 사용합니다. 디버그 출력과 최소 재현 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "시각 디버그",
+          "explanation": "복잡한 색 대신 UV·법선·마스크를 직접 출력하면 잘못된 단계가 드러납니다. 수치 범위는 표시 가능한 0..1로 매핑해서 봅니다."
+        },
+        {
+          "title": "최소 사례",
+          "explanation": "여러 효과를 동시에 고치면 오류 원인을 놓치기 쉽습니다. 고정 입력과 단색 출력으로 줄인 뒤 한 단계씩 복원합니다."
+        }
+      ],
+      "outcomes": [
+        "중간값을 시각화한다.",
+        "최소 재현으로 오류 위치를 좁힌다."
+      ],
+      "steps": [
+        "debug.glsl에 mode uniform으로 단색·UV·중간값 출력을 선택하게 하세요.",
+        "의도적으로 UV 성분을 교환하고 어느 모드에서 드러나는지 기록하세요.",
+        "정상 소스로 복구한 뒤 한 삼각형만 남긴 최소 재현 소스를 저장하세요."
+      ],
+      "variables": [
+        {
+          "name": "debug mode",
+          "baseline": "최종 색",
+          "change": "UV 직접 출력",
+          "expected": "조명이나 색 합성에 가려진 좌표 오류가 보일 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 디버그 모드가 각각 다른 중간값을 보여 준다.",
+        "오류를 재현하는 최소 입력과 복구 소스를 함께 보관한다."
+      ],
+      "questions": [
+        "음수 법선을 색으로 그대로 출력하면 무엇을 놓치나요?",
+        "검정 화면에서 가장 먼저 제거할 변수는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 8,
+      "id": "glsl-step-08",
+      "title": "UV와 종횡비",
+      "prerequisites": "7단위 결과물과 기록을 이어 사용합니다. UV와 종횡비 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "매개 좌표",
+          "explanation": "UV는 표면 위의 2차원 좌표이며 화면 픽셀 좌표와 다릅니다. 화면 효과에는 해상도와 종횡비를 별도로 고려합니다."
+        },
+        {
+          "title": "원형 거리",
+          "explanation": "비정사각형 화면에서 같은 UV 거리라도 픽셀 거리는 다릅니다. x축에 aspect를 반영해 원의 모양을 유지합니다."
+        }
+      ],
+      "outcomes": [
+        "UV를 화면 좌표와 구분한다.",
+        "종횡비를 보정한다."
+      ],
+      "steps": [
+        "uv.glsl에서 UV를 RGB로 출력해 방향을 확인하세요.",
+        "length((uv-0.5)*vec2(aspect,1))로 원 마스크를 만드세요.",
+        "600×300과 300×600 drawing buffer에서 같은 반경을 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "aspect 보정",
+          "baseline": "없음",
+          "change": "width/height 적용",
+          "expected": "긴 화면에서도 원의 픽셀 가로세로 지름이 같아질 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "두 화면 비율에서 원 지름 차이가 2픽셀 이내이다.",
+        "UV 원점과 Y 방향을 기록한다."
+      ],
+      "questions": [
+        "표면 UV와 gl_FragCoord 중 무엇을 선택해야 하나요?",
+        "CSS 크기 대신 drawing buffer 크기를 쓰는 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 9,
+      "id": "glsl-step-09",
+      "title": "Step과 Smoothstep 마스크",
+      "prerequisites": "8단위 결과물과 기록을 이어 사용합니다. Step과 Smoothstep 마스크 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "구간 선택",
+          "explanation": "step은 경계에서 값을 급히 바꾸는 마스크를 만듭니다. smoothstep은 두 경계 사이를 부드럽게 연결합니다."
+        },
+        {
+          "title": "경계 조건",
+          "explanation": "smoothstep의 edge0는 edge1보다 작아야 합니다. 경계를 뒤집어 반전을 만들기보다 1에서 결과를 빼는 식으로 의도를 표현합니다."
+        }
+      ],
+      "outcomes": [
+        "구간 마스크를 구성한다.",
+        "안전한 경계 조건을 설정한다."
+      ],
+      "steps": [
+        "mask.glsl에 원 거리와 step 기반 내부 마스크를 작성하세요.",
+        "반전은 1.0-smoothstep(r-w,r+w,d)로 구현하세요.",
+        "w를 바꾸며 경계 픽셀과 전체 원 크기를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "경계 폭",
+          "baseline": "0.001",
+          "change": "0.03",
+          "expected": "중심과 외곽 반경은 유지하면서 전이 구간이 넓어질 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "edge0<edge1 조건을 모든 입력에서 유지한다.",
+        "두 폭의 경계 단면 색을 다섯 지점에서 비교한다."
+      ],
+      "questions": [
+        "smoothstep 폭을 키우는 것과 원 반경을 키우는 것은 어떻게 다른가요?",
+        "step 경계가 움직일 때 어떤 떨림이 보이나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 10,
+      "id": "glsl-step-10",
+      "title": "타일링과 반복 좌표",
+      "prerequisites": "9단위 결과물과 기록을 이어 사용합니다. 타일링과 반복 좌표 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "반복",
+          "explanation": "fract는 좌표의 소수 부분으로 반복 타일을 만듭니다. 타일 개수를 바꾸면 좌표 변화율과 경계 빈도도 달라집니다."
+        },
+        {
+          "title": "식별",
+          "explanation": "floor로 얻은 셀 번호는 타일마다 다른 값을 정하는 데 쓸 수 있습니다. 셀 내부 좌표와 셀 id를 분리하면 패턴을 조합하기 쉽습니다."
+        }
+      ],
+      "outcomes": [
+        "반복 좌표를 구성한다.",
+        "셀별 정보와 내부 패턴을 분리한다."
+      ],
+      "steps": [
+        "tiles.glsl에 floor(uv*count)와 fract(uv*count)를 분리하세요.",
+        "셀 내부 원과 셀 id 기반 교대 색을 출력하세요.",
+        "count=4와 16에서 경계 연속성과 화면 축소 시 깜빡임을 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "타일 수",
+          "baseline": "4",
+          "change": "16",
+          "expected": "반복이 촘촘해져 작은 화면에서 aliasing이 늘 수 있다고 예상합니다."
+        }
+      ],
+      "criteria": [
+        "셀 id와 내부 좌표를 각각 디버그 모드로 출력한다.",
+        "두 타일 수를 같은 크기 화면에서 비교한다."
+      ],
+      "questions": [
+        "음수 좌표에서 fract와 정수 절삭은 같은가요?",
+        "타일 경계를 넘는 왜곡은 어떻게 이어야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 11,
+      "id": "glsl-step-11",
+      "title": "Texture sampling",
+      "prerequisites": "10단위 결과물과 기록을 이어 사용합니다. Texture sampling 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "샘플 좌표",
+          "explanation": "texture는 UV 위치에서 저장된 색을 읽습니다. WebGL2 GLSL ES 3.00에서는 texture 함수를 사용합니다."
+        },
+        {
+          "title": "경계와 필터",
+          "explanation": "wrap과 filter는 texture object 상태입니다. shader의 UV 계산만 바꿔도 기존 sampler 설정과 결합되어 다른 결과가 나옵니다."
+        }
+      ],
+      "outcomes": [
+        "Texture를 shader에 연결한다.",
+        "샘플링 상태의 효과를 비교한다."
+      ],
+      "steps": [
+        "texture.js에서 직접 만든 4×4 체크 패턴을 업로드하세요.",
+        "sampler2D uniform에 texture unit을 연결하고 fragment에서 texture를 호출하세요.",
+        "UV를 0..2로 넓혀 CLAMP_TO_EDGE·REPEAT와 NEAREST·LINEAR를 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "wrap",
+          "baseline": "CLAMP_TO_EDGE",
+          "change": "REPEAT",
+          "expected": "범위 밖 UV에서 가장자리 연장 대신 패턴 반복이 보일 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "texture unit과 sampler uniform 연결 값을 기록한다.",
+        "두 wrap과 두 filter 결과를 각각 저장한다."
+      ],
+      "questions": [
+        "uniform1i에 texture 객체를 넣을 수 있나요?",
+        "패턴이 뒤집혔을 때 shader와 업로드 중 어느 쪽을 확인하나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 12,
+      "id": "glsl-step-12",
+      "title": "미분과 가장자리 완화",
+      "prerequisites": "11단위 결과물과 기록을 이어 사용합니다. 미분과 가장자리 완화 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "화면 변화율",
+          "explanation": "dFdx·dFdy·fwidth는 fragment 주변의 변화율을 추정합니다. 같은 거리 함수라도 해상도에 따라 적절한 전이 폭을 정하는 데 도움을 줍니다."
+        },
+        {
+          "title": "제어 흐름",
+          "explanation": "미분을 비균일 분기 안에서 사용하면 결과가 정의되지 않을 수 있습니다. 필요한 값을 일관된 흐름에서 먼저 계산합니다."
+        }
+      ],
+      "outcomes": [
+        "화면 변화율을 활용한다.",
+        "미분의 실행 조건을 지킨다."
+      ],
+      "steps": [
+        "aa.glsl에서 원 거리 d의 fwidth를 구하세요.",
+        "고정 폭 마스크와 max(fwidth(d),작은 양수)를 쓰는 마스크를 나란히 출력하세요.",
+        "두 해상도와 이동 중의 가장자리를 비교하고 미분 계산 위치를 주석으로 남기세요."
+      ],
+      "variables": [
+        {
+          "name": "전이 폭",
+          "baseline": "고정 0.01",
+          "change": "fwidth(d) 기반",
+          "expected": "해상도가 바뀌어도 경계가 대략 픽셀 크기에 맞춰질 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "미분 함수가 비균일 조건문 밖에 있다.",
+        "두 해상도의 경계 비교 이미지를 보관한다."
+      ],
+      "questions": [
+        "fwidth가 정확한 기하학적 픽셀 면적인가요?",
+        "미분을 vertex shader에서 같은 방식으로 쓸 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 13,
+      "id": "glsl-step-13",
+      "title": "시간과 주기",
+      "prerequisites": "12단위 결과물과 기록을 이어 사용합니다. 시간과 주기 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "시간 단위",
+          "explanation": "requestAnimationFrame timestamp를 초로 바꾸면 프레임 수와 시간의 역할을 분리할 수 있습니다. 누적 프레임 횟수를 시간처럼 쓰면 주사율에 따라 속도가 달라집니다."
+        },
+        {
+          "title": "주파수",
+          "explanation": "sin의 입력 위상은 공간 주파수와 시간 속도의 합으로 만들 수 있습니다. 두 입력을 분리해야 파장과 이동 속도를 독립적으로 조절합니다."
+        }
+      ],
+      "outcomes": [
+        "시간을 안정적으로 전달한다.",
+        "공간 주기와 시간 속도를 분리한다."
+      ],
+      "steps": [
+        "time.js에서 (timestamp-start)/1000을 uTime으로 전달하세요.",
+        "wave.glsl에 sin(uv.x*frequency-time*speed)를 색으로 출력하세요.",
+        "재생·일시정지·고정 시간 입력을 추가해 t=0과 t=1 결과를 저장하세요."
+      ],
+      "variables": [
+        {
+          "name": "시간 속도",
+          "baseline": "1",
+          "change": "2",
+          "expected": "공간 파장은 같고 같은 시간 동안 위상 이동이 두 배가 될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "정지 상태에서 uTime과 이미지가 변하지 않는다.",
+        "동일 t 입력을 다시 넣으면 같은 파형이 나온다."
+      ],
+      "questions": [
+        "주파수를 두 배로 바꾸면 이동 속도의 해석도 달라지나요?",
+        "오래 실행한 큰 시간 값은 정밀도에 어떤 영향을 주나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 14,
+      "id": "glsl-02",
+      "title": "UV·Uniform·파동",
+      "prerequisites": "13단위 결과물과 기록을 이어 사용합니다. UV·Uniform·파동 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "변수 역할",
+          "explanation": "진폭은 변위 크기이고 주파수는 반복 간격을 정합니다. 시간 속도는 정지된 형태가 아니라 변화율에 영향을 줍니다."
+        },
+        {
+          "title": "변형 위치",
+          "explanation": "fragment의 UV 왜곡은 표면의 색을 바꾸지만 실제 실루엣을 바꾸지 않습니다. vertex 변형은 정점 수와 분포에 따라 실루엣이 달라집니다."
+        }
+      ],
+      "outcomes": [
+        "파동 변수를 독립적으로 조절한다.",
+        "색 왜곡과 기하 변형을 구분한다."
+      ],
+      "steps": [
+        "먼저 uv를 색으로 출력한 뒤 uTime을 추가하고 sin 파형을 연결하세요.",
+        "vertex.glsl에서 y에 amplitude*sin(x*frequency-time*speed)를 더하세요.",
+        "진폭·주파수·속도를 하나씩 바꾸고 정지 이미지와 한 주기 시간을 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "진폭",
+          "baseline": "0.05",
+          "change": "0.2",
+          "expected": "파장과 주기는 유지되고 최대 변위가 네 배가 될 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 변수의 예측과 실제 관찰을 각각 기록한다.",
+        "진폭 변경 전후 최대 y 변위 비율을 계산한다."
+      ],
+      "questions": [
+        "정점이 세 개뿐인 평면에서는 파동이 왜 거칠게 보이나요?",
+        "UV 왜곡과 기하 변형을 어떤 장면에서 구분할 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "기존 glsl-02 미리보기는 출발점입니다. 이후 과제 전체의 구현이나 검증을 대신하지 않습니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 15,
+      "id": "glsl-step-15",
+      "title": "2D 거리장 도형",
+      "prerequisites": "14단위 결과물과 기록을 이어 사용합니다. 2D 거리장 도형 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "부호 거리",
+          "explanation": "SDF는 경계까지의 거리와 안팎 부호를 표현합니다. 거리값을 마스크로 바꾸면 같은 도형에 채우기와 테두리를 적용할 수 있습니다."
+        },
+        {
+          "title": "조합",
+          "explanation": "min과 max를 사용하면 합집합과 교집합을 구성할 수 있습니다. 조합 결과가 모든 위치에서 정확한 거리라는 보장은 따로 검토합니다."
+        }
+      ],
+      "outcomes": [
+        "기본 거리 함수를 작성한다.",
+        "거리 기반 도형을 조합한다."
+      ],
+      "steps": [
+        "sdf.glsl에 원과 축 정렬 상자의 거리 함수를 작성하세요.",
+        "min·max·max(a,-b)로 합집합·교집합·차집합을 출력하세요.",
+        "거리 0 등고선과 abs(d) 기반 테두리를 겹쳐 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "상자 위치",
+          "baseline": "원 중심",
+          "change": "x 방향 0.2 이동",
+          "expected": "겹침 영역과 차집합의 잘린 경계가 이동할 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 조합을 동일한 두 도형으로 보여 준다.",
+        "원 중심·경계·외부 세 점의 거리 부호를 확인한다."
+      ],
+      "questions": [
+        "마스크를 합치는 것과 거리를 합치는 것은 어떻게 다른가요?",
+        "비균일 scale 이후 거리값은 그대로 정확한가요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 16,
+      "id": "glsl-step-16",
+      "title": "Value noise의 구성",
+      "prerequisites": "15단위 결과물과 기록을 이어 사용합니다. Value noise의 구성 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "격자 값",
+          "explanation": "value noise는 셀 꼭짓점의 값을 보간해 연속적인 변화를 만듭니다. 셀 id용 의사난수와 셀 내부 보간을 별도 함수로 나눕니다."
+        },
+        {
+          "title": "보간 곡선",
+          "explanation": "선형 보간과 완만한 보간은 셀 경계의 미분 특성이 다릅니다. 거친 경계가 보이는지 확대해서 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "Noise의 격자와 보간을 구현한다.",
+        "결정성과 경계 연속성을 확인한다."
+      ],
+      "steps": [
+        "noise.glsl에 결정적인 hash와 네 꼭짓점 보간 함수를 작성하세요.",
+        "같은 seed 상수로 선형 보간과 smooth 곡선 보간을 나란히 출력하세요.",
+        "셀 경계 확대 보기와 고정 좌표 5개의 값을 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "보간",
+          "baseline": "선형",
+          "change": "완만한 다항 곡선",
+          "expected": "셀 경계의 기울기 변화가 덜 두드러질 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "동일 좌표를 반복 입력할 때 같은 값이 나온다.",
+        "보간 두 종류의 경계 확대 이미지를 보관한다."
+      ],
+      "questions": [
+        "화면용 hash를 암호학적 난수로 써도 되나요?",
+        "시간을 seed에 바로 넣으면 어떤 깜빡임이 생기나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 17,
+      "id": "glsl-step-17",
+      "title": "옥타브와 대역 제한",
+      "prerequisites": "16단위 결과물과 기록을 이어 사용합니다. 옥타브와 대역 제한 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "다중 주파수",
+          "explanation": "여러 noise 주파수를 진폭을 줄이며 더하면 넓은 형태와 세부를 함께 만들 수 있습니다. 반복 수가 늘면 연산량도 증가합니다."
+        },
+        {
+          "title": "과도한 세부",
+          "explanation": "화면 픽셀보다 작은 변화는 안정적으로 표현하기 어렵습니다. 높은 주파수를 무조건 더하면 품질 대신 aliasing이 늘 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "다중 주파수 noise를 구성한다.",
+        "추가 세부의 비용과 한계를 판단한다."
+      ],
+      "steps": [
+        "fbm.glsl에서 고정 최대 반복과 octave 수 입력을 분리하세요.",
+        "주파수 두 배·진폭 절반 규칙으로 1·3·5 octave를 합치세요.",
+        "작은 화면과 큰 화면에서 세부·깜빡임·프레임 간격을 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "octave 수",
+          "baseline": "1",
+          "change": "5",
+          "expected": "세부와 계산량이 늘지만 작은 화면에서는 aliasing이 생길 수 있다고 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 반복 수의 같은 시점 이미지를 저장한다.",
+        "작은 화면에서 추가 octave의 유효한 세부와 잡음을 구분해 적는다."
+      ],
+      "questions": [
+        "진폭 합을 정규화하지 않으면 밝기는 어떻게 달라지나요?",
+        "주파수 한도를 해상도와 연결할 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 18,
+      "id": "glsl-step-18",
+      "title": "법선과 확산 조명",
+      "prerequisites": "17단위 결과물과 기록을 이어 사용합니다. 법선과 확산 조명 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "법선 공간",
+          "explanation": "법선과 광원 방향은 같은 좌표 공간에 있어야 합니다. 비균일 scale에는 단순 모델 행렬 대신 적절한 inverse-transpose 변환을 사용합니다."
+        },
+        {
+          "title": "확산 항",
+          "explanation": "정규화한 법선과 광원 방향의 dot은 입사 방향 관계를 나타냅니다. 음수 구간을 제거해 뒤쪽 면의 음수 색을 막습니다."
+        }
+      ],
+      "outcomes": [
+        "법선을 올바른 공간으로 변환한다.",
+        "확산 조명을 계산한다."
+      ],
+      "steps": [
+        "lighting.glsl에서 normal matrix로 법선을 변환하고 fragment에서 normalize하세요.",
+        "max(dot(N,L),0)로 단색 표면의 확산 항을 계산하세요.",
+        "비균일 scale을 적용해 올바른 normal matrix와 단순 변환을 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "scale",
+          "baseline": "[1,1,1]",
+          "change": "[2,1,0.5]",
+          "expected": "잘못된 법선 변환에서 밝은 영역 방향이 어긋날 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "법선과 광원 방향의 공간을 주석에 명시한다.",
+        "비균일 scale 두 변환의 조명 차이를 기록한다."
+      ],
+      "questions": [
+        "보간된 법선을 fragment에서 다시 정규화하는 이유는 무엇인가요?",
+        "dot 값이 음수이면 빛을 더해도 되나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 19,
+      "id": "glsl-step-19",
+      "title": "반사광과 시선 벡터",
+      "prerequisites": "18단위 결과물과 기록을 이어 사용합니다. 반사광과 시선 벡터 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "시선 방향",
+          "explanation": "반사광은 광원뿐 아니라 카메라 방향에도 영향을 받습니다. 카메라를 이동해도 하이라이트가 고정되면 공간이나 방향 부호를 점검합니다."
+        },
+        {
+          "title": "모형의 한계",
+          "explanation": "간단한 Blinn-Phong 항은 교육용 반사 모형입니다. 이를 에너지 보존을 갖춘 PBR 전체 구현으로 부르지 않습니다."
+        }
+      ],
+      "outcomes": [
+        "시선 의존 반사광을 구현한다.",
+        "교육용 조명 모형의 한계를 설명한다."
+      ],
+      "steps": [
+        "specular.glsl에 normalize(L+V)와 pow(max(dot(N,H),0),shininess)를 작성하세요.",
+        "광원은 고정하고 카메라를 두 위치로 이동하세요.",
+        "shininess 8·64에서 하이라이트 폭을 같은 시점으로 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "shininess",
+          "baseline": "8",
+          "change": "64",
+          "expected": "하이라이트가 좁아지지만 재질의 모든 물리 특성을 설명하지는 못할 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "카메라 두 위치에서 하이라이트 이동을 확인한다.",
+        "두 shininess 값의 하이라이트 폭을 픽셀로 기록한다."
+      ],
+      "questions": [
+        "L과 V가 거의 반대일 때 normalize 입력은 어떻게 되나요?",
+        "거칠기와 shininess를 같은 값이라고 할 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 20,
+      "id": "glsl-step-20",
+      "title": "변형 표면의 법선",
+      "prerequisites": "19단위 결과물과 기록을 이어 사용합니다. 변형 표면의 법선 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "형태와 조명",
+          "explanation": "정점 위치를 바꿔도 기존 법선이 자동 갱신되는 것은 아닙니다. 파동 표면의 기울기에서 새 법선을 계산해야 조명이 형태를 따릅니다."
+        },
+        {
+          "title": "해석 미분",
+          "explanation": "sin 변위의 미분은 cos를 이용해 구할 수 있습니다. 수치 차분과 비교하면 부호와 축 오류를 찾기 좋습니다."
+        }
+      ],
+      "outcomes": [
+        "변형에 맞는 법선을 계산한다.",
+        "미분을 수치 기준으로 검증한다."
+      ],
+      "steps": [
+        "surface.glsl에서 y=A*sin(k*x-t)의 x 미분을 계산하세요.",
+        "접선과 법선을 구성해 정규화하고 기존 법선 모드와 비교하세요.",
+        "CPU 중앙 차분으로 세 x 지점의 기울기를 검증하세요."
+      ],
+      "variables": [
+        {
+          "name": "법선",
+          "baseline": "원래 평면 법선",
+          "change": "파동 기울기 법선",
+          "expected": "실루엣은 같고 조명의 밝고 어두운 띠가 파동을 따를 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 지점의 해석·수치 미분 차이가 1e-3 이하이다.",
+        "형태를 고정한 두 법선 모드의 조명을 비교한다."
+      ],
+      "questions": [
+        "진폭을 바꾸면 법선 변화도 커지나요?",
+        "화면 미분으로 구한 법선과 해석 법선은 어떤 차이가 있나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 21,
+      "id": "glsl-step-21",
+      "title": "Alpha와 합성 상태",
+      "prerequisites": "20단위 결과물과 기록을 이어 사용합니다. Alpha와 합성 상태 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "출력 알파",
+          "explanation": "fragment가 반환하는 alpha와 WebGL blend 상태는 함께 결과를 결정합니다. alpha 값을 낮추기만 해서는 기대한 투명 합성이 나오지 않을 수 있습니다."
+        },
+        {
+          "title": "깊이 쓰기",
+          "explanation": "반투명 표면은 불투명 표면과 다른 정렬·깊이 쓰기 정책이 필요할 수 있습니다. 뒤쪽 물체가 사라지면 색 식뿐 아니라 depth 상태도 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "알파 출력과 합성 상태를 맞춘다.",
+        "투명 가림 문제를 진단한다."
+      ],
+      "steps": [
+        "alpha.js에서 두 반투명 평면과 명시적인 blendFunc를 설정하세요.",
+        "straight alpha 출력과 이에 맞는 합성 상태를 유지하세요.",
+        "draw 순서와 depthMask를 각각 바꾸며 겹친 영역 색을 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "draw 순서",
+          "baseline": "앞 평면 먼저",
+          "change": "뒤 평면 먼저",
+          "expected": "겹친 반투명 영역의 색이 달라질 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "blend 식과 출력 alpha 규칙을 문서화한다.",
+        "두 순서와 두 depthMask의 결과를 구분해 기록한다."
+      ],
+      "questions": [
+        "premultiplied alpha를 같은 blendFunc에 넣으면 어떻게 되나요?",
+        "투명도 오류를 shader만 수정해 해결할 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 22,
+      "id": "glsl-step-22",
+      "title": "Framebuffer와 화면 패스",
+      "prerequisites": "21단위 결과물과 기록을 이어 사용합니다. Framebuffer와 화면 패스 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "중간 출력",
+          "explanation": "framebuffer의 texture에 장면을 렌더하면 다음 pass가 그 결과를 입력으로 사용할 수 있습니다. 현재 쓰는 attachment를 동시에 sampling하는 피드백은 피합니다."
+        },
+        {
+          "title": "출력 크기",
+          "explanation": "각 pass의 viewport는 대상 texture 크기에 맞춰야 합니다. 화면 크기와 중간 texture 크기를 다르게 사용할 때 특히 명시합니다."
+        }
+      ],
+      "outcomes": [
+        "다중 pass를 구성한다.",
+        "읽기와 쓰기 대상을 분리한다."
+      ],
+      "steps": [
+        "post.js에 color texture와 framebuffer를 만들고 완전성을 검사하세요.",
+        "장면을 중간 framebuffer에 그린 뒤 기본 framebuffer의 전체 화면 삼각형에서 샘플링하세요.",
+        "중간 해상도를 절반으로 바꾸고 viewport를 각각 설정하세요."
+      ],
+      "variables": [
+        {
+          "name": "중간 해상도",
+          "baseline": "화면과 같음",
+          "change": "가로세로 절반",
+          "expected": "후처리 입력 세부가 줄고 픽셀 처리량도 줄 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "checkFramebufferStatus가 완전성을 확인한다.",
+        "각 pass에서 읽는 texture와 쓰는 attachment가 겹치지 않는다."
+      ],
+      "questions": [
+        "마지막 pass의 viewport를 갱신하지 않으면 무엇이 보이나요?",
+        "화면 복사에 사각형 대신 큰 삼각형을 쓰는 이유는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 23,
+      "id": "glsl-step-23",
+      "title": "Texel 크기와 필터",
+      "prerequisites": "22단위 결과물과 기록을 이어 사용합니다. Texel 크기와 필터 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "이웃 샘플",
+          "explanation": "화면 필터의 한 픽셀 이동은 입력 texture 크기의 역수로 표현합니다. 출력 해상도로 offset을 계산하면 필터 반경이 달라질 수 있습니다."
+        },
+        {
+          "title": "커널 합",
+          "explanation": "블러 가중치 합이 1이면 일정한 입력의 밝기를 유지할 수 있습니다. 경계 wrap 방식도 최종 결과에 영향을 줍니다."
+        }
+      ],
+      "outcomes": [
+        "Texel 기준 필터를 작성한다.",
+        "커널 밝기 보존을 검증한다."
+      ],
+      "steps": [
+        "blur.glsl에 uTexel=1.0/inputSize를 사용한 3탭 수평 필터를 작성하세요.",
+        "가중치 [0.25,0.5,0.25]를 적용하고 일정 회색 texture를 입력하세요.",
+        "수직 pass를 추가해 분리형 블러와 원본을 비교하세요."
+      ],
+      "variables": [
+        {
+          "name": "샘플 간격",
+          "baseline": "1 texel",
+          "change": "3 texel",
+          "expected": "흐림 반경이 넓어지며 미세한 패턴이 더 섞일 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "일정 회색 입력의 평균 밝기가 1/255 이내로 유지된다.",
+        "입력 texture 크기를 바꿔도 1 texel offset 계산이 맞다."
+      ],
+      "questions": [
+        "가중치 합이 1보다 크면 무슨 일이 생기나요?",
+        "분리형 필터가 가능한 커널에는 어떤 조건이 있나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 24,
+      "id": "glsl-step-24",
+      "title": "포인터 좌표와 입력 완화",
+      "prerequisites": "23단위 결과물과 기록을 이어 사용합니다. 포인터 좌표와 입력 완화 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "좌표 변환",
+          "explanation": "pointer의 client 좌표는 canvas 로컬 UV와 다릅니다. bounding rect와 Y 방향을 반영해 shader 입력으로 변환합니다."
+        },
+        {
+          "title": "시간 기반 완화",
+          "explanation": "입력을 부드럽게 따라가는 보간은 delta time을 고려해야 합니다. 고정 비율 보간은 프레임 속도에 따라 반응 속도가 달라질 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "입력을 shader 좌표로 변환한다.",
+        "시간 기반으로 반응을 조절한다."
+      ],
+      "steps": [
+        "input.js에서 pointer 좌표를 rect 기준 0..1 UV로 변환하세요.",
+        "현재 값과 목표 값을 분리하고 1-exp(-lambda*dt) 비율로 완화하세요.",
+        "uPointer 주변 파동을 표시하고 resize·DPR 변경·키보드 대체 입력을 확인하세요."
+      ],
+      "variables": [
+        {
+          "name": "완화 계수",
+          "baseline": "lambda=4",
+          "change": "lambda=16",
+          "expected": "최종 위치는 같고 목표에 도달하는 반응이 빨라질 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "canvas 네 모서리 입력이 예상 UV에 대응한다.",
+        "DPR 변경 뒤 같은 CSS 지점의 중심 효과 위치가 유지된다."
+      ],
+      "questions": [
+        "스크롤된 페이지에서 client 좌표를 그대로 쓰면 왜 어긋나나요?",
+        "reduced-motion 설정에는 어떤 대체 반응을 제공하나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 25,
+      "id": "glsl-step-25",
+      "title": "분기와 반복의 비용",
+      "prerequisites": "24단위 결과물과 기록을 이어 사용합니다. 분기와 반복의 비용 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "조건 실행",
+          "explanation": "분기의 비용은 조건의 분포와 수행 작업에 따라 달라집니다. if를 모두 mix로 바꾸는 것이 항상 최적화는 아닙니다."
+        },
+        {
+          "title": "실험 통제",
+          "explanation": "반복 수·샘플 수·해상도를 동시에 바꾸면 어떤 변화가 원인인지 알기 어렵습니다. 하나씩 바꾸고 같은 정지 입력을 사용합니다."
+        }
+      ],
+      "outcomes": [
+        "비용 변수를 분리한다.",
+        "최적화 가설을 측정으로 검토한다."
+      ],
+      "steps": [
+        "cost.glsl에 noise 반복과 texture sample 수를 독립 설정으로 노출하세요.",
+        "동일 uTime·uPointer에서 반복 1·4·8을 비교하세요.",
+        "해상도 고정 후 프레임 간격을 기록하고 다음 실험에서만 해상도를 바꾸세요."
+      ],
+      "variables": [
+        {
+          "name": "반복 수",
+          "baseline": "1",
+          "change": "8",
+          "expected": "추가 연산이 늘지만 실제 프레임 차이는 병목에 따라 달라질 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 반복 설정의 동일 시점 이미지와 프레임 기록이 있다.",
+        "샘플 수와 해상도가 고정되었음을 결과에 적는다."
+      ],
+      "questions": [
+        "mix 양쪽 인자의 비싼 계산은 생략되나요?",
+        "프레임 간격을 shader의 순수 GPU 시간으로 볼 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 26,
+      "id": "glsl-step-26",
+      "title": "편집 실패와 Context 복구",
+      "prerequisites": "25단위 결과물과 기록을 이어 사용합니다. 편집 실패와 Context 복구 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "안전 교체",
+          "explanation": "새 shader가 실패했을 때 마지막 정상 program을 유지하면 편집을 계속할 수 있습니다. 검증된 새 program만 활성 상태로 교체합니다."
+        },
+        {
+          "title": "컨텍스트 수명",
+          "explanation": "WebGL context가 복구되면 이전 GPU 자원은 다시 만들어야 합니다. 소스와 CPU 입력을 저장해 재생성 경로를 준비합니다."
+        }
+      ],
+      "outcomes": [
+        "셰이더 편집을 안전하게 적용한다.",
+        "GPU 자원 복구를 설계한다."
+      ],
+      "steps": [
+        "editor.js에서 후보 program을 compile·link한 뒤 성공한 경우에만 교체하세요.",
+        "문법 오류 입력 후 오류 줄과 기존 화면 유지 여부를 확인하세요.",
+        "webglcontextlost·webglcontextrestored를 처리하고 재생성 목록을 README에 적으세요."
+      ],
+      "variables": [
+        {
+          "name": "새 소스",
+          "baseline": "유효한 소스",
+          "change": "문법 오류 포함",
+          "expected": "오류를 표시하면서 마지막 정상 화면을 유지할 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "오류 입력이 기존 program을 삭제하지 않는다.",
+        "복구 경로에 buffer·texture·program 재생성과 uniform 재조회가 포함된다."
+      ],
+      "questions": [
+        "실패한 후보 shader는 언제 삭제하나요?",
+        "context 복구에서 UI 상태까지 초기화해야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 27,
+      "id": "glsl-step-27",
+      "title": "품질 기준과 회귀 기록",
+      "prerequisites": "26단위 결과물과 기록을 이어 사용합니다. 품질 기준과 회귀 기록 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "고정 입력",
+          "explanation": "시간과 포인터를 고정하면 이미지 비교가 재현 가능해집니다. 렌더 환경이 다르면 픽셀 차이가 날 수 있어 허용 기준을 기록합니다."
+        },
+        {
+          "title": "관심 영역",
+          "explanation": "전체 평균 차이는 작은 하이라이트나 얇은 경계의 손실을 숨길 수 있습니다. 전체 화면과 지정 영역을 함께 비교합니다."
+        }
+      ],
+      "outcomes": [
+        "재현 가능한 시각 기준을 만든다.",
+        "국소 품질 손실을 기록한다."
+      ],
+      "steps": [
+        "presets.json에 시간·포인터·해상도·효과 변수를 저장하세요.",
+        "세 preset의 기준 이미지와 절반 해상도 이미지를 캡처하세요.",
+        "report.md에 경계·블러·하이라이트 ROI 차이와 환경을 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "품질 설정",
+          "baseline": "전체 해상도와 4 octave",
+          "change": "절반 해상도와 같은 octave",
+          "expected": "픽셀 비용이 줄지만 경계와 고주파 세부 손실이 늘 것으로 예상합니다."
+        }
+      ],
+      "criteria": [
+        "세 preset의 입력 값과 환경이 함께 저장된다.",
+        "세 ROI의 손실을 수치 또는 픽셀 위치로 구체적으로 설명한다."
+      ],
+      "questions": [
+        "다른 GPU의 픽셀 차이를 모두 회귀로 볼 수 있나요?",
+        "기준 이미지는 언제 갱신해야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    },
+    {
+      "day": 28,
+      "id": "glsl-03",
+      "title": "상호작용과 비용",
+      "prerequisites": "27단위 결과물과 기록을 이어 사용합니다. 상호작용과 비용 실험에 앞서 이전 입력과 기준 출력을 보관합니다.",
+      "concepts": [
+        {
+          "title": "효과 통합",
+          "explanation": "포인터·파동·noise·texture 샘플은 서로 다른 입력과 비용을 갖습니다. 효과를 끌 수 있게 분리하면 결과와 비용을 추적하기 쉽습니다."
+        },
+        {
+          "title": "결과 근거",
+          "explanation": "빠른 설정의 선택에는 품질 손실과 지원 조건이 포함되어야 합니다. 실행하지 않은 환경의 성능을 추정 결과로 단정하지 않습니다."
+        }
+      ],
+      "outcomes": [
+        "상호작용 셰이더를 통합한다.",
+        "품질과 비용에 근거해 설정을 선택한다."
+      ],
+      "steps": [
+        "최종 shader에 포인터 파동과 효과별 토글을 연결하고 preset 세 개를 재생하세요.",
+        "해상도·반복 수·샘플 수를 한 번에 하나씩 바꿔 이미지와 프레임 분포를 기록하세요.",
+        "컴파일 오류 입력과 복구를 확인한 뒤 report.md에 채택 설정과 남은 한계를 적으세요."
+      ],
+      "variables": [
+        {
+          "name": "반복 수",
+          "baseline": "4",
+          "change": "2",
+          "expected": "계산량과 미세한 세부가 함께 줄 수 있다고 예상하고 같은 입력에서 확인하세요."
+        }
+      ],
+      "criteria": [
+        "세 비용 변수에 각각 단독 비교 기록이 있다.",
+        "컴파일 실패·복구 증거와 품질 손실 두 항목을 제공한다."
+      ],
+      "questions": [
+        "기능을 끄는 것과 해상도를 줄이는 것 중 어느 쪽을 선택하나요?",
+        "이번 측정에서 아직 분리하지 못한 비용은 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "GLSL ES 3.00 명세",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ],
+      "environment": "기존 glsl-03 미리보기는 출발점입니다. 이후 과제 전체의 구현이나 검증을 대신하지 않습니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+    }
+  ]
+}

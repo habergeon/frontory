@@ -1,54 +1,72 @@
-# WebGPU · 02 Buffer와 Render pass
+# WebGPU · 14 Buffer와 Render pass
 
 [시리즈 목차](../README.md) · [전체 기술 지도](../../../README.md)
 
-단계: 변수 실험 · 문서·필기·예제 제공
+단계: 렌더 자원과 화면 구성 · 기존 예제에서 확장 · 저장 ID: `webgpu-02`
 
 ## 목표와 학습 후 역량
 
-CPU 데이터에서 화면까지의 경로와 오류 원인을 설명한다. 이를 자신의 말로 설명하고 작은 결과물로 재현하는 것이 목표입니다.
+- 렌더 경로를 통합한다.
+- validation 실패를 진단하고 복구한다.
 
 ## 선수 지식
 
-이 시리즈 1단위의 결과물과 기록.
+13단위 결과물과 기록을 이어 사용합니다. Buffer와 Render pass 실험에 앞서 이전 입력과 기준 출력을 보관합니다.
 
 ## 핵심 개념과 설명
 
-buffer는 용도와 레이아웃을 선언하고 command encoder는 실행할 작업을 기록합니다. 제출과 완료는 다른 시점입니다.
+### 통합 경로
+
+CPU 배열은 buffer와 binding을 거쳐 shader 입력이 됩니다. render pass는 출력 attachment와 pipeline·draw 상태를 묶습니다.
+
+### 오류 범위
+
+validation 오류를 잡을 때는 오류가 날 수 있는 작업 전후에 error scope를 둡니다. 오류를 숨기기보다 descriptor와 메시지를 함께 기록합니다.
 
 ## 실습 준비
 
-현재 단위에 연결된 예제를 실행하고 아래 과제를 진행합니다. 코드 편집기 자체는 JS/TS 모듈이며 JSX·Vue SFC를 직접 컴파일하지 않습니다.
+기존 webgpu-02 미리보기는 출발점입니다. 이후 과제 전체의 구현이나 검증을 대신하지 않습니다. 별도 localhost 또는 HTTPS 프로젝트에서 직접 구현하는 문서 안내 실습입니다. secure context, navigator.gpu, adapter 요청 결과를 확인하고 미지원 안내를 제공합니다. device.lost 처리와 자원 해제를 유지합니다.
+
+연결된 예제는 출발점입니다. 아래 과제 전체가 완성된 코드는 아니며, 예제의 지원 범위를 넘는 작업은 별도 프로젝트에서 수행하세요.
 
 ## 실습 과제
 
-1. 공식 참고에서 이번 개념과 API의 입력·출력을 찾아 필기에 요약합니다.
-2. WGSL 삼각형을 render pass로 그리고 uniform 색상을 갱신하세요. validation 오류를 의도적으로 만든 뒤 복구하세요.
-3. 아래 변수 중 하나만 바꾸기 전에 예상 결과를 적고, 실행 후 스크린샷·로그 또는 측정값과 비교합니다.
-4. 원래 조건으로 되돌려 같은 결과를 재현하고 오류·지원 제한도 남깁니다.
+1. renderer.js에 정점·색 uniform·attachment·draw 경로를 한 함수로 묶으세요.
+2. pushErrorScope('validation') 뒤 잘못된 usage buffer를 사용하는 최소 사례를 만들고 popErrorScope 결과를 표시하세요.
+3. usage를 복구하고 색·해상도 입력을 바꿔 같은 렌더 경로를 재실행하세요.
 
 ## 관찰할 변수
 
-buffer usage, uniform, 해상도. 비교 시 다른 변수와 브라우저·viewport 조건은 고정합니다.
+| 변수 | 기준 조건 | 바꿀 조건 | 예상할 변화·검증 가설 |
+| --- | --- | --- | --- |
+| buffer usage | UNIFORM\|COPY_DST | COPY_DST만 지정 | uniform binding 검증에서 오류가 나고 복구 후 색이 갱신될 것으로 예상합니다. |
+
+표의 예상은 측정 결과가 아닙니다. 한 번에 한 조건만 바꾸고 실제 결과가 다르면 원인을 기록하세요.
 
 ## 완료 조건
 
-- [ ] CPU 데이터에서 화면까지의 경로와 오류 원인을 설명한다.
-- [ ] 최소 두 조건의 예상과 실제 결과를 구분해 기록했다.
-- [ ] 오류 또는 경계 조건 한 가지를 재현하고 복구 방법을 적었다.
-- [ ] 실제로 수행한 내용을 기준으로 완료 상태를 직접 표시했다.
+- [ ] CPU 색 값에서 화면 출력까지 다섯 단계의 연결을 설명한다.
+- [ ] 의도한 validation 오류를 기록하고 정상 렌더링으로 복구한다.
 
 ## 자가 점검
 
-1. Buffer와 Render pass에서 입력이 결과로 이어지는 경로를 설명할 수 있나요?
-2. buffer usage, uniform, 해상도 중 어떤 변수가 예상과 다르게 동작했으며 이유는 무엇인가요?
-3. CPU 데이터에서 화면까지의 경로와 오류 원인을 설명한다. 이 조건이 깨지는 사례와 확인 방법은 무엇인가요?
+1. pass 설정과 pipeline 설정은 어디에서 맞물리나요?
+2. submit 성공만으로 렌더 정확성을 보장할 수 있나요?
 
 ## 공식 참고
 
-- [WebGPU 공식 문서](https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API)
+- [WebGPU API와 오류 처리](https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API)
+- [WGSL 명세](https://www.w3.org/TR/WGSL/)
 
-다음 단위에서 이 실험의 결과를 기준값으로 사용합니다.
+## 연결된 예제와 실행 범위
+
+[기존 예제 원본](../../../../../src/labs/webgpu-02/example.js) · [실행 환경과 제한](../../../../examples.md)
+
+원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
+
+## 다음 학습
+
+[이전: Resize와 샘플 수](../units/13/README.md) · [다음: Compute 첫 배열 변환](../units/15/README.md)
 
 ## 실험 기록 — 직접 작성
 
@@ -63,11 +81,3 @@ buffer usage, uniform, 해상도. 비교 시 다른 변수와 브라우저·view
 ### 배운 점
 
 ### 남은 질문
-
-## 연결된 예제와 실행 범위
-
-[원본 실행 코드](../../../../../src/labs/webgpu-02/example.js) · 화면 단위 ID: `webgpu-02`
-
-실제 WebGPU 파이프라인을 사용하며 지원 GPU·브라우저가 필요합니다. 미지원 환경에서는 안내를 표시합니다. WGSL 오류는 GPU 컴파일러에서 확인합니다.
-
-기존에 저장한 코드가 있으면 그대로 유지합니다. 새 원본을 사용하려면 먼저 전체 JSON으로 백업한 뒤 **원본 코드로**를 선택하세요. 필기는 지워지지 않습니다.

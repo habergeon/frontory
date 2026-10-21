@@ -1,0 +1,1361 @@
+{
+  "seriesId": "javascript",
+  "stages": [
+    "값과 계산",
+    "DOM과 비동기",
+    "모듈과 데이터 경계",
+    "기록장 통합과 검증"
+  ],
+  "goal": "상태·이벤트·비동기 흐름을 분리하고 실패 경로를 재현합니다.",
+  "capstone": "추가·검색·필터·JSON 저장과 복원, 자원 정리를 갖춘 모듈형 실험 기록장",
+  "units": [
+    {
+      "day": 1,
+      "id": "javascript-01",
+      "title": "값과 상태",
+      "prerequisites": "HTML 요소와 이벤트",
+      "concepts": [
+        {
+          "title": "참조 공유",
+          "explanation": "객체를 대입하면 같은 객체를 가리키는 값이 복사됩니다. 얕은 복사에서는 중첩 객체를 계속 공유합니다."
+        },
+        {
+          "title": "파생 목록",
+          "explanation": "filter와 map은 새 배열을 반환합니다. 콜백에서 내부 객체를 수정하면 원본도 바뀔 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "미완료 제목 2개를 추출한다.",
+        "참조 동등성과 원본 값 비교 2쌍을 남긴다."
+      ],
+      "steps": [
+        "state.js 파일에 완료 1개와 미완료 2개인 중첩 객체 배열 조건을 준비하세요.",
+        "filter/map으로 미완료 제목을 구하고 직접 수정과 새 객체 교체를 console.assert로 비교하세요.",
+        "완료 1개와 미완료 2개인 중첩 객체 배열 조건으로 실행하세요. 확인할 결과: 미완료 제목 2개를 추출한다. 참조 동등성과 원본 값 비교 2쌍을 남긴다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "복사 깊이",
+          "baseline": "배열만 spread",
+          "change": "중첩 객체도 spread",
+          "expected": "실행 전 가설: 중첩 값을 바꿔도 원본은 보존될 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "미완료 제목 2개를 추출한다.",
+        "참조 동등성과 원본 값 비교 2쌍을 남긴다."
+      ],
+      "questions": [
+        "새 배열이면 내부 객체도 새 객체인가요?",
+        "파생 목록을 따로 저장하면 어떤 동기화가 필요한가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "Frontory의 기존 미리보기는 제한된 시작 예제이며 전체 과제의 완성본이 아닙니다. 추가 파일과 기능은 별도 로컬 프로젝트에서 직접 구현하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 2,
+      "id": "javascript-step-02",
+      "title": "문자열 입력과 숫자 변환",
+      "prerequisites": "1단위 「값과 상태」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "입력 타입",
+          "explanation": "input.value는 문자열입니다. 숫자로 바꾸기 전에는 덧셈이 이어 붙이기로 동작할 수 있습니다."
+        },
+        {
+          "title": "유효한 수",
+          "explanation": "Number.isFinite는 유한한 숫자인지 검사합니다. 빈 문자열은 Number로 변환하면 0이므로 따로 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "네 입력의 판정과 타입을 기록한다.",
+        "공백과 음수에서 저장 건수가 늘지 않는다."
+      ],
+      "steps": [
+        "numbers.js 파일에 15, 빈 문자열, 15px, -1 입력 조건을 준비하세요.",
+        "parseMinutes에서 trim과 Number 변환 뒤 성공 또는 오류 객체를 반환하세요.",
+        "15, 빈 문자열, 15px, -1 입력 조건으로 실행하세요. 확인할 결과: 네 입력의 판정과 타입을 기록한다. 공백과 음수에서 저장 건수가 늘지 않는다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "문자열",
+          "baseline": "15",
+          "change": "빈 문자열",
+          "expected": "실행 전 가설: 빈 값을 0분으로 저장하지 않고 거부할 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "네 입력의 판정과 타입을 기록한다.",
+        "공백과 음수에서 저장 건수가 늘지 않는다."
+      ],
+      "questions": [
+        "parseInt는 15px을 어떻게 처리하나요?",
+        "number 입력의 제약만 믿을 수 있나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 3,
+      "id": "javascript-step-03",
+      "title": "동등 비교와 기본값",
+      "prerequisites": "2단위 「문자열 입력과 숫자 변환」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "동등 비교",
+          "explanation": "===는 타입 강제 변환 없이 비교합니다. 객체는 내용이 같아도 참조가 다르면 다릅니다."
+        },
+        {
+          "title": "널 기본값",
+          "explanation": "??는 null과 undefined에만 기본값을 적용합니다. 0과 빈 문자열을 유지할 때 논리 OR와 결과가 다릅니다."
+        }
+      ],
+      "outcomes": [
+        "기본값 출력 8개를 기록한다.",
+        "같은 참조와 다른 참조의 비교 결과를 설명한다."
+      ],
+      "steps": [
+        "defaults.js 파일에 0, 빈 문자열, null, undefined와 객체 2개 조건을 준비하세요.",
+        "논리 OR와 ??로 기본값 10을 적용하고 동일 내용 객체의 ===도 출력하세요.",
+        "0, 빈 문자열, null, undefined와 객체 2개 조건으로 실행하세요. 확인할 결과: 기본값 출력 8개를 기록한다. 같은 참조와 다른 참조의 비교 결과를 설명한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "연산자",
+          "baseline": "논리 OR",
+          "change": "??",
+          "expected": "실행 전 가설: 0 설정이 유지될 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "기본값 출력 8개를 기록한다.",
+        "같은 참조와 다른 참조의 비교 결과를 설명한다."
+      ],
+      "questions": [
+        "0이 유효한 설정은 무엇인가요?",
+        "내용 동등성을 ===로 검사하면 왜 실패하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 4,
+      "id": "javascript-step-04",
+      "title": "분기와 조기 반환",
+      "prerequisites": "3단위 「동등 비교와 기본값」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "경계 처리",
+          "explanation": "조기 반환은 잘못된 입력을 함수 입구에서 처리합니다. 정상 경로의 중첩을 줄이면서 반환 형태를 맞춥니다."
+        },
+        {
+          "title": "분기 누락",
+          "explanation": "switch의 default는 예상 밖의 값을 받습니다. 알 수 없는 값을 성공으로 바꾸면 원인이 숨겨집니다."
+        }
+      ],
+      "outcomes": [
+        "정상 3개와 오류 2개의 출력을 남긴다.",
+        "모든 반환 객체에 ok 필드가 있다."
+      ],
+      "steps": [
+        "status.js 파일에 idle, running, done, null, paused 조건을 준비하세요.",
+        "상태를 표시 문장으로 바꾸고 모든 경로에서 ok와 message를 반환하세요.",
+        "idle, running, done, null, paused 조건으로 실행하세요. 확인할 결과: 정상 3개와 오류 2개의 출력을 남긴다. 모든 반환 객체에 ok 필드가 있다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "상태",
+          "baseline": "running",
+          "change": "paused",
+          "expected": "실행 전 가설: 명시적인 오류 결과가 나올 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "정상 3개와 오류 2개의 출력을 남긴다.",
+        "모든 반환 객체에 ok 필드가 있다."
+      ],
+      "questions": [
+        "default에서 성공을 반환하면 무엇을 숨기나요?",
+        "조기 반환 뒤 어떤 코드가 생략되나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 5,
+      "id": "javascript-step-05",
+      "title": "함수와 순수 계산",
+      "prerequisites": "4단위 「분기와 조기 반환」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "순수 계산",
+          "explanation": "같은 입력에 같은 결과를 반환하고 외부 상태를 바꾸지 않습니다. DOM 표시는 별도 함수에 맡길 수 있습니다."
+        },
+        {
+          "title": "경계값",
+          "explanation": "전체 수가 0이면 일반 나눗셈으로 비율을 정할 수 없습니다. 빈 목록 표시 정책을 함수 계약에 적습니다."
+        }
+      ],
+      "outcomes": [
+        "세 입력에서 NaN과 Infinity가 표시되지 않는다.",
+        "DOM 없이 계산한 결과 3건을 남긴다."
+      ],
+      "steps": [
+        "score.js 파일에 0/0, 1/4, 4/4 조건을 준비하세요.",
+        "완료 비율 계산과 renderScore를 분리하고 console.assert로 계산만 검사하세요.",
+        "0/0, 1/4, 4/4 조건으로 실행하세요. 확인할 결과: 세 입력에서 NaN과 Infinity가 표시되지 않는다. DOM 없이 계산한 결과 3건을 남긴다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "전체 수",
+          "baseline": "4",
+          "change": "0",
+          "expected": "실행 전 가설: 정한 빈 목록 정책에 따라 NaN 표시를 막을 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "세 입력에서 NaN과 Infinity가 표시되지 않는다.",
+        "DOM 없이 계산한 결과 3건을 남긴다."
+      ],
+      "questions": [
+        "0개 중 0개를 어떻게 표시할까요?",
+        "계산과 표시를 합치면 무엇이 어려워지나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 6,
+      "id": "javascript-step-06",
+      "title": "스코프와 클로저",
+      "prerequisites": "5단위 「함수와 순수 계산」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "렉시컬 스코프",
+          "explanation": "함수는 정의된 위치의 변수를 참조합니다. 호출 위치가 바뀌어도 참조하는 스코프는 같습니다."
+        },
+        {
+          "title": "독립 상태",
+          "explanation": "팩토리 호출마다 지역 상태를 만들 수 있습니다. 전역 상태를 쓰면 서로 다른 위젯이 값을 공유합니다."
+        }
+      ],
+      "outcomes": [
+        "독립 구현에서 A=2와 B=1을 확인한다.",
+        "공유 구현과 독립 구현의 로그를 비교한다."
+      ],
+      "steps": [
+        "counter.js 파일에 A 두 번, B 한 번 클릭 조건을 준비하세요.",
+        "createCounter에서 증가·조회 함수를 반환하고 버튼 A와 B에 연결하세요.",
+        "A 두 번, B 한 번 클릭 조건으로 실행하세요. 확인할 결과: 독립 구현에서 A=2와 B=1을 확인한다. 공유 구현과 독립 구현의 로그를 비교한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "상태 위치",
+          "baseline": "팩토리 내부",
+          "change": "모듈 최상위",
+          "expected": "실행 전 가설: 두 카운터가 값을 공유할 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "독립 구현에서 A=2와 B=1을 확인한다.",
+        "공유 구현과 독립 구현의 로그를 비교한다."
+      ],
+      "questions": [
+        "반환된 함수는 어떤 변수를 기억하나요?",
+        "팩토리를 다시 부르면 기존 상태도 초기화되나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 7,
+      "id": "javascript-step-07",
+      "title": "배열 집계와 빈 입력",
+      "prerequisites": "6단위 「스코프와 클로저」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "변환 순서",
+          "explanation": "filter와 map의 순서는 중간 데이터 형태를 바꿉니다. 계산량뿐 아니라 최종 결과도 비교해야 합니다."
+        },
+        {
+          "title": "집계 초기값",
+          "explanation": "reduce의 초기값은 빈 배열의 동작을 결정합니다. 초기값이 없으면 빈 배열에서 예외가 납니다."
+        }
+      ],
+      "outcomes": [
+        "선택 주제만 결과에 남고 원본 5개는 보존된다.",
+        "빈 배열 합계는 0이고 제목 목록은 빈 배열이다."
+      ],
+      "steps": [
+        "summary.js 파일에 기록 5개와 빈 배열 조건을 준비하세요.",
+        "주제 필터·제목 변환·시간 합계를 독립 함수로 만들고 원본 보존을 검사하세요.",
+        "기록 5개와 빈 배열 조건으로 실행하세요. 확인할 결과: 선택 주제만 결과에 남고 원본 5개는 보존된다. 빈 배열 합계는 0이고 제목 목록은 빈 배열이다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "배열 길이",
+          "baseline": "5",
+          "change": "0",
+          "expected": "실행 전 가설: 초기값 0을 둔 합계는 0일 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "선택 주제만 결과에 남고 원본 5개는 보존된다.",
+        "빈 배열 합계는 0이고 제목 목록은 빈 배열이다."
+      ],
+      "questions": [
+        "map에서 객체를 수정하면 무엇이 바뀌나요?",
+        "reduce 초기값은 결과 타입에도 영향을 주나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 8,
+      "id": "javascript-step-08",
+      "title": "객체 구조 분해와 선택적 접근",
+      "prerequisites": "7단위 「배열 집계와 빈 입력」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "구조 분해",
+          "explanation": "속성을 지역 이름으로 꺼낼 수 있습니다. 기본값은 속성이 undefined일 때 적용됩니다."
+        },
+        {
+          "title": "선택적 접근",
+          "explanation": "?.는 nullish 값에서 접근을 멈춥니다. 필수 필드 누락까지 조용히 숨기지 않도록 구분합니다."
+        }
+      ],
+      "outcomes": [
+        "연락처 유무 모두 예외 없이 표시한다.",
+        "이름 누락은 정상 이름으로 저장되지 않는다."
+      ],
+      "steps": [
+        "profile.js 파일에 정상 작성자, contact 누락, name 누락 조건을 준비하세요.",
+        "이름을 구조 분해하고 contact?.email로 보조 정보를 표시하세요.",
+        "정상 작성자, contact 누락, name 누락 조건으로 실행하세요. 확인할 결과: 연락처 유무 모두 예외 없이 표시한다. 이름 누락은 정상 이름으로 저장되지 않는다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "연락처",
+          "baseline": "객체 있음",
+          "change": "없음",
+          "expected": "실행 전 가설: 보조 정보만 기본 안내로 바뀔 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "연락처 유무 모두 예외 없이 표시한다.",
+        "이름 누락은 정상 이름으로 저장되지 않는다."
+      ],
+      "questions": [
+        "?.로 숨기면 안 되는 누락은 무엇인가요?",
+        "null에도 구조 분해 기본값이 적용되나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 9,
+      "id": "javascript-step-09",
+      "title": "Map과 Set 색인",
+      "prerequisites": "8단위 「객체 구조 분해와 선택적 접근」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "키 기반 조회",
+          "explanation": "Map은 키와 값을 대응시킵니다. 같은 키를 set하면 기존 값이 교체됩니다."
+        },
+        {
+          "title": "중복 제거",
+          "explanation": "Set은 같은 값을 한 번 보관합니다. 객체는 내용이 아니라 참조로 구분합니다."
+        }
+      ],
+      "outcomes": [
+        "태그 중복 제거 전후 개수를 남긴다.",
+        "없는 id 조회와 기존 id 갱신을 각각 검증한다."
+      ],
+      "steps": [
+        "index.js 파일에 중복 태그 6개와 메모 3개 조건을 준비하세요.",
+        "Set으로 태그를 줄이고 Map으로 메모를 조회한 뒤 같은 id를 갱신하세요.",
+        "중복 태그 6개와 메모 3개 조건으로 실행하세요. 확인할 결과: 태그 중복 제거 전후 개수를 남긴다. 없는 id 조회와 기존 id 갱신을 각각 검증한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "set 키",
+          "baseline": "새 id 4",
+          "change": "기존 id 2",
+          "expected": "실행 전 가설: 크기는 그대로이고 id 2 값이 바뀔 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "태그 중복 제거 전후 개수를 남긴다.",
+        "없는 id 조회와 기존 id 갱신을 각각 검증한다."
+      ],
+      "questions": [
+        "객체 태그의 중복은 어떻게 정의할까요?",
+        "Map과 배열 검색의 목적은 어떻게 다른가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 10,
+      "id": "javascript-step-10",
+      "title": "예외와 복구 경로",
+      "prerequisites": "9단위 「Map과 Set 색인」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "예외 전파",
+          "explanation": "throw는 가까운 catch로 제어를 넘깁니다. catch에서는 복구하거나 맥락을 더해 다시 전달합니다."
+        },
+        {
+          "title": "정리 보장",
+          "explanation": "finally는 성공과 실패 뒤 실행됩니다. 여기서 return하면 원래 반환값이나 예외를 덮을 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "성공과 실패 모두 진행 상태가 종료된다.",
+        "실패 뒤 정상 입력을 다시 읽는다."
+      ],
+      "steps": [
+        "parse.js 파일에 정상 JSON과 닫는 괄호가 빠진 JSON 조건을 준비하세요.",
+        "JSON.parse를 try/catch로 감싸고 finally에서 진행 표시를 끄세요.",
+        "정상 JSON과 닫는 괄호가 빠진 JSON 조건으로 실행하세요. 확인할 결과: 성공과 실패 모두 진행 상태가 종료된다. 실패 뒤 정상 입력을 다시 읽는다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "JSON",
+          "baseline": "정상",
+          "change": "괄호 누락",
+          "expected": "실행 전 가설: 실패 안내 뒤 진행 표시가 꺼질 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "성공과 실패 모두 진행 상태가 종료된다.",
+        "실패 뒤 정상 입력을 다시 읽는다."
+      ],
+      "questions": [
+        "빈 catch는 어떤 정보를 잃나요?",
+        "finally의 return은 왜 조심해야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 11,
+      "id": "javascript-step-11",
+      "title": "DOM 생성과 텍스트 삽입",
+      "prerequisites": "10단위 「예외와 복구 경로」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "노드 생성",
+          "explanation": "createElement의 결과는 문서에 연결해야 보입니다. DocumentFragment로 여러 노드를 묶어 삽입할 수 있습니다."
+        },
+        {
+          "title": "텍스트 처리",
+          "explanation": "textContent는 문자열을 텍스트로 다룹니다. 사용자 입력을 innerHTML로 넣으면 마크업으로 해석될 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "메모 3개에 대응하는 li 3개가 있다.",
+        "태그 입력으로 strong 요소가 생성되지 않는다."
+      ],
+      "steps": [
+        "render.js 파일에 메모 3개와 <strong>실험</strong> 제목 조건을 준비하세요.",
+        "li를 생성해 제목을 textContent로 넣고 fragment를 ul에 연결하세요.",
+        "메모 3개와 <strong>실험</strong> 제목 조건으로 실행하세요. 확인할 결과: 메모 3개에 대응하는 li 3개가 있다. 태그 입력으로 strong 요소가 생성되지 않는다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "제목",
+          "baseline": "일반 문자",
+          "change": "태그 형태 문자열",
+          "expected": "실행 전 가설: 태그 자체가 텍스트로 보일 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "메모 3개에 대응하는 li 3개가 있다.",
+        "태그 입력으로 strong 요소가 생성되지 않는다."
+      ],
+      "questions": [
+        "서식이 필요할 때 어떤 별도 계약이 필요한가요?",
+        "다시 렌더링할 때 기존 노드는 어떻게 처리하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 12,
+      "id": "javascript-step-12",
+      "title": "이벤트 전파와 위임",
+      "prerequisites": "11단위 「DOM 생성과 텍스트 삽입」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "버블링",
+          "explanation": "많은 이벤트는 대상에서 조상으로 전달됩니다. target과 currentTarget은 서로 다른 요소일 수 있습니다."
+        },
+        {
+          "title": "위임 처리",
+          "explanation": "부모 리스너로 자식의 동작을 처리합니다. closest 결과가 해당 부모 내부인지 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "추가 항목도 개별 리스너 없이 삭제된다.",
+        "span 클릭 한 번에 처리 로그 한 줄이 남는다."
+      ],
+      "steps": [
+        "events.js 파일에 버튼 안 span 클릭과 동적 추가 항목 클릭 조건을 준비하세요.",
+        "ul에 click을 연결하고 data-action 버튼을 closest로 찾아 삭제하세요.",
+        "버튼 안 span 클릭과 동적 추가 항목 클릭 조건으로 실행하세요. 확인할 결과: 추가 항목도 개별 리스너 없이 삭제된다. span 클릭 한 번에 처리 로그 한 줄이 남는다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "클릭 위치",
+          "baseline": "버튼",
+          "change": "내부 span",
+          "expected": "실행 전 가설: 같은 id가 한 번 처리될 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "추가 항목도 개별 리스너 없이 삭제된다.",
+        "span 클릭 한 번에 처리 로그 한 줄이 남는다."
+      ],
+      "questions": [
+        "target과 currentTarget은 언제 같나요?",
+        "위임 영역 밖 결과는 어떻게 걸러내나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 13,
+      "id": "javascript-step-13",
+      "title": "Promise와 실행 순서",
+      "prerequisites": "12단위 「이벤트 전파와 위임」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "마이크로태스크",
+          "explanation": "동기 코드가 끝난 뒤 Promise 반응 콜백을 처리합니다. 타이머 콜백과 다른 큐에서 실행 순서를 결정합니다."
+        },
+        {
+          "title": "체인 반환",
+          "explanation": "then에서 Promise를 반환하면 다음 단계가 그 결과를 기다립니다. 반환을 빠뜨리면 내부 작업과 뒤 단계가 분리됩니다."
+        }
+      ],
+      "outcomes": [
+        "세 종류 로그의 실제 순서를 기록한다.",
+        "reject가 마지막 catch에서 한 번 처리된다."
+      ],
+      "steps": [
+        "order.js 파일에 지연 작업 두 개와 reject 한 개 조건을 준비하세요.",
+        "동기·then·setTimeout 로그를 배치하고 반환 유무와 reject 전파를 비교하세요.",
+        "지연 작업 두 개와 reject 한 개 조건으로 실행하세요. 확인할 결과: 세 종류 로그의 실제 순서를 기록한다. reject가 마지막 catch에서 한 번 처리된다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "then 반환",
+          "baseline": "Promise 반환",
+          "change": "반환 생략",
+          "expected": "실행 전 가설: 뒤 단계가 내부 작업보다 먼저 진행할 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "세 종류 로그의 실제 순서를 기록한다.",
+        "reject가 마지막 catch에서 한 번 처리된다."
+      ],
+      "questions": [
+        "await는 스레드를 멈추나요?",
+        "반환하지 않은 Promise의 실패는 어디로 가나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 14,
+      "id": "javascript-02",
+      "title": "비동기와 취소",
+      "prerequisites": "13단위 「Promise와 실행 순서」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "응답 경합",
+          "explanation": "요청 순서와 완료 순서는 다를 수 있습니다. 요청 id를 검사하면 오래된 응답의 반영을 막습니다."
+        },
+        {
+          "title": "취소 신호",
+          "explanation": "AbortController의 signal로 취소를 전달합니다. 모의 함수도 signal을 처리해야 실제로 중단됩니다."
+        }
+      ],
+      "outcomes": [
+        "역순 완료에서도 두 번째 검색어가 화면에 남는다.",
+        "취소와 일반 실패 로그를 구분한다."
+      ],
+      "steps": [
+        "search.js 파일에 100ms 간격 검색 두 번, 두 번째 응답 100ms 조건을 준비하세요.",
+        "지연 모의 검색에 요청 id 검사와 signal 처리를 각각 구현하고 최종 결과를 표시하세요.",
+        "100ms 간격 검색 두 번, 두 번째 응답 100ms 조건으로 실행하세요. 확인할 결과: 역순 완료에서도 두 번째 검색어가 화면에 남는다. 취소와 일반 실패 로그를 구분한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "첫 응답 지연",
+          "baseline": "50ms",
+          "change": "800ms",
+          "expected": "실행 전 가설: 최신 검색 결과를 유지할 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "역순 완료에서도 두 번째 검색어가 화면에 남는다.",
+        "취소와 일반 실패 로그를 구분한다."
+      ],
+      "questions": [
+        "취소 뒤에도 id 검사가 필요한 경로는 무엇인가요?",
+        "로딩 종료에서도 현재 요청을 확인해야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        },
+        {
+          "title": "MDN AbortController",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/AbortController"
+        }
+      ],
+      "environment": "Frontory의 기존 미리보기는 제한된 시작 예제이며 전체 과제의 완성본이 아닙니다. 추가 파일과 기능은 별도 로컬 프로젝트에서 직접 구현하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 15,
+      "id": "javascript-step-15",
+      "title": "Fetch 응답과 HTTP 오류",
+      "prerequisites": "14단위 「비동기와 취소」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "응답 상태",
+          "explanation": "fetch는 HTTP 오류에도 Response를 반환할 수 있습니다. response.ok로 성공 여부를 판단합니다."
+        },
+        {
+          "title": "본문 읽기",
+          "explanation": "json은 본문을 읽는 비동기 메서드입니다. 이미 소비한 본문을 다시 읽는 동작에는 제한이 있습니다."
+        }
+      ],
+      "outcomes": [
+        "성공 목록과 404 안내를 각각 확인한다.",
+        "HTTP 오류와 JSON 파싱 오류를 구분해 기록한다."
+      ],
+      "steps": [
+        "api.js 파일에 data.json과 없는 missing.json 조건을 준비하세요.",
+        "같은 출처 파일을 fetch하고 ok 검사 후 json을 읽어 목록이나 오류를 표시하세요.",
+        "data.json과 없는 missing.json 조건으로 실행하세요. 확인할 결과: 성공 목록과 404 안내를 각각 확인한다. HTTP 오류와 JSON 파싱 오류를 구분해 기록한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "경로",
+          "baseline": "data.json",
+          "change": "missing.json",
+          "expected": "실행 전 가설: HTTP 오류를 정상 데이터로 처리하지 않을 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "성공 목록과 404 안내를 각각 확인한다.",
+        "HTTP 오류와 JSON 파싱 오류를 구분해 기록한다."
+      ],
+      "questions": [
+        "catch만으로 404를 처리할 수 있나요?",
+        "본문을 두 번 읽으면 어떻게 되나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 16,
+      "id": "javascript-step-16",
+      "title": "병렬 작업과 부분 실패",
+      "prerequisites": "15단위 「Fetch 응답과 HTTP 오류」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "전체 성공",
+          "explanation": "Promise.all은 입력 순서로 성공 결과를 반환합니다. 하나가 거부되면 결과 Promise도 거부됩니다."
+        },
+        {
+          "title": "부분 결과",
+          "explanation": "allSettled는 각 작업의 성공과 실패를 모읍니다. 성공 항목만 표시할지 제품 정책으로 정합니다."
+        }
+      ],
+      "outcomes": [
+        "완료 순서와 반환 배열 순서를 구분한다.",
+        "부분 실패 화면에 성공 항목 2개가 남는다."
+      ],
+      "steps": [
+        "batch.js 파일에 서로 다른 지연과 두 번째 작업 실패 조건을 준비하세요.",
+        "지연 작업 3개를 all과 allSettled로 실행하고 결과 순서와 상태를 출력하세요.",
+        "서로 다른 지연과 두 번째 작업 실패 조건으로 실행하세요. 확인할 결과: 완료 순서와 반환 배열 순서를 구분한다. 부분 실패 화면에 성공 항목 2개가 남는다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "실패 수",
+          "baseline": "0",
+          "change": "1",
+          "expected": "실행 전 가설: 성공 2개와 실패 1개를 분리할 수 있을 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "완료 순서와 반환 배열 순서를 구분한다.",
+        "부분 실패 화면에 성공 항목 2개가 남는다."
+      ],
+      "questions": [
+        "all 실패가 나머지 작업을 취소하나요?",
+        "부분 실패를 어떻게 알릴까요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 17,
+      "id": "javascript-step-17",
+      "title": "디바운스와 타이머 정리",
+      "prerequisites": "16단위 「병렬 작업과 부분 실패」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "입력 묶기",
+          "explanation": "디바운스는 새 입력마다 이전 타이머를 취소합니다. 마지막 입력 이후 정한 시간이 지나면 실행합니다."
+        },
+        {
+          "title": "수명주기",
+          "explanation": "화면을 제거할 때 대기 타이머도 해제합니다. 이미 시작한 요청 취소는 별도로 처리합니다."
+        }
+      ],
+      "outcomes": [
+        "300ms 조건에서 검색 호출이 1회다.",
+        "dispose 이후 대기 검색 호출은 0회다."
+      ],
+      "steps": [
+        "debounce.js 파일에 100ms 간격 입력 5회와 대기 중 dispose 조건을 준비하세요.",
+        "clearTimeout으로 검색을 지연하고 dispose에서 대기 작업을 취소하세요.",
+        "100ms 간격 입력 5회와 대기 중 dispose 조건으로 실행하세요. 확인할 결과: 300ms 조건에서 검색 호출이 1회다. dispose 이후 대기 검색 호출은 0회다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "지연",
+          "baseline": "0ms",
+          "change": "300ms",
+          "expected": "실행 전 가설: 검색이 마지막 입력 한 번으로 모일 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "300ms 조건에서 검색 호출이 1회다.",
+        "dispose 이후 대기 검색 호출은 0회다."
+      ],
+      "questions": [
+        "디바운스와 요청 취소는 어떻게 다른가요?",
+        "검색어를 언제 캡처해야 하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 18,
+      "id": "javascript-step-18",
+      "title": "ES 모듈의 공개 경계",
+      "prerequisites": "17단위 「디바운스와 타이머 정리」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "모듈 계약",
+          "explanation": "export와 import는 파일의 공개 항목을 정합니다. 브라우저 로딩에는 경로와 MIME 타입도 영향을 줍니다."
+        },
+        {
+          "title": "책임 분리",
+          "explanation": "계산 모듈이 DOM을 몰라도 호출될 수 있습니다. 화면 모듈은 계산 결과를 전달받아 표시합니다."
+        }
+      ],
+      "outcomes": [
+        "state.js 계산을 DOM 없이 호출한다.",
+        "경로를 복원하면 초기 목록이 표시된다."
+      ],
+      "steps": [
+        "main.js 파일에 정상 상대 경로와 missing.js 경로 조건을 준비하세요.",
+        "state.js와 view.js를 분리해 import하고 HTTP 서버에서 모듈을 로드하세요.",
+        "정상 상대 경로와 missing.js 경로 조건으로 실행하세요. 확인할 결과: state.js 계산을 DOM 없이 호출한다. 경로를 복원하면 초기 목록이 표시된다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "import 경로",
+          "baseline": "./state.js",
+          "change": "./missing.js",
+          "expected": "실행 전 가설: 모듈 로딩 오류가 나타날 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "state.js 계산을 DOM 없이 호출한다.",
+        "경로를 복원하면 초기 목록이 표시된다."
+      ],
+      "questions": [
+        "파일 직접 열기와 HTTP는 무엇이 다른가요?",
+        "순환 import는 어떤 초기화 문제를 만들까요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 19,
+      "id": "javascript-step-19",
+      "title": "저장소와 복원 실패",
+      "prerequisites": "18단위 「ES 모듈의 공개 경계」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "문자열 저장",
+          "explanation": "localStorage는 문자열을 저장합니다. JSON 직렬화와 파싱 규칙이 저장 계약에 포함됩니다."
+        },
+        {
+          "title": "실패 표시",
+          "explanation": "환경 정책이나 용량 때문에 저장이 실패할 수 있습니다. 메모리 갱신과 저장 성공을 구분해 안내합니다."
+        }
+      ],
+      "outcomes": [
+        "새로고침 전후 메모 id 3개가 같다.",
+        "손상 데이터와 정상 빈 목록의 안내가 다르다."
+      ],
+      "steps": [
+        "storage.js 파일에 메모 3개와 손상된 저장 문자열 조건을 준비하세요.",
+        "실습 전용 키로 저장·복원하고 파싱 오류와 쓰기 실패를 catch로 표시하세요.",
+        "메모 3개와 손상된 저장 문자열 조건으로 실행하세요. 확인할 결과: 새로고침 전후 메모 id 3개가 같다. 손상 데이터와 정상 빈 목록의 안내가 다르다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "저장값",
+          "baseline": "유효 JSON",
+          "change": "잘린 JSON",
+          "expected": "실행 전 가설: 복원 실패를 안내하고 화면은 유지될 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "새로고침 전후 메모 id 3개가 같다.",
+        "손상 데이터와 정상 빈 목록의 안내가 다르다."
+      ],
+      "questions": [
+        "유효한 JSON이면 메모 구조도 유효한가요?",
+        "저장 실패를 무시하면 무엇을 잃나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 20,
+      "id": "javascript-step-20",
+      "title": "URL 필터와 뒤로 가기",
+      "prerequisites": "19단위 「저장소와 복원 실패」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "검색 매개변수",
+          "explanation": "URLSearchParams는 쿼리 인코딩을 처리합니다. get과 getAll은 중복 키를 다르게 읽습니다."
+        },
+        {
+          "title": "히스토리",
+          "explanation": "pushState는 새 기록을 추가합니다. 뒤로 가기의 popstate를 받아 화면도 동기화합니다."
+        }
+      ],
+      "outcomes": [
+        "새로고침 후 주소와 선택 필터가 같다.",
+        "뒤로 가기 후 이전 목록을 복원한다."
+      ],
+      "steps": [
+        "route.js 파일에 주제 두 번 변경 후 뒤로 가기와 새로고침 조건을 준비하세요.",
+        "topic을 읽어 필터를 적용하고 변경 시 URL을 갱신하며 popstate를 처리하세요.",
+        "주제 두 번 변경 후 뒤로 가기와 새로고침 조건으로 실행하세요. 확인할 결과: 새로고침 후 주소와 선택 필터가 같다. 뒤로 가기 후 이전 목록을 복원한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "주제",
+          "baseline": "css",
+          "change": "한글과 공백",
+          "expected": "실행 전 가설: 복원 문자열이 원래 값과 같을 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "새로고침 후 주소와 선택 필터가 같다.",
+        "뒤로 가기 후 이전 목록을 복원한다."
+      ],
+      "questions": [
+        "pushState가 즉시 popstate를 발생시키나요?",
+        "알 수 없는 필터를 어떻게 처리하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 21,
+      "id": "javascript-step-21",
+      "title": "FormData와 도메인 검증",
+      "prerequisites": "20단위 「URL 필터와 뒤로 가기」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "폼 수집",
+          "explanation": "FormData는 name이 있는 성공적인 컨트롤 값을 수집합니다. 체크 해제 항목과 disabled 입력은 빠질 수 있습니다."
+        },
+        {
+          "title": "제품 규칙",
+          "explanation": "네이티브 제약과 제품의 입력 규칙은 다릅니다. 공백 제목은 별도 정규화와 검사가 필요합니다."
+        }
+      ],
+      "outcomes": [
+        "공백 제목은 목록에 추가되지 않는다.",
+        "체크 여부에 따른 수집 항목 2쌍을 기록한다."
+      ],
+      "steps": [
+        "form.js 파일에 공백 제목, 체크 해제, disabled 필드 조건을 준비하세요.",
+        "submit에서 FormData를 읽고 제목과 분을 검증한 뒤 메모를 추가하세요.",
+        "공백 제목, 체크 해제, disabled 필드 조건으로 실행하세요. 확인할 결과: 공백 제목은 목록에 추가되지 않는다. 체크 여부에 따른 수집 항목 2쌍을 기록한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "체크박스",
+          "baseline": "체크",
+          "change": "해제",
+          "expected": "실행 전 가설: 해당 키가 FormData에 없을 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "공백 제목은 목록에 추가되지 않는다.",
+        "체크 여부에 따른 수집 항목 2쌍을 기록한다."
+      ],
+      "questions": [
+        "name이 없으면 무엇이 빠지나요?",
+        "클라이언트 검증이 서버 검증을 대신하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 22,
+      "id": "javascript-step-22",
+      "title": "Blob으로 JSON 내보내기",
+      "prerequisites": "21단위 「FormData와 도메인 검증」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "직렬화",
+          "explanation": "JSON.stringify는 데이터를 문자열로 바꿉니다. 함수와 undefined는 기대한 방식으로 보존되지 않습니다."
+        },
+        {
+          "title": "객체 URL",
+          "explanation": "Blob URL은 생성한 파일 데이터를 참조합니다. 사용을 마치면 revokeObjectURL로 해제합니다."
+        }
+      ],
+      "outcomes": [
+        "내보낸 파일에 메모 3개와 버전 값이 있다.",
+        "생성한 객체 URL마다 해제 경로가 있다."
+      ],
+      "steps": [
+        "export.js 파일에 메모 3개와 한글·줄바꿈 제목 조건을 준비하세요.",
+        "메모와 schemaVersion을 Blob으로 만들고 다운로드 링크로 notes.json을 저장하세요.",
+        "메모 3개와 한글·줄바꿈 제목 조건으로 실행하세요. 확인할 결과: 내보낸 파일에 메모 3개와 버전 값이 있다. 생성한 객체 URL마다 해제 경로가 있다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "제목",
+          "baseline": "영문",
+          "change": "한글과 줄바꿈",
+          "expected": "실행 전 가설: 복원 문자열이 원본과 같을 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "내보낸 파일에 메모 3개와 버전 값이 있다.",
+        "생성한 객체 URL마다 해제 경로가 있다."
+      ],
+      "questions": [
+        "직렬화에서 사라지는 값은 무엇인가요?",
+        "URL을 너무 빨리 해제하면 어떻게 되나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 23,
+      "id": "javascript-step-23",
+      "title": "파일 가져오기와 구조 검사",
+      "prerequisites": "22단위 「Blob으로 JSON 내보내기」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "파일 읽기",
+          "explanation": "File.text는 문자열을 반환하는 Promise입니다. 확장자만으로 내용의 유효성을 판단할 수 없습니다."
+        },
+        {
+          "title": "원자적 반영",
+          "explanation": "전체 입력을 검증한 다음 상태를 교체합니다. 중간 오류가 기존 데이터를 일부만 덮지 않게 합니다."
+        }
+      ],
+      "outcomes": [
+        "유효 파일의 항목 수를 그대로 복원한다.",
+        "거부 전후 기존 id 배열이 같다."
+      ],
+      "steps": [
+        "import.js 파일에 정상 파일과 두 번째 title이 숫자인 파일 조건을 준비하세요.",
+        "파일을 읽고 배열·id·title을 검사한 뒤 통과한 전체 배열만 반영하세요.",
+        "정상 파일과 두 번째 title이 숫자인 파일 조건으로 실행하세요. 확인할 결과: 유효 파일의 항목 수를 그대로 복원한다. 거부 전후 기존 id 배열이 같다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "title 타입",
+          "baseline": "문자열",
+          "change": "숫자",
+          "expected": "실행 전 가설: 가져오기를 거부하고 기존 목록을 보존할 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "유효 파일의 항목 수를 그대로 복원한다.",
+        "거부 전후 기존 id 배열이 같다."
+      ],
+      "questions": [
+        "검증 중 상태를 수정하면 왜 위험한가요?",
+        "중복 id는 어떤 정책으로 처리할까요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 24,
+      "id": "javascript-step-24",
+      "title": "상태 전이와 실행 취소",
+      "prerequisites": "23단위 「파일 가져오기와 구조 검사」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "명령 모델",
+          "explanation": "action으로 변경 이유를 표현합니다. reducer는 상태와 action을 받아 다음 상태를 계산합니다."
+        },
+        {
+          "title": "이력 보존",
+          "explanation": "이전 상태를 보존하면 실행 취소가 가능합니다. 중첩 객체를 직접 수정하면 과거 이력도 바뀝니다."
+        }
+      ],
+      "outcomes": [
+        "undo 3회 뒤 시작 id와 완료 값이 같다.",
+        "알 수 없는 action에서 상태가 보존된다."
+      ],
+      "steps": [
+        "reducer.js 파일에 추가·완료·삭제 후 undo 3회 조건을 준비하세요.",
+        "add·toggle·remove와 history를 구현하고 undo 버튼을 연결하세요.",
+        "추가·완료·삭제 후 undo 3회 조건으로 실행하세요. 확인할 결과: undo 3회 뒤 시작 id와 완료 값이 같다. 알 수 없는 action에서 상태가 보존된다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "갱신",
+          "baseline": "내부 객체 수정",
+          "change": "새 객체 생성",
+          "expected": "실행 전 가설: 과거 완료 상태가 보존될 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "undo 3회 뒤 시작 id와 완료 값이 같다.",
+        "알 수 없는 action에서 상태가 보존된다."
+      ],
+      "questions": [
+        "과거와 현재가 어떤 객체를 공유하나요?",
+        "새 작업 뒤 redo 이력은 어떻게 처리할까요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 25,
+      "id": "javascript-step-25",
+      "title": "날짜 저장과 지역 표시",
+      "prerequisites": "24단위 「상태 전이와 실행 취소」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "시점 표현",
+          "explanation": "Date는 시점을 밀리초로 표현합니다. 날짜만 필요한 정보와 시간대가 있는 시점은 구분합니다."
+        },
+        {
+          "title": "지역 표시",
+          "explanation": "Intl.DateTimeFormat은 지정한 지역과 시간대로 표시합니다. 표시 문자열을 저장 형식으로 다시 파싱하면 모호해집니다."
+        }
+      ],
+      "outcomes": [
+        "두 표시값과 동일 epoch 값을 기록한다.",
+        "잘못된 날짜는 저장되지 않는다."
+      ],
+      "steps": [
+        "date.js 파일에 정상 ISO 값과 잘못된 날짜 조건을 준비하세요.",
+        "고정 ISO 시점을 저장하고 UTC와 Asia/Seoul formatter로 표시하세요.",
+        "정상 ISO 값과 잘못된 날짜 조건으로 실행하세요. 확인할 결과: 두 표시값과 동일 epoch 값을 기록한다. 잘못된 날짜는 저장되지 않는다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "시간대",
+          "baseline": "UTC",
+          "change": "Asia/Seoul",
+          "expected": "실행 전 가설: 표시 시각은 달라도 epoch 값은 같을 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "두 표시값과 동일 epoch 값을 기록한다.",
+        "잘못된 날짜는 저장되지 않는다."
+      ],
+      "questions": [
+        "학습일에 시각이 꼭 필요한가요?",
+        "지역 표시 문자열을 다시 파싱하면 왜 불안정한가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 26,
+      "id": "javascript-step-26",
+      "title": "계산 비용과 작업 분할",
+      "prerequisites": "25단위 「날짜 저장과 지역 표시」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "측정 범위",
+          "explanation": "performance.now로 경과 시간을 구합니다. 데이터 크기와 실행 조건을 고정해야 비교할 수 있습니다."
+        },
+        {
+          "title": "입력 응답",
+          "explanation": "긴 동기 작업은 메인 스레드 입력을 지연시킵니다. 분할은 총 처리 시간과 응답성에 다른 영향을 줄 수 있습니다."
+        }
+      ],
+      "outcomes": [
+        "동일 데이터의 두 경로를 각 3회 측정한다.",
+        "전체 시간과 입력 응답을 별도 항목으로 기록한다."
+      ],
+      "steps": [
+        "perf.js 파일에 메모 10000개 검색을 각 3회 실행 조건을 준비하세요.",
+        "검색을 동기 처리와 타이머 묶음 처리로 나누고 처리 중 버튼 응답을 관찰하세요.",
+        "메모 10000개 검색을 각 3회 실행 조건으로 실행하세요. 확인할 결과: 동일 데이터의 두 경로를 각 3회 측정한다. 전체 시간과 입력 응답을 별도 항목으로 기록한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "묶음 크기",
+          "baseline": "10000개",
+          "change": "500개",
+          "expected": "실행 전 가설: 입력 기회는 늘고 총 시간은 증가할 수 있다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "동일 데이터의 두 경로를 각 3회 측정한다.",
+        "전체 시간과 입력 응답을 별도 항목으로 기록한다."
+      ],
+      "questions": [
+        "평균만 보면 어떤 지연을 놓치나요?",
+        "분할 중 입력 변경을 어떻게 반영하나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 27,
+      "id": "javascript-step-27",
+      "title": "리스너 정리와 반복 마운트",
+      "prerequisites": "26단위 「계산 비용과 작업 분할」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "자원 소유",
+          "explanation": "mount에서 만든 자원은 dispose에서 해제합니다. removeEventListener에는 동일 함수 참조가 필요합니다."
+        },
+        {
+          "title": "멱등 정리",
+          "explanation": "dispose를 반복해도 부작용이 없어야 합니다. 해제 후 도착하는 비동기 콜백도 차단해야 합니다."
+        }
+      ],
+      "outcomes": [
+        "5회 재마운트 뒤 처리 로그가 1개다.",
+        "dispose 두 번 호출에서 예외와 남은 타이머가 없다."
+      ],
+      "steps": [
+        "lifecycle.js 파일에 마운트·해제 5회 후 클릭 한 번 조건을 준비하세요.",
+        "mount가 dispose를 반환하게 하고 리스너·타이머·진행 요청을 모두 정리하세요.",
+        "마운트·해제 5회 후 클릭 한 번 조건으로 실행하세요. 확인할 결과: 5회 재마운트 뒤 처리 로그가 1개다. dispose 두 번 호출에서 예외와 남은 타이머가 없다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "재마운트",
+          "baseline": "1회",
+          "change": "5회",
+          "expected": "실행 전 가설: 한 번의 클릭 처리 횟수는 1회일 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "5회 재마운트 뒤 처리 로그가 1개다.",
+        "dispose 두 번 호출에서 예외와 남은 타이머가 없다."
+      ],
+      "questions": [
+        "노드 제거가 모든 외부 리스너도 지우나요?",
+        "종료된 위젯의 응답은 어디서 막나요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "문서 안내형 단위이며 전용 내장 실행 예제는 제공하지 않습니다. 별도 로컬 프로젝트에서 직접 구현하고 브라우저 개발자 도구로 확인하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    },
+    {
+      "day": 28,
+      "id": "javascript-03",
+      "title": "모듈형 실험 기록장",
+      "prerequisites": "27단위 「리스너 정리와 반복 마운트」의 결과물과 실험 기록",
+      "concepts": [
+        {
+          "title": "모듈 조합",
+          "explanation": "상태·저장·DOM을 분리하면 각 경계를 따로 검증할 수 있습니다. main은 연결과 정리를 담당합니다."
+        },
+        {
+          "title": "흐름 검증",
+          "explanation": "개별 기능의 성공만으로 전체 흐름을 보장하지 못합니다. 추가부터 내보내기와 복원까지 같은 데이터로 확인합니다."
+        }
+      ],
+      "outcomes": [
+        "추가·필터·내보내기·복원 네 흐름을 기록한다.",
+        "클릭 한 번에 한 건만 추가되고 실패 가져오기는 기존 상태를 보존한다."
+      ],
+      "steps": [
+        "main.js 파일에 메모 10개, 재마운트 5회, 손상 파일 가져오기 조건을 준비하세요.",
+        "메모 추가·필터·JSON 저장과 복원을 연결하고 이벤트 해제 후 재연결하세요.",
+        "메모 10개, 재마운트 5회, 손상 파일 가져오기 조건으로 실행하세요. 확인할 결과: 추가·필터·내보내기·복원 네 흐름을 기록한다. 클릭 한 번에 한 건만 추가되고 실패 가져오기는 기존 상태를 보존한다. 예상과 실제 결과는 구분해 기록하세요."
+      ],
+      "variables": [
+        {
+          "name": "메모 수",
+          "baseline": "3개",
+          "change": "100개",
+          "expected": "실행 전 가설: 필터와 복원 결과가 id 기준으로 일치할 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
+        }
+      ],
+      "criteria": [
+        "추가·필터·내보내기·복원 네 흐름을 기록한다.",
+        "클릭 한 번에 한 건만 추가되고 실패 가져오기는 기존 상태를 보존한다."
+      ],
+      "questions": [
+        "저장 실패와 렌더 실패의 책임은 어디인가요?",
+        "검증하지 못한 경계는 무엇인가요?"
+      ],
+      "references": [
+        {
+          "title": "MDN JavaScript Guide",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+        }
+      ],
+      "environment": "Frontory의 기존 미리보기는 제한된 시작 예제이며 전체 과제의 완성본이 아닙니다. 추가 파일과 기능은 별도 로컬 프로젝트에서 직접 구현하세요. 별도 폴더의 index.html에서 script type=\"module\"로 실습 JS를 연결하고 로컬 HTTP 서버로 여세요. 콘솔·Network·Elements를 사용합니다."
+    }
+  ]
+}

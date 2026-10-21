@@ -2,22 +2,72 @@
 
 [Frontory 기술 지도](../../README.md)
 
-엔지니어링 · 우선순위 ★★★★ · 3개 학습 단위
+엔지니어링 · 4단계 · 28개 학습 단위
+
+## 시리즈 목표
+
+실제 Wasm 모듈을 호출하고 선형 메모리·복사·수치 표현·초기화 비용을 구분한다.
 
 ## 선수 지식
 
 JavaScript·TypedArray, 선택한 컴파일 언어 기초
 
+## 실습 방식과 제공 범위
+
+학습 단위는 날짜가 아닙니다. 설명과 과제를 읽고, 완료 조건을 확인한 뒤 다음 단위로 이동하세요. 기존 세 예제는 출발점으로 유지하며 나머지 25개 단위는 문서 기반 직접 구현 과제입니다. 내장 실행 예제와 별도 환경이 필요한 과제를 구분해서 표시합니다. 예제를 여는 것만으로 학습을 완료한 것으로 처리하지 않습니다.
+
+기존 단위 ID와 필기는 유지됩니다. 기존 01·02·03 예제는 확장된 학습 순서의 1·14·28번째에 연결되므로 주소의 숫자와 화면의 학습 순서가 다를 수 있습니다.
+
 ## 학습 경로
 
-- [1. 모듈과 선형 메모리](01-foundations/README.md) — 기초 이해
-- [2. 배열과 경계 비용](02-experiments/README.md) — 변수 실험
-- [3. 실제 병목 평가](03-project/README.md) — 응용과 검증
+### 1단계 · 모듈과 수치 계약
 
-## 이번 시리즈의 결과물
+- [01. 모듈과 선형 메모리](01-foundations/README.md) — 기존 예제에서 확장
+- [02. WAT와 바이너리](units/02/README.md) — 문서 기반 직접 구현
+- [03. Compile과 Instance](units/03/README.md) — 문서 기반 직접 구현
+- [04. Export 검사](units/04/README.md) — 문서 기반 직접 구현
+- [05. Import와 Host 함수](units/05/README.md) — 문서 기반 직접 구현
+- [06. I32와 JS Number](units/06/README.md) — 문서 기반 직접 구현
+- [07. Trap과 입력 검사](units/07/README.md) — 문서 기반 직접 구현
 
-전체 지연과 정확도를 근거로 채택 여부를 결정한다. 각 단위의 문서와 실험 기록을 기반으로 결과물을 직접 구현합니다. 모든 학습 단위에 예제가 연결되어 있습니다. 제공 범위와 별도 실행 조건은 해당 단위의 안내를 확인하세요. 추가 확장 과제는 직접 구현하며 예제 제공은 학습 완료를 의미하지 않습니다. 학습 시간은 고정하지 않습니다.
+### 2단계 · 메모리와 배열 경계
+
+- [08. 페이지와 Byte Offset](units/08/README.md) — 문서 기반 직접 구현
+- [09. View와 엔디언](units/09/README.md) — 문서 기반 직접 구현
+- [10. 배열 복사와 범위](units/10/README.md) — 문서 기반 직접 구현
+- [11. Memory Grow와 View 수명](units/11/README.md) — 문서 기반 직접 구현
+- [12. 용량 한도와 실패](units/12/README.md) — 문서 기반 직접 구현
+- [13. 스칼라와 배치 호출](units/13/README.md) — 문서 기반 직접 구현
+- [14. 배열과 경계 비용](02-experiments/README.md) — 기존 예제에서 확장
+
+### 3단계 · 배포와 실행 구조
+
+- [15. In-place 변환](units/15/README.md) — 문서 기반 직접 구현
+- [16. 정렬과 비정렬 접근](units/16/README.md) — 문서 기반 직접 구현
+- [17. 복수 배열의 배치](units/17/README.md) — 문서 기반 직접 구현
+- [18. 문자열 바이트 계약](units/18/README.md) — 문서 기반 직접 구현
+- [19. 브라우저 로딩과 MIME](units/19/README.md) — 문서 기반 직접 구현
+- [20. 초기화 재사용](units/20/README.md) — 문서 기반 직접 구현
+- [21. Worker와 Wasm](units/21/README.md) — 문서 기반 직접 구현
+
+### 4단계 · 정확도와 병목 평가
+
+- [22. 모듈 캐시와 버전](units/22/README.md) — 문서 기반 직접 구현
+- [23. 콜드 실행 분해](units/23/README.md) — 문서 기반 직접 구현
+- [24. 웜 반복과 워밍업](units/24/README.md) — 문서 기반 직접 구현
+- [25. 복사 포함 총비용](units/25/README.md) — 문서 기반 직접 구현
+- [26. 경계값 정확도](units/26/README.md) — 문서 기반 직접 구현
+- [27. 환경과 채택 기준](units/27/README.md) — 문서 기반 직접 구현
+- [28. 실제 병목 평가](03-project/README.md) — 기존 예제에서 확장
+
+## 통합 프로젝트와 제출물
+
+배열 변환을 JS와 실제 Wasm에서 검증하고 콜드·웜·복사 포함 전체 지연으로 채택 여부를 결정한다.
+
+구현 코드와 실행 방법, 기준 조건과 변경 조건의 기록, 실패 사례와 복구 방법을 함께 남기세요. 측정하지 않은 성능과 수행하지 않은 테스트는 결과로 기재하지 않습니다.
 
 ## 공식 참고
 
-- [WebAssembly](https://webassembly.org/getting-started/developers-guide/)
+- [WebAssembly 개발 도구 안내](https://webassembly.org/getting-started/developers-guide/)
+- [MDN WebAssembly JavaScript API](https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- [MDN WebAssembly.Memory](https://developer.mozilla.org/en-US/docs/WebAssembly/Reference/JavaScript_interface/Memory)

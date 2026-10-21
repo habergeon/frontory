@@ -48,6 +48,8 @@ export function Workspace({ unit, onProgressChange }: { unit: Unit; onProgressCh
       <span>현재 브라우저에만 저장 · 필기는 Markdown으로 백업하세요.</span>
     </div>
     {warning && <div className="storage-warning" role="alert"><p>{warning}</p><button onClick={() => save(draft)}>저장 다시 시도</button></div>}
+    {unit.exampleNote && <p className="example-note" role="note">{unit.exampleNote}</p>}
+    {unit.source && draft.code === '' && <p className="example-note">빈 코드 기록이 보존되어 있습니다. 새 예제를 불러오려면 ‘원본 코드로’를 선택하세요. 필기는 유지됩니다.</p>}
     <div className="mobile-tabs" role="tablist" aria-label="실습 영역">
       {(['result', 'code', 'notes'] as const).map((value, index) =>
         <button key={value} role="tab" id={'tab-' + value} aria-selected={panel === value} aria-controls={'panel-' + value}

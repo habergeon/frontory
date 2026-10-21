@@ -10,7 +10,7 @@ Frontory에서 **시리즈 둘러보기**를 열어 학습할 기술을 선택�
 
 **시리즈 둘러보기**에서 분야 또는 기술 이름으로 23개 시리즈를 탐색합니다. 선택한 시리즈의 단계 카드에는 순서와 완료 수가 표시됩니다. 단계별 목차를 펼쳐 단위를 고르거나 이전·다음 버튼으로 이동하세요. **나의 학습 상태**에서 미시작·진행 중·완료를 직접 표시합니다. 완료율은 직접 완료로 표시한 단위만 셉니다. 기존 필기에는 자동으로 완료 상태를 부여하지 않습니다.
 
-- **실습 결과**: 실제 편집 코드를 별도 sandbox iframe에서 실행합니다. 드래그/휠로 카메라를 조작하고 ROTATE 상수로 회전을 정지합니다.
+- **실습 결과**: 실제 편집 코드를 별도 sandbox iframe에서 실행합니다. 예제의 주석에 따라 버튼·키보드·카메라를 조작합니다. OrbitControls 장면은 드래그/휠로 카메라를 움직입니다.
 - **실행 코드**: Monaco Editor에서 JavaScript/TypeScript 모듈을 편집합니다. 입력이 600ms 멈추면 문법·타입 검사 후 반영합니다. 오류는 밑줄과 클릭 가능한 오류 목록으로 표시하고 마지막 정상 장면을 유지합니다. 실행 중 오류는 결과 영역에 표시합니다.
 - **Markdown 필기**: 편집/미리보기 전환과 .md 다운로드를 제공합니다. 목표·핵심 개념·변수와 예상·실제 결과·배운 점·남은 질문을 기록합니다.
 
@@ -18,7 +18,7 @@ Frontory에서 **시리즈 둘러보기**를 열어 학습할 기술을 선택�
 
 ## 실행 코드 계약
 
-원본은 src/labs/01-scene/example.js입니다. export function mount({ THREE, OrbitControls, container })가 장면을 만들고 정리 함수를 반환합니다. 라이브러리는 lockfile의 버전을 전달받으므로 에디터 안에서 npm 설치나 외부 import를 하지 않습니다. JavaScript/TypeScript의 구문 강조·자동 완성·문법 및 타입 진단을 지원합니다. TypeScript는 브라우저 worker에서 JavaScript로 변환한 실제 결과가 실행됩니다. JSX/TSX, 여러 파일, 외부 패키지, GLSL 전용 진단은 아직 지원하지 않습니다.
+원본은 src/labs/<단위ID>/example.js입니다. [예제별 환경과 제한](examples.md)을 확인하세요. export function mount({ THREE, OrbitControls, container })가 장면을 만들고 정리 함수를 반환합니다. 라이브러리는 lockfile의 버전을 전달받으므로 에디터 안에서 npm 설치나 외부 import를 하지 않습니다. JavaScript/TypeScript의 구문 강조·자동 완성·문법 및 타입 진단을 지원합니다. TypeScript는 브라우저 worker에서 JavaScript로 변환한 실제 결과가 실행됩니다. JSX/TSX, 여러 파일, 외부 패키지, GLSL 전용 진단은 아직 지원하지 않습니다.
 
 Ctrl+Space는 자동 완성, F8은 다음 진단, Shift+Alt+F는 서식 정리입니다. 오류 목록을 클릭하면 해당 줄로 이동합니다. 학습 진입을 위해 strict 검사는 끄고 JavaScript checkJs는 켰습니다. DOM과 명시한 기본 타입은 검사하지만 주입되는 THREE/OrbitControls는 any이므로 Three.js API 전체 타입 검사·자동 완성을 보장하지 않습니다. mount 인자에 `: StudyContext`를 붙일 수 있습니다. Monaco 내장 TypeScript 엔진은 프로젝트의 pnpm typecheck와 별개입니다.
 

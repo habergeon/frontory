@@ -17,3 +17,5 @@
 @media(max-width:600px){.journey-heading h2{font-size:23px}.journey-actions{width:100%;flex-wrap:wrap}.journey-actions button{font-size:11px}.stage-rail button{padding:9px;font-size:12px}.stage-number{width:25px;height:25px}.current-lesson{align-items:flex-start;flex-direction:column}.current-lesson .primary-button{width:100%}.unit-outline{align-items:flex-start;flex-direction:column;gap:4px}.unit-pagination span{display:none}.learning-status small{width:100%;margin-left:0}.series-grid{grid-template-columns:1fr;padding:12px}.series-tools{padding:12px}.series-dialog h2{font-size:16px}.unit-grid{grid-template-columns:1fr}}
 
 .app-footer nav { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: .75rem; }
+
+.example-note { padding: .75rem 1rem; border-left: 3px solid #3179bf; background: #edf4fa; color: #263e52; font-size: .85rem; }

@@ -21,7 +21,7 @@ function harness(mount) {
     loadExample: async () => ({ mount: () => mount(listeners) }),
   }
   vm.runInNewContext(compiled, context)
-  return { ...context, messages, frames, start: module.exports.start }
+  return { ...context, messages, frames, listeners, start: module.exports.start }
 }
 test('successful mount reports ready after a frame', async () => {
   const h = harness(() => () => {})
@@ -63,4 +63,19 @@ test('only correct parent and token dispose the example, once', async () => {
   assert.equal(count, 1)
   other.frames.forEach(fn => fn())
   assert.deepEqual(other.messages.map(m => m.status), ['disposed'])
+})
+
+test('async mount resolves to cleanup and late completion after dispose is released', async () => {
+  let resolveMount, cleaned = 0
+  let entered
+  const mounted = new Promise(resolve => { entered = resolve })
+  const h = harness(() => new Promise(resolve => { resolveMount = resolve; entered() }))
+  const starting = h.start('', 'token')
+  await mounted
+  h.listeners.get('pagehide')()
+  resolveMount(() => cleaned++)
+  await starting
+  assert.equal(cleaned, 1)
+  h.frames.forEach(fn => fn())
+  assert.deepEqual(h.messages, [])
 })

@@ -6,7 +6,7 @@ Frontend + Story + Repository. 개념을 읽고, 변수를 실험하고, 결과�
 
 기존 React/TypeScript 경험을 활용해 **WebGL Journey를 계속 진행**합니다. 기초가 막히면 JavaScript·HTML·CSS·Canvas 2D로 돌아갑니다. Three.js·GLSL·Gaussian Splatting으로 이어진 뒤 WebGPU·WGSL을 별도 경로로 학습합니다. Framework·Animation·Engineering·Testing 시리즈는 필요한 기능에 맞춰 병행합니다. 별 개수는 학습 우선순위이며 선수 지식을 건너뛰라는 뜻이 아닙니다. 기본 목록에 없던 우선순위는 이 프로젝트의 제안입니다.
 
-현재 **23개 시리즈 / 94개 단위**입니다. WebGL 기존 28개 문서를 보존했고 나머지 22개 시리즈에 기초·실험·응용 3단위를 작성했습니다. 실행 가능한 내장 예제는 WebGL 첫 장면 하나입니다. 학습 완료와 성능 개선을 미리 주장하지 않습니다.
+현재 **23개 시리즈 / 94개 단위**입니다. 각 시리즈의 대표 예제와 WebGL 기초를 포함해 29개 단위에 예제를 연결했습니다. [실행 환경과 제한](../examples.md)을 확인하세요. 나머지 65개 단위는 문서·과제·필기를 제공합니다. 학습 완료와 성능 개선을 미리 주장하지 않습니다.
 
 ## 언어와 웹 기초
 

@@ -1,5 +1,15 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+import * as React from 'react'
+import { createRoot } from 'react-dom/client'
+import * as Vue from 'vue'
+import * as Fiber from '@react-three/fiber'
+import * as PIXI from 'pixi.js'
+// Official static polyfills avoid Function/eval; keep the iframe CSP unchanged.
+import 'pixi.js/unsafe-eval'
+import { gsap } from 'gsap'
+import { animate } from 'motion'
+import { writable } from 'svelte/store'
 
 export async function start(source: string, token: string) {
   let cleanup: (() => void) | undefined
@@ -31,8 +41,9 @@ export async function start(source: string, token: string) {
     const module = await import(/* @vite-ignore */ url)
     if (closed) return
     if (typeof module.mount !== 'function') throw new Error('export function mount(...) 함수를 정의하세요.')
-    const result = module.mount({ THREE, OrbitControls, container: document.getElementById('scene-root') })
+    const result = await module.mount({ THREE, OrbitControls, React, createRoot, Vue, Fiber, PIXI, gsap, animate, writable, container: document.getElementById('scene-root') })
     if (typeof result !== 'function') throw new Error('mount는 자원을 정리하는 함수를 반환해야 합니다.')
+    if (closed) { result(); return }
     cleanup = result
     requestAnimationFrame(() => { if (!closed && !failed) send('ready') })
   } catch (error) { report(error) }

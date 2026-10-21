@@ -67,6 +67,6 @@ export function Preview({ code, revision, notice }: { code: string; revision: nu
       <strong>코드를 확인하세요</strong><pre>{current.message}</pre>
       <p>편집기에서 수정하면 다시 실행됩니다. 필기는 유지됩니다.</p>
     </div>}
-    <p className="panel-hint">드래그: 회전 · 휠: 줌 · 우클릭 드래그: 이동</p>
+    <p className="panel-hint">조작 방법은 예제의 주석을 확인하세요. OrbitControls 장면은 드래그·휠로 조작할 수 있습니다.</p>
   </div>
 }

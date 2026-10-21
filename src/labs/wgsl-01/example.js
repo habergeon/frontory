@@ -1,0 +1,32 @@
+// WGSL의 @vertex/@fragment 진입점과 vec2f/vec4f를 관찰하세요. 아래 WGSL 문자열을 직접 수정합니다.
+export async function mount({ container }) {
+  /** @type {any} */ const gpu = navigator['gpu']
+  if (!gpu) { container.textContent = 'WebGPU 미지원: 지원 브라우저와 HTTPS/localhost에서 확인하세요.'; return () => container.replaceChildren() }
+  const adapter = await gpu.requestAdapter()
+  if (!adapter) { container.textContent = '사용 가능한 WebGPU adapter가 없습니다.'; return () => container.replaceChildren() }
+  const device = await adapter.requestDevice()
+  const canvas = document.createElement('canvas'); container.append(canvas)
+  /** @type {any} */ const context = canvas.getContext('webgpu')
+  if (!context) { device.destroy(); throw new Error('WebGPU canvas context 생성 실패') }
+  const format = gpu.getPreferredCanvasFormat()
+  const module = device.createShaderModule({ code: `
+    @vertex fn vertexMain(@builtin(vertex_index) i: u32) -> @builtin(position) vec4f {
+      let points = array<vec2f,3>(vec2f(0,0.7),vec2f(-0.7,-0.6),vec2f(0.7,-0.6));
+      return vec4f(points[i],0,1);
+    }
+    @fragment fn fragmentMain() -> @location(0) vec4f { return vec4f(0.9,0.4,0.2,1); }
+  ` })
+  const diagnostics = await module.getCompilationInfo()
+  const errors = diagnostics.messages.filter(message => message.type === 'error')
+  if (errors.length) { device.destroy(); throw new Error(errors.map(message => message.message).join('\n')) }
+  const pipeline = await device.createRenderPipelineAsync({ layout:'auto', vertex:{ module,entryPoint:'vertexMain' }, fragment:{ module,entryPoint:'fragmentMain',targets:[{format}] } })
+  const draw = () => {
+    canvas.width = Math.max(1, container.clientWidth); canvas.height = Math.max(1, container.clientHeight)
+    context.configure({device,format,alphaMode:'opaque'})
+    const encoder = device.createCommandEncoder()
+    const pass = encoder.beginRenderPass({colorAttachments:[{view:context.getCurrentTexture().createView(),clearValue:{r:0.93,g:0.95,b:0.97,a:1},loadOp:'clear',storeOp:'store'}]})
+    pass.setPipeline(pipeline); pass.draw(3); pass.end(); device.queue.submit([encoder.finish()])
+  }
+  const observer = new ResizeObserver(draw); observer.observe(container); draw()
+  return () => { observer.disconnect(); context.unconfigure(); device.destroy(); canvas.remove() }
+}

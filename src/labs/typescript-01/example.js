@@ -1,0 +1,19 @@
+// JavaScript에서도 JSDoc 타입을 검사합니다. TS 모드에서는 type 선언으로 바꿔 보세요.
+/** @typedef {{ kind: 'ok', value: number } | { kind: 'error', message: string }} Result */
+export function mount({ container }) {
+  /** @param {string} text @returns {Result} */
+  const parse = text => Number.isFinite(Number(text)) && text.trim() !== ''
+    ? { kind: 'ok', value: Number(text) } : { kind: 'error', message: '유한한 숫자를 입력하세요.' }
+  const input = document.createElement('input')
+  input.setAttribute('aria-label', '검사할 값')
+  input.value = '42'
+  const output = document.createElement('pre')
+  const render = () => {
+    const result = parse(input.value)
+    output.textContent = result.kind === 'ok' ? '좁힌 number × 2 = ' + result.value * 2 : result.message
+  }
+  input.addEventListener('input', render)
+  container.append(input, output)
+  render()
+  return () => { input.removeEventListener('input', render); container.replaceChildren() }
+}

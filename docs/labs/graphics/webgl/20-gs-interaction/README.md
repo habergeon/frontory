@@ -1,6 +1,6 @@
 # 20 · Three.js+GS 카메라와 인터랙션
 
-3주 차 / 원문 Day 20 · 문서 제공 / 실행 예제 준비 중 · 고정된 하루 분량이 아닌 학습 순서입니다.
+3주 차 / 원문 Day 20 · 문서·예제 제공 · 고정된 하루 분량이 아닌 학습 순서입니다.
 
 [전체 로드맵](../README.md) · [학습 화면 사용법](../../../../learning-workspace.md)
 
@@ -29,7 +29,6 @@ GS picking은 일반 mesh 삼각형 raycasting과 같지 않을 수 있습니다
 2. 회전·이동·줌의 최소/최대 거리를 설정하고 초기화를 추가합니다.
 3. 사용할 GS picking API의 기준을 조사하고 화면 경계의 세 지점에 대해 예상 결과를 적습니다.
 
-이 단위의 실행 예제는 아직 준비 중입니다. 현재 화면에서는 문서를 읽고 단위별 필기를 쓸 수 있습니다. 01 예제에서 수행할 수 있는 작은 변수 실험은 그 화면에서 진행하고, 새 shader/GS 등의 코드 과제는 후속 로컬 실습으로 추가합니다. 제공되지 않은 기능을 완료된 것으로 표시하지 않습니다.
 
 ## 관찰할 변수
 
@@ -72,3 +71,11 @@ camera target/position/near/far, 데이터 transform, picking 조건.
 <!-- 다음 실험으로 확인할 것 -->
 
 [이전: .ply·.splat 로딩](../19-gs-loading/README.md) · [다음: GS 뷰어 복습과 후보 비교](../21-gs-review/README.md)
+
+## 연결된 예제와 실행 범위
+
+[원본 실행 코드](../../../../../src/labs/20-gs-interaction/example.js) · 화면 단위 ID: `20-gs-interaction`
+
+소형 .splat 및 ASCII GS PLY를 읽는 CPU Canvas 교육용 뷰어입니다. 최대 1 MiB·512 splat이며 binary PLY와 일반 mesh PLY는 지원하지 않습니다. Spark, GPU tile 렌더링, 고차 SH, GS picking은 구현 범위 밖입니다. 기본 장면은 직접 생성한 데이터이며 측정값은 이 CPU 예제에만 해당합니다.
+
+기존에 저장한 코드가 있으면 그대로 유지합니다. 새 원본을 사용하려면 먼저 전체 JSON으로 백업한 뒤 **원본 코드로**를 선택하세요. 필기는 지워지지 않습니다.

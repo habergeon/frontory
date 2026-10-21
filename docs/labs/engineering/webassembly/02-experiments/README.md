@@ -2,7 +2,7 @@
 
 [시리즈 목차](../README.md) · [전체 기술 지도](../../../README.md)
 
-단계: 변수 실험 · 문서·필기 제공 / 내장 실행 예제 준비 중
+단계: 변수 실험 · 문서·필기·예제 제공
 
 ## 목표와 학습 후 역량
 
@@ -18,7 +18,7 @@
 
 ## 실습 준비
 
-현재 Frontory 안에서는 이 문서를 읽고 단위별 필기를 저장합니다. 이 시리즈의 내장 실행기는 아직 제공하지 않습니다. 외부 패키지는 아래 공식 설치 안내에 맞춰 별도 로컬 Vite 실습에 구성하고 버전과 lockfile을 기록하세요. 브라우저 API는 먼저 지원 여부를 확인합니다. 현재 WebGL 편집기에 JSX·Vue SFC·WGSL을 그대로 넣어 실행할 수 있다는 뜻은 아닙니다.
+현재 단위에 연결된 예제를 실행하고 아래 과제를 진행합니다. 코드 편집기 자체는 JS/TS 모듈이며 JSX·Vue SFC를 직접 컴파일하지 않습니다.
 
 ## 실습 과제
 
@@ -63,3 +63,13 @@
 ### 배운 점
 
 ### 남은 질문
+
+## 연결된 예제와 실행 범위
+
+[원본 실행 코드](../../../../../src/labs/webassembly-02/example.js) · 화면 단위 ID: `webassembly-02`
+
+미리보기는 WebAssembly.Memory 및 JS 경계 비용 실험입니다. CSP를 유지하므로 WASM 모듈 컴파일은 iframe 밖에서 실행합니다. 같은 폴더의 kernel.wat, kernel.wasm, benchmark.mjs로 실제 WASM 계산과 JS 결과를 비교하세요.
+
+기존에 저장한 코드가 있으면 그대로 유지합니다. 새 원본을 사용하려면 먼저 전체 JSON으로 백업한 뒤 **원본 코드로**를 선택하세요. 필기는 지워지지 않습니다.
+
+별도 실행: 저장소 루트에서 `node src/labs/webassembly-02/benchmark.mjs`. [WAT 소스](../../../../../src/labs/webassembly-02/kernel.wat) · [벤치마크](../../../../../src/labs/webassembly-02/benchmark.mjs). 결과 수치는 환경에 따라 달라지며 사용자가 직접 기록합니다.

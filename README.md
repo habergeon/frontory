@@ -11,7 +11,7 @@
 - WebGL 첫 장면에서 Monaco Editor로 JavaScript/TypeScript를 수정하고 실행 결과를 확인합니다.
 - 전체 학습 내용을 JSON 파일로 내보내고 다른 브라우저에서 가져옵니다.
 
-현재 **23개 시리즈의 대표 예제와 WebGL 기초를 포함한 29개 예제**를 제공합니다. WebGPU는 지원 환경이 필요하며 Gaussian·Svelte·WebAssembly 예제의 범위와 Playwright 별도 실행 조건은 [실행 예제 안내](docs/examples.md)에 구분했습니다. 나머지 65개 단위의 실행 예제는 준비 중입니다.
+현재 **23개 시리즈 · 94개 학습 단위 모두에 예제**가 연결되어 있습니다. 예제 제공은 학습 완료를 의미하지 않습니다. WebGPU 지원 조건, GS 교육용 CPU 뷰어의 제한, Svelte 컴포넌트와 WebAssembly·Playwright 별도 실행 방법은 [예제 안내](docs/examples.md)를 확인하세요.
 
 | 분야 | 시리즈 |
 | --- | --- |

@@ -2,7 +2,7 @@
 
 **Learn · Experiment · Archive** — 프론트엔드 기술을 배우고, 코드를 실험하고, 경험을 기록하는 웹 학습 공간입니다. Frontend + Story + Repository라는 의미를 담았습니다.
 
-[사용법](docs/learning-workspace.md) · [기술 지도](docs/labs/README.md) · [학습 로드맵](docs/roadmap.md) · [배포 가이드](docs/deployment.md) · [기여 안내](CONTRIBUTING.md)
+[사용법](docs/learning-workspace.md) · [기술 지도](docs/labs/README.md) · [학습 로드맵](docs/roadmap.md) · [배포 가이드](docs/deployment.md) · [검색 등록 안내](docs/search-indexing.md) · [기여 안내](CONTRIBUTING.md)
 
 ## 무엇을 할 수 있나요?
 
@@ -11,7 +11,7 @@
 - WebGL 첫 장면에서 Monaco Editor로 JavaScript/TypeScript를 수정하고 실행 결과를 확인합니다.
 - 전체 학습 내용을 JSON 파일로 내보내고 다른 브라우저에서 가져옵니다.
 
-현재 **644개 학습 문서와 94개 연결 예제**를 제공합니다. 추가된 550개 단위는 개념 설명·실습 절차·비교 변수·완료 조건을 따라 별도 프로젝트에서 직접 구현하는 과제이며, 내장 실행 예제는 없습니다. 예제 제공은 학습 완료를 의미하지 않습니다. WebGPU 지원 조건, GS 교육용 CPU 뷰어의 제한, Svelte 컴포넌트와 WebAssembly·Playwright 별도 실행 방법은 [예제 안내](docs/examples.md)를 확인하세요.
+현재 **644개 학습 문서와 단위별 연결 예제**를 제공합니다. 브라우저에서 실행하는 실험과 별도 환경에서 실행하는 예제 파일을 구분합니다. 각 단위의 목표·실습 절차·비교 변수·완료 조건을 따라 코드를 변경하며 학습하세요. 예제 제공은 학습 완료를 의미하지 않습니다. WebGPU 지원 조건, GS 교육용 CPU 뷰어의 제한, Svelte 컴포넌트와 WebAssembly·Playwright 별도 실행 방법은 [예제 안내](docs/examples.md)를 확인하세요.
 
 | 분야 | 시리즈 |
 | --- | --- |
@@ -49,7 +49,7 @@ pnpm check:deploy
 pnpm preview
 ```
 
-build에는 타입 검사와 미리보기 런타임 생성이 포함됩니다. 정적 산출물은 dist/에 생성됩니다. Monaco·TypeScript worker·Three.js 때문에 큰 번들 경고가 발생할 수 있습니다. Cloudflare Pages 배포 방법은 [배포 가이드](docs/deployment.md)를 참고하세요.
+build에는 타입 검사, 미리보기 런타임 생성, 검색 가능한 공개 학습 문서와 사이트맵 생성이 포함됩니다. 정적 산출물은 dist/에 생성됩니다. Monaco·TypeScript worker·Three.js 때문에 큰 번들 경고가 발생할 수 있습니다. Cloudflare Pages 배포 방법은 [배포 가이드](docs/deployment.md)를 참고하세요.
 
 ## 프로젝트 구조
 

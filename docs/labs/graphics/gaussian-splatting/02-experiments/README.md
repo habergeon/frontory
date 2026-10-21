@@ -2,7 +2,7 @@
 
 [시리즈 목차](../README.md) · [전체 기술 지도](../../../README.md)
 
-단계: 파일 검증과 뷰어 통합 · 기존 예제에서 확장 · 저장 ID: `gaussian-splatting-02`
+단계: 파일 검증과 뷰어 통합 · 편집 가능한 예제 · 저장 ID: `gaussian-splatting-02`
 
 ## 목표와 학습 후 역량
 
@@ -60,7 +60,7 @@ GS 선택은 사용할 렌더러의 picking 방식이나 별도 근사를 필요
 
 ## 연결된 예제와 실행 범위
 
-[기존 예제 원본](../../../../../src/labs/gaussian-splatting-02/example.js) · [실행 환경과 제한](../../../../examples.md)
+[예제 원본](../../../../../src/labs/gaussian-splatting-02/example.js) · [실행 환경과 제한](../../../../examples.md)
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 

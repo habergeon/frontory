@@ -2,7 +2,7 @@
 
 [시리즈 목차](../README.md) · [전체 기술 지도](../../../README.md)
 
-단계: Layout과 Presence · 기존 예제에서 확장 · 저장 ID: `motion-02`
+단계: Layout과 Presence · 편집 가능한 예제 · 저장 ID: `motion-02`
 
 ## 목표와 학습 후 역량
 
@@ -60,7 +60,7 @@ layout은 위치 변화를 다룬다. exit는 제거될 요소의 수명을 다�
 
 ## 연결된 예제와 실행 범위
 
-[기존 예제 원본](../../../../../src/labs/motion-02/example.js) · [실행 환경과 제한](../../../../examples.md)
+[예제 원본](../../../../../src/labs/motion-02/example.js) · [실행 환경과 제한](../../../../examples.md)
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 

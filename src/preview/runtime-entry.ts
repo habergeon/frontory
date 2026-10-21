@@ -9,6 +9,8 @@ import * as PIXI from 'pixi.js'
 import 'pixi.js/unsafe-eval'
 import { gsap } from 'gsap'
 import { animate } from 'motion'
+import * as Motion from 'motion/react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { writable } from 'svelte/store'
 
 export async function start(source: string, token: string) {
@@ -41,7 +43,7 @@ export async function start(source: string, token: string) {
     const module = await import(/* @vite-ignore */ url)
     if (closed) return
     if (typeof module.mount !== 'function') throw new Error('export function mount(...) 함수를 정의하세요.')
-    const result = await module.mount({ THREE, OrbitControls, React, createRoot, Vue, Fiber, PIXI, gsap, animate, writable, container: document.getElementById('scene-root') })
+    const result = await module.mount({ THREE, OrbitControls, React, createRoot, Vue, Fiber, PIXI, gsap, ScrollTrigger, animate, Motion, writable, container: document.getElementById('scene-root') })
     if (typeof result !== 'function') throw new Error('mount는 자원을 정리하는 함수를 반환해야 합니다.')
     if (closed) { result(); return }
     cleanup = result

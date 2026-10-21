@@ -1,0 +1,665 @@
+# 확장 학습 단위 예제
+
+각 예제의 실행 범위를 확인하세요. 브라우저 미리보기와 별도 실행 파일의 역할은 다를 수 있습니다. 예제 연결은 과제 전체의 완성이나 학습 완료를 의미하지 않습니다.
+
+[기존 예제와 공통 실행 안내](examples.md)
+
+## JavaScript
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 문자열 입력과 숫자 변환](labs/fundamentals/javascript/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-02/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [3. 동등 비교와 기본값](labs/fundamentals/javascript/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-03/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [4. 분기와 조기 반환](labs/fundamentals/javascript/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-04/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [5. 함수와 순수 계산](labs/fundamentals/javascript/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-05/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [6. 스코프와 클로저](labs/fundamentals/javascript/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-06/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [7. 배열 집계와 빈 입력](labs/fundamentals/javascript/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-07/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [8. 객체 구조 분해와 선택적 접근](labs/fundamentals/javascript/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-08/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [9. Map과 Set 색인](labs/fundamentals/javascript/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-09/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [10. 예외와 복구 경로](labs/fundamentals/javascript/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-10/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [11. DOM 생성과 텍스트 삽입](labs/fundamentals/javascript/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-11/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [12. 이벤트 전파와 위임](labs/fundamentals/javascript/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-12/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [13. Promise와 실행 순서](labs/fundamentals/javascript/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-13/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [15. Fetch 응답과 HTTP 오류](labs/fundamentals/javascript/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-15/example.js) — 미리보기 네트워크 제한 때문에 실제 Response 객체의 200/404 fixture를 실행합니다. fetch·HTTP 요청은 로컬 서버에서 검사하세요. |
+| [16. 병렬 작업과 부분 실패](labs/fundamentals/javascript/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-16/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [17. 디바운스와 타이머 정리](labs/fundamentals/javascript/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-17/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [18. ES 모듈의 공개 경계](labs/fundamentals/javascript/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-18/example.js) — Blob ES 모듈의 공개 경계를 실행합니다. 실제 상대 파일 분리와 Network 경로 검증은 HTTP 프로젝트에서 수행하세요. |
+| [19. 저장소와 복원 실패](labs/fundamentals/javascript/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-19/example.js) — 실습 전용 키는 실행 후 제거됩니다. iframe 저장소 정책에 따른 SecurityError도 표시합니다. |
+| [20. URL 필터와 뒤로 가기](labs/fundamentals/javascript/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-20/example.js) — URLSearchParams 인코딩 왕복을 실행합니다. 실제 주소 표시줄 및 popstate 뒤로 가기 검증은 별도 HTTP 페이지에서 진행하세요. |
+| [21. FormData와 도메인 검증](labs/fundamentals/javascript/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-21/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [22. Blob으로 JSON 내보내기](labs/fundamentals/javascript/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-22/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [23. 파일 가져오기와 구조 검사](labs/fundamentals/javascript/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-23/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [24. 상태 전이와 실행 취소](labs/fundamentals/javascript/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-24/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [25. 날짜 저장과 지역 표시](labs/fundamentals/javascript/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-25/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+| [26. 계산 비용과 작업 분할](labs/fundamentals/javascript/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-26/example.js) — 시간은 현재 기기의 관찰값이며 성능 우열을 단정하지 않습니다. count와 batch를 같은 조건으로 비교하세요. |
+| [27. 리스너 정리와 반복 마운트](labs/fundamentals/javascript/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/javascript-step-27/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. |
+
+## TypeScript
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. strict 설정과 실행 코드](labs/fundamentals/typescript/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-02/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [3. 추론과 리터럴 타입](labs/fundamentals/typescript/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-03/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [4. 객체 계약과 선택 필드](labs/fundamentals/typescript/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-04/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [5. 배열과 튜플의 위치 의미](labs/fundamentals/typescript/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-05/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [6. 함수 인수와 반환 계약](labs/fundamentals/typescript/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-06/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [7. unknown과 안전한 접근](labs/fundamentals/typescript/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-07/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [8. 판별 유니온으로 비동기 상태 표현](labs/fundamentals/typescript/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-08/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [9. never로 분기 누락 찾기](labs/fundamentals/typescript/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-09/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [10. readonly와 변경 범위](labs/fundamentals/typescript/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-10/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [11. keyof와 속성 조회 함수](labs/fundamentals/typescript/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-11/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [12. 제네릭 함수와 추론](labs/fundamentals/typescript/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-12/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [13. 제약 조건과 최소 계약](labs/fundamentals/typescript/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-13/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [15. 타입 가드와 거짓 보장](labs/fundamentals/typescript/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-15/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [16. Result 타입으로 실패 전달](labs/fundamentals/typescript/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-16/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [17. Utility Types로 편집 모델 만들기](labs/fundamentals/typescript/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-17/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [18. satisfies로 설정 검사](labs/fundamentals/typescript/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-18/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [19. Mapped Types로 상태 표 만들기](labs/fundamentals/typescript/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-19/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [20. 조건부 타입과 분배](labs/fundamentals/typescript/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-20/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [21. 템플릿 리터럴 이벤트 이름](labs/fundamentals/typescript/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-21/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [22. DOM 타입과 null 검사](labs/fundamentals/typescript/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-22/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [23. 비동기 함수와 오류 타입](labs/fundamentals/typescript/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-23/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [24. 모듈과 type-only import](labs/fundamentals/typescript/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-24/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [25. 선언 파일과 외부 경계](labs/fundamentals/typescript/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-25/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [26. 컴파일 실패를 검증하는 사례](labs/fundamentals/typescript/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-26/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+| [27. 플러그인 소유권과 정리 계약](labs/fundamentals/typescript/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/typescript-step-27/example.js) — 미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요. |
+
+## HTML
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 문서 골격과 문자 인코딩](labs/fundamentals/html/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-02/example.js) — lang을 en으로 바꾸고 접근성 언어를 확인하세요. srcdoc 문자열은 이미 유니코드이므로 실제 HTTP charset 오인코딩은 별도 파일로 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [3. 메타데이터와 문서 제목](labs/fundamentals/html/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-03/example.js) — 문서 title과 meta를 검사합니다. 모바일 viewport 효과는 독립 페이지와 실제 모바일 장치에서 확인하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [4. 문단과 텍스트 의미](labs/fundamentals/html/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-04/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [5. 목록과 용어 설명](labs/fundamentals/html/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-05/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [6. 링크 경로와 페이지 내 이동](labs/fundamentals/html/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-06/example.js) — example.test 링크는 경로 해석용이며 실제 문서는 제공하지 않습니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [7. 이미지와 대체 텍스트](labs/fundamentals/html/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-07/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [8. figure와 복합 설명](labs/fundamentals/html/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-08/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [9. 표의 행과 열 관계](labs/fundamentals/html/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-09/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [10. 인용과 기계 판독 날짜](labs/fundamentals/html/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-10/example.js) — datetime을 자연어로 바꾼 뒤 검사 결과와 HTML validator를 비교하세요. 인용은 예시 문장입니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [11. 폼의 제출 계약](labs/fundamentals/html/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-11/example.js) — 제출 시 iframe 내부가 이동합니다. 검사 버튼은 현재 소스의 FormData를 제출 전에 표시합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [12. 입력 종류와 자동 완성](labs/fundamentals/html/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-12/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [13. 그룹 입력과 선택 의미](labs/fundamentals/html/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-13/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [15. disabled와 readonly의 차이](labs/fundamentals/html/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-15/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [16. details로 접히는 목차](labs/fundamentals/html/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-16/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [17. dialog와 모달 흐름](labs/fundamentals/html/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-17/example.js) — 전용 보조 코드가 열기 버튼을 showModal에 연결합니다. dialog의 open 속성과 모달 초점 동작을 비교하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [18. 미디어 자막과 대체 경로](labs/fundamentals/html/units/18/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/html-step-18/example.js) — 외부 HTTP 실행 예제: 6초 합성 MP4, 한국어 VTT, 대본과 정상/실패 전환을 제공합니다. 무음 합성 fixture이며 실제 발화 접근성 평가는 별도 영상으로 수행합니다. |
+| [19. 반응형 이미지 선택](labs/fundamentals/html/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-19/example.js) — 300/600/1200w SVG 후보가 실제 srcset으로 선택됩니다. sizes와 DPR 및 미리보기 viewport가 선택에 영향을 줍니다. data URL은 네트워크 전송량 비교용이 아닙니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [20. picture와 형식 대체](labs/fundamentals/html/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-20/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [21. iframe과 포함 콘텐츠 경계](labs/fundamentals/html/units/21/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/html-step-21/example.js) — 외부 HTTP 실행 예제: 동일 guide.html에서 sandbox=""와 allow-scripts를 전환하고 버튼·postMessage 동작을 관찰합니다. |
+| [22. template과 반복 콘텐츠](labs/fundamentals/html/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-22/example.js) — 보조 코드가 template을 3회 복제하고 for/id를 고유 접미사로 연결합니다. 소스의 template 내용을 바꿔보세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [23. 스크립트 로딩과 문서 파싱](labs/fundamentals/html/units/23/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/html-step-23/example.js) — 외부 HTTP 실행 예제: first.js/second.js를 실제 로드하고 일반/defer/async의 파싱·실행 순서를 기록합니다. |
+| [24. 접근성 이름과 설명](labs/fundamentals/html/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-24/example.js) — aria-label을 보이는 텍스트와 다르게 바꾸고 브라우저 접근성 패널에서 실제 계산된 이름을 검사하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [25. 읽기 순서와 건너뛰기 링크](labs/fundamentals/html/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-25/example.js) — 편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [26. HTML 오류와 브라우저 복구](labs/fundamentals/html/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-26/example.js) — 검사 결과에 브라우저가 복구한 body 트리를 표시합니다. p/div를 형제로 수정하고 HTML validator의 진단과 비교하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [27. 이미지 실패와 확대 점검](labs/fundamentals/html/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/html-step-27/example.js) — 미리보기 폭을 줄여 reflow를 확인하고 실제 브라우저 200%·400% 확대도 별도로 검사하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+
+## CSS
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 선택자와 우선순위](labs/fundamentals/css/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-02/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [3. 상속과 초기화](labs/fundamentals/css/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-03/example.js) — initial, inherit, unset을 각각 바꾸고 계산된 color·border를 확인하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [4. 박스 모델과 실측 크기](labs/fundamentals/css/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-04/example.js) — box-sizing을 border-box로 바꿔 실측 너비 244px와 200px를 비교하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [5. 단위와 유동 글자 크기](labs/fundamentals/css/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-05/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [6. 일반 흐름과 마진 상쇄](labs/fundamentals/css/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-06/example.js) — 부모 flow-root는 부모/자식 마진 상쇄를 막지만 형제 문단끼리의 상쇄는 그대로입니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [7. 크기 제약과 overflow](labs/fundamentals/css/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-07/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [8. Flex 축과 정렬](labs/fundamentals/css/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-08/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [9. Flex 성장과 축소](labs/fundamentals/css/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-09/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [10. Grid 트랙과 간격](labs/fundamentals/css/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-10/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [11. 자동 반복과 카드 수](labs/fundamentals/css/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-11/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [12. 배치 영역과 소스 순서](labs/fundamentals/css/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-12/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [13. 미디어 쿼리와 중단점](labs/fundamentals/css/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-13/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [15. 컨테이너 쿼리와 재사용](labs/fundamentals/css/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-15/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [16. 논리 속성과 쓰기 방향](labs/fundamentals/css/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-16/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [17. 타이포그래피와 줄 길이](labs/fundamentals/css/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-17/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [18. 색상과 대비](labs/fundamentals/css/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-18/example.js) — 실제 텍스트 대비는 개발자 도구에서 검사하세요. 색상 외에도 체크 기호와 오류 텍스트를 제공합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [19. 포커스와 입력 상태](labs/fundamentals/css/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-19/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [20. 위치 지정과 기준 블록](labs/fundamentals/css/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-20/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [21. 쌓임 맥락과 겹침](labs/fundamentals/css/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-21/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [22. 전환과 중간 상태](labs/fundamentals/css/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-22/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [23. 키프레임과 재생 제어](labs/fundamentals/css/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-23/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [24. Cascade layers로 규칙 정리](labs/fundamentals/css/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-24/example.js) — 비레이어 background 선언 또는 !important를 각 레이어에 추가해 계산 스타일을 비교하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [25. 사용자 정의 속성과 테마](labs/fundamentals/css/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-25/example.js) — 실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [26. 레이아웃과 페인트 관찰](labs/fundamentals/css/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-26/example.js) — 실제 Layout/Paint/Composite 비용은 DevTools Performance로 두 조건을 각각 기록하세요. 미리보기는 비용을 자동 추론하지 않습니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+| [27. contain과 오프스크린 콘텐츠](labs/fundamentals/css/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/css-step-27/example.js) — content-visibility를 visible로 바꾸고 초기 렌더 및 스크롤을 기록하세요. 검색과 Tab으로 뒤쪽 카드에 도달하는지도 확인합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다. |
+
+## React
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. JSX와 순수한 렌더](labs/frameworks/react/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-02/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [3. 이벤트와 상태 스냅샷](labs/frameworks/react/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-03/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [4. 객체와 배열 갱신](labs/frameworks/react/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-04/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [5. 조건부 화면과 빈 상태](labs/frameworks/react/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-05/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [6. 목록의 key와 정체성](labs/frameworks/react/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-06/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [7. 제어 입력과 폼 검증](labs/frameworks/react/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-07/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [8. 상태 끌어올리기](labs/frameworks/react/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-08/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [9. reducer로 변경 규칙 모으기](labs/frameworks/react/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-09/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [10. Context로 설정 전달하기](labs/frameworks/react/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-10/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [11. ref와 DOM 포커스](labs/frameworks/react/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-11/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [12. Effect의 의존성과 정리](labs/frameworks/react/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-12/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [13. 요청 경합과 취소](labs/frameworks/react/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-13/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [15. 커스텀 Hook의 경계](labs/frameworks/react/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-15/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [16. 필기 저장과 초기 복원](labs/frameworks/react/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-16/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [17. 단위별 상태 보존](labs/frameworks/react/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-17/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [18. 컴포넌트 합성과 children](labs/frameworks/react/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-18/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [19. 비동기 상태를 명시하기](labs/frameworks/react/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-19/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [20. 전환과 지연된 결과](labs/frameworks/react/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-20/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [21. Profiler로 병목 찾기](labs/frameworks/react/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-21/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. Profiler callback은 profiling 지원 빌드에서 측정하세요. 배포 React 빌드에서는 callback이 비활성일 수 있습니다. |
+| [22. 측정한 경로만 메모하기](labs/frameworks/react/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-22/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [23. 긴 목록의 표시 범위](labs/frameworks/react/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-23/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [24. 이벤트 경계와 접근 가능한 선택](labs/frameworks/react/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-24/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [25. 구독 저장소와 스냅샷](labs/frameworks/react/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-25/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [26. 회귀 시나리오 만들기](labs/frameworks/react/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-26/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+| [27. 통합 편집기와 자원 감사](labs/frameworks/react/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-step-27/example.js) — 실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. |
+
+## Vue
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. SFC와 템플릿 바인딩](labs/frameworks/vue/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-02/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [3. reactive와 참조 유지](labs/frameworks/vue/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-03/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [4. computed의 순수한 계산](labs/frameworks/vue/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-04/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [5. 목록 key와 조건부 수명](labs/frameworks/vue/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-05/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [6. 이벤트와 입력 변환](labs/frameworks/vue/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-06/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [7. 클래스와 스타일의 상태 표현](labs/frameworks/vue/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-07/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [8. props의 단방향 계약](labs/frameworks/vue/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-08/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [9. emits로 변경 의도 전달](labs/frameworks/vue/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-09/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [10. 컴포넌트 v-model](labs/frameworks/vue/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-10/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [11. 슬롯으로 화면 조합하기](labs/frameworks/vue/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-11/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [12. watch의 대상과 시점](labs/frameworks/vue/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-12/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [13. 감시 정리와 요청 역전](labs/frameworks/vue/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-13/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [15. 템플릿 ref와 nextTick](labs/frameworks/vue/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-15/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [16. Composable의 수명](labs/frameworks/vue/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-16/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [17. provide와 inject](labs/frameworks/vue/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-17/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [18. 공유 저장소의 범위](labs/frameworks/vue/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-18/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [19. 저장 복원과 데이터 검증](labs/frameworks/vue/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-19/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [20. 비동기 컴포넌트와 로딩 UI](labs/frameworks/vue/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-20/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [21. KeepAlive와 일시 정지](labs/frameworks/vue/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-21/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [22. Canvas 생성과 해제](labs/frameworks/vue/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-22/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [23. 프레임 값과 UI 값 분리](labs/frameworks/vue/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-23/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [24. 얕은 반응성과 외부 객체](labs/frameworks/vue/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-24/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [25. Vue 성능 관찰](labs/frameworks/vue/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-25/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [26. 동작 회귀와 저장 경합 검증](labs/frameworks/vue/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-26/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+| [27. Composition API 통합 검토](labs/frameworks/vue/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/vue-step-27/example.js) — 실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다. |
+
+## Svelte
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 마크업과 이벤트 속성](labs/frameworks/svelte/units/02/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-02/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [3. $state 객체의 변경 경로](labs/frameworks/svelte/units/03/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-03/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [4. $derived로 필터 계산하기](labs/frameworks/svelte/units/04/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-04/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [5. 조건 블록과 빈 화면](labs/frameworks/svelte/units/05/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-05/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [6. keyed each와 카드 정체성](labs/frameworks/svelte/units/06/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-06/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [7. 폼 바인딩과 검증](labs/frameworks/svelte/units/07/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-07/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [8. $props와 변경 콜백](labs/frameworks/svelte/units/08/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-08/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [9. $bindable과 편집기 계약](labs/frameworks/svelte/units/09/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-09/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [10. snippet으로 행 표시 바꾸기](labs/frameworks/svelte/units/10/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-10/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [11. DOM 참조와 tick](labs/frameworks/svelte/units/11/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-11/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [12. $effect 의존성과 해제](labs/frameworks/svelte/units/12/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-12/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [13. onMount와 초기 자원](labs/frameworks/svelte/units/13/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-13/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [15. writable과 구독 계약](labs/frameworks/svelte/units/15/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-15/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [16. 공유 runes 모듈](labs/frameworks/svelte/units/16/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-16/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [17. Context로 작업공간 연결](labs/frameworks/svelte/units/17/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-17/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [18. 요청과 오래된 결과](labs/frameworks/svelte/units/18/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-18/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [19. await 블록과 상태 안내](labs/frameworks/svelte/units/19/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-19/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [20. 초안 저장과 복원](labs/frameworks/svelte/units/20/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-20/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [21. key 블록과 초안 보존](labs/frameworks/svelte/units/21/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-21/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [22. Canvas 루프와 반응성 분리](labs/frameworks/svelte/units/22/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-22/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [23. 스타일 범위와 접근성](labs/frameworks/svelte/units/23/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-23/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [24. 전환 중 수명 확인](labs/frameworks/svelte/units/24/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-24/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [25. 컴파일 결과와 성능 관찰](labs/frameworks/svelte/units/25/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-25/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [26. 동일 계약의 회귀 시나리오](labs/frameworks/svelte/units/26/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-26/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+| [27. 세 프레임워크 비교 준비](labs/frameworks/svelte/units/27/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/svelte-step-27/example.js) — 미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요. |
+
+## Canvas 2D
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 경로와 선의 상태](labs/graphics/canvas-2d/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-02/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [3. 도형 함수와 상태 격리](labs/graphics/canvas-2d/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-03/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [4. 행렬과 회전 중심](labs/graphics/canvas-2d/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-04/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [5. 색과 그라디언트](labs/graphics/canvas-2d/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-05/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [6. 이미지 로딩과 자르기](labs/graphics/canvas-2d/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-06/example.js) — 브라우저 예제는 자체 생성 PNG를 decode한 뒤 자릅니다. 외부 이미지 URL과 CORS 실패는 별도 HTTP 환경에서 확인하세요. |
+| [7. 텍스트와 배지 구성](labs/graphics/canvas-2d/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-07/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [8. 애니메이션 시계](labs/graphics/canvas-2d/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-08/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [9. 정지와 재개](labs/graphics/canvas-2d/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-09/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [10. 경계 충돌과 적분](labs/graphics/canvas-2d/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-10/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [11. 포인터 좌표 변환](labs/graphics/canvas-2d/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-11/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [12. 도형 선택과 히트 테스트](labs/graphics/canvas-2d/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-12/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [13. 드래그와 포인터 수명](labs/graphics/canvas-2d/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-13/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [15. 장면 데이터와 다시 그리기](labs/graphics/canvas-2d/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-15/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [16. 실행 취소와 기록](labs/graphics/canvas-2d/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-16/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [17. 합성으로 지우개 만들기](labs/graphics/canvas-2d/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-17/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [18. 클리핑과 마스크](labs/graphics/canvas-2d/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-18/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [19. 픽셀 읽기와 필터](labs/graphics/canvas-2d/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-19/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [20. 정적 레이어와 캐시](labs/graphics/canvas-2d/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-20/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [21. 고해상도와 반응형](labs/graphics/canvas-2d/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-21/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [22. 접근 가능한 캔버스 조작](labs/graphics/canvas-2d/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-22/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [23. 내보내기와 원본 데이터](labs/graphics/canvas-2d/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-23/example.js) — PNG는 미리보기로 생성하고 JSON은 입력란으로 가져옵니다. 파일 다운로드는 iframe 정책에 따라 외부 환경이 필요할 수 있습니다. |
+| [24. 입자 상태와 방출](labs/graphics/canvas-2d/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-24/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [25. 입자 재사용과 할당](labs/graphics/canvas-2d/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-25/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [26. 프레임 계측과 병목](labs/graphics/canvas-2d/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-26/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [27. 통합 편집기와 회귀 점검](labs/graphics/canvas-2d/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/canvas-2d-step-27/example.js) — 명령 재생·취소·JSON 상태를 검증하는 축소 편집기입니다. 전체 캡스톤의 모든 도구를 대체하지 않습니다. |
+
+## SVG
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 기본 도형과 속성](labs/graphics/svg/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-02/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [3. 경로 명령과 닫기](labs/graphics/svg/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-03/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [4. 베지어 곡선 조절](labs/graphics/svg/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-04/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [5. 호와 도넛 조각](labs/graphics/svg/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-05/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [6. 그룹과 변환 순서](labs/graphics/svg/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-06/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [7. 심벌과 재사용](labs/graphics/svg/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-07/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [8. 스타일과 테마](labs/graphics/svg/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-08/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [9. 그라디언트 좌표](labs/graphics/svg/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-09/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [10. 클립과 마스크](labs/graphics/svg/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-10/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [11. 필터 영역과 비용](labs/graphics/svg/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-11/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [12. 텍스트와 데이터 라벨](labs/graphics/svg/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-12/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [13. 화면 좌표를 SVG로](labs/graphics/svg/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-13/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [15. 접근 가능한 이름과 설명](labs/graphics/svg/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-15/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [16. 포인터 이벤트 영역](labs/graphics/svg/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-16/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [17. 드래그와 캡처](labs/graphics/svg/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-17/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [18. 확대와 이동](labs/graphics/svg/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-18/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [19. 데이터와 DOM 갱신](labs/graphics/svg/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-19/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [20. 연결선과 그래프 배치](labs/graphics/svg/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-20/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [21. 애니메이션과 동작 줄이기](labs/graphics/svg/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-21/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [22. SVG 파일 내보내기](labs/graphics/svg/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-22/example.js) — 독립 SVG 소스를 입력란에 출력합니다. 파일 저장은 복사한 소스를 .svg 파일로 저장하세요. |
+| [23. 큰 데이터와 갱신 비용](labs/graphics/svg/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-23/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [24. 가시 영역과 세부 수준](labs/graphics/svg/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-24/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [25. Canvas 대조 렌더러](labs/graphics/svg/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-25/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [26. 지도 편집기 통합](labs/graphics/svg/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-26/example.js) — 중복 id 검증·키보드 선택·이동·직렬화 실험입니다. 자유 드래그는 17일 예제에서 결합할 수 있습니다. |
+| [27. 재현 가능한 비교 실험](labs/graphics/svg/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/svg-step-27/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+
+## Three.js
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 렌더러와 화면 크기](labs/graphics/threejs/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-02/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [3. 원근과 직교 투영](labs/graphics/threejs/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-03/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [4. 회전과 피벗](labs/graphics/threejs/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-04/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [5. 버퍼 지오메트리](labs/graphics/threejs/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-05/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [6. 법선과 표면 방향](labs/graphics/threejs/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-06/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [7. 공유 지오메트리와 복제](labs/graphics/threejs/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-07/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [8. 조명 종류와 배치](labs/graphics/threejs/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-08/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [9. 거칠기와 금속성](labs/graphics/threejs/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-09/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [10. 텍스처와 UV](labs/graphics/threejs/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-10/example.js) — 외부 이미지 대신 생성한 체크 DataTexture로 UV repeat를 검증합니다. 네트워크 TextureLoader 오류 처리는 외부 프로젝트에서 확장하세요. |
+| [11. 색 공간과 출력](labs/graphics/threejs/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-11/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [12. 그림자 지도](labs/graphics/threejs/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-12/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [13. 정규화 좌표와 선택](labs/graphics/threejs/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-13/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [15. 모델 크기와 카메라 맞춤](labs/graphics/threejs/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-15/example.js) — 기본 도형으로 Box3 프레이밍을 재현합니다. 임의 glTF 로더는 preview runtime에 주입되지 않습니다. |
+| [16. 궤도 제어와 요구 렌더링](labs/graphics/threejs/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-16/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [17. 클립 애니메이션](labs/graphics/threejs/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-17/example.js) — 절차적으로 만든 AnimationClip과 AnimationMixer를 실행합니다. glTF 클립 목록 로딩은 GLTFLoader가 있는 외부 프로젝트에서 확장하세요. |
+| [18. 투명도와 깊이](labs/graphics/threejs/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-18/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [19. 인스턴싱 기초](labs/graphics/threejs/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-19/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [20. 인스턴스 선택과 갱신](labs/graphics/threejs/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-20/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [21. 화면 밖 객체와 상세도](labs/graphics/threejs/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-21/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [22. 렌더 타깃과 미니맵](labs/graphics/threejs/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-22/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [23. 자원 소유권 장부](labs/graphics/threejs/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-23/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [24. 비동기 장면 교체](labs/graphics/threejs/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-24/example.js) — 지연된 절차적 지오메트리로 완료 역순과 오래된 결과 해제를 재현합니다. 네트워크 모델 로딩 자체는 포함하지 않습니다. |
+| [25. HTML 제어와 접근성](labs/graphics/threejs/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-25/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [26. 렌더 통계와 프로파일](labs/graphics/threejs/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-26/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [27. 장면 검사기 통합](labs/graphics/threejs/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/threejs-step-27/example.js) — 기본 도형 검사기의 선택·재생성·JSON·회전 수명을 실행합니다. glTF 로딩과 미니맵 통합은 외부 캡스톤 확장입니다. |
+
+## Gaussian Splatting
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 출처와 파일 계약](labs/graphics/gaussian-splatting/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-02/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [3. 좌표계와 단위](labs/graphics/gaussian-splatting/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-03/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [4. Quaternion과 비등방성](labs/graphics/gaussian-splatting/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-04/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [5. 공분산으로 형태 읽기](labs/graphics/gaussian-splatting/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-05/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [6. 카메라 투영과 화면 타원](labs/graphics/gaussian-splatting/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-06/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [7. 가우시안 커널과 알파](labs/graphics/gaussian-splatting/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-07/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [8. 알파 합성과 순서](labs/graphics/gaussian-splatting/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-08/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [9. 깊이 정렬의 한계](labs/graphics/gaussian-splatting/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-09/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [10. PLY 헤더 검사](labs/graphics/gaussian-splatting/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-10/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [11. 값 디코딩과 유효성](labs/graphics/gaussian-splatting/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-11/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [12. 구면조화 색상](labs/graphics/gaussian-splatting/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-12/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [13. 로더 상태와 취소](labs/graphics/gaussian-splatting/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-13/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [15. 화면 공간 선택 근사](labs/graphics/gaussian-splatting/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-15/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [16. 가시 범위와 보수적 제외](labs/graphics/gaussian-splatting/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-16/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [17. 정렬 갱신 간격](labs/graphics/gaussian-splatting/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-17/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [18. 해상도와 픽셀 작업량](labs/graphics/gaussian-splatting/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-18/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [19. Gaussian 수 줄이기](labs/graphics/gaussian-splatting/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-19/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [20. 색 공간과 배경](labs/graphics/gaussian-splatting/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-20/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [21. 품질 평가 기준 만들기](labs/graphics/gaussian-splatting/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-21/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [22. 프로파일 구간 분리](labs/graphics/gaussian-splatting/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-22/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [23. 자원 수명과 반복 로딩](labs/graphics/gaussian-splatting/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-23/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [24. 키보드와 카메라 복구](labs/graphics/gaussian-splatting/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-24/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [25. 실패 상태 통합 시험](labs/graphics/gaussian-splatting/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-25/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [26. 재현 가능한 카메라 벤치마크](labs/graphics/gaussian-splatting/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-26/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+| [27. 결과물 설명과 인수 조건](labs/graphics/gaussian-splatting/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gaussian-splatting-step-27/example.js) — CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. |
+
+## WebGPU
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 기능과 limits 협상](labs/graphics/webgpu/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-02/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [3. Canvas 구성과 현재 texture](labs/graphics/webgpu/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-03/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [4. 명령 기록과 제출](labs/graphics/webgpu/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-04/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [5. 셰이더 모듈과 진단](labs/graphics/webgpu/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-05/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [6. 정점 buffer와 속성](labs/graphics/webgpu/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-06/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [7. 인덱스와 primitive](labs/graphics/webgpu/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-07/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [8. Uniform과 bind group](labs/graphics/webgpu/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-08/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [9. Uniform 구조체 정렬](labs/graphics/webgpu/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-09/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [10. 행렬과 카메라](labs/graphics/webgpu/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-10/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [11. Texture와 sampler](labs/graphics/webgpu/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-11/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [12. 깊이 attachment](labs/graphics/webgpu/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-12/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [13. Resize와 샘플 수](labs/graphics/webgpu/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-13/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [15. Compute 첫 배열 변환](labs/graphics/webgpu/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-15/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [16. Storage와 ping-pong](labs/graphics/webgpu/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-16/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [17. Map과 staging buffer](labs/graphics/webgpu/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-17/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [18. 복사 정렬과 texture 행](labs/graphics/webgpu/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-18/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [19. Workgroup 공유 메모리](labs/graphics/webgpu/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-19/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [20. Compute 결과 렌더링](labs/graphics/webgpu/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-20/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [21. Instancing과 데이터 구조](labs/graphics/webgpu/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-21/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [22. Device loss와 재초기화](labs/graphics/webgpu/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-22/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [23. 비동기 오류와 작업 식별](labs/graphics/webgpu/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-23/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [24. 시간 측정의 범위](labs/graphics/webgpu/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-24/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [25. CPU 기준과 오차 예산](labs/graphics/webgpu/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-25/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [26. Workgroup 크기 실험](labs/graphics/webgpu/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-26/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [27. 통합 입자 실험 인수](labs/graphics/webgpu/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/webgpu-step-27/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+
+## React Three Fiber
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. Canvas 크기와 카메라](labs/graphics/react-three-fiber/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-02/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [3. args와 객체 재생성](labs/graphics/react-three-fiber/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-03/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [4. group과 로컬 좌표](labs/graphics/react-three-fiber/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-04/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [5. 재질과 조명](labs/graphics/react-three-fiber/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-05/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [6. ref로 Three.js 객체 읽기](labs/graphics/react-three-fiber/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-06/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [7. useFrame과 시간 기반 회전](labs/graphics/react-three-fiber/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-07/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [8. useThree의 범위와 선택](labs/graphics/react-three-fiber/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-08/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [9. 카메라 조작과 projection 갱신](labs/graphics/react-three-fiber/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-09/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [10. 포인터 교차와 선택](labs/graphics/react-three-fiber/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-10/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [11. 이벤트 전파와 가림](labs/graphics/react-three-fiber/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-11/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [12. 드래그와 포인터 캡처](labs/graphics/react-three-fiber/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-12/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [13. UI 상태와 프레임 목표](labs/graphics/react-three-fiber/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-13/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [15. 모델 로딩과 Suspense](labs/graphics/react-three-fiber/units/15/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/react-three-fiber-step-15/example.js) — 미리보기는 Three ObjectLoader의 실제 JSON 모델 로딩입니다. GLB·Suspense·오류 경계 실험은 외부 App.jsx와 유효한 /model.glb가 필요합니다. |
+| [16. 캐시 모델의 복제와 공유](labs/graphics/react-three-fiber/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-16/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [17. 텍스처 입력과 갱신](labs/graphics/react-three-fiber/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-17/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [18. 공유 geometry와 material](labs/graphics/react-three-fiber/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-18/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [19. 프레임 중 할당 줄이기](labs/graphics/react-three-fiber/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-19/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [20. instancedMesh로 반복 객체 그리기](labs/graphics/react-three-fiber/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-20/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [21. 인스턴스 선택과 경계](labs/graphics/react-three-fiber/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-21/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [22. demand 렌더링](labs/graphics/react-three-fiber/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-22/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [23. demand와 움직임의 종료](labs/graphics/react-three-fiber/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-23/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [24. DPR과 그림자 비용](labs/graphics/react-three-fiber/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-24/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [25. 장면 전환과 자원 감사](labs/graphics/react-three-fiber/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-25/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [26. 3D UI의 대체 조작과 오류](labs/graphics/react-three-fiber/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-26/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+| [27. 통합 장면의 성능 실험](labs/graphics/react-three-fiber/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/react-three-fiber-step-27/example.js) — 실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다. |
+
+## PixiJS
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 스프라이트와 앵커](labs/graphics/pixijs/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-02/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [3. 컨테이너와 로컬 좌표](labs/graphics/pixijs/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-03/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [4. Graphics 8 도형 API](labs/graphics/pixijs/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-04/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [5. 텍스트와 스타일 갱신](labs/graphics/pixijs/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-05/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [6. 레이어와 그리기 순서](labs/graphics/pixijs/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-06/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [7. 반응형 화면과 해상도](labs/graphics/pixijs/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-07/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [8. Ticker와 시간 단위](labs/graphics/pixijs/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-08/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [9. 시작·정지와 콜백 정리](labs/graphics/pixijs/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-09/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [10. Assets 비동기 로딩](labs/graphics/pixijs/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-10/example.js) — 로컬 data URL을 Assets로 로드합니다. 오류 상태는 손상된 이미지로 재현하며 외부 서버/CORS는 별도 환경에서 확인하세요. |
+| [11. 아틀라스와 프레임](labs/graphics/pixijs/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-11/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [12. 이벤트 모드와 히트 영역](labs/graphics/pixijs/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-12/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [13. 드래그와 전역 포인터](labs/graphics/pixijs/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-13/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [15. 키보드와 접근성](labs/graphics/pixijs/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-15/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [16. 장면 전환과 상태 보존](labs/graphics/pixijs/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-16/example.js) — 타이머로 비동기 장면 완료 순서를 재현합니다. 실제 서버 로딩 없이 세대 토큰을 관찰할 수 있습니다. |
+| [17. 애니메이션 프레임 시퀀스](labs/graphics/pixijs/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-17/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [18. 마스크와 스크롤 영역](labs/graphics/pixijs/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-18/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [19. 필터와 적용 범위](labs/graphics/pixijs/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-19/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [20. 블렌드 모드와 순서](labs/graphics/pixijs/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-20/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [21. 정적 UI 캐시](labs/graphics/pixijs/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-21/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [22. 텍스처 해제와 캐시 소유](labs/graphics/pixijs/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-22/example.js) — 직접 소유한 프레임 Texture와 TextureSource의 참조 수명을 실험합니다. Assets.unload 예제는 10일에서 확인하세요. |
+| [23. 대량 입자와 기능 경계](labs/graphics/pixijs/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-23/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [24. 화면 밖 처리와 갱신 줄이기](labs/graphics/pixijs/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-24/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [25. 배칭 가설 만들기](labs/graphics/pixijs/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-25/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [26. 프로파일과 품질 예산](labs/graphics/pixijs/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-26/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+| [27. 2D 장면 편집기 완성](labs/graphics/pixijs/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/pixijs-step-27/example.js) — 편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다. |
+
+## GLSL
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 스칼라와 벡터 타입](labs/shader/glsl/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-02/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [3. 정밀도와 수치 범위](labs/shader/glsl/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-03/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [4. Attribute와 보간](labs/shader/glsl/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-04/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [5. 좌표 공간 추적](labs/shader/glsl/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-05/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [6. Uniform 조회와 갱신](labs/shader/glsl/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-06/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [7. 디버그 출력과 최소 재현](labs/shader/glsl/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-07/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [8. UV와 종횡비](labs/shader/glsl/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-08/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [9. Step과 Smoothstep 마스크](labs/shader/glsl/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-09/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [10. 타일링과 반복 좌표](labs/shader/glsl/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-10/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [11. Texture sampling](labs/shader/glsl/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-11/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [12. 미분과 가장자리 완화](labs/shader/glsl/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-12/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [13. 시간과 주기](labs/shader/glsl/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-13/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [15. 2D 거리장 도형](labs/shader/glsl/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-15/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [16. Value noise의 구성](labs/shader/glsl/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-16/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [17. 옥타브와 대역 제한](labs/shader/glsl/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-17/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [18. 법선과 확산 조명](labs/shader/glsl/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-18/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [19. 반사광과 시선 벡터](labs/shader/glsl/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-19/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [20. 변형 표면의 법선](labs/shader/glsl/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-20/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [21. Alpha와 합성 상태](labs/shader/glsl/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-21/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [22. Framebuffer와 화면 패스](labs/shader/glsl/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-22/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [23. Texel 크기와 필터](labs/shader/glsl/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-23/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [24. 포인터 좌표와 입력 완화](labs/shader/glsl/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-24/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [25. 분기와 반복의 비용](labs/shader/glsl/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-25/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [26. 편집 실패와 Context 복구](labs/shader/glsl/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-26/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [27. 품질 기준과 회귀 기록](labs/shader/glsl/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-27/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+
+## WGSL
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 리터럴과 명시적 수치 타입](labs/shader/wgsl/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-02/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [3. 벡터·행렬 생성과 곱](labs/shader/wgsl/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-03/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [4. Const·Let·Var·Override](labs/shader/wgsl/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-04/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [5. 함수와 구조체 계약](labs/shader/wgsl/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-05/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [6. 조건·반복과 종료](labs/shader/wgsl/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-06/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [7. 보간과 Stage 인터페이스](labs/shader/wgsl/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-07/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [8. 주소 공간과 접근 모드](labs/shader/wgsl/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-08/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [9. Group·Binding과 호스트 연결](labs/shader/wgsl/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-09/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [10. Scalar·Vector 정렬](labs/shader/wgsl/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-10/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [11. 행렬과 배열 Stride](labs/shader/wgsl/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-11/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [12. Uniform의 추가 배치 제약](labs/shader/wgsl/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-12/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [13. 런타임 배열과 Binding 범위](labs/shader/wgsl/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-13/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [15. Compute ID와 인덱스](labs/shader/wgsl/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-15/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [16. 경계 검사와 빈 입력](labs/shader/wgsl/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-16/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [17. Workgroup 메모리와 협력](labs/shader/wgsl/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-17/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [18. Barrier와 균일 제어 흐름](labs/shader/wgsl/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-18/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [19. Atomic과 카운터](labs/shader/wgsl/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-19/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [20. 부분합 Reduction](labs/shader/wgsl/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-20/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [21. Ping-pong과 데이터 경쟁](labs/shader/wgsl/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-21/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [22. Texture 함수의 단계 제약](labs/shader/wgsl/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-22/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [23. Storage texture 출력](labs/shader/wgsl/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-23/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [24. 수치 안정성과 특수 입력](labs/shader/wgsl/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-24/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [25. 커널 테스트와 Sentinel](labs/shader/wgsl/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-25/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [26. Workgroup 구성과 측정](labs/shader/wgsl/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-26/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+| [27. 커널 계약 문서화](labs/shader/wgsl/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/wgsl-step-27/example.js) — 실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. |
+
+## GSAP
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 시작값과 목표값](labs/animation/gsap/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-02/example.js) — Interactive 시작값과 목표값 experiment with resource cleanup. |
+| [3. Ease의 시간 곡선](labs/animation/gsap/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-03/example.js) — Interactive Ease의 시간 곡선 experiment with resource cleanup. |
+| [4. Transform과 배치](labs/animation/gsap/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-04/example.js) — Interactive Transform과 배치 experiment with resource cleanup. |
+| [5. Stagger 순서](labs/animation/gsap/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-05/example.js) — Interactive Stagger 순서 experiment with resource cleanup. |
+| [6. Label과 겹침](labs/animation/gsap/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-06/example.js) — Interactive Label과 겹침 experiment with resource cleanup. |
+| [7. 재생 제어판](labs/animation/gsap/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-07/example.js) — Interactive 재생 제어판 experiment with resource cleanup. |
+| [8. Context와 복원](labs/animation/gsap/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-08/example.js) — Interactive Context와 복원 experiment with resource cleanup. |
+| [9. 기본 스크롤 연결](labs/animation/gsap/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-09/example.js) — Interactive 기본 스크롤 연결 experiment with resource cleanup. |
+| [10. ScrollTrigger 등록](labs/animation/gsap/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-10/example.js) — Interactive ScrollTrigger 등록 experiment with resource cleanup. |
+| [11. Scrub 추종](labs/animation/gsap/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-11/example.js) — Interactive Scrub 추종 experiment with resource cleanup. |
+| [12. Pin과 문서 흐름](labs/animation/gsap/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-12/example.js) — Interactive Pin과 문서 흐름 experiment with resource cleanup. |
+| [13. Refresh와 측정 시점](labs/animation/gsap/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-13/example.js) — Interactive Refresh와 측정 시점 experiment with resource cleanup. |
+| [15. MatchMedia 분기](labs/animation/gsap/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-15/example.js) — Interactive MatchMedia 분기 experiment with resource cleanup. |
+| [16. 연속 입력과 Overwrite](labs/animation/gsap/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-16/example.js) — Interactive 연속 입력과 Overwrite experiment with resource cleanup. |
+| [17. Pointer와 QuickTo](labs/animation/gsap/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-17/example.js) — Interactive Pointer와 QuickTo experiment with resource cleanup. |
+| [18. 키보드 단계 이동](labs/animation/gsap/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-18/example.js) — Interactive 키보드 단계 이동 experiment with resource cleanup. |
+| [19. 모션 감소 대체](labs/animation/gsap/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-19/example.js) — Interactive 모션 감소 대체 experiment with resource cleanup. |
+| [20. 완료 콜백과 중단](labs/animation/gsap/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-20/example.js) — Interactive 완료 콜백과 중단 experiment with resource cleanup. |
+| [21. 중첩 타임라인](labs/animation/gsap/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-21/example.js) — Interactive 중첩 타임라인 experiment with resource cleanup. |
+| [22. SVG 속성 제어](labs/animation/gsap/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-22/example.js) — Interactive SVG 속성 제어 experiment with resource cleanup. |
+| [23. Canvas 객체 보간](labs/animation/gsap/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-23/example.js) — Interactive Canvas 객체 보간 experiment with resource cleanup. |
+| [24. 프레임 비용 측정](labs/animation/gsap/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-24/example.js) — Interactive 프레임 비용 측정 experiment with resource cleanup. |
+| [25. 숨김과 복귀](labs/animation/gsap/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-25/example.js) — Interactive 숨김과 복귀 experiment with resource cleanup. |
+| [26. 모션 토큰](labs/animation/gsap/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-26/example.js) — Interactive 모션 토큰 experiment with resource cleanup. |
+| [27. 실패 경로의 해제](labs/animation/gsap/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-27/example.js) — Interactive 실패 경로의 해제 experiment with resource cleanup. |
+
+## Motion
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. Initial과 Animate](labs/animation/motion/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-02/example.js) — Interactive Initial과 Animate experiment with resource cleanup. |
+| [3. Transition 구성](labs/animation/motion/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-03/example.js) — Interactive Transition 구성 experiment with resource cleanup. |
+| [4. Spring의 물리 변수](labs/animation/motion/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-04/example.js) — Interactive Spring의 물리 변수 experiment with resource cleanup. |
+| [5. Keyframes](labs/animation/motion/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-05/example.js) — Interactive Keyframes experiment with resource cleanup. |
+| [6. Variants](labs/animation/motion/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-06/example.js) — Interactive Variants experiment with resource cleanup. |
+| [7. 자식 등장 순서](labs/animation/motion/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-07/example.js) — Interactive 자식 등장 순서 experiment with resource cleanup. |
+| [8. Layout 측정](labs/animation/motion/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-08/example.js) — Interactive Layout 측정 experiment with resource cleanup. |
+| [9. 안정적인 Key](labs/animation/motion/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-09/example.js) — Interactive 안정적인 Key experiment with resource cleanup. |
+| [10. AnimatePresence 기초](labs/animation/motion/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-10/example.js) — Interactive AnimatePresence 기초 experiment with resource cleanup. |
+| [11. Presence 모드](labs/animation/motion/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-11/example.js) — Interactive Presence 모드 experiment with resource cleanup. |
+| [12. LayoutId 공유](labs/animation/motion/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-12/example.js) — Interactive LayoutId 공유 experiment with resource cleanup. |
+| [13. 삭제 중 포커스](labs/animation/motion/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-13/example.js) — Interactive 삭제 중 포커스 experiment with resource cleanup. |
+| [15. Hover와 Focus](labs/animation/motion/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-15/example.js) — Interactive Hover와 Focus experiment with resource cleanup. |
+| [16. Tap 피드백](labs/animation/motion/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-16/example.js) — Interactive Tap 피드백 experiment with resource cleanup. |
+| [17. Drag 좌표와 경계](labs/animation/motion/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-17/example.js) — Interactive Drag 좌표와 경계 experiment with resource cleanup. |
+| [18. 관성과 탄성](labs/animation/motion/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-18/example.js) — Interactive 관성과 탄성 experiment with resource cleanup. |
+| [19. 버튼으로 재배치](labs/animation/motion/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-19/example.js) — Interactive 버튼으로 재배치 experiment with resource cleanup. |
+| [20. MotionValue](labs/animation/motion/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-20/example.js) — Interactive MotionValue experiment with resource cleanup. |
+| [21. Transform과 Spring 연결](labs/animation/motion/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-21/example.js) — Interactive Transform과 Spring 연결 experiment with resource cleanup. |
+| [22. 스크롤 연동](labs/animation/motion/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-22/example.js) — Interactive 스크롤 연동 experiment with resource cleanup. |
+| [23. 화면 진입 애니메이션](labs/animation/motion/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-23/example.js) — Interactive 화면 진입 애니메이션 experiment with resource cleanup. |
+| [24. UseAnimate 정리](labs/animation/motion/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-24/example.js) — Interactive UseAnimate 정리 experiment with resource cleanup. |
+| [25. 모션 감소 정책](labs/animation/motion/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-25/example.js) — Interactive 모션 감소 정책 experiment with resource cleanup. |
+| [26. 렌더와 성능 관찰](labs/animation/motion/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-26/example.js) — Interactive 렌더와 성능 관찰 experiment with resource cleanup. |
+| [27. 재마운트와 상태 복구](labs/animation/motion/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-27/example.js) — Interactive 재마운트와 상태 복구 experiment with resource cleanup. |
+
+## Web Workers
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 모듈 Worker 로딩](labs/engineering/web-workers/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-02/example.js) — Interactive 모듈 Worker 로딩 experiment with resource cleanup. |
+| [3. 메시지 계약](labs/engineering/web-workers/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-03/example.js) — Interactive 메시지 계약 experiment with resource cleanup. |
+| [4. Structured Clone](labs/engineering/web-workers/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-04/example.js) — Interactive Structured Clone experiment with resource cleanup. |
+| [5. TypedArray와 Buffer](labs/engineering/web-workers/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-05/example.js) — Interactive TypedArray와 Buffer experiment with resource cleanup. |
+| [6. 오류 응답 계약](labs/engineering/web-workers/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-06/example.js) — Interactive 오류 응답 계약 experiment with resource cleanup. |
+| [7. 메인 응답성 관찰](labs/engineering/web-workers/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-07/example.js) — Interactive 메인 응답성 관찰 experiment with resource cleanup. |
+| [8. Transfer 소유권](labs/engineering/web-workers/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-08/example.js) — Interactive Transfer 소유권 experiment with resource cleanup. |
+| [9. 부분 View 전송](labs/engineering/web-workers/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-09/example.js) — Interactive 부분 View 전송 experiment with resource cleanup. |
+| [10. 버퍼 반환](labs/engineering/web-workers/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-10/example.js) — Interactive 버퍼 반환 experiment with resource cleanup. |
+| [11. 오래된 결과 거부](labs/engineering/web-workers/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-11/example.js) — Interactive 오래된 결과 거부 experiment with resource cleanup. |
+| [12. 협력적 취소](labs/engineering/web-workers/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-12/example.js) — Interactive 협력적 취소 experiment with resource cleanup. |
+| [13. 강제 종료와 재생성](labs/engineering/web-workers/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-13/example.js) — Interactive 강제 종료와 재생성 experiment with resource cleanup. |
+| [15. 진행도 보고](labs/engineering/web-workers/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-15/example.js) — Interactive 진행도 보고 experiment with resource cleanup. |
+| [16. 제한된 작업 큐](labs/engineering/web-workers/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-16/example.js) — Interactive 제한된 작업 큐 experiment with resource cleanup. |
+| [17. Worker Pool](labs/engineering/web-workers/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-17/example.js) — Interactive Worker Pool experiment with resource cleanup. |
+| [18. 결과 순서 복원](labs/engineering/web-workers/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-18/example.js) — Interactive 결과 순서 복원 experiment with resource cleanup. |
+| [19. Timeout과 중복 응답](labs/engineering/web-workers/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-19/example.js) — Interactive Timeout과 중복 응답 experiment with resource cleanup. |
+| [20. 장애 복구](labs/engineering/web-workers/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-20/example.js) — Interactive 장애 복구 experiment with resource cleanup. |
+| [21. MessageChannel 분리](labs/engineering/web-workers/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-21/example.js) — Interactive MessageChannel 분리 experiment with resource cleanup. |
+| [22. 데이터 분할과 병합](labs/engineering/web-workers/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-22/example.js) — Interactive 데이터 분할과 병합 experiment with resource cleanup. |
+| [23. 공유 메모리 조건](labs/engineering/web-workers/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-23/example.js) — Interactive 공유 메모리 조건 experiment with resource cleanup. |
+| [24. Atomics와 동기화](labs/engineering/web-workers/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-24/example.js) — Interactive Atomics와 동기화 experiment with resource cleanup. |
+| [25. 전체 지연 측정](labs/engineering/web-workers/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-25/example.js) — Interactive 전체 지연 측정 experiment with resource cleanup. |
+| [26. 메모리와 풀 한도](labs/engineering/web-workers/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-26/example.js) — Interactive 메모리와 풀 한도 experiment with resource cleanup. |
+| [27. 해제와 다시 시작](labs/engineering/web-workers/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-27/example.js) — Interactive 해제와 다시 시작 experiment with resource cleanup. |
+
+## OffscreenCanvas
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 렌더러 계약](labs/engineering/offscreen-canvas/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-02/example.js) — Interactive 렌더러 계약 experiment with resource cleanup. |
+| [3. 초기화 핸드셰이크](labs/engineering/offscreen-canvas/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-03/example.js) — Interactive 초기화 핸드셰이크 experiment with resource cleanup. |
+| [4. Context 생성 실패](labs/engineering/offscreen-canvas/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-04/example.js) — Interactive Context 생성 실패 experiment with resource cleanup. |
+| [5. 좌표 단위의 기준](labs/engineering/offscreen-canvas/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-05/example.js) — Interactive 좌표 단위의 기준 experiment with resource cleanup. |
+| [6. 프레임 시간](labs/engineering/offscreen-canvas/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-06/example.js) — Interactive 프레임 시간 experiment with resource cleanup. |
+| [7. 기초 렌더 검증](labs/engineering/offscreen-canvas/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-07/example.js) — Interactive 기초 렌더 검증 experiment with resource cleanup. |
+| [8. Resize 메시지](labs/engineering/offscreen-canvas/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-08/example.js) — Interactive Resize 메시지 experiment with resource cleanup. |
+| [9. Resize 순서 번호](labs/engineering/offscreen-canvas/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-09/example.js) — Interactive Resize 순서 번호 experiment with resource cleanup. |
+| [10. DPR 변경 감지](labs/engineering/offscreen-canvas/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-10/example.js) — Interactive DPR 변경 감지 experiment with resource cleanup. |
+| [11. 포인터 좌표 변환](labs/engineering/offscreen-canvas/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-11/example.js) — Interactive 포인터 좌표 변환 experiment with resource cleanup. |
+| [12. 입력 병합](labs/engineering/offscreen-canvas/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-12/example.js) — Interactive 입력 병합 experiment with resource cleanup. |
+| [13. Pointer Capture와 취소](labs/engineering/offscreen-canvas/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-13/example.js) — Interactive Pointer Capture와 취소 experiment with resource cleanup. |
+| [15. 장면 상태 갱신](labs/engineering/offscreen-canvas/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-15/example.js) — Interactive 장면 상태 갱신 experiment with resource cleanup. |
+| [16. 입자 데이터 배치](labs/engineering/offscreen-canvas/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-16/example.js) — Interactive 입자 데이터 배치 experiment with resource cleanup. |
+| [17. 정지와 재개](labs/engineering/offscreen-canvas/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-17/example.js) — Interactive 정지와 재개 experiment with resource cleanup. |
+| [18. 페이지 숨김 정책](labs/engineering/offscreen-canvas/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-18/example.js) — Interactive 페이지 숨김 정책 experiment with resource cleanup. |
+| [19. 정리 프로토콜](labs/engineering/offscreen-canvas/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-19/example.js) — Interactive 정리 프로토콜 experiment with resource cleanup. |
+| [20. 재시작 Canvas](labs/engineering/offscreen-canvas/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-20/example.js) — Interactive 재시작 Canvas experiment with resource cleanup. |
+| [21. Worker 장애 복구](labs/engineering/offscreen-canvas/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-21/example.js) — Interactive Worker 장애 복구 experiment with resource cleanup. |
+| [22. ImageBitmap 전달](labs/engineering/offscreen-canvas/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-22/example.js) — Interactive ImageBitmap 전달 experiment with resource cleanup. |
+| [23. Canvas Context 손실](labs/engineering/offscreen-canvas/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-23/example.js) — Interactive Canvas Context 손실 experiment with resource cleanup. |
+| [24. 요청과 화면 지연](labs/engineering/offscreen-canvas/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-24/example.js) — Interactive 요청과 화면 지연 experiment with resource cleanup. |
+| [25. 해상도와 작업량](labs/engineering/offscreen-canvas/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-25/example.js) — Interactive 해상도와 작업량 experiment with resource cleanup. |
+| [26. 메인 스레드 경쟁 실험](labs/engineering/offscreen-canvas/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-26/example.js) — Interactive 메인 스레드 경쟁 실험 experiment with resource cleanup. |
+| [27. 실험 결과 정리](labs/engineering/offscreen-canvas/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-27/example.js) — Interactive 실험 결과 정리 experiment with resource cleanup. |
+
+## WebAssembly
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. WAT와 바이너리](labs/engineering/webassembly/units/02/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-02/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [3. Compile과 Instance](labs/engineering/webassembly/units/03/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-03/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [4. Export 검사](labs/engineering/webassembly/units/04/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-04/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [5. Import와 Host 함수](labs/engineering/webassembly/units/05/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-05/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [6. I32와 JS Number](labs/engineering/webassembly/units/06/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-06/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [7. Trap과 입력 검사](labs/engineering/webassembly/units/07/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-07/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [8. 페이지와 Byte Offset](labs/engineering/webassembly/units/08/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-08/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [9. View와 엔디언](labs/engineering/webassembly/units/09/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-09/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [10. 배열 복사와 범위](labs/engineering/webassembly/units/10/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-10/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [11. Memory Grow와 View 수명](labs/engineering/webassembly/units/11/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-11/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [12. 용량 한도와 실패](labs/engineering/webassembly/units/12/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-12/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [13. 스칼라와 배치 호출](labs/engineering/webassembly/units/13/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-13/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [15. In-place 변환](labs/engineering/webassembly/units/15/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-15/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [16. 정렬과 비정렬 접근](labs/engineering/webassembly/units/16/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-16/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [17. 복수 배열의 배치](labs/engineering/webassembly/units/17/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-17/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [18. 문자열 바이트 계약](labs/engineering/webassembly/units/18/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-18/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [19. 브라우저 로딩과 MIME](labs/engineering/webassembly/units/19/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-19/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [20. 초기화 재사용](labs/engineering/webassembly/units/20/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-20/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [21. Worker와 Wasm](labs/engineering/webassembly/units/21/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-21/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [22. 모듈 캐시와 버전](labs/engineering/webassembly/units/22/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-22/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [23. 콜드 실행 분해](labs/engineering/webassembly/units/23/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-23/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [24. 웜 반복과 워밍업](labs/engineering/webassembly/units/24/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-24/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [25. 복사 포함 총비용](labs/engineering/webassembly/units/25/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-25/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [26. 경계값 정확도](labs/engineering/webassembly/units/26/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-26/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [27. 환경과 채택 기준](labs/engineering/webassembly/units/27/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/webassembly-step-27/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+
+## Playwright
+
+| 학습 단위 | 실행 방식 | 원본과 지원 범위 |
+| --- | --- | --- |
+| [2. 설정과 실행 범위](labs/testing/playwright/units/02/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-02/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [3. Role과 접근 가능한 이름](labs/testing/playwright/units/03/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-03/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [4. Label과 입력](labs/testing/playwright/units/04/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-04/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [5. Locator 범위](labs/testing/playwright/units/05/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-05/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [6. 재시도 Assertion](labs/testing/playwright/units/06/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-06/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [7. 첫 흐름의 실패 진단](labs/testing/playwright/units/07/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-07/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [8. BrowserContext 격리](labs/testing/playwright/units/08/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-08/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [9. 저장과 새로고침](labs/testing/playwright/units/09/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-09/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [10. 다운로드 이벤트](labs/testing/playwright/units/10/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-10/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [11. 파일 업로드](labs/testing/playwright/units/11/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-11/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [12. 잘못된 파일과 보존](labs/testing/playwright/units/12/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-12/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [13. 항목별 저장 격리](labs/testing/playwright/units/13/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-13/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [15. Keyboard 탐색](labs/testing/playwright/units/15/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-15/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [16. Viewport와 반응형](labs/testing/playwright/units/16/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-16/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [17. Network Route](labs/testing/playwright/units/17/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-17/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [18. 지연과 경합](labs/testing/playwright/units/18/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-18/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [19. 시계와 예약 저장](labs/testing/playwright/units/19/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-19/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [20. Console과 PageError](labs/testing/playwright/units/20/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-20/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [21. Trace 읽기](labs/testing/playwright/units/21/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-21/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [22. Fixtures와 준비 책임](labs/testing/playwright/units/22/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-22/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [23. 병렬 실행과 충돌](labs/testing/playwright/units/23/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-23/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [24. Retries와 흔들림](labs/testing/playwright/units/24/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-24/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [25. 시각 기준 만들기](labs/testing/playwright/units/25/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-25/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [26. 허용 차이와 검토](labs/testing/playwright/units/26/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-26/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [27. CI 실행과 산출물](labs/testing/playwright/units/27/README.md) | 외부 실행 예제 · 미리보기 안내 | [원본 코드](../src/labs/playwright-step-27/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |

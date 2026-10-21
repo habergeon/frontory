@@ -9,17 +9,23 @@ export function mount({ React, createRoot, THREE, container }) {
       const geometry = new THREE.BoxGeometry(), material = new THREE.MeshNormalMaterial()
       const cube = new THREE.Mesh(geometry, material); scene.add(cube); host.current.append(renderer.domElement)
       renderer.setPixelRatio(Math.min(devicePixelRatio, 2))
-      let frame = 0, stopped = false
-      const resize = new ResizeObserver(() => {
+      let frame = 0, resizeFrame = 0, stopped = false
+      renderer.domElement.style.height = '220px'
+      const size = () => {
         const width = host.current?.clientWidth || 320
-        renderer.setSize(width, 220); camera.aspect = width / 220; camera.updateProjectionMatrix()
+        renderer.setSize(width, 220, false); camera.aspect = width / 220; camera.updateProjectionMatrix()
+      }
+      size()
+      const resize = new ResizeObserver(() => {
+        cancelAnimationFrame(resizeFrame)
+        resizeFrame = requestAnimationFrame(() => { if (!stopped) size() })
       }); resize.observe(host.current)
       const pointer = event => { cube.rotation.x = event.offsetY / 100 }
       renderer.domElement.addEventListener('pointermove', pointer)
       function draw(time) { if (stopped) return; cube.rotation.y = time / 1200; renderer.render(scene, camera); frame = requestAnimationFrame(draw) }
       frame = requestAnimationFrame(draw); report('생성: renderer / RAF / ResizeObserver / pointer')
       return () => {
-        stopped = true; cancelAnimationFrame(frame); resize.disconnect()
+        stopped = true; cancelAnimationFrame(frame); cancelAnimationFrame(resizeFrame); resize.disconnect()
         renderer.domElement.removeEventListener('pointermove', pointer)
         geometry.dispose(); material.dispose(); renderer.dispose(); renderer.forceContextLoss(); renderer.domElement.remove()
         report('정리: RAF / observer / listener / geometry / material / renderer')

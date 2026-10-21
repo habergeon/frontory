@@ -111,7 +111,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 3,
@@ -163,7 +163,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 4,
@@ -215,7 +215,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 5,
@@ -267,7 +267,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 6,
@@ -319,7 +319,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 7,
@@ -371,7 +371,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 8,
@@ -423,7 +423,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 9,
@@ -475,7 +475,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 10,
@@ -527,7 +527,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 11,
@@ -579,7 +579,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 12,
@@ -635,7 +635,7 @@
           "url": "https://motion.dev/docs/react-layout-group#namespace-layoutid"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 13,
@@ -687,7 +687,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 14,
@@ -791,7 +791,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 16,
@@ -843,7 +843,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 17,
@@ -895,7 +895,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 18,
@@ -947,7 +947,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 19,
@@ -999,7 +999,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 20,
@@ -1051,7 +1051,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 21,
@@ -1103,7 +1103,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 22,
@@ -1155,7 +1155,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 23,
@@ -1207,7 +1207,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 24,
@@ -1259,7 +1259,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 25,
@@ -1311,7 +1311,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 26,
@@ -1363,7 +1363,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 27,
@@ -1415,7 +1415,7 @@
           "url": "https://motion.dev/docs/react-animate-presence"
         }
       ],
-      "environment": "기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다."
     },
     {
       "day": 28,

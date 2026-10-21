@@ -1,0 +1,1 @@
+window.record('second.js');

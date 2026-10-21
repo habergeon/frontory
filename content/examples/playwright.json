@@ -1,0 +1,253 @@
+{
+  "playwright-step-02": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-02/lesson.spec.mjs",
+      "src/labs/playwright-step-02/fixture.html",
+      "src/labs/playwright-step-02/server.mjs",
+      "src/labs/playwright-step-02/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-03": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-03/lesson.spec.mjs",
+      "src/labs/playwright-step-03/fixture.html",
+      "src/labs/playwright-step-03/server.mjs",
+      "src/labs/playwright-step-03/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-04": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-04/lesson.spec.mjs",
+      "src/labs/playwright-step-04/fixture.html",
+      "src/labs/playwright-step-04/server.mjs",
+      "src/labs/playwright-step-04/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-05": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-05/lesson.spec.mjs",
+      "src/labs/playwright-step-05/fixture.html",
+      "src/labs/playwright-step-05/server.mjs",
+      "src/labs/playwright-step-05/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-06": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-06/lesson.spec.mjs",
+      "src/labs/playwright-step-06/fixture.html",
+      "src/labs/playwright-step-06/server.mjs",
+      "src/labs/playwright-step-06/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-07": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-07/lesson.spec.mjs",
+      "src/labs/playwright-step-07/fixture.html",
+      "src/labs/playwright-step-07/server.mjs",
+      "src/labs/playwright-step-07/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-08": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-08/lesson.spec.mjs",
+      "src/labs/playwright-step-08/fixture.html",
+      "src/labs/playwright-step-08/server.mjs",
+      "src/labs/playwright-step-08/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-09": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-09/lesson.spec.mjs",
+      "src/labs/playwright-step-09/fixture.html",
+      "src/labs/playwright-step-09/server.mjs",
+      "src/labs/playwright-step-09/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-10": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-10/lesson.spec.mjs",
+      "src/labs/playwright-step-10/fixture.html",
+      "src/labs/playwright-step-10/server.mjs",
+      "src/labs/playwright-step-10/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-11": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-11/lesson.spec.mjs",
+      "src/labs/playwright-step-11/fixture.html",
+      "src/labs/playwright-step-11/server.mjs",
+      "src/labs/playwright-step-11/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-12": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-12/lesson.spec.mjs",
+      "src/labs/playwright-step-12/fixture.html",
+      "src/labs/playwright-step-12/server.mjs",
+      "src/labs/playwright-step-12/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-13": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-13/lesson.spec.mjs",
+      "src/labs/playwright-step-13/fixture.html",
+      "src/labs/playwright-step-13/server.mjs",
+      "src/labs/playwright-step-13/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-15": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-15/lesson.spec.mjs",
+      "src/labs/playwright-step-15/fixture.html",
+      "src/labs/playwright-step-15/server.mjs",
+      "src/labs/playwright-step-15/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-16": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-16/lesson.spec.mjs",
+      "src/labs/playwright-step-16/fixture.html",
+      "src/labs/playwright-step-16/server.mjs",
+      "src/labs/playwright-step-16/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-17": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-17/lesson.spec.mjs",
+      "src/labs/playwright-step-17/fixture.html",
+      "src/labs/playwright-step-17/server.mjs",
+      "src/labs/playwright-step-17/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-18": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-18/lesson.spec.mjs",
+      "src/labs/playwright-step-18/fixture.html",
+      "src/labs/playwright-step-18/server.mjs",
+      "src/labs/playwright-step-18/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-19": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-19/lesson.spec.mjs",
+      "src/labs/playwright-step-19/fixture.html",
+      "src/labs/playwright-step-19/server.mjs",
+      "src/labs/playwright-step-19/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-20": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-20/lesson.spec.mjs",
+      "src/labs/playwright-step-20/fixture.html",
+      "src/labs/playwright-step-20/server.mjs",
+      "src/labs/playwright-step-20/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-21": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-21/lesson.spec.mjs",
+      "src/labs/playwright-step-21/fixture.html",
+      "src/labs/playwright-step-21/server.mjs",
+      "src/labs/playwright-step-21/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-22": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-22/lesson.spec.mjs",
+      "src/labs/playwright-step-22/fixture.html",
+      "src/labs/playwright-step-22/server.mjs",
+      "src/labs/playwright-step-22/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-23": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-23/lesson.spec.mjs",
+      "src/labs/playwright-step-23/fixture.html",
+      "src/labs/playwright-step-23/server.mjs",
+      "src/labs/playwright-step-23/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-24": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-24/lesson.spec.mjs",
+      "src/labs/playwright-step-24/fixture.html",
+      "src/labs/playwright-step-24/server.mjs",
+      "src/labs/playwright-step-24/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-25": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-25/lesson.spec.mjs",
+      "src/labs/playwright-step-25/fixture.html",
+      "src/labs/playwright-step-25/server.mjs",
+      "src/labs/playwright-step-25/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-26": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-26/lesson.spec.mjs",
+      "src/labs/playwright-step-26/fixture.html",
+      "src/labs/playwright-step-26/server.mjs",
+      "src/labs/playwright-step-26/playwright.config.mjs"
+    ]
+  },
+  "playwright-step-27": {
+    "mode": "external",
+    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "files": [
+      "src/labs/playwright-step-27/lesson.spec.mjs",
+      "src/labs/playwright-step-27/fixture.html",
+      "src/labs/playwright-step-27/server.mjs",
+      "src/labs/playwright-step-27/playwright.config.mjs",
+      "src/labs/playwright-step-27/ci.yml"
+    ]
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "web-workers-step-02": {
+    "mode": "browser",
+    "note": "Interactive 모듈 Worker 로딩 experiment with resource cleanup."
+  },
+  "web-workers-step-03": {
+    "mode": "browser",
+    "note": "Interactive 메시지 계약 experiment with resource cleanup."
+  },
+  "web-workers-step-04": {
+    "mode": "browser",
+    "note": "Interactive Structured Clone experiment with resource cleanup."
+  },
+  "web-workers-step-05": {
+    "mode": "browser",
+    "note": "Interactive TypedArray와 Buffer experiment with resource cleanup."
+  },
+  "web-workers-step-06": {
+    "mode": "browser",
+    "note": "Interactive 오류 응답 계약 experiment with resource cleanup."
+  },
+  "web-workers-step-07": {
+    "mode": "browser",
+    "note": "Interactive 메인 응답성 관찰 experiment with resource cleanup."
+  },
+  "web-workers-step-08": {
+    "mode": "browser",
+    "note": "Interactive Transfer 소유권 experiment with resource cleanup."
+  },
+  "web-workers-step-09": {
+    "mode": "browser",
+    "note": "Interactive 부분 View 전송 experiment with resource cleanup."
+  },
+  "web-workers-step-10": {
+    "mode": "browser",
+    "note": "Interactive 버퍼 반환 experiment with resource cleanup."
+  },
+  "web-workers-step-11": {
+    "mode": "browser",
+    "note": "Interactive 오래된 결과 거부 experiment with resource cleanup."
+  },
+  "web-workers-step-12": {
+    "mode": "browser",
+    "note": "Interactive 협력적 취소 experiment with resource cleanup."
+  },
+  "web-workers-step-13": {
+    "mode": "browser",
+    "note": "Interactive 강제 종료와 재생성 experiment with resource cleanup."
+  },
+  "web-workers-step-15": {
+    "mode": "browser",
+    "note": "Interactive 진행도 보고 experiment with resource cleanup."
+  },
+  "web-workers-step-16": {
+    "mode": "browser",
+    "note": "Interactive 제한된 작업 큐 experiment with resource cleanup."
+  },
+  "web-workers-step-17": {
+    "mode": "browser",
+    "note": "Interactive Worker Pool experiment with resource cleanup."
+  },
+  "web-workers-step-18": {
+    "mode": "browser",
+    "note": "Interactive 결과 순서 복원 experiment with resource cleanup."
+  },
+  "web-workers-step-19": {
+    "mode": "browser",
+    "note": "Interactive Timeout과 중복 응답 experiment with resource cleanup."
+  },
+  "web-workers-step-20": {
+    "mode": "browser",
+    "note": "Interactive 장애 복구 experiment with resource cleanup."
+  },
+  "web-workers-step-21": {
+    "mode": "browser",
+    "note": "Interactive MessageChannel 분리 experiment with resource cleanup."
+  },
+  "web-workers-step-22": {
+    "mode": "browser",
+    "note": "Interactive 데이터 분할과 병합 experiment with resource cleanup."
+  },
+  "web-workers-step-23": {
+    "mode": "browser",
+    "note": "Interactive 공유 메모리 조건 experiment with resource cleanup."
+  },
+  "web-workers-step-24": {
+    "mode": "browser",
+    "note": "Interactive Atomics와 동기화 experiment with resource cleanup."
+  },
+  "web-workers-step-25": {
+    "mode": "browser",
+    "note": "Interactive 전체 지연 측정 experiment with resource cleanup."
+  },
+  "web-workers-step-26": {
+    "mode": "browser",
+    "note": "Interactive 메모리와 풀 한도 experiment with resource cleanup."
+  },
+  "web-workers-step-27": {
+    "mode": "browser",
+    "note": "Interactive 해제와 다시 시작 experiment with resource cleanup."
+  }
+}

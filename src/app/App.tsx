@@ -34,6 +34,7 @@ export function App() {
     {!selected ? <Home onSelect={select} /> : <>
     <LearningNavigator selected={selected} onSelect={select} onDocument={setDocumentPath} />
     <PracticeGuide key={selected.id} unit={selected} onDocument={setDocumentPath} />
+    <p><a href={'/learn/' + selected.seriesId + '/' + selected.id + '/'}>이 학습의 공개 문서 · 공유 주소</a></p>
     <details className="backup-disclosure"><summary>학습 아카이브 · 전체 JSON 내보내기 / 가져오기</summary><BackupControls selectedId={selected.id} onRestore={id => { select(id); setRestoreRevision(value => value + 1) }} /></details>
     <Suspense fallback={<p role="status">실습 환경을 준비하고 있습니다…</p>}><Workspace key={selected.id + ':' + restoreRevision} unit={selected} onProgressChange={() => refreshProgress(value => value + 1)} /></Suspense>
     </>}

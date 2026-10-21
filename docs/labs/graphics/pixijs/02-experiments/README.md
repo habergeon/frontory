@@ -2,7 +2,7 @@
 
 [시리즈 목차](../README.md) · [전체 기술 지도](../../../README.md)
 
-단계: Ticker·Assets·포인터 입력 · 기존 예제에서 확장 · 저장 ID: `pixijs-02`
+단계: Ticker·Assets·포인터 입력 · 편집 가능한 예제 · 저장 ID: `pixijs-02`
 
 ## 목표와 학습 후 역량
 
@@ -61,7 +61,7 @@ Sprite 제거와 TextureSource 해제는 다릅니다. 다른 Sprite가 사용�
 
 ## 연결된 예제와 실행 범위
 
-[기존 예제 원본](../../../../../src/labs/pixijs-02/example.js) · [실행 환경과 제한](../../../../examples.md)
+[예제 원본](../../../../../src/labs/pixijs-02/example.js) · [실행 환경과 제한](../../../../examples.md)
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 

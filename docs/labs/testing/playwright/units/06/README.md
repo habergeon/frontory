@@ -2,7 +2,7 @@
 
 [시리즈 목차](../../README.md) · [전체 기술 지도](../../../../README.md)
 
-단계: 사용자 흐름과 Locator · 문서 기반 직접 구현 · 저장 ID: `playwright-step-06`
+단계: 사용자 흐름과 Locator · 외부 실행 예제 · 미리보기 안내 · 저장 ID: `playwright-step-06`
 
 ## 목표와 학습 후 역량
 
@@ -25,9 +25,9 @@ toBeVisible 같은 assertion은 조건을 재평가한다. 일반 값 비교와 
 
 ## 실습 준비
 
-모든 테스트는 별도 Node 프로젝트의 @playwright/test와 테스트 전용 로컬 origin에서 작성·실행한다. 기존 playwright-01·02·03 미리보기는 테스트 소스를 보여줄 뿐 iframe에서 Playwright를 실행하지 않는다. 새 테스트 파일은 과제에서 직접 작성하며 통과 여부는 실제 runner 출력으로만 판단한다. 사용자 profile·실사용 저장소를 사용하지 않고 CSP·격리를 유지한다.
+예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 모든 테스트는 별도 Node 프로젝트의 @playwright/test와 테스트 전용 로컬 origin에서 작성·실행한다. 기존 playwright-01·02·03 미리보기는 테스트 소스를 보여줄 뿐 iframe에서 Playwright를 실행하지 않는다. 새 테스트 파일은 과제에서 직접 작성하며 통과 여부는 실제 runner 출력으로만 판단한다. 사용자 profile·실사용 저장소를 사용하지 않고 CSP·격리를 유지한다.
 
-이 단위에는 내장 실행 예제가 없습니다. 아래 절차에 따라 별도 실습 파일을 만들고 실행 결과를 필기에 남기세요. 코드 파일은 작업 폴더에서 따로 보관하고 Frontory 필기는 JSON 또는 Markdown으로 백업하세요.
+연결된 예제는 출발점입니다. 아래 과제 전체가 완성된 코드는 아니며, 예제의 지원 범위를 넘는 작업은 별도 프로젝트에서 수행하세요.
 
 ## 실습 과제
 
@@ -63,7 +63,14 @@ toBeVisible 같은 assertion은 조건을 재평가한다. 일반 값 비교와 
 
 ## 연결된 예제와 실행 범위
 
-문서와 필기를 제공합니다. 내장 실행 예제는 아직 제공하지 않습니다.
+[예제 원본](../../../../../../src/labs/playwright-step-06/example.js) · [실행 환경과 제한](../../../../../examples.md)
+
+Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.
+
+- [lesson.spec.mjs](../../../../../../src/labs/playwright-step-06/lesson.spec.mjs)
+- [fixture.html](../../../../../../src/labs/playwright-step-06/fixture.html)
+- [server.mjs](../../../../../../src/labs/playwright-step-06/server.mjs)
+- [playwright.config.mjs](../../../../../../src/labs/playwright-step-06/playwright.config.mjs)
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 

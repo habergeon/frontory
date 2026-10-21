@@ -49,6 +49,7 @@ export function Workspace({ unit, onProgressChange }: { unit: Unit; onProgressCh
     </div>
     {warning && <div className="storage-warning" role="alert"><p>{warning}</p><button onClick={() => save(draft)}>저장 다시 시도</button></div>}
     {unit.exampleNote && <p className="example-note" role="note">{unit.exampleNote}</p>}
+    {!!unit.exampleFiles?.length && <details className="example-note"><summary>예제 파일 다운로드 · 별도 환경에서 실행</summary><p>아래 파일은 원본 예제입니다. 편집기 변경 내용은 전체 JSON 백업에 저장하세요.</p><ul>{unit.exampleFiles.map(file => <li key={file}><a href={'/examples/' + file.slice('src/labs/'.length)} download>{file.split('/').pop()}</a></li>)}</ul></details>}
     {unit.source && draft.code === '' && <p className="example-note">빈 코드 기록이 보존되어 있습니다. 새 예제를 불러오려면 ‘원본 코드로’를 선택하세요. 필기는 유지됩니다.</p>}
     <div className="mobile-tabs" role="tablist" aria-label="실습 영역">
       {(['result', 'code', 'notes'] as const).map((value, index) =>

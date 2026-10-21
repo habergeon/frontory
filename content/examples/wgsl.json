@@ -1,0 +1,102 @@
+{
+  "wgsl-step-02": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-03": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-04": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-05": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-06": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-07": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-08": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-09": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-10": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-11": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-12": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-13": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-15": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-16": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-17": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-18": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-19": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-20": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-21": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-22": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-23": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-24": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-25": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-26": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  },
+  "wgsl-step-27": {
+    "mode": "browser",
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+  }
+}

@@ -1,0 +1,1 @@
+import {parentPort} from 'node:worker_threads';parentPort.on('message',async({module,buffer})=>{const instance=await WebAssembly.instantiate(module,{host:{report:()=>{}}});const source=new Int32Array(buffer);new Int32Array(instance.exports.memory.buffer,0,source.length).set(source);parentPort.postMessage(instance.exports.sum(0,source.length))});

@@ -103,7 +103,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 3,
@@ -151,7 +151,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 4,
@@ -199,7 +199,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 5,
@@ -247,7 +247,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 6,
@@ -295,7 +295,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 7,
@@ -343,7 +343,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 8,
@@ -391,7 +391,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 9,
@@ -439,7 +439,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 10,
@@ -487,7 +487,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 11,
@@ -535,7 +535,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 12,
@@ -583,7 +583,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 13,
@@ -631,7 +631,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 14,
@@ -727,7 +727,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 16,
@@ -775,7 +775,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 17,
@@ -823,7 +823,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 18,
@@ -871,7 +871,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 19,
@@ -919,7 +919,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 20,
@@ -967,7 +967,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 21,
@@ -1015,7 +1015,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 22,
@@ -1063,7 +1063,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 23,
@@ -1111,7 +1111,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 24,
@@ -1159,7 +1159,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 25,
@@ -1207,7 +1207,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 26,
@@ -1255,7 +1255,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 27,
@@ -1303,7 +1303,7 @@
           "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
         }
       ],
-      "environment": "별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
+      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 localhost 프로젝트에서 WebGL2와 GLSL ES 3.00으로 직접 구현하는 문서 안내 실습입니다. 기존 예제의 GLSL 버전을 먼저 확인하고 1.00 문법을 혼용하지 않습니다."
     },
     {
       "day": 28,

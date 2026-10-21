@@ -1,0 +1,5 @@
+import {test,expect} from '@playwright/test';import {readFile} from 'node:fs/promises';
+test.beforeEach(async({page})=>{await page.goto('/')});
+test("지연과 경합",async({page,browser},testInfo)=>{
+let release;const gate=new Promise(resolve=>release=resolve);await page.route('**/docs/old',async route=>{await gate;await route.fulfill({body:'stale document'})});await page.route('**/docs/new',route=>route.fulfill({body:'latest document'}));const oldRequest=page.waitForRequest('**/docs/old');await page.getByRole('button',{name:'Load document',exact:true}).click();await oldRequest;await page.getByRole('button',{name:'Load newer document'}).click();await expect(page.getByRole('article',{name:'Document'})).toHaveText('latest document');const oldResponse=page.waitForResponse('**/docs/old');release();await oldResponse;await expect(page.getByRole('article',{name:'Document'})).toHaveAttribute('data-completed','old');await expect(page.getByRole('article',{name:'Document'})).toHaveText('latest document');
+});

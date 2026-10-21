@@ -2,7 +2,7 @@
 
 [시리즈 목차](../README.md) · [전체 기술 지도](../../../README.md)
 
-단계: 응답성 비교 프로젝트 · 기존 예제에서 확장 · 저장 ID: `offscreen-canvas-03`
+단계: 응답성 비교 프로젝트 · 편집 가능한 예제 · 저장 ID: `offscreen-canvas-03`
 
 ## 목표와 학습 후 역량
 
@@ -60,7 +60,7 @@ Worker는 메인에서 렌더 작업을 옮긴다. GPU 작업 자체를 없애�
 
 ## 연결된 예제와 실행 범위
 
-[기존 예제 원본](../../../../../src/labs/offscreen-canvas-03/example.js) · [실행 환경과 제한](../../../../examples.md)
+[예제 원본](../../../../../src/labs/offscreen-canvas-03/example.js) · [실행 환경과 제한](../../../../examples.md)
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 

@@ -2,7 +2,7 @@
 
 [시리즈 목차](../../README.md) · [전체 기술 지도](../../../../README.md)
 
-단계: 비동기·격리·진단 · 문서 기반 직접 구현 · 저장 ID: `playwright-step-19`
+단계: 비동기·격리·진단 · 외부 실행 예제 · 미리보기 안내 · 저장 ID: `playwright-step-19`
 
 ## 목표와 학습 후 역량
 
@@ -25,9 +25,9 @@ fixture의 타이머 실행과 저장된 값의 표시는 별도 관찰 대상�
 
 ## 실습 준비
 
-별도 Node Playwright runner와 학습자가 직접 구현한 debounce fixture 페이지를 사용한다. Frontory Workspace.tsx의 필기는 onChange마다 draftStore.save를 동기 호출하며 이 실습의 500ms 타이머와 다르다. 편집기의 600ms 코드 검사·반영 지연을 필기 저장 지연으로 혼동하지 않는다. 사용자 데이터·CSP·격리는 유지한다.
+예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 Node Playwright runner와 학습자가 직접 구현한 debounce fixture 페이지를 사용한다. Frontory Workspace.tsx의 필기는 onChange마다 draftStore.save를 동기 호출하며 이 실습의 500ms 타이머와 다르다. 편집기의 600ms 코드 검사·반영 지연을 필기 저장 지연으로 혼동하지 않는다. 사용자 데이터·CSP·격리는 유지한다.
 
-이 단위에는 내장 실행 예제가 없습니다. 아래 절차에 따라 별도 실습 파일을 만들고 실행 결과를 필기에 남기세요. 코드 파일은 작업 폴더에서 따로 보관하고 Frontory 필기는 JSON 또는 Markdown으로 백업하세요.
+연결된 예제는 출발점입니다. 아래 과제 전체가 완성된 코드는 아니며, 예제의 지원 범위를 넘는 작업은 별도 프로젝트에서 수행하세요.
 
 ## 실습 과제
 
@@ -64,7 +64,14 @@ fixture의 타이머 실행과 저장된 값의 표시는 별도 관찰 대상�
 
 ## 연결된 예제와 실행 범위
 
-문서와 필기를 제공합니다. 내장 실행 예제는 아직 제공하지 않습니다.
+[예제 원본](../../../../../../src/labs/playwright-step-19/example.js) · [실행 환경과 제한](../../../../../examples.md)
+
+Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.
+
+- [lesson.spec.mjs](../../../../../../src/labs/playwright-step-19/lesson.spec.mjs)
+- [fixture.html](../../../../../../src/labs/playwright-step-19/fixture.html)
+- [server.mjs](../../../../../../src/labs/playwright-step-19/server.mjs)
+- [playwright.config.mjs](../../../../../../src/labs/playwright-step-19/playwright.config.mjs)
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 

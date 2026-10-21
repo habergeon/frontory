@@ -4,7 +4,7 @@ export function createPreviewDocument(source: string, token: string, runtime: st
   const safeRuntime = runtime.replace(/<\/script/gi, '<\\/script')
   return '<!doctype html><html lang="ko"><head><meta charset="UTF-8">' +
     '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; script-src \'unsafe-inline\' blob:; style-src \'unsafe-inline\'; img-src data: blob:; connect-src \'none\'; base-uri \'none\'; form-action \'none\'; frame-src \'none\'">' +
-    '<style>html,body,#scene-root{width:100%;height:100%;margin:0;overflow:hidden}canvas{display:block;width:100%;height:100%;touch-action:none}</style>' +
+    '<style>html,body,#scene-root{width:100%;height:100%;margin:0;overflow:hidden}#scene-root{overflow:auto;box-sizing:border-box}canvas{display:block;width:100%;height:100%;touch-action:none}</style>' +
     '</head><body><div id="scene-root"></div><script>' + safeRuntime +
     ';StudyRuntime.start(' + safeJson(source) + ',' + safeJson(token) + ');</script></body></html>'
 }

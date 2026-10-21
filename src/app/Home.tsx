@@ -35,7 +35,7 @@ export function Home({ onSelect }: { onSelect: (id: string) => void }) {
         const completed = records.filter(record => record.draft.progress === 'completed').length
         const ongoing = records.find(record => record.draft.progress === 'in-progress')
         return <article className="home-series-row" key={item.id}>
-          <span className="home-series-category">{categories[item.category]}</span><h3>{item.title}</h3>
+          <span className="home-series-category">{categories[item.category]}</span><h3><a href={'/learn/' + item.id + '/'}>{item.title}</a></h3>
           <div className="home-series-description"><p>선수 지식 · {item.prerequisites}</p><small>예제 연결 {lessons.filter(unit => unit.source !== undefined).length} · 문서 기반 실습 {lessons.filter(unit => unit.source === undefined).length}</small>{item.id === 'playwright' && <small>별도 환경에서 실행하는 테스트 예제</small>}{records.some(record => record.warning) && <small>저장 기록 확인이 필요합니다. 학습 화면에서 안내를 확인하세요.</small>}</div>
           <span className="home-series-progress">{lessons.length}개 단위{completed > 0 && <small>{completed}개 완료</small>}</span>
           <button onClick={() => onSelect(ongoing?.unit.id ?? lessons[0].id)} aria-label={item.title + (ongoing ? ' 학습 이어가기' : ' 학습 시작')}>{ongoing ? '이어가기' : '학습 시작'} <span aria-hidden="true">→</span></button>

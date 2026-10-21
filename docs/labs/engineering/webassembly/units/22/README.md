@@ -2,7 +2,7 @@
 
 [시리즈 목차](../../README.md) · [전체 기술 지도](../../../../README.md)
 
-단계: 정확도와 병목 평가 · 문서 기반 직접 구현 · 저장 ID: `webassembly-step-22`
+단계: 정확도와 병목 평가 · 외부 실행 예제 · 미리보기 안내 · 저장 ID: `webassembly-step-22`
 
 ## 목표와 학습 후 역량
 
@@ -25,9 +25,9 @@
 
 ## 실습 준비
 
-iframe 미리보기는 WebAssembly.Memory와 JS 기준 계산 실험이며 실제 Wasm 모듈 실행으로 표시하지 않는다. 실제 모듈 실습은 별도 Node 22+ 또는 통제한 로컬 웹 프로젝트에서 한다. 기존 src/labs/webassembly-02·03의 kernel.wat·kernel.wasm·benchmark.mjs를 사용하며 WAT 수정 시 공식 wat2wasm 도구로 다시 빌드한다. CSP·격리를 완화하지 않고 측정값은 직접 기록한다.
+예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. iframe 미리보기는 WebAssembly.Memory와 JS 기준 계산 실험이며 실제 Wasm 모듈 실행으로 표시하지 않는다. 실제 모듈 실습은 별도 Node 22+ 또는 통제한 로컬 웹 프로젝트에서 한다. 기존 src/labs/webassembly-02·03의 kernel.wat·kernel.wasm·benchmark.mjs를 사용하며 WAT 수정 시 공식 wat2wasm 도구로 다시 빌드한다. CSP·격리를 완화하지 않고 측정값은 직접 기록한다.
 
-이 단위에는 내장 실행 예제가 없습니다. 아래 절차에 따라 별도 실습 파일을 만들고 실행 결과를 필기에 남기세요. 코드 파일은 작업 폴더에서 따로 보관하고 Frontory 필기는 JSON 또는 Markdown으로 백업하세요.
+연결된 예제는 출발점입니다. 아래 과제 전체가 완성된 코드는 아니며, 예제의 지원 범위를 넘는 작업은 별도 프로젝트에서 수행하세요.
 
 ## 실습 과제
 
@@ -61,7 +61,12 @@ iframe 미리보기는 WebAssembly.Memory와 JS 기준 계산 실험이며 실�
 
 ## 연결된 예제와 실행 범위
 
-문서와 필기를 제공합니다. 내장 실행 예제는 아직 제공하지 않습니다.
+[예제 원본](../../../../../../src/labs/webassembly-step-22/example.js) · [실행 환경과 제한](../../../../../examples.md)
+
+Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.
+
+- [kernel.wat](../../../../../../src/labs/webassembly-step-22/kernel.wat)
+- [experiment.mjs](../../../../../../src/labs/webassembly-step-22/experiment.mjs)
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 

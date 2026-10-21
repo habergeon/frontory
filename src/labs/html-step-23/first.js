@@ -1,0 +1,1 @@
+window.record('first.js');

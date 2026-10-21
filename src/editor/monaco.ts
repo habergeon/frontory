@@ -15,6 +15,6 @@ for (const defaults of [monaco.typescript.javascriptDefaults, monaco.typescript.
     allowNonTsExtensions: true, sourceMap: false,
   })
   defaults.setDiagnosticsOptions({ noSemanticValidation: false, noSyntaxValidation: false })
-  defaults.addExtraLib('interface StudyContext { THREE: any; OrbitControls: any; React: any; createRoot: any; Vue: any; Fiber: any; PIXI: any; gsap: any; animate: any; writable: any; container: HTMLElement }', 'file:///study-context.d.ts')
+  defaults.addExtraLib('interface StudyContext { THREE: any; OrbitControls: any; React: any; createRoot: any; Vue: any; Fiber: any; PIXI: any; gsap: any; ScrollTrigger: any; animate: any; Motion: any; writable: any; container: HTMLElement }', 'file:///study-context.d.ts')
 }
 export { monaco }

@@ -2,7 +2,7 @@
 
 [시리즈 목차](../../README.md) · [전체 기술 지도](../../../../README.md)
 
-단계: 상태와 Transition · 문서 기반 직접 구현 · 저장 ID: `motion-step-02`
+단계: 상태와 Transition · 편집 가능한 예제 · 저장 ID: `motion-step-02`
 
 ## 목표와 학습 후 역량
 
@@ -25,9 +25,9 @@ initial은 처음 나타날 때의 출발 상태다. 현재 선택 상태와 항
 
 ## 실습 준비
 
-기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다.
+예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 motion-01·02·03은 Motion JS animate 기반의 제한된 예제다. React layout·AnimatePresence·hooks는 별도 로컬 React 프로젝트에 motion을 설치하고 motion/react에서 가져와 실습한다. 편집기에서 JSX가 바로 실행된다고 가정하지 않으며 CSP와 격리를 유지한다.
 
-이 단위에는 내장 실행 예제가 없습니다. 아래 절차에 따라 별도 실습 파일을 만들고 실행 결과를 필기에 남기세요. 코드 파일은 작업 폴더에서 따로 보관하고 Frontory 필기는 JSON 또는 Markdown으로 백업하세요.
+연결된 예제는 출발점입니다. 아래 과제 전체가 완성된 코드는 아니며, 예제의 지원 범위를 넘는 작업은 별도 프로젝트에서 수행하세요.
 
 ## 실습 과제
 
@@ -60,7 +60,10 @@ initial은 처음 나타날 때의 출발 상태다. 현재 선택 상태와 항
 
 ## 연결된 예제와 실행 범위
 
-문서와 필기를 제공합니다. 내장 실행 예제는 아직 제공하지 않습니다.
+[예제 원본](../../../../../../src/labs/motion-step-02/example.js) · [실행 환경과 제한](../../../../../examples.md)
+
+Interactive Initial과 Animate experiment with resource cleanup.
+
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 

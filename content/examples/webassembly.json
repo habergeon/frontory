@@ -1,0 +1,203 @@
+{
+  "webassembly-step-02": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-02/kernel.wat",
+      "src/labs/webassembly-step-02/experiment.mjs"
+    ]
+  },
+  "webassembly-step-03": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-03/kernel.wat",
+      "src/labs/webassembly-step-03/experiment.mjs"
+    ]
+  },
+  "webassembly-step-04": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-04/kernel.wat",
+      "src/labs/webassembly-step-04/experiment.mjs"
+    ]
+  },
+  "webassembly-step-05": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-05/kernel.wat",
+      "src/labs/webassembly-step-05/experiment.mjs"
+    ]
+  },
+  "webassembly-step-06": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-06/kernel.wat",
+      "src/labs/webassembly-step-06/experiment.mjs"
+    ]
+  },
+  "webassembly-step-07": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-07/kernel.wat",
+      "src/labs/webassembly-step-07/experiment.mjs"
+    ]
+  },
+  "webassembly-step-08": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-08/kernel.wat",
+      "src/labs/webassembly-step-08/experiment.mjs"
+    ]
+  },
+  "webassembly-step-09": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-09/kernel.wat",
+      "src/labs/webassembly-step-09/experiment.mjs"
+    ]
+  },
+  "webassembly-step-10": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-10/kernel.wat",
+      "src/labs/webassembly-step-10/experiment.mjs"
+    ]
+  },
+  "webassembly-step-11": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-11/kernel.wat",
+      "src/labs/webassembly-step-11/experiment.mjs"
+    ]
+  },
+  "webassembly-step-12": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-12/kernel.wat",
+      "src/labs/webassembly-step-12/experiment.mjs"
+    ]
+  },
+  "webassembly-step-13": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-13/kernel.wat",
+      "src/labs/webassembly-step-13/experiment.mjs"
+    ]
+  },
+  "webassembly-step-15": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-15/kernel.wat",
+      "src/labs/webassembly-step-15/experiment.mjs"
+    ]
+  },
+  "webassembly-step-16": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-16/kernel.wat",
+      "src/labs/webassembly-step-16/experiment.mjs"
+    ]
+  },
+  "webassembly-step-17": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-17/kernel.wat",
+      "src/labs/webassembly-step-17/experiment.mjs"
+    ]
+  },
+  "webassembly-step-18": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-18/kernel.wat",
+      "src/labs/webassembly-step-18/experiment.mjs"
+    ]
+  },
+  "webassembly-step-19": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-19/kernel.wat",
+      "src/labs/webassembly-step-19/experiment.mjs"
+    ]
+  },
+  "webassembly-step-20": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-20/kernel.wat",
+      "src/labs/webassembly-step-20/experiment.mjs"
+    ]
+  },
+  "webassembly-step-21": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-21/kernel.wat",
+      "src/labs/webassembly-step-21/experiment.mjs",
+      "src/labs/webassembly-step-21/worker.mjs"
+    ]
+  },
+  "webassembly-step-22": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-22/kernel.wat",
+      "src/labs/webassembly-step-22/experiment.mjs"
+    ]
+  },
+  "webassembly-step-23": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-23/kernel.wat",
+      "src/labs/webassembly-step-23/experiment.mjs"
+    ]
+  },
+  "webassembly-step-24": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-24/kernel.wat",
+      "src/labs/webassembly-step-24/experiment.mjs"
+    ]
+  },
+  "webassembly-step-25": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-25/kernel.wat",
+      "src/labs/webassembly-step-25/experiment.mjs"
+    ]
+  },
+  "webassembly-step-26": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-26/kernel.wat",
+      "src/labs/webassembly-step-26/experiment.mjs"
+    ]
+  },
+  "webassembly-step-27": {
+    "mode": "external",
+    "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
+    "files": [
+      "src/labs/webassembly-step-27/kernel.wat",
+      "src/labs/webassembly-step-27/experiment.mjs"
+    ]
+  }
+}

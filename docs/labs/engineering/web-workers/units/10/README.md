@@ -2,7 +2,7 @@
 
 [시리즈 목차](../../README.md) · [전체 기술 지도](../../../../README.md)
 
-단계: 소유권과 취소 · 문서 기반 직접 구현 · 저장 ID: `web-workers-step-10`
+단계: 소유권과 취소 · 편집 가능한 예제 · 저장 ID: `web-workers-step-10`
 
 ## 목표와 학습 후 역량
 
@@ -25,9 +25,9 @@ available·inFlight 상태를 구분하면 중복 사용을 막는다. 반환 �
 
 ## 실습 준비
 
-기존 web-workers-01·02·03은 시작 예제이며 새 과제는 별도 로컬 HTTP 프로젝트의 main.js와 worker.js로 작성한다. CSP와 iframe 격리를 유지한다. SharedArrayBuffer는 자신이 통제하는 외부 서버의 COOP·COEP 조건을 확인하며 미충족 시 transfer 경로를 사용한다. 성능 수치는 직접 측정한다.
+예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 기존 web-workers-01·02·03은 시작 예제이며 새 과제는 별도 로컬 HTTP 프로젝트의 main.js와 worker.js로 작성한다. CSP와 iframe 격리를 유지한다. SharedArrayBuffer는 자신이 통제하는 외부 서버의 COOP·COEP 조건을 확인하며 미충족 시 transfer 경로를 사용한다. 성능 수치는 직접 측정한다.
 
-이 단위에는 내장 실행 예제가 없습니다. 아래 절차에 따라 별도 실습 파일을 만들고 실행 결과를 필기에 남기세요. 코드 파일은 작업 폴더에서 따로 보관하고 Frontory 필기는 JSON 또는 Markdown으로 백업하세요.
+연결된 예제는 출발점입니다. 아래 과제 전체가 완성된 코드는 아니며, 예제의 지원 범위를 넘는 작업은 별도 프로젝트에서 수행하세요.
 
 ## 실습 과제
 
@@ -60,7 +60,10 @@ available·inFlight 상태를 구분하면 중복 사용을 막는다. 반환 �
 
 ## 연결된 예제와 실행 범위
 
-문서와 필기를 제공합니다. 내장 실행 예제는 아직 제공하지 않습니다.
+[예제 원본](../../../../../../src/labs/web-workers-step-10/example.js) · [실행 환경과 제한](../../../../../examples.md)
+
+Interactive 버퍼 반환 experiment with resource cleanup.
+
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 

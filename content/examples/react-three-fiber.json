@@ -1,0 +1,105 @@
+{
+  "react-three-fiber-step-02": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-03": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-04": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-05": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-06": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-07": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-08": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-09": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-10": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-11": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-12": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-13": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-15": {
+    "mode": "external",
+    "note": "미리보기는 Three ObjectLoader의 실제 JSON 모델 로딩입니다. GLB·Suspense·오류 경계 실험은 외부 App.jsx와 유효한 /model.glb가 필요합니다.",
+    "files": [
+      "src/labs/react-three-fiber-step-15/App.jsx"
+    ]
+  },
+  "react-three-fiber-step-16": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-17": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-18": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-19": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-20": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-21": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-22": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-23": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-24": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-25": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-26": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  },
+  "react-three-fiber-step-27": {
+    "mode": "browser",
+    "note": "실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다."
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "svelte-step-02": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-02/App.svelte"
+    ]
+  },
+  "svelte-step-03": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-03/App.svelte"
+    ]
+  },
+  "svelte-step-04": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-04/App.svelte"
+    ]
+  },
+  "svelte-step-05": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-05/App.svelte"
+    ]
+  },
+  "svelte-step-06": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-06/App.svelte"
+    ]
+  },
+  "svelte-step-07": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-07/App.svelte"
+    ]
+  },
+  "svelte-step-08": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-08/App.svelte"
+    ]
+  },
+  "svelte-step-09": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-09/App.svelte"
+    ]
+  },
+  "svelte-step-10": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-10/App.svelte"
+    ]
+  },
+  "svelte-step-11": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-11/App.svelte"
+    ]
+  },
+  "svelte-step-12": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-12/App.svelte"
+    ]
+  },
+  "svelte-step-13": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-13/App.svelte"
+    ]
+  },
+  "svelte-step-15": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-15/App.svelte"
+    ]
+  },
+  "svelte-step-16": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-16/App.svelte",
+      "src/labs/svelte-step-16/workspace.svelte.js"
+    ]
+  },
+  "svelte-step-17": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-17/App.svelte",
+      "src/labs/svelte-step-17/Consumer.svelte"
+    ]
+  },
+  "svelte-step-18": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-18/App.svelte"
+    ]
+  },
+  "svelte-step-19": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-19/App.svelte"
+    ]
+  },
+  "svelte-step-20": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-20/App.svelte"
+    ]
+  },
+  "svelte-step-21": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-21/App.svelte",
+      "src/labs/svelte-step-21/Editor.svelte"
+    ]
+  },
+  "svelte-step-22": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-22/App.svelte"
+    ]
+  },
+  "svelte-step-23": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-23/App.svelte"
+    ]
+  },
+  "svelte-step-24": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-24/App.svelte"
+    ]
+  },
+  "svelte-step-25": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-25/App.svelte"
+    ]
+  },
+  "svelte-step-26": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-26/App.svelte"
+    ]
+  },
+  "svelte-step-27": {
+    "mode": "external",
+    "note": "미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.",
+    "files": [
+      "src/labs/svelte-step-27/App.svelte"
+    ]
+  }
+}

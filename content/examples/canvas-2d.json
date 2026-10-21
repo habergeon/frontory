@@ -1,0 +1,177 @@
+{
+  "canvas-2d-step-02": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-02/example.js"
+    ]
+  },
+  "canvas-2d-step-03": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-03/example.js"
+    ]
+  },
+  "canvas-2d-step-04": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-04/example.js"
+    ]
+  },
+  "canvas-2d-step-05": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-05/example.js"
+    ]
+  },
+  "canvas-2d-step-06": {
+    "mode": "browser",
+    "note": "브라우저 예제는 자체 생성 PNG를 decode한 뒤 자릅니다. 외부 이미지 URL과 CORS 실패는 별도 HTTP 환경에서 확인하세요.",
+    "files": [
+      "src/labs/canvas-2d-step-06/example.js"
+    ]
+  },
+  "canvas-2d-step-07": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-07/example.js"
+    ]
+  },
+  "canvas-2d-step-08": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-08/example.js"
+    ]
+  },
+  "canvas-2d-step-09": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-09/example.js"
+    ]
+  },
+  "canvas-2d-step-10": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-10/example.js"
+    ]
+  },
+  "canvas-2d-step-11": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-11/example.js"
+    ]
+  },
+  "canvas-2d-step-12": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-12/example.js"
+    ]
+  },
+  "canvas-2d-step-13": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-13/example.js"
+    ]
+  },
+  "canvas-2d-step-15": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-15/example.js"
+    ]
+  },
+  "canvas-2d-step-16": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-16/example.js"
+    ]
+  },
+  "canvas-2d-step-17": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-17/example.js"
+    ]
+  },
+  "canvas-2d-step-18": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-18/example.js"
+    ]
+  },
+  "canvas-2d-step-19": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-19/example.js"
+    ]
+  },
+  "canvas-2d-step-20": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-20/example.js"
+    ]
+  },
+  "canvas-2d-step-21": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-21/example.js"
+    ]
+  },
+  "canvas-2d-step-22": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-22/example.js"
+    ]
+  },
+  "canvas-2d-step-23": {
+    "mode": "browser",
+    "note": "PNG는 미리보기로 생성하고 JSON은 입력란으로 가져옵니다. 파일 다운로드는 iframe 정책에 따라 외부 환경이 필요할 수 있습니다.",
+    "files": [
+      "src/labs/canvas-2d-step-23/example.js"
+    ]
+  },
+  "canvas-2d-step-24": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-24/example.js"
+    ]
+  },
+  "canvas-2d-step-25": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-25/example.js"
+    ]
+  },
+  "canvas-2d-step-26": {
+    "mode": "browser",
+    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
+    "files": [
+      "src/labs/canvas-2d-step-26/example.js"
+    ]
+  },
+  "canvas-2d-step-27": {
+    "mode": "browser",
+    "note": "명령 재생·취소·JSON 상태를 검증하는 축소 편집기입니다. 전체 캡스톤의 모든 도구를 대체하지 않습니다.",
+    "files": [
+      "src/labs/canvas-2d-step-27/example.js"
+    ]
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "motion-step-02": {
+    "mode": "browser",
+    "note": "Interactive Initial과 Animate experiment with resource cleanup."
+  },
+  "motion-step-03": {
+    "mode": "browser",
+    "note": "Interactive Transition 구성 experiment with resource cleanup."
+  },
+  "motion-step-04": {
+    "mode": "browser",
+    "note": "Interactive Spring의 물리 변수 experiment with resource cleanup."
+  },
+  "motion-step-05": {
+    "mode": "browser",
+    "note": "Interactive Keyframes experiment with resource cleanup."
+  },
+  "motion-step-06": {
+    "mode": "browser",
+    "note": "Interactive Variants experiment with resource cleanup."
+  },
+  "motion-step-07": {
+    "mode": "browser",
+    "note": "Interactive 자식 등장 순서 experiment with resource cleanup."
+  },
+  "motion-step-08": {
+    "mode": "browser",
+    "note": "Interactive Layout 측정 experiment with resource cleanup."
+  },
+  "motion-step-09": {
+    "mode": "browser",
+    "note": "Interactive 안정적인 Key experiment with resource cleanup."
+  },
+  "motion-step-10": {
+    "mode": "browser",
+    "note": "Interactive AnimatePresence 기초 experiment with resource cleanup."
+  },
+  "motion-step-11": {
+    "mode": "browser",
+    "note": "Interactive Presence 모드 experiment with resource cleanup."
+  },
+  "motion-step-12": {
+    "mode": "browser",
+    "note": "Interactive LayoutId 공유 experiment with resource cleanup."
+  },
+  "motion-step-13": {
+    "mode": "browser",
+    "note": "Interactive 삭제 중 포커스 experiment with resource cleanup."
+  },
+  "motion-step-15": {
+    "mode": "browser",
+    "note": "Interactive Hover와 Focus experiment with resource cleanup."
+  },
+  "motion-step-16": {
+    "mode": "browser",
+    "note": "Interactive Tap 피드백 experiment with resource cleanup."
+  },
+  "motion-step-17": {
+    "mode": "browser",
+    "note": "Interactive Drag 좌표와 경계 experiment with resource cleanup."
+  },
+  "motion-step-18": {
+    "mode": "browser",
+    "note": "Interactive 관성과 탄성 experiment with resource cleanup."
+  },
+  "motion-step-19": {
+    "mode": "browser",
+    "note": "Interactive 버튼으로 재배치 experiment with resource cleanup."
+  },
+  "motion-step-20": {
+    "mode": "browser",
+    "note": "Interactive MotionValue experiment with resource cleanup."
+  },
+  "motion-step-21": {
+    "mode": "browser",
+    "note": "Interactive Transform과 Spring 연결 experiment with resource cleanup."
+  },
+  "motion-step-22": {
+    "mode": "browser",
+    "note": "Interactive 스크롤 연동 experiment with resource cleanup."
+  },
+  "motion-step-23": {
+    "mode": "browser",
+    "note": "Interactive 화면 진입 애니메이션 experiment with resource cleanup."
+  },
+  "motion-step-24": {
+    "mode": "browser",
+    "note": "Interactive UseAnimate 정리 experiment with resource cleanup."
+  },
+  "motion-step-25": {
+    "mode": "browser",
+    "note": "Interactive 모션 감소 정책 experiment with resource cleanup."
+  },
+  "motion-step-26": {
+    "mode": "browser",
+    "note": "Interactive 렌더와 성능 관찰 experiment with resource cleanup."
+  },
+  "motion-step-27": {
+    "mode": "browser",
+    "note": "Interactive 재마운트와 상태 복구 experiment with resource cleanup."
+  }
+}

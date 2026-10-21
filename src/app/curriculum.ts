@@ -11,14 +11,21 @@ export interface Unit {
   seriesId: string
   source?: string
   exampleNote?: string
+  exampleMode?: 'browser' | 'external'
+  exampleFiles?: string[]
 }
+type ExampleDetails = { mode: 'browser' | 'external'; note: string; files?: string[] }
+const detailModules = import.meta.glob<Record<string, ExampleDetails>>('../../content/examples/*.json', { eager: true, import: 'default' })
+const exampleDetails: Record<string, ExampleDetails> = Object.assign({}, ...Object.values(detailModules))
 export const series = catalog.series
 const examples = import.meta.glob<string>('../labs/*/example.js', {
   query: '?raw', import: 'default', eager: true,
 })
 export const units: Unit[] = catalog.units.map(unit => ({
   ...unit, source: examples['../labs/' + unit.id + '/example.js'],
-  exampleNote: ({
+  exampleMode: exampleDetails[unit.id]?.mode,
+  exampleFiles: exampleDetails[unit.id]?.files,
+  exampleNote: exampleDetails[unit.id]?.note ?? ({
   "15-nerf-gs": "해석적 밀도장의 ray 적분과 splat 합성 비교입니다. NeRF 학습이나 추론 모델을 실행하지 않습니다.",
   "16-gaussian": "CPU 기반 Gaussian 투영·합성 원리 시각화입니다. SH는 합성한 1차 계수를 사용하며 학습된 GS 모델의 품질 측정이 아닙니다.",
   "17-sh": "CPU 기반 Gaussian 투영·합성 원리 시각화입니다. SH는 합성한 1차 계수를 사용하며 학습된 GS 모델의 품질 측정이 아닙니다.",

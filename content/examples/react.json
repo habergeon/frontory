@@ -1,0 +1,102 @@
+{
+  "react-step-02": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-03": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-04": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-05": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-06": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-07": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-08": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-09": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-10": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-11": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-12": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-13": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-15": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-16": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-17": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-18": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-19": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-20": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-21": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. Profiler callback은 profiling 지원 빌드에서 측정하세요. 배포 React 빌드에서는 callback이 비활성일 수 있습니다."
+  },
+  "react-step-22": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-23": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-24": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-25": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-26": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  },
+  "react-step-27": {
+    "mode": "browser",
+    "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
+  }
+}

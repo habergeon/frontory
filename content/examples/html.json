@@ -1,0 +1,120 @@
+{
+  "html-step-02": {
+    "mode": "browser",
+    "note": "lang을 en으로 바꾸고 접근성 언어를 확인하세요. srcdoc 문자열은 이미 유니코드이므로 실제 HTTP charset 오인코딩은 별도 파일로 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-03": {
+    "mode": "browser",
+    "note": "문서 title과 meta를 검사합니다. 모바일 viewport 효과는 독립 페이지와 실제 모바일 장치에서 확인하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-04": {
+    "mode": "browser",
+    "note": "편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-05": {
+    "mode": "browser",
+    "note": "편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-06": {
+    "mode": "browser",
+    "note": "example.test 링크는 경로 해석용이며 실제 문서는 제공하지 않습니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-07": {
+    "mode": "browser",
+    "note": "편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-08": {
+    "mode": "browser",
+    "note": "편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-09": {
+    "mode": "browser",
+    "note": "편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-10": {
+    "mode": "browser",
+    "note": "datetime을 자연어로 바꾼 뒤 검사 결과와 HTML validator를 비교하세요. 인용은 예시 문장입니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-11": {
+    "mode": "browser",
+    "note": "제출 시 iframe 내부가 이동합니다. 검사 버튼은 현재 소스의 FormData를 제출 전에 표시합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-12": {
+    "mode": "browser",
+    "note": "편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-13": {
+    "mode": "browser",
+    "note": "편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-15": {
+    "mode": "browser",
+    "note": "편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-16": {
+    "mode": "browser",
+    "note": "편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-17": {
+    "mode": "browser",
+    "note": "전용 보조 코드가 열기 버튼을 showModal에 연결합니다. dialog의 open 속성과 모달 초점 동작을 비교하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-18": {
+    "mode": "external",
+    "note": "외부 HTTP 실행 예제: 6초 합성 MP4, 한국어 VTT, 대본과 정상/실패 전환을 제공합니다. 무음 합성 fixture이며 실제 발화 접근성 평가는 별도 영상으로 수행합니다.",
+    "files": [
+      "src/labs/html-step-18/index.html",
+      "src/labs/html-step-18/captions.vtt",
+      "src/labs/html-step-18/transcript.html",
+      "src/labs/html-step-18/README.md",
+      "src/labs/html-step-18/sample.mp4"
+    ]
+  },
+  "html-step-19": {
+    "mode": "browser",
+    "note": "300/600/1200w SVG 후보가 실제 srcset으로 선택됩니다. sizes와 DPR 및 미리보기 viewport가 선택에 영향을 줍니다. data URL은 네트워크 전송량 비교용이 아닙니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-20": {
+    "mode": "browser",
+    "note": "편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-21": {
+    "mode": "external",
+    "note": "외부 HTTP 실행 예제: 동일 guide.html에서 sandbox=\"\"와 allow-scripts를 전환하고 버튼·postMessage 동작을 관찰합니다.",
+    "files": [
+      "src/labs/html-step-21/index.html",
+      "src/labs/html-step-21/guide.html",
+      "src/labs/html-step-21/README.md"
+    ]
+  },
+  "html-step-22": {
+    "mode": "browser",
+    "note": "보조 코드가 template을 3회 복제하고 for/id를 고유 접미사로 연결합니다. 소스의 template 내용을 바꿔보세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-23": {
+    "mode": "external",
+    "note": "외부 HTTP 실행 예제: first.js/second.js를 실제 로드하고 일반/defer/async의 파싱·실행 순서를 기록합니다.",
+    "files": [
+      "src/labs/html-step-23/index.html",
+      "src/labs/html-step-23/first.js",
+      "src/labs/html-step-23/second.js",
+      "src/labs/html-step-23/README.md"
+    ]
+  },
+  "html-step-24": {
+    "mode": "browser",
+    "note": "aria-label을 보이는 텍스트와 다르게 바꾸고 브라우저 접근성 패널에서 실제 계산된 이름을 검사하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-25": {
+    "mode": "browser",
+    "note": "편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-26": {
+    "mode": "browser",
+    "note": "검사 결과에 브라우저가 복구한 body 트리를 표시합니다. p/div를 형제로 수정하고 HTML validator의 진단과 비교하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  },
+  "html-step-27": {
+    "mode": "browser",
+    "note": "미리보기 폭을 줄여 reflow를 확인하고 실제 브라우저 200%·400% 확대도 별도로 검사하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
+  }
+}

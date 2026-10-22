@@ -77,7 +77,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Network Route](../17/README.md)
+[Previous: Network Route](../17/README.md) · [Next: Clock and Scheduled Saving](../19/README.md)
 
 ## Experiment notes — write your own
 

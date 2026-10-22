@@ -6304,6 +6304,36 @@
       "docPath": "/docs/en/labs/testing/playwright/units/18/README.md",
       "seriesId": "playwright",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Clock and Scheduled Saving",
+      "goal": "Create an independent fixture page with 500ms debounce saving and a save-count display. At input intervals of 600ms and 100ms, verify save counts of 3 and 1 and the same final saved value.",
+      "docPath": "/docs/en/labs/testing/playwright/units/19/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Console and PageError",
+      "goal": "Learning outcome: explain the role of Signal collection. Input cases: normal navigation and an intentional exception. Deliverable: error type, message, and stage of occurrence. Explain the rationale for handling Filter rationale, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/20/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Reading Traces",
+      "goal": "Learning outcome: explain the role of Execution evidence. Input cases: an intentionally incorrect document expectation. Deliverable: diagnostic notes linking actions, DOM, and requests. Explain the rationale for handling Diagnosis, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/21/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     }
   ]
 }

@@ -91,6 +91,87 @@
         "references.0.title": "WebGPU API and Error Handling",
         "references.1.title": "WGSL Specification"
       }
+    },
+    "webgpu-step-04": {
+      "sourceHash": "ec57cbf12e06940463b85e568aedd6cbd17c7a192b0ecb3c864eb9c88641b144",
+      "values": {
+        "title": "Recording and Submitting Commands",
+        "concepts.0.title": "Recording Stage",
+        "concepts.0.explanation": "A command encoder does not complete work immediately. End the pass, create a command buffer, and submit it to the queue.",
+        "concepts.1.title": "Completion",
+        "concepts.1.explanation": "Returning from submit does not mean GPU work has finished. Wait for completion only at observation points that require it.",
+        "outcomes.0": "Build the command lifecycle.",
+        "outcomes.1": "Distinguish submission from completion.",
+        "steps.0": "In commands.js, write the createCommandEncoder·beginRenderPass·end·finish·submit sequence.",
+        "steps.1": "Record two clear colors in separate submissions and check the last color on screen.",
+        "steps.2": "Log the times before and after submit and when onSubmittedWorkDone completes.",
+        "variables.0.name": "Submission count",
+        "variables.0.baseline": "Once",
+        "variables.0.change": "Twice",
+        "variables.0.expected": "The last clear result is expected to be visible, with separate submission and completion logs.",
+        "criteria.0": "Every pass reaches finish after end.",
+        "criteria.1": "Record submission and completion as separate items.",
+        "questions.0": "Is command-recording time GPU execution time?",
+        "questions.1": "What parallelism is reduced by waiting for completion every frame?",
+        "prerequisites": "Continue using the output and notes from unit 3. Preserve the previous inputs and reference outputs before the Recording and Submitting Commands experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-05": {
+      "sourceHash": "89d1fee24138b1a097fc4e5567a7e5de670a6ad705baaa299ab6964dddd170d0",
+      "values": {
+        "title": "Shader Modules and Diagnostics",
+        "concepts.0.title": "Module Diagnostics",
+        "concepts.0.explanation": "WGSL syntax and type errors can be checked through the shader module's compilation info. Connect error line positions to the source.",
+        "concepts.1.title": "Pipeline Validation",
+        "concepts.1.explanation": "Even a valid module can fail pipeline creation when its entry point or target contract does not match. Record compilation and pipeline validation separately.",
+        "outcomes.0": "Display shader diagnostics.",
+        "outcomes.1": "Distinguish module errors from pipeline errors.",
+        "steps.0": "Write minimal vertex and fragment functions in shader.wgsl.",
+        "steps.1": "Use getCompilationInfo to display messages and lineNum in the UI.",
+        "steps.2": "Introduce a typo and an incorrect entryPoint separately, then restore the code and display a triangle.",
+        "variables.0.name": "Entry point",
+        "variables.0.baseline": "Existing function name",
+        "variables.0.change": "Nonexistent function name",
+        "variables.0.expected": "The pipeline stage is expected to fail even if the module passes syntax checks.",
+        "criteria.0": "Record syntax errors and entry point errors separately.",
+        "criteria.1": "The triangle reappears after restoring the original source.",
+        "questions.0": "Why can a pipeline fail when the module has no errors?",
+        "questions.1": "How can asynchronous diagnostics be prevented from overwriting new-code messages with old ones?",
+        "prerequisites": "Continue using the output and notes from unit 4. Preserve the previous inputs and reference outputs before the Shader Modules and Diagnostics experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-06": {
+      "sourceHash": "fd6f09104c94a426f4628fd55dd33401e4cfc0f05da0f0ed03719fbc50e87ef6",
+      "values": {
+        "title": "Vertex Buffers and Attributes",
+        "concepts.0.title": "Byte Contract",
+        "concepts.0.explanation": "A vertex buffer layout declares the stride and each attribute's offset and format. Confusing TypedArray element indices with byte offsets reads incorrect values.",
+        "concepts.1.title": "Upload",
+        "concepts.1.explanation": "GPUBufferUsage specifies which commands may use a buffer. A queue.writeBuffer destination must include COPY_DST usage.",
+        "outcomes.0": "Design a vertex-data layout.",
+        "outcomes.1": "Connect a CPU array to GPU vertex input.",
+        "steps.0": "In vertices.js, create three vertices with two position components and three color components.",
+        "steps.1": "Declare a 20-byte stride and offsets of 0·8 bytes in the pipeline.",
+        "steps.2": "Upload to a VERTEX|COPY_DST buffer and inspect each vertex color on screen.",
+        "variables.0.name": "arrayStride",
+        "variables.0.baseline": "20 bytes",
+        "variables.0.change": "24 bytes with matching padded data",
+        "variables.0.expected": "The same triangle is expected when the data and layout are changed together.",
+        "criteria.0": "Write a byte-offset table for the three vertices.",
+        "criteria.1": "Vertex positions and colors match across both layouts.",
+        "questions.0": "How are format and the TypedArray type related?",
+        "questions.1": "What happens if only the stride changes while the data stays unchanged?",
+        "prerequisites": "Continue using the output and notes from unit 5. Preserve the previous inputs and reference outputs before the Vertex Buffers and Attributes experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
     }
   }
 }

@@ -2998,6 +2998,36 @@
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
+      "id": "webgpu-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Recording and Submitting Commands",
+      "goal": "Build the command lifecycle. Distinguish submission from completion.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/04/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Shader Modules and Diagnostics",
+      "goal": "Display shader diagnostics. Distinguish module errors from pipeline errors.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/05/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Vertex Buffers and Attributes",
+      "goal": "Design a vertex-data layout. Connect a CPU array to GPU vertex input.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/06/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
       "id": "react-three-fiber-01",
       "day": 1,
       "week": 1,

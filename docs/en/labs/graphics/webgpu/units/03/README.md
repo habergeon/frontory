@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Negotiating Features and limits](../02/README.md)
+[Previous: Negotiating Features and limits](../02/README.md) · [Next: Recording and Submitting Commands](../04/README.md)
 
 ## Experiment notes — write your own
 

@@ -310,6 +310,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | --- | --- | --- |
 | [2. Negotiating Features and limits](labs/graphics/webgpu/units/02/README.md) | Editable example | [Source code](../../src/labs/webgpu-step-02/example.js) — Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. |
 | [3. Canvas Configuration and the Current Texture](labs/graphics/webgpu/units/03/README.md) | Editable example | [Source code](../../src/labs/webgpu-step-03/example.js) — Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. |
+| [4. Recording and Submitting Commands](labs/graphics/webgpu/units/04/README.md) | Editable example | [Source code](../../src/labs/webgpu-step-04/example.js) — Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. |
+| [5. Shader Modules and Diagnostics](labs/graphics/webgpu/units/05/README.md) | Editable example | [Source code](../../src/labs/webgpu-step-05/example.js) — Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. |
+| [6. Vertex Buffers and Attributes](labs/graphics/webgpu/units/06/README.md) | Editable example | [Source code](../../src/labs/webgpu-step-06/example.js) — Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. |
 
 ## React Three Fiber
 

@@ -1806,6 +1806,36 @@
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
+      "id": "svelte-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Calculating Filters with $derived",
+      "goal": "The filter result count equals the number of matching titles. The original id order stays unchanged after sorting.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/04/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
+      "id": "svelte-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Conditional Blocks and Empty States",
+      "goal": "When there are 0 results, there is 1 empty-state message. Resetting restores 3 cards.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/05/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
+      "id": "svelte-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Keyed Each and Card Identity",
+      "goal": "After reversing the order, A remains with its original card id. Local input from a deleted card does not move to another card.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/06/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

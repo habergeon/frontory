@@ -93,6 +93,88 @@
         "references.1.title": "Svelte $effect and Cleanup",
         "references.2.title": "Svelte state rune"
       }
+    },
+    "svelte-step-04": {
+      "sourceHash": "b7e35b4da2063f69621135cffe943d1cc00fe672bd725ab921b06addce3fbbeb",
+      "values": {
+        "title": "Calculating Filters with $derived",
+        "prerequisites": "Unit 4 continues with the work and experiment records from Unit 3.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Dependency Tracking",
+        "concepts.0.explanation": "$derived depends on the reactive values read during its calculation. Keep side effects such as saving or requests out of the expression.",
+        "outcomes.0": "The filter result count equals the number of matching titles.",
+        "criteria.0": "The filter result count equals the number of matching titles.",
+        "questions.0": "What changes if you do not copy before sort?",
+        "concepts.1.title": "Multistep Calculations",
+        "concepts.1.explanation": "$derived.by expresses calculations that need multiple statements. Return a result without changing the original array.",
+        "outcomes.1": "The original id order stays unchanged after sorting.",
+        "criteria.1": "The original id order stays unchanged after sorting.",
+        "questions.1": "Why is copying a derived value with $effect unnecessary?",
+        "steps.0": "Add query and onlyOpen to src/App.svelte.",
+        "steps.1": "In $derived.by, filter and then sort a copied array.",
+        "steps.2": "Combine search and completion toggles, and compare the original order with the result order.",
+        "variables.0.name": "Search Query",
+        "variables.0.baseline": "Empty string",
+        "variables.0.change": "Part of a card title",
+        "variables.0.expected": "Only matching cards appear, and the original array order is preserved.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup",
+        "references.2.title": "Svelte state rune"
+      }
+    },
+    "svelte-step-05": {
+      "sourceHash": "f3a044826a9a7f295187d5e48eb4293b6e9150fe89c489e998d37bd11ab4d813",
+      "values": {
+        "title": "Conditional Blocks and Empty States",
+        "prerequisites": "Unit 5 continues with the work and experiment records from Unit 4.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Conditional Creation",
+        "concepts.0.explanation": "{#if} creates or removes child components according to a condition. Unlike hiding with CSS, it affects local state and resource lifetimes.",
+        "outcomes.0": "When there are 0 results, there is 1 empty-state message.",
+        "criteria.0": "When there are 0 results, there is 1 empty-state message.",
+        "questions.0": "Are empty results and a failed data request the same state?",
+        "concepts.1.title": "Empty State",
+        "concepts.1.explanation": "Having no results is a separate screen state. Explain the cause and provide an action to reset filters so users can recover.",
+        "outcomes.1": "Resetting restores 3 cards.",
+        "criteria.1": "Resetting restores 3 cards.",
+        "questions.1": "Does the local state of a child hidden with {#if} remain?",
+        "steps.0": "In src/CardList.svelte, write {#if items.length} and an empty-state message.",
+        "steps.1": "Show a reset button when the search has no results.",
+        "steps.2": "Clear the filter and check that the original cards reappear.",
+        "variables.0.name": "Search Results",
+        "variables.0.baseline": "3 results",
+        "variables.0.change": "0 results",
+        "variables.0.expected": "The empty-state message and reset button appear.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup"
+      }
+    },
+    "svelte-step-06": {
+      "sourceHash": "6bab4dba05df36b1d3d6d3140203d204271f7201aae32b6f3778ee9b5925e042",
+      "values": {
+        "title": "Keyed Each and Card Identity",
+        "prerequisites": "Unit 6 continues with the work and experiment records from Unit 5.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Keyed Iteration",
+        "concepts.0.explanation": "{#each items as item (item.id)} connects data ids to components. It can track the same item even when the order changes.",
+        "outcomes.0": "After reversing the order, A remains with its original card id.",
+        "criteria.0": "After reversing the order, A remains with its original card id.",
+        "questions.0": "What contract breaks if you provide duplicate ids?",
+        "concepts.1.title": "Local Input",
+        "concepts.1.explanation": "Input state inside a row must stay connected to its data. An unstable key can attach input to another card after sorting.",
+        "outcomes.1": "Local input from a deleted card does not move to another card.",
+        "criteria.1": "Local input from a deleted card does not move to another card.",
+        "questions.1": "What happens during editing if you use the title as the key?",
+        "steps.0": "Add a local note input to src/CardRow.svelte.",
+        "steps.1": "In CardList.svelte, write an each block that uses id as its key.",
+        "steps.2": "Enter A in the first card, reverse the order, and record the id that retains A.",
+        "variables.0.name": "key",
+        "variables.0.baseline": "Array index",
+        "variables.0.change": "item.id",
+        "variables.0.expected": "The note stays with the same card after sorting.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup"
+      }
     }
   }
 }

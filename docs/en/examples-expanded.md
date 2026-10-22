@@ -190,6 +190,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | --- | --- | --- |
 | [2. Markup and Event Attributes](labs/frameworks/svelte/units/02/README.md) | External example · preview instructions | [Source code](../../src/labs/svelte-step-02/example.js) — The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project. |
 | [3. Update Paths in $state Objects](labs/frameworks/svelte/units/03/README.md) | External example · preview instructions | [Source code](../../src/labs/svelte-step-03/example.js) — The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project. |
+| [4. Calculating Filters with $derived](labs/frameworks/svelte/units/04/README.md) | External example · preview instructions | [Source code](../../src/labs/svelte-step-04/example.js) — The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project. |
+| [5. Conditional Blocks and Empty States](labs/frameworks/svelte/units/05/README.md) | External example · preview instructions | [Source code](../../src/labs/svelte-step-05/example.js) — The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project. |
+| [6. Keyed Each and Card Identity](labs/frameworks/svelte/units/06/README.md) | External example · preview instructions | [Source code](../../src/labs/svelte-step-06/example.js) — The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project. |
 
 ## GSAP
 

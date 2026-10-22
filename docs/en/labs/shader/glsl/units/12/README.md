@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Texture Sampling](../11/README.md)
+[Previous: Texture Sampling](../11/README.md) · [Next: Time and Periods](../13/README.md)
 
 ## Experiment notes — write your own
 

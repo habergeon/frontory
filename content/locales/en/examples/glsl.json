@@ -64,5 +64,17 @@
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     }
+  },
+  "glsl-step-13": {
+    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "values": {
+      "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    }
+  },
+  "glsl-step-15": {
+    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "values": {
+      "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    }
   }
 }

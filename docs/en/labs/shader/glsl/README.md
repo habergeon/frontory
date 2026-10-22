@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Shaders · 4 stages · 28 units in the full series · 12 published in English
+Shaders · 4 stages · 28 units in the full series · 15 published in English
 
 ## Series goal
 
@@ -39,9 +39,12 @@ Only published English units are linked below. The full series has 28 units.
 - [10. Tiling and Repeating Coordinates](units/10/README.md) — Editable example
 - [11. Texture Sampling](units/11/README.md) — Editable example
 - [12. Derivatives and Edge Smoothing](units/12/README.md) — Editable example
+- [13. Time and Periods](units/13/README.md) — Editable example
+- [14. UVs, Uniforms, and Waves](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Lighting and Procedural Surfaces
 
+- [15. 2D Distance-Field Shapes](units/15/README.md) — Editable example
 
 ### Stage 4 · Interaction, Postprocessing, and Cost Evaluation
 

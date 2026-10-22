@@ -322,6 +322,84 @@
         "questions.1": "Can derivatives be used in the same way in a vertex shader?",
         "references.0.title": "GLSL ES 3.00 Specification"
       }
+    },
+    "glsl-step-13": {
+      "sourceHash": "3cfa236659904c71cb29d3edcd129bdb49e06df7e1b4f6d72caf1ab3aa30670c",
+      "values": {
+        "title": "Time and Periods",
+        "prerequisites": "Continue using the output and records from Unit 12. Before experimenting with Time and Periods, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Time Units",
+        "concepts.0.explanation": "Converting requestAnimationFrame timestamps to seconds separates the roles of frame count and time. Using accumulated frames as time makes speed depend on refresh rate.",
+        "concepts.1.title": "Frequency",
+        "concepts.1.explanation": "The input phase of sin can combine spatial frequency and time speed. Separate these inputs to control wavelength and movement speed independently.",
+        "outcomes.0": "Pass time consistently.",
+        "outcomes.1": "Separate spatial periods from time speed.",
+        "steps.0": "Pass (timestamp-start)/1000 as uTime in time.js.",
+        "steps.1": "Output sin(uv.x*frequency-time*speed) as color in wave.glsl.",
+        "steps.2": "Add play, pause, and fixed-time inputs, and save results at t=0 and t=1.",
+        "variables.0.name": "Time speed",
+        "variables.0.baseline": "1",
+        "variables.0.change": "2",
+        "variables.0.expected": "Expect the same spatial wavelength with twice the phase shift over the same duration.",
+        "criteria.0": "uTime and the image remain unchanged while paused.",
+        "criteria.1": "Re-entering the same t input produces the same waveform.",
+        "questions.0": "Does doubling frequency also change the interpretation of movement speed?",
+        "questions.1": "How do large time values from long runs affect precision?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-02": {
+      "sourceHash": "76ed8a47d6d5bd85cb836e6ac5348ac9ef7e8af6a1ecf5ca37d3020791ed8eed",
+      "values": {
+        "title": "UVs, Uniforms, and Waves",
+        "prerequisites": "Continue using the output and records from Unit 13. Before experimenting with UVs, Uniforms, and Waves, preserve the previous inputs and reference outputs.",
+        "environment": "The existing glsl-02 preview is a starting point. It does not replace implementation or verification of the full subsequent assignment. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Variable Roles",
+        "concepts.0.explanation": "Amplitude sets displacement size, while frequency sets repetition spacing. Time speed affects the rate of change rather than the static shape.",
+        "concepts.1.title": "Where Deformation Happens",
+        "concepts.1.explanation": "UV distortion in a fragment shader changes surface colors but not the actual silhouette. Vertex deformation changes the silhouette according to vertex count and distribution.",
+        "outcomes.0": "Control wave variables independently.",
+        "outcomes.1": "Distinguish color distortion from geometry deformation.",
+        "steps.0": "First output uv as color, then add uTime and connect a sin waveform.",
+        "steps.1": "Add amplitude*sin(x*frequency-time*speed) to y in vertex.glsl.",
+        "steps.2": "Change amplitude, frequency, and speed one at a time, recording still images and the duration of one period.",
+        "variables.0.name": "Amplitude",
+        "variables.0.baseline": "0.05",
+        "variables.0.change": "0.2",
+        "variables.0.expected": "Expect wavelength and period to stay the same while maximum displacement increases fourfold.",
+        "criteria.0": "Record predictions and actual observations for each of the three variables.",
+        "criteria.1": "Calculate the ratio of maximum y displacement before and after changing amplitude.",
+        "questions.0": "Why does a wave look coarse on a plane with only three vertices?",
+        "questions.1": "In what scenes can you distinguish UV distortion from geometry deformation?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-15": {
+      "sourceHash": "c63a016ff2e5ccda793e87b8cdd87b1ce369193ffd4a280d1a96bdf11b93a913",
+      "values": {
+        "title": "2D Distance-Field Shapes",
+        "prerequisites": "Continue using the output and records from Unit 14. Before experimenting with 2D Distance-Field Shapes, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Signed Distance",
+        "concepts.0.explanation": "An SDF expresses distance to a boundary and the sign for inside or outside. Converting distance values to masks lets you fill and outline the same shape.",
+        "concepts.1.title": "Composition",
+        "concepts.1.explanation": "min and max can form unions and intersections. Separately examine whether the combined result is an exact distance everywhere.",
+        "outcomes.0": "Write basic distance functions.",
+        "outcomes.1": "Combine distance-based shapes.",
+        "steps.0": "Write distance functions for a circle and an axis-aligned box in sdf.glsl.",
+        "steps.1": "Output union, intersection, and difference with min, max, and max(a,-b).",
+        "steps.2": "Overlay the distance 0 contour and an abs(d)-based outline for inspection.",
+        "variables.0.name": "Box position",
+        "variables.0.baseline": "circle center",
+        "variables.0.change": "move 0.2 along x",
+        "variables.0.expected": "Expect the overlap region and the cut boundary of the difference to move.",
+        "criteria.0": "Show all three combinations using the same two shapes.",
+        "criteria.1": "Check distance signs at three points: the circle center, boundary, and exterior.",
+        "questions.0": "How does combining masks differ from combining distances?",
+        "questions.1": "Are distances still exact after nonuniform scale?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
     }
   }
 }

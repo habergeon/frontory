@@ -409,6 +409,8 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [10. Tiling and Repeating Coordinates](labs/shader/glsl/units/10/README.md) | Editable example | [Source code](../../src/labs/glsl-step-10/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
 | [11. Texture Sampling](labs/shader/glsl/units/11/README.md) | Editable example | [Source code](../../src/labs/glsl-step-11/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
 | [12. Derivatives and Edge Smoothing](labs/shader/glsl/units/12/README.md) | Editable example | [Source code](../../src/labs/glsl-step-12/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
+| [13. Time and Periods](labs/shader/glsl/units/13/README.md) | Editable example | [Source code](../../src/labs/glsl-step-13/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
+| [15. 2D Distance-Field Shapes](labs/shader/glsl/units/15/README.md) | Editable example | [Source code](../../src/labs/glsl-step-15/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
 
 ## WGSL
 

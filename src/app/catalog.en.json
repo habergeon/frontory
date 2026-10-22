@@ -3947,6 +3947,35 @@
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
+      "id": "glsl-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Time and Periods",
+      "goal": "Pass time consistently. Separate spatial periods from time speed.",
+      "docPath": "/docs/en/labs/shader/glsl/units/13/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
+      "id": "glsl-02",
+      "day": 14,
+      "week": 2,
+      "title": "UVs, Uniforms, and Waves",
+      "goal": "Control wave variables independently. Distinguish color distortion from geometry deformation.",
+      "docPath": "/docs/en/labs/shader/glsl/02-experiments/README.md",
+      "seriesId": "glsl"
+    },
+    {
+      "id": "glsl-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "2D Distance-Field Shapes",
+      "goal": "Write basic distance functions. Combine distance-based shapes.",
+      "docPath": "/docs/en/labs/shader/glsl/units/15/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
       "id": "wgsl-01",
       "day": 1,
       "week": 1,

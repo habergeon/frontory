@@ -135,6 +135,84 @@
         "questions.1": "What code is skipped after an early return?",
         "references.0.title": "MDN JavaScript Guide"
       }
+    },
+    "javascript-step-05": {
+      "sourceHash": "a8b712c23d635382c0aa2332bfd75d3e13060118ceccbc9acf99da70dfa2c655",
+      "values": {
+        "title": "Functions and Pure Calculations",
+        "prerequisites": "The work and experiment records from Unit 4, “Branches and Early Returns”",
+        "concepts.0.title": "Pure Calculations",
+        "concepts.0.explanation": "A pure calculation returns the same result for the same input and does not change external state. A separate function can handle DOM display.",
+        "concepts.1.title": "Boundary Values",
+        "concepts.1.explanation": "When the total count is 0, ordinary division cannot determine a ratio. Document the display policy for an empty list in the function contract.",
+        "outcomes.0": "Neither NaN nor Infinity is displayed for the three inputs.",
+        "outcomes.1": "Record 3 calculation results obtained without the DOM.",
+        "steps.0": "In score.js, prepare the cases 0/0, 1/4, and 4/4.",
+        "steps.1": "Separate the completion ratio calculation from renderScore, and use console.assert to test only the calculation.",
+        "steps.2": "Run with 0/0, 1/4, and 4/4. Results to check: Neither NaN nor Infinity is displayed for the three inputs. Record 3 calculation results obtained without the DOM. Record expected and actual results separately.",
+        "variables.0.name": "Total count",
+        "variables.0.baseline": "4",
+        "variables.0.change": "0",
+        "variables.0.expected": "Hypothesis before running: The chosen empty-list policy will prevent NaN from being displayed. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Neither NaN nor Infinity is displayed for the three inputs.",
+        "criteria.1": "Record 3 calculation results obtained without the DOM.",
+        "questions.0": "How should 0 out of 0 be displayed?",
+        "questions.1": "What becomes harder when calculation and display are combined?",
+        "references.0.title": "MDN JavaScript Guide",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels."
+      }
+    },
+    "javascript-step-06": {
+      "sourceHash": "218a726ace440befa3c3fb9ffbba8e0e7ec38ec818e609cc3cbb4dc8bd80dda9",
+      "values": {
+        "title": "Scope and Closures",
+        "prerequisites": "The work and experiment records from Unit 5, “Functions and Pure Calculations”",
+        "concepts.0.title": "Lexical Scope",
+        "concepts.0.explanation": "A function refers to variables in the scope where it was defined. The scope it refers to stays the same even when the call site changes.",
+        "concepts.1.title": "Independent State",
+        "concepts.1.explanation": "Each factory call can create its own local state. Using global state makes different widgets share values.",
+        "outcomes.0": "Verify A=2 and B=1 in the independent implementation.",
+        "outcomes.1": "Compare logs from the shared and independent implementations.",
+        "steps.0": "In counter.js, prepare the case of clicking A twice and B once.",
+        "steps.1": "Return increment and read functions from createCounter and connect them to buttons A and B.",
+        "steps.2": "Run with A clicked twice and B once. Results to check: Verify A=2 and B=1 in the independent implementation. Compare logs from the shared and independent implementations. Record expected and actual results separately.",
+        "variables.0.name": "State location",
+        "variables.0.baseline": "Inside the factory",
+        "variables.0.change": "At the top level of the module",
+        "variables.0.expected": "Hypothesis before running: The two counters will share a value. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Verify A=2 and B=1 in the independent implementation.",
+        "criteria.1": "Compare logs from the shared and independent implementations.",
+        "questions.0": "Which variables does the returned function remember?",
+        "questions.1": "Does calling the factory again also reset existing state?",
+        "references.0.title": "MDN JavaScript Guide",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels."
+      }
+    },
+    "javascript-step-07": {
+      "sourceHash": "945e5fe552ba4a679852aa1fd6d010ee0f28fcc96ab471968f4fe655bbb6781f",
+      "values": {
+        "title": "Array Aggregation and Empty Input",
+        "prerequisites": "The work and experiment records from Unit 6, “Scope and Closures”",
+        "concepts.0.title": "Transformation Order",
+        "concepts.0.explanation": "The order of filter and map changes the shape of intermediate data. Compare the final results as well as the amount of computation.",
+        "concepts.1.title": "Initial Accumulator Value",
+        "concepts.1.explanation": "The initial value for reduce determines how it behaves on an empty array. Without an initial value, an empty array causes an exception.",
+        "outcomes.0": "Only the selected topic remains in the results, and the 5 original records are preserved.",
+        "outcomes.1": "The sum for an empty array is 0, and the title list is an empty array.",
+        "steps.0": "In summary.js, prepare 5 records and an empty array.",
+        "steps.1": "Create independent functions for filtering by topic, mapping titles, and summing time, and check that the original data is preserved.",
+        "steps.2": "Run with 5 records and an empty array. Results to check: Only the selected topic remains in the results, and the 5 original records are preserved. The sum for an empty array is 0, and the title list is an empty array. Record expected and actual results separately.",
+        "variables.0.name": "Array length",
+        "variables.0.baseline": "5",
+        "variables.0.change": "0",
+        "variables.0.expected": "Hypothesis before running: A sum with an initial value of 0 will be 0. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Only the selected topic remains in the results, and the 5 original records are preserved.",
+        "criteria.1": "The sum for an empty array is 0, and the title list is an empty array.",
+        "questions.0": "What changes if you modify an object in map?",
+        "questions.1": "Does the initial value for reduce also affect the result type?",
+        "references.0.title": "MDN JavaScript Guide",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels."
+      }
     }
   }
 }

@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Equality Comparisons and Defaults](../03/README.md)
+[Previous: Equality Comparisons and Defaults](../03/README.md) · [Next: Functions and Pure Calculations](../05/README.md)
 
 ## Experiment notes — write your own
 

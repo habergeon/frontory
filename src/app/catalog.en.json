@@ -98,6 +98,36 @@
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
+      "id": "javascript-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Functions and Pure Calculations",
+      "goal": "Neither NaN nor Infinity is displayed for the three inputs. Record 3 calculation results obtained without the DOM.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/05/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
+      "id": "javascript-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Scope and Closures",
+      "goal": "Verify A=2 and B=1 in the independent implementation. Compare logs from the shared and independent implementations.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/06/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
+      "id": "javascript-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Array Aggregation and Empty Input",
+      "goal": "Only the selected topic remains in the results, and the 5 original records are preserved. The sum for an empty array is 0, and the title list is an empty array.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/07/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
       "id": "css-step-04",
       "day": 4,
       "week": 1,

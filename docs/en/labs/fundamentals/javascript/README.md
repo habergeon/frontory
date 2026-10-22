@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 4 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 7 published in English
 
 ## Series goal
 
@@ -28,6 +28,9 @@ Only published English units are linked below. The full series has 28 units.
 - [02. String input and number conversion](units/02/README.md) — Editable example
 - [03. Equality Comparisons and Defaults](units/03/README.md) — Editable example
 - [04. Branches and Early Returns](units/04/README.md) — Editable example
+- [05. Functions and Pure Calculations](units/05/README.md) — Editable example
+- [06. Scope and Closures](units/06/README.md) — Editable example
+- [07. Array Aggregation and Empty Input](units/07/README.md) — Editable example
 
 ### Stage 2 · DOM and asynchronous operations
 

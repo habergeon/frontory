@@ -5,7 +5,7 @@ async page => {
   const results = []
   const consoleMessages = []
   const runtimeErrors = []
-  app.on('console', entry => { if (['error', 'warning'].includes(entry.type())) consoleMessages.push({ type: entry.type(), text: entry.text() }) })
+  app.on('console', entry => { if (['error', 'warning'].includes(entry.type())) consoleMessages.push({ type: entry.type(), text: entry.text(), url: entry.location().url }) })
   app.on('pageerror', entry => runtimeErrors.push(entry.message))
   const check = (name, value) => { results.push({ name, ok: value }); if (!value) throw Error(name) }
   try {
@@ -33,8 +33,12 @@ async page => {
     check('Practice direct refresh preserves edited notes', await app.locator('.notes-editor').inputValue() === 'F17 production entry 한국어 😀')
     await app.locator('a[href="/en/learn/javascript/javascript-step-02/"]').click()
     check('Practice returns to English public document', app.url().endsWith('/en/learn/javascript/javascript-step-02/') && (await app.locator('h1').innerText()).includes('String input'))
-    const missing = await app.goto('http://127.0.0.1:4186/en/learn/vue/')
+    check('No unexpected console warnings or errors before missing route', consoleMessages.length === 0)
+    const missingUrl = 'http://127.0.0.1:4186/en/learn/vue/'
+    const missing = await app.goto(missingUrl)
     check('Unavailable public English URL is real 404', missing.status() === 404 && await app.locator('html').getAttribute('lang') === 'en' && !/[가-힣]/.test(await app.locator('body').innerText()))
+    const expectedMissingRouteErrors = consoleMessages.filter(entry => entry.type === 'error' && entry.url === missingUrl && entry.text === 'Failed to load resource: the server responded with a status of 404 (Not Found)')
+    check('Only intentional missing-route 404 console error is allowed', consoleMessages.length === expectedMissingRouteErrors.length && expectedMissingRouteErrors.length <= 1)
     check('No framework overlay', await app.locator('vite-error-overlay').count() === 0)
     check('No uncaught runtime errors', runtimeErrors.length === 0)
     return { results, consoleMessages, runtimeErrors }

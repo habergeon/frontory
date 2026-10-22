@@ -9,6 +9,8 @@ Check the scope of each example. Browser previews and files run in a separate en
 | Learning unit | Execution mode | Source and supported scope |
 | --- | --- | --- |
 | [2. String input and number conversion](labs/fundamentals/javascript/units/02/README.md) | Editable example | [Source code](../../src/labs/javascript-step-02/example.js) — Compare editable inputs with actual browser execution results. |
+| [3. Equality Comparisons and Defaults](labs/fundamentals/javascript/units/03/README.md) | Editable example | [Source code](../../src/labs/javascript-step-03/example.js) — Compare the editable inputs with actual browser execution results. |
+| [4. Branches and Early Returns](labs/fundamentals/javascript/units/04/README.md) | Editable example | [Source code](../../src/labs/javascript-step-04/example.js) — Compare the editable inputs with actual browser execution results. |
 
 ## CSS
 

@@ -321,15 +321,16 @@ test('complete mode accepts 23 translated series and 644 units only with all req
   }
 })
 
-test('actual English content publishes exactly four representative lessons with complete prose and unchanged fixtures', () => {
-  const ids = ['javascript-step-02', 'css-step-04', 'react-step-03', 'gsap-step-02']
+test('actual English content publishes exactly the approved lessons with complete prose and unchanged fixtures', () => {
+  const { publishedUnitIds: ids } = JSON.parse(fs.readFileSync(new URL('../content/locales/en/manifest.json', import.meta.url)))
   const result = readEnglishContent()
   assert.deepEqual(result.publishedUnitIds, ids)
-  assert.equal(result.catalog.units.length, 4)
-  for (const [index, seriesId] of ['javascript', 'css', 'react', 'gsap'].entries()) {
+  assert.deepEqual(result.catalog.units.map(unit => unit.id).sort(), [...ids].sort())
+  for (const id of ids) {
+    const { seriesId } = result.catalog.units.find(unit => unit.id === id)
     const source = JSON.parse(fs.readFileSync(new URL(`../content/curricula/${seriesId}.json`, import.meta.url)))
-    const original = source.units.find(unit => unit.id === ids[index])
-    const translated = result.curricula[seriesId].units[0]
+    const original = source.units.find(unit => unit.id === id)
+    const translated = result.curricula[seriesId].units.find(unit => unit.id === id)
     assert.equal(translated.id, original.id)
     assert.equal(translated.day, original.day)
     assert.deepEqual(translated.references.map(ref => ref.url), original.references.map(ref => ref.url))
@@ -338,15 +339,27 @@ test('actual English content publishes exactly four representative lessons with 
     assert.deepEqual(codeBlocks(translated), codeBlocks(original))
     const noteSource = JSON.parse(fs.readFileSync(new URL(`../content/examples/${seriesId}.json`, import.meta.url)))[original.id]
     const note = JSON.parse(fs.readFileSync(new URL(`../content/locales/en/examples/${seriesId}.json`, import.meta.url)))[original.id]
-    assert.equal(note.sourceHash, sourceHash(noteSource))
-    assert.deepEqual(Object.keys(note.values), ['note'])
-    assert.ok(note.values.note.trim())
-    assert.doesNotMatch(note.values.note, /[가-힣]/)
+    if (noteSource) {
+      assert.equal(note.sourceHash, sourceHash(noteSource))
+      assert.deepEqual(Object.keys(note.values), ['note'])
+      assert.ok(note.values.note.trim())
+      assert.doesNotMatch(note.values.note, /[가-힣]/)
+    } else {
+      assert.equal(note, undefined)
+      const legacy = JSON.parse(fs.readFileSync(new URL('../content/catalog-v2.json', import.meta.url))).units.find(unit => unit.id === id)
+      assert.ok(legacy, id + ': legacy guidance required')
+      const guide = result.documents.get('/docs/examples.md').text
+      const row = guide.split('\n').find(line => line.includes('/' + id + '/example.js)'))
+      assert.ok(row, id + ': legacy source link')
+      const documentLinks = [...row.matchAll(/\]\(([^)]+)\)/g)].map(match => path.posix.resolve('/docs/en', match[1]))
+      assert.ok(documentLinks.includes(legacy.docPath) || documentLinks.includes('/docs/en/' + legacy.docPath.slice(6)), id + ': legacy lesson link')
+      assert.match(row, / — \S/)
+    }
     const proseWithoutCode = JSON.stringify(translated).replace(/\x60\x60\x60[\s\S]*?\x60\x60\x60/g, '')
     assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
     assert.equal(result.curricula[seriesId].stages.length, source.stages.length)
   }
-  assert.match(result.curricula.javascript.units[0].concepts[1].explanation, /Number\.isFinite\(value\)/)
+  assert.match(result.curricula.javascript.units.find(unit => unit.id === 'javascript-step-02').concepts[1].explanation, /Number\.isFinite\(value\)/)
   assert.match(result.curricula.css.units[0].concepts[0].explanation, /244px/)
   assert.match(result.curricula.css.units[0].concepts[1].explanation, /156px/)
   assert.match(result.curricula.react.units[0].concepts[2].explanation, /setCount\(1\)/)
@@ -514,7 +527,8 @@ test('translation CLI emits review evidence and fails complete with missing IDs'
   const partial = spawnSync(process.execPath, [script], { encoding: 'utf8' })
   assert.equal(partial.status, 0, partial.stderr)
   const report = JSON.parse(partial.stdout)
-  assert.equal(report.publishedUnits, 4)
+  const manifest = JSON.parse(fs.readFileSync(new URL('../content/locales/en/manifest.json', import.meta.url)))
+  assert.equal(report.publishedUnits, manifest.publishedUnitIds.length)
   assert.ok(report.review.some(item => item.kind === 'numbers' && item.source.includes('244')))
   assert.match(report.reviewNotice, /human review/i)
   const complete = spawnSync(process.execPath, [script, '--complete'], { encoding: 'utf8' })

@@ -108,7 +108,8 @@ test('only actual English pages are published with reciprocal locale metadata', 
     ...translated.units.map(unit => `/en/learn/${unit.seriesId}/${unit.id}/`)]
   const englishFiles = [...pages.keys()].filter(file => file.startsWith('en/') && file.endsWith('/index.html'))
   assert.deepEqual(englishFiles.sort(), routes.map(route => route.slice(1) + 'index.html').sort())
-  assert.equal(englishFiles.length, 12)
+  const manifest = JSON.parse(fs.readFileSync('content/locales/en/manifest.json', 'utf8'))
+  assert.equal(englishFiles.length, 4 + translated.series.length + manifest.publishedUnitIds.length)
   for (const route of routes) {
     const html = pages.get(route.slice(1) + 'index.html')
     assert.match(html, /<html lang="en">/)
@@ -132,7 +133,7 @@ test('only actual English pages are published with reciprocal locale metadata', 
     assert.match(html, /href="\/en\/privacy\/"/)
   }
   const sitemap = [...pages.get('sitemap.xml').matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1])
-  assert.equal(sitemap.length, 683)
+  assert.equal(sitemap.length, 671 + routes.length)
   assert.deepEqual(sitemap.filter(url => url.startsWith(origin + '/en/')).sort(), routes.map(route => origin + route).sort())
   const canonicalFiles = [...pages].filter(([file]) => file.endsWith('/index.html'))
   assert.deepEqual(sitemap.toSorted(), [origin + '/', ...canonicalFiles.map(([file]) => origin + '/' + file.slice(0, -'index.html'.length))].sort())
@@ -147,16 +148,35 @@ test('only actual English pages are published with reciprocal locale metadata', 
     assert.equal(schema.inLanguage, locale === 'en' ? 'en-US' : 'ko-KR', file)
     if (locale === 'ko' && !routes.includes('/en' + url.slice(origin.length))) assert.doesNotMatch(html, /hreflang="en"/, file)
   }
-  for (const route of ['/en/learn/vue/', '/en/learn/javascript/javascript-01/']) assert.equal(pages.has(route.slice(1) + 'index.html'), false)
-  assert.doesNotMatch(pages.get('learn/javascript/javascript-01/index.html'), /hreflang="en"/)
+  for (const route of ['/en/learn/missing-series/', '/en/learn/javascript/missing-id/']) assert.equal(pages.has(route.slice(1) + 'index.html'), false)
+  for (const unit of JSON.parse(fs.readFileSync('src/app/catalog.json', 'utf8')).units.filter(unit => !manifest.publishedUnitIds.includes(unit.id))) {
+    assert.equal(pages.has(`en/learn/${unit.seriesId}/${unit.id}/index.html`), false)
+    assert.doesNotMatch(pages.get(`learn/${unit.seriesId}/${unit.id}/index.html`), /hreflang="en"/)
+  }
   for (const unit of translated.units) {
     const html = pages.get(`en/learn/${unit.seriesId}/${unit.id}/index.html`)
     assert.ok(html.includes(unit.title))
     assert.ok(html.includes(`href="/en/#${unit.id}"`))
-    assert.doesNotMatch(html, /Previous lesson|Next lesson|Experiment notes — write your own/)
-    assert.ok(html.includes(`href="/examples-en/${unit.id}/example.js" download`))
-    assert.ok(fs.existsSync(`public/examples-en/${unit.id}/example.js`))
-    assert.match(html, /Download source with English comments · for reading/)
+    assert.doesNotMatch(html, /Experiment notes — write your own/)
+    const siblings = translated.units.filter(candidate => candidate.seriesId === unit.seriesId)
+    for (const [offset, label] of [[-1, 'Previous lesson'], [1, 'Next lesson']]) {
+      const adjacent = siblings.find(candidate => candidate.day === unit.day + offset)
+      assert.equal(html.includes(label), !!adjacent, unit.id + ': ' + label)
+      if (adjacent) assert.ok(html.includes(`href="/en/learn/${unit.seriesId}/${adjacent.id}/"`))
+    }
+    const metadata = JSON.parse(fs.readFileSync(`content/examples/${unit.seriesId}.json`, 'utf8'))[unit.id]
+    if (metadata?.readingSource) {
+      assert.ok(html.includes(`href="${metadata.readingSource}" download`))
+      assert.ok(fs.existsSync('public' + metadata.readingSource))
+      assert.match(html, /Download source with English comments · for reading/)
+    } else {
+      assert.doesNotMatch(html, /Download source with English comments|href="\/examples-en\//)
+      assert.ok(html.includes(`href="/examples/${unit.id}/example.js" download`))
+      assert.ok(fs.existsSync(`src/labs/${unit.id}/example.js`))
+    }
+  }
+  for (const id of ['javascript-step-02', 'css-step-04', 'react-step-03', 'gsap-step-02']) {
+    assert.ok(pages.get(`en/learn/${translated.units.find(unit => unit.id === id).seriesId}/${id}/index.html`).includes(`href="/examples-en/${id}/example.js" download`))
   }
   assert.ok(sitemap.every(url => !url.includes('/examples/') && !url.includes('/examples-en/')))
 })
@@ -180,7 +200,8 @@ test('English document links and home fallback use only published localized rout
   assert.match(fallback, /href="\/en\/about\/"/)
   assert.match(fallback, /href="\/en\/privacy\/"/)
   assert.doesNotMatch(fallback, /href="\/en\/learn\/vue\/"/)
-  assert.match(fallback, /4 English/)
+  const manifest = JSON.parse(fs.readFileSync('content/locales/en/manifest.json', 'utf8'))
+  assert.ok(fallback.includes(`${manifest.publishedUnitIds.length} English`))
 })
 
 test('English worksheets use shared headings and preserve every written field', async () => {
@@ -211,7 +232,8 @@ test('built English app entry shares real Vite assets and localized head, with l
   for (const file of assets(en)) assert.ok(fs.existsSync('dist' + file), file)
   assert.match(en, /<html lang="en">/)
   assert.match(en, /<title>Frontend learning and practice · Frontory<\/title>/)
-  assert.match(en, /name="description" content="4 series and 4 English learning units/)
+  const translated = JSON.parse(fs.readFileSync('src/app/catalog.en.json', 'utf8'))
+  assert.ok(en.includes(`name="description" content="${translated.series.length} series and ${translated.units.length} English learning units`))
   assert.match(en, /rel="canonical" href="https:\/\/frontory.pages.dev\/en\/"/)
   assert.doesNotMatch(en, /rel="canonical" href="https:\/\/frontory.pages.dev\/"/)
   assert.doesNotMatch(en, /adsbygoogle|google-adsense-account|href="\/learn.css"/)

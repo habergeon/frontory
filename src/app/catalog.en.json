@@ -59,6 +59,15 @@
   ],
   "units": [
     {
+      "id": "javascript-01",
+      "day": 1,
+      "week": 1,
+      "title": "Values and State",
+      "goal": "Extract 2 incomplete task titles. Record 2 pairs of reference equality and original value comparisons.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/01-foundations/README.md",
+      "seriesId": "javascript"
+    },
+    {
       "id": "javascript-step-02",
       "day": 2,
       "week": 1,
@@ -67,6 +76,26 @@
       "docPath": "/docs/en/labs/fundamentals/javascript/units/02/README.md",
       "seriesId": "javascript",
       "exampleNote": "Compare editable inputs with actual browser execution results."
+    },
+    {
+      "id": "javascript-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Equality Comparisons and Defaults",
+      "goal": "Record 8 default-value outputs. Explain the comparison results for the same reference and different references.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/03/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
+      "id": "javascript-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Branches and Early Returns",
+      "goal": "Record outputs for 3 normal cases and 2 error cases. Every returned object has an ok field.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/04/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
       "id": "css-step-04",

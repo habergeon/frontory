@@ -57,6 +57,84 @@
         "references.6.title": "MDN HTMLInputElement.value",
         "environment": "The starter example reads a JSON array of strings and displays validation results. Use the Run experiment button to process the input again. The saved list and parseMinutes are a separate assignment: implement them in numbers.js in a local project. Connect it in index.html with script type=\"module\" and open the page through a local HTTP server. Check the original numeric values and console.assert results in the developer tools console."
       }
+    },
+    "javascript-01": {
+      "sourceHash": "a56fcec544153ff4e62fdf167c0c9f039eb4b265fc76e92fa4371d9f17cfc931",
+      "values": {
+        "title": "Values and State",
+        "prerequisites": "HTML elements and events",
+        "environment": "Frontory's existing preview is a limited starter example, not a complete solution to the assignment. Implement additional files and features yourself in a separate local project. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Shared References",
+        "concepts.0.explanation": "Assigning an object copies a value that points to the same object. A shallow copy still shares nested objects.",
+        "concepts.1.title": "Derived Lists",
+        "concepts.1.explanation": "filter and map return new arrays. Modifying an object inside a callback can also change the original.",
+        "outcomes.0": "Extract 2 incomplete task titles.",
+        "outcomes.1": "Record 2 pairs of reference equality and original value comparisons.",
+        "steps.0": "In state.js, prepare an array of nested objects with 1 complete task and 2 incomplete tasks.",
+        "steps.1": "Use filter/map to get the incomplete task titles, and use console.assert to compare direct mutation with replacement by a new object.",
+        "steps.2": "Run with an array of nested objects containing 1 complete task and 2 incomplete tasks. Results to check: Extract 2 incomplete task titles. Record 2 pairs of reference equality and original value comparisons. Record expected and actual results separately.",
+        "variables.0.name": "Copy depth",
+        "variables.0.baseline": "Spread only the array",
+        "variables.0.change": "Spread the nested objects as well",
+        "variables.0.expected": "Hypothesis before running: The original will remain unchanged even when a nested value changes. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Extract 2 incomplete task titles.",
+        "criteria.1": "Record 2 pairs of reference equality and original value comparisons.",
+        "questions.0": "Does a new array also contain new objects?",
+        "questions.1": "What synchronization is needed if you store a derived list separately?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-step-03": {
+      "sourceHash": "7f734135f6a78fec060e21a324034166e5c6838481be357f5bc7b519c4f04f98",
+      "values": {
+        "title": "Equality Comparisons and Defaults",
+        "prerequisites": "The work and experiment records from Unit 2, “String input and number conversion”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Equality Comparisons",
+        "concepts.0.explanation": "=== compares without type coercion. Objects with the same contents are different if their references differ.",
+        "concepts.1.title": "Nullish Defaults",
+        "concepts.1.explanation": "?? applies a default only to null and undefined. Its results differ from logical OR when you want to preserve 0 and an empty string.",
+        "outcomes.0": "Record 8 default-value outputs.",
+        "outcomes.1": "Explain the comparison results for the same reference and different references.",
+        "steps.0": "In defaults.js, prepare 0, an empty string, null, undefined, and 2 objects.",
+        "steps.1": "Apply the default value 10 using logical OR and ??, and also output the === comparison of objects with identical contents.",
+        "steps.2": "Run with 0, an empty string, null, undefined, and 2 objects. Results to check: Record 8 default-value outputs. Explain the comparison results for the same reference and different references. Record expected and actual results separately.",
+        "variables.0.name": "Operator",
+        "variables.0.baseline": "Logical OR",
+        "variables.0.change": "??",
+        "variables.0.expected": "Hypothesis before running: The setting of 0 will be preserved. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record 8 default-value outputs.",
+        "criteria.1": "Explain the comparison results for the same reference and different references.",
+        "questions.0": "What settings can validly be 0?",
+        "questions.1": "Why does checking content equality with === fail?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-step-04": {
+      "sourceHash": "0538f38f9e0eaef950a15080dfa157948e1df2fae8568daaa0b56b2ba21ba128",
+      "values": {
+        "title": "Branches and Early Returns",
+        "prerequisites": "The work and experiment records from Unit 3, “Equality Comparisons and Defaults”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Handling Invalid Input",
+        "concepts.0.explanation": "An early return handles invalid input at the start of a function. It reduces nesting in the normal path while keeping return values in a consistent shape.",
+        "concepts.1.title": "Missing Branches",
+        "concepts.1.explanation": "The default branch of a switch handles unexpected values. Treating an unknown value as a success hides the cause.",
+        "outcomes.0": "Record outputs for 3 normal cases and 2 error cases.",
+        "outcomes.1": "Every returned object has an ok field.",
+        "steps.0": "In status.js, prepare the cases idle, running, done, null, and paused.",
+        "steps.1": "Convert each status into a display message and return ok and message on every path.",
+        "steps.2": "Run with idle, running, done, null, and paused. Results to check: Record outputs for 3 normal cases and 2 error cases. Every returned object has an ok field. Record expected and actual results separately.",
+        "variables.0.name": "Status",
+        "variables.0.baseline": "running",
+        "variables.0.change": "paused",
+        "variables.0.expected": "Hypothesis before running: There will be an explicit error result. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record outputs for 3 normal cases and 2 error cases.",
+        "criteria.1": "Every returned object has an ok field.",
+        "questions.0": "What does returning success from default hide?",
+        "questions.1": "What code is skipped after an early return?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
     }
   }
 }

@@ -1,3 +1,6 @@
+import englishCatalog from '../../src/app/catalog.en.json'
+import koreanCatalog from '../../src/app/catalog.json'
+
 const frame = document.querySelector('#app')
 const results = []
 const wait = async predicate => {
@@ -37,10 +40,13 @@ try {
     check('Home search ' + query, doc().querySelectorAll('.home-series-row').length, count)
     check('Home search result wording ' + query, doc().querySelector('.home-result-count').textContent, count + ' series')
   }
-  check('Home unit singular', doc().querySelector('.home-series-progress').firstChild.textContent, '1 unit')
+  const singleUnitSeries = [...doc().querySelectorAll('.home-series-row')].find(row => row.querySelector('h3').textContent === 'CSS')
+  check('Home unit singular', singleUnitSeries.querySelector('.home-series-progress').firstChild.textContent, '1 unit')
   await click([...doc().querySelectorAll('.home-series-row')].find(row => row.querySelector('h3').textContent === 'JavaScript').querySelector('button'))
   await wait(() => doc().querySelector('.workspace') && doc().querySelector('.monaco-editor') && doc().querySelector('.workspace iframe'))
-  check('English selection uses published stable ID', win().location.hash, '#javascript-step-02')
+  check('English selection uses published stable ID', win().location.hash, '#' + englishCatalog.units.find(unit => unit.seriesId === 'javascript').id)
+  win().location.hash = '#javascript-step-02'
+  await wait(() => doc().querySelector('.current-lesson h3')?.textContent.includes('String input and number conversion'))
   check('English title matches current lesson', doc().title.includes(doc().querySelector('.current-lesson h3').textContent), true)
   check('Editor status translated to English', /checks passed|execution paused/.test(doc().querySelector('.code-check-status').textContent), true)
   const workspace = doc().querySelector('.workspace')
@@ -73,8 +79,13 @@ try {
     check('Navigator search count wording ' + query, dialog.querySelector('.series-tools p').textContent.startsWith(count + ' series ·'), true)
   }
   const snapshot = JSON.parse(win().localStorage.getItem('web-gl-study:all:v1') || '{}')
-  const javascriptDraft = snapshot['javascript-step-02'] ?? JSON.parse(win().localStorage.getItem('web-gl-study:unit:v1:javascript-step-02') || '{}')
-  check('Navigator singular unit', dialog.querySelector('.series-card').textContent.includes('1 unit · ' + (javascriptDraft.progress === 'completed' ? 1 : 0) + ' completed'), true)
+  const javascriptUnits = englishCatalog.units.filter(unit => unit.seriesId === 'javascript')
+  const completed = javascriptUnits.filter(unit => {
+    const draft = snapshot[unit.id] ?? JSON.parse(win().localStorage.getItem('web-gl-study:unit:v1:' + unit.id) || '{}')
+    return draft.progress === 'completed'
+  }).length
+  check('Navigator published unit and completion counts', dialog.querySelector('.series-card').textContent.includes(javascriptUnits.length + ' units · ' + completed + ' completed'), true)
+  check('Navigator singular unit', [...dialog.querySelectorAll('.series-card')].some(card => card.textContent.includes('CSS') && card.textContent.includes('1 unit ·')), true)
   await click(dialog.querySelector('.dialog-header button'))
   await click(doc().querySelector('.current-lesson button'))
   await wait(() => doc().querySelector('.document-dialog article h1'))
@@ -82,16 +93,20 @@ try {
   check('English document has no Korean lesson fallback', /[가-힣]/.test(doc().querySelector('.document-dialog article h1').textContent), false)
   await click(doc().querySelector('.document-dialog .dialog-header button'))
   await click(language())
+  const unpublished = koreanCatalog.units.find(unit => unit.seriesId === 'javascript' && !englishCatalog.units.some(published => published.id === unit.id))
+  const previous = koreanCatalog.units.find(unit => unit.seriesId === unpublished.seriesId && unit.day === unpublished.day - 1)
+  win().location.hash = '#' + previous.id
+  await wait(() => doc().querySelector('.current-lesson h3')?.textContent.includes(previous.title))
   await click(doc().querySelector('.unit-pagination button:last-child'))
-  check('Korean next selects canonical unpublished ID', win().location.hash, '#javascript-step-03')
+  check('Korean next selects canonical unpublished ID', win().location.hash, '#' + unpublished.id)
   await click(language())
-  check('Unpublished ID remains selected in English', win().location.pathname + win().location.hash, '/en/#javascript-step-03')
+  check('Unpublished ID remains selected in English', win().location.pathname + win().location.hash, '/en/#' + unpublished.id)
   check('English unavailable message', doc().body.textContent.includes('This lesson is not available in English yet.'), true)
   check('No Korean navigator fallback', doc().querySelector('.current-lesson'), null)
   const source = [...doc().querySelectorAll('a')].find(link => link.textContent === 'Read the Korean lesson')
-  check('Explicit Korean source URL', source.getAttribute('href'), '/#javascript-step-03')
+  check('Explicit Korean source URL', source.getAttribute('href'), '/#' + unpublished.id)
   await click(source)
-  check('Korean source control restores same unit', win().location.pathname + win().location.hash, '/#javascript-step-03')
+  check('Korean source control restores same unit', win().location.pathname + win().location.hash, '/#' + unpublished.id)
   check('Korean navigator is restored', !!doc().querySelector('.current-lesson'), true)
   check('No Vite overlay', !!doc().querySelector('vite-error-overlay'), false)
   document.querySelector('#state').textContent = 'PASS'

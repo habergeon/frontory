@@ -64,12 +64,18 @@ test('English generated catalog and lessons match approved content without unpub
     const translated = approved.curricula[unit.seriesId].units.find(item => item.id === unit.id)
     assert.equal(unit.docPath, original.docPath.replace('/docs/', '/docs/en/'))
     assert.equal(unit.goal, translated.outcomes.join(' '))
-    assert.equal(unit.exampleNote, read('content/locales/en/examples/' + unit.seriesId + '.json')[unit.id].values.note)
+    const note = read('content/locales/en/examples/' + unit.seriesId + '.json')[unit.id]
+    assert.equal(unit.exampleNote, note?.values.note)
     const markdown = fs.readFileSync('.' + unit.docPath, 'utf8')
     assert.doesNotMatch(markdown.replace(/```[\s\S]*?```/g, ''), /[가-힣]/)
     for (const name of ['tasks', 'variables', 'criteria', 'notes']) assert.ok(markdown.includes('## ' + headings.en[name]), name)
     for (const step of translated.steps) assert.ok(markdown.includes(step), unit.id)
-    assert.ok(markdown.includes(unit.exampleNote))
+    if (note) assert.ok(markdown.includes(unit.exampleNote))
+    else {
+      assert.ok(previous.units.some(legacy => legacy.id === unit.id), unit.id + ': legacy guidance required')
+      assert.ok(markdown.includes('Runtime environments and limits'))
+      assert.ok(markdown.includes('/' + unit.id + '/example.js'))
+    }
     const next = catalog.units.find(item => item.seriesId === unit.seriesId && item.day === unit.day + 1)
     if (next && !approved.publishedUnitIds.includes(next.id)) assert.ok(!markdown.includes(next.docPath.replace('/docs/', '/docs/en/')))
   }
@@ -81,7 +87,9 @@ test('English generated catalog and lessons match approved content without unpub
     }
   }
   const index = fs.readFileSync('docs/en/examples-expanded.md', 'utf8')
-  for (const unit of english.units) assert.ok(index.includes(unit.exampleNote))
+  for (const unit of english.units.filter(unit => !previous.units.some(legacy => legacy.id === unit.id))) {
+    assert.ok(index.includes(unit.exampleNote), unit.id)
+  }
 })
 
 test('localized catalog lookup preserves shared executable identity and has no Korean fallback', async () => {
@@ -104,21 +112,25 @@ test('localized catalog lookup preserves shared executable identity and has no K
   assert.equal(api.getCatalog('ko').units, api.units)
   assert.equal(api.getCatalog('ko').series, api.series)
   assert.equal(api.units.length, 644)
-  assert.equal(api.getCatalog('en').units.length, 4)
+  assert.deepEqual(api.getCatalog('en').units.map(unit => unit.id).sort(), [...read('content/locales/en/manifest.json').publishedUnitIds].sort())
   for (const unit of api.getCatalog('en').units) {
     const common = api.units.find(item => item.id === unit.id)
     assert.equal(unit.source, common.source)
     assert.ok(unit.source)
     assert.equal(unit.exampleMode, common.exampleMode)
-    assert.equal(unit.exampleMode, details[unit.id].mode)
+    assert.equal(unit.exampleMode, details[unit.id]?.mode)
     assert.equal(unit.exampleReadingSource, common.exampleReadingSource)
-    assert.equal(unit.exampleReadingSource, `/examples-en/${unit.id}/example.js`)
+    assert.equal(unit.exampleReadingSource, details[unit.id]?.readingSource)
     assert.equal(unit.exampleFiles, common.exampleFiles)
-    assert.notEqual(unit.exampleNote, common.exampleNote)
+    if (details[unit.id]) assert.notEqual(unit.exampleNote, common.exampleNote)
+    else assert.equal(unit.exampleNote, undefined)
     assert.equal(api.getLocalizedUnit('en', unit.id), unit)
   }
   assert.deepEqual(api.getLocalizedUnit('en', 'javascript-step-02').exampleFiles, ['src/labs/javascript-step-02/fixture.js'])
-  assert.equal(api.getLocalizedUnit('en', 'javascript-01'), null)
+  for (const id of ['javascript-step-02', 'css-step-04', 'react-step-03', 'gsap-step-02']) {
+    assert.equal(api.getLocalizedUnit('en', id).exampleReadingSource, `/examples-en/${id}/example.js`)
+  }
+  assert.equal(api.getLocalizedUnit('en', 'missing-id'), null)
   assert.equal(api.getLocalizedUnit('ko', 'javascript-01').id, 'javascript-01')
   assert.equal(api.getLocalizedUnit('ko', 'missing-id'), null)
 })

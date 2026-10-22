@@ -129,7 +129,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-
+[Previous: Values and State](../../01-foundations/README.md) · [Next: Equality Comparisons and Defaults](../03/README.md)
 
 ## Experiment notes — write your own
 

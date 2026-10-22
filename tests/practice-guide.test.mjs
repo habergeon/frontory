@@ -16,9 +16,10 @@ test('every lesson exposes tasks, observation variables and completion criteria 
 })
 
 
-test('all four English representative lessons use the shared English section headings', () => {
+test('all published English lessons use the shared English section headings', () => {
   const catalog = JSON.parse(readFileSync(new URL('../src/app/catalog.en.json', import.meta.url), 'utf8'))
-  assert.equal(catalog.units.length, 4)
+  const manifest = JSON.parse(readFileSync(new URL('../content/locales/en/manifest.json', import.meta.url), 'utf8'))
+  assert.deepEqual(catalog.units.map(unit => unit.id).sort(), [...manifest.publishedUnitIds].sort())
   for (const unit of catalog.units) {
     const text = readFileSync(new URL('..' + unit.docPath, import.meta.url), 'utf8')
     const guide = practiceGuide(text, 'en')

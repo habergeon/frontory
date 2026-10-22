@@ -573,3 +573,10 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [25. Measuring End-to-End Latency](labs/engineering/web-workers/units/25/README.md) | Editable example | [Source code](../../src/labs/web-workers-step-25/example.js) — An interactive Measuring End-to-End Latency experiment with cleanup of the resources it uses. |
 | [26. Memory and Pool Limits](labs/engineering/web-workers/units/26/README.md) | Editable example | [Source code](../../src/labs/web-workers-step-26/example.js) — An interactive Memory and Pool Limits experiment with cleanup of the resources it uses. |
 | [27. Disposal and Restart](labs/engineering/web-workers/units/27/README.md) | Editable example | [Source code](../../src/labs/web-workers-step-27/example.js) — An interactive Disposal and Restart experiment with cleanup of the resources it uses. |
+
+## OffscreenCanvas
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Renderer Contract](labs/engineering/offscreen-canvas/units/02/README.md) | Editable example | [Source code](../../src/labs/offscreen-canvas-step-02/example.js) — An interactive Renderer Contract experiment with cleanup of the resources it uses. |
+| [3. Initialization Handshake](labs/engineering/offscreen-canvas/units/03/README.md) | Editable example | [Source code](../../src/labs/offscreen-canvas-step-03/example.js) — An interactive Initialization Handshake experiment with cleanup of the resources it uses. |

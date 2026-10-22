@@ -1,0 +1,14 @@
+{
+  "offscreen-canvas-step-02": {
+    "sourceHash": "8c31cf3f817b342e960def4075aa4d4c84810f070dc2c27abcbc214488c4b217",
+    "values": {
+      "note": "An interactive Renderer Contract experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-03": {
+    "sourceHash": "778403b91f8b7e9dabbe8445bbe0d8524bf1aa05c3e75bea6b4858b6a1404ae7",
+    "values": {
+      "note": "An interactive Initialization Handshake experiment with cleanup of the resources it uses."
+    }
+  }
+}

@@ -265,6 +265,20 @@
         "Queues and Error Recovery",
         "Validating Throughput and Responsiveness"
       ]
+    },
+    {
+      "id": "offscreen-canvas",
+      "title": "OffscreenCanvas",
+      "category": "engineering",
+      "priority": 5,
+      "prerequisites": "Canvas 2D·Web Workers",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/README.md",
+      "stages": [
+        "Control and the First Render",
+        "Synchronizing Size and Input",
+        "Rendering Lifecycle and Recovery",
+        "Responsiveness Comparison Project"
+      ]
     }
   ],
   "units": [
@@ -5530,6 +5544,35 @@
       "goal": "Learning outcome: explain the role of Total cost. Input cases: the same task on the main thread, 1 Worker, and 2 Workers. Deliverable: a report on correctness, end-to-end latency, input delay, and peak buffers. Explain the rationale for handling Decision-making, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/03-project/README.md",
       "seriesId": "web-workers"
+    },
+    {
+      "id": "offscreen-canvas-01",
+      "day": 1,
+      "week": 1,
+      "title": "Transferring Canvas Control",
+      "goal": "Learning outcome: explain the role of Ownership. Input cases: Supported and forced-unsupported paths. Deliverable: A table of the selected mode, first frame, and error guidance. Explain the rationale for handling Fallback path, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/01-foundations/README.md",
+      "seriesId": "offscreen-canvas"
+    },
+    {
+      "id": "offscreen-canvas-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Renderer Contract",
+      "goal": "Learning outcome: explain the role of Pure state. Input cases: The same three circles. Deliverable: A table of coordinates and colors for both adapters. Explain the rationale for handling Ownership boundaries, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/02/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Renderer Contract experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Initialization Handshake",
+      "goal": "Learning outcome: explain the role of Ready. Input cases: A color change immediately after initialization. Deliverable: Message order and the first applied color. Explain the rationale for handling Pending input, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/03/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Initialization Handshake experiment with cleanup of the resources it uses."
     }
   ]
 }

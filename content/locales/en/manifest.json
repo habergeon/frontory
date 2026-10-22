@@ -531,6 +531,9 @@
     "web-workers-step-25",
     "web-workers-step-26",
     "web-workers-step-27",
-    "web-workers-03"
+    "web-workers-03",
+    "offscreen-canvas-01",
+    "offscreen-canvas-step-02",
+    "offscreen-canvas-step-03"
   ]
 }

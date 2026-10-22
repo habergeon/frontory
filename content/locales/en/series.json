@@ -131,5 +131,12 @@
       "title": "Web Workers",
       "prerequisites": "JavaScript asynchronous behavior and TypedArray"
     }
+  },
+  "offscreen-canvas": {
+    "sourceHash": "162e4954e4924062ec688320c854bc7d52c70c22b7764fa74fae0912d7e75b12",
+    "values": {
+      "title": "OffscreenCanvas",
+      "prerequisites": "Canvas 2D·Web Workers"
+    }
   }
 }

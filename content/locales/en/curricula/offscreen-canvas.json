@@ -1,0 +1,96 @@
+{
+  "series": {
+    "sourceHash": "1ac5aeaa11fd54829f504aea24f6a3b925e92a46bf0f38d403eaf0fa97d2842a",
+    "values": {
+      "stages.0": "Control and the First Render",
+      "stages.1": "Synchronizing Size and Input",
+      "stages.2": "Rendering Lifecycle and Recovery",
+      "stages.3": "Responsiveness Comparison Project",
+      "goal": "Design Canvas ownership and size·input protocols, and evaluate the benefits and costs of Worker rendering.",
+      "capstone": "Run the same particle scene on the main thread and in a Worker, comparing resize·input·errors·stop·restart behavior."
+    }
+  },
+  "units": {
+    "offscreen-canvas-01": {
+      "sourceHash": "230960cd32c411da310b64fbe19064a151a7061c567bd1033173315f94355300",
+      "values": {
+        "title": "Transferring Canvas Control",
+        "prerequisites": "Understand Canvas 2D·Web Workers, and be able to read the inputs and outputs of the existing starting examples.",
+        "environment": "The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Ownership",
+        "concepts.0.explanation": "transferControlToOffscreen transfers control of the display Canvas. Do not create a rendering context on the same Canvas before transferring it.",
+        "concepts.1.title": "Fallback path",
+        "concepts.1.explanation": "API support and successful initialization are different. On failure, recover with main-thread rendering on a new Canvas.",
+        "outcomes.0": "Learning outcome: explain the role of Ownership. Input cases: Supported and forced-unsupported paths.",
+        "outcomes.1": "Deliverable: A table of the selected mode, first frame, and error guidance. Explain the rationale for handling Fallback path, linking it to the code.",
+        "steps.0": "In src/day-1.js in a separate practice project, check feature support, transfer the OffscreenCanvas to a Worker, and implement a main-thread fallback. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: Supported and forced-unsupported paths. Baseline: Supported. Run under the baseline conditions, then record observations and errors in notes/day-1.md.",
+        "steps.2": "Variable: Support flag; changed value: Force unsupported. Run again through the same input path. Deliverable to save: A table of the selected mode, first frame, and error guidance. Hypothesis to check: Main-thread rendering or clear guidance appears instead of a blank screen. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Support flag",
+        "variables.0.baseline": "Supported",
+        "variables.0.change": "Force unsupported",
+        "variables.0.expected": "Main-thread rendering or clear guidance appears instead of a blank screen.",
+        "criteria.0": "Required deliverable: A table of the selected mode, first frame, and error guidance. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Ownership and Fallback path. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Ownership affect in this exercise? Input cases: Supported and forced-unsupported paths.",
+        "questions.1": "Variable: Support flag. Hypothesis to check: Main-thread rendering or clear guidance appears instead of a blank screen. Did the actual results agree with the hypothesis? Explain the evidence in terms of Fallback path.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-02": {
+      "sourceHash": "c275f9b0bca2f6b5913d8c1048abde2b96fbb257c3b895f4224d8f5c3f656b5a",
+      "values": {
+        "title": "Renderer Contract",
+        "prerequisites": "Prepare the experiment results for Ownership and Fallback path from Unit 1, “Transferring Canvas Control”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Pure state",
+        "concepts.0.explanation": "The renderer draws from the state it receives rather than from the DOM. The same draw function can run in different execution contexts.",
+        "concepts.1.title": "Ownership boundaries",
+        "concepts.1.explanation": "The main thread manages the DOM and input. The Worker manages the Canvas and scene state.",
+        "outcomes.0": "Learning outcome: explain the role of Pure state. Input cases: The same three circles.",
+        "outcomes.1": "Deliverable: A table of coordinates and colors for both adapters. Explain the rationale for handling Ownership boundaries, linking it to the code.",
+        "steps.0": "In src/day-2.js in a separate practice project, separate draw(ctx,state) from the main·worker adapters. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: The same three circles. Baseline: Main thread. Run under the baseline conditions, then record observations and errors in notes/day-2.md.",
+        "steps.2": "Variable: Execution context; changed value: Worker. Run again through the same input path. Deliverable to save: A table of coordinates and colors for both adapters. Hypothesis to check: The same state produces the same shapes. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Execution context",
+        "variables.0.baseline": "Main thread",
+        "variables.0.change": "Worker",
+        "variables.0.expected": "The same state produces the same shapes.",
+        "criteria.0": "Required deliverable: A table of coordinates and colors for both adapters. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Pure state and Ownership boundaries. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Pure state affect in this exercise? Input cases: The same three circles.",
+        "questions.1": "Variable: Execution context. Hypothesis to check: The same state produces the same shapes. Did the actual results agree with the hypothesis? Explain the evidence in terms of Ownership boundaries.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-03": {
+      "sourceHash": "b60ed207d73d9a3864726d374e20f9cb7b9114f7e02c26774646524e525dbd6b",
+      "values": {
+        "title": "Initialization Handshake",
+        "prerequisites": "Prepare the experiment results for Pure state and Ownership boundaries from Unit 2, “Renderer Contract”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Ready",
+        "concepts.0.explanation": "Input sent immediately after transferring the Canvas may arrive before initialization finishes. A ready response signals readiness.",
+        "concepts.1.title": "Pending input",
+        "concepts.1.explanation": "Hold input until ready, or retain only its latest value. An indefinite wait needs an error path.",
+        "outcomes.0": "Learning outcome: explain the role of Ready. Input cases: A color change immediately after initialization.",
+        "outcomes.1": "Deliverable: Message order and the first applied color. Explain the rationale for handling Pending input, linking it to the code.",
+        "steps.0": "In src/day-3.js in a separate practice project, implement init·ready·error messages and retain the latest input received before readiness. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: A color change immediately after initialization. Baseline: After ready. Run under the baseline conditions, then record observations and errors in notes/day-3.md.",
+        "steps.2": "Variable: Input timing; changed value: Before ready. Run again through the same input path. Deliverable to save: Message order and the first applied color. Hypothesis to check: The latest input is applied once initialization is ready. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Input timing",
+        "variables.0.baseline": "After ready",
+        "variables.0.change": "Before ready",
+        "variables.0.expected": "The latest input is applied once initialization is ready.",
+        "criteria.0": "Required deliverable: Message order and the first applied color. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Ready and Pending input. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Ready affect in this exercise? Input cases: A color change immediately after initialization.",
+        "questions.1": "Variable: Input timing. Hypothesis to check: The latest input is applied once initialization is ready. Did the actual results agree with the hypothesis? Explain the evidence in terms of Pending input.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    }
+  }
+}

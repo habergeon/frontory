@@ -45,7 +45,7 @@ There are currently **23 series / 644 units**. Every series has 4 stages and 28 
 ## Engineering
 
 - [Web Workers](engineering/web-workers/README.md) — ★★★★★ / 28 units / Prerequisites: JavaScript asynchronous work and TypedArray
-- [OffscreenCanvas (Korean)](../../labs/engineering/offscreen-canvas/README.md) — ★★★★★ / 28 units / Prerequisites: Canvas 2D and Web Workers
+- [OffscreenCanvas](engineering/offscreen-canvas/README.md) — ★★★★★ / 28 units / Prerequisites: Canvas 2D and Web Workers
 - [WebAssembly (Korean)](../../labs/engineering/webassembly/README.md) — ★★★★ / 28 units / Prerequisites: JavaScript, TypedArray, basics of the chosen compilation language
 
 ## Testing

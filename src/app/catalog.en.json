@@ -2127,6 +2127,36 @@
       "exampleNote": "The browser example decodes a self-generated PNG before cropping it. Check external image URLs and CORS failures in a separate HTTP environment."
     },
     {
+      "id": "canvas-2d-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Text and Badge Composition",
+      "goal": "The background width adjusts to the text length. Record layout differences after changing the baseline.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/07/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "canvas-2d-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "The Animation Clock",
+      "goal": "Specify speed units as px/s. Obtain similar positions for the same accumulated time.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/08/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "canvas-2d-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Stopping and Resuming",
+      "goal": "Only one loop runs even after repeated start clicks. There is no large position jump on resume.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/09/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

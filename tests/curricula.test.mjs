@@ -92,6 +92,14 @@ test('English generated catalog and lessons match approved content without unpub
       assert.equal(proseWithoutCode.split(fixture).length - 1, 2)
       proseWithoutCode = proseWithoutCode.replaceAll(fixture, '')
     }
+    if (unit.id === 'canvas-2d-step-07') {
+      const fixture = '가나'
+      assert.equal(translated.variables[0].baseline, fixture)
+      assert.equal(translated.variables[0].change, 'WWW iii')
+      assert.equal(translated.steps[2], 'Save the output with the input condition 가나, then run again with WWW iii. Expected: Even with similar character counts, badge width varies with actual glyph widths. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-07-notes.md.')
+      assert.equal(proseWithoutCode.split(fixture).length - 1, 2)
+      proseWithoutCode = proseWithoutCode.replaceAll(fixture, '')
+    }
     assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
     for (const name of ['tasks', 'variables', 'criteria', 'notes']) assert.ok(markdown.includes('## ' + headings.en[name]), name)
     for (const step of translated.steps) assert.ok(markdown.includes(step), unit.id)

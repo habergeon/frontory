@@ -167,6 +167,84 @@
         "questions.1": "What restrictions apply when loading an image without CORS permission?",
         "references.0.title": "MDN CanvasRenderingContext2D API"
       }
+    },
+    "canvas-2d-step-07": {
+      "sourceHash": "7585321c3076db37f219ef4a7721a574828dccf2dffbcec60414f8823f2fca91",
+      "values": {
+        "title": "Text and Badge Composition",
+        "prerequisites": "Prerequisite concepts: Asynchronous Images, Source Rectangle. Prepare the result files and observation records from Unit 6.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Measuring Text",
+        "concepts.0.explanation": "measureText returns measurements for the current font settings. Calculating from string length alone misestimates the widths of Korean and English text.",
+        "concepts.1.title": "Text Baseline",
+        "concepts.1.explanation": "textBaseline determines what the y coordinate refers to. Centering requires consideration of the baseline as well as text width.",
+        "outcomes.0": "The background width adjusts to the text length.",
+        "outcomes.1": "Record layout differences after changing the baseline.",
+        "steps.0": "Prepare day-07.js and index.html in the external practice project. Set font, calculate badge width with measureText, and display a name with fillText.",
+        "steps.1": "Accept a Korean name and a long English name, then compare the badge PNG appearances with consistent padding.",
+        "steps.2": "Save the output with the input condition 가나, then run again with WWW iii. Expected: Even with similar character counts, badge width varies with actual glyph widths. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-07-notes.md.",
+        "variables.0.name": "Input String",
+        "variables.0.baseline": "가나",
+        "variables.0.change": "WWW iii",
+        "variables.0.expected": "Even with similar character counts, badge width varies with actual glyph widths",
+        "criteria.0": "The background width adjusts to the text length.",
+        "criteria.1": "Record layout differences after changing the baseline.",
+        "questions.0": "Why might measurements differ before a font loads?",
+        "questions.1": "Which names break a width calculation based only on character count?",
+        "references.0.title": "MDN CanvasRenderingContext2D API"
+      }
+    },
+    "canvas-2d-step-08": {
+      "sourceHash": "caed38ed9f953e9d00fcbb5191670b1b455d028afdde4def900b284d8327f031",
+      "values": {
+        "title": "The Animation Clock",
+        "prerequisites": "Prerequisite concepts: Measuring Text, Text Baseline. Prepare the result files and observation records from Unit 7.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Time Units",
+        "concepts.0.explanation": "The requestAnimationFrame callback time is in milliseconds. Convert the difference from the previous time to seconds when using a speed per second.",
+        "concepts.1.title": "Separating Simulation",
+        "concepts.1.explanation": "update changes positions, and draw only draws the current state. Separating them lets you reproduce movement with the same input times.",
+        "outcomes.0": "Specify speed units as px/s.",
+        "outcomes.1": "Obtain similar positions for the same accumulated time.",
+        "steps.0": "Prepare day-08.js and index.html in the external practice project. Calculate x+=velocity*dt in update(dt) and draw the ball in draw.",
+        "steps.1": "Display requestAnimationFrame time differences and accumulated travel distance in output.",
+        "steps.2": "Save the output with the input condition 1/60 seconds, then run again with 1/30 seconds. Expected: Movement per step doubles, but the distance over the same total time stays the same. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-08-notes.md.",
+        "variables.0.name": "Time Interval",
+        "variables.0.baseline": "1/60 seconds",
+        "variables.0.change": "1/30 seconds",
+        "variables.0.expected": "Movement per step doubles, but the distance over the same total time stays the same",
+        "criteria.0": "Specify speed units as px/s.",
+        "criteria.1": "Obtain similar positions for the same accumulated time.",
+        "questions.0": "What changes if you add 1 on every frame?",
+        "questions.1": "How do you initialize the previous time for the first callback?",
+        "references.0.title": "MDN Canvas Tutorial"
+      }
+    },
+    "canvas-2d-step-09": {
+      "sourceHash": "83bd73b22c214933189448101272698f7de129ec86acbcfa0dd46bcdfda6affd",
+      "values": {
+        "title": "Stopping and Resuming",
+        "prerequisites": "Prerequisite concepts: Time Units, Separating Simulation. Prepare the result files and observation records from Unit 8.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Loop Ownership",
+        "concepts.0.explanation": "An animation request ID is used to cancel a scheduled callback. Scheduling duplicates when resuming updates the same state twice.",
+        "concepts.1.title": "Long Time Gaps",
+        "concepts.1.explanation": "Callbacks may be delayed while a tab is hidden. Decide whether to reset the clock on resume or catch up with elapsed time.",
+        "outcomes.0": "Only one loop runs even after repeated start clicks.",
+        "outcomes.1": "There is no large position jump on resume.",
+        "steps.0": "Prepare day-09.js and index.html in the external practice project. Manage requestAnimationFrame and cancelAnimationFrame from start and stop buttons.",
+        "steps.1": "Detect hidden state with visibilitychange and reset dt to 0 immediately after resuming.",
+        "steps.2": "Save the output with the input condition keep the previous time, then run again with reset the previous time. Expected: The ball is prevented from jumping after a long pause. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-09-notes.md.",
+        "variables.0.name": "Resume Policy",
+        "variables.0.baseline": "keep the previous time",
+        "variables.0.change": "reset the previous time",
+        "variables.0.expected": "The ball is prevented from jumping after a long pause",
+        "criteria.0": "Only one loop runs even after repeated start clicks.",
+        "criteria.1": "There is no large position jump on resume.",
+        "questions.0": "Should the stop button erase the last frame?",
+        "questions.1": "Which apps need to account for time spent in a hidden tab?",
+        "references.0.title": "MDN Canvas Tutorial"
+      }
     }
   }
 }

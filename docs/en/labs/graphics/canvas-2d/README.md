@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 6 published in English
+Graphics · 4 stages · 28 units in the full series · 9 published in English
 
 ## Series goal
 
@@ -30,9 +30,12 @@ Only published English units are linked below. The full series has 28 units.
 - [04. Matrices and Rotation Centers](units/04/README.md) — Editable example
 - [05. Colors and Gradients](units/05/README.md) — Editable example
 - [06. Loading and Cropping Images](units/06/README.md) — Editable example
+- [07. Text and Badge Composition](units/07/README.md) — Editable example
 
 ### Stage 2 · Time, Coordinates, and Input
 
+- [08. The Animation Clock](units/08/README.md) — Editable example
+- [09. Stopping and Resuming](units/09/README.md) — Editable example
 
 ### Stage 3 · Scene Editing and Compositing
 
@@ -50,3 +53,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 
 - [MDN devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio)
 - [MDN CanvasRenderingContext2D API](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D)
+- [MDN Canvas Tutorial](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial)

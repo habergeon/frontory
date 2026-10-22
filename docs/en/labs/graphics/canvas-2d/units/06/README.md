@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Colors and Gradients](../05/README.md)
+[Previous: Colors and Gradients](../05/README.md) · [Next: Text and Badge Composition](../07/README.md)
 
 ## Experiment notes — write your own
 

@@ -223,6 +223,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [4. Matrices and Rotation Centers](labs/graphics/canvas-2d/units/04/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-04/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [5. Colors and Gradients](labs/graphics/canvas-2d/units/05/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-05/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [6. Loading and Cropping Images](labs/graphics/canvas-2d/units/06/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-06/example.js) — The browser example decodes a self-generated PNG before cropping it. Check external image URLs and CORS failures in a separate HTTP environment. |
+| [7. Text and Badge Composition](labs/graphics/canvas-2d/units/07/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-07/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [8. The Animation Clock](labs/graphics/canvas-2d/units/08/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-08/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [9. Stopping and Resuming](labs/graphics/canvas-2d/units/09/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-09/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

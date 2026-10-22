@@ -28,5 +28,23 @@
     "values": {
       "note": "The browser example decodes a self-generated PNG before cropping it. Check external image URLs and CORS failures in a separate HTTP environment."
     }
+  },
+  "canvas-2d-step-07": {
+    "sourceHash": "14d791abb6d6d41afeec8ff32dd0758cfa624968482d079566091cf4908efe10",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "canvas-2d-step-08": {
+    "sourceHash": "c6cbb6c8dcbfb6515b85cee746828dbab2137e0a534953e2851fbe44feb6c8ce",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "canvas-2d-step-09": {
+    "sourceHash": "2dd8347cba7feeff9364091118904440ab6f25d07fdb425fad9cc48824f26086",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
   }
 }

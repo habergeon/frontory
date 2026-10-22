@@ -386,6 +386,17 @@ test('actual English content publishes exactly the approved lessons with complet
       assert.equal(proseWithoutCode.split(fixture).length - 1, 2)
       proseWithoutCode = proseWithoutCode.replaceAll(fixture, '')
     }
+    if (id === 'canvas-2d-step-07') {
+      const fixture = '가나'
+      assert.equal(original.variables[0].baseline, fixture)
+      assert.equal(original.variables[0].change, 'WWW iii')
+      assert.equal(original.steps[2], '입력 조건 가나에서 출력을 저장한 뒤 WWW iii 조건으로 다시 실행하세요. 예상: 문자 수가 비슷해도 배지 폭은 실제 글리프 폭에 따라 달라집니다. 실제 화면·로그와 대조하고 day-07-notes.md에 실제 결과와 차이의 원인을 남기세요.')
+      assert.equal(translated.variables[0].baseline, fixture)
+      assert.equal(translated.variables[0].change, 'WWW iii')
+      assert.equal(translated.steps[2], 'Save the output with the input condition 가나, then run again with WWW iii. Expected: Even with similar character counts, badge width varies with actual glyph widths. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-07-notes.md.')
+      assert.equal(proseWithoutCode.split(fixture).length - 1, 2)
+      proseWithoutCode = proseWithoutCode.replaceAll(fixture, '')
+    }
     assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
     assert.equal(result.curricula[seriesId].stages.length, source.stages.length)
   }

@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Matrix and Array Strides](../11/README.md)
+[Previous: Matrix and Array Strides](../11/README.md) · [Next: Runtime Arrays and Binding Ranges](../13/README.md)
 
 ## Experiment notes — write your own
 

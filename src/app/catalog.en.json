@@ -3933,6 +3933,35 @@
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
+      "id": "wgsl-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Runtime Arrays and Binding Ranges",
+      "goal": "Declare runtime arrays. Distinguish binding ranges from logical lengths.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/13/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-02",
+      "day": 14,
+      "week": 2,
+      "title": "Bindings and Memory Layout",
+      "goal": "Implement a mixed uniform layout. Verify that field updates are independent.",
+      "docPath": "/docs/en/labs/shader/wgsl/02-experiments/README.md",
+      "seriesId": "wgsl"
+    },
+    {
+      "id": "wgsl-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Compute IDs and Indices",
+      "goal": "Interpret invocation IDs. Flatten multidimensional indices.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/15/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

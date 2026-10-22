@@ -409,6 +409,8 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [10. Scalar and Vector Alignment](labs/shader/wgsl/units/10/README.md) | Editable example | [Source code](../../src/labs/wgsl-step-10/example.js) — Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results. |
 | [11. Matrix and Array Strides](labs/shader/wgsl/units/11/README.md) | Editable example | [Source code](../../src/labs/wgsl-step-11/example.js) — Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results. |
 | [12. Additional Uniform Layout Constraints](labs/shader/wgsl/units/12/README.md) | Editable example | [Source code](../../src/labs/wgsl-step-12/example.js) — Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results. |
+| [13. Runtime Arrays and Binding Ranges](labs/shader/wgsl/units/13/README.md) | Editable example | [Source code](../../src/labs/wgsl-step-13/example.js) — Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results. |
+| [15. Compute IDs and Indices](labs/shader/wgsl/units/15/README.md) | Editable example | [Source code](../../src/labs/wgsl-step-15/example.js) — Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results. |
 
 ## GSAP
 

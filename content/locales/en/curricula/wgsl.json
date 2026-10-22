@@ -334,6 +334,87 @@
         "references.0.title": "WGSL Specification",
         "references.1.title": "WebGPU API"
       }
+    },
+    "wgsl-step-13": {
+      "sourceHash": "e111bc120153544ddded2758a48fb415f1723f376f9b3e2fb2516897488780e9",
+      "values": {
+        "title": "Runtime Arrays and Binding Ranges",
+        "prerequisites": "Continue using the output and records from Unit 12. Before experimenting with Runtime Arrays and Binding Ranges, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Runtime Length",
+        "concepts.0.explanation": "The length of a runtime-sized storage array depends on the actual binding range and stride. Do not mistake the entire buffer capacity for the logical data length.",
+        "concepts.1.title": "Declaration Position",
+        "concepts.1.explanation": "Place runtime arrays only in permitted storage declaration positions. When using a structure, keep the runtime array as its last member.",
+        "outcomes.0": "Declare runtime arrays.",
+        "outcomes.1": "Distinguish binding ranges from logical lengths.",
+        "steps.0": "In runtime.wgsl, write a storage structure with array<f32> as the final member after a header.",
+        "steps.1": "Output the length visible through arrayLength and a separate logicalCount.",
+        "steps.2": "Keep the buffer capacity unchanged, reduce the bindGroup size, and compare the visible lengths.",
+        "variables.0.name": "Binding range",
+        "variables.0.baseline": "Entire array",
+        "variables.0.change": "Half the range",
+        "variables.0.expected": "arrayLength is expected to decrease to match the exposed range.",
+        "criteria.0": "Calculate the required binding size from the header offset and array stride.",
+        "criteria.1": "The host rejects input whose logical length exceeds the accessible length.",
+        "questions.0": "Can the shader always access extra space in a buffer?",
+        "questions.1": "Can another member follow a runtime array?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-02": {
+      "sourceHash": "7030b34c7fa0b16f881d7d47dc837b96079e0b618651eeae6b62b55f42505d06",
+      "values": {
+        "title": "Bindings and Memory Layout",
+        "prerequisites": "Continue using the output and records from Unit 13. Before experimenting with Bindings and Memory Layout, preserve the previous inputs and reference outputs.",
+        "environment": "The existing wgsl-02 preview is a starting point. It does not replace implementation or verification of the full subsequent assignment. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Combined Contracts",
+        "concepts.0.explanation": "Even when grouping color and transformation, calculate each alignment and offset. Writing a byte table first makes it easier to reproduce mixed-up values.",
+        "concepts.1.title": "Independent Updates",
+        "concepts.1.explanation": "Two fields in the same buffer can be updated using the correct offsets and ranges. Check fields that should remain unchanged to detect overwrites.",
+        "outcomes.0": "Implement a mixed uniform layout.",
+        "outcomes.1": "Verify that field updates are independent.",
+        "steps.0": "Record Params color:vec4f and transform:mat4x4f offsets as 0 and 16, with a total of 80 bytes.",
+        "steps.1": "In host.js, writeBuffer only color, then update only transform.",
+        "steps.2": "Check the @group/@binding correspondence and fix an incorrect-offset case.",
+        "variables.0.name": "Update range",
+        "variables.0.baseline": "color: 16 bytes",
+        "variables.0.change": "Update 64 bytes of transform at offset16",
+        "variables.0.expected": "The color is expected to remain unchanged while only the transformation changes.",
+        "criteria.0": "Updating color does not change the transformation, and updating the transformation does not change the color.",
+        "criteria.1": "Include a table of binding locations and the two fields' byte offsets and sizes.",
+        "questions.0": "How do you distinguish the units of TypedArray offsets and writeBuffer offsets?",
+        "questions.1": "Does an 80-byte structure mean that a dynamic uniform slot is also 80 bytes?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-15": {
+      "sourceHash": "cbda907a17dc55f5b10ec49c6ba2c8c89c082f028a1aea523881c4aeddd7d18c",
+      "values": {
+        "title": "Compute IDs and Indices",
+        "prerequisites": "Continue using the output and records from Unit 14. Before experimenting with Compute IDs and Indices, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "ID Ranges",
+        "concepts.0.explanation": "local_invocation_id is a position within a workgroup, and workgroup_id is the group's position. global_invocation_id combines the two using the workgroup size to give the overall position.",
+        "concepts.1.title": "Flattening",
+        "concepts.1.explanation": "Include the row stride when storing 2-dimensional input in a 1-dimensional array. Swapping x and y can transpose the data or go out of bounds.",
+        "outcomes.0": "Interpret invocation IDs.",
+        "outcomes.1": "Flatten multidimensional indices.",
+        "steps.0": "In ids.wgsl, declare @workgroup_size(8,8) and a global id input.",
+        "steps.1": "For width=13,height=9, output identifying values using index=y*width+x.",
+        "steps.2": "After dispatchWorkgroups(ceil(width/8),ceil(height/8)), exclude out-of-bounds invocations.",
+        "variables.0.name": "Grid",
+        "variables.0.baseline": "8×8",
+        "variables.0.change": "13×9",
+        "variables.0.expected": "Partial workgroups are expected, but only the 117 valid elements should be written.",
+        "criteria.0": "The 117 values match the CPU identifying values for each coordinate.",
+        "criteria.1": "Check the final row, final column, and four corners separately.",
+        "questions.0": "What happens across multiple groups if only local id is used as an index?",
+        "questions.1": "Must a 2D workgroup and 2D data have the same dimensions?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
     }
   }
 }

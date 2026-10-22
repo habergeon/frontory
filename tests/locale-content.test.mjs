@@ -83,7 +83,7 @@ function fixture(t) {
     'stages.0': 'Calculation', 'stages.1': 'DOM', 'stages.2': 'Modules', 'stages.3': 'Integration' }),
   units: { [unit.id]: record(unit, values) } }
   write('src/app/catalog.json', catalog)
-  write('content/catalog-v2.json', { series: [series], units: [] })
+  write('content/catalog-v2.json', { series: [{ ...series, stages: ['기초', '실험', '검증'] }], units: [] })
   write('content/curricula/javascript.json', { ...curriculumSeries, units: [unit] })
   write('content/locales/en/manifest.json', manifest)
   write('content/locales/en/series.json', seriesRecords)
@@ -91,7 +91,7 @@ function fixture(t) {
   return { root, write, manifest, seriesRecords, curriculum, catalog, series }
 }
 
-test('reader publishes only approved translated units, preserving canonical identity and exposing curricula', t => {
+test('reader publishes approved units using curriculum stages independently of legacy metadata', t => {
   const { root } = fixture(t)
   const result = readEnglishContent({ complete: false, root })
   assert.deepEqual(result.publishedUnitIds, [unit.id])
@@ -265,5 +265,14 @@ test('complete mode accepts 23 translated series and 644 units only with all req
     delete missing[docPath]
     write('content/locales/en/documents.json', missing)
     assert.throws(() => readEnglishContent({ complete: true, root }), /Missing complete document/)
+  }
+})
+
+test('reader rejects malformed curriculum stages without depending on legacy stage count', t => {
+  const { root, write } = fixture(t)
+  const original = JSON.parse(fs.readFileSync(path.join(root, 'content/curricula/javascript.json')))
+  for (const stages of [null, {}, [], [3], [' ']]) {
+    write('content/curricula/javascript.json', { ...original, stages })
+    assert.throws(() => readEnglishContent({ root }), /Invalid source series/)
   }
 })

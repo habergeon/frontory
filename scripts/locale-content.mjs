@@ -104,7 +104,8 @@ export function readEnglishContent({ complete = false, root = defaultRoot } = {}
       continue
     }
     const source = read(`content/curricula/${series.id}.json`)
-    if (source.seriesId !== series.id || source.stages.length !== sourceSeries.stages.length) fail(`Invalid source series: ${series.id}`)
+    if (source.seriesId !== series.id || !Array.isArray(source.stages) || !source.stages.length ||
+      source.stages.some(stage => typeof stage !== 'string' || !stage.trim())) fail(`Invalid source series: ${series.id}`)
     const { units, ...seriesSource } = source
     const sourceUnits = new Map(units.map(unit => [unit.id, unit]))
     if (sourceUnits.size !== units.length) fail(`Duplicate source unit ID: ${series.id}`)

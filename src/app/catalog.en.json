@@ -2448,6 +2448,36 @@
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "svg-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Clips and Masks",
+      "goal": "Explain clip and mask results side by side. Check clipping outside the mask region.",
+      "docPath": "/docs/en/labs/graphics/svg/units/10/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "svg-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Filter Regions and Cost",
+      "goal": "Resolve clipped shadows by setting the region. Record blur extent and visual quality.",
+      "docPath": "/docs/en/labs/graphics/svg/units/11/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "svg-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Text and Data Labels",
+      "goal": "Labels are associated with their data points. The same data is available in a readable table.",
+      "docPath": "/docs/en/labs/graphics/svg/units/12/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

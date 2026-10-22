@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Styles and Themes](../08/README.md)
+[Previous: Styles and Themes](../08/README.md) · [Next: Clips and Masks](../10/README.md)
 
 ## Experiment notes — write your own
 

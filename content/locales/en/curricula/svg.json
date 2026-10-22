@@ -244,6 +244,85 @@
         "questions.1": "Which units would you use to connect one lighting effect across several shapes?",
         "references.0.title": "MDN SVG from Scratch Tutorial"
       }
+    },
+    "svg-step-10": {
+      "sourceHash": "8f2a188fd4e53d44c2ef9cfb46a1080e1b7c7bbedc6b39684bb5fcc6752e37f7",
+      "values": {
+        "title": "Clips and Masks",
+        "prerequisites": "Prerequisite concepts: Bounding box units, User space. Prepare the result files and observation records from Unit 9.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Clipping",
+        "concepts.0.explanation": "clipPath restricts the visible geometric region. It suits cutting at a boundary.",
+        "concepts.1.title": "Mask intensity",
+        "concepts.1.explanation": "mask controls visibility with alpha or luminance. It produces different results from simple clipping when creating soft boundaries.",
+        "outcomes.0": "Explain clip and mask results side by side.",
+        "outcomes.1": "Check clipping outside the mask region.",
+        "steps.0": "Prepare day-10.js and index.html in an external practice project. Clip an image with a circular clipPath to create an avatar.",
+        "steps.1": "Put a gradient in a separate mask so the same image gradually fades out.",
+        "steps.2": "Save the output under the input condition Solid white, then run again with White-to-black gradient. Compare the hypothesis, \"Visibility gradually decreases with a luminance mask,\" against the display and logs, and record the actual result and the causes of any differences in day-10-notes.md.",
+        "variables.0.name": "Mask",
+        "variables.0.baseline": "Solid white",
+        "variables.0.change": "White-to-black gradient",
+        "variables.0.expected": "Visibility gradually decreases with a luminance mask",
+        "criteria.0": "Explain clip and mask results side by side.",
+        "criteria.1": "Check clipping outside the mask region.",
+        "questions.0": "How does changing mask-type change the meaning of black?",
+        "questions.1": "Does making clipPath translucent turn it into a soft mask?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
+    },
+    "svg-step-11": {
+      "sourceHash": "b1bd9f56501ea0429e0ccc67d5fb077ec0958b1d2c756144c0f6f42410b9e7bc",
+      "values": {
+        "title": "Filter Regions and Cost",
+        "prerequisites": "Prerequisite concepts: Clipping, Mask intensity. Prepare the result files and observation records from Unit 10.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Filter graph",
+        "concepts.0.explanation": "Filter primitives receive an input image and pass it on as output. Connecting the wrong input processes a previous effect instead of the original.",
+        "concepts.1.title": "Filter boundaries",
+        "concepts.1.explanation": "Blur spreads beyond the shape. A narrow filter region may clip the edges.",
+        "outcomes.0": "Resolve clipped shadows by setting the region.",
+        "outcomes.1": "Record blur extent and visual quality.",
+        "steps.0": "Prepare day-11.js and index.html in an external practice project. Connect feGaussianBlur and feOffset in a filter to create a shadow.",
+        "steps.1": "Adjust stdDeviation and filter x,y,width,height, and save the results before and after clipping.",
+        "steps.2": "Save the output under the input condition 2, then run again with 12. Compare the hypothesis, \"The shadow spreads and may be clipped outside the existing filter region,\" against the display and logs, and record the actual result and the causes of any differences in day-11-notes.md.",
+        "variables.0.name": "stdDeviation",
+        "variables.0.baseline": "2",
+        "variables.0.change": "12",
+        "variables.0.expected": "The shadow spreads and may be clipped outside the existing filter region",
+        "criteria.0": "Resolve clipped shadows by setting the region.",
+        "criteria.1": "Record blur extent and visual quality.",
+        "questions.0": "How does SourceGraphic differ from a previous result?",
+        "questions.1": "Why does a large filter region affect cost?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
+    },
+    "svg-step-12": {
+      "sourceHash": "d9e330c7fb4a47907064e0513130b62223fe87c59c0e28e4684ed731c77cd229",
+      "values": {
+        "title": "Text and Data Labels",
+        "prerequisites": "Prerequisite concepts: Filter graph, Filter boundaries. Prepare the result files and observation records from Unit 11.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Text placement",
+        "concepts.0.explanation": "text-anchor sets alignment relative to the x coordinate. It lets you align labels with data points even when string widths differ.",
+        "concepts.1.title": "Alternative information",
+        "concepts.1.explanation": "Text in a graphic may not explain all of a complex dataset. Adding a table or description lets people explore the information in another way.",
+        "outcomes.0": "Labels are associated with their data points.",
+        "outcomes.1": "The same data is available in a readable table.",
+        "steps.0": "Prepare day-12.js and index.html in an external practice project. Display node names and values using text and tspan.",
+        "steps.1": "Enter long names, adjust overlapping label positions, and output the same data as an HTML table.",
+        "steps.2": "Save the output under the input condition Short name, then run again with Long Korean name. Compare the hypothesis, \"Fixed spacing causes overlap and requires a layout policy,\" against the display and logs, and record the actual result and the causes of any differences in day-12-notes.md.",
+        "variables.0.name": "Label length",
+        "variables.0.baseline": "Short name",
+        "variables.0.change": "Long Korean name",
+        "variables.0.expected": "Fixed spacing causes overlap and requires a layout policy",
+        "criteria.0": "Labels are associated with their data points.",
+        "criteria.1": "The same data is available in a readable table.",
+        "questions.0": "Are text-anchor and CSS text-align the same?",
+        "questions.1": "How can you resolve overlap besides reducing the font size?",
+        "references.0.title": "MDN SVG from Scratch Tutorial",
+        "references.1.title": "MDN SVG title Accessible Name"
+      }
     }
   }
 }

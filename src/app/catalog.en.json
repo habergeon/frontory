@@ -113,6 +113,20 @@
       ]
     },
     {
+      "id": "svg",
+      "title": "SVG",
+      "category": "graphics",
+      "priority": 4,
+      "prerequisites": "HTML and CSS; coordinates",
+      "docPath": "/docs/en/labs/graphics/svg/README.md",
+      "stages": [
+        "Vector Paths and Coordinates",
+        "Styles, Effects, and DOM Input",
+        "Accessibility and Data Maps",
+        "Export and Large-Scale Comparisons"
+      ]
+    },
+    {
       "id": "gsap",
       "title": "GSAP",
       "category": "animation",
@@ -2343,6 +2357,35 @@
       "goal": "Keep before-and-after frame records and quality images under identical conditions. Explain improvements and remaining bottlenecks with evidence.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/03-project/README.md",
       "seriesId": "canvas-2d"
+    },
+    {
+      "id": "svg-01",
+      "day": 1,
+      "week": 1,
+      "title": "viewBox and Vectors",
+      "goal": "Distinguish internal coordinates from screen size. Explain differences in position and thickness when resizing.",
+      "docPath": "/docs/en/labs/graphics/svg/01-foundations/README.md",
+      "seriesId": "svg"
+    },
+    {
+      "id": "svg-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Basic Shapes and Attributes",
+      "goal": "Change stroke and fill independently. Check clipping of thick strokes.",
+      "docPath": "/docs/en/labs/graphics/svg/units/02/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "svg-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Path Commands and Closing Paths",
+      "goal": "Create the same arrow with both command styles. Distinguish closed paths from open paths.",
+      "docPath": "/docs/en/labs/graphics/svg/units/03/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
       "id": "gsap-01",

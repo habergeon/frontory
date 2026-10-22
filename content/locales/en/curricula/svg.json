@@ -1,0 +1,93 @@
+{
+  "series": {
+    "sourceHash": "8f7593291c3ecfe29c5e445b31a87c9cc01d31bfc9e3ed61784889533aa4cc3f",
+    "values": {
+      "stages.0": "Vector Paths and Coordinates",
+      "stages.1": "Styles, Effects, and DOM Input",
+      "stages.2": "Accessibility and Data Maps",
+      "stages.3": "Export and Large-Scale Comparisons",
+      "goal": "Connect vector coordinates with DOM semantics to build an accessible data map.",
+      "capstone": "A keyboard-editable SVG node map, standalone SVG export, and a report comparing Canvas with the same data"
+    }
+  },
+  "units": {
+    "svg-01": {
+      "sourceHash": "282c195496f9dcb59bd3751b4e5283eaba08de09001d9384483aae6cb88826b1",
+      "values": {
+        "title": "viewBox and Vectors",
+        "prerequisites": "You should be able to work with JavaScript functions and arrays, DOM events, and coordinates.",
+        "environment": "The existing built-in example provides only a starting point. It does not implement all the extended requirements. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "User coordinates",
+        "concepts.0.explanation": "viewBox defines the internal coordinate range. Changing the screen size does not change the shape data itself.",
+        "concepts.1.title": "Preserving proportions",
+        "concepts.1.explanation": "preserveAspectRatio determines how the internal rectangle fits the viewport. meet and slice produce different padding or clipping.",
+        "outcomes.0": "Distinguish internal coordinates from screen size.",
+        "outcomes.1": "Explain differences in position and thickness when resizing.",
+        "steps.0": "Prepare day-01.js and index.html in an external practice project. Create a 300×150 badge in inline svg using rect,circle,path.",
+        "steps.1": "Change viewBox and preserveAspectRatio with a select, and display the screen size and internal coordinates.",
+        "steps.2": "Save the output under the input condition 0 0 300 150, then run again with 0 0 600 300. Compare the hypothesis, \"Shapes at the same coordinates appear smaller on screen,\" against the display and logs, and record the actual result and the causes of any differences in day-01-notes.md.",
+        "variables.0.name": "viewBox",
+        "variables.0.baseline": "0 0 300 150",
+        "variables.0.change": "0 0 600 300",
+        "variables.0.expected": "Shapes at the same coordinates appear smaller on screen",
+        "criteria.0": "Distinguish internal coordinates from screen size.",
+        "criteria.1": "Explain differences in position and thickness when resizing.",
+        "questions.0": "Does changing viewBox also change the path data?",
+        "questions.1": "Which can clip a shape, meet or slice?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
+    },
+    "svg-step-02": {
+      "sourceHash": "a10904800e7a085f0378b8525d59410aa5918dae827be33e85b939d375f75267",
+      "values": {
+        "title": "Basic Shapes and Attributes",
+        "prerequisites": "Prerequisite concepts: User coordinates, Preserving proportions. Prepare the result files and observation records from Unit 1.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Geometry attributes",
+        "concepts.0.explanation": "The x,y,width,height of rect determine the shape's position and size. Distinguish their roles from CSS layout properties.",
+        "concepts.1.title": "Fill and stroke",
+        "concepts.1.explanation": "fill paints the interior and stroke draws the outline. Setting fill to none can still leave the stroke visible.",
+        "outcomes.0": "Change stroke and fill independently.",
+        "outcomes.1": "Check clipping of thick strokes.",
+        "steps.0": "Prepare day-02.js and index.html in an external practice project. Arrange rect,circle,ellipse with different fill and stroke values.",
+        "steps.1": "Change radius and stroke-width through an input form, and display the actual attribute values in output.",
+        "steps.2": "Save the output under the input condition 1, then run again with 12. Compare the hypothesis, \"The outline becomes thicker on both sides of the shape boundary,\" against the display and logs, and record the actual result and the causes of any differences in day-02-notes.md.",
+        "variables.0.name": "stroke-width",
+        "variables.0.baseline": "1",
+        "variables.0.change": "12",
+        "variables.0.expected": "The outline becomes thicker on both sides of the shape boundary",
+        "criteria.0": "Change stroke and fill independently.",
+        "criteria.1": "Check clipping of thick strokes.",
+        "questions.0": "Why is stroke also drawn outside the shape?",
+        "questions.1": "Do a transparent fill and none behave the same for input?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
+    },
+    "svg-step-03": {
+      "sourceHash": "7c059c21b4b80c239b06e7266d25c4d08d53e0cf42bc58a5d33852a1324ca1f3",
+      "values": {
+        "title": "Path Commands and Closing Paths",
+        "prerequisites": "Prerequisite concepts: Geometry attributes, Fill and stroke. Prepare the result files and observation records from Unit 2.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Absolute and relative coordinates",
+        "concepts.0.explanation": "Uppercase path commands use absolute coordinates. Lowercase commands move relative to the current point.",
+        "concepts.1.title": "Closing a path",
+        "concepts.1.explanation": "Z connects back to the starting point and closes the path. The line join can differ from manually placing the last point at the start.",
+        "outcomes.0": "Create the same arrow with both command styles.",
+        "outcomes.1": "Distinguish closed paths from open paths.",
+        "steps.0": "Prepare day-03.js and index.html in an external practice project. Write an arrow path with M,L,H,V,Z and overlay circles at its vertices.",
+        "steps.1": "Rewrite the same shape with relative commands and move the starting point.",
+        "steps.2": "Save the output under the input condition 20,20, then run again with 80,20. Compare the hypothesis, \"The shape made with relative commands moves while preserving its overall form,\" against the display and logs, and record the actual result and the causes of any differences in day-03-notes.md.",
+        "variables.0.name": "Starting point",
+        "variables.0.baseline": "20,20",
+        "variables.0.change": "80,20",
+        "variables.0.expected": "The shape made with relative commands moves while preserving its overall form",
+        "criteria.0": "Create the same arrow with both command styles.",
+        "criteria.1": "Distinguish closed paths from open paths.",
+        "questions.0": "When is the current point updated in relative commands?",
+        "questions.1": "What happens to fill and stroke respectively if you omit Z?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
+    }
+  }
+}

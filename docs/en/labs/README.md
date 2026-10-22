@@ -25,7 +25,7 @@ There are currently **23 series / 644 units**. Every series has 4 stages and 28 
 
 - [WebGL Journey (Korean)](../../labs/graphics/webgl/README.md) — ★★★★★ / 28 units / Prerequisites: React and TypeScript experience
 - [Canvas 2D](graphics/canvas-2d/README.md) — ★★★★★ / 28 units / Prerequisites: JavaScript, coordinates, and functions
-- [SVG (Korean)](../../labs/graphics/svg/README.md) — ★★★★ / 28 units / Prerequisites: HTML, CSS, coordinates
+- [SVG](graphics/svg/README.md) — ★★★★ / 28 units / Prerequisites: HTML, CSS, coordinates
 - [Three.js (Korean)](../../labs/graphics/threejs/README.md) — ★★★★★ / 28 units / Prerequisites: first WebGL scene, vectors and matrices
 - [Gaussian Splatting (Korean)](../../labs/graphics/gaussian-splatting/README.md) — ★★★★★ / 28 units / Prerequisites: Three.js cameras and projection, alpha blending
 - [WebGPU (Korean)](../../labs/graphics/webgpu/README.md) — ★★★★★ / 28 units / Prerequisites: WebGL pipeline, TypedArray, asynchronous work

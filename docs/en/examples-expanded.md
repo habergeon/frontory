@@ -244,6 +244,13 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [26. Frame Measurement and Bottlenecks](labs/graphics/canvas-2d/units/26/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-26/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [27. Integrated Editor and Regression Checks](labs/graphics/canvas-2d/units/27/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-27/example.js) — This is a reduced editor for checking command replay, undo, and JSON state. It does not replace every tool in the full capstone. |
 
+## SVG
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Basic Shapes and Attributes](labs/graphics/svg/units/02/README.md) | Editable example | [Source code](../../src/labs/svg-step-02/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [3. Path Commands and Closing Paths](labs/graphics/svg/units/03/README.md) | Editable example | [Source code](../../src/labs/svg-step-03/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+
 ## GSAP
 
 | Learning unit | Execution mode | Source and supported scope |

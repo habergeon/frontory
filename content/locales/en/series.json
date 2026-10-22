@@ -61,5 +61,12 @@
       "title": "Canvas 2D",
       "prerequisites": "JavaScript; coordinates and functions"
     }
+  },
+  "svg": {
+    "sourceHash": "ae9dccba66bbe9fff719648529b23c40ea1d52baa1b4c5b4dbbd9ade02414a04",
+    "values": {
+      "title": "SVG",
+      "prerequisites": "HTML and CSS; coordinates"
+    }
   }
 }

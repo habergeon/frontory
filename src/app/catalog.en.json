@@ -5021,6 +5021,36 @@
       "docPath": "/docs/en/labs/animation/motion/units/06/README.md",
       "seriesId": "motion",
       "exampleNote": "Interactive Variants experiment with resource cleanup."
+    },
+    {
+      "id": "motion-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Child Entrance Order",
+      "goal": "Learning outcome: Explain the role of Orchestration. Input case: Lists of 4 and 12 cards. Deliverable: The appearance times of the first and last cards. Connect your rationale for handling Stagger to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/07/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Child Entrance Order experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Measuring Layout",
+      "goal": "Learning outcome: Explain the role of Layout. Input case: Toggling between 1 and 3 columns. Deliverable: A record of final layout and text observations during the transition. Connect your rationale for handling Transform interpolation to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/08/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Measuring Layout experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Stable Keys",
+      "goal": "Learning outcome: Explain the role of Identity. Input case: Different notes on each card. Deliverable: An ID-to-note mapping table before and after sorting. Connect your rationale for handling Local state to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/09/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Stable Keys experiment with cleanup of the resources used."
     }
   ]
 }

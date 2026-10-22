@@ -172,6 +172,87 @@
         "references.0.title": "Motion React animation",
         "references.1.title": "Motion AnimatePresence"
       }
+    },
+    "motion-step-07": {
+      "sourceHash": "8032f9dee9e63add552218d183c3754295973ae94d8c799c0e8367a1041b30bc",
+      "values": {
+        "title": "Child Entrance Order",
+        "prerequisites": "Prepare the results of the Named states and Propagation exercises from Unit 6, “Variants”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Orchestration",
+        "concepts.0.explanation": "You can set the transition order for parents and children. Preserve the content reading order first.",
+        "concepts.1.title": "Stagger",
+        "concepts.1.explanation": "stagger spreads out child start times. A large delay in a long list makes the last item appear late.",
+        "outcomes.0": "Learning outcome: Explain the role of Orchestration. Input case: Lists of 4 and 12 cards.",
+        "outcomes.1": "Deliverable: The appearance times of the first and last cards. Connect your rationale for handling Stagger to the code.",
+        "steps.0": "In src/day-7.tsx of a separate exercise project, use the modern Motion stagger function and delayChildren to orchestrate card entrances. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Lists of 4 and 12 cards. Baseline: 0.05 seconds. Run under the baseline condition, then record observations and errors in notes/day-7.md.",
+        "steps.2": "Variable to change: Interval; new value: 0.2 seconds. Run again with the same input path. Deliverable to save: The appearance times of the first and last cards. Hypothesis to test: The last card waits longer. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Interval",
+        "variables.0.baseline": "0.05 seconds",
+        "variables.0.change": "0.2 seconds",
+        "variables.0.expected": "The last card waits longer.",
+        "criteria.0": "Required deliverable: The appearance times of the first and last cards. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Orchestration and Stagger. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Orchestration affect in this exercise? Input case: Lists of 4 and 12 cards.",
+        "questions.1": "Variable to change: Interval. Hypothesis to test: The last card waits longer. Did the actual results agree with the hypothesis? Explain your evidence in terms of Stagger.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    },
+    "motion-step-08": {
+      "sourceHash": "fa9d1eaa5039a92d7b5ef56a900cbc13d76110d74f084d2bf332d4e3a481213b",
+      "values": {
+        "title": "Measuring Layout",
+        "prerequisites": "Prepare the results of the Orchestration and Stagger exercises from Unit 7, “Child Entrance Order”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Layout",
+        "concepts.0.explanation": "layout animates the difference between the previous and next layouts. React and CSS determine the final document layout.",
+        "concepts.1.title": "Transform interpolation",
+        "concepts.1.explanation": "Distinguish visual movement from actual layout. Size changes can distort child content.",
+        "outcomes.0": "Learning outcome: Explain the role of Layout. Input case: Toggling between 1 and 3 columns.",
+        "outcomes.1": "Deliverable: A record of final layout and text observations during the transition. Connect your rationale for handling Transform interpolation to the code.",
+        "steps.0": "In src/day-8.tsx of a separate exercise project, add layout to motion cards and change the number of Grid columns. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Toggling between 1 and 3 columns. Baseline: 3 columns. Run under the baseline condition, then record observations and errors in notes/day-8.md.",
+        "steps.2": "Variable to change: Column count; new value: 1 column. Run again with the same input path. Deliverable to save: A record of final layout and text observations during the transition. Hypothesis to test: The layout changes and cards interpolate to their new positions. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Column count",
+        "variables.0.baseline": "3 columns",
+        "variables.0.change": "1 column",
+        "variables.0.expected": "The layout changes and cards interpolate to their new positions.",
+        "criteria.0": "Required deliverable: A record of final layout and text observations during the transition. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Layout and Transform interpolation. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Layout affect in this exercise? Input case: Toggling between 1 and 3 columns.",
+        "questions.1": "Variable to change: Column count. Hypothesis to test: The layout changes and cards interpolate to their new positions. Did the actual results agree with the hypothesis? Explain your evidence in terms of Transform interpolation.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    },
+    "motion-step-09": {
+      "sourceHash": "90e9fdd0a7d76a84198b051fb34d202d3c3e18006e667c902326f89d6fe1788e",
+      "values": {
+        "title": "Stable Keys",
+        "prerequisites": "Prepare the results of the Layout and Transform interpolation exercises from Unit 8, “Measuring Layout”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Identity",
+        "concepts.0.explanation": "A React key represents an item's identity. An array index can refer to a different item after reordering.",
+        "concepts.1.title": "Local state",
+        "concepts.1.explanation": "An input value must stay with its card. Data associations need separate validation even when the animation looks natural.",
+        "outcomes.0": "Learning outcome: Explain the role of Identity. Input case: Different notes on each card.",
+        "outcomes.1": "Deliverable: An ID-to-note mapping table before and after sorting. Connect your rationale for handling Local state to the code.",
+        "steps.0": "In src/day-9.tsx of a separate exercise project, add input fields to ID key and index key lists, then sort them. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Different notes on each card. Baseline: index. Run under the baseline condition, then record observations and errors in notes/day-9.md.",
+        "steps.2": "Variable to change: key; new value: item.id. Run again with the same input path. Deliverable to save: An ID-to-note mapping table before and after sorting. Hypothesis to test: Notes stay with the correct cards. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "key",
+        "variables.0.baseline": "index",
+        "variables.0.change": "item.id",
+        "variables.0.expected": "Notes stay with the correct cards.",
+        "criteria.0": "Required deliverable: An ID-to-note mapping table before and after sorting. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Identity and Local state. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Identity affect in this exercise? Input case: Different notes on each card.",
+        "questions.1": "Variable to change: key. Hypothesis to test: Notes stay with the correct cards. Did the actual results agree with the hypothesis? Explain your evidence in terms of Local state.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
     }
   }
 }

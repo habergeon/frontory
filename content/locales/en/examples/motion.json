@@ -28,5 +28,23 @@
     "values": {
       "note": "Interactive Variants experiment with resource cleanup."
     }
+  },
+  "motion-step-07": {
+    "sourceHash": "17afee1cff2f83b23884409ca139e1e3fe73b0fdaeed75fb200c40b81befced4",
+    "values": {
+      "note": "Interactive Child Entrance Order experiment with cleanup of the resources used."
+    }
+  },
+  "motion-step-08": {
+    "sourceHash": "cf21aeb0fa8c85499c8a719ef25133548fb980fe72ccd413495556bbafaec5c7",
+    "values": {
+      "note": "Interactive Measuring Layout experiment with cleanup of the resources used."
+    }
+  },
+  "motion-step-09": {
+    "sourceHash": "a86b545e2354df11a81274d1601e7e0c69b1669b2505317564900d5a11489727",
+    "values": {
+      "note": "Interactive Stable Keys experiment with cleanup of the resources used."
+    }
   }
 }

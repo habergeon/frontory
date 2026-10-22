@@ -48,5 +48,23 @@
     "values": {
       "note": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     }
+  },
+  "css-step-08": {
+    "sourceHash": "bbd7fb64e74f404b25ce7a89330321938b044db41bcaca37e47a0a381d3dec0c",
+    "values": {
+      "note": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "css-step-09": {
+    "sourceHash": "bbd7fb64e74f404b25ce7a89330321938b044db41bcaca37e47a0a381d3dec0c",
+    "values": {
+      "note": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "css-step-10": {
+    "sourceHash": "bbd7fb64e74f404b25ce7a89330321938b044db41bcaca37e47a0a381d3dec0c",
+    "values": {
+      "note": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
   }
 }

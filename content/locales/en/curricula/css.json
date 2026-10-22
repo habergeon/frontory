@@ -210,6 +210,84 @@
         "questions.1": "Did you find the cause before hiding overflow?",
         "references.0.title": "MDN CSS"
       }
+    },
+    "css-step-08": {
+      "sourceHash": "53eca8b3e8dae181c107790af52c2bb8653ae4475dc71068b1bfb8f3b367a9cc",
+      "values": {
+        "title": "Flex Axes and Alignment",
+        "prerequisites": "The work and experiment records from Unit 7, “Size Constraints and overflow”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Main and Cross Axes",
+        "concepts.0.explanation": "flex-direction determines the main axis. justify-content and align-items handle different axes.",
+        "concepts.1.title": "Available Space",
+        "concepts.1.explanation": "Alignment results depend on the remaining space. Some alignment differences may not be visible when items use all the space.",
+        "outcomes.0": "Sketch the main and cross axes for both directions.",
+        "outcomes.1": "Measure positions for start, center, and end alignment.",
+        "steps.0": "In index.html, prepare content with 3 buttons of different sizes and a height of 200px, and connect flex-axis.css.",
+        "steps.1": "Switch the toolbar between row and column, and mark the axes of the two alignment properties.",
+        "steps.2": "Run with 3 buttons of different sizes and a height of 200px. Results to check: Sketch the main and cross axes for both directions. Measure positions for start, center, and end alignment. Record expected and actual results separately.",
+        "variables.0.name": "Direction",
+        "variables.0.baseline": "row",
+        "variables.0.change": "column",
+        "variables.0.expected": "Hypothesis before running: The axis to which alignment applies will change. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Sketch the main and cross axes for both directions.",
+        "criteria.1": "Measure positions for start, center, and end alignment.",
+        "questions.0": "Does text direction also affect the starting point?",
+        "questions.1": "What does space-between look like with no remaining space?",
+        "references.0.title": "MDN CSS"
+      }
+    },
+    "css-step-09": {
+      "sourceHash": "dc5f0e7672eea4583b5455c7c4cdeb36260e75a66b161331c9f5d0efccd38dff",
+      "values": {
+        "title": "Flex Growth and Shrinkage",
+        "prerequisites": "The work and experiment records from Unit 8, “Flex Axes and Alignment”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Space Distribution",
+        "concepts.0.explanation": "flex-grow determines the ratio for distributing remaining space. Actual widths also reflect basis and minimum sizes.",
+        "concepts.1.title": "Shrink Factors",
+        "concepts.1.explanation": "flex-shrink contributes to shrinking items when space is insufficient. The automatic minimum size of long content can prevent shrinking.",
+        "outcomes.0": "Record the 3 actual panel widths at each container width.",
+        "outcomes.1": "Distinguish the effect of min-width:0 from shrink.",
+        "steps.0": "In index.html, prepare content with 900px and 420px containers, and connect flex-size.css.",
+        "steps.1": "Set the three panels' basis to 200px, and adjust grow·shrink and min-width.",
+        "steps.2": "Run with 900px and 420px containers. Results to check: Record the 3 actual panel widths at each container width. Distinguish the effect of min-width:0 from shrink. Record expected and actual results separately.",
+        "variables.0.name": "shrink",
+        "variables.0.baseline": "1",
+        "variables.0.change": "0",
+        "variables.0.expected": "Hypothesis before running: Overflow may occur in the narrow container. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record the 3 actual panel widths at each container width.",
+        "criteria.1": "Distinguish the effect of min-width:0 from shrink.",
+        "questions.0": "Does grow 2 always mean twice the width?",
+        "questions.1": "What should you check when both basis and width are set?",
+        "references.0.title": "MDN CSS"
+      }
+    },
+    "css-step-10": {
+      "sourceHash": "ae6e932d876ae51877a4f9f826d9c3a3f6464042308428bb526152e37200b8ff",
+      "values": {
+        "title": "Grid Tracks and Gaps",
+        "prerequisites": "The work and experiment records from Unit 9, “Flex Growth and Shrinkage”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Track Definitions",
+        "concepts.0.explanation": "grid-template-columns sets column sizes and counts. fr distributes space after fixed sizes and gaps are deducted.",
+        "concepts.1.title": "Minimum Constraints",
+        "concepts.1.explanation": "Content minimum sizes can affect even 1fr. minmax(0,1fr) lets you explicitly allow tracks to shrink.",
+        "outcomes.0": "Compare the sum of column widths and gaps with the container width.",
+        "outcomes.1": "Identify and fix overflowing elements at a narrow width.",
+        "steps.0": "In index.html, prepare content with 6 cards including long titles, and connect grid-tracks.css.",
+        "steps.1": "In a 3-column card layout, compare 1fr and minmax(0,1fr), and change gap.",
+        "steps.2": "Run with 6 cards including long titles. Results to check: Compare the sum of column widths and gaps with the container width. Identify and fix overflowing elements at a narrow width. Record expected and actual results separately.",
+        "variables.0.name": "Track",
+        "variables.0.baseline": "1fr",
+        "variables.0.change": "minmax(0,1fr)",
+        "variables.0.expected": "Hypothesis before running: Long content may be less likely to push columns wider. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Compare the sum of column widths and gaps with the container width.",
+        "criteria.1": "Identify and fix overflowing elements at a narrow width.",
+        "questions.0": "Is fr simply a percentage of the total width?",
+        "questions.1": "Which constraint does a minimum value of 0 in minmax remove?",
+        "references.0.title": "MDN CSS"
+      }
     }
   }
 }

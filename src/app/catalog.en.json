@@ -405,6 +405,36 @@
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "css-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Flex Axes and Alignment",
+      "goal": "Sketch the main and cross axes for both directions. Measure positions for start, center, and end alignment.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/08/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Flex Growth and Shrinkage",
+      "goal": "Record the 3 actual panel widths at each container width. Distinguish the effect of min-width:0 from shrink.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/09/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Grid Tracks and Gaps",
+      "goal": "Compare the sum of column widths and gaps with the container width. Identify and fix overflowing elements at a narrow width.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/10/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
       "id": "react-step-03",
       "day": 3,
       "week": 1,

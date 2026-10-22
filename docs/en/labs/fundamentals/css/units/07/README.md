@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Normal Flow and Margin Collapsing](../06/README.md)
+[Previous: Normal Flow and Margin Collapsing](../06/README.md) · [Next: Flex Axes and Alignment](../08/README.md)
 
 ## Experiment notes — write your own
 

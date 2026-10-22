@@ -3440,6 +3440,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "pixijs-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Releasing Textures and Owning Caches",
+      "goal": "Do not destroy textures used by another scene. Distinguish directly created TextureSources from Assets resources.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/22/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "Experiments with the reference lifetimes of directly owned frame Textures and TextureSources. See day 10 for the Assets.unload example."
+    },
+    {
+      "id": "pixijs-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Large Particle Sets and Feature Boundaries",
+      "goal": "Record feature differences between Sprite and Particle. Record the installed version and documentation version for experimental APIs.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/23/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "pixijs-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Offscreen Handling and Fewer Updates",
+      "goal": "Show objects at the correct position when they return onscreen. Record display and simulation policies separately.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/24/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

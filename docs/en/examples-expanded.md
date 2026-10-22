@@ -357,6 +357,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [19. Filters and Their Scope](labs/graphics/pixijs/units/19/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-19/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [20. Blend Modes and Order](labs/graphics/pixijs/units/20/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-20/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [21. Caching Static UI](labs/graphics/pixijs/units/21/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-21/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [22. Releasing Textures and Owning Caches](labs/graphics/pixijs/units/22/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-22/example.js) — Experiments with the reference lifetimes of directly owned frame Textures and TextureSources. See day 10 for the Assets.unload example. |
+| [23. Large Particle Sets and Feature Boundaries](labs/graphics/pixijs/units/23/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-23/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [24. Offscreen Handling and Fewer Updates](labs/graphics/pixijs/units/24/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-24/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

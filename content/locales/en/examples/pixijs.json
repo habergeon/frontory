@@ -112,5 +112,23 @@
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "pixijs-step-22": {
+    "sourceHash": "a5b20659af061333d97a63958fd9f1082b9038339940717975362c7b08ebfe1f",
+    "values": {
+      "note": "Experiments with the reference lifetimes of directly owned frame Textures and TextureSources. See day 10 for the Assets.unload example."
+    }
+  },
+  "pixijs-step-23": {
+    "sourceHash": "690413724afda5e14286a69a020797447d91ea147dca9e3d2618a22a7896fc97",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "pixijs-step-24": {
+    "sourceHash": "34b534bd9857e78034dd64aa659d2407cf1ad95f758aa6d6494215b708225964",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
   }
 }

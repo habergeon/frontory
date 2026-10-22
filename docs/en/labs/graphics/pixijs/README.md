@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 21 published in English
+Graphics · 4 stages · 28 units in the full series · 24 published in English
 
 ## Series goal
 
@@ -54,6 +54,9 @@ Only published English units are linked below. The full series has 28 units.
 
 ### Stage 4 · Resource Ownership, Large-Scale Rendering, and Measurement
 
+- [22. Releasing Textures and Owning Caches](units/22/README.md) — Editable example
+- [23. Large Particle Sets and Feature Boundaries](units/23/README.md) — Editable example
+- [24. Offscreen Handling and Fewer Updates](units/24/README.md) — Editable example
 
 ## Capstone project and deliverables
 
@@ -76,3 +79,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [PixiJS 8 a11y](https://pixijs.com/8.x/guides/components/accessibility)
 - [PixiJS 8 filters](https://pixijs.com/8.x/guides/components/filters)
 - [PixiJS 8 cache](https://pixijs.com/8.x/guides/components/scene-objects/container/cache-as-texture)
+- [PixiJS 8 particles](https://pixijs.com/8.x/guides/components/scene-objects/particle-container)

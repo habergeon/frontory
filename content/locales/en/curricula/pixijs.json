@@ -573,6 +573,86 @@
         "questions.1": "What determines the sharpness of an enlarged cache?",
         "references.0.title": "PixiJS 8 cache"
       }
+    },
+    "pixijs-step-22": {
+      "sourceHash": "cfed8deb860dbd45fbda8b860dab683cdec911ab087327795bc97985fff1defc",
+      "values": {
+        "title": "Releasing Textures and Owning Caches",
+        "prerequisites": "Prerequisite concepts: Texture Caching, Explicit Updates. Prepare the output files and observation records from Unit 21.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Resource Layers",
+        "concepts.0.explanation": "Sprite, Texture, and TextureSource are different objects. Removing a frame Texture can leave the shared source in use elsewhere.",
+        "concepts.1.title": "Assets Ownership",
+        "concepts.1.explanation": "Resources managed by Assets can be cleaned up with unload after use ends. First check that users in other scenes have also finished.",
+        "outcomes.0": "Do not destroy textures used by another scene.",
+        "outcomes.1": "Distinguish directly created TextureSources from Assets resources.",
+        "steps.0": "Prepare day-22.js and index.html in the external practice project. Create two Containers using a shared atlas and keep a ledger of user counts.",
+        "steps.1": "Clean up only Sprites when one screen ends, and call Assets.unload after the last user ends.",
+        "steps.2": "Save the output with the input condition 2 screens, then run again with 0 screens. Expected: Release the shared atlas only when its last user finishes. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-22-notes.md.",
+        "variables.0.name": "User count",
+        "variables.0.baseline": "2 screens",
+        "variables.0.change": "0 screens",
+        "variables.0.expected": "Release the shared atlas only when its last user finishes",
+        "criteria.0": "Do not destroy textures used by another scene.",
+        "criteria.1": "Distinguish directly created TextureSources from Assets resources.",
+        "questions.0": "How does Texture.destroy(true) affect sibling frames?",
+        "questions.1": "Why is explicit ownership needed even with automatic GC?",
+        "references.0.title": "PixiJS 8 gc",
+        "references.1.title": "PixiJS 8 assets"
+      }
+    },
+    "pixijs-step-23": {
+      "sourceHash": "1f113da8d81380bd45be77f466e4a5fa03b4b7b308d0498b9c0b4ddd52b91434",
+      "values": {
+        "title": "Large Particle Sets and Feature Boundaries",
+        "prerequisites": "Prerequisite concepts: Resource Layers, Assets Ownership. Prepare the output files and observation records from Unit 22.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Lightweight Particles",
+        "concepts.0.explanation": "v8 ParticleContainer is a separate lightweight path containing Particles. Do not expect the same children, events, and filter features as ordinary Sprites.",
+        "concepts.1.title": "Dynamic Properties",
+        "concepts.1.explanation": "dynamicProperties can specify only the properties that change. Static property or list changes may require update.",
+        "outcomes.0": "Record feature differences between Sprite and Particle.",
+        "outcomes.1": "Record the installed version and documentation version for experimental APIs.",
+        "steps.0": "Prepare day-23.js and index.html in the external practice project. Check the Particle API for the installed 8.x version, then create particles sharing one texture with ParticleContainer and addParticle.",
+        "steps.1": "Make only position dynamic, move particles, and compare a static color change before and after container.update().",
+        "steps.2": "Save the output with the input condition Static, then run again with Dynamic. Expected: The update path and upload scope differ when rotation changes every frame. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-23-notes.md.",
+        "variables.0.name": "rotation setting",
+        "variables.0.baseline": "Static",
+        "variables.0.change": "Dynamic",
+        "variables.0.expected": "The update path and upload scope differ when rotation changes every frame",
+        "criteria.0": "Record feature differences between Sprite and Particle.",
+        "criteria.1": "Record the installed version and documentation version for experimental APIs.",
+        "questions.0": "Which method replaces addChild?",
+        "questions.1": "How would you design interaction if each particle needed clicks?",
+        "references.0.title": "PixiJS 8 particles"
+      }
+    },
+    "pixijs-step-24": {
+      "sourceHash": "415d01cfba50ad317eced18bd55632de439d7203dcc3fdeb9441c11967abbbe0",
+      "values": {
+        "title": "Offscreen Handling and Fewer Updates",
+        "prerequisites": "Prerequisite concepts: Lightweight Particles, Dynamic Properties. Prepare the output files and observation records from Unit 23.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Visibility and Computation",
+        "concepts.0.explanation": "An application's update loop can continue updating objects outside the screen. Skipping display and skipping simulation are separate policies.",
+        "concepts.1.title": "Visibility Bounds",
+        "concepts.1.explanation": "Calculating bounds also costs time. In a simple scene, culling checks may cost more than they save, so comparison is needed.",
+        "outcomes.0": "Show objects at the correct position when they return onscreen.",
+        "outcomes.1": "Record display and simulation policies separately.",
+        "steps.0": "Prepare day-24.js and index.html in the external practice project. Compare screen boundaries with Sprite bounds to classify objects for display.",
+        "steps.1": "Keep movement data and compare hiding only the display with stopping updates too.",
+        "steps.2": "Save the output with the input condition 10%, then run again with 90%. Expected: Skipping display may have a larger effect, but the cost of checks must also be measured. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-24-notes.md.",
+        "variables.0.name": "Offscreen proportion",
+        "variables.0.baseline": "10%",
+        "variables.0.change": "90%",
+        "variables.0.expected": "Skipping display may have a larger effect, but the cost of checks must also be measured",
+        "criteria.0": "Show objects at the correct position when they return onscreen.",
+        "criteria.1": "Record display and simulation policies separately.",
+        "questions.0": "Is visible=false the same as stopping the application's update?",
+        "questions.1": "How can you avoid missing fast-moving objects in boundary checks?",
+        "references.0.title": "PixiJS 8 perf",
+        "references.1.title": "PixiJS 8 container"
+      }
     }
   }
 }

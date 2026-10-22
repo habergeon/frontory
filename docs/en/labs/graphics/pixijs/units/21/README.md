@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Blend Modes and Order](../20/README.md)
+[Previous: Blend Modes and Order](../20/README.md) · [Next: Releasing Textures and Owning Caches](../22/README.md)
 
 ## Experiment notes — write your own
 

@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Main-Thread Contention Experiment](../26/README.md)
+[Previous: Main-Thread Contention Experiment](../26/README.md) · [Next: Evaluating Rendering Separation](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

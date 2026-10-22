@@ -5812,6 +5812,15 @@
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/27/README.md",
       "seriesId": "offscreen-canvas",
       "exampleNote": "An interactive Summarizing Experiment Results experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-03",
+      "day": 28,
+      "week": 4,
+      "title": "Evaluating Rendering Separation",
+      "goal": "Learning outcome: explain the role of Effects of separation. Input cases: resize·input·stop·rerun·unsupported. Deliverable: An input-latency·frame·cleanup·fallback report. Explain the rationale for handling Completion criteria, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/03-project/README.md",
+      "seriesId": "offscreen-canvas"
     }
   ]
 }

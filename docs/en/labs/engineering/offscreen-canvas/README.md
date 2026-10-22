@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 27 published in English
+Engineering · 4 stages · 28 units in the full series · 28 published in English
 
 ## Series goal
 
@@ -60,6 +60,7 @@ Only published English units are linked below. The full series has 28 units.
 - [25. Resolution and Workload](units/25/README.md) — Editable example
 - [26. Main-Thread Contention Experiment](units/26/README.md) — Editable example
 - [27. Summarizing Experiment Results](units/27/README.md) — Editable example
+- [28. Evaluating Rendering Separation](03-project/README.md) — Editable example
 
 ## Capstone project and deliverables
 

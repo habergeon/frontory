@@ -739,6 +739,33 @@
         "references.0.title": "MDN OffscreenCanvas",
         "references.1.title": "MDN Using Web Workers"
       }
+    },
+    "offscreen-canvas-03": {
+      "sourceHash": "9b9565e7486d25fb60714f246719656ca74d670847faab62a9facaf14abb3adf",
+      "values": {
+        "title": "Evaluating Rendering Separation",
+        "prerequisites": "Prepare the experiment results for Distributions and Limitations from Unit 27, “Summarizing Experiment Results”.",
+        "environment": "The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Effects of separation",
+        "concepts.0.explanation": "A Worker moves rendering work off the main thread. It does not eliminate the GPU work itself.",
+        "concepts.1.title": "Completion criteria",
+        "concepts.1.explanation": "Stopping and rerunning are functionality alongside responsiveness. Record results for error and unsupported paths too.",
+        "outcomes.0": "Learning outcome: explain the role of Effects of separation. Input cases: resize·input·stop·rerun·unsupported.",
+        "outcomes.1": "Deliverable: An input-latency·frame·cleanup·fallback report. Explain the rationale for handling Completion criteria, linking it to the code.",
+        "steps.0": "In src/day-28.js in a separate practice project, use the existing offscreen-canvas-03 as a reference to complete a particle scene in both modes and an evaluation report. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: resize·input·stop·rerun·unsupported. Baseline: Main thread. Run under the baseline conditions, then record observations and errors in notes/day-28.md.",
+        "steps.2": "Variable: Rendering mode; changed value: Worker. Run again through the same input path. Deliverable to save: An input-latency·frame·cleanup·fallback report. Hypothesis to check: Choose based on evidence of benefits and costs for the same scene. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Rendering mode",
+        "variables.0.baseline": "Main thread",
+        "variables.0.change": "Worker",
+        "variables.0.expected": "Choose based on evidence of benefits and costs for the same scene.",
+        "criteria.0": "Required deliverable: An input-latency·frame·cleanup·fallback report. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Effects of separation and Completion criteria. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Effects of separation affect in this exercise? Input cases: resize·input·stop·rerun·unsupported.",
+        "questions.1": "Variable: Rendering mode. Hypothesis to check: Choose based on evidence of benefits and costs for the same scene. Did the actual results agree with the hypothesis? Explain the evidence in terms of Completion criteria.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
     }
   }
 }

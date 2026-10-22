@@ -496,6 +496,87 @@
         "references.0.title": "MDN Using Web Workers",
         "references.1.title": "MDN Transferable objects"
       }
+    },
+    "web-workers-step-19": {
+      "sourceHash": "b9d4859cb48c6637d5af3bb4ac4de26a6606366de528c64fe6f69e12ae313cc4",
+      "values": {
+        "title": "Timeouts and Duplicate Responses",
+        "prerequisites": "Prepare the experiment results for Completion order and Index from Unit 18, “Restoring Result Order”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Time limit",
+        "concepts.0.explanation": "A timeout judges that a response is late. It does not automatically stop Worker computation.",
+        "concepts.1.title": "Single settlement",
+        "concepts.1.explanation": "Each request must settle only once. Discard late responses after a timeout.",
+        "outcomes.0": "Learning outcome: explain the role of Time limit. Input cases: normal, delayed, and duplicate responses.",
+        "outcomes.1": "Deliverable: per-request settlement counts and pending size. Explain the rationale for handling Single settlement, linking it to the code.",
+        "steps.0": "In src/day-19.js in a separate practice project, create per-request timers and settled checks, and inject late responses. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: normal, delayed, and duplicate responses. Baseline: Long enough. Run under the baseline conditions, then record observations and errors in notes/day-19.md.",
+        "steps.2": "Variable: Time limit; changed value: Shorter than the delay. Run again through the same input path. Deliverable to save: per-request settlement counts and pending size. Hypothesis to check: Failure is recorded once, and late responses are ignored. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Time limit",
+        "variables.0.baseline": "Long enough",
+        "variables.0.change": "Shorter than the delay",
+        "variables.0.expected": "Failure is recorded once, and late responses are ignored.",
+        "criteria.0": "Required deliverable: per-request settlement counts and pending size. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Time limit and Single settlement. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Time limit affect in this exercise? Input cases: normal, delayed, and duplicate responses.",
+        "questions.1": "Variable: Time limit. Hypothesis to check: Failure is recorded once, and late responses are ignored. Did the actual results agree with the hypothesis? Explain the evidence in terms of Single settlement.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-20": {
+      "sourceHash": "5e20cb8ce04ecd7a10dbcde1bee1334eaa452fe7bf3691388113603f81a26d1a",
+      "values": {
+        "title": "Failure Recovery",
+        "prerequisites": "Prepare the experiment results for Time limit and Single settlement from Unit 19, “Timeouts and Duplicate Responses”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Worker failure",
+        "concepts.0.explanation": "An error event may affect multiple in-progress tasks. Find the requests assigned to that Worker.",
+        "concepts.1.title": "Retry",
+        "concepts.1.explanation": "Retry side-effect-free tasks with care. Without an attempt limit, failures can form a loop.",
+        "outcomes.0": "Learning outcome: explain the role of Worker failure. Input cases: a normal task and a failing task.",
+        "outcomes.1": "Deliverable: replacement count, final error, and completed IDs. Explain the rationale for handling Retry, linking it to the code.",
+        "steps.0": "In src/day-20.js in a separate practice project, trigger an error for a specific input and implement pool replacement and one retry. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: a normal task and a failing task. Baseline: 0 retries. Run under the baseline conditions, then record observations and errors in notes/day-20.md.",
+        "steps.2": "Variable: Retry limit; changed value: 1 retry. Run again through the same input path. Deliverable to save: replacement count, final error, and completed IDs. Hypothesis to check: Processing ends with a result or error without endless recreation. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Retry limit",
+        "variables.0.baseline": "0 retries",
+        "variables.0.change": "1 retry",
+        "variables.0.expected": "Processing ends with a result or error without endless recreation.",
+        "criteria.0": "Required deliverable: replacement count, final error, and completed IDs. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Worker failure and Retry. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Worker failure affect in this exercise? Input cases: a normal task and a failing task.",
+        "questions.1": "Variable: Retry limit. Hypothesis to check: Processing ends with a result or error without endless recreation. Did the actual results agree with the hypothesis? Explain the evidence in terms of Retry.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-21": {
+      "sourceHash": "615c8866df41d2299ce4322fbb4cbef7cc2ffff9cff4335b0fb0a537665682c0",
+      "values": {
+        "title": "Separating MessageChannels",
+        "prerequisites": "Prepare the experiment results for Worker failure and Retry from Unit 20, “Failure Recovery”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Ports",
+        "concepts.0.explanation": "MessageChannel creates an independent messaging path. A port can be passed in the transfer list.",
+        "concepts.1.title": "Disposal",
+        "concepts.1.explanation": "Close a port that is no longer used. Request completion and channel lifetime are separate.",
+        "outcomes.0": "Learning outcome: explain the role of Ports. Input cases: two simultaneous tasks.",
+        "outcomes.1": "Deliverable: messages for each channel and close records. Explain the rationale for handling Disposal, linking it to the code.",
+        "steps.0": "In src/day-21.js in a separate practice project, pass a port to the Worker to separate progress and result channels. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: two simultaneous tasks. Baseline: Single Worker channel. Run under the baseline conditions, then record observations and errors in notes/day-21.md.",
+        "steps.2": "Variable: Channel; changed value: Per-request port. Run again through the same input path. Deliverable to save: messages for each channel and close records. Hypothesis to check: Messages from different tasks are distinguished. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Channel",
+        "variables.0.baseline": "Single Worker channel",
+        "variables.0.change": "Per-request port",
+        "variables.0.expected": "Messages from different tasks are distinguished.",
+        "criteria.0": "Required deliverable: messages for each channel and close records. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Ports and Disposal. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Ports affect in this exercise? Input cases: two simultaneous tasks.",
+        "questions.1": "Variable: Channel. Hypothesis to check: Messages from different tasks are distinguished. Did the actual results agree with the hypothesis? Explain the evidence in terms of Disposal.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
     }
   }
 }

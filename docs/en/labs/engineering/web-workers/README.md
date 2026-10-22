@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 18 published in English
+Engineering · 4 stages · 28 units in the full series · 21 published in English
 
 ## Series goal
 
@@ -48,6 +48,9 @@ Only published English units are linked below. The full series has 28 units.
 - [16. A Bounded Task Queue](units/16/README.md) — Editable example
 - [17. Worker Pool](units/17/README.md) — Editable example
 - [18. Restoring Result Order](units/18/README.md) — Editable example
+- [19. Timeouts and Duplicate Responses](units/19/README.md) — Editable example
+- [20. Failure Recovery](units/20/README.md) — Editable example
+- [21. Separating MessageChannels](units/21/README.md) — Editable example
 
 ### Stage 4 · Validating Throughput and Responsiveness
 

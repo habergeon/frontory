@@ -5431,6 +5431,36 @@
       "docPath": "/docs/en/labs/engineering/web-workers/units/18/README.md",
       "seriesId": "web-workers",
       "exampleNote": "An interactive Restoring Result Order experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Timeouts and Duplicate Responses",
+      "goal": "Learning outcome: explain the role of Time limit. Input cases: normal, delayed, and duplicate responses. Deliverable: per-request settlement counts and pending size. Explain the rationale for handling Single settlement, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/19/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Timeouts and Duplicate Responses experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Failure Recovery",
+      "goal": "Learning outcome: explain the role of Worker failure. Input cases: a normal task and a failing task. Deliverable: replacement count, final error, and completed IDs. Explain the rationale for handling Retry, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/20/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Failure Recovery experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Separating MessageChannels",
+      "goal": "Learning outcome: explain the role of Ports. Input cases: two simultaneous tasks. Deliverable: messages for each channel and close records. Explain the rationale for handling Disposal, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/21/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Separating MessageChannels experiment with cleanup of the resources it uses."
     }
   ]
 }

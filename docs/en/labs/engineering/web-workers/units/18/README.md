@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Worker Pool](../17/README.md)
+[Previous: Worker Pool](../17/README.md) · [Next: Timeouts and Duplicate Responses](../19/README.md)
 
 ## Experiment notes — write your own
 

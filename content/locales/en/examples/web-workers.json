@@ -94,5 +94,23 @@
     "values": {
       "note": "An interactive Restoring Result Order experiment with cleanup of the resources it uses."
     }
+  },
+  "web-workers-step-19": {
+    "sourceHash": "b28cebe9cf194dd2e1a910b9c36fc70a6addc3f8c4939b88d9c08e5d42914f69",
+    "values": {
+      "note": "An interactive Timeouts and Duplicate Responses experiment with cleanup of the resources it uses."
+    }
+  },
+  "web-workers-step-20": {
+    "sourceHash": "20a9702f46bff611521f7cb18c4fe0ed886a4058e0157e258ba6900add70aec5",
+    "values": {
+      "note": "An interactive Failure Recovery experiment with cleanup of the resources it uses."
+    }
+  },
+  "web-workers-step-21": {
+    "sourceHash": "b914c9b94653879baccf831d78728efd905506b8ea88d3ccc43601b42fe7ac9f",
+    "values": {
+      "note": "An interactive Separating MessageChannels experiment with cleanup of the resources it uses."
+    }
   }
 }

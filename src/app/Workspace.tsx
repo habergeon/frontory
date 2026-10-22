@@ -66,7 +66,7 @@ export function Workspace({ unit, onProgressChange }: { unit: Unit; onProgressCh
         <header className="panel-header"><div><span className="eyebrow">01 / PREVIEW</span><h2>{text.practiceScreen}</h2></div>
           {unit.source !== undefined && <button onClick={() => setRevision(value => value + 1)}>{text.rerun}</button>}
         </header>
-        {unit.source !== undefined ? (executable !== null ? <Preview code={executable} revision={revision} notice={notice} /> : <div className="empty-state"><p>{compilation?.error ? text.fixCodeToRun : text.preparingEditor}</p></div>) :
+        {unit.source !== undefined ? (executable !== null ? <Preview locale={locale} code={executable} revision={revision} notice={notice} /> : <div className="empty-state"><p>{compilation?.error ? text.fixCodeToRun : text.preparingEditor}</p></div>) :
           <div className="empty-state"><span>{text.documentPractice}</span><h3>{text.implementTask}</h3><p>{text.documentPracticeHint}</p></div>}
       </section>
       <section id="panel-code" className={'panel ' + (panel === 'code' ? 'mobile-active' : '')} aria-label={text.editSourceCode}>

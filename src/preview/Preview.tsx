@@ -1,9 +1,14 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import type { Locale } from '../i18n/locale'
+import { messages } from '../i18n/messages'
 import runtime from './runtime.generated.js?raw'
 import { createPreviewDocument } from './document'
 
-interface Frame { token: string; document: string; code: string; revision: number }
-export function Preview({ code, revision, notice }: { code: string; revision: number; notice?: string }) {
+interface Frame { token: string; document: string; code: string; revision: number; locale: Locale }
+export function Preview({ code, revision, notice, locale }: { code: string; revision: number; notice?: string; locale: Locale }) {
+  const text = messages[locale]
+  const latestLocale = useRef(locale)
+  useLayoutEffect(() => { latestLocale.current = locale }, [locale])
   const iframe = useRef<HTMLIFrameElement>(null)
   const active = useRef<Frame | null>(null)
   const [frame, setFrame] = useState<Frame | null>(null)
@@ -20,7 +25,8 @@ export function Preview({ code, revision, notice }: { code: string; revision: nu
       clear()
       if (cancelled) return
       const token = crypto.randomUUID()
-      const next = { token, document: createPreviewDocument(code, token, runtime), code, revision }
+      const locale = latestLocale.current
+      const next = { token, document: createPreviewDocument(code, token, runtime, locale), code, revision, locale }
       active.current = next
       setFrame(next)
     }
@@ -58,15 +64,16 @@ export function Preview({ code, revision, notice }: { code: string; revision: nu
   const current = result?.token === frame?.token ? result : null
   return <div className="preview-content">
     <div className="preview-status" role="status">
-      {notice ?? (pending ? '검사된 코드 반영 중…' : current?.status === 'ready' ? '실행 중' : current?.status === 'error' ? '실행 오류' : '장면 준비 중…')}
+      {notice ?? (pending ? text.applyingCode : current?.status === 'ready' ? text.running : current?.status === 'error' ? text.runtimeError : text.preparingScene)}
     </div>
     <div className="canvas-shell">
-      {frame && <iframe ref={iframe} title="실습 미리보기" sandbox="allow-scripts" srcDoc={frame.document} />}
+      {frame && <iframe ref={iframe} title={text.practicePreview} sandbox="allow-scripts" srcDoc={frame.document} />}
     </div>
     {!pending && current?.status === 'error' && <div className="preview-error" role="alert">
-      <strong>코드를 확인하세요</strong><pre>{current.message}</pre>
-      <p>편집기에서 수정하면 다시 실행됩니다. 필기는 유지됩니다.</p>
+      <strong>{text.checkCode}</strong><pre>{current.message}</pre>
+      <p>{text.previewErrorHint}</p>
     </div>}
-    <p className="panel-hint">조작 방법은 예제의 주석을 확인하세요. OrbitControls 장면은 드래그·휠로 조작할 수 있습니다.</p>
+    {frame && frame.locale !== locale && <p className="panel-hint preview-locale-notice">{text.nextRunLocale}</p>}
+    <p className="panel-hint">{text.controlsHint}</p>
   </div>
 }

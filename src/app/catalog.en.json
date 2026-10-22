@@ -2045,6 +2045,15 @@
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
+      "id": "svelte-03",
+      "day": 28,
+      "week": 4,
+      "title": "Framework Comparison",
+      "goal": "Toggle, filter, and draft results from all three implementations are recorded against the same contract. Store adapter results are not confused with compiled Svelte results.",
+      "docPath": "/docs/en/labs/frameworks/svelte/03-project/README.md",
+      "seriesId": "svelte"
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

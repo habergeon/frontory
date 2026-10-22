@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Regression Scenarios for the Same Contract](../26/README.md)
+[Previous: Regression Scenarios for the Same Contract](../26/README.md) · [Next: Framework Comparison](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

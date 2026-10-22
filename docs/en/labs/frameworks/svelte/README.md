@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 27 published in English
+UI frameworks · 4 stages · 28 units in the full series · 28 published in English
 
 ## Series goal
 
@@ -60,6 +60,7 @@ Only published English units are linked below. The full series has 28 units.
 - [25. Observing Compilation Output and Performance](units/25/README.md) — External example · preview instructions
 - [26. Regression Scenarios for the Same Contract](units/26/README.md) — External example · preview instructions
 - [27. Preparing a Three-Framework Comparison](units/27/README.md) — External example · preview instructions
+- [28. Framework Comparison](03-project/README.md) — Editable example
 
 ## Capstone project and deliverables
 

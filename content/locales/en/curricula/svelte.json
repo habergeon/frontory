@@ -752,6 +752,34 @@
         "references.0.title": "Svelte Official Documentation and Runes Index",
         "references.1.title": "Svelte $effect and Cleanup"
       }
+    },
+    "svelte-03": {
+      "sourceHash": "7fd809246ccbf3847d9e14114547b1de39bff41eeb2fe0da6a1c66212326273f",
+      "values": {
+        "title": "Framework Comparison",
+        "prerequisites": "Unit 28 continues with the work and experiment records from Unit 27.",
+        "environment": "Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner. The existing svelte-03 preview is a starting point. Implement the expanded work described here in a separate project.",
+        "concepts.0.title": "Comparing Execution Models",
+        "concepts.0.explanation": "React render calculations, Vue reactivity, and Svelte compiled updates do not share the same internal model. Explain differences using code that implements the same UI contract and observed results.",
+        "outcomes.0": "Toggle, filter, and draft results from all three implementations are recorded against the same contract.",
+        "criteria.0": "Toggle, filter, and draft results from all three implementations are recorded against the same contract.",
+        "questions.0": "Which conditions prevent generalizing performance rankings?",
+        "concepts.1.title": "Evidence and Preference",
+        "concepts.1.explanation": "One experiment’s results are limited to its data and environment. Record measurements, verified lifetimes, and personal preferences separately.",
+        "outcomes.1": "Store adapter results are not confused with compiled Svelte results.",
+        "criteria.1": "Store adapter results are not confused with compiled Svelte results.",
+        "questions.1": "Can you separate evidence from preference when explaining which implementation felt easier for the same requirements, and why?",
+        "steps.0": "Perform the same 10 operations on actual Svelte components in the external project and the React·Vue card implementations.",
+        "steps.1": "In notes/final.md, tabulate state, derived value, subscription, and cleanup code, plus the results of returning to A/B drafts.",
+        "steps.2": "Mark the built-in svelte-03 as a store adapter and submit items not run, failures, and measurement limitations together.",
+        "variables.0.name": "Implementation",
+        "variables.0.baseline": "React·Vue·Svelte with identical functionality",
+        "variables.0.change": "Change only the framework",
+        "variables.0.expected": "The output contract stays the same, while responsibilities in state and cleanup code differ.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup",
+        "references.2.title": "Svelte onMount and tick"
+      }
     }
   }
 }

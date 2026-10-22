@@ -166,6 +166,84 @@
         "questions.1": "Why check which program is active before updating uniforms?",
         "references.0.title": "GLSL ES 3.00 Specification"
       }
+    },
+    "glsl-step-07": {
+      "sourceHash": "1bf9136d79122159096c776ae7a1172539c3e35da35f9753af18ea0361848009",
+      "values": {
+        "title": "Debug Output and Minimal Reproductions",
+        "prerequisites": "Continue using the output and records from Unit 6. Before experimenting with Debug Output and Minimal Reproductions, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Visual Debugging",
+        "concepts.0.explanation": "Outputting UVs, normals, or masks directly instead of complex colors reveals faulty stages. Map numeric ranges to the displayable 0..1 range for inspection.",
+        "concepts.1.title": "Minimal Cases",
+        "concepts.1.explanation": "Fixing several effects at once can obscure the cause of an error. Reduce the case to fixed inputs and a solid-color output, then restore one stage at a time.",
+        "outcomes.0": "Visualize intermediate values.",
+        "outcomes.1": "Narrow down errors with a minimal reproduction.",
+        "steps.0": "Add a mode uniform in debug.glsl to select solid-color, UV, or intermediate-value output.",
+        "steps.1": "Deliberately swap UV components and record which mode reveals the error.",
+        "steps.2": "Restore the working source and save a minimal reproduction containing only one triangle.",
+        "variables.0.name": "debug mode",
+        "variables.0.baseline": "final color",
+        "variables.0.change": "direct UV output",
+        "variables.0.expected": "Expect coordinate errors hidden by lighting or color compositing to become visible.",
+        "criteria.0": "Three debug modes each show a different intermediate value.",
+        "criteria.1": "Keep both the minimal input that reproduces the error and the restored source.",
+        "questions.0": "What do you miss when outputting negative normals directly as colors?",
+        "questions.1": "Which variable would you eliminate first when the screen is black?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-08": {
+      "sourceHash": "3be3070b02ebc62d5e0020c9ed4bc823923f411a5bd5961f4621b1ae0f0eabbc",
+      "values": {
+        "title": "UVs and Aspect Ratio",
+        "prerequisites": "Continue using the output and records from Unit 7. Before experimenting with UVs and Aspect Ratio, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Parametric Coordinates",
+        "concepts.0.explanation": "UVs describe coordinates in 2 dimensions on a surface, distinct from screen pixel coordinates. Screen effects require separate consideration of resolution and aspect ratio.",
+        "concepts.1.title": "Circular Distance",
+        "concepts.1.explanation": "On a non-square screen, equal UV distances correspond to different pixel distances. Apply aspect to the x-axis to preserve a circle's shape.",
+        "outcomes.0": "Distinguish UVs from screen coordinates.",
+        "outcomes.1": "Correct for aspect ratio.",
+        "steps.0": "Output UVs as RGB in uv.glsl to check their directions.",
+        "steps.1": "Create a circular mask using length((uv-0.5)*vec2(aspect,1)).",
+        "steps.2": "Compare the same radius in 600×300 and 300×600 drawing buffers.",
+        "variables.0.name": "aspect correction",
+        "variables.0.baseline": "none",
+        "variables.0.change": "apply width/height",
+        "variables.0.expected": "Expect equal horizontal and vertical pixel diameters even on a wide or tall screen.",
+        "criteria.0": "The circle's diameters differ by no more than 2 pixels at both screen aspect ratios.",
+        "criteria.1": "Record the UV origin and Y direction.",
+        "questions.0": "How do you choose between surface UVs and gl_FragCoord?",
+        "questions.1": "Why use the drawing buffer size instead of the CSS size?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-09": {
+      "sourceHash": "5bb89fb23c4d69ce860ed1969692479548926cab87b4bf833f2826617b0d95f6",
+      "values": {
+        "title": "Step and Smoothstep Masks",
+        "prerequisites": "Continue using the output and records from Unit 8. Before experimenting with Step and Smoothstep Masks, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Selecting Intervals",
+        "concepts.0.explanation": "step creates a mask that changes abruptly at a boundary. smoothstep provides a smooth transition between two boundaries.",
+        "concepts.1.title": "Boundary Conditions",
+        "concepts.1.explanation": "smoothstep requires edge0 to be less than edge1. Express inversion by subtracting the result from 1 rather than reversing the edges.",
+        "outcomes.0": "Build interval masks.",
+        "outcomes.1": "Set safe boundary conditions.",
+        "steps.0": "Write a circle distance and a step-based interior mask in mask.glsl.",
+        "steps.1": "Implement inversion with 1.0-smoothstep(r-w,r+w,d).",
+        "steps.2": "Vary w and compare boundary pixels and the overall circle size.",
+        "variables.0.name": "Boundary width",
+        "variables.0.baseline": "0.001",
+        "variables.0.change": "0.03",
+        "variables.0.expected": "Expect a wider transition region while retaining the center and outer radius.",
+        "criteria.0": "Maintain edge0<edge1 for every input.",
+        "criteria.1": "Compare boundary cross-section colors at five points for both widths.",
+        "questions.0": "How does increasing smoothstep width differ from increasing the circle radius?",
+        "questions.1": "What jitter appears when a step boundary moves?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
     }
   }
 }

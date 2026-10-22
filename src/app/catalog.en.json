@@ -3887,6 +3887,36 @@
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
+      "id": "glsl-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Debug Output and Minimal Reproductions",
+      "goal": "Visualize intermediate values. Narrow down errors with a minimal reproduction.",
+      "docPath": "/docs/en/labs/shader/glsl/units/07/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
+      "id": "glsl-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "UVs and Aspect Ratio",
+      "goal": "Distinguish UVs from screen coordinates. Correct for aspect ratio.",
+      "docPath": "/docs/en/labs/shader/glsl/units/08/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
+      "id": "glsl-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Step and Smoothstep Masks",
+      "goal": "Build interval masks. Set safe boundary conditions.",
+      "docPath": "/docs/en/labs/shader/glsl/units/09/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
       "id": "wgsl-01",
       "day": 1,
       "week": 1,

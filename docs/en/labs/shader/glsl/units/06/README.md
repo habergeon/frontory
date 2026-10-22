@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Tracking Coordinate Spaces](../05/README.md)
+[Previous: Tracking Coordinate Spaces](../05/README.md) · [Next: Debug Output and Minimal Reproductions](../07/README.md)
 
 ## Experiment notes — write your own
 

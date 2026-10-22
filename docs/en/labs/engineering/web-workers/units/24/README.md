@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Shared Memory Requirements](../23/README.md)
+[Previous: Shared Memory Requirements](../23/README.md) · [Next: Measuring End-to-End Latency](../25/README.md)
 
 ## Experiment notes — write your own
 

@@ -658,6 +658,87 @@
         "references.0.title": "MDN Using Web Workers",
         "references.1.title": "MDN Transferable objects"
       }
+    },
+    "web-workers-step-25": {
+      "sourceHash": "ecfa5e5551d998eb8dc096a6685edbe43b71332cbffc4935e9d9db8f29fe4e06",
+      "values": {
+        "title": "Measuring End-to-End Latency",
+        "prerequisites": "Prepare the experiment results for Races and Atomics from Unit 24, “Atomics and Synchronization”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Round-trip cost",
+        "concepts.0.explanation": "Measuring only computation inside the Worker misses serialization and waiting costs. Measure from sending the request through updating the UI.",
+        "concepts.1.title": "Clock references",
+        "concepts.1.explanation": "Distinguish the time origins of different contexts. Record main-thread round-trip time and Worker-internal duration separately.",
+        "outcomes.0": "Learning outcome: explain the role of Round-trip cost. Input cases: three array sizes.",
+        "outcomes.1": "Deliverable: a table of round-trip, computation, and remaining intervals. Explain the rationale for handling Clock references, linking it to the code.",
+        "steps.0": "In src/day-25.js in a separate practice project, include main-side performance.now measurements and Worker computation duration in the response. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: three array sizes. Baseline: Small array. Run under the baseline conditions, then record observations and errors in notes/day-25.md.",
+        "steps.2": "Variable: Data size; changed value: Large array. Run again through the same input path. Deliverable to save: a table of round-trip, computation, and remaining intervals. Hypothesis to check: The proportions spent on communication and computation may change. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Data size",
+        "variables.0.baseline": "Small array",
+        "variables.0.change": "Large array",
+        "variables.0.expected": "The proportions spent on communication and computation may change.",
+        "criteria.0": "Required deliverable: a table of round-trip, computation, and remaining intervals. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Round-trip cost and Clock references. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Round-trip cost affect in this exercise? Input cases: three array sizes.",
+        "questions.1": "Variable: Data size. Hypothesis to check: The proportions spent on communication and computation may change. Did the actual results agree with the hypothesis? Explain the evidence in terms of Clock references.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-26": {
+      "sourceHash": "a0805a1b2b8d8a73a4ffa68aca981edf27a422996f357b3c90e0225764a5ee9c",
+      "values": {
+        "title": "Memory and Pool Limits",
+        "prerequisites": "Prepare the experiment results for Round-trip cost and Clock references from Unit 25, “Measuring End-to-End Latency”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Peak usage",
+        "concepts.0.explanation": "Concurrent buffers increase peak memory. Keeping references after completion delays reclamation.",
+        "concepts.1.title": "Limits",
+        "concepts.1.explanation": "Limit both pool size and queue length. Check ownership state before reusing a buffer.",
+        "outcomes.0": "Learning outcome: explain the role of Peak usage. Input cases: 20 identical tasks.",
+        "outcomes.1": "Deliverable: maximum concurrent buffer bytes and the remaining reference count. Explain the rationale for handling Limits, linking it to the code.",
+        "steps.0": "In src/day-26.js in a separate practice project, record buffer sizes and the inFlight count, and remove large references from the completed list. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 20 identical tasks. Baseline: 1 task. Run under the baseline conditions, then record observations and errors in notes/day-26.md.",
+        "steps.2": "Variable: Concurrent tasks; changed value: 4 tasks. Run again through the same input path. Deliverable to save: maximum concurrent buffer bytes and the remaining reference count. Hypothesis to check: Peak buffer usage may increase. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Concurrent tasks",
+        "variables.0.baseline": "1 task",
+        "variables.0.change": "4 tasks",
+        "variables.0.expected": "Peak buffer usage may increase.",
+        "criteria.0": "Required deliverable: maximum concurrent buffer bytes and the remaining reference count. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Peak usage and Limits. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Peak usage affect in this exercise? Input cases: 20 identical tasks.",
+        "questions.1": "Variable: Concurrent tasks. Hypothesis to check: Peak buffer usage may increase. Did the actual results agree with the hypothesis? Explain the evidence in terms of Limits.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-27": {
+      "sourceHash": "984151c7a7bbce4a3820308c0a805e2549ee6415b431999495e05e2b53768543",
+      "values": {
+        "title": "Disposal and Restart",
+        "prerequisites": "Prepare the experiment results for Peak usage and Limits from Unit 26, “Memory and Pool Limits”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Lifetime management",
+        "concepts.0.explanation": "Clean up Workers, timers, and ports when the page feature ends. Remove requests that have already ended from pending as well.",
+        "concepts.1.title": "Repeated execution",
+        "concepts.1.explanation": "A new generation ID distinguishes it from earlier responses. Calling dispose twice must be safe.",
+        "outcomes.0": "Learning outcome: explain the role of Lifetime management. Input cases: 5 cycles of running, disposing, and restarting.",
+        "outcomes.1": "Deliverable: completed IDs by generation and remaining resource counts. Explain the rationale for handling Repeated execution, linking it to the code.",
+        "steps.0": "In src/day-27.js in a separate practice project, call terminate, clearTimeout, and port.close in dispose, then restart. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 5 cycles of running, disposing, and restarting. Baseline: After completion. Run under the baseline conditions, then record observations and errors in notes/day-27.md.",
+        "steps.2": "Variable: Disposal timing; changed value: During computation. Run again through the same input path. Deliverable to save: completed IDs by generation and remaining resource counts. Hypothesis to check: No interrupted task remains, and new tasks complete normally. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Disposal timing",
+        "variables.0.baseline": "After completion",
+        "variables.0.change": "During computation",
+        "variables.0.expected": "No interrupted task remains, and new tasks complete normally.",
+        "criteria.0": "Required deliverable: completed IDs by generation and remaining resource counts. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Lifetime management and Repeated execution. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Lifetime management affect in this exercise? Input cases: 5 cycles of running, disposing, and restarting.",
+        "questions.1": "Variable: Disposal timing. Hypothesis to check: No interrupted task remains, and new tasks complete normally. Did the actual results agree with the hypothesis? Explain the evidence in terms of Repeated execution.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
     }
   }
 }

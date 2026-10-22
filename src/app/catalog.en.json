@@ -5491,6 +5491,36 @@
       "docPath": "/docs/en/labs/engineering/web-workers/units/24/README.md",
       "seriesId": "web-workers",
       "exampleNote": "An interactive Atomics and Synchronization experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Measuring End-to-End Latency",
+      "goal": "Learning outcome: explain the role of Round-trip cost. Input cases: three array sizes. Deliverable: a table of round-trip, computation, and remaining intervals. Explain the rationale for handling Clock references, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/25/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Measuring End-to-End Latency experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Memory and Pool Limits",
+      "goal": "Learning outcome: explain the role of Peak usage. Input cases: 20 identical tasks. Deliverable: maximum concurrent buffer bytes and the remaining reference count. Explain the rationale for handling Limits, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/26/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Memory and Pool Limits experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Disposal and Restart",
+      "goal": "Learning outcome: explain the role of Lifetime management. Input cases: 5 cycles of running, disposing, and restarting. Deliverable: completed IDs by generation and remaining resource counts. Explain the rationale for handling Repeated execution, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/27/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Disposal and Restart experiment with cleanup of the resources it uses."
     }
   ]
 }

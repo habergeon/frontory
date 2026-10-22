@@ -130,5 +130,23 @@
     "values": {
       "note": "An interactive Atomics and Synchronization experiment with cleanup of the resources it uses."
     }
+  },
+  "web-workers-step-25": {
+    "sourceHash": "f90a204fe57c5139adf2e2501284096ce992c1613d9856ead9a46b0eff2965e5",
+    "values": {
+      "note": "An interactive Measuring End-to-End Latency experiment with cleanup of the resources it uses."
+    }
+  },
+  "web-workers-step-26": {
+    "sourceHash": "7b8224ba22376055d483507a695a88dc86b54f7b268eb4f17cd3390731ac86a6",
+    "values": {
+      "note": "An interactive Memory and Pool Limits experiment with cleanup of the resources it uses."
+    }
+  },
+  "web-workers-step-27": {
+    "sourceHash": "72ebdc3136aa4750dd5b25d3887b6310877603ffd791c123232d3dc54461875d",
+    "values": {
+      "note": "An interactive Disposal and Restart experiment with cleanup of the resources it uses."
+    }
   }
 }

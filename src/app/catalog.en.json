@@ -127,6 +127,20 @@
       ]
     },
     {
+      "id": "threejs",
+      "title": "Three.js",
+      "category": "graphics",
+      "priority": 5,
+      "prerequisites": "A first WebGL scene, vectors and matrices",
+      "docPath": "/docs/en/labs/graphics/threejs/README.md",
+      "stages": [
+        "Scene Coordinates, Cameras, and Geometry",
+        "Lighting, Materials, and Model Selection",
+        "Animation, Instancing, and Render Passes",
+        "Resource Lifetimes, Accessibility, and Measurement"
+      ]
+    },
+    {
       "id": "gsap",
       "title": "GSAP",
       "category": "animation",
@@ -2634,6 +2648,35 @@
       "goal": "Choose based on the advantages and disadvantages of functionality, accessibility, and performance. Submit outputs and measurement records with the same data and conditions.",
       "docPath": "/docs/en/labs/graphics/svg/03-project/README.md",
       "seriesId": "svg"
+    },
+    {
+      "id": "threejs-01",
+      "day": 1,
+      "week": 1,
+      "title": "Scene Graphs and Cameras",
+      "goal": "Print changes in local and world coordinates. Distinguish the effects of FOV from camera movement.",
+      "docPath": "/docs/en/labs/graphics/threejs/01-foundations/README.md",
+      "seriesId": "threejs"
+    },
+    {
+      "id": "threejs-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Renderer and Display Size",
+      "goal": "Preserve shape proportions after resizing. Handle a hidden container with a size of 0.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/02/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "threejs-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Perspective and Orthographic Projection",
+      "goal": "Display the same scene with both projections. Reproduce clipping of an object outside near.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/03/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
       "id": "gsap-01",

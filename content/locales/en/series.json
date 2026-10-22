@@ -68,5 +68,12 @@
       "title": "SVG",
       "prerequisites": "HTML and CSS; coordinates"
     }
+  },
+  "threejs": {
+    "sourceHash": "8a4b89ea2c0aea33ae27ee183f1ae0dbf385b4aaa3df49d05b35fdb0571484df",
+    "values": {
+      "title": "Three.js",
+      "prerequisites": "A first WebGL scene, vectors and matrices"
+    }
   }
 }

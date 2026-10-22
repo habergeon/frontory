@@ -274,6 +274,13 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [26. Integrating the Map Editor](labs/graphics/svg/units/26/README.md) | Editable example | [Source code](../../src/labs/svg-step-26/example.js) — An experiment with duplicate id validation, keyboard selection, movement, and serialization. You can combine free dragging from the Day 17 example. |
 | [27. Reproducible Comparison Experiments](labs/graphics/svg/units/27/README.md) | Editable example | [Source code](../../src/labs/svg-step-27/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 
+## Three.js
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Renderer and Display Size](labs/graphics/threejs/units/02/README.md) | Editable example | [Source code](../../src/labs/threejs-step-02/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [3. Perspective and Orthographic Projection](labs/graphics/threejs/units/03/README.md) | Editable example | [Source code](../../src/labs/threejs-step-03/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+
 ## GSAP
 
 | Learning unit | Execution mode | Source and supported scope |

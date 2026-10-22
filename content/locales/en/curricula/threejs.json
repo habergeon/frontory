@@ -1,0 +1,94 @@
+{
+  "series": {
+    "sourceHash": "0ff4c23372a41fc52c6ba6dc50af44e7539a98a04f769f87b2c14c2a67ccedb2",
+    "values": {
+      "stages.0": "Scene Coordinates, Cameras, and Geometry",
+      "stages.1": "Lighting, Materials, and Model Selection",
+      "stages.2": "Animation, Instancing, and Render Passes",
+      "stages.3": "Resource Lifetimes, Accessibility, and Measurement",
+      "goal": "Understand the scene graph, model loading, and GPU resource lifetimes, and build a measurable 3D inspector.",
+      "capstone": "A 3D inspector with model selection, camera fitting, animation, minimap, and error recovery, plus a resource and performance report"
+    }
+  },
+  "units": {
+    "threejs-01": {
+      "sourceHash": "5e30094e117321a3a1106ef99229dfb3d3ae2490be711af36360e2778a401688",
+      "values": {
+        "title": "Scene Graphs and Cameras",
+        "prerequisites": "You need to understand JavaScript ES modules, vector and matrix basics, and a first WebGL scene.",
+        "environment": "The existing built-in example provides only a starting point. It does not implement all expanded requirements. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Parent Transforms",
+        "concepts.0.explanation": "A Group transform accumulates into its children’s world coordinates. A child position is relative to its parent, so it is not the same as a screen position.",
+        "concepts.1.title": "View Direction and Position",
+        "concepts.1.explanation": "The camera position and the point it looks at are different values. Changing FOV changes the projected size even when the position stays fixed.",
+        "outcomes.0": "Print changes in local and world coordinates.",
+        "outcomes.1": "Distinguish the effects of FOV from camera movement.",
+        "steps.0": "Prepare day-01.js and index.html in the external exercise project. Add two Mesh objects to the Group in the existing threejs-01 and add an AxesHelper.",
+        "steps.1": "Accept parent rotation and camera FOV as inputs, and display the getWorldPosition result in an HTML output.",
+        "steps.2": "Save the output under the 0 input condition, then run again under the PI/2 condition. Expected: The child’s local coordinates stay the same, but its world coordinates rotate. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-01-notes.md.",
+        "variables.0.name": "Parent rotation",
+        "variables.0.baseline": "0",
+        "variables.0.change": "PI/2",
+        "variables.0.expected": "The child’s local coordinates stay the same, but its world coordinates rotate.",
+        "criteria.0": "Print changes in local and world coordinates.",
+        "criteria.1": "Distinguish the effects of FOV from camera movement.",
+        "questions.0": "Why does a child position stay unchanged when only its parent moves?",
+        "questions.1": "How do lookAt and position differ?",
+        "references.0.title": "Three.js Fundamentals"
+      }
+    },
+    "threejs-step-02": {
+      "sourceHash": "7dd62b366c56a62e531e28547f1e48878875f4f7a2c7dbab1573d5d2efc03618",
+      "values": {
+        "title": "Renderer and Display Size",
+        "prerequisites": "Prerequisite concepts: Parent Transforms, View Direction and Position. Prepare the result files and observation notes from unit 1.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Buffer Size",
+        "concepts.0.explanation": "The renderer’s drawing buffer differs from its CSS display size. Increasing pixelRatio processes more pixels for the same display area.",
+        "concepts.1.title": "Aspect Ratio",
+        "concepts.1.explanation": "A PerspectiveCamera aspect is the viewport ratio. After resizing, call updateProjectionMatrix to apply the new projection.",
+        "outcomes.0": "Preserve shape proportions after resizing.",
+        "outcomes.1": "Handle a hidden container with a size of 0.",
+        "steps.0": "Prepare day-02.js and index.html in the external exercise project. Read the container size with ResizeObserver and call renderer.setSize(w,h,false).",
+        "steps.1": "Update camera.aspect and the projection, and compare CSS size with buffer size in an output.",
+        "steps.2": "Save the output under the 1:1 input condition, then run again under the 2:1 condition. Expected: Updating aspect prevents the sphere from stretching into an ellipse. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-02-notes.md.",
+        "variables.0.name": "viewport ratio",
+        "variables.0.baseline": "1:1",
+        "variables.0.change": "2:1",
+        "variables.0.expected": "Updating aspect prevents the sphere from stretching into an ellipse.",
+        "criteria.0": "Preserve shape proportions after resizing.",
+        "criteria.1": "Handle a hidden container with a size of 0.",
+        "questions.0": "What does the third argument of setSize control?",
+        "questions.1": "How does the cost of the screen area change as DPR increases?",
+        "references.0.title": "Three.js WebGLRenderer"
+      }
+    },
+    "threejs-step-03": {
+      "sourceHash": "4d262d10732d6208aa85013b1cc4d41d02fc6e337594d71f799dda92e1add6a4",
+      "values": {
+        "title": "Perspective and Orthographic Projection",
+        "prerequisites": "Prerequisite concepts: Buffer Size, Aspect Ratio. Prepare the result files and observation notes from unit 2.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Perspective Projection",
+        "concepts.0.explanation": "PerspectiveCamera makes distant objects appear smaller. near and far limit the visible depth range.",
+        "concepts.1.title": "Orthographic Projection",
+        "concepts.1.explanation": "With OrthographicCamera, distance does not change size. This is useful for CAD-style layouts and comparison diagrams.",
+        "outcomes.0": "Display the same scene with both projections.",
+        "outcomes.1": "Reproduce clipping of an object outside near.",
+        "steps.0": "Prepare day-03.js and index.html in the external exercise project. Place two equally sized cubes at different depths.",
+        "steps.1": "Create a button to switch between perspective and orthographic cameras, and compare the screen widths of the two cubes.",
+        "steps.2": "Save the output under the PerspectiveCamera input condition, then run again under the OrthographicCamera condition. Expected: Cubes at different depths appear the same size on screen. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-03-notes.md.",
+        "variables.0.name": "Camera",
+        "variables.0.baseline": "PerspectiveCamera",
+        "variables.0.change": "OrthographicCamera",
+        "variables.0.expected": "Cubes at different depths appear the same size on screen.",
+        "criteria.0": "Display the same scene with both projections.",
+        "criteria.1": "Reproduce clipping of an object outside near.",
+        "questions.0": "How does an orthographic camera determine zoom without FOV?",
+        "questions.1": "What problems might an excessively small near cause?",
+        "references.0.title": "Three.js Fundamentals",
+        "references.1.title": "Three.js WebGLRenderer"
+      }
+    }
+  }
+}

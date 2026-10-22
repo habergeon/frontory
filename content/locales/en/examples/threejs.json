@@ -1,0 +1,14 @@
+{
+  "threejs-step-02": {
+    "sourceHash": "9535ddcc751beb26854eed66966d88169d558776a563591646846c16c0f2421f",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "threejs-step-03": {
+    "sourceHash": "56f874b9443dd7791e5bf7ea6d023e911064c3d57f62668c387e0ca42a617de6",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  }
+}

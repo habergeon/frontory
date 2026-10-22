@@ -394,3 +394,34 @@ test('reader validates required example notes against whole metadata and only tr
   write('content/locales/en/examples/other.json', {})
   assert.throws(() => readEnglishContent({ root }), /file/i)
 })
+
+test('reader validates independent presentation hashes, exact flat keys and reading-source availability', t => {
+  const { root, write } = fixture(t)
+  const source = { messages: { run: '실행' }, comments: { title: '입력' } }
+  const metadata = { mode: 'browser', note: '실험', readingSource: '/examples-en/javascript-step-02/example.js' }
+  const translated = { ...record(metadata, { note: 'Experiment' }), presentation: record(source, { 'messages.run': 'Run', 'comments.title': 'Input' }) }
+  write('content/example-presentations.json', { [unit.id]: source })
+  write('content/examples/javascript.json', { [unit.id]: metadata })
+  write('content/locales/en/examples/javascript.json', { [unit.id]: translated })
+  assert.throws(() => readEnglishContent({ root }), /reading|ENOENT/i)
+  fs.mkdirSync(path.join(root, 'public/examples-en/javascript-step-02'), { recursive: true })
+  fs.writeFileSync(path.join(root, 'public/examples-en/javascript-step-02/example.js'), '// Input\n')
+  assert.deepEqual(readEnglishContent({ root }).examplePresentations[unit.id], { messages: { run: 'Run' }, comments: { title: 'Input' } })
+  for (const presentation of [
+    { ...translated.presentation, sourceHash: 'stale' },
+    record(source, { 'messages.run': 'Run' }),
+    record(source, { ...translated.presentation.values, 'messages.other': 'Other' }),
+    record(source, { messages: { run: 'Run' }, comments: { title: 'Input' } }),
+    record(source, { ...translated.presentation.values, 'comments.title': '' }),
+    { ...translated.presentation, other: 'extra' },
+  ]) {
+    write('content/locales/en/examples/javascript.json', { [unit.id]: { ...translated, presentation } })
+    assert.throws(() => readEnglishContent({ root }), /presentation|hash|string|key/i)
+  }
+  write('content/locales/en/examples/javascript.json', { [unit.id]: record(metadata, { note: 'Experiment' }) })
+  assert.throws(() => readEnglishContent({ root }), /presentation|key/i)
+  const wrong = { ...metadata, readingSource: '/examples-en/another/example.js' }
+  write('content/examples/javascript.json', { [unit.id]: wrong })
+  write('content/locales/en/examples/javascript.json', { [unit.id]: { ...translated, sourceHash: sourceHash(wrong) } })
+  assert.throws(() => readEnglishContent({ root }), /reading/i)
+})

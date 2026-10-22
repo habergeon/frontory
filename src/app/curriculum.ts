@@ -15,8 +15,9 @@ export interface Unit {
   exampleNote?: string
   exampleMode?: 'browser' | 'external'
   exampleFiles?: string[]
+  exampleReadingSource?: string
 }
-type ExampleDetails = { mode: 'browser' | 'external'; note: string; files?: string[] }
+type ExampleDetails = { mode: 'browser' | 'external'; note: string; files?: string[]; readingSource?: string }
 const detailModules = import.meta.glob<Record<string, ExampleDetails>>('../../content/examples/*.json', { eager: true, import: 'default' })
 const exampleDetails: Record<string, ExampleDetails> = Object.assign({}, ...Object.values(detailModules))
 export const series = catalog.series
@@ -27,6 +28,7 @@ export const units: Unit[] = catalog.units.map(unit => ({
   ...unit, source: examples['../labs/' + unit.id + '/example.js'],
   exampleMode: exampleDetails[unit.id]?.mode,
   exampleFiles: exampleDetails[unit.id]?.files,
+  exampleReadingSource: exampleDetails[unit.id]?.readingSource,
   exampleNote: exampleDetails[unit.id]?.note ?? ({
   "15-nerf-gs": "해석적 밀도장의 ray 적분과 splat 합성 비교입니다. NeRF 학습이나 추론 모델을 실행하지 않습니다.",
   "16-gaussian": "CPU 기반 Gaussian 투영·합성 원리 시각화입니다. SH는 합성한 1차 계수를 사용하며 학습된 GS 모델의 품질 측정이 아닙니다.",
@@ -72,7 +74,7 @@ const localizedCatalogs = {
     series: englishCatalog.series,
     units: englishCatalog.units.map<Unit>(entry => {
       const common = units.find(unit => unit.id === entry.id)!
-      return { ...entry, source: common.source, exampleMode: common.exampleMode, exampleFiles: common.exampleFiles }
+      return { ...entry, source: common.source, exampleMode: common.exampleMode, exampleFiles: common.exampleFiles, exampleReadingSource: common.exampleReadingSource }
     }),
   },
 }

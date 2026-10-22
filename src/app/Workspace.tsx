@@ -54,6 +54,7 @@ export function Workspace({ unit, onProgressChange }: { unit: Unit; onProgressCh
     </div>
     {warning && <div className="storage-warning" role="alert"><p>{warning === 'read-failed' ? text.storageReadFailed : text.storageWriteFailed}</p><button onClick={() => save(draft)}>{text.retrySave}</button></div>}
     {getLocalizedUnit(locale, unit.id)?.exampleNote && <p className="example-note" role="note">{getLocalizedUnit(locale, unit.id)?.exampleNote}</p>}
+    {unit.exampleReadingSource && <p className="example-note"><a href={unit.exampleReadingSource} download>{text.downloadEnglishReadingSource}</a></p>}
     {!!unit.exampleFiles?.length && <details className="example-note"><summary>{text.downloadExampleFiles}</summary><p>{text.originalFilesHint}</p><ul>{unit.exampleFiles.map(file => <li key={file}><a href={'/examples/' + file.slice('src/labs/'.length)} download>{file.split('/').pop()}</a></li>)}</ul></details>}
     {unit.source && draft.code === '' && <p className="example-note">{text.emptyCodePreserved}</p>}
     <div className="mobile-tabs" role="tablist" aria-label={text.workspace}>

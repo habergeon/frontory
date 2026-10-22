@@ -24,6 +24,30 @@ export function sourceHash(source) {
   return createHash('sha256').update(JSON.stringify(canonical(source))).digest('hex')
 }
 
+export function validateExamplePresentation(source, record) {
+  const exact = (value, expected) => {
+    if (!value || typeof value !== 'object' || Array.isArray(value) ||
+      JSON.stringify(Object.keys(value).sort()) !== JSON.stringify([...expected].sort())) throw Error('Invalid presentation keys')
+  }
+  exact(source, ['messages', 'comments'])
+  exact(record, ['sourceHash', 'values'])
+  if (record.sourceHash !== sourceHash(source)) throw Error('Stale presentation source hash')
+  const fields = Object.entries(source).flatMap(([group, values]) => {
+    if (!values || typeof values !== 'object' || Array.isArray(values)) throw Error('Invalid presentation source')
+    return Object.keys(values).map(key => `${group}.${key}`)
+  })
+  exact(record.values, fields)
+  const result = { messages: {}, comments: {} }
+  for (const field of fields) {
+    const [group, key] = field.split('.')
+    for (const value of [source[group][key], record.values[field]]) {
+      if (typeof value !== 'string' || !value.trim()) throw Error('Expected nonempty presentation string')
+    }
+    result[group][key] = record.values[field]
+  }
+  return result
+}
+
 function prosePaths(source) {
   const paths = []
   const add = (value, field) => { if (typeof value === 'string') paths.push(field) }
@@ -85,7 +109,7 @@ export function readEnglishContent({ complete = false, root = defaultRoot } = {}
   const files = fs.existsSync(directory) ? fs.readdirSync(directory) : []
   const expectedFiles = seriesIds.filter(id => id !== 'webgl').map(id => `${id}.json`)
   for (const file of files) if (!expectedFiles.includes(file)) fail(`Unknown curriculum file: ${file}`)
-  const result = { catalog: { series: [], units: [] }, documents: new Map(), publishedUnitIds: [...ids], curricula: {}, exampleNotes: {} }
+  const result = { catalog: { series: [], units: [] }, documents: new Map(), publishedUnitIds: [...ids], curricula: {}, exampleNotes: {}, examplePresentations: {} }
   for (const sourceSeries of baseline.series.filter(series => seriesIds.includes(series.id))) {
     const metadata = { title: sourceSeries.title, prerequisites: sourceSeries.prerequisites }
     if (sourceSeries.id === 'webgl') metadata.stages = sourceSeries.stages
@@ -126,6 +150,8 @@ export function readEnglishContent({ complete = false, root = defaultRoot } = {}
     }
     result.curricula[series.id] = translated
   }
+  const presentationFile = path.join(root, 'content/example-presentations.json')
+  const presentations = fs.existsSync(presentationFile) ? read('content/example-presentations.json') : {}
   const exampleDirectory = path.join(root, 'content/locales/en/examples')
   const exampleSources = new Map(seriesIds.map(id => {
     const file = `content/examples/${id}.json`
@@ -145,10 +171,15 @@ export function readEnglishContent({ complete = false, root = defaultRoot } = {}
     keys(records, requiredIds, `examples.${seriesId}`)
     for (const id of requiredIds) {
       const record = records[id]
-      keys(record, ['sourceHash', 'values'], `examples.${id}`)
+      keys(record, ['sourceHash', 'values', ...(own(presentations, id) ? ['presentation'] : [])], `examples.${id}`)
       if (record.sourceHash !== sourceHash(sources[id])) fail(`Stale example source hash: ${id}`)
       keys(record.values, ['note'], `examples.${id}.values`)
       if (typeof record.values.note !== 'string' || !record.values.note.trim()) fail(`Expected nonempty note string: ${id}`)
+      if (own(presentations, id)) result.examplePresentations[id] = validateExamplePresentation(presentations[id], record.presentation)
+      if (own(sources[id], 'readingSource')) {
+        const expected = `/examples-en/${id}/example.js`
+        if (sources[id].readingSource !== expected || !fs.existsSync(path.join(root, 'public', expected))) fail(`Invalid or missing reading source: ${id}`)
+      }
       result.exampleNotes[id] = record.values.note
     }
   }

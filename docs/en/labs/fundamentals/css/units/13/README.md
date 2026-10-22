@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Layout Areas and Source Order](../12/README.md)
+[Previous: Layout Areas and Source Order](../12/README.md) · [Next: Responsive Layout and Motion](../../02-experiments/README.md)
 
 ## Experiment notes — write your own
 

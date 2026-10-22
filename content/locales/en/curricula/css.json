@@ -366,6 +366,86 @@
         "questions.1": "How does zooming change the CSS viewport width?",
         "references.0.title": "MDN CSS"
       }
+    },
+    "css-02": {
+      "sourceHash": "99704d02d9d8d5a540b9a0faf4f5c22982775cc2627319ccd5e0a80d807ea7e6",
+      "values": {
+        "title": "Responsive Layout and Motion",
+        "prerequisites": "The work and experiment records from Unit 13, “Media Queries and Breakpoints”",
+        "environment": "Frontory's existing preview is a limited starter example, not a complete solution to the assignment. Implement additional files and features yourself in a separate local project. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "User Preferences",
+        "concepts.0.explanation": "prefers-reduced-motion detects a preference for reduced motion. Information about state changes must remain even when unnecessary movement is reduced.",
+        "concepts.1.title": "Display and Interaction",
+        "concepts.1.explanation": "Preserve the current focus during layout changes. Removing or hiding elements can move the keyboard position unexpectedly.",
+        "outcomes.0": "The focused target is preserved after switching to a narrow layout.",
+        "outcomes.1": "Under reduce, unnecessary movement disappears and states remain distinguishable.",
+        "steps.0": "In index.html, prepare content with 360px·1200px widths and both motion preference states, and connect responsive-motion.css.",
+        "steps.1": "Switch 3 columns to a single column at narrow widths, and remove transform from card transitions under reduced-motion conditions.",
+        "steps.2": "Run with 360px·1200px widths and both motion preference states. Results to check: The focused target is preserved after switching to a narrow layout. Under reduce, unnecessary movement disappears and states remain distinguishable. Record expected and actual results separately.",
+        "variables.0.name": "Motion Preference",
+        "variables.0.baseline": "no-preference",
+        "variables.0.change": "reduce",
+        "variables.0.expected": "Hypothesis before running: The selected state will remain visible even when movement effects are reduced. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "The focused target is preserved after switching to a narrow layout.",
+        "criteria.1": "Under reduce, unnecessary movement disappears and states remain distinguishable.",
+        "questions.0": "Does a completion signal remain after the animation is removed?",
+        "questions.1": "What additional keyboard behavior contract is needed if this is changed to tabs?",
+        "references.0.title": "MDN CSS",
+        "references.1.title": "MDN prefers-reduced-motion"
+      }
+    },
+    "css-step-15": {
+      "sourceHash": "d78aa9527115a6e66cd7a3293f74178e468788931d7dbf2af01cfef6e71a08a9",
+      "values": {
+        "title": "Container Queries and Reuse",
+        "prerequisites": "The work and experiment records from Unit 14, “Responsive Layout and Motion”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Container-Based Conditions",
+        "concepts.0.explanation": "Size queries use the size of a specified ancestor container. Cards can differ according to the area they occupy even at the same viewport size.",
+        "concepts.1.title": "Containment Scope",
+        "concepts.1.explanation": "container-type establishes containment rules related to size queries. Check the relationship between the element receiving it and its children.",
+        "outcomes.0": "The two cards show different layouts in the same viewport.",
+        "outcomes.1": "Identify the query container in developer tools.",
+        "steps.0": "In index.html, prepare content with a 300px sidebar and an 800px main area, and connect container.css.",
+        "steps.1": "Set container-type:inline-size on the wrapper, and use @container to switch the card between horizontal and vertical layouts.",
+        "steps.2": "Run with a 300px sidebar and an 800px main area. Results to check: The two cards show different layouts in the same viewport. Identify the query container in developer tools. Record expected and actual results separately.",
+        "variables.0.name": "Parent Width",
+        "variables.0.baseline": "300px",
+        "variables.0.change": "800px",
+        "variables.0.expected": "Hypothesis before running: The same card will switch to a horizontal layout. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "The two cards show different layouts in the same viewport.",
+        "criteria.1": "Identify the query container in developer tools.",
+        "questions.0": "Can a card be the target of its own size query?",
+        "questions.1": "Which conditions should media queries and container queries each handle?",
+        "references.0.title": "MDN CSS",
+        "references.1.title": "MDN Container queries"
+      }
+    },
+    "css-step-16": {
+      "sourceHash": "1c9cad502b8f08ed27b24be4ab6181ae3db533075a0e51183e7b765f6aed9b48",
+      "values": {
+        "title": "Logical Properties and Writing Direction",
+        "prerequisites": "The work and experiment records from Unit 15, “Container Queries and Reuse”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Logical Directions",
+        "concepts.0.explanation": "The inline and block axes follow the document's writing direction. They are not always the same as physical directions such as left and right.",
+        "concepts.1.title": "Adapting to Direction",
+        "concepts.1.explanation": "Express relationships with margin-inline and padding-block. Also inspect whether icons and alignment behave naturally in RTL.",
+        "outcomes.0": "Record the start boundary and spacing in both directions.",
+        "outcomes.1": "Text and controls do not overlap or get clipped.",
+        "steps.0": "In index.html, prepare content with LTR and RTL card lists, and connect logical.css.",
+        "steps.1": "Change card margins and borders to logical properties, and toggle dir.",
+        "steps.2": "Run with LTR and RTL card lists. Results to check: Record the start boundary and spacing in both directions. Text and controls do not overlap or get clipped. Record expected and actual results separately.",
+        "variables.0.name": "Direction",
+        "variables.0.baseline": "ltr",
+        "variables.0.change": "rtl",
+        "variables.0.expected": "Hypothesis before running: The margin and border on the inline start side will move to the opposite side. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record the start boundary and spacing in both directions.",
+        "criteria.1": "Text and controls do not overlap or get clipped.",
+        "questions.0": "Which parts should keep physical properties?",
+        "questions.1": "What happens to the axes if you also change writing-mode?",
+        "references.0.title": "MDN CSS"
+      }
     }
   }
 }

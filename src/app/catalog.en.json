@@ -465,6 +465,35 @@
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "css-02",
+      "day": 14,
+      "week": 2,
+      "title": "Responsive Layout and Motion",
+      "goal": "The focused target is preserved after switching to a narrow layout. Under reduce, unnecessary movement disappears and states remain distinguishable.",
+      "docPath": "/docs/en/labs/fundamentals/css/02-experiments/README.md",
+      "seriesId": "css"
+    },
+    {
+      "id": "css-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Container Queries and Reuse",
+      "goal": "The two cards show different layouts in the same viewport. Identify the query container in developer tools.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/15/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Logical Properties and Writing Direction",
+      "goal": "Record the start boundary and spacing in both directions. Text and controls do not overlap or get clipped.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/16/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
       "id": "react-step-03",
       "day": 3,
       "week": 1,

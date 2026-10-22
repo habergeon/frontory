@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 13 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 16 published in English
 
 ## Series goal
 
@@ -40,9 +40,12 @@ Only published English units are linked below. The full series has 28 units.
 - [11. Automatic Repetition and Card Counts](units/11/README.md) — Editable example
 - [12. Layout Areas and Source Order](units/12/README.md) — Editable example
 - [13. Media Queries and Breakpoints](units/13/README.md) — Editable example
+- [14. Responsive Layout and Motion](02-experiments/README.md) — Editable example
 
 ### Stage 3 · State, positioning, and accessibility
 
+- [15. Container Queries and Reuse](units/15/README.md) — Editable example
+- [16. Logical Properties and Writing Direction](units/16/README.md) — Editable example
 
 ### Stage 4 · Motion, tokens, and rendering verification
 
@@ -60,3 +63,5 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [MDN box model](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model)
 - [MDN getBoundingClientRect](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)
 - [MDN using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using)
+- [MDN prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion)
+- [MDN Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)

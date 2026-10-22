@@ -1515,6 +1515,36 @@
       "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
     },
     {
+      "id": "vue-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Pure Computation with computed",
+      "goal": "The displayed card titles match the search query. Changing only theme leaves the original items unchanged.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/04/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "List Keys and Conditional Lifetimes",
+      "goal": "Notes stay with the same card after sorting with an id key. Record note preservation results for each hiding method.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/05/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Events and Input Conversion",
+      "goal": "Submitting once with Enter adds 1 card. The rule for empty count input matches the actual result.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/06/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

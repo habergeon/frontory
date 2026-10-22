@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: SFCs and Template Binding](../02/README.md)
+[Previous: SFCs and Template Binding](../02/README.md) · [Next: Pure Computation with computed](../04/README.md)
 
 ## Experiment notes — write your own
 

@@ -160,6 +160,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | --- | --- | --- |
 | [2. SFCs and Template Binding](labs/frameworks/vue/units/02/README.md) | Editable example | [Source code](../../src/labs/vue-step-02/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 | [3. reactive and Preserving References](labs/frameworks/vue/units/03/README.md) | Editable example | [Source code](../../src/labs/vue-step-03/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [4. Pure Computation with computed](labs/frameworks/vue/units/04/README.md) | Editable example | [Source code](../../src/labs/vue-step-04/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [5. List Keys and Conditional Lifetimes](labs/frameworks/vue/units/05/README.md) | Editable example | [Source code](../../src/labs/vue-step-05/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [6. Events and Input Conversion](labs/frameworks/vue/units/06/README.md) | Editable example | [Source code](../../src/labs/vue-step-06/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 
 ## GSAP
 

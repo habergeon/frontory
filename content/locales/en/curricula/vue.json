@@ -91,6 +91,87 @@
         "references.0.title": "Vue Reactivity Fundamentals",
         "references.1.title": "Vue Composition API Guide"
       }
+    },
+    "vue-step-04": {
+      "sourceHash": "4340d7d074a61b477c6bb548bd77518356996deb969755c10b7d2190d43627a6",
+      "values": {
+        "title": "Pure Computation with computed",
+        "prerequisites": "Unit 4 builds on the work and experiment records from Unit 3.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Derived computation",
+        "concepts.0.explanation": "A computed getter updates its calculated result when dependencies change. Do not save data or mutate the source inside the getter.",
+        "concepts.1.title": "Caching",
+        "concepts.1.explanation": "The calculated result is reused while reactive dependencies remain unchanged. Distinguish it from an ordinary function call when judging cost and meaning.",
+        "outcomes.0": "The displayed card titles match the search query.",
+        "outcomes.1": "Changing only theme leaves the original items unchanged.",
+        "steps.0": "In src/App.vue, write a filteredCards computed that reads query and items.",
+        "steps.1": "Log the evaluation count and change an unrelated theme ref.",
+        "steps.2": "After changing query, record how the results and evaluation logs differ.",
+        "variables.0.name": "Change target",
+        "variables.0.baseline": "theme",
+        "variables.0.change": "query",
+        "variables.0.expected": "Changing query updates a dependency of the filter computation.",
+        "criteria.0": "The displayed card titles match the search query.",
+        "criteria.1": "Changing only theme leaves the original items unchanged.",
+        "questions.0": "Does a computed that reads only Date.now update itself?",
+        "questions.1": "What changes if you call items.sort inside the getter?",
+        "references.0.title": "Vue Reactivity Fundamentals",
+        "references.1.title": "Vue Composition API Guide"
+      }
+    },
+    "vue-step-05": {
+      "sourceHash": "5ba129760b0cc1785b0532ad663bf2d125aa921202f792cfd9c5da1dd2a3a9dc",
+      "values": {
+        "title": "List Keys and Conditional Lifetimes",
+        "prerequisites": "Unit 5 builds on the work and experiment records from Unit 4.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "List identity",
+        "concepts.0.explanation": "The key in v-for identifies each item. Index keys can obscure the connection between input state and data after reordering.",
+        "concepts.1.title": "Conditional display",
+        "concepts.1.explanation": "v-if creates or removes components. v-show retains the DOM and changes its display style.",
+        "outcomes.0": "Notes stay with the same card after sorting with an id key.",
+        "outcomes.1": "Record note preservation results for each hiding method.",
+        "steps.0": "Add a local input to src/CardRow.vue and create a list with id keys.",
+        "steps.1": "Enter a note in the first row, then reverse the card array.",
+        "steps.2": "Hide the list with v-if and v-show separately, and compare whether local notes remain.",
+        "variables.0.name": "Hiding method",
+        "variables.0.baseline": "v-show",
+        "variables.0.change": "v-if",
+        "variables.0.expected": "After removal through v-if, the local note takes the initial value of a new instance.",
+        "criteria.0": "Notes stay with the same card after sorting with an id key.",
+        "criteria.1": "Record note preservation results for each hiding method.",
+        "questions.0": "Does a timer hidden through v-show keep running?",
+        "questions.1": "What happens on a title edit if the title is used as the key?",
+        "references.0.title": "Vue Reactivity Fundamentals",
+        "references.1.title": "Vue Composition API Guide"
+      }
+    },
+    "vue-step-06": {
+      "sourceHash": "f1daee321195582a6ed53fe29a69dfcdcef5b50c85fa22282e8a9d7f9d13463b",
+      "values": {
+        "title": "Events and Input Conversion",
+        "prerequisites": "Unit 6 builds on the work and experiment records from Unit 5.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Events",
+        "concepts.0.explanation": "v-on connects template events to functions. Distinguish the event object from explicitly passed arguments to clarify the intended change.",
+        "concepts.1.title": "Input model",
+        "concepts.1.explanation": "v-model expresses the connection between an input value and state concisely. Numeric input and an empty string are separate boundary cases, so check the conversion result.",
+        "outcomes.0": "Submitting once with Enter adds 1 card.",
+        "outcomes.1": "The rule for empty count input matches the actual result.",
+        "steps.0": "In src/CardForm.vue, create a title v-model and a target count v-model.number.",
+        "steps.1": "Reject blank titles and add a new card in form @submit.prevent.",
+        "steps.2": "Submit a count of 3, an empty input, and a Korean title, and record the stored values and types.",
+        "variables.0.name": "Count input",
+        "variables.0.baseline": "3",
+        "variables.0.change": "Empty string",
+        "variables.0.expected": "Validate empty input without unconditionally assuming it is the number 0.",
+        "criteria.0": "Submitting once with Enter adds 1 card.",
+        "criteria.1": "The rule for empty count input matches the actual result.",
+        "questions.0": "Does .prevent also stop event propagation?",
+        "questions.1": "Does the number modifier alone complete range validation?",
+        "references.0.title": "Vue Reactivity Fundamentals",
+        "references.1.title": "Vue Composition API Guide"
+      }
     }
   }
 }

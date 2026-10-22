@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 3 published in English
+UI frameworks · 4 stages · 28 units in the full series · 6 published in English
 
 ## Series goal
 
@@ -27,6 +27,9 @@ Only published English units are linked below. The full series has 28 units.
 - [01. Reactivity and Templates](01-foundations/README.md) — Editable example
 - [02. SFCs and Template Binding](units/02/README.md) — Editable example
 - [03. reactive and Preserving References](units/03/README.md) — Editable example
+- [04. Pure Computation with computed](units/04/README.md) — Editable example
+- [05. List Keys and Conditional Lifetimes](units/05/README.md) — Editable example
+- [06. Events and Input Conversion](units/06/README.md) — Editable example
 
 ### Stage 2 · Component Contracts and Watching
 

@@ -1,0 +1,8 @@
+{
+  "gsap-step-02": {
+    "sourceHash": "503a85f1f2db9ad9d445a2fcd593987f38cbee148822add86448e5209d330bf8",
+    "values": {
+      "note": "This experiment explores starting and target values. You can manipulate it directly, and it cleans up the resources it uses."
+    }
+  }
+}

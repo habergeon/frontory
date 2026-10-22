@@ -558,6 +558,85 @@
         "questions.1": "Which should be reduced, flashing or movement?",
         "references.0.title": "MDN SVG from Scratch Tutorial"
       }
+    },
+    "svg-step-22": {
+      "sourceHash": "f827f67060e0a89147d9c5f0d00576b99110c3506b2523c71ce0d5a69dc9a275",
+      "values": {
+        "title": "Exporting SVG Files",
+        "prerequisites": "Prerequisite concepts: Interpolation, Motion preference. Prepare the result files and observation records from Unit 21.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Serialization",
+        "concepts.0.explanation": "XMLSerializer turns DOM into a string. Styles specified only in external CSS may not be included in the file.",
+        "concepts.1.title": "Standalone resources",
+        "concepts.1.explanation": "An exported SVG opens separately from its original page. Relative font and image references may change the result.",
+        "outcomes.0": "The exported file opens independently.",
+        "outcomes.1": "Revoke temporary Object URLs.",
+        "steps.0": "Prepare day-22.js and index.html in an external practice project. Add xmlns and required styles to a cloned SVG, and save it with XMLSerializer.",
+        "steps.1": "Open the file downloaded through a Blob URL in a separate document, and check colors, text, and image references.",
+        "steps.2": "Save the output under the input condition Page CSS only, then run again with style inside SVG. Compare the hypothesis, \"Specified colors and strokes persist in the standalone file,\" against the display and logs, and record the actual result and the causes of any differences in day-22-notes.md.",
+        "variables.0.name": "Style location",
+        "variables.0.baseline": "Page CSS only",
+        "variables.0.change": "style inside SVG",
+        "variables.0.expected": "Specified colors and strokes persist in the standalone file",
+        "criteria.0": "The exported file opens independently.",
+        "criteria.1": "Revoke temporary Object URLs.",
+        "questions.0": "How does text change without external fonts?",
+        "questions.1": "Does serialization guarantee the safety of user input?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
+    },
+    "svg-step-23": {
+      "sourceHash": "cb3228284afea044d5e935fa98ff0f865db5b970cc6ebb1d2486ac5119b1c888",
+      "values": {
+        "title": "Large Datasets and Update Cost",
+        "prerequisites": "Prerequisite concepts: Serialization, Standalone resources. Prepare the result files and observation records from Unit 22.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "DOM size",
+        "concepts.0.explanation": "Each SVG node is subject to style, event, and layout work. Include labels and filters in comparison conditions as well as point count.",
+        "concepts.1.title": "Measurement interval",
+        "concepts.1.explanation": "A synchronous interval measured with performance.now alone cannot tell you when the display is complete. Also inspect style and rendering work in the profile.",
+        "outcomes.0": "Separate data generation time from DOM update time.",
+        "outcomes.1": "Record the environment and sample conditions.",
+        "steps.0": "Prepare day-23.js and index.html in an external practice project. Generate 100,1000,5000 points with a fixed seed.",
+        "steps.1": "Record generation and attribute update times separately from the next frame interval, and keep filters disabled.",
+        "steps.2": "Save the output under the input condition 100, then run again with 5000. Compare the hypothesis, \"DOM creation and style update workloads may increase,\" against the display and logs, and record the actual result and the causes of any differences in day-23-notes.md.",
+        "variables.0.name": "Point count",
+        "variables.0.baseline": "100",
+        "variables.0.change": "5000",
+        "variables.0.expected": "DOM creation and style update workloads may increase",
+        "criteria.0": "Separate data generation time from DOM update time.",
+        "criteria.1": "Record the environment and sample conditions.",
+        "questions.0": "Which cost changes when you reduce event listener count?",
+        "questions.1": "Why should data generation time be excluded?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
+    },
+    "svg-step-24": {
+      "sourceHash": "1a3c789962a3fe7cbbb0b3971da31279394a11ff68c058d348c01c3ac6d67928",
+      "values": {
+        "title": "Visible Regions and Level of Detail",
+        "prerequisites": "Prerequisite concepts: DOM size, Measurement interval. Prepare the result files and observation records from Unit 23.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Visible region",
+        "concepts.0.explanation": "Omitting invisible nodes can reduce the work set. A policy is needed to avoid losing semantic information about selected nodes too.",
+        "concepts.1.title": "Level of detail",
+        "concepts.1.explanation": "You can reduce labels or decoration according to zoom level. Reducing presentation differs from deleting the data itself.",
+        "outcomes.0": "Hidden labels return after zooming in.",
+        "outcomes.1": "Selected data remains after visibility optimization.",
+        "steps.0": "Prepare day-24.js and index.html in an external practice project. Calculate visible nodes from the current viewBox and node bounds.",
+        "steps.1": "Hide labels when zoomed out, but keep the HTML list and selection description.",
+        "steps.2": "Save the output under the input condition 1, then run again with 0.2. Compare the hypothesis, \"Reducing labels may ease overlap and reduce DOM work,\" against the display and logs, and record the actual result and the causes of any differences in day-24-notes.md.",
+        "variables.0.name": "Scale",
+        "variables.0.baseline": "1",
+        "variables.0.change": "0.2",
+        "variables.0.expected": "Reducing labels may ease overlap and reduce DOM work",
+        "criteria.0": "Hidden labels return after zooming in.",
+        "criteria.1": "Selected data remains after visibility optimization.",
+        "questions.0": "What should happen if an off-screen node has keyboard focus?",
+        "questions.1": "How do you determine bounds for shapes with filters or thick strokes?",
+        "references.0.title": "MDN SVG from Scratch Tutorial",
+        "references.1.title": "MDN SVG title Accessible Name"
+      }
     }
   }
 }

@@ -267,6 +267,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [19. Data and DOM Updates](labs/graphics/svg/units/19/README.md) | Editable example | [Source code](../../src/labs/svg-step-19/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 | [20. Connectors and Graph Layout](labs/graphics/svg/units/20/README.md) | Editable example | [Source code](../../src/labs/svg-step-20/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 | [21. Animation and Reduced Motion](labs/graphics/svg/units/21/README.md) | Editable example | [Source code](../../src/labs/svg-step-21/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [22. Exporting SVG Files](labs/graphics/svg/units/22/README.md) | Editable example | [Source code](../../src/labs/svg-step-22/example.js) — Outputs standalone SVG source in a text area. To save a file, copy the source and save it as a .svg file. |
+| [23. Large Datasets and Update Cost](labs/graphics/svg/units/23/README.md) | Editable example | [Source code](../../src/labs/svg-step-23/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [24. Visible Regions and Level of Detail](labs/graphics/svg/units/24/README.md) | Editable example | [Source code](../../src/labs/svg-step-24/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Connectors and Graph Layout](../20/README.md)
+[Previous: Connectors and Graph Layout](../20/README.md) · [Next: Exporting SVG Files](../22/README.md)
 
 ## Experiment notes — write your own
 

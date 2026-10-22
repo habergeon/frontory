@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 21 published in English
+Graphics · 4 stages · 28 units in the full series · 24 published in English
 
 ## Series goal
 
@@ -54,6 +54,9 @@ Only published English units are linked below. The full series has 28 units.
 
 ### Stage 4 · Export and Large-Scale Comparisons
 
+- [22. Exporting SVG Files](units/22/README.md) — Editable example
+- [23. Large Datasets and Update Cost](units/23/README.md) — Editable example
+- [24. Visible Regions and Level of Detail](units/24/README.md) — Editable example
 
 ## Capstone project and deliverables
 

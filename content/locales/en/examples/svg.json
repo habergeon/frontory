@@ -112,5 +112,23 @@
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "svg-step-22": {
+    "sourceHash": "5bc39e965edfa1c6f0d1c8fdea48d8a93ccfa62c56384e87bf7dd35bab7f678c",
+    "values": {
+      "note": "Outputs standalone SVG source in a text area. To save a file, copy the source and save it as a .svg file."
+    }
+  },
+  "svg-step-23": {
+    "sourceHash": "8c60a1e9d1b38ed8904b95a8cce06fe70e1778cd25cef556194d6056215271f3",
+    "values": {
+      "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "svg-step-24": {
+    "sourceHash": "ca3f47b4ebf1f25f7f66207e73a284581250b6dc0d27cb2efa7fb58eeac9d99a",
+    "values": {
+      "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    }
   }
 }

@@ -370,6 +370,13 @@ test('actual English content publishes exactly the approved lessons with complet
       assert.equal(proseWithoutCode.split(fixture).length - 1, 1)
       proseWithoutCode = proseWithoutCode.replace(fixture, '')
     }
+    if (id === 'svelte-step-02') {
+      const fixture = '<b>메모</b>'
+      assert.equal(original.steps[1], "제목에 '<b>메모</b>' 문자열을 넣고 텍스트로 표시하세요.")
+      assert.equal(translated.steps[1], "Set the title to the string '<b>메모</b>' and display it as text.")
+      assert.equal(proseWithoutCode.split(fixture).length - 1, 1)
+      proseWithoutCode = proseWithoutCode.replace(fixture, '')
+    }
     assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
     assert.equal(result.curricula[seriesId].stages.length, source.stages.length)
   }

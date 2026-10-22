@@ -184,6 +184,13 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [26. Checking Behavior Regressions and Save Races](labs/frameworks/vue/units/26/README.md) | Editable example | [Source code](../../src/labs/vue-step-26/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 | [27. Composition API Integration Review](labs/frameworks/vue/units/27/README.md) | Editable example | [Source code](../../src/labs/vue-step-27/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 
+## Svelte
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Markup and Event Attributes](labs/frameworks/svelte/units/02/README.md) | External example · preview instructions | [Source code](../../src/labs/svelte-step-02/example.js) — The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project. |
+| [3. Update Paths in $state Objects](labs/frameworks/svelte/units/03/README.md) | External example · preview instructions | [Source code](../../src/labs/svelte-step-03/example.js) — The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project. |
+
 ## GSAP
 
 | Learning unit | Execution mode | Source and supported scope |

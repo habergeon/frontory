@@ -1,0 +1,98 @@
+{
+  "series": {
+    "sourceHash": "7d5ce0e5c78b740871a32183a52a6f547d96bc3572ddc3e20b35a0cc7a94ec2a",
+    "values": {
+      "stages.0": "Compilation and Runes Basics",
+      "stages.1": "Component Contracts and Effects",
+      "stages.2": "Stores and Workspace State",
+      "stages.3": "Canvas Verification and Framework Comparison",
+      "goal": "Learn Svelte 5 runes and component lifetimes, and compare the same learning-card requirements with React·Vue.",
+      "capstone": "An actual .svelte learning workspace, a comparison table using identical inputs across three frameworks, and subscription/timer cleanup records."
+    }
+  },
+  "units": {
+    "svelte-01": {
+      "sourceHash": "2aa22ff94b843bf12185d58b378628a50b604318f0019da6e18286ca26001d62",
+      "values": {
+        "title": "Compilation and Reactivity",
+        "prerequisites": "JavaScript objects·arrays·modules, HTML·CSS, running npm projects.",
+        "environment": "Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner. The existing svelte-01 preview is a starting point. Implement the expanded work described here in a separate project.",
+        "concepts.0.title": "Compilation",
+        "concepts.0.explanation": "Svelte compiles templates and reactive declarations in .svelte source. The built-in adapter connecting stores to the DOM is not a compiled component.",
+        "outcomes.0": "The list and total both change after a toggle.",
+        "criteria.0": "The list and total both change after a toggle.",
+        "questions.0": "Is a rune an ordinary runtime function?",
+        "concepts.1.title": "runes",
+        "concepts.1.explanation": "$state declares changing values, and $derived expresses values that can be calculated. Avoiding a separately stored completed count reduces inconsistencies between the list and its total.",
+        "outcomes.1": "The record distinguishes the built-in adapter from execution of compiled .svelte components.",
+        "criteria.1": "The record distinguishes the built-in adapter from execution of compiled .svelte components.",
+        "questions.1": "What would you misunderstand by assuming that a component function runs every time as in React?",
+        "steps.0": "In src/App.svelte of an external Svelte Vite project, declare 3 cards with $state.",
+        "steps.1": "Use $derived to calculate the incomplete filter results and completed count, and connect the buttons.",
+        "steps.2": "In notes/day01.md, distinguish the writable subscription in the built-in svelte-01 from the update path in an actual component.",
+        "variables.0.name": "Completion State",
+        "variables.0.baseline": "0 completed",
+        "variables.0.change": "1 completed",
+        "variables.0.expected": "The total becomes 1, and the incomplete list contains 2 cards.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup",
+        "references.2.title": "Svelte state rune"
+      }
+    },
+    "svelte-step-02": {
+      "sourceHash": "0bfabd77d7e289e2791f546ea511df080d77e9f829b57c81169d3a30cff61bfa",
+      "values": {
+        "title": "Markup and Event Attributes",
+        "prerequisites": "Unit 2 continues with the work and experiment records from Unit 1.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Expressions",
+        "concepts.0.explanation": "Brace expressions connect state to the screen. Rendering an HTML string and displaying text differ in security and meaning.",
+        "outcomes.0": "The initial click count is 0.",
+        "criteria.0": "The initial click count is 0.",
+        "questions.0": "What validation responsibility comes with using {@html}?",
+        "concepts.1.title": "Event Attributes",
+        "concepts.1.explanation": "Pass a function to onclick to handle user input. Distinguish a function reference from a function call so that you do not pass the result of a call.",
+        "outcomes.1": "It displays 1 after one click.",
+        "criteria.1": "It displays 1 after one click.",
+        "questions.1": "What is the difference between onclick={handler()} and onclick={handler}?",
+        "steps.0": "In src/Card.svelte, create a title expression and an onclick button.",
+        "steps.1": "Set the title to the string '<b>메모</b>' and display it as text.",
+        "steps.2": "Count clicks with $state and compare the output after loading alone with the output after clicking.",
+        "variables.0.name": "Title",
+        "variables.0.baseline": "Plain title",
+        "variables.0.change": "HTML-looking string",
+        "variables.0.expected": "The string appears as written without executing markup.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup"
+      }
+    },
+    "svelte-step-03": {
+      "sourceHash": "e14770d8fe69bd11044dd333f115c482f1af84a8a530720df403516712ad2729",
+      "values": {
+        "title": "Update Paths in $state Objects",
+        "prerequisites": "Unit 3 continues with the work and experiment records from Unit 2.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Deep Reactivity",
+        "concepts.0.explanation": "Creating ordinary arrays and objects with $state tracks changes inside them. Do not assume that all external objects or classes are handled in the same way.",
+        "outcomes.0": "The card and derived done always agree.",
+        "criteria.0": "The card and derived done always agree.",
+        "questions.0": "How does deep Proxy tracking differ from replacing the object itself?",
+        "concepts.1.title": "Keeping the Connection",
+        "concepts.1.explanation": "Copying a reactive object property into an ordinary variable can change its connection to later updates. Read needed values from the original or declare them as derived values.",
+        "outcomes.1": "Record how an ordinary copied value stays at its initial state.",
+        "criteria.1": "Record how an ordinary copied value stays at its initial state.",
+        "questions.1": "Are class instance properties automatically reactive too?",
+        "steps.0": "In src/App.svelte, create a button that changes items[0].done directly.",
+        "steps.1": "Display an ordinary variable holding the initial copied done alongside $derived(items[0].done).",
+        "steps.2": "Toggle three times and record changes in both values.",
+        "variables.0.name": "Reading Method",
+        "variables.0.baseline": "Initial ordinary variable",
+        "variables.0.change": "$derived",
+        "variables.0.expected": "The derived value updates with each toggle.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup",
+        "references.2.title": "Svelte state rune"
+      }
+    }
+  }
+}

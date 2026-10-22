@@ -1,0 +1,50 @@
+# Svelte
+
+[Frontory technology map](../../README.md)
+
+UI frameworks · 4 stages · 28 units in the full series · 3 published in English
+
+## Series goal
+
+Learn Svelte 5 runes and component lifetimes, and compare the same learning-card requirements with React·Vue.
+
+## Prerequisites
+
+JavaScript·HTML·CSS
+
+## Practice approach and scope
+
+Learning units are not calendar days. Read the explanation and tasks, check the completion criteria, then move on. Use each example as a starting point: change variables and observe the results. Built-in examples and tasks requiring a separate environment are identified separately. Opening an example does not complete a unit.
+
+Existing unit IDs and notes are preserved. The original 01, 02, and 03 examples occupy positions 1, 14, and 28 in the expanded sequence, so the number in the address may differ from the learning order.
+
+Only published English units are linked below. The full series has 28 units.
+
+## Learning path
+
+### Stage 1 · Compilation and Runes Basics
+
+- [01. Compilation and Reactivity](01-foundations/README.md) — Editable example
+- [02. Markup and Event Attributes](units/02/README.md) — External example · preview instructions
+- [03. Update Paths in $state Objects](units/03/README.md) — External example · preview instructions
+
+### Stage 2 · Component Contracts and Effects
+
+
+### Stage 3 · Stores and Workspace State
+
+
+### Stage 4 · Canvas Verification and Framework Comparison
+
+
+## Capstone project and deliverables
+
+An actual .svelte learning workspace, a comparison table using identical inputs across three frameworks, and subscription/timer cleanup records.
+
+Keep the implementation, run instructions, baseline and changed conditions, failure cases, and recovery steps together. Do not report unmeasured performance or tests you have not run as results.
+
+## Official references
+
+- [Svelte Official Documentation and Runes Index](https://svelte.dev/docs/svelte/overview)
+- [Svelte $effect and Cleanup](https://svelte.dev/docs/svelte/$effect)
+- [Svelte state rune](https://svelte.dev/docs/svelte/$state)

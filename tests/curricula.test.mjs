@@ -79,6 +79,12 @@ test('English generated catalog and lessons match approved content without unpub
       assert.equal(proseWithoutCode.split(fixture).length - 1, 1)
       proseWithoutCode = proseWithoutCode.replace(fixture, '')
     }
+    if (unit.id === 'svelte-step-02') {
+      const fixture = '<b>메모</b>'
+      assert.equal(translated.steps[1], "Set the title to the string '<b>메모</b>' and display it as text.")
+      assert.equal(proseWithoutCode.split(fixture).length - 1, 1)
+      proseWithoutCode = proseWithoutCode.replace(fixture, '')
+    }
     assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
     for (const name of ['tasks', 'variables', 'criteria', 'notes']) assert.ok(markdown.includes('## ' + headings.en[name]), name)
     for (const step of translated.steps) assert.ok(markdown.includes(step), unit.id)

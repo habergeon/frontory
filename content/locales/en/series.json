@@ -47,5 +47,12 @@
       "title": "Vue",
       "prerequisites": "JavaScript and HTML; state concepts for comparison with React"
     }
+  },
+  "svelte": {
+    "sourceHash": "24792901814763395d3489ebca720e24a365fd0202097f8b493f1fdcf6c7e586",
+    "values": {
+      "title": "Svelte",
+      "prerequisites": "JavaScript·HTML·CSS"
+    }
   }
 }

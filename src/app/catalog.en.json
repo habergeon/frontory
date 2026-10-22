@@ -85,6 +85,20 @@
       ]
     },
     {
+      "id": "svelte",
+      "title": "Svelte",
+      "category": "frameworks",
+      "priority": 3,
+      "prerequisites": "JavaScript·HTML·CSS",
+      "docPath": "/docs/en/labs/frameworks/svelte/README.md",
+      "stages": [
+        "Compilation and Runes Basics",
+        "Component Contracts and Effects",
+        "Stores and Workspace State",
+        "Canvas Verification and Framework Comparison"
+      ]
+    },
+    {
       "id": "gsap",
       "title": "GSAP",
       "category": "animation",
@@ -1761,6 +1775,35 @@
       "goal": "Active RAF, observer, and listener counts are 0 after final removal. Draft and Canvas controls work after speed changes and 10 remounts.",
       "docPath": "/docs/en/labs/frameworks/vue/03-project/README.md",
       "seriesId": "vue"
+    },
+    {
+      "id": "svelte-01",
+      "day": 1,
+      "week": 1,
+      "title": "Compilation and Reactivity",
+      "goal": "The list and total both change after a toggle. The record distinguishes the built-in adapter from execution of compiled .svelte components.",
+      "docPath": "/docs/en/labs/frameworks/svelte/01-foundations/README.md",
+      "seriesId": "svelte"
+    },
+    {
+      "id": "svelte-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Markup and Event Attributes",
+      "goal": "The initial click count is 0. It displays 1 after one click.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/02/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
+      "id": "svelte-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Update Paths in $state Objects",
+      "goal": "The card and derived done always agree. Record how an ordinary copied value stays at its initial state.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/03/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
       "id": "gsap-01",

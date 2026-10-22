@@ -40,7 +40,7 @@ There are currently **23 series / 644 units**. Every series has 4 stages and 28 
 ## Animation
 
 - [GSAP](animation/gsap/README.md) — ★★★★ / 28 units / Prerequisites: DOM, CSS transform, time
-- [Motion (Korean)](../../labs/animation/motion/README.md) — ★★★★ / 28 units / Prerequisites: React state, CSS transform
+- [Motion](animation/motion/README.md) — ★★★★ / 28 units / Prerequisites: React state, CSS transform
 
 ## Engineering
 

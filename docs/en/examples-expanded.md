@@ -513,3 +513,10 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [25. Hiding and Returning](labs/animation/gsap/units/25/README.md) | Editable example | [Source code](../../src/labs/gsap-step-25/example.js) — This is an experiment on Hiding and Returning. It supports direct interaction and cleans up the resources it uses. |
 | [26. Motion Tokens](labs/animation/gsap/units/26/README.md) | Editable example | [Source code](../../src/labs/gsap-step-26/example.js) — This is an experiment on Motion Tokens. It supports direct interaction and cleans up the resources it uses. |
 | [27. Cleanup on Failure Paths](labs/animation/gsap/units/27/README.md) | Editable example | [Source code](../../src/labs/gsap-step-27/example.js) — This is an experiment on Cleanup on Failure Paths. It supports direct interaction and cleans up the resources it uses. |
+
+## Motion
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Initial and Animate](labs/animation/motion/units/02/README.md) | Editable example | [Source code](../../src/labs/motion-step-02/example.js) — Interactive Initial and Animate experiment with cleanup of the resources used. |
+| [3. Configuring Transition](labs/animation/motion/units/03/README.md) | Editable example | [Source code](../../src/labs/motion-step-03/example.js) — Interactive Configuring Transition experiment with cleanup of the resources used. |

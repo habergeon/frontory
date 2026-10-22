@@ -117,5 +117,12 @@
       "title": "Gaussian Splatting",
       "prerequisites": "Three.js cameras and projection, alpha blending"
     }
+  },
+  "motion": {
+    "sourceHash": "04159d64aa9b6ddcbf3cb8721ae2abd32ecc048ceed01f7ec9dbdf23b0bd98fc",
+    "values": {
+      "title": "Motion",
+      "prerequisites": "React state, CSS transform"
+    }
   }
 }

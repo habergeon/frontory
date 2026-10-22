@@ -1,0 +1,14 @@
+{
+  "motion-step-02": {
+    "sourceHash": "41a1291e32cbea6ebf3f167e614ce51dc18987400b06ffd1bf2f13d262e33918",
+    "values": {
+      "note": "Interactive Initial and Animate experiment with cleanup of the resources used."
+    }
+  },
+  "motion-step-03": {
+    "sourceHash": "ca1818b9bb54ffb2fda03af67d4848475368861e1b89470b3cbeb5c5f59c0cb5",
+    "values": {
+      "note": "Interactive Configuring Transition experiment with cleanup of the resources used."
+    }
+  }
+}

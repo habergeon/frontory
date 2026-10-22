@@ -1,0 +1,96 @@
+{
+  "series": {
+    "sourceHash": "ce00b834fb76a85eba0d0d597b41c6755d00dce81992c964e5a1cac9de2759d8",
+    "values": {
+      "stages.0": "State and Transition",
+      "stages.1": "Layout and Presence",
+      "stages.2": "Gestures and Equivalent Interaction",
+      "stages.3": "Validating a Motion System",
+      "goal": "Connect state, layout, and gestures with the modern Motion React API and implement accessible transitions.",
+      "capstone": "Implement button alternatives, exit, reduced motion, and restoration in a reorderable learning card board."
+    }
+  },
+  "units": {
+    "motion-01": {
+      "sourceHash": "8665176d6990cbf3edf388113b290102a71893eea1081651429883c089b3e8e7",
+      "values": {
+        "title": "State-Based Animation",
+        "prerequisites": "Understand React state and CSS transform, and be able to read the inputs and outputs of the existing starter example.",
+        "environment": "The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Target state",
+        "concepts.0.explanation": "UI state determines the target values. There is no need to store intermediate frames in React state.",
+        "concepts.1.title": "API boundary",
+        "concepts.1.explanation": "The existing preview uses the Motion JS animate API. The React exercises use motion/react in a separate project.",
+        "outcomes.0": "Learning outcome: Explain the role of Target state. Input case: Selecting and deselecting a card.",
+        "outcomes.1": "Deliverable: A table of state values and final opacity and x values. Connect your rationale for handling API boundary to the code.",
+        "steps.0": "In src/day-1.tsx of a separate exercise project, install motion in a React project and connect motion.div animate to the selected state. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Selecting and deselecting a card. Baseline: 0.3 seconds. Run under the baseline condition, then record observations and errors in notes/day-1.md.",
+        "steps.2": "Variable to change: duration; new value: 0.8 seconds. Run again with the same input path. Deliverable to save: A table of state values and final opacity and x values. Hypothesis to test: The final state stays the same, while only the intermediate transition takes longer. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "duration",
+        "variables.0.baseline": "0.3 seconds",
+        "variables.0.change": "0.8 seconds",
+        "variables.0.expected": "The final state stays the same, while only the intermediate transition takes longer.",
+        "criteria.0": "Required deliverable: A table of state values and final opacity and x values. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Target state and API boundary. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Target state affect in this exercise? Input case: Selecting and deselecting a card.",
+        "questions.1": "Variable to change: duration. Hypothesis to test: The final state stays the same, while only the intermediate transition takes longer. Did the actual results agree with the hypothesis? Explain your evidence in terms of API boundary.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    },
+    "motion-step-02": {
+      "sourceHash": "37b9886e4fc18ed81f47eb6aa9bb7afb3fe191dc0eb1c958e8bd380ec2724d75",
+      "values": {
+        "title": "Initial and Animate",
+        "prerequisites": "Prepare the results of the Target state and API boundary exercises from Unit 1, “State-Based Animation”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Initial",
+        "concepts.0.explanation": "initial is the starting state when an element first appears. It is not always the same as the current selected state.",
+        "concepts.1.title": "First appearance",
+        "concepts.1.explanation": "Use initial=false to skip the initial motion. Distinguish remounting from a normal render.",
+        "outcomes.0": "Learning outcome: Explain the role of Initial. Input case: First mount and state changes.",
+        "outcomes.1": "Deliverable: A table of styles on first appearance and after transitions. Connect your rationale for handling First appearance to the code.",
+        "steps.0": "In src/day-2.tsx of a separate exercise project, create versions with motion.div initial and animate, and a version with initial=false. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: First mount and state changes. Baseline: Explicit starting values. Run under the baseline condition, then record observations and errors in notes/day-2.md.",
+        "steps.2": "Variable to change: initial; new value: false. Run again with the same input path. Deliverable to save: A table of styles on first appearance and after transitions. Hypothesis to test: The initial entrance is skipped, while subsequent state transitions remain. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "initial",
+        "variables.0.baseline": "Explicit starting values",
+        "variables.0.change": "false",
+        "variables.0.expected": "The initial entrance is skipped, while subsequent state transitions remain.",
+        "criteria.0": "Required deliverable: A table of styles on first appearance and after transitions. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Initial and First appearance. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Initial affect in this exercise? Input case: First mount and state changes.",
+        "questions.1": "Variable to change: initial. Hypothesis to test: The initial entrance is skipped, while subsequent state transitions remain. Did the actual results agree with the hypothesis? Explain your evidence in terms of First appearance.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    },
+    "motion-step-03": {
+      "sourceHash": "b56bf46278329ee265673dfb510d182b4ca0fd4a2fb4027183cd495024a602e5",
+      "values": {
+        "title": "Configuring Transition",
+        "prerequisites": "Prepare the results of the Initial and First appearance exercises from Unit 2, “Initial and Animate”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Tween",
+        "concepts.0.explanation": "A duration-based transition follows a defined time curve. ease changes the speed during the transition.",
+        "concepts.1.title": "Per-property settings",
+        "concepts.1.explanation": "Each property can have a different transition. Separating the intent for opacity and position makes the code easier to read.",
+        "outcomes.0": "Learning outcome: Explain the role of Tween. Input case: Selecting a button once.",
+        "outcomes.1": "Deliverable: A table of observations during and at the end of both property transitions. Connect your rationale for handling Per-property settings to the code.",
+        "steps.0": "In src/day-3.tsx of a separate exercise project, set different transition settings for x and opacity. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Selecting a button once. Baseline: 0.2 seconds. Run under the baseline condition, then record observations and errors in notes/day-3.md.",
+        "steps.2": "Variable to change: opacity duration; new value: 0.6 seconds. Run again with the same input path. Deliverable to save: A table of observations during and at the end of both property transitions. Hypothesis to test: Position and opacity finish at different times. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "opacity duration",
+        "variables.0.baseline": "0.2 seconds",
+        "variables.0.change": "0.6 seconds",
+        "variables.0.expected": "Position and opacity finish at different times.",
+        "criteria.0": "Required deliverable: A table of observations during and at the end of both property transitions. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Tween and Per-property settings. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Tween affect in this exercise? Input case: Selecting a button once.",
+        "questions.1": "Variable to change: opacity duration. Hypothesis to test: Position and opacity finish at different times. Did the actual results agree with the hypothesis? Explain your evidence in terms of Per-property settings.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    }
+  }
+}

@@ -237,6 +237,20 @@
         "Input and accessibility",
         "Motion system verification"
       ]
+    },
+    {
+      "id": "motion",
+      "title": "Motion",
+      "category": "animation",
+      "priority": 4,
+      "prerequisites": "React state, CSS transform",
+      "docPath": "/docs/en/labs/animation/motion/README.md",
+      "stages": [
+        "State and Transition",
+        "Layout and Presence",
+        "Gestures and Equivalent Interaction",
+        "Validating a Motion System"
+      ]
     }
   ],
   "units": [
@@ -4948,6 +4962,35 @@
       "goal": "Learning outcome: explain the role of Information Hierarchy. Input case: keyboard·10 rapid inputs·5 remounts. Deliverable: an input·accessibility·cleanup·frame verification report. Explain the rationale for handling Combined Verification, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/03-project/README.md",
       "seriesId": "gsap"
+    },
+    {
+      "id": "motion-01",
+      "day": 1,
+      "week": 1,
+      "title": "State-Based Animation",
+      "goal": "Learning outcome: Explain the role of Target state. Input case: Selecting and deselecting a card. Deliverable: A table of state values and final opacity and x values. Connect your rationale for handling API boundary to the code.",
+      "docPath": "/docs/en/labs/animation/motion/01-foundations/README.md",
+      "seriesId": "motion"
+    },
+    {
+      "id": "motion-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Initial and Animate",
+      "goal": "Learning outcome: Explain the role of Initial. Input case: First mount and state changes. Deliverable: A table of styles on first appearance and after transitions. Connect your rationale for handling First appearance to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/02/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Initial and Animate experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Configuring Transition",
+      "goal": "Learning outcome: Explain the role of Tween. Input case: Selecting a button once. Deliverable: A table of observations during and at the end of both property transitions. Connect your rationale for handling Per-property settings to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/03/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Configuring Transition experiment with cleanup of the resources used."
     }
   ]
 }

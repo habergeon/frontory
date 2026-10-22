@@ -4096,6 +4096,15 @@
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
+      "id": "glsl-03",
+      "day": 28,
+      "week": 4,
+      "title": "Interaction and Cost",
+      "goal": "Integrate an interactive shader. Choose settings based on quality and cost.",
+      "docPath": "/docs/en/labs/shader/glsl/03-project/README.md",
+      "seriesId": "glsl"
+    },
+    {
       "id": "wgsl-01",
       "day": 1,
       "week": 1,

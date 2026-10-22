@@ -712,6 +712,32 @@
         "questions.1": "When should reference images be updated?",
         "references.0.title": "GLSL ES 3.00 Specification"
       }
+    },
+    "glsl-03": {
+      "sourceHash": "b4142cd32e41c6d6be5b096e4a4e02978881455e0b1e6985c8d4e444bb5eb58b",
+      "values": {
+        "title": "Interaction and Cost",
+        "prerequisites": "Continue using the output and records from Unit 27. Before experimenting with Interaction and Cost, preserve the previous inputs and reference outputs.",
+        "environment": "The existing glsl-03 preview is a starting point. It does not replace implementation or verification of the full subsequent assignment. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Integrating Effects",
+        "concepts.0.explanation": "Pointers, waves, noise, and texture samples have different inputs and costs. Separating effects so they can be disabled makes results and costs easier to track.",
+        "concepts.1.title": "Evidence for Results",
+        "concepts.1.explanation": "Choosing a faster setting must account for quality loss and support requirements. Do not present estimates for untested environments as measured performance.",
+        "outcomes.0": "Integrate an interactive shader.",
+        "outcomes.1": "Choose settings based on quality and cost.",
+        "steps.0": "Connect pointer waves and per-effect toggles to the final shader, and replay three presets.",
+        "steps.1": "Change resolution, iteration count, and sample count one at a time, recording images and frame-interval distributions.",
+        "steps.2": "Check compilation errors and recovery, then record the selected settings and remaining limitations in report.md.",
+        "variables.0.name": "Iteration count",
+        "variables.0.baseline": "4",
+        "variables.0.change": "2",
+        "variables.0.expected": "Expect possible reductions in both computation and fine detail, and check with the same inputs.",
+        "criteria.0": "Keep a separate controlled comparison for each of the three cost variables.",
+        "criteria.1": "Provide compilation-failure and recovery evidence and two quality-loss items.",
+        "questions.0": "How do you choose between disabling a feature and reducing resolution?",
+        "questions.1": "Which costs have you not yet isolated in this measurement?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
     }
   }
 }

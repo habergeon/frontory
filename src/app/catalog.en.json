@@ -2388,6 +2388,36 @@
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "svg-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Adjusting Bézier Curves",
+      "goal": "Distinguish guide points from the actual curve. Explain how moving a control point affects the tangent.",
+      "docPath": "/docs/en/labs/graphics/svg/units/04/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "svg-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Arcs and Donut Segments",
+      "goal": "Draw proportions greater than half correctly. Handle the boundary cases of 0 and 100.",
+      "docPath": "/docs/en/labs/graphics/svg/units/05/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "svg-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Groups and Transform Order",
+      "goal": "Internal layout remains intact when moving the group. Visually mark the rotation center.",
+      "docPath": "/docs/en/labs/graphics/svg/units/06/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

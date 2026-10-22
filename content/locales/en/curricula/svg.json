@@ -88,6 +88,84 @@
         "questions.1": "What happens to fill and stroke respectively if you omit Z?",
         "references.0.title": "MDN SVG from Scratch Tutorial"
       }
+    },
+    "svg-step-04": {
+      "sourceHash": "c2f0a961219c3b21096a58a21324767aa78d031f357cc5d41aa8bafba9f2a91f",
+      "values": {
+        "title": "Adjusting Bézier Curves",
+        "prerequisites": "Prerequisite concepts: Absolute and relative coordinates, Closing a path. Prepare the result files and observation records from Unit 3.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Control points",
+        "concepts.0.explanation": "Q is a quadratic curve with one control point. The curve usually does not pass through the control point itself.",
+        "concepts.1.title": "Tangents",
+        "concepts.1.explanation": "The two control points of C affect the tangent directions at the start and end. Aligning directions at a join can reduce kinks in the curve.",
+        "outcomes.0": "Distinguish guide points from the actual curve.",
+        "outcomes.1": "Explain how moving a control point affects the tangent.",
+        "steps.0": "Prepare day-04.js and index.html in an external practice project. Create Q and C paths and mark their control points with small circle elements and guide lines.",
+        "steps.1": "Change the control point y with a slider and update the path's d attribute.",
+        "steps.2": "Save the output under the input condition 20, then run again with 120. Compare the hypothesis, \"The curve's bend direction and height change,\" against the display and logs, and record the actual result and the causes of any differences in day-04-notes.md.",
+        "variables.0.name": "Control point y",
+        "variables.0.baseline": "20",
+        "variables.0.change": "120",
+        "variables.0.expected": "The curve's bend direction and height change",
+        "criteria.0": "Distinguish guide points from the actual curve.",
+        "criteria.1": "Explain how moving a control point affects the tangent.",
+        "questions.0": "Why does the curve not pass through the control point?",
+        "questions.1": "Which points should you align to join two curves smoothly?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
+    },
+    "svg-step-05": {
+      "sourceHash": "cebfe9581e21ed72d3be431557f71f521a529977228ed43b96eb451ac6d34e46",
+      "values": {
+        "title": "Arcs and Donut Segments",
+        "prerequisites": "Prerequisite concepts: Control points, Tangents. Prepare the result files and observation records from Unit 4.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Arc flags",
+        "concepts.0.explanation": "The A command selects an elliptical arc using radii and two flags. The same endpoints can have a large arc or a small arc.",
+        "concepts.1.title": "Angle data",
+        "concepts.1.explanation": "Convert a proportion to an angle, then calculate coordinates on the circle. A full circle needs a separate path construction because its start and end coincide.",
+        "outcomes.0": "Draw proportions greater than half correctly.",
+        "outcomes.1": "Handle the boundary cases of 0 and 100.",
+        "steps.0": "Prepare day-05.js and index.html in an external practice project. Calculate two points on a circle with sin and cos, and create a progress arc with the A command.",
+        "steps.1": "Handle 0%,50%,99%,100% inputs separately and display the large arc flag.",
+        "steps.2": "Save the output under the input condition 25%, then run again with 75%. Compare the hypothesis, \"You need to change large-arc-flag to select the longer arc,\" against the display and logs, and record the actual result and the causes of any differences in day-05-notes.md.",
+        "variables.0.name": "Progress",
+        "variables.0.baseline": "25%",
+        "variables.0.change": "75%",
+        "variables.0.expected": "You need to change large-arc-flag to select the longer arc",
+        "criteria.0": "Draw proportions greater than half correctly.",
+        "criteria.1": "Handle the boundary cases of 0 and 100.",
+        "questions.0": "What does sweep-flag change?",
+        "questions.1": "Why is one arc with the same start and end insufficient?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
+    },
+    "svg-step-06": {
+      "sourceHash": "5a96534178cd60cab99b82816908a27654a7297a9cad6357789cc5868cdf9fc4",
+      "values": {
+        "title": "Groups and Transform Order",
+        "prerequisites": "Prerequisite concepts: Arc flags, Angle data. Prepare the result files and observation records from Unit 5.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Group transforms",
+        "concepts.0.explanation": "A g transform applies to its children together. You can place icons in multiple positions while preserving their internal coordinates.",
+        "concepts.1.title": "Matrix order",
+        "concepts.1.explanation": "Translation and rotation are sensitive to order. Specifying the rotation center reduces unintended orbiting.",
+        "outcomes.0": "Internal layout remains intact when moving the group.",
+        "outcomes.1": "Visually mark the rotation center.",
+        "steps.0": "Prepare day-06.js and index.html in an external practice project. Create a needle and center point inside g, and rotate them with transform.",
+        "steps.1": "Compare nested translation and rotation groups with a version using a single transform.",
+        "steps.2": "Save the output under the input condition 0,0, then run again with 100,100. Compare the hypothesis, \"The reference point around which the needle rotates changes,\" against the display and logs, and record the actual result and the causes of any differences in day-06-notes.md.",
+        "variables.0.name": "Rotation center",
+        "variables.0.baseline": "0,0",
+        "variables.0.change": "100,100",
+        "variables.0.expected": "The reference point around which the needle rotates changes",
+        "criteria.0": "Internal layout remains intact when moving the group.",
+        "criteria.1": "Visually mark the rotation center.",
+        "questions.0": "How are parent and child transforms combined?",
+        "questions.1": "How can you verify the order of a transform string?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
     }
   }
 }

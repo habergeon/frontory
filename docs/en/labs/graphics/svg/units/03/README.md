@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Basic Shapes and Attributes](../02/README.md)
+[Previous: Basic Shapes and Attributes](../02/README.md) · [Next: Adjusting Bézier Curves](../04/README.md)
 
 ## Experiment notes — write your own
 

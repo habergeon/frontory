@@ -10,5 +10,23 @@
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "svg-step-04": {
+    "sourceHash": "bfe582d890cb9c417563056786f4d90fc71425e8a36415c7421d788849fcaad7",
+    "values": {
+      "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "svg-step-05": {
+    "sourceHash": "f12756a050ec38965022b4ff7203f167d287cb9611101fc11d245845fdad340e",
+    "values": {
+      "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "svg-step-06": {
+    "sourceHash": "8401bd83828104adafe55146953f2dbed93c9ee33924a71de252deb3699bccba",
+    "values": {
+      "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    }
   }
 }

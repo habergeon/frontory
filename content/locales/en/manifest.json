@@ -419,6 +419,9 @@
     "wgsl-step-25",
     "wgsl-step-26",
     "wgsl-step-27",
-    "wgsl-03"
+    "wgsl-03",
+    "glsl-01",
+    "glsl-step-02",
+    "glsl-step-03"
   ]
 }

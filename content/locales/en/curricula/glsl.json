@@ -1,0 +1,93 @@
+{
+  "series": {
+    "sourceHash": "5e8a0a0d7687546ba9438037aa9be45c13cbe701153b6d268e2a6a70e4eed825",
+    "values": {
+      "stages.0": "Shader Language and Data Flow",
+      "stages.1": "Coordinates, Textures, and Time",
+      "stages.2": "Lighting and Procedural Surfaces",
+      "stages.3": "Interaction, Postprocessing, and Cost Evaluation",
+      "goal": "Understand stage inputs and mathematics in GLSL ES, and implement, diagnose, and compare visual effects in WebGL2.",
+      "capstone": "An experiment with a pointer-controlled procedural surface and postprocessing, compilation recovery, and quality and cost records"
+    }
+  },
+  "units": {
+    "glsl-01": {
+      "sourceHash": "e6509aa5752b38053d7e2d92a55d756715486a934a368f705524d8863268ae9c",
+      "values": {
+        "title": "Vertex and Fragment",
+        "prerequisites": "Vector operations and creating WebGL programs",
+        "environment": "The existing glsl-01 preview is a starting point. It does not replace implementation or verification of the full subsequent assignment. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Stage Roles",
+        "concepts.0.explanation": "The vertex shader computes the clip position and values to pass to the next stage. The fragment shader produces output for a pixel candidate from interpolated inputs.",
+        "concepts.1.title": "Version Contract",
+        "concepts.1.explanation": "Distinguish WebGL1 GLSL ES 1.00 syntax from WebGL2 3.00 syntax. In 3.00, use #version 300 es on the first line, in/out, and an explicit fragment output.",
+        "outcomes.0": "Explain the responsibilities of shader stages.",
+        "outcomes.1": "Distinguish version-specific syntax and errors.",
+        "steps.0": "Create a webgl2 context in main.js and separate the vertex.glsl and fragment.glsl sources.",
+        "steps.1": "Connect a vertex shader that only returns positions and a fixed-color fragment shader using compileShader and linkProgram.",
+        "steps.2": "Introduce a syntax error in one source and an interface error between the two stages separately, and compare the logs.",
+        "variables.0.name": "fragment color",
+        "variables.0.baseline": "red",
+        "variables.0.change": "green",
+        "variables.0.expected": "Expect only the output color to change, while vertex positions remain unchanged.",
+        "criteria.0": "Print compile and link logs separately.",
+        "criteria.1": "Do not mix attribute, varying, or gl_FragColor into GLSL ES 3.00 sources.",
+        "questions.0": "When can one fragment differ from one screen pixel?",
+        "questions.1": "Why can linking fail even when both shaders compile individually?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-02": {
+      "sourceHash": "a04ee632b67588f79768cdef32b3a93874432f5f311591e8e0673c0a3d91eeb7",
+      "values": {
+        "title": "Scalar and Vector Types",
+        "prerequisites": "Continue using the output and records from Unit 1. Before experimenting with Scalar and Vector Types, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Explicit Types",
+        "concepts.0.explanation": "float, int, and bool serve different purposes, and relying on implicit conversions can easily cause errors. Use constructors to express the intended types and component counts.",
+        "concepts.1.title": "Vector Operations",
+        "concepts.1.explanation": "Vector multiplication is component-wise, while dot produces one scalar. Check the result type and meaning even when the notation looks similar.",
+        "outcomes.0": "Use types and constructors.",
+        "outcomes.1": "Predict the results of vector operations.",
+        "steps.0": "Write vec2, vec3, and vec4 constructor and swizzle examples in types.glsl.",
+        "steps.1": "Apply component-wise multiplication and dot separately to the input color, and display them in two screen regions.",
+        "steps.2": "Supply an incorrect component count, locate the line in the compile log, and fix it.",
+        "variables.0.name": "Calculation method",
+        "variables.0.baseline": "color*color",
+        "variables.0.change": "vec3(dot(color,color))",
+        "variables.0.expected": "Expect per-channel values from the former and identical gray channels from the latter.",
+        "criteria.0": "Compare CPU predictions with shader output for both calculations.",
+        "criteria.1": "Record one invalid-constructor error and its correction.",
+        "questions.0": "Can you assign to a swizzle that repeats the same component?",
+        "questions.1": "What types do length and normalization return?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-03": {
+      "sourceHash": "deb53d39e589af82cc5421da18bae87af25ec31a830f64b07607b6b9106b40ac",
+      "values": {
+        "title": "Precision and Numeric Range",
+        "prerequisites": "Continue using the output and records from Unit 2. Before experimenting with Precision and Numeric Range, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Precision",
+        "concepts.0.explanation": "A precision qualifier relates to the representable range and accuracy. In particular, do not omit the default float precision declaration in the fragment shader.",
+        "concepts.1.title": "Large Coordinates",
+        "concepts.1.explanation": "Adding a small change to a large number may fail to represent that change. Compare moving coordinates to a local reference frame to reduce the range of calculations.",
+        "outcomes.0": "Inspect precision information.",
+        "outcomes.1": "Explore numeric problems with large coordinates.",
+        "steps.0": "Record getShaderPrecisionFormat results in precision.js.",
+        "steps.1": "Declare highp float in fragment.glsl and add a small sin variation to a large offset.",
+        "steps.2": "Compare the patterns before and after removing the offset at the same screen size.",
+        "variables.0.name": "Coordinate offset",
+        "variables.0.baseline": "0",
+        "variables.0.change": "100000",
+        "variables.0.expected": "Expect possible jitter or clumping in the pattern because small differences may be difficult to represent.",
+        "criteria.0": "Record the device's highp and mediump ranges and precision.",
+        "criteria.1": "Save images of both offsets at the same time point.",
+        "questions.0": "Does highp eliminate every numeric problem?",
+        "questions.1": "What improves when large world coordinates are moved to a camera-relative frame?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    }
+  }
+}

@@ -394,6 +394,13 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [26. Profiling and Quality Budgets](labs/graphics/pixijs/units/26/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-26/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [27. Completing the 2D Scene Editor](labs/graphics/pixijs/units/27/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-27/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
+## GLSL
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Scalar and Vector Types](labs/shader/glsl/units/02/README.md) | Editable example | [Source code](../../src/labs/glsl-step-02/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
+| [3. Precision and Numeric Range](labs/shader/glsl/units/03/README.md) | Editable example | [Source code](../../src/labs/glsl-step-03/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
+
 ## WGSL
 
 | Learning unit | Execution mode | Source and supported scope |

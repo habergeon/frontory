@@ -103,5 +103,12 @@
       "title": "WGSL",
       "prerequisites": "WebGPU buffers and pipelines, vectors"
     }
+  },
+  "glsl": {
+    "sourceHash": "eaa35043d6fadc6085933adc85f568bb84a07d1d1646fa61ece70c208e9c7601",
+    "values": {
+      "title": "GLSL",
+      "prerequisites": "WebGL pipeline and vectors"
+    }
   }
 }

@@ -183,6 +183,20 @@
       ]
     },
     {
+      "id": "glsl",
+      "title": "GLSL",
+      "category": "shader",
+      "priority": 5,
+      "prerequisites": "WebGL pipeline and vectors",
+      "docPath": "/docs/en/labs/shader/glsl/README.md",
+      "stages": [
+        "Shader Language and Data Flow",
+        "Coordinates, Textures, and Time",
+        "Lighting and Procedural Surfaces",
+        "Interaction, Postprocessing, and Cost Evaluation"
+      ]
+    },
+    {
       "id": "wgsl",
       "title": "WGSL",
       "category": "shader",
@@ -3812,6 +3826,35 @@
       "goal": "Test a bottleneck hypothesis by comparing before and after changing one variable. Separate measured values from estimates and unverified items.",
       "docPath": "/docs/en/labs/graphics/pixijs/03-project/README.md",
       "seriesId": "pixijs"
+    },
+    {
+      "id": "glsl-01",
+      "day": 1,
+      "week": 1,
+      "title": "Vertex and Fragment",
+      "goal": "Explain the responsibilities of shader stages. Distinguish version-specific syntax and errors.",
+      "docPath": "/docs/en/labs/shader/glsl/01-foundations/README.md",
+      "seriesId": "glsl"
+    },
+    {
+      "id": "glsl-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Scalar and Vector Types",
+      "goal": "Use types and constructors. Predict the results of vector operations.",
+      "docPath": "/docs/en/labs/shader/glsl/units/02/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
+      "id": "glsl-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Precision and Numeric Range",
+      "goal": "Inspect precision information. Explore numeric problems with large coordinates.",
+      "docPath": "/docs/en/labs/shader/glsl/units/03/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
       "id": "wgsl-01",

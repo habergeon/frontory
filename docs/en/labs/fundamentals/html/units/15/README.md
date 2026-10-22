@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Forms and the Keyboard](../../02-experiments/README.md)
+[Previous: Forms and the Keyboard](../../02-experiments/README.md) · [Next: A Collapsible Table of Contents with details](../16/README.md)
 
 ## Experiment notes — write your own
 

@@ -498,6 +498,36 @@
       "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "html-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "A Collapsible Table of Contents with details",
+      "goal": "Toggle twice with the keyboard to return to the original state. Reach the 4 table-of-contents links while it is open.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/16/README.md",
+      "seriesId": "html",
+      "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "dialog and Modal Flow",
+      "goal": "Check keyboard operation inside the modal and closing with Escape. Record whether focus returns to the open button after closing.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/17/README.md",
+      "seriesId": "html",
+      "exampleNote": "Dedicated helper code connects the open button to showModal. Compare the dialog open attribute with modal focus behavior. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Media Captions and Alternatives",
+      "goal": "The 2 caption cues appear at their specified times. Access the transcript link when the video fails to load.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/18/README.md",
+      "seriesId": "html",
+      "exampleNote": "External HTTP example: provides a 6-second synthetic MP4, Korean VTT, a transcript, and switching between success/failure cases. This is a silent synthetic fixture; evaluate accessibility for actual speech with a separate video."
+    },
+    {
       "id": "css-01",
       "day": 1,
       "week": 1,

@@ -402,6 +402,86 @@
         "variables.0.expected": "Pre-run hypothesis: The input will be excluded from submission data. Keep other conditions fixed and record the actual result separately after running.",
         "references.0.title": "MDN HTML"
       }
+    },
+    "html-step-16": {
+      "sourceHash": "038ff3f0251a932c7c1dce3425985b5b90c76b1807e20d90a35adb0087dff62b",
+      "values": {
+        "title": "A Collapsible Table of Contents with details",
+        "prerequisites": "The work and experiment records from Unit 15, “The Difference Between disabled and readonly”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Disclosure State",
+        "concepts.0.explanation": "details represents content that opens and closes natively. summary provides the control’s name and interactive surface.",
+        "concepts.1.title": "Document Flow",
+        "concepts.1.explanation": "Arrange collapsed content so users can expand it when needed. Check whether hiding essential guidance causes users to miss it.",
+        "outcomes.0": "Toggle twice with the keyboard to return to the original state.",
+        "outcomes.1": "Reach the 4 table-of-contents links while it is open.",
+        "criteria.0": "Toggle twice with the keyboard to return to the original state.",
+        "criteria.1": "Reach the 4 table-of-contents links while it is open.",
+        "steps.0": "In details.html, prepare closed and open states.",
+        "steps.1": "Write the topic name in summary and add 4 table-of-contents links inside.",
+        "steps.2": "Run with closed and open states. Results to check: Toggle twice with the keyboard to return to the original state. Reach the 4 table-of-contents links while it is open. Record expected and actual results separately.",
+        "questions.0": "What problems can complex controls inside summary cause?",
+        "questions.1": "How should you decide the initial open state?",
+        "variables.0.name": "open Attribute",
+        "variables.0.baseline": "Absent",
+        "variables.0.change": "Present",
+        "variables.0.expected": "Pre-run hypothesis: The internal table of contents will be visible from the start. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML",
+        "references.1.title": "MDN details"
+      }
+    },
+    "html-step-17": {
+      "sourceHash": "baf060fd4d1d6c301f91b5dbddc15028b4a29555dcdf44ca26d7f86ef9af1da7",
+      "values": {
+        "title": "dialog and Modal Flow",
+        "prerequisites": "The work and experiment records from Unit 16, “A Collapsible Table of Contents with details”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Modal Behavior",
+        "concepts.0.explanation": "showModal displays a dialog in the top layer and restricts outside interaction. Its modal behavior differs from setting only the open attribute.",
+        "concepts.1.title": "Returning Focus",
+        "concepts.1.explanation": "Users must be able to return to their original task after closing a dialog. Check initial focus and Escape behavior in an actual browser.",
+        "outcomes.0": "Check keyboard operation inside the modal and closing with Escape.",
+        "outcomes.1": "Record whether focus returns to the open button after closing.",
+        "criteria.0": "Check keyboard operation inside the modal and closing with Escape.",
+        "criteria.1": "Record whether focus returns to the open button after closing.",
+        "steps.0": "In dialog.html, prepare opening and closing with the keyboard, and Escape.",
+        "steps.1": "Create a titled dialog and open/close buttons, and connect showModal and close with supporting JS.",
+        "steps.2": "Run with opening and closing with the keyboard, and Escape. Results to check: Check keyboard operation inside the modal and closing with Escape. Record whether focus returns to the open button after closing. Record expected and actual results separately.",
+        "questions.0": "How do you associate a dialog with its title?",
+        "questions.1": "Where is an appropriate place for initial focus inside a modal?",
+        "variables.0.name": "Opening Method",
+        "variables.0.baseline": "showModal",
+        "variables.0.change": "open attribute",
+        "variables.0.expected": "Pre-run hypothesis: Restrictions on outside interaction will differ. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML",
+        "references.1.title": "MDN dialog"
+      }
+    },
+    "html-step-18": {
+      "sourceHash": "2f28e15ea4a1f4840e504d41089c1e5e4555d1fdccaf133d25658f560ae5ef5f",
+      "values": {
+        "title": "Media Captions and Alternatives",
+        "prerequisites": "The work and experiment records from Unit 17, “dialog and Modal Flow”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Media Controls",
+        "concepts.0.explanation": "The controls attribute on audio and video provides native playback UI. Relying on autoplay is affected by environment policies and user preferences.",
+        "concepts.1.title": "Timed Text",
+        "concepts.1.explanation": "Associate captions using track and WebVTT. Make spoken information accessible through a transcript as well.",
+        "outcomes.0": "The 2 caption cues appear at their specified times.",
+        "outcomes.1": "Access the transcript link when the video fails to load.",
+        "criteria.0": "The 2 caption cues appear at their specified times.",
+        "criteria.1": "Access the transcript link when the video fails to load.",
+        "steps.0": "In media.html, prepare a video file, captions.vtt, and a transcript.",
+        "steps.1": "Connect controls and a Korean caption track to a short local video, and add a transcript link.",
+        "steps.2": "Run with a video file, captions.vtt, and a transcript. Results to check: The 2 caption cues appear at their specified times. Access the transcript link when the video fails to load. Record expected and actual results separately.",
+        "questions.0": "How do captions and subtitles differ?",
+        "questions.1": "Does any information remain available only through sound?",
+        "variables.0.name": "Caption Path",
+        "variables.0.baseline": "Existing file",
+        "variables.0.change": "Nonexistent file",
+        "variables.0.expected": "Pre-run hypothesis: The video will play but captions will not appear. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
     }
   }
 }

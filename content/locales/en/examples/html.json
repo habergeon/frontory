@@ -76,5 +76,23 @@
     "values": {
       "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     }
+  },
+  "html-step-16": {
+    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "values": {
+      "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "html-step-17": {
+    "sourceHash": "497f9775273da72684cc27f6371cf55b46455b99c64e7a89f1dca1f63c75ce81",
+    "values": {
+      "note": "Dedicated helper code connects the open button to showModal. Compare the dialog open attribute with modal focus behavior. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "html-step-18": {
+    "sourceHash": "b96f0b42ba65b15683dabdb4afae451223170046eeb8b89e0ed3d774fc673e92",
+    "values": {
+      "note": "External HTTP example: provides a 6-second synthetic MP4, Korean VTT, a transcript, and switching between success/failure cases. This is a silent synthetic fixture; evaluate accessibility for actual speech with a separate video."
+    }
   }
 }

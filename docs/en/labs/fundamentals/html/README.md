@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 15 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 18 published in English
 
 ## Series goal
 
@@ -45,6 +45,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 3 · Native UI and Media
 
 - [15. The Difference Between disabled and readonly](units/15/README.md) — Editable example
+- [16. A Collapsible Table of Contents with details](units/16/README.md) — Editable example
+- [17. dialog and Modal Flow](units/17/README.md) — Editable example
+- [18. Media Captions and Alternatives](units/18/README.md) — External example · preview instructions
 
 ### Stage 4 · Accessibility Review and Card Integration
 
@@ -59,3 +62,5 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 
 - [MDN HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [MDN input](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input)
+- [MDN details](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details)
+- [MDN dialog](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog)

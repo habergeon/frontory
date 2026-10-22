@@ -12,5 +12,17 @@
         "comments.title": "gsap-step-02: Starting and target values"
       }
     }
+  },
+  "gsap-step-03": {
+    "sourceHash": "32451d478bee044451a4c03bc664bd23b057a24a75290daacc74b848bf6d4cfd",
+    "values": {
+      "note": "This is an experiment on The Time Curve of Ease. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-04": {
+    "sourceHash": "bfe58857ac56f10ecf64c032af3f8eb184bd5f697ea219890c2a67b0942d9965",
+    "values": {
+      "note": "This is an experiment on Transform and Layout. It supports direct interaction and cleans up the resources it uses."
+    }
   }
 }

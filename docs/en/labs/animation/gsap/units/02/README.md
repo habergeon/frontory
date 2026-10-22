@@ -142,7 +142,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-
+[Previous: Tween and Timeline](../../01-foundations/README.md) · [Next: The Time Curve of Ease](../03/README.md)
 
 ## Experiment notes — write your own
 

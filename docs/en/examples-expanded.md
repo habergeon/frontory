@@ -99,3 +99,5 @@ Check the scope of each example. Browser previews and files run in a separate en
 | Learning unit | Execution mode | Source and supported scope |
 | --- | --- | --- |
 | [2. Starting and target values](labs/animation/gsap/units/02/README.md) | Editable example | [Source code](../../src/labs/gsap-step-02/example.js) — This experiment explores starting and target values. You can manipulate it directly, and it cleans up the resources it uses. |
+| [3. The Time Curve of Ease](labs/animation/gsap/units/03/README.md) | Editable example | [Source code](../../src/labs/gsap-step-03/example.js) — This is an experiment on The Time Curve of Ease. It supports direct interaction and cleans up the resources it uses. |
+| [4. Transform and Layout](labs/animation/gsap/units/04/README.md) | Editable example | [Source code](../../src/labs/gsap-step-04/example.js) — This is an experiment on Transform and Layout. It supports direct interaction and cleans up the resources it uses. |

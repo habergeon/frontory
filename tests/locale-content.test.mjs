@@ -378,7 +378,7 @@ test('actual English content publishes exactly the approved lessons with complet
   assert.match(result.curricula.css.units.find(unit => unit.id === 'css-step-04').concepts[1].explanation, /156px/)
   assert.match(result.curricula.react.units.find(unit => unit.id === 'react-step-03').concepts[2].explanation, /setCount\(1\)/)
   assert.match(result.curricula.react.units.find(unit => unit.id === 'react-step-03').concepts[3].explanation, /0.*1.*2.*3/)
-  assert.match(result.curricula.gsap.units[0].concepts[4].explanation, /to=140, from=-20, fromTo=80/)
+  assert.match(result.curricula.gsap.units.find(unit => unit.id === 'gsap-step-02').concepts[4].explanation, /to=140, from=-20, fromTo=80/)
 })
 
 test('reader rejects malformed curriculum stages without depending on legacy stage count', t => {

@@ -890,6 +890,15 @@
       "seriesId": "react"
     },
     {
+      "id": "gsap-01",
+      "day": 1,
+      "week": 1,
+      "title": "Tween and Timeline",
+      "goal": "Learning outcome: explain the role of Tween. Input case: 3 cards and playback buttons. Deliverable: a position table at progress 0·0.5·1. Explain the rationale for handling Playhead, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/01-foundations/README.md",
+      "seriesId": "gsap"
+    },
+    {
       "id": "gsap-step-02",
       "day": 2,
       "week": 1,
@@ -898,6 +907,26 @@
       "docPath": "/docs/en/labs/animation/gsap/units/02/README.md",
       "seriesId": "gsap",
       "exampleNote": "This experiment explores starting and target values. You can manipulate it directly, and it cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "The Time Curve of Ease",
+      "goal": "Learning outcome: explain the role of Normalized Time. Input case: 0·0.25·0.5·0.75·1. Deliverable: a table of positions at each progress value. Explain the rationale for handling Speed Distribution, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/03/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on The Time Curve of Ease. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Transform and Layout",
+      "goal": "Learning outcome: explain the role of Transform. Input case: 10 adjacent cards. Deliverable: a record of neighboring positions and layout events. Explain the rationale for handling Measurement, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/04/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Transform and Layout. It supports direct interaction and cleans up the resources it uses."
     }
   ]
 }

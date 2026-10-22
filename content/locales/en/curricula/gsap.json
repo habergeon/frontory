@@ -53,6 +53,87 @@
         "references.3.title": "GSAP reading property values",
         "environment": "The project dependency is GSAP 3.15.0. The default src/labs/gsap-step-02/example.js runs fromTo with the Run experiment button. The three-API comparison code in this lesson is a separate mount replacement experiment using gsap and container supplied to mount. In a separate local GSAP project, prepare the gsap import and the DOM element to mount into, and record the version and lockfile. This unit does not use ScrollTrigger."
       }
+    },
+    "gsap-01": {
+      "sourceHash": "473e90fee98a4f562af0cbb93afc5e33fdc7e37e553a617beacda3f474b8f8c3",
+      "values": {
+        "title": "Tween and Timeline",
+        "prerequisites": "Understand DOM·CSS transform and time, and be able to read the inputs and outputs of the existing starting example.",
+        "environment": "The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Tween",
+        "concepts.0.explanation": "A tween interpolates between two values. A timeline groups the timing relationships of multiple changes.",
+        "concepts.1.title": "Playhead",
+        "concepts.1.explanation": "The playback position determines the current scene. Revisit the same position to compare states.",
+        "outcomes.0": "Learning outcome: explain the role of Tween. Input case: 3 cards and playback buttons.",
+        "outcomes.1": "Deliverable: a position table at progress 0·0.5·1. Explain the rationale for handling Playhead, connecting it to the code.",
+        "steps.0": "In src/day-1.js of a separate practice project, put three cards in gsap.timeline and connect play/pause/reverse buttons. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 3 cards and playback buttons. Baseline: 1 second. Run under baseline conditions, then record observations and errors in notes/day-1.md.",
+        "steps.2": "Variable: duration; changed value: 2 seconds. Run again using the same input path. Deliverable to save: a position table at progress 0·0.5·1. Hypothesis to check: The final position stays the same, and only the movement time increases. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "duration",
+        "variables.0.baseline": "1 second",
+        "variables.0.change": "2 seconds",
+        "variables.0.expected": "The final position stays the same, and only the movement time increases.",
+        "criteria.0": "Required deliverable: a position table at progress 0·0.5·1. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Tween, Playhead. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Tween affect in this exercise? Input case: 3 cards and playback buttons.",
+        "questions.1": "Variable: duration. Hypothesis to check: The final position stays the same, and only the movement time increases. Did the actual results match the hypothesis? Explain the evidence in terms of Playhead.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-03": {
+      "sourceHash": "3a104605c80850defbc0afe9503bd51f1ebdb423aaebb38588dd909ef7f76e9a",
+      "values": {
+        "title": "The Time Curve of Ease",
+        "prerequisites": "Prepare the exercise results on from and to and Initial Rendering from Unit 2, “Starting and Target Values”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Normalized Time",
+        "concepts.0.explanation": "Progress expresses time from 0 to 1. ease changes the position at the same time.",
+        "concepts.1.title": "Speed Distribution",
+        "concepts.1.explanation": "duration is the total length. ease distributes speed within it.",
+        "outcomes.0": "Learning outcome: explain the role of Normalized Time. Input case: 0·0.25·0.5·0.75·1.",
+        "outcomes.1": "Deliverable: a table of positions at each progress value. Explain the rationale for handling Speed Distribution, connecting it to the code.",
+        "steps.0": "In src/day-3.js of a separate practice project, use gsap.parseEase to compare the outputs at five progress values with card positions. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 0·0.25·0.5·0.75·1. Baseline: none. Run under baseline conditions, then record observations and errors in notes/day-3.md.",
+        "steps.2": "Variable: ease; changed value: power2.inOut. Run again using the same input path. Deliverable to save: a table of positions at each progress value. Hypothesis to check: Movement is faster in the middle than at either end. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "ease",
+        "variables.0.baseline": "none",
+        "variables.0.change": "power2.inOut",
+        "variables.0.expected": "Movement is faster in the middle than at either end.",
+        "criteria.0": "Required deliverable: a table of positions at each progress value. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Normalized Time, Speed Distribution. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Normalized Time affect in this exercise? Input case: 0·0.25·0.5·0.75·1.",
+        "questions.1": "Variable: ease. Hypothesis to check: Movement is faster in the middle than at either end. Did the actual results match the hypothesis? Explain the evidence in terms of Speed Distribution.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-04": {
+      "sourceHash": "9ebda83f47962b09faa4f6ef870bdae508e250374a0231625ce34b7c87ca3e03",
+      "values": {
+        "title": "Transform and Layout",
+        "prerequisites": "Prepare the exercise results on Normalized Time and Speed Distribution from Unit 3, “The Time Curve of Ease”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Transform",
+        "concepts.0.explanation": "Movement along x preserves document flow. Changing width may affect the layout of neighboring elements.",
+        "concepts.1.title": "Measurement",
+        "concepts.1.explanation": "Cost cannot be determined by the property name alone. Compare layout occurrences in Performance recordings.",
+        "outcomes.0": "Learning outcome: explain the role of Transform. Input case: 10 adjacent cards.",
+        "outcomes.1": "Deliverable: a record of neighboring positions and layout events. Explain the rationale for handling Measurement, connecting it to the code.",
+        "steps.0": "In src/day-4.js of a separate practice project, create x and width animations and save recordings from the performance panel. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 10 adjacent cards. Baseline: x. Run under baseline conditions, then record observations and errors in notes/day-4.md.",
+        "steps.2": "Variable: Property; changed value: width. Run again using the same input path. Deliverable to save: a record of neighboring positions and layout events. Hypothesis to check: Neighboring layout and layout recordings may differ. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Property",
+        "variables.0.baseline": "x",
+        "variables.0.change": "width",
+        "variables.0.expected": "Neighboring layout and layout recordings may differ.",
+        "criteria.0": "Required deliverable: a record of neighboring positions and layout events. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Transform, Measurement. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Transform affect in this exercise? Input case: 10 adjacent cards.",
+        "questions.1": "Variable: Property. Hypothesis to check: Neighboring layout and layout recordings may differ. Did the actual results match the hypothesis? Explain the evidence in terms of Measurement.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
     }
   }
 }

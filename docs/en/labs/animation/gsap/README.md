@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Animation · 4 stages · 28 units in the full series · 1 published in English
+Animation · 4 stages · 28 units in the full series · 4 published in English
 
 ## Series goal
 
@@ -24,7 +24,10 @@ Only published English units are linked below. The full series has 28 units.
 
 ### Stage 1 · Tweens and the time model
 
+- [01. Tween and Timeline](01-foundations/README.md) — Editable example
 - [02. Starting and target values](units/02/README.md) — Editable example
+- [03. The Time Curve of Ease](units/03/README.md) — Editable example
+- [04. Transform and Layout](units/04/README.md) — Editable example
 
 ### Stage 2 · Scrolling and lifecycle
 
@@ -43,6 +46,8 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 
 ## Official references
 
+- [GSAP Official Documentation](https://gsap.com/docs/v3/)
+- [ScrollTrigger Official Documentation](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)
 - [GSAP to target values and settings](https://gsap.com/docs/v3/GSAP/gsap.to()/)
 - [GSAP from current state and initial application](https://gsap.com/docs/v3/GSAP/gsap.from()/)
 - [GSAP fromTo endpoints and immediateRender](https://gsap.com/docs/v3/GSAP/gsap.fromTo()/)

@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: MotionValue](../20/README.md)
+[Previous: MotionValue](../20/README.md) · [Next: Scroll-Linked Animation](../22/README.md)
 
 ## Experiment notes — write your own
 

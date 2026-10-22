@@ -5170,6 +5170,36 @@
       "docPath": "/docs/en/labs/animation/motion/units/21/README.md",
       "seriesId": "motion",
       "exampleNote": "Interactive Connecting Transform and Spring experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Scroll-Linked Animation",
+      "goal": "Learning outcome: Explain the role of UseScroll. Input case: Scrolling to the top, middle, and bottom. Deliverable: Progress values and indicator lengths. Connect your rationale for handling Offset to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/22/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Scroll-Linked Animation experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "In-View Animation",
+      "goal": "Learning outcome: Explain the role of InView. Input case: Scrolling into and out of view 3 times. Deliverable: The execution count for each repetition. Connect your rationale for handling Once to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/23/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive In-View Animation experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "UseAnimate Cleanup",
+      "goal": "Learning outcome: Explain the role of Scope. Input case: Running and removing midway. Deliverable: Completion logs and a record of work after removal. Connect your rationale for handling Asynchronous order to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/24/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive UseAnimate Cleanup experiment with cleanup of the resources used."
     }
   ]
 }

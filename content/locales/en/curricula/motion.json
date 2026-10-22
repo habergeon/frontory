@@ -578,6 +578,87 @@
         "references.0.title": "Motion React animation",
         "references.1.title": "Motion AnimatePresence"
       }
+    },
+    "motion-step-22": {
+      "sourceHash": "83573bd4864367153eeb579d44cb5f2a07a2583542052e90e8b463f1b76b22cf",
+      "values": {
+        "title": "Scroll-Linked Animation",
+        "prerequisites": "Prepare the results of the Derived values and Following values exercises from Unit 21, “Connecting Transform and Spring”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "UseScroll",
+        "concepts.0.explanation": "useScroll provides scroll progress as a MotionValue. Distinguish viewport-based and target-based measurements.",
+        "concepts.1.title": "Offset",
+        "concepts.1.explanation": "offset defines the intersections for the measured interval. Check that long content can be read through to the end.",
+        "outcomes.0": "Learning outcome: Explain the role of UseScroll. Input case: Scrolling to the top, middle, and bottom.",
+        "outcomes.1": "Deliverable: Progress values and indicator lengths. Connect your rationale for handling Offset to the code.",
+        "steps.0": "In src/day-22.tsx of a separate exercise project, build a reading progress indicator with a useScroll target and useTransform. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Scrolling to the top, middle, and bottom. Baseline: start end·end start. Run under the baseline condition, then record observations and errors in notes/day-22.md.",
+        "steps.2": "Variable to change: offset; new value: start start·end end. Run again with the same input path. Deliverable to save: Progress values and indicator lengths. Hypothesis to test: The start and end of the progress interval change. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "offset",
+        "variables.0.baseline": "start end·end start",
+        "variables.0.change": "start start·end end",
+        "variables.0.expected": "The start and end of the progress interval change.",
+        "criteria.0": "Required deliverable: Progress values and indicator lengths. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: UseScroll and Offset. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does UseScroll affect in this exercise? Input case: Scrolling to the top, middle, and bottom.",
+        "questions.1": "Variable to change: offset. Hypothesis to test: The start and end of the progress interval change. Did the actual results agree with the hypothesis? Explain your evidence in terms of Offset.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    },
+    "motion-step-23": {
+      "sourceHash": "8410d47b51e41fe5ee952782d6f64303b6eefa3c30b1b8da5fd5a6015720c79e",
+      "values": {
+        "title": "In-View Animation",
+        "prerequisites": "Prepare the results of the UseScroll and Offset exercises from Unit 22, “Scroll-Linked Animation”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "InView",
+        "concepts.0.explanation": "In-view detection concerns the conditions under which an element is visible. It does not mean the same thing as whether it is rendered.",
+        "concepts.1.title": "Once",
+        "concepts.1.explanation": "once limits execution to the first entrance. Match it to the intent of content shown repeatedly.",
+        "outcomes.0": "Learning outcome: Explain the role of InView. Input case: Scrolling into and out of view 3 times.",
+        "outcomes.1": "Deliverable: The execution count for each repetition. Connect your rationale for handling Once to the code.",
+        "steps.0": "In src/day-23.tsx of a separate exercise project, configure whileInView and viewport.once. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Scrolling into and out of view 3 times. Baseline: false. Run under the baseline condition, then record observations and errors in notes/day-23.md.",
+        "steps.2": "Variable to change: once; new value: true. Run again with the same input path. Deliverable to save: The execution count for each repetition. Hypothesis to test: Repeated motion is skipped from the second entrance onward. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "once",
+        "variables.0.baseline": "false",
+        "variables.0.change": "true",
+        "variables.0.expected": "Repeated motion is skipped from the second entrance onward.",
+        "criteria.0": "Required deliverable: The execution count for each repetition. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: InView and Once. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does InView affect in this exercise? Input case: Scrolling into and out of view 3 times.",
+        "questions.1": "Variable to change: once. Hypothesis to test: Repeated motion is skipped from the second entrance onward. Did the actual results agree with the hypothesis? Explain your evidence in terms of Once.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    },
+    "motion-step-24": {
+      "sourceHash": "0516b84c3cfe848df030966df42d6e07d9352f90c27a2d1365f466a9d7fca367",
+      "values": {
+        "title": "UseAnimate Cleanup",
+        "prerequisites": "Prepare the results of the InView and Once exercises from Unit 23, “In-View Animation”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Scope",
+        "concepts.0.explanation": "useAnimate controls elements inside its scope. Ownership is clearer than with global selectors.",
+        "concepts.1.title": "Asynchronous order",
+        "concepts.1.explanation": "Use await to sequence motion. Also check whether subsequent work remains valid after unmount.",
+        "outcomes.0": "Learning outcome: Explain the role of Scope. Input case: Running and removing midway.",
+        "outcomes.1": "Deliverable: Completion logs and a record of work after removal. Connect your rationale for handling Asynchronous order to the code.",
+        "steps.0": "In src/day-24.tsx of a separate exercise project, use useAnimate to sequence a heading followed by cards, and unmount midway. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Running and removing midway. Baseline: After completion. Run under the baseline condition, then record observations and errors in notes/day-24.md.",
+        "steps.2": "Variable to change: Removal time; new value: During the first action. Run again with the same input path. Deliverable to save: Completion logs and a record of work after removal. Hypothesis to test: No UI updates remain after removal. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Removal time",
+        "variables.0.baseline": "After completion",
+        "variables.0.change": "During the first action",
+        "variables.0.expected": "No UI updates remain after removal.",
+        "criteria.0": "Required deliverable: Completion logs and a record of work after removal. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Scope and Asynchronous order. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Scope affect in this exercise? Input case: Running and removing midway.",
+        "questions.1": "Variable to change: Removal time. Hypothesis to test: No UI updates remain after removal. Did the actual results agree with the hypothesis? Explain your evidence in terms of Asynchronous order.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
     }
   }
 }

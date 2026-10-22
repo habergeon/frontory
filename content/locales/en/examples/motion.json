@@ -112,5 +112,23 @@
     "values": {
       "note": "Interactive Connecting Transform and Spring experiment with cleanup of the resources used."
     }
+  },
+  "motion-step-22": {
+    "sourceHash": "e22099d7d5a8b13559a25a0d5089216353d7412d072e9f6658c8268df1840060",
+    "values": {
+      "note": "Interactive Scroll-Linked Animation experiment with cleanup of the resources used."
+    }
+  },
+  "motion-step-23": {
+    "sourceHash": "7af7e7bcbebf8c918441d545c9c5435d2ca5cbae32efa951eb2af86abcceba7b",
+    "values": {
+      "note": "Interactive In-View Animation experiment with cleanup of the resources used."
+    }
+  },
+  "motion-step-24": {
+    "sourceHash": "a67ed540ae4c013edac1ff615df1046f4c21ba2b2edc1572ffa12d05a4ed3ce4",
+    "values": {
+      "note": "Interactive UseAnimate Cleanup experiment with cleanup of the resources used."
+    }
   }
 }

@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Layout and Exit](../../02-experiments/README.md)
+[Previous: Layout and Exit](../../02-experiments/README.md) · [Next: Tap Feedback](../16/README.md)
 
 ## Experiment notes — write your own
 

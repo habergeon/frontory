@@ -76,5 +76,23 @@
     "values": {
       "note": "Interactive Hover and Focus experiment with cleanup of the resources used."
     }
+  },
+  "motion-step-16": {
+    "sourceHash": "149832eff55aaab4fcd921770445769e619fe6c32decb84337de7c818d4d3a2c",
+    "values": {
+      "note": "Interactive Tap Feedback experiment with cleanup of the resources used."
+    }
+  },
+  "motion-step-17": {
+    "sourceHash": "bc1e557fcb1055d3b9c7c9b6de905e2587ad84c269cc74c0262dee89df106724",
+    "values": {
+      "note": "Interactive Drag Coordinates and Bounds experiment with cleanup of the resources used."
+    }
+  },
+  "motion-step-18": {
+    "sourceHash": "d046c6ed817749e29785d2b9f2f91563c15c5c72d9356d7174a4363d7522ea82",
+    "values": {
+      "note": "Interactive Inertia and Elasticity experiment with cleanup of the resources used."
+    }
   }
 }

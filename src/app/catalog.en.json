@@ -5110,6 +5110,36 @@
       "docPath": "/docs/en/labs/animation/motion/units/15/README.md",
       "seriesId": "motion",
       "exampleNote": "Interactive Hover and Focus experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Tap Feedback",
+      "goal": "Learning outcome: Explain the role of Pressed state. Input case: Click, Enter, and Space. Deliverable: The increment count for each input. Connect your rationale for handling Functional events to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/16/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Tap Feedback experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Drag Coordinates and Bounds",
+      "goal": "Learning outcome: Explain the role of Drag. Input case: Moving beyond the left and right bounds. Deliverable: A table of final x values and container widths. Connect your rationale for handling Constraints to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/17/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Drag Coordinates and Bounds experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Inertia and Elasticity",
+      "goal": "Learning outcome: Explain the role of Momentum. Input case: Short drags in the same direction. Deliverable: A table of positions at pointer release and after settling. Connect your rationale for handling Elastic to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/18/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Inertia and Elasticity experiment with cleanup of the resources used."
     }
   ]
 }

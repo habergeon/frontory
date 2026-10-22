@@ -2769,6 +2769,35 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "threejs-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Normalized Coordinates and Selection",
+      "goal": "Keep selection positions correct even with page margins. Select the nearest intersected target.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/13/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "threejs-02",
+      "day": 14,
+      "week": 2,
+      "title": "Materials, Loading, and Selection",
+      "goal": "Keep the UI usable after failure and highlight only the selected object. Leave other objects with a shared material unchanged.",
+      "docPath": "/docs/en/labs/graphics/threejs/02-experiments/README.md",
+      "seriesId": "threejs"
+    },
+    {
+      "id": "threejs-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Model Size and Camera Fitting",
+      "goal": "Center a model on screen even when it is far from the origin. Treat models with a size of 0 or empty models as errors.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/15/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "Reproduces Box3 framing with basic shapes. An arbitrary glTF loader is not injected into the preview runtime."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 12 published in English
+Graphics · 4 stages · 28 units in the full series · 15 published in English
 
 ## Series goal
 
@@ -39,9 +39,12 @@ Only published English units are linked below. The full series has 28 units.
 - [10. Textures and UVs](units/10/README.md) — Editable example
 - [11. Color Spaces and Output](units/11/README.md) — Editable example
 - [12. Shadow Maps](units/12/README.md) — Editable example
+- [13. Normalized Coordinates and Selection](units/13/README.md) — Editable example
+- [14. Materials, Loading, and Selection](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Animation, Instancing, and Render Passes
 
+- [15. Model Size and Camera Fitting](units/15/README.md) — Editable example
 
 ### Stage 4 · Resource Lifetimes, Accessibility, and Measurement
 
@@ -61,3 +64,6 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [Three.js Cleanup](https://threejs.org/manual/pages/cleanup.html)
 - [Three.js Shadows](https://threejs.org/manual/pages/shadows.html)
 - [Three.js Color Management](https://threejs.org/manual/pages/color-management.html)
+- [Three.js Raycaster](https://threejs.org/docs/pages/Raycaster.html)
+- [Three.js GLTFLoader](https://threejs.org/docs/pages/GLTFLoader.html)
+- [Three.js OrbitControls](https://threejs.org/docs/pages/OrbitControls.html)

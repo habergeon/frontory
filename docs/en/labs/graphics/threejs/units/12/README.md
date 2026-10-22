@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Color Spaces and Output](../11/README.md)
+[Previous: Color Spaces and Output](../11/README.md) · [Next: Normalized Coordinates and Selection](../13/README.md)
 
 ## Experiment notes — write your own
 

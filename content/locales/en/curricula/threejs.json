@@ -328,6 +328,87 @@
         "references.0.title": "Three.js Shadows",
         "references.1.title": "Three.js WebGLRenderer"
       }
+    },
+    "threejs-step-13": {
+      "sourceHash": "81efc03643c4139a4ba3b8b5b0d3aedb31623d2e6f8aa733eeae524d750b32b8",
+      "values": {
+        "title": "Normalized Coordinates and Selection",
+        "prerequisites": "Prerequisite concepts: Additional Rendering, Shadow Coverage. Prepare the result files and observation notes from unit 12.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "NDC Input",
+        "concepts.0.explanation": "Raycaster.setFromCamera accepts normalized device coordinates. Calculate them relative to the canvas rectangle: x ranges from -1 to 1, and y is 1 at the top.",
+        "concepts.1.title": "Intersection Results",
+        "concepts.1.explanation": "intersectObjects returns intersection information ordered by distance. Complex models need a rule for walking from a child Mesh up to the intended application selection target.",
+        "outcomes.0": "Keep selection positions correct even with page margins.",
+        "outcomes.1": "Select the nearest intersected target.",
+        "steps.0": "Prepare day-13.js and index.html in the external exercise project. Convert pointerdown client coordinates to NDC and call raycaster.setFromCamera.",
+        "steps.1": "Display the intersection distances and names of two overlapping Mesh objects in an HTML list.",
+        "steps.2": "Save the output under the Canvas center input condition, then run again under the Top left condition. Expected: NDC changes approximately from 0,0 to -1,1. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-13-notes.md.",
+        "variables.0.name": "Pointer position",
+        "variables.0.baseline": "Canvas center",
+        "variables.0.change": "Top left",
+        "variables.0.expected": "NDC changes approximately from 0,0 to -1,1.",
+        "criteria.0": "Keep selection positions correct even with page margins.",
+        "criteria.1": "Select the nearest intersected target.",
+        "questions.0": "When does normalization using the window size give incorrect results?",
+        "questions.1": "How does the recursive option differ from a parent-selection rule?",
+        "references.0.title": "Three.js Raycaster"
+      }
+    },
+    "threejs-02": {
+      "sourceHash": "fe4f4a6d83e9fc71cec35834586fd46b189a2ddc363e3b5d2aa8831a2732b3ee",
+      "values": {
+        "title": "Materials, Loading, and Selection",
+        "prerequisites": "Prerequisite concepts: NDC Input, Intersection Results. Prepare the result files and observation notes from unit 13.",
+        "environment": "The existing built-in example provides only a starting point. It does not implement all expanded requirements. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Loading States",
+        "concepts.0.explanation": "Asynchronous GLTFLoader results may arrive in a different order from requests. Distinguish loading, success, and error states in the UI.",
+        "concepts.1.title": "Selection Highlighting",
+        "concepts.1.explanation": "Directly changing a shared material may highlight multiple objects together. Isolate the selected target with a separate outline or a cloned material.",
+        "outcomes.0": "Keep the UI usable after failure and highlight only the selected object.",
+        "outcomes.1": "Leave other objects with a shared material unchanged.",
+        "steps.0": "Prepare day-14.js and index.html in the external exercise project. Read the existing threejs-02 and implement a local glb or a basic-shape fallback and error UI.",
+        "steps.1": "Configure the selection layer for raycasting, restore the previous target’s highlight, and highlight only the new target.",
+        "steps.2": "Save the output under the Valid local glb input condition, then run again under the Missing path condition. Expected: Basic shapes and the UI remain available even when an error is displayed. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-14-notes.md.",
+        "variables.0.name": "Model URL",
+        "variables.0.baseline": "Valid local glb",
+        "variables.0.change": "Missing path",
+        "variables.0.expected": "Basic shapes and the UI remain available even when an error is displayed.",
+        "criteria.0": "Keep the UI usable after failure and highlight only the selected object.",
+        "criteria.1": "Leave other objects with a shared material unchanged.",
+        "questions.0": "How do you discard a previous loading request that arrives late?",
+        "questions.1": "How do selection layers differ from render-camera layers?",
+        "references.0.title": "Three.js GLTFLoader",
+        "references.1.title": "Three.js Raycaster",
+        "references.2.title": "Three.js Cleanup"
+      }
+    },
+    "threejs-step-15": {
+      "sourceHash": "8bbaf0bffa82811b2eb0837ce3b3fe6eb6d371640dca4a98d9a7de7182874f50",
+      "values": {
+        "title": "Model Size and Camera Fitting",
+        "prerequisites": "Prerequisite concepts: Loading States, Selection Highlighting. Prepare the result files and observation notes from unit 14.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Bounding Boxes",
+        "concepts.0.explanation": "Models have different units and centers. Calculating size and center from a world bounding box provides a consistent basis for viewing.",
+        "concepts.1.title": "Camera Framing",
+        "concepts.1.explanation": "You can calculate distance from the target size and FOV. With a narrow aspect, consider the horizontal direction too.",
+        "outcomes.0": "Center a model on screen even when it is far from the origin.",
+        "outcomes.1": "Treat models with a size of 0 or empty models as errors.",
+        "steps.0": "Prepare day-15.js and index.html in the external exercise project. Get the loaded model’s center and size with Box3.setFromObject.",
+        "steps.1": "Move controls.target to the center, and adjust camera distance and near and far based on model size.",
+        "steps.2": "Save the output under the 1 input condition, then run again under the 10 condition. Expected: After framing, the model occupies a similar proportion of the screen. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-15-notes.md.",
+        "variables.0.name": "Model scale",
+        "variables.0.baseline": "1",
+        "variables.0.change": "10",
+        "variables.0.expected": "After framing, the model occupies a similar proportion of the screen.",
+        "criteria.0": "Center a model on screen even when it is far from the origin.",
+        "criteria.1": "Treat models with a size of 0 or empty models as errors.",
+        "questions.0": "How does this differ from moving the model itself to the origin?",
+        "questions.1": "What happens to a wide model if you consider only vertical FOV?",
+        "references.0.title": "Three.js GLTFLoader",
+        "references.1.title": "Three.js OrbitControls"
+      }
     }
   }
 }

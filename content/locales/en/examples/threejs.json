@@ -64,5 +64,17 @@
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "threejs-step-13": {
+    "sourceHash": "5ce8222607c27c475a6b2f656450738fda930d0d3344215444ab0d0166ba378d",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "threejs-step-15": {
+    "sourceHash": "bac52cf3100762cfd2dfb1257716778ecbc317867e423b2d5db5a6008daed6f7",
+    "values": {
+      "note": "Reproduces Box3 framing with basic shapes. An arbitrary glTF loader is not injected into the preview runtime."
+    }
   }
 }

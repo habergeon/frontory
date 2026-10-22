@@ -289,6 +289,8 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [10. Textures and UVs](labs/graphics/threejs/units/10/README.md) | Editable example | [Source code](../../src/labs/threejs-step-10/example.js) — Checks UV repeat with a generated checker DataTexture instead of an external image. Extend network TextureLoader error handling in an external project. |
 | [11. Color Spaces and Output](labs/graphics/threejs/units/11/README.md) | Editable example | [Source code](../../src/labs/threejs-step-11/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [12. Shadow Maps](labs/graphics/threejs/units/12/README.md) | Editable example | [Source code](../../src/labs/threejs-step-12/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [13. Normalized Coordinates and Selection](labs/graphics/threejs/units/13/README.md) | Editable example | [Source code](../../src/labs/threejs-step-13/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [15. Model Size and Camera Fitting](labs/graphics/threejs/units/15/README.md) | Editable example | [Source code](../../src/labs/threejs-step-15/example.js) — Reproduces Box3 framing with basic shapes. An arbitrary glTF loader is not injected into the preview runtime. |
 
 ## GSAP
 

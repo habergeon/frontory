@@ -3070,6 +3070,36 @@
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
+      "id": "gaussian-splatting-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Gaussian Kernels and Alpha",
+      "goal": "Calculate pixel alpha. Distinguish the kernel from opacity.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/07/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Alpha Compositing and Order",
+      "goal": "Trace transparent compositing numerically. Apply a consistent alpha convention.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/08/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Limits of Depth Sorting",
+      "goal": "Implement depth sorting. Observe the limits of the sorting approximation.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/09/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
       "id": "webgpu-01",
       "day": 1,
       "week": 1,

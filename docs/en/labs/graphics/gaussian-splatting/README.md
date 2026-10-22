@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 6 published in English
+Graphics · 4 stages · 28 units in the full series · 9 published in English
 
 ## Series goal
 
@@ -30,9 +30,12 @@ Only published English units are linked below. The full series has 28 units.
 - [04. Quaternions and Anisotropy](units/04/README.md) — Editable example
 - [05. Reading Shape from Covariance](units/05/README.md) — Editable example
 - [06. Camera Projection and Screen Ellipses](units/06/README.md) — Editable example
+- [07. Gaussian Kernels and Alpha](units/07/README.md) — Editable example
 
 ### Stage 2 · File Validation and Viewer Integration
 
+- [08. Alpha Compositing and Order](units/08/README.md) — Editable example
+- [09. Limits of Depth Sorting](units/09/README.md) — Editable example
 
 ### Stage 3 · Visibility and Quality Experiments
 

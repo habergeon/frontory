@@ -172,6 +172,87 @@
         "references.0.title": "Spark Official Documentation",
         "references.1.title": "3D Gaussian Splatting Research Project"
       }
+    },
+    "gaussian-splatting-step-07": {
+      "sourceHash": "e43723a12463bdeec641a1d6e0feaeeff2269df2a85c001687ecf158f9fa6bfe",
+      "values": {
+        "title": "Gaussian Kernels and Alpha",
+        "prerequisites": "Continue using the output and records from Unit 6. Before the Gaussian Kernels and Alpha experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Kernel",
+        "concepts.0.explanation": "A Gaussian's weight decreases with distance from its center. Use covariance-normalized distance rather than pixel distance to preserve the ellipse.",
+        "concepts.1.title": "Opacity",
+        "concepts.1.explanation": "Opacity combines with the kernel weight to produce pixel alpha. Even when the apparent total is similar, changing size and changing opacity have different effects.",
+        "outcomes.0": "Calculate pixel alpha.",
+        "outcomes.1": "Distinguish the kernel from opacity.",
+        "steps.0": "In kernel.js, write a function that calculates exp(-0.5*r²).",
+        "steps.1": "Tabulate the weights at r=0,1,2,3 and multiply them by opacity.",
+        "steps.2": "Draw one ellipse into Canvas ImageData and read the alpha at its center and edge.",
+        "variables.0.name": "opacity",
+        "variables.0.baseline": "0.5",
+        "variables.0.change": "1.0",
+        "variables.0.expected": "Expect center alpha to double while the ellipse's normalized distance structure stays unchanged.",
+        "criteria.0": "The center weight is 1, and the four values decrease as distance increases.",
+        "criteria.1": "Record the center-alpha ratio before and after changing opacity.",
+        "questions.0": "What artifacts appear if the kernel is cut off at a finite radius?",
+        "questions.1": "Why is causal analysis harder when scale and opacity change together?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-08": {
+      "sourceHash": "c7dcc54fd79dfa0091e8adea14b1e503842cd4c5d74f2ecc82d97fa0d46e5c3f",
+      "values": {
+        "title": "Alpha Compositing and Order",
+        "prerequisites": "Continue using the output and records from Unit 7. Before the Alpha Compositing and Order experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Compositing",
+        "concepts.0.explanation": "Translucent splats of different colors produce different colors depending on draw order. Simply adding colors cannot reproduce occlusion.",
+        "concepts.1.title": "Consistent representations",
+        "concepts.1.explanation": "Whether alpha is premultiplied determines both color storage and the compositing equation. Mixing conventions makes boundaries too dark or too bright.",
+        "outcomes.0": "Trace transparent compositing numerically.",
+        "outcomes.1": "Apply a consistent alpha convention.",
+        "steps.0": "In blend.js, write an explicit source-over compositing function.",
+        "steps.1": "Composite two red and blue pixels with alpha 0.5 in both orders.",
+        "steps.2": "Add conversion to premultiplied inputs and compare whether the results match.",
+        "variables.0.name": "Draw order",
+        "variables.0.baseline": "Red, then blue",
+        "variables.0.change": "Blue, then red",
+        "variables.0.expected": "Expect RGB to differ even when alpha is the same.",
+        "criteria.0": "Record RGB and alpha numerically for both orders.",
+        "criteria.1": "The results from the two consistently applied alpha representations differ by at most 1e-6 per channel.",
+        "questions.0": "Do two splats of the same color also show an order difference?",
+        "questions.1": "How can sorting errors be distinguished from alpha representation errors?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-09": {
+      "sourceHash": "36238539511648e4e7f2a8fdc52be3120d974c2661a20d947a43919b329d0c12",
+      "values": {
+        "title": "Limits of Depth Sorting",
+        "prerequisites": "Continue using the output and records from Unit 8. Before the Limits of Depth Sorting experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Center sorting",
+        "concepts.0.explanation": "Sorting by center depth is simple, but it does not guarantee the correct per-pixel order for large, overlapping ellipsoids. Observe the moments when order changes as the camera rotates.",
+        "concepts.1.title": "Stability",
+        "concepts.1.explanation": "A stable secondary key for items at the same depth can reduce unnecessary order jitter. It does not solve geometric sorting errors.",
+        "outcomes.0": "Implement depth sorting.",
+        "outcomes.1": "Observe the limits of the sorting approximation.",
+        "steps.0": "In sort.js, write a comparison function using view-space depth and the original id.",
+        "steps.1": "Change the camera angle around three overlapping elongated Gaussians in 10-degree increments.",
+        "steps.2": "Record the id order and composited image at each angle.",
+        "variables.0.name": "Camera angle",
+        "variables.0.baseline": "0 degrees",
+        "variables.0.change": "90 degrees",
+        "variables.0.expected": "Expect center-depth order to change, altering colors in some overlapping regions.",
+        "criteria.0": "Save the sorting order for ten viewpoints.",
+        "criteria.1": "Sort equal-depth inputs five times and confirm that the id order is identical.",
+        "questions.0": "Does stable sorting alone eliminate occlusion errors?",
+        "questions.1": "How would you compare center sorting with per-tile sorting?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
     }
   }
 }

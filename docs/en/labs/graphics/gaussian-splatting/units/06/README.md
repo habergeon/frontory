@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Reading Shape from Covariance](../05/README.md)
+[Previous: Reading Shape from Covariance](../05/README.md) · [Next: Gaussian Kernels and Alpha](../07/README.md)
 
 ## Experiment notes — write your own
 

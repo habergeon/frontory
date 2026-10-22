@@ -2097,6 +2097,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "canvas-2d-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Matrices and Rotation Centers",
+      "goal": "Distinguish the trajectories produced by the two transform orders. Restore state after rotation so the grid does not tilt.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/04/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "canvas-2d-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Colors and Gradients",
+      "goal": "Explain the relationship between stop positions and color bands. Restore globalAlpha before drawing the next shape.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/05/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "canvas-2d-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Loading and Cropping Images",
+      "goal": "Distinguish drawing before loading from drawing after decoding. Show an error message even for an invalid URL.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/06/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "The browser example decodes a self-generated PNG before cropping it. Check external image URLs and CORS failures in a separate HTTP environment."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

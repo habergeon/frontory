@@ -220,6 +220,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | --- | --- | --- |
 | [2. Paths and Line State](labs/graphics/canvas-2d/units/02/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-02/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [3. Shape Functions and State Isolation](labs/graphics/canvas-2d/units/03/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-03/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [4. Matrices and Rotation Centers](labs/graphics/canvas-2d/units/04/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-04/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [5. Colors and Gradients](labs/graphics/canvas-2d/units/05/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-05/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [6. Loading and Cropping Images](labs/graphics/canvas-2d/units/06/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-06/example.js) — The browser example decodes a self-generated PNG before cropping it. Check external image URLs and CORS failures in a separate HTTP environment. |
 
 ## GSAP
 

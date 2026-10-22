@@ -89,6 +89,84 @@
         "questions.1": "How can you ensure restore runs even after an early return?",
         "references.0.title": "MDN CanvasRenderingContext2D API"
       }
+    },
+    "canvas-2d-step-04": {
+      "sourceHash": "bc724f60f2fde3e2f347056c966e4238fce7c1a455e247618274d337ba56a81f",
+      "values": {
+        "title": "Matrices and Rotation Centers",
+        "prerequisites": "Prerequisite concepts: State Stack, Function Contract. Prepare the result files and observation records from Unit 3.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Transform Order",
+        "concepts.0.explanation": "The order of translate and rotate affects the result. Rotating after moving the origin makes the translated point the shape's rotation center.",
+        "concepts.1.title": "Local Coordinates",
+        "concepts.1.explanation": "Placing the shape's center at the origin simplifies rotation calculations. Comparing this with drawing directly in screen coordinates reveals the role of transforms.",
+        "outcomes.0": "Distinguish the trajectories produced by the two transform orders.",
+        "outcomes.1": "Restore state after rotation so the grid does not tilt.",
+        "steps.0": "Prepare day-04.js and index.html in the external practice project. Draw a needle with translate(cx,cy),rotate(angle),fillRect(-w/2,-h/2,w,h).",
+        "steps.1": "Connect a slider to angle and display the tip coordinates of a second needle with the call order reversed.",
+        "steps.2": "Save the output with the input condition translate then rotate, then run again with rotate then translate. Expected: The shape orbits the screen origin instead of rotating around its own center. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-04-notes.md.",
+        "variables.0.name": "Transform Order",
+        "variables.0.baseline": "translate then rotate",
+        "variables.0.change": "rotate then translate",
+        "variables.0.expected": "The shape orbits the screen origin instead of rotating around its own center",
+        "criteria.0": "Distinguish the trajectories produced by the two transform orders.",
+        "criteria.1": "Restore state after rotation so the grid does not tilt.",
+        "questions.0": "What unit is the rotation angle measured in?",
+        "questions.1": "What error occurs if you add the center coordinates twice?",
+        "references.0.title": "MDN CanvasRenderingContext2D API"
+      }
+    },
+    "canvas-2d-step-05": {
+      "sourceHash": "f01cee7ecf4f22dbcb7e3ae13bc7b92ed9cb7bc5c0ea96bdf02800e4cb214835",
+      "values": {
+        "title": "Colors and Gradients",
+        "prerequisites": "Prerequisite concepts: Transform Order, Local Coordinates. Prepare the result files and observation records from Unit 4.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Color Interpolation",
+        "concepts.0.explanation": "createLinearGradient connects color stops between coordinates. Changing stop spacing changes how quickly the same two colors transition.",
+        "concepts.1.title": "Compositing Alpha",
+        "concepts.1.explanation": "globalAlpha multiplies the opacity of subsequent drawing operations. Applying it to an already transparent color can make the result fainter than expected.",
+        "outcomes.0": "Explain the relationship between stop positions and color bands.",
+        "outcomes.1": "Restore globalAlpha before drawing the next shape.",
+        "steps.0": "Prepare day-05.js and index.html in the external practice project. Draw a horizontal color bar with createLinearGradient and addColorStop.",
+        "steps.1": "Draw overlapping translucent circles and visually compare the central pixel color before and after applying globalAlpha.",
+        "steps.2": "Save the output with the input condition 0.5, then run again with 0.2. Expected: The interval leading to the middle color narrows toward the left. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-05-notes.md.",
+        "variables.0.name": "Middle Color Stop",
+        "variables.0.baseline": "0.5",
+        "variables.0.change": "0.2",
+        "variables.0.expected": "The interval leading to the middle color narrows toward the left",
+        "criteria.0": "Explain the relationship between stop positions and color bands.",
+        "criteria.1": "Restore globalAlpha before drawing the next shape.",
+        "questions.0": "Do gradient coordinates automatically fit the shape?",
+        "questions.1": "When is alpha multiplied twice?",
+        "references.0.title": "MDN CanvasRenderingContext2D API"
+      }
+    },
+    "canvas-2d-step-06": {
+      "sourceHash": "51d14b9ea488671446bcc47281cc7c19813d055b930bc0de816ddde6d9c57adc",
+      "values": {
+        "title": "Loading and Cropping Images",
+        "prerequisites": "Prerequisite concepts: Color Interpolation, Compositing Alpha. Prepare the result files and observation records from Unit 5.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Asynchronous Images",
+        "concepts.0.explanation": "An image can only be drawn after downloading and decoding finish. Without decode failure handling, the cause of a blank screen is hard to identify.",
+        "concepts.1.title": "Source Rectangle",
+        "concepts.1.explanation": "The nine arguments of drawImage separate source cropping from the destination area. Different aspect ratios stretch the image.",
+        "outcomes.0": "Distinguish drawing before loading from drawing after decoding.",
+        "outcomes.1": "Show an error message even for an invalid URL.",
+        "steps.0": "Prepare day-06.js and index.html in the external practice project. Load a local sprite.png with Image and display it with drawImage after decode.",
+        "steps.1": "Change the source x coordinate with a slider to crop frames, and output an HTML error message on the failure path.",
+        "steps.2": "Save the output with the input condition 64, then run again with 32. Expected: The cropped area is magnified twice as much at the same output width. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-06-notes.md.",
+        "variables.0.name": "Source Width",
+        "variables.0.baseline": "64",
+        "variables.0.change": "32",
+        "variables.0.expected": "The cropped area is magnified twice as much at the same output width",
+        "criteria.0": "Distinguish drawing before loading from drawing after decoding.",
+        "criteria.1": "Show an error message even for an invalid URL.",
+        "questions.0": "What changes when the source and destination aspect ratios differ?",
+        "questions.1": "What restrictions apply when loading an image without CORS permission?",
+        "references.0.title": "MDN CanvasRenderingContext2D API"
+      }
     }
   }
 }

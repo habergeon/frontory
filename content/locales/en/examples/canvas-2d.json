@@ -10,5 +10,23 @@
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "canvas-2d-step-04": {
+    "sourceHash": "853b9f84136ad3ae474eb241cd5a28bd0f039121579bc5691a5d305586cdfc07",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "canvas-2d-step-05": {
+    "sourceHash": "dc5ad335e7b516b9adb5f944e42b79eef0087deb199e1329ee7c0a56ba284a09",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "canvas-2d-step-06": {
+    "sourceHash": "a0f6c83e5a61d4e647973edebebf30946740bd8e82dc0e4bde73b5c221cdd12b",
+    "values": {
+      "note": "The browser example decodes a self-generated PNG before cropping it. Check external image URLs and CORS failures in a separate HTTP environment."
+    }
   }
 }

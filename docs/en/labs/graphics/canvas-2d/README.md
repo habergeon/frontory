@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 3 published in English
+Graphics · 4 stages · 28 units in the full series · 6 published in English
 
 ## Series goal
 
@@ -27,6 +27,9 @@ Only published English units are linked below. The full series has 28 units.
 - [01. Coordinates and Pixels](01-foundations/README.md) — Editable example
 - [02. Paths and Line State](units/02/README.md) — Editable example
 - [03. Shape Functions and State Isolation](units/03/README.md) — Editable example
+- [04. Matrices and Rotation Centers](units/04/README.md) — Editable example
+- [05. Colors and Gradients](units/05/README.md) — Editable example
+- [06. Loading and Cropping Images](units/06/README.md) — Editable example
 
 ### Stage 2 · Time, Coordinates, and Input
 

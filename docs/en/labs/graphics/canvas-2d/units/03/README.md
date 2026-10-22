@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Paths and Line State](../02/README.md)
+[Previous: Paths and Line State](../02/README.md) · [Next: Matrices and Rotation Centers](../04/README.md)
 
 ## Experiment notes — write your own
 

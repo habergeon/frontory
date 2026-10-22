@@ -261,6 +261,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [12. Text and Data Labels](labs/graphics/svg/units/12/README.md) | Editable example | [Source code](../../src/labs/svg-step-12/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 | [13. Screen Coordinates to SVG](labs/graphics/svg/units/13/README.md) | Editable example | [Source code](../../src/labs/svg-step-13/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 | [15. Accessible Names and Descriptions](labs/graphics/svg/units/15/README.md) | Editable example | [Source code](../../src/labs/svg-step-15/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [16. Pointer Event Regions](labs/graphics/svg/units/16/README.md) | Editable example | [Source code](../../src/labs/svg-step-16/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [17. Dragging and Capture](labs/graphics/svg/units/17/README.md) | Editable example | [Source code](../../src/labs/svg-step-17/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [18. Zooming and Panning](labs/graphics/svg/units/18/README.md) | Editable example | [Source code](../../src/labs/svg-step-18/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

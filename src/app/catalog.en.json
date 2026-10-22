@@ -2507,6 +2507,36 @@
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "svg-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Pointer Event Regions",
+      "goal": "Select a connector near its stroke as well. Handle label clicks with the correct group id too.",
+      "docPath": "/docs/en/labs/graphics/svg/units/16/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "svg-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Dragging and Capture",
+      "goal": "Dragging ends even when released outside the region. Movement has the correct ratio even while zoomed in.",
+      "docPath": "/docs/en/labs/graphics/svg/units/17/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "svg-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Zooming and Panning",
+      "goal": "The node of interest does not jump during zooming. Provide minimum and maximum scales and a reset button.",
+      "docPath": "/docs/en/labs/graphics/svg/units/18/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

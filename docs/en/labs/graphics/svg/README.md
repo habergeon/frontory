@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 15 published in English
+Graphics · 4 stages · 28 units in the full series · 18 published in English
 
 ## Series goal
 
@@ -45,6 +45,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 3 · Accessibility and Data Maps
 
 - [15. Accessible Names and Descriptions](units/15/README.md) — Editable example
+- [16. Pointer Event Regions](units/16/README.md) — Editable example
+- [17. Dragging and Capture](units/17/README.md) — Editable example
+- [18. Zooming and Panning](units/18/README.md) — Editable example
 
 ### Stage 4 · Export and Large-Scale Comparisons
 

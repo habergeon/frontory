@@ -402,6 +402,84 @@
         "questions.1": "How do duplicate ids affect name associations?",
         "references.0.title": "MDN SVG title Accessible Name"
       }
+    },
+    "svg-step-16": {
+      "sourceHash": "d63866adbb3fe9eec6d1f9e7c7b5e3d99614eb34452766f28938ab30e69ea9fc",
+      "values": {
+        "title": "Pointer Event Regions",
+        "prerequisites": "Prerequisite concepts: Linking names, Distinguishing decoration. Prepare the result files and observation records from Unit 15.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Paint and input",
+        "concepts.0.explanation": "pointer-events determines which regions receive events. Thin visible strokes may also have narrow selection regions that are difficult to operate.",
+        "concepts.1.title": "Bubbling",
+        "concepts.1.explanation": "Child events propagate to the parent. For group-level selection, distinguish target from currentTarget.",
+        "outcomes.0": "Select a connector near its stroke as well.",
+        "outcomes.1": "Handle label clicks with the correct group id too.",
+        "steps.0": "Prepare day-16.js and index.html in an external practice project. Add a thick transparent hit path over a thin connector.",
+        "steps.1": "Receive events on the parent g and log the ids of target and currentTarget.",
+        "steps.2": "Save the output under the input condition 2px, then run again with 16px. Compare the hypothesis, \"The operable region widens while the visible stroke stays the same,\" against the display and logs, and record the actual result and the causes of any differences in day-16-notes.md.",
+        "variables.0.name": "Selection width",
+        "variables.0.baseline": "2px",
+        "variables.0.change": "16px",
+        "variables.0.expected": "The operable region widens while the visible stroke stays the same",
+        "criteria.0": "Select a connector near its stroke as well.",
+        "criteria.1": "Handle label clicks with the correct group id too.",
+        "questions.0": "Which pointer-events setting does a transparent stroke need?",
+        "questions.1": "What becomes difficult if you overuse stopPropagation?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
+    },
+    "svg-step-17": {
+      "sourceHash": "d60525aae669ac0830bf3a7fe7c5af77399fcd67f35f482aa2458dfb75d06fd0",
+      "values": {
+        "title": "Dragging and Capture",
+        "prerequisites": "Prerequisite concepts: Paint and input, Bubbling. Prepare the result files and observation records from Unit 16.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Drag offset",
+        "concepts.0.explanation": "Saving the difference between the pointer and node center prevents a jump at the start. Calculate coordinates in the same user space.",
+        "concepts.1.title": "Cancellation path",
+        "concepts.1.explanation": "pointercancel may differ from normal completion. Group capture release and temporary state cleanup in a shared function.",
+        "outcomes.0": "Dragging ends even when released outside the region.",
+        "outcomes.1": "Movement has the correct ratio even while zoomed in.",
+        "steps.0": "Prepare day-17.js and index.html in an external practice project. On pointerdown, save the difference between inverse-matrix coordinates and the node position, and capture the pointer.",
+        "steps.1": "Update transform on pointermove and finish on pointerup and pointercancel.",
+        "steps.2": "Save the output under the input condition Node center, then run again with Node edge. Compare the hypothesis, \"Keeping the offset prevents the node from jumping,\" against the display and logs, and record the actual result and the causes of any differences in day-17-notes.md.",
+        "variables.0.name": "Starting position",
+        "variables.0.baseline": "Node center",
+        "variables.0.change": "Node edge",
+        "variables.0.expected": "Keeping the offset prevents the node from jumping",
+        "criteria.0": "Dragging ends even when released outside the region.",
+        "criteria.1": "Movement has the correct ratio even while zoomed in.",
+        "questions.0": "How do you handle drag state when pointerId changes?",
+        "questions.1": "Where do you store the cancellation policy for restoring the original position?",
+        "references.0.title": "MDN getScreenCTM Coordinate Transformation"
+      }
+    },
+    "svg-step-18": {
+      "sourceHash": "56ac36ca4a25070a5c1911375c5169dd29cf1439c470ab18ed4047dbaf859734",
+      "values": {
+        "title": "Zooming and Panning",
+        "prerequisites": "Prerequisite concepts: Drag offset, Cancellation path. Prepare the result files and observation records from Unit 17.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Camera group",
+        "concepts.0.explanation": "Transforming the content group moves the entire map. Keep on-screen controls outside the group to preserve their size.",
+        "concepts.1.title": "Pointer-centered zoom",
+        "concepts.1.explanation": "For natural zooming, the same local point must stay at the same screen position before and after zooming. Changing only scale makes the graphic jump toward the origin.",
+        "outcomes.0": "The node of interest does not jump during zooming.",
+        "outcomes.1": "Provide minimum and maximum scales and a reset button.",
+        "steps.0": "Prepare day-18.js and index.html in an external practice project. Manage translate and scale of the content g as state.",
+        "steps.1": "For zoom buttons and wheel input, calculate the local point under the pointer and compensate for translation.",
+        "steps.2": "Save the output under the input condition Origin, then run again with Pointer position. Compare the hypothesis, \"The node under the pointer stays at the same screen point after zooming,\" against the display and logs, and record the actual result and the causes of any differences in day-18-notes.md.",
+        "variables.0.name": "Zoom center",
+        "variables.0.baseline": "Origin",
+        "variables.0.change": "Pointer position",
+        "variables.0.expected": "The node under the pointer stays at the same screen point after zooming",
+        "criteria.0": "The node of interest does not jump during zooming.",
+        "criteria.1": "Provide minimum and maximum scales and a reset button.",
+        "questions.0": "What happens if you put on-screen controls in the content group?",
+        "questions.1": "How do you distinguish wheel page scrolling from zooming?",
+        "references.0.title": "MDN getScreenCTM Coordinate Transformation"
+      }
     }
   }
 }

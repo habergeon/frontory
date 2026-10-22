@@ -1,0 +1,8 @@
+{
+  "react-step-03": {
+    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "values": {
+      "note": "This experiment uses the actual React API. It uses createElement instead of JSX."
+    }
+  }
+}

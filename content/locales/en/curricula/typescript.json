@@ -485,6 +485,86 @@
         "questions.1": "Is the configuration object also frozen at runtime?",
         "references.0.title": "TypeScript Handbook"
       }
+    },
+    "typescript-step-19": {
+      "sourceHash": "e962c38336e18d8444bc21f316fa35ebe248fb1bd7fa4f6742243467a1e68a16",
+      "values": {
+        "title": "State Tables with Mapped Types",
+        "prerequisites": "Work and experiment records from Unit 18, “Checking Configuration with satisfies”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Iterating Keys",
+        "concepts.0.explanation": "A Mapped Type maps each member of a key union to a type. It does not generate a runtime loop.",
+        "concepts.1.title": "Modifiers",
+        "concepts.1.explanation": "You can add or remove readonly and optional modifiers. Check that the derived contract matches actual usage policy.",
+        "outcomes.0": "Every configuration key has a corresponding message.",
+        "outcomes.1": "Record the missing-new-key diagnostic and the corrected result.",
+        "steps.0": "In mapped.ts, prepare conditions for a configuration with 3 keys and the addition of 1 new key.",
+        "steps.1": "Write an error-message map for configuration keys and a read-only configuration type.",
+        "steps.2": "Run with a configuration with 3 keys and the addition of 1 new key. Results to check: Every configuration key has a corresponding message. Record the missing-new-key diagnostic and the corrected result. Record expected and actual results separately.",
+        "variables.0.name": "Configuration Key Count",
+        "variables.0.baseline": "3 keys",
+        "variables.0.change": "4 keys",
+        "variables.0.expected": "Pre-run hypothesis: a missing required map entry will be revealed. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Every configuration key has a corresponding message.",
+        "criteria.1": "Record the missing-new-key diagnostic and the corrected result.",
+        "questions.0": "Does a Mapped Type create an actual object?",
+        "questions.1": "Can an optional map detect missing entries?",
+        "references.0.title": "TypeScript Handbook",
+        "references.1.title": "TypeScript Mapped Types"
+      }
+    },
+    "typescript-step-20": {
+      "sourceHash": "177d45c888f1f9770b58f2e973490ecddceffcd77611e48d0c0a990914d7567a",
+      "values": {
+        "title": "Conditional Types and Distribution",
+        "prerequisites": "Work and experiment records from Unit 19, “State Tables with Mapped Types”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Type Conditions",
+        "concepts.0.explanation": "Conditional types select a result based on type relationships. They operate separately from runtime if statements.",
+        "concepts.1.title": "Union Distribution",
+        "concepts.1.explanation": "A condition on a naked type parameter may apply to each union member. Wrapping it in a tuple controls distribution.",
+        "outcomes.0": "Record example result types for the three inputs.",
+        "outcomes.1": "Compare accepted and rejected assignments with and without distribution.",
+        "steps.0": "In conditional.ts, prepare conditions for a string array, a number, and a union of the two types.",
+        "steps.1": "Create array-element extraction and distributive and non-distributive helper types, and check results through assignment.",
+        "steps.2": "Run with a string array, a number, and a union of the two types. Results to check: Record example result types for the three inputs. Compare accepted and rejected assignments with and without distribution. Record expected and actual results separately.",
+        "variables.0.name": "Condition Form",
+        "variables.0.baseline": "T extends condition",
+        "variables.0.change": "tuple-wrapped condition",
+        "variables.0.expected": "Pre-run hypothesis: the result of testing the union as a whole may differ. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record example result types for the three inputs.",
+        "criteria.1": "Compare accepted and rejected assignments with and without distribution.",
+        "questions.0": "Do conditional types reduce execution time?",
+        "questions.1": "When is distribution unwanted?",
+        "references.0.title": "TypeScript Handbook",
+        "references.1.title": "TypeScript Conditional Types"
+      }
+    },
+    "typescript-step-21": {
+      "sourceHash": "1b89845f1698fb5c09e0175b13feb1114c2a05e91bdb4e2e076157a988baf6b5",
+      "values": {
+        "title": "Template Literal Event Names",
+        "prerequisites": "Work and experiment records from Unit 20, “Conditional Types and Distribution”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "String Contracts",
+        "concepts.0.explanation": "Template literal types define permitted string combinations. Arbitrary strings still need their runtime contents checked.",
+        "concepts.1.title": "Event Mapping",
+        "concepts.1.explanation": "Connect event names and payload types with a map. The relationship can be lost if names and values widen separately.",
+        "outcomes.0": "Distinguish payload types for 2 different events.",
+        "outcomes.1": "Record name typos and payload errors separately.",
+        "steps.0": "In event-names.ts, prepare conditions for a titleChanged string and an invalid numeric payload.",
+        "steps.1": "Create Changed names for note fields and write a function accepting the payload for each name.",
+        "steps.2": "Run with a titleChanged string and an invalid numeric payload. Results to check: Distinguish payload types for 2 different events. Record name typos and payload errors separately. Record expected and actual results separately.",
+        "variables.0.name": "payload",
+        "variables.0.baseline": "string",
+        "variables.0.change": "number",
+        "variables.0.expected": "Pre-run hypothesis: the titleChanged call will be rejected. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Distinguish payload types for 2 different events.",
+        "criteria.1": "Record name typos and payload errors separately.",
+        "questions.0": "Can every string value fit a narrow event type?",
+        "questions.1": "Where do you preserve the relationship between name and payload?",
+        "references.0.title": "TypeScript Handbook"
+      }
     }
   }
 }

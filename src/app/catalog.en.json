@@ -542,6 +542,36 @@
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
+      "id": "typescript-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "State Tables with Mapped Types",
+      "goal": "Every configuration key has a corresponding message. Record the missing-new-key diagnostic and the corrected result.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/19/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Conditional Types and Distribution",
+      "goal": "Record example result types for the three inputs. Compare accepted and rejected assignments with and without distribution.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/20/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Template Literal Event Names",
+      "goal": "Distinguish payload types for 2 different events. Record name typos and payload errors separately.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/21/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
       "id": "html-01",
       "day": 1,
       "week": 1,

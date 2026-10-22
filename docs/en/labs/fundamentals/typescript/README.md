@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 18 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 21 published in English
 
 ## Series goal
 
@@ -48,6 +48,9 @@ Only published English units are linked below. The full series has 28 units.
 - [16. Passing Failures with Result Types](units/16/README.md) — Editable example
 - [17. Editing Models with Utility Types](units/17/README.md) — Editable example
 - [18. Checking Configuration with satisfies](units/18/README.md) — Editable example
+- [19. State Tables with Mapped Types](units/19/README.md) — Editable example
+- [20. Conditional Types and Distribution](units/20/README.md) — Editable example
+- [21. Template Literal Event Names](units/21/README.md) — Editable example
 
 ### Stage 4 · Module Contracts and Plugins
 
@@ -64,3 +67,5 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [TypeScript Narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html)
 - [TypeScript Object Types](https://www.typescriptlang.org/docs/handbook/2/objects.html)
 - [TypeScript Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+- [TypeScript Mapped Types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html)
+- [TypeScript Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html)

@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Editing Models with Utility Types](../17/README.md)
+[Previous: Editing Models with Utility Types](../17/README.md) · [Next: State Tables with Mapped Types](../19/README.md)
 
 ## Experiment notes — write your own
 

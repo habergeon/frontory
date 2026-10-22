@@ -682,6 +682,36 @@
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
+      "id": "react-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Lifting State Up",
+      "goal": "Title edits appear in both the list and details. The previous details do not remain after deleting the selected card.",
+      "docPath": "/docs/en/labs/frameworks/react/units/08/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Collecting Update Rules in a Reducer",
+      "goal": "Input/output examples for the three actions are recorded. After deleting the selected card, the selection does not point to a nonexistent id.",
+      "docPath": "/docs/en/labs/frameworks/react/units/09/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Passing Settings with Context",
+      "goal": "The deeply nested Card's theme responds to button input. Keep separate logs for note input and theme changes.",
+      "docPath": "/docs/en/labs/frameworks/react/units/10/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
       "id": "gsap-step-02",
       "day": 2,
       "week": 1,

@@ -74,6 +74,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [5. Conditional Screens and Empty States](labs/frameworks/react/units/05/README.md) | Editable example | [Source code](../../src/labs/react-step-05/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [6. List Keys and Identity](labs/frameworks/react/units/06/README.md) | Editable example | [Source code](../../src/labs/react-step-06/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [7. Controlled Inputs and Form Validation](labs/frameworks/react/units/07/README.md) | Editable example | [Source code](../../src/labs/react-step-07/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [8. Lifting State Up](labs/frameworks/react/units/08/README.md) | Editable example | [Source code](../../src/labs/react-step-08/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [9. Collecting Update Rules in a Reducer](labs/frameworks/react/units/09/README.md) | Editable example | [Source code](../../src/labs/react-step-09/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [10. Passing Settings with Context](labs/frameworks/react/units/10/README.md) | Editable example | [Source code](../../src/labs/react-step-10/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 
 ## GSAP
 

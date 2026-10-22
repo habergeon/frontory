@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: List Keys and Identity](../06/README.md)
+[Previous: List Keys and Identity](../06/README.md) · [Next: Lifting State Up](../08/README.md)
 
 ## Experiment notes — write your own
 

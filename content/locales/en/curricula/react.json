@@ -218,6 +218,87 @@
         "references.0.title": "React Learning Guide",
         "references.1.title": "React API Reference"
       }
+    },
+    "react-step-08": {
+      "sourceHash": "7f7ee483313451e5a863e9ec269c125558449e434a2f8e3775e3058785174c47",
+      "values": {
+        "title": "Lifting State Up",
+        "prerequisites": "Unit 8 continues using the work and experiment records from Unit 7.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Shared State",
+        "concepts.0.explanation": "When sibling components display the same selection, their common parent owns the state. Children communicate the intent to change it through callbacks.",
+        "concepts.1.title": "Minimal State",
+        "concepts.1.explanation": "Storing an id instead of an entire selected object makes synchronization with list changes easier. Calculate selection details by finding the item in the current list.",
+        "outcomes.0": "Title edits appear in both the list and details.",
+        "outcomes.1": "The previous details do not remain after deleting the selected card.",
+        "steps.0": "Place selectedId in src/App.jsx and pass it to List and Detail.",
+        "steps.1": "Change the selection on List clicks, and connect a callback for editing the title in Detail.",
+        "steps.2": "Implement a rule that returns to empty details when the selected card is deleted.",
+        "variables.0.name": "Stored Selection",
+        "variables.0.baseline": "Object copy",
+        "variables.0.change": "id",
+        "variables.0.expected": "After a title edit, the list and details show the same latest title.",
+        "criteria.0": "Title edits appear in both the list and details.",
+        "criteria.1": "The previous details do not remain after deleting the selected card.",
+        "questions.0": "Why does a copy of the selected object become stale?",
+        "questions.1": "Should all state be lifted to the top level?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
+    },
+    "react-step-09": {
+      "sourceHash": "ea2cbcbee06dd48dcb5bddabeb728c9ee535e317d64683b052d8a673f2f32afe",
+      "values": {
+        "title": "Collecting Update Rules in a Reducer",
+        "prerequisites": "Unit 9 continues using the work and experiment records from Unit 8.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "reducer",
+        "concepts.0.explanation": "A reducer calculates the next state from the current state and an action. It returns the same output for the same input and does not perform storage operations or start timers.",
+        "concepts.1.title": "Action Design",
+        "concepts.1.explanation": "An action expresses user intent, such as add·toggle·remove. Rules that change several fields together can be reviewed in one place.",
+        "outcomes.0": "Input/output examples for the three actions are recorded.",
+        "outcomes.1": "After deleting the selected card, the selection does not point to a nonexistent id.",
+        "steps.0": "Implement add·toggle·remove actions in src/reducer.js.",
+        "steps.1": "Use useReducer to manage App's cards and selectedId together.",
+        "steps.2": "Run the action to delete the selected card, and check that card removal and selection clearing happen together.",
+        "variables.0.name": "Deletion Target",
+        "variables.0.baseline": "Unselected card",
+        "variables.0.change": "Selected card",
+        "variables.0.expected": "selectedId becomes null only when the selected card is deleted.",
+        "criteria.0": "Input/output examples for the three actions are recorded.",
+        "criteria.1": "After deleting the selected card, the selection does not point to a nonexistent id.",
+        "questions.0": "Why does writing to localStorage inside a reducer break the separation?",
+        "questions.1": "Should an action contain screen coordinates or user intent?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
+    },
+    "react-step-10": {
+      "sourceHash": "ceed77fcb3cd8397d5eca48fd9e11ddb563fc0ca6bde3555938f7bbdf181888c",
+      "values": {
+        "title": "Passing Settings with Context",
+        "prerequisites": "Unit 10 continues using the work and experiment records from Unit 9.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Context",
+        "concepts.0.explanation": "Context lets components read values without passing props through intermediate components. A changed value affects consumers that read that Context.",
+        "concepts.1.title": "Separating Responsibilities",
+        "concepts.1.explanation": "Themes and rapidly changing inputs change at different frequencies. Splitting Context by purpose makes the update scope easier to understand.",
+        "outcomes.0": "The deeply nested Card's theme responds to button input.",
+        "outcomes.1": "Keep separate logs for note input and theme changes.",
+        "steps.0": "Create a theme Provider and a reading Hook in src/ThemeContext.jsx.",
+        "steps.1": "Read the theme in a Card three levels down, and change it with a settings button.",
+        "steps.2": "Keep note input in local state, and record render logs before and after a theme change.",
+        "variables.0.name": "Provider Value",
+        "variables.0.baseline": "Fixed theme string",
+        "variables.0.change": "New object every time",
+        "variables.0.expected": "Even with the same theme, changes in object identity may affect consumer updates.",
+        "criteria.0": "The deeply nested Card's theme responds to button input.",
+        "criteria.1": "Keep separate logs for note input and theme changes.",
+        "questions.0": "Is Context itself a state store?",
+        "questions.1": "Who updates if an input string is included in the Provider value?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
     }
   }
 }

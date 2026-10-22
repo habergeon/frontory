@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 7 published in English
+UI frameworks · 4 stages · 28 units in the full series · 10 published in English
 
 ## Series goal
 
@@ -34,6 +34,9 @@ Only published English units are linked below. The full series has 28 units.
 
 ### Stage 2 · Shared state and external systems
 
+- [08. Lifting State Up](units/08/README.md) — Editable example
+- [09. Collecting Update Rules in a Reducer](units/09/README.md) — Editable example
+- [10. Passing Settings with Context](units/10/README.md) — Editable example
 
 ### Stage 3 · Preserving notes and measuring renders
 

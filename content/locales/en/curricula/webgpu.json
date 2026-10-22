@@ -1,0 +1,96 @@
+{
+  "series": {
+    "sourceHash": "28ab634fea57ee25b5686487ba82021eb5e8cf6e23fda0339260c851eea3db75",
+    "values": {
+      "stages.0": "Device and Command Fundamentals",
+      "stages.1": "Render Resources and Display Configuration",
+      "stages.2": "Compute and Data Movement",
+      "stages.3": "Recovery, Measurement, and an Integrated Project",
+      "goal": "Understand WebGPU devices, resources, and the command model, and validate rendering and compute through correctness and overall cost.",
+      "capstone": "A small particle experiment with support guidance, device loss recovery, compute updates, and readback validation"
+    }
+  },
+  "units": {
+    "webgpu-01": {
+      "sourceHash": "969e9e0a7fcf2be30af0ebad0e9ef14816a4a23da4a2452cadd66075a5f59239",
+      "values": {
+        "title": "Adapter·Device·Pipeline",
+        "concepts.0.title": "Support Requirements",
+        "concepts.0.explanation": "WebGPU requires both a secure context and browser and device support. Even when navigator.gpu exists, the adapter request can return null.",
+        "concepts.1.title": "Initialization",
+        "concepts.1.explanation": "Obtain a device from the adapter, then create resources and pipelines with that device. Handle initialization failure as an on-screen state before starting the render loop.",
+        "outcomes.0": "Check support requirements.",
+        "outcomes.1": "Handle initialization failure as a recoverable state.",
+        "steps.0": "In main.js, check isSecureContext and navigator.gpu and display the status.",
+        "steps.1": "Call requestAdapter and requestDevice in order and record the reason for failure.",
+        "steps.2": "Separate normal, missing-API, and adapter-null cases into injectable functions and check each screen output.",
+        "variables.0.name": "Adapter response",
+        "variables.0.baseline": "Valid object",
+        "variables.0.change": "Inject null",
+        "variables.0.expected": "An unsupported-environment message is expected instead of an exception or blank screen.",
+        "criteria.0": "Display a status string in all three initialization branches.",
+        "criteria.1": "Create device resources only after success.",
+        "questions.0": "Which failures does checking API presence alone miss?",
+        "questions.1": "How do a secure context and device support differ?",
+        "prerequisites": "TypedArray, asynchronous JavaScript, and the WebGL pipeline",
+        "environment": "The existing webgpu-01 preview is a starting point. It does not replace implementation or validation of the entire subsequent assignment. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-02": {
+      "sourceHash": "501e504175e28c10e669fc9f4c4975db562fd075cd62e8295439dce19bf03fc4",
+      "values": {
+        "title": "Negotiating Features and limits",
+        "concepts.0.title": "Optional Features",
+        "concepts.0.explanation": "Not every adapter provides the same optional features. Check the supported list before requesting a feature you need.",
+        "concepts.1.title": "Limits",
+        "concepts.1.explanation": "Resource sizes and binding counts have device limits. Restrict inputs according to device.limits instead of guessing large values.",
+        "outcomes.0": "Negotiate device features.",
+        "outcomes.1": "Write input checks based on limits.",
+        "steps.0": "In capabilities.js, display only the required adapter.features and limits entries in a table.",
+        "steps.1": "Write a requestDevice descriptor that distinguishes required and optional features.",
+        "steps.2": "Disable unsupported optional features and validate the maximum buffer-size input.",
+        "variables.0.name": "Optional feature",
+        "variables.0.baseline": "Disabled",
+        "variables.0.change": "Request after checking support",
+        "variables.0.expected": "The feature is expected to be enabled only on supported devices, with the default path retained elsewhere.",
+        "criteria.0": "State required and optional features separately.",
+        "criteria.1": "Reject inputs exceeding limits before creating resources.",
+        "questions.0": "Why distinguish adapter limits from requested device limits?",
+        "questions.1": "Must an optional-feature failure shut down the entire app?",
+        "prerequisites": "Continue using the output and notes from unit 1. Preserve the previous inputs and reference outputs before the Negotiating Features and limits experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-03": {
+      "sourceHash": "d5cf35267651e019bc90ef371ae97b4c8ef3671393e29b98c54df67c51ffcfd4",
+      "values": {
+        "title": "Canvas Configuration and the Current Texture",
+        "concepts.0.title": "Display Target",
+        "concepts.0.explanation": "The canvas context connects the device to the display format. Obtain the current frame texture each frame and use it as a render attachment.",
+        "concepts.1.title": "Matching Formats",
+        "concepts.1.explanation": "The pipeline color target format must match the attachment format. Query the browser's preferred format through the API.",
+        "outcomes.0": "Connect the canvas to GPU output.",
+        "outcomes.1": "Maintain the display-format contract.",
+        "steps.0": "In canvas.js, call getContext('webgpu') and getPreferredCanvasFormat.",
+        "steps.1": "After configure, create a clear pass with getCurrentTexture().createView().",
+        "steps.2": "Change the background color, obtain a new view each frame, and record the configure values.",
+        "variables.0.name": "Clear color",
+        "variables.0.baseline": "Black",
+        "variables.0.change": "Dark blue",
+        "variables.0.expected": "The entire attachment color is expected to change even without geometry.",
+        "criteria.0": "Obtain the current texture view for each frame.",
+        "criteria.1": "Record the preferred format and pipeline target format as the same value.",
+        "questions.0": "Why is retaining a previous frame's texture a problem?",
+        "questions.1": "How does a CSS background color differ from an attachment clear?",
+        "prerequisites": "Continue using the output and notes from unit 2. Preserve the previous inputs and reference outputs before the Canvas Configuration and the Current Texture experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    }
+  }
+}

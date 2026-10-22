@@ -141,6 +141,20 @@
       ]
     },
     {
+      "id": "webgpu",
+      "title": "WebGPU",
+      "category": "graphics",
+      "priority": 5,
+      "prerequisites": "WebGL pipeline, TypedArray, and asynchronous JavaScript",
+      "docPath": "/docs/en/labs/graphics/webgpu/README.md",
+      "stages": [
+        "Device and Command Fundamentals",
+        "Render Resources and Display Configuration",
+        "Compute and Data Movement",
+        "Recovery, Measurement, and an Integrated Project"
+      ]
+    },
+    {
       "id": "react-three-fiber",
       "title": "React Three Fiber",
       "category": "graphics",
@@ -2953,6 +2967,35 @@
       "goal": "Record metrics under identical conditions and the resource cleanup process. Explain performance changes together with whether quality and selection features are preserved.",
       "docPath": "/docs/en/labs/graphics/threejs/03-project/README.md",
       "seriesId": "threejs"
+    },
+    {
+      "id": "webgpu-01",
+      "day": 1,
+      "week": 1,
+      "title": "Adapter·Device·Pipeline",
+      "goal": "Check support requirements. Handle initialization failure as a recoverable state.",
+      "docPath": "/docs/en/labs/graphics/webgpu/01-foundations/README.md",
+      "seriesId": "webgpu"
+    },
+    {
+      "id": "webgpu-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Negotiating Features and limits",
+      "goal": "Negotiate device features. Write input checks based on limits.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/02/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Canvas Configuration and the Current Texture",
+      "goal": "Connect the canvas to GPU output. Maintain the display-format contract.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/03/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
       "id": "react-three-fiber-01",

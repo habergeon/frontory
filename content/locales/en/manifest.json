@@ -363,6 +363,9 @@
     "pixijs-step-25",
     "pixijs-step-26",
     "pixijs-step-27",
-    "pixijs-03"
+    "pixijs-03",
+    "webgpu-01",
+    "webgpu-step-02",
+    "webgpu-step-03"
   ]
 }

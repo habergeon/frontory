@@ -304,6 +304,13 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [26. Render Statistics and Profiling](labs/graphics/threejs/units/26/README.md) | Editable example | [Source code](../../src/labs/threejs-step-26/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [27. Integrating the Scene Inspector](labs/graphics/threejs/units/27/README.md) | Editable example | [Source code](../../src/labs/threejs-step-27/example.js) — Runs selection, rebuilding, JSON, and rotation lifetimes in a basic-shape inspector. glTF loading and minimap integration are external capstone extensions. |
 
+## WebGPU
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Negotiating Features and limits](labs/graphics/webgpu/units/02/README.md) | Editable example | [Source code](../../src/labs/webgpu-step-02/example.js) — Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. |
+| [3. Canvas Configuration and the Current Texture](labs/graphics/webgpu/units/03/README.md) | Editable example | [Source code](../../src/labs/webgpu-step-03/example.js) — Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. |
+
 ## React Three Fiber
 
 | Learning unit | Execution mode | Source and supported scope |

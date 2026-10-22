@@ -89,5 +89,12 @@
       "title": "PixiJS",
       "prerequisites": "Canvas 2D loops and textures"
     }
+  },
+  "webgpu": {
+    "sourceHash": "2e83caf05e01f09e2cefcc9cb6e179c4833eadef59062d5286ce4344f2c86c52",
+    "values": {
+      "title": "WebGPU",
+      "prerequisites": "WebGL pipeline, TypedArray, and asynchronous JavaScript"
+    }
   }
 }

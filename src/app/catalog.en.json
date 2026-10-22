@@ -3209,6 +3209,15 @@
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
+      "id": "react-three-fiber-03",
+      "day": 28,
+      "week": 4,
+      "title": "Resource Sharing and Frame Policy",
+      "goal": "Stationary display, clicks, and animation completion all work in demand mode. Explain the final policy with draw call, frame, and disposal records under the same conditions.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/03-project/README.md",
+      "seriesId": "react-three-fiber"
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

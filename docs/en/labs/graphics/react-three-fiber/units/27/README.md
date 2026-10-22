@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Alternative Controls and Errors in 3D UI](../26/README.md)
+[Previous: Alternative Controls and Errors in 3D UI](../26/README.md) · [Next: Resource Sharing and Frame Policy](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

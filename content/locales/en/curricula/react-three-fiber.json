@@ -730,6 +730,33 @@
         "references.0.title": "R3F Scaling Performance and demand Rendering",
         "references.1.title": "R3F Performance Pitfalls"
       }
+    },
+    "react-three-fiber-03": {
+      "sourceHash": "f1c4f9a53656ad65c7064b8a36895bf1a6466c11cea1c9b92fa5bb9bda35a270",
+      "values": {
+        "title": "Resource Sharing and Frame Policy",
+        "prerequisites": "Unit 28 continues using the deliverables and experiment records from Unit 27.",
+        "environment": "Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref. The existing react-three-fiber-03 preview is a starting point. Implement the extended deliverables described here in a separate project.",
+        "concepts.0.title": "Shared Lifetime",
+        "concepts.0.explanation": "Multiple objects use shared geometry and material. Align ownership and automatic dispose policies so resources are disposed when the last consumer finishes.",
+        "concepts.1.title": "Frame Policy",
+        "concepts.1.explanation": "A stationary scene can reduce frames with demand. Direct changes and animation need invalidate at their start, during progress, and at completion.",
+        "outcomes.0": "Stationary display, clicks, and animation completion all work in demand mode.",
+        "outcomes.1": "Explain the final policy with draw call, frame, and disposal records under the same conditions.",
+        "steps.0": "Prepare a shared grid and an instanced control with the same layout in src/StudyScene.jsx.",
+        "steps.1": "Compare stationary display and interaction in always and demand, and record resource trends after 10 scene switches.",
+        "steps.2": "Submit selection, note preservation, frame policy, resource ownership, and measurement limitations together in notes/final.md.",
+        "variables.0.name": "Scene Representation",
+        "variables.0.baseline": "Individual mesh objects with shared resources",
+        "variables.0.change": "instancedMesh",
+        "variables.0.expected": "Use measurements to distinguish resource sharing from draw call reduction.",
+        "criteria.0": "Stationary display, clicks, and animation completion all work in demand mode.",
+        "criteria.1": "Explain the final policy with draw call, frame, and disposal records under the same conditions.",
+        "questions.0": "What do shared geometry and instancing each reduce?",
+        "questions.1": "Which change paths should you check if the display freezes after switching to demand?",
+        "references.0.title": "R3F Scaling Performance and demand Rendering",
+        "references.1.title": "R3F Objects and Resource Disposal"
+      }
     }
   }
 }

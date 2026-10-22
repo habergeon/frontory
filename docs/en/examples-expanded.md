@@ -294,6 +294,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [16. Orbit Controls and On-Demand Rendering](labs/graphics/threejs/units/16/README.md) | Editable example | [Source code](../../src/labs/threejs-step-16/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [17. Clip Animation](labs/graphics/threejs/units/17/README.md) | Editable example | [Source code](../../src/labs/threejs-step-17/example.js) — Runs a procedurally created AnimationClip and AnimationMixer. Extend glTF clip-list loading in an external project with GLTFLoader. |
 | [18. Transparency and Depth](labs/graphics/threejs/units/18/README.md) | Editable example | [Source code](../../src/labs/threejs-step-18/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [19. Instancing Basics](labs/graphics/threejs/units/19/README.md) | Editable example | [Source code](../../src/labs/threejs-step-19/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [20. Instance Selection and Updates](labs/graphics/threejs/units/20/README.md) | Editable example | [Source code](../../src/labs/threejs-step-20/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [21. Offscreen Objects and Level of Detail](labs/graphics/threejs/units/21/README.md) | Editable example | [Source code](../../src/labs/threejs-step-21/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Clip Animation](../17/README.md)
+[Previous: Clip Animation](../17/README.md) · [Next: Instancing Basics](../19/README.md)
 
 ## Experiment notes — write your own
 

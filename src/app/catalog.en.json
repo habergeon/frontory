@@ -2828,6 +2828,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "threejs-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Instancing Basics",
+      "goal": "Keep the screen layout and count identical in both approaches. Reproduce a missing upload flag.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/19/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "threejs-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Instance Selection and Updates",
+      "goal": "Preserve other instances’ colors after selection. Select moved instances at their new positions.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/20/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "threejs-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Offscreen Objects and Level of Detail",
+      "goal": "Record quality differences at different distances. Distinguish a culling problem from actual deletion.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/21/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

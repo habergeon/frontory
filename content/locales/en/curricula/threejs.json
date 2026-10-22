@@ -490,6 +490,87 @@
         "references.0.title": "Three.js MeshStandardMaterial",
         "references.1.title": "Three.js WebGLRenderer"
       }
+    },
+    "threejs-step-19": {
+      "sourceHash": "c07798f84a1651b063c48d340334dc1b61659cd8889253e6c8b0370ee14b5c7d",
+      "values": {
+        "title": "Instancing Basics",
+        "prerequisites": "Prerequisite concepts: Depth Writes, Sorting Limits. Prepare the result files and observation notes from unit 18.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Shared Drawing",
+        "concepts.0.explanation": "InstancedMesh draws the same geometry and material with multiple transforms. It can reduce draw calls compared with creating a Mesh for every object.",
+        "concepts.1.title": "Instance Buffers",
+        "concepts.1.explanation": "setMatrixAt changes instance data on the CPU. Set instanceMatrix.needsUpdate to upload the changes.",
+        "outcomes.0": "Keep the screen layout and count identical in both approaches.",
+        "outcomes.1": "Reproduce a missing upload flag.",
+        "steps.0": "Prepare day-19.js and index.html in the external exercise project. Create 500 identical cubes as a Mesh list and as an InstancedMesh.",
+        "steps.1": "Fill setMatrixAt from the same coordinate array and compare renderer.info.render.calls.",
+        "steps.2": "Save the output under the Individual Mesh objects input condition, then run again under the InstancedMesh condition. Expected: Under the same material conditions, draw calls decrease. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-19-notes.md.",
+        "variables.0.name": "Representation",
+        "variables.0.baseline": "Individual Mesh objects",
+        "variables.0.change": "InstancedMesh",
+        "variables.0.expected": "Under the same material conditions, draw calls decrease.",
+        "criteria.0": "Keep the screen layout and count identical in both approaches.",
+        "criteria.1": "Reproduce a missing upload flag.",
+        "questions.0": "Can the call count decrease without reducing the triangle count?",
+        "questions.1": "Can each instance use different geometry?",
+        "references.0.title": "Three.js InstancedMesh",
+        "references.1.title": "Three.js WebGLRenderer"
+      }
+    },
+    "threejs-step-20": {
+      "sourceHash": "a49659a72b4d7abfb8a73dc7108d486c4fe8e831194d78800814f1727a98979a",
+      "values": {
+        "title": "Instance Selection and Updates",
+        "prerequisites": "Prerequisite concepts: Shared Drawing, Instance Buffers. Prepare the result files and observation notes from unit 19.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Instance Identification",
+        "concepts.0.explanation": "Raycaster results may contain instanceId. Map it to a data id to preserve individual selection.",
+        "concepts.1.title": "Bounds Updates",
+        "concepts.1.explanation": "Review bounds when instance positions change. Stale bounds may affect culling or selection.",
+        "outcomes.0": "Preserve other instances’ colors after selection.",
+        "outcomes.1": "Select moved instances at their new positions.",
+        "steps.0": "Prepare day-20.js and index.html in the external exercise project. Convert instanceId to a data id and apply setColorAt to the selected instance.",
+        "steps.1": "After moving positions, upload instanceMatrix and instanceColor and recalculate bounds.",
+        "steps.2": "Save the output under the First instance input condition, then run again under the Last instance condition. Expected: Only that item is highlighted and its data id matches. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-20-notes.md.",
+        "variables.0.name": "Selection target",
+        "variables.0.baseline": "First instance",
+        "variables.0.change": "Last instance",
+        "variables.0.expected": "Only that item is highlighted and its data id matches.",
+        "criteria.0": "Preserve other instances’ colors after selection.",
+        "criteria.1": "Select moved instances at their new positions.",
+        "questions.0": "Is it safe to use instanceId as a permanent data id?",
+        "questions.1": "Where do you set needsUpdate after setColorAt?",
+        "references.0.title": "Three.js InstancedMesh",
+        "references.1.title": "Three.js Raycaster"
+      }
+    },
+    "threejs-step-21": {
+      "sourceHash": "0fec52e9ac70123498bb205c0e8e338b661f9d47870f524da9ccee685a0ed407",
+      "values": {
+        "title": "Offscreen Objects and Level of Detail",
+        "prerequisites": "Prerequisite concepts: Instance Identification, Bounds Updates. Prepare the result files and observation notes from unit 20.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Frustum Culling",
+        "concepts.0.explanation": "The renderer may skip objects whose bounds are outside the camera view. Incorrect bounds can make visible objects disappear.",
+        "concepts.1.title": "Level of Detail",
+        "concepts.1.explanation": "Distant objects may look similar with fewer vertices. Compare both transition popping and the reduction in triangles.",
+        "outcomes.0": "Record quality differences at different distances.",
+        "outcomes.1": "Distinguish a culling problem from actual deletion.",
+        "steps.0": "Prepare day-21.js and index.html in the external exercise project. Use different segment counts for a nearby sphere and a distant sphere.",
+        "steps.1": "Change camera distance and record visual quality and renderer.info.render.triangles.",
+        "steps.2": "Save the output under the 64 input condition, then run again under the 12 condition. Expected: The triangle count decreases, but silhouette quality varies with distance. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-21-notes.md.",
+        "variables.0.name": "Distant sphere segments",
+        "variables.0.baseline": "64",
+        "variables.0.change": "12",
+        "variables.0.expected": "The triangle count decreases, but silhouette quality varies with distance.",
+        "criteria.0": "Record quality differences at different distances.",
+        "criteria.1": "Distinguish a culling problem from actual deletion.",
+        "questions.0": "Are a small screen size and world distance always proportional?",
+        "questions.1": "When should you update bounds for an object enlarged by animation?",
+        "references.0.title": "Three.js BufferGeometry",
+        "references.1.title": "Three.js WebGLRenderer"
+      }
     }
   }
 }

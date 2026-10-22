@@ -94,5 +94,23 @@
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "threejs-step-19": {
+    "sourceHash": "cd3fe8890a2a4dc7270728df22a197ba0f66c276acf92f0d77e768f8618e4490",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "threejs-step-20": {
+    "sourceHash": "f12d51fdcfb22565ab2b4979bfe04d5c9b90f2d807255ecfde7455b9ce9a2458",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "threejs-step-21": {
+    "sourceHash": "0bf180470ebda2fa808bc9c9b4c44a373c7f21d3992d6498bc4dc248fabf6438",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
   }
 }

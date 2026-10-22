@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 18 published in English
+Graphics · 4 stages · 28 units in the full series · 21 published in English
 
 ## Series goal
 
@@ -48,6 +48,9 @@ Only published English units are linked below. The full series has 28 units.
 - [16. Orbit Controls and On-Demand Rendering](units/16/README.md) — Editable example
 - [17. Clip Animation](units/17/README.md) — Editable example
 - [18. Transparency and Depth](units/18/README.md) — Editable example
+- [19. Instancing Basics](units/19/README.md) — Editable example
+- [20. Instance Selection and Updates](units/20/README.md) — Editable example
+- [21. Offscreen Objects and Level of Detail](units/21/README.md) — Editable example
 
 ### Stage 4 · Resource Lifetimes, Accessibility, and Measurement
 
@@ -71,3 +74,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [Three.js GLTFLoader](https://threejs.org/docs/pages/GLTFLoader.html)
 - [Three.js OrbitControls](https://threejs.org/docs/pages/OrbitControls.html)
 - [Three.js AnimationMixer](https://threejs.org/docs/pages/AnimationMixer.html)
+- [Three.js InstancedMesh](https://threejs.org/docs/pages/InstancedMesh.html)

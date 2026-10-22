@@ -1,3 +1,4 @@
+import type { Locale } from '../i18n/locale'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import * as React from 'react'
@@ -13,7 +14,7 @@ import * as Motion from 'motion/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { writable } from 'svelte/store'
 
-export async function start(source: string, token: string) {
+export async function start(source: string, token: string, locale: Locale = 'ko') {
   let cleanup: (() => void) | undefined
   let closed = false
   let failed = false
@@ -42,9 +43,9 @@ export async function start(source: string, token: string) {
   try {
     const module = await import(/* @vite-ignore */ url)
     if (closed) return
-    if (typeof module.mount !== 'function') throw new Error('export function mount(...) 함수를 정의하세요.')
-    const result = await module.mount({ THREE, OrbitControls, React, createRoot, Vue, Fiber, PIXI, gsap, ScrollTrigger, animate, Motion, writable, container: document.getElementById('scene-root') })
-    if (typeof result !== 'function') throw new Error('mount는 자원을 정리하는 함수를 반환해야 합니다.')
+    if (typeof module.mount !== 'function') throw new Error(locale === 'en' ? 'Define an export function mount(...) function.' : 'export function mount(...) 함수를 정의하세요.')
+    const result = await module.mount({ locale, THREE, OrbitControls, React, createRoot, Vue, Fiber, PIXI, gsap, ScrollTrigger, animate, Motion, writable, container: document.getElementById('scene-root') })
+    if (typeof result !== 'function') throw new Error(locale === 'en' ? 'mount must return a function that cleans up resources.' : 'mount는 자원을 정리하는 함수를 반환해야 합니다.')
     if (closed) { result(); return }
     cleanup = result
     // Mount completion must not depend on rAF: background tabs may suspend it.

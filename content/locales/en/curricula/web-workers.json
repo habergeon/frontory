@@ -172,6 +172,87 @@
         "references.0.title": "MDN Using Web Workers",
         "references.1.title": "MDN Transferable objects"
       }
+    },
+    "web-workers-step-07": {
+      "sourceHash": "460e15a08f8f2035b7e23170a3df992159402d2a240b9b26095c89afcb5b1e9f",
+      "values": {
+        "title": "Observing Main-Thread Responsiveness",
+        "prerequisites": "Prepare the experiment results for Task errors and Cleanup from Unit 6, “Error Response Contracts”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Separation",
+        "concepts.0.explanation": "A Worker moves CPU work off the main event loop. It does not guarantee a shorter total computation time.",
+        "concepts.1.title": "Baseline experiment",
+        "concepts.1.explanation": "Use the same input and computation on the main thread and Worker. Record UI input responsiveness together with result correctness.",
+        "outcomes.0": "Learning outcome: explain the role of Separation. Input cases: the same array and clicks during computation.",
+        "outcomes.1": "Deliverable: sums and input delays for both modes. Explain the rationale for handling Baseline experiment, linking it to the code.",
+        "steps.0": "In src/day-7.js in a separate practice project, share the computation function and create an execution-mode control and a click counter. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: the same array and clicks during computation. Baseline: Main thread. Run under the baseline conditions, then record observations and errors in notes/day-7.md.",
+        "steps.2": "Variable: Mode; changed value: Worker. Run again through the same input path. Deliverable to save: sums and input delays for both modes. Hypothesis to check: Correctness is the same, while the pattern of input delays may differ. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Mode",
+        "variables.0.baseline": "Main thread",
+        "variables.0.change": "Worker",
+        "variables.0.expected": "Correctness is the same, while the pattern of input delays may differ.",
+        "criteria.0": "Required deliverable: sums and input delays for both modes. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Separation and Baseline experiment. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Separation affect in this exercise? Input cases: the same array and clicks during computation.",
+        "questions.1": "Variable: Mode. Hypothesis to check: Correctness is the same, while the pattern of input delays may differ. Did the actual results agree with the hypothesis? Explain the evidence in terms of Baseline experiment.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-08": {
+      "sourceHash": "3aada008636bac10c9dcc6094a3999c4381769ec559d74082ba74df4062f9f56",
+      "values": {
+        "title": "Transfer Ownership",
+        "prerequisites": "Prepare the experiment results for Separation and Baseline experiment from Unit 7, “Observing Main-Thread Responsiveness”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Transfer",
+        "concepts.0.explanation": "Putting an ArrayBuffer in the transfer list transfers ownership. The sender's buffer becomes detached.",
+        "concepts.1.title": "No further access",
+        "concepts.1.explanation": "Do not reuse the old view after transfer. Copy data you need to reuse or establish a return protocol.",
+        "outcomes.0": "Learning outcome: explain the role of Transfer. Input cases: an Int32Array of length 16.",
+        "outcomes.1": "Deliverable: byteLength before and after sending, and the received sum. Explain the rationale for handling No further access, linking it to the code.",
+        "steps.0": "In src/day-8.js in a separate practice project, record byteLength before and after postMessage({buffer},[buffer]) and the received values. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: an Int32Array of length 16. Baseline: Copy. Run under the baseline conditions, then record observations and errors in notes/day-8.md.",
+        "steps.2": "Variable: Sending method; changed value: transfer. Run again through the same input path. Deliverable to save: byteLength before and after sending, and the received sum. Hypothesis to check: The sender's byteLength becomes 0 while the received data remains intact. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Sending method",
+        "variables.0.baseline": "Copy",
+        "variables.0.change": "transfer",
+        "variables.0.expected": "The sender's byteLength becomes 0 while the received data remains intact.",
+        "criteria.0": "Required deliverable: byteLength before and after sending, and the received sum. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Transfer and No further access. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Transfer affect in this exercise? Input cases: an Int32Array of length 16.",
+        "questions.1": "Variable: Sending method. Hypothesis to check: The sender's byteLength becomes 0 while the received data remains intact. Did the actual results agree with the hypothesis? Explain the evidence in terms of No further access.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-09": {
+      "sourceHash": "d1f93703536f5b36d02d3b8ee4b86bcd49403940336bbd82a1b46a99be68e716",
+      "values": {
+        "title": "Transferring a Partial View",
+        "prerequisites": "Prepare the experiment results for Transfer and No further access from Unit 8, “Transfer Ownership”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Storage granularity",
+        "concepts.0.explanation": "The transfer target is the ArrayBuffer, not the view. Sending a partial view may transfer the entire underlying storage.",
+        "concepts.1.title": "Minimizing the boundary",
+        "concepts.1.explanation": "You can copy only the needed portion into new storage. This trades copying cost against the scope of shared access.",
+        "outcomes.0": "Learning outcome: explain the role of Storage granularity. Input cases: the middle 8 elements of a large array.",
+        "outcomes.1": "Deliverable: transferred storage size and the states of other views. Explain the rationale for handling Minimizing the boundary, linking it to the code.",
+        "steps.0": "In src/day-9.js in a separate practice project, compare directly transferring subarray.buffer with transferring after slice. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: the middle 8 elements of a large array. Baseline: Original buffer. Run under the baseline conditions, then record observations and errors in notes/day-9.md.",
+        "steps.2": "Variable: Transfer range; changed value: Buffer containing a partial copy. Run again through the same input path. Deliverable to save: transferred storage size and the states of other views. Hypothesis to check: The small-copy path does not detach other views. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Transfer range",
+        "variables.0.baseline": "Original buffer",
+        "variables.0.change": "Buffer containing a partial copy",
+        "variables.0.expected": "The small-copy path does not detach other views.",
+        "criteria.0": "Required deliverable: transferred storage size and the states of other views. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Storage granularity and Minimizing the boundary. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Storage granularity affect in this exercise? Input cases: the middle 8 elements of a large array.",
+        "questions.1": "Variable: Transfer range. Hypothesis to check: The small-copy path does not detach other views. Did the actual results agree with the hypothesis? Explain the evidence in terms of Minimizing the boundary.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
     }
   }
 }

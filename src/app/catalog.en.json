@@ -5312,6 +5312,36 @@
       "docPath": "/docs/en/labs/engineering/web-workers/units/06/README.md",
       "seriesId": "web-workers",
       "exampleNote": "An interactive Error Response Contracts experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Observing Main-Thread Responsiveness",
+      "goal": "Learning outcome: explain the role of Separation. Input cases: the same array and clicks during computation. Deliverable: sums and input delays for both modes. Explain the rationale for handling Baseline experiment, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/07/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Observing Main-Thread Responsiveness experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Transfer Ownership",
+      "goal": "Learning outcome: explain the role of Transfer. Input cases: an Int32Array of length 16. Deliverable: byteLength before and after sending, and the received sum. Explain the rationale for handling No further access, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/08/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Transfer Ownership experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Transferring a Partial View",
+      "goal": "Learning outcome: explain the role of Storage granularity. Input cases: the middle 8 elements of a large array. Deliverable: transferred storage size and the states of other views. Explain the rationale for handling Minimizing the boundary, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/09/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Transferring a Partial View experiment with cleanup of the resources it uses."
     }
   ]
 }

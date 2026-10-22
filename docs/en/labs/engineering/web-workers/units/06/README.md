@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: TypedArray and Buffer](../05/README.md)
+[Previous: TypedArray and Buffer](../05/README.md) · [Next: Observing Main-Thread Responsiveness](../07/README.md)
 
 ## Experiment notes — write your own
 

@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 6 published in English
+Engineering · 4 stages · 28 units in the full series · 9 published in English
 
 ## Series goal
 
@@ -30,9 +30,12 @@ Only published English units are linked below. The full series has 28 units.
 - [04. Structured Clone](units/04/README.md) — Editable example
 - [05. TypedArray and Buffer](units/05/README.md) — Editable example
 - [06. Error Response Contracts](units/06/README.md) — Editable example
+- [07. Observing Main-Thread Responsiveness](units/07/README.md) — Editable example
 
 ### Stage 2 · Ownership and Cancellation
 
+- [08. Transfer Ownership](units/08/README.md) — Editable example
+- [09. Transferring a Partial View](units/09/README.md) — Editable example
 
 ### Stage 3 · Queues and Error Recovery
 

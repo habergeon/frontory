@@ -5081,6 +5081,35 @@
       "docPath": "/docs/en/labs/animation/motion/units/12/README.md",
       "seriesId": "motion",
       "exampleNote": "Interactive Sharing LayoutId experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Focus During Deletion",
+      "goal": "Learning outcome: Explain the role of DOM lifetime. Input case: Deleting the first, middle, and last cards. Deliverable: A record of activeElement for each deletion position. Connect your rationale for handling Focus restoration to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/13/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Focus During Deletion experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-02",
+      "day": 14,
+      "week": 2,
+      "title": "Layout and Exit",
+      "goal": "Learning outcome: Explain the role of Sorting and removal. Input case: 5 cards with different notes. Deliverable: An ID, note, and DOM table after sorting and consecutive deletions. Connect your rationale for handling Identity to the code.",
+      "docPath": "/docs/en/labs/animation/motion/02-experiments/README.md",
+      "seriesId": "motion"
+    },
+    {
+      "id": "motion-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Hover and Focus",
+      "goal": "Learning outcome: Explain the role of Pointer state. Input case: Mouse entry and Tab. Deliverable: A table of emphasis and selection indicators for both inputs. Connect your rationale for handling Focus to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/15/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Hover and Focus experiment with cleanup of the resources used."
     }
   ]
 }

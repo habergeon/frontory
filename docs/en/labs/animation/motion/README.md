@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Animation · 4 stages · 28 units in the full series · 12 published in English
+Animation · 4 stages · 28 units in the full series · 15 published in English
 
 ## Series goal
 
@@ -39,9 +39,12 @@ Only published English units are linked below. The full series has 28 units.
 - [10. AnimatePresence Basics](units/10/README.md) — Editable example
 - [11. Presence Modes](units/11/README.md) — Editable example
 - [12. Sharing LayoutId](units/12/README.md) — Editable example
+- [13. Focus During Deletion](units/13/README.md) — Editable example
+- [14. Layout and Exit](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Gestures and Equivalent Interaction
 
+- [15. Hover and Focus](units/15/README.md) — Editable example
 
 ### Stage 4 · Validating a Motion System
 

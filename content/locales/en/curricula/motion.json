@@ -335,6 +335,87 @@
         "references.1.title": "Motion AnimatePresence",
         "references.2.title": "Motion LayoutGroup: namespace layoutId"
       }
+    },
+    "motion-step-13": {
+      "sourceHash": "2938c3a0695a48cadb1de8a2dda160b8bb7eec19a3794138565787acb644df2e",
+      "values": {
+        "title": "Focus During Deletion",
+        "prerequisites": "Prepare the results of the Visual connection and Separating regions exercises from Unit 12, “Sharing LayoutId”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "DOM lifetime",
+        "concepts.0.explanation": "An element undergoing exit can remain on screen. Decide whether a card removed from the data should still allow interaction.",
+        "concepts.1.title": "Focus restoration",
+        "concepts.1.explanation": "Move focus from the deleted button to the next valid location. Waiting only for the animation to finish leaves a gap in interaction.",
+        "outcomes.0": "Learning outcome: Explain the role of DOM lifetime. Input case: Deleting the first, middle, and last cards.",
+        "outcomes.1": "Deliverable: A record of activeElement for each deletion position. Connect your rationale for handling Focus restoration to the code.",
+        "steps.0": "In src/day-13.tsx of a separate exercise project, add a ref to each delete button and move focus to the next card or the add button. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Deleting the first, middle, and last cards. Baseline: Middle. Run under the baseline condition, then record observations and errors in notes/day-13.md.",
+        "steps.2": "Variable to change: Deletion position; new value: Last. Run again with the same input path. Deliverable to save: A record of activeElement for each deletion position. Hypothesis to test: Focus moves to a remaining valid control. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Deletion position",
+        "variables.0.baseline": "Middle",
+        "variables.0.change": "Last",
+        "variables.0.expected": "Focus moves to a remaining valid control.",
+        "criteria.0": "Required deliverable: A record of activeElement for each deletion position. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: DOM lifetime and Focus restoration. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does DOM lifetime affect in this exercise? Input case: Deleting the first, middle, and last cards.",
+        "questions.1": "Variable to change: Deletion position. Hypothesis to test: Focus moves to a remaining valid control. Did the actual results agree with the hypothesis? Explain your evidence in terms of Focus restoration.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    },
+    "motion-02": {
+      "sourceHash": "3d3888ce6a28d2cee7164e5f6f4e07fe478f61fc35117fb05e49885f91acaf34",
+      "values": {
+        "title": "Layout and Exit",
+        "prerequisites": "Prepare the results of the DOM lifetime and Focus restoration exercises from Unit 13, “Focus During Deletion”.",
+        "environment": "The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Sorting and removal",
+        "concepts.0.explanation": "layout handles changes in position. exit handles the lifetime of elements being removed.",
+        "concepts.1.title": "Identity",
+        "concepts.1.explanation": "A stable key preserves card state. Rapid consecutive deletions cause exits and sorting at the same time.",
+        "outcomes.0": "Learning outcome: Explain the role of Sorting and removal. Input case: 5 cards with different notes.",
+        "outcomes.1": "Deliverable: An ID, note, and DOM table after sorting and consecutive deletions. Connect your rationale for handling Identity to the code.",
+        "steps.0": "In src/day-14.tsx of a separate exercise project, create a sortable, deletable list with layout, AnimatePresence, and an ID key in a separate React app. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: 5 cards with different notes. Baseline: index. Run under the baseline condition, then record observations and errors in notes/day-14.md.",
+        "steps.2": "Variable to change: key; new value: item.id. Run again with the same input path. Deliverable to save: An ID, note, and DOM table after sorting and consecutive deletions. Hypothesis to test: The state of remaining cards does not get mixed up. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "key",
+        "variables.0.baseline": "index",
+        "variables.0.change": "item.id",
+        "variables.0.expected": "The state of remaining cards does not get mixed up.",
+        "criteria.0": "Required deliverable: An ID, note, and DOM table after sorting and consecutive deletions. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Sorting and removal and Identity. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Sorting and removal affect in this exercise? Input case: 5 cards with different notes.",
+        "questions.1": "Variable to change: key. Hypothesis to test: The state of remaining cards does not get mixed up. Did the actual results agree with the hypothesis? Explain your evidence in terms of Identity.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    },
+    "motion-step-15": {
+      "sourceHash": "b0f586093d97c527adc7734db09f1820ddfc7e8701a53b6c57edddb067fe35ed",
+      "values": {
+        "title": "Hover and Focus",
+        "prerequisites": "Prepare the results of the Sorting and removal and Identity exercises from Unit 14, “Layout and Exit”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Pointer state",
+        "concepts.0.explanation": "whileHover provides pointer feedback. Touch and keyboard inputs may not have the same event.",
+        "concepts.1.title": "Focus",
+        "concepts.1.explanation": "whileFocus and focus-visible styles make the keyboard path visible. Do not communicate selected state through visual effects alone.",
+        "outcomes.0": "Learning outcome: Explain the role of Pointer state. Input case: Mouse entry and Tab.",
+        "outcomes.1": "Deliverable: A table of emphasis and selection indicators for both inputs. Connect your rationale for handling Focus to the code.",
+        "steps.0": "In src/day-15.tsx of a separate exercise project, add whileHover, whileFocus, and explicit selection text to card buttons. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Mouse entry and Tab. Baseline: Pointer. Run under the baseline condition, then record observations and errors in notes/day-15.md.",
+        "steps.2": "Variable to change: Input; new value: Keyboard. Run again with the same input path. Deliverable to save: A table of emphasis and selection indicators for both inputs. Hypothesis to test: The keyboard also makes the interaction target identifiable. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Input",
+        "variables.0.baseline": "Pointer",
+        "variables.0.change": "Keyboard",
+        "variables.0.expected": "The keyboard also makes the interaction target identifiable.",
+        "criteria.0": "Required deliverable: A table of emphasis and selection indicators for both inputs. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Pointer state and Focus. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Pointer state affect in this exercise? Input case: Mouse entry and Tab.",
+        "questions.1": "Variable to change: Input. Hypothesis to test: The keyboard also makes the interaction target identifiable. Did the actual results agree with the hypothesis? Explain your evidence in terms of Focus.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
     }
   }
 }

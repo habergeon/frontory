@@ -64,5 +64,17 @@
     "values": {
       "note": "Interactive Sharing LayoutId experiment with cleanup of the resources used."
     }
+  },
+  "motion-step-13": {
+    "sourceHash": "0e3d89d24982bb263d5b944205ce9f9be3986372f99f54e6e8defff8b40326e3",
+    "values": {
+      "note": "Interactive Focus During Deletion experiment with cleanup of the resources used."
+    }
+  },
+  "motion-step-15": {
+    "sourceHash": "be7442bb618bf9ec57dc915fa9278b61865ae2e3d9f4a87d61205806402a4acb",
+    "values": {
+      "note": "Interactive Hover and Focus experiment with cleanup of the resources used."
+    }
   }
 }

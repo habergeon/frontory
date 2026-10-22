@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Presence Modes](../11/README.md)
+[Previous: Presence Modes](../11/README.md) · [Next: Focus During Deletion](../13/README.md)
 
 ## Experiment notes — write your own
 

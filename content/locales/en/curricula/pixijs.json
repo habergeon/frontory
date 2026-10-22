@@ -328,6 +328,88 @@
         "questions.1": "Does the parent's eventMode affect traversal of its children?",
         "references.0.title": "PixiJS 8 events"
       }
+    },
+    "pixijs-step-13": {
+      "sourceHash": "e6de967aab4ddf77583652e502330bda2340d5f14ba862badc908c1f1b3fbf06",
+      "values": {
+        "title": "Dragging and Global Pointers",
+        "prerequisites": "Prerequisite concepts: Event Modes, Hit Areas. Prepare the output files and observation records from Unit 12.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Parent Coordinates",
+        "concepts.0.explanation": "A Sprite's position uses its parent's local coordinates. Convert the global pointer with the parent's toLocal so movement remains correct in a scaled group.",
+        "concepts.1.title": "End Events",
+        "concepts.1.explanation": "The pointer can be released outside the object. Handle pointerupoutside and cancellation paths so dragging does not remain active.",
+        "outcomes.0": "Keep dragging speed correct in a scaled group.",
+        "outcomes.1": "End dragging even when the pointer is released outside the object.",
+        "steps.0": "Prepare day-13.js and index.html in the external practice project. Save the selected id and local offset on pointerdown.",
+        "steps.1": "Calculate position with the parent's toLocal in globalpointermove, and clear state on pointerup, pointerupoutside, and pointercancel.",
+        "steps.2": "Save the output with the input condition 1, then run again with 2. Expected: With correct conversion, the grabbed point stays under the pointer. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-13-notes.md.",
+        "variables.0.name": "Parent scale",
+        "variables.0.baseline": "1",
+        "variables.0.change": "2",
+        "variables.0.expected": "With correct conversion, the grabbed point stays under the pointer",
+        "criteria.0": "Keep dragging speed correct in a scaled group.",
+        "criteria.1": "End dragging even when the pointer is released outside the object.",
+        "questions.0": "How do v8 pointermove and globalpointermove differ in scope?",
+        "questions.1": "Which id should you track among multiple pointers?",
+        "references.0.title": "PixiJS 8 events",
+        "references.1.title": "PixiJS 8 container"
+      }
+    },
+    "pixijs-02": {
+      "sourceHash": "f4cfcc66a830366ac6721c322387872ca76128d50e53c4ddbc14eb08527d5ccf",
+      "values": {
+        "title": "Assets and Events",
+        "prerequisites": "Prerequisite concepts: Parent Coordinates, End Events. Prepare the output files and observation records from Unit 13.",
+        "environment": "The existing built-in example provides only a starting point. It does not implement all the extended requirements. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Errors and the Existing Scene",
+        "concepts.0.explanation": "A failed new atlas load does not have to clear the current scene. Replacing it after validated new resources are ready makes recovery easier.",
+        "concepts.1.title": "Shared Texture Lifetimes",
+        "concepts.1.explanation": "Removing a Sprite differs from releasing a TextureSource. Do not destroy a source that other Sprites are using.",
+        "outcomes.0": "Keep the UI available through failure and reruns.",
+        "outcomes.1": "Keep sibling Sprites sharing the texture intact after removing the selected object.",
+        "steps.0": "Prepare day-14.js and index.html in the external practice project. Read the existing pixijs-02 local atlas example and build its failure, retry, and selected-item deletion UI in the external project.",
+        "steps.1": "Remove only the selected Sprite with destroy({texture:false,textureSource:false}) and check that sibling Sprites still display correctly.",
+        "steps.2": "Save the output with the input condition Valid atlas, then run again with Invalid atlas with no frames. Expected: Existing Sprites remain, and error and retry controls appear. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-14-notes.md.",
+        "variables.0.name": "Loading input",
+        "variables.0.baseline": "Valid atlas",
+        "variables.0.change": "Invalid atlas with no frames",
+        "variables.0.expected": "Existing Sprites remain, and error and retry controls appear",
+        "criteria.0": "Keep the UI available through failure and reruns.",
+        "criteria.1": "Keep sibling Sprites sharing the texture intact after removing the selected object.",
+        "questions.0": "Who owns the source: the Sprite or the atlas?",
+        "questions.1": "How do you handle an older load that finishes after a newer request?",
+        "references.0.title": "PixiJS 8 assets",
+        "references.1.title": "PixiJS 8 events",
+        "references.2.title": "PixiJS 8 gc"
+      }
+    },
+    "pixijs-step-15": {
+      "sourceHash": "7e3f872cd7a7d1a434d2ae4bb2ee311ea7eb9379e681abaee8a2bc28c04799ab",
+      "values": {
+        "title": "Keyboard Input and Accessibility",
+        "prerequisites": "Prerequisite concepts: Errors and the Existing Scene, Shared Texture Lifetimes. Prepare the output files and observation records from Unit 14.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Meaning Beyond Pixels",
+        "concepts.0.explanation": "A rendered Sprite does not automatically become an HTML button. Connect names and controls through an accessibility extension or separate DOM controls.",
+        "concepts.1.title": "Shared Commands",
+        "concepts.1.explanation": "Keyboard and pointer behavior stays consistent when both call the same selectItem. A text selection status is needed in addition to visual tint.",
+        "outcomes.0": "Support selection, movement, and deletion without a mouse.",
+        "outcomes.1": "Provide the selected name and errors as text.",
+        "steps.0": "Prepare day-15.js and index.html in the external practice project. Connect Sprite ids and names to a list of HTML buttons.",
+        "steps.1": "Connect Tab·Enter selection and arrow-key movement to shared command functions, updating the visual highlight and description.",
+        "steps.2": "Save the output with the input condition Pointer, then run again with Keyboard. Expected: The same Sprite can be selected and its position changed. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-15-notes.md.",
+        "variables.0.name": "Input",
+        "variables.0.baseline": "Pointer",
+        "variables.0.change": "Keyboard",
+        "variables.0.expected": "The same Sprite can be selected and its position changed",
+        "criteria.0": "Support selection, movement, and deletion without a mouse.",
+        "criteria.1": "Provide the selected name and errors as text.",
+        "questions.0": "Does giving the canvas one name also describe individual objects?",
+        "questions.1": "How would you reduce the focus sequence for hundreds of objects?",
+        "references.0.title": "PixiJS 8 a11y",
+        "references.1.title": "PixiJS 8 events"
+      }
     }
   }
 }

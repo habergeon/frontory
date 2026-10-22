@@ -3351,6 +3351,35 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "pixijs-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Dragging and Global Pointers",
+      "goal": "Keep dragging speed correct in a scaled group. End dragging even when the pointer is released outside the object.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/13/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "pixijs-02",
+      "day": 14,
+      "week": 2,
+      "title": "Assets and Events",
+      "goal": "Keep the UI available through failure and reruns. Keep sibling Sprites sharing the texture intact after removing the selected object.",
+      "docPath": "/docs/en/labs/graphics/pixijs/02-experiments/README.md",
+      "seriesId": "pixijs"
+    },
+    {
+      "id": "pixijs-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Keyboard Input and Accessibility",
+      "goal": "Support selection, movement, and deletion without a mouse. Provide the selected name and errors as text.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/15/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

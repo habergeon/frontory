@@ -349,6 +349,8 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [10. Asynchronous Asset Loading](labs/graphics/pixijs/units/10/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-10/example.js) — Loads a local data URL with Assets. Reproduce the error state with a corrupted image; check external servers/CORS in a separate environment. |
 | [11. Atlases and Frames](labs/graphics/pixijs/units/11/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-11/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [12. Event Modes and Hit Areas](labs/graphics/pixijs/units/12/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-12/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [13. Dragging and Global Pointers](labs/graphics/pixijs/units/13/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-13/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [15. Keyboard Input and Accessibility](labs/graphics/pixijs/units/15/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-15/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

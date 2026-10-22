@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Atlases and Frames](../11/README.md)
+[Previous: Atlases and Frames](../11/README.md) · [Next: Dragging and Global Pointers](../13/README.md)
 
 ## Experiment notes — write your own
 

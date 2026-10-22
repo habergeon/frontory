@@ -334,6 +334,87 @@
         "references.0.title": "WebGPU API and Error Handling",
         "references.1.title": "WGSL Specification"
       }
+    },
+    "webgpu-step-13": {
+      "sourceHash": "39e4a90b8f22e3ff0cf2962ecf552590acd4b92b51a6a3d5b50c1676a5c7dd6e",
+      "values": {
+        "title": "Resize and Sample Count",
+        "concepts.0.title": "Actual Resolution",
+        "concepts.0.explanation": "CSS size and drawing buffer size may differ. Account for DPR while keeping within the device's texture-size limits.",
+        "concepts.1.title": "MSAA",
+        "concepts.1.explanation": "A multisample attachment can pass its display result to a resolve target. The pipeline and attachment sampleCount must match.",
+        "outcomes.0": "Update resolution safely.",
+        "outcomes.1": "Maintain the MSAA attachment contract.",
+        "steps.0": "In resize.js, read sizes with ResizeObserver and determine buffer dimensions using DPR and limits.",
+        "steps.1": "Create color and depth textures with sampleCount 4 and use the current canvas view as resolveTarget.",
+        "steps.2": "Replace attachments on resize and save edge images for sampleCount 1 and 4.",
+        "variables.0.name": "sampleCount",
+        "variables.0.baseline": "1",
+        "variables.0.change": "4",
+        "variables.0.expected": "Triangle-edge stair stepping is expected to decrease while attachment cost increases.",
+        "criteria.0": "Attachment dimensions match at three canvas sizes.",
+        "criteria.1": "Compare edge images for 1·4 samples at the same point in time.",
+        "questions.0": "Does MSAA solve all shader aliasing?",
+        "questions.1": "How should texture creation be handled when the window size becomes 0?",
+        "prerequisites": "Continue using the output and notes from unit 12. Preserve the previous inputs and reference outputs before the Resize and Sample Count experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-02": {
+      "sourceHash": "b30694d3e662a2eb81acbcf0a6f34223ac57a91cf636955ae3305a60f3e602fd",
+      "values": {
+        "title": "Buffers and Render Passes",
+        "concepts.0.title": "Integrated Path",
+        "concepts.0.explanation": "CPU arrays become shader inputs through buffers and bindings. A render pass combines output attachments with pipeline and draw state.",
+        "concepts.1.title": "Error Scope",
+        "concepts.1.explanation": "Place an error scope around operations that may fail validation. Record descriptors and messages together rather than hiding errors.",
+        "outcomes.0": "Integrate the rendering path.",
+        "outcomes.1": "Diagnose and recover from validation failures.",
+        "steps.0": "In renderer.js, combine vertex, color-uniform, attachment, and draw paths into one function.",
+        "steps.1": "After pushErrorScope('validation'), create a minimal case using a buffer with incorrect usage and display the popErrorScope result.",
+        "steps.2": "Restore the usage, change color and resolution inputs, and rerun the same rendering path.",
+        "variables.0.name": "buffer usage",
+        "variables.0.baseline": "UNIFORM|COPY_DST",
+        "variables.0.change": "COPY_DST only",
+        "variables.0.expected": "Uniform-binding validation is expected to fail, with color updates resuming after recovery.",
+        "criteria.0": "Explain the five links from the CPU color value to screen output.",
+        "criteria.1": "Record the intentional validation error and recover normal rendering.",
+        "questions.0": "Where do pass settings and pipeline settings meet?",
+        "questions.1": "Does a successful submit alone guarantee rendering correctness?",
+        "prerequisites": "Continue using the output and notes from unit 13. Preserve the previous inputs and reference outputs before the Buffers and Render Passes experiment.",
+        "environment": "The existing webgpu-02 preview is a starting point. It does not replace implementation or validation of the entire subsequent assignment. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-15": {
+      "sourceHash": "3704e1698b4aad4a704f32a15e801761846c4d27f2fa5a644cfa8bc6530e82ae",
+      "values": {
+        "title": "A First Compute Array Transform",
+        "concepts.0.title": "Parallel Indices",
+        "concepts.0.explanation": "global_invocation_id can identify the element to process. Dispatch size depends on both element count and workgroup size.",
+        "concepts.1.title": "Bounds Checks",
+        "concepts.1.explanation": "The final workgroup may contain more invocations than actual data elements. In independent-element kernels, check the length before accessing data.",
+        "outcomes.0": "Implement independent-element compute.",
+        "outcomes.1": "Handle dispatch boundaries.",
+        "steps.0": "In compute.wgsl, write a kernel that doubles each input array element.",
+        "steps.1": "Create two storage buffers and a compute pipeline, and dispatch ceil(N/64) workgroups.",
+        "steps.2": "Use N=65 and copy the output to a staging buffer to check through the last element.",
+        "variables.0.name": "Array length",
+        "variables.0.baseline": "64",
+        "variables.0.change": "65",
+        "variables.0.expected": "Only one element in the second workgroup is expected to perform a valid calculation.",
+        "criteria.0": "All 65 results match the CPU doubling results.",
+        "criteria.1": "Exclude invocations beyond the length before buffer access.",
+        "questions.0": "Does dispatchWorkgroups take an element count?",
+        "questions.1": "Does adding a barrier require reviewing early-return conditions?",
+        "prerequisites": "Continue using the output and notes from unit 14. Preserve the previous inputs and reference outputs before starting \"A First Compute Array Transform\".",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
     }
   }
 }

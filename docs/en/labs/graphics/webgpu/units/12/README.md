@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Textures and Samplers](../11/README.md)
+[Previous: Textures and Samplers](../11/README.md) · [Next: Resize and Sample Count](../13/README.md)
 
 ## Experiment notes — write your own
 

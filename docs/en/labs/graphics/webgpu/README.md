@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 12 published in English
+Graphics · 4 stages · 28 units in the full series · 15 published in English
 
 ## Series goal
 
@@ -39,9 +39,12 @@ Only published English units are linked below. The full series has 28 units.
 - [10. Matrices and Cameras](units/10/README.md) — Editable example
 - [11. Textures and Samplers](units/11/README.md) — Editable example
 - [12. Depth Attachments](units/12/README.md) — Editable example
+- [13. Resize and Sample Count](units/13/README.md) — Editable example
+- [14. Buffers and Render Passes](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Compute and Data Movement
 
+- [15. A First Compute Array Transform](units/15/README.md) — Editable example
 
 ### Stage 4 · Recovery, Measurement, and an Integrated Project
 

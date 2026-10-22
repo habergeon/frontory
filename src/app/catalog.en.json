@@ -3088,6 +3088,35 @@
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
+      "id": "webgpu-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Resize and Sample Count",
+      "goal": "Update resolution safely. Maintain the MSAA attachment contract.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/13/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-02",
+      "day": 14,
+      "week": 2,
+      "title": "Buffers and Render Passes",
+      "goal": "Integrate the rendering path. Diagnose and recover from validation failures.",
+      "docPath": "/docs/en/labs/graphics/webgpu/02-experiments/README.md",
+      "seriesId": "webgpu"
+    },
+    {
+      "id": "webgpu-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "A First Compute Array Transform",
+      "goal": "Implement independent-element compute. Handle dispatch boundaries.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/15/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
       "id": "react-three-fiber-01",
       "day": 1,
       "week": 1,

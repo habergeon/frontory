@@ -319,6 +319,8 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [10. Matrices and Cameras](labs/graphics/webgpu/units/10/README.md) | Editable example | [Source code](../../src/labs/webgpu-step-10/example.js) — Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. |
 | [11. Textures and Samplers](labs/graphics/webgpu/units/11/README.md) | Editable example | [Source code](../../src/labs/webgpu-step-11/example.js) — Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. |
 | [12. Depth Attachments](labs/graphics/webgpu/units/12/README.md) | Editable example | [Source code](../../src/labs/webgpu-step-12/example.js) — Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. |
+| [13. Resize and Sample Count](labs/graphics/webgpu/units/13/README.md) | Editable example | [Source code](../../src/labs/webgpu-step-13/example.js) — Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. |
+| [15. A First Compute Array Transform](labs/graphics/webgpu/units/15/README.md) | Editable example | [Source code](../../src/labs/webgpu-step-15/example.js) — Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. |
 
 ## React Three Fiber
 

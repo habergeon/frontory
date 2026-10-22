@@ -3179,6 +3179,36 @@
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
+      "id": "react-three-fiber-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Scene Switching and Resource Audits",
+      "goal": "Record resource-count trends over 10 switches. Specify who disposes shared resources, external primitive resources, and declarative resources.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/25/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Alternative Controls and Errors in 3D UI",
+      "goal": "Select every object using only the keyboard. Distinguish unsupported-environment guidance from model failure guidance.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/26/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Performance Experiments for the Integrated Scene",
+      "goal": "Provide 10-second stationary and interaction records for each condition. Check draft preservation and selection accuracy under every condition.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/27/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

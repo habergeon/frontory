@@ -649,6 +649,87 @@
         "references.0.title": "R3F Canvas Configuration",
         "references.1.title": "R3F Scaling Performance and demand Rendering"
       }
+    },
+    "react-three-fiber-step-25": {
+      "sourceHash": "a6ac91e2bf6a790cd273d60c5ef52c079aed415cfa34033cddfdcba7b4c4a198",
+      "values": {
+        "title": "Scene Switching and Resource Audits",
+        "prerequisites": "Unit 25 continues using the deliverables and experiment records from Unit 24.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Visibility and Removal",
+        "concepts.0.explanation": "visible=false leaves objects in the scene. unmount removes them from the tree, changing recreation costs and disposal policies.",
+        "concepts.1.title": "Resource Tracking",
+        "concepts.1.explanation": "Memory counts in renderer.info may not immediately reach 0 because of internal caches. Examine growth trends across repeated switches alongside dispose logs for each owner.",
+        "outcomes.0": "Record resource-count trends over 10 switches.",
+        "outcomes.1": "Specify who disposes shared resources, external primitive resources, and declarative resources.",
+        "steps.0": "Create two scenes and visible and unmount switching policies in src/SceneSwitcher.jsx.",
+        "steps.1": "Alternate the same scenes 10 times, collecting geometry and texture counts and dispose logs.",
+        "steps.2": "Create an ownership table for shared and primitive resources.",
+        "variables.0.name": "Switching Policy",
+        "variables.0.baseline": "Hide with visible",
+        "variables.0.change": "unmount",
+        "variables.0.expected": "Recreation and disposal counts, and retained resource counts, differ.",
+        "criteria.0": "Record resource-count trends over 10 switches.",
+        "criteria.1": "Specify who disposes shared resources, external primitive resources, and declarative resources.",
+        "questions.0": "Does a geometry count above 0 always indicate a leak?",
+        "questions.1": "Does useFrame in a hidden scene stop automatically?",
+        "references.0.title": "R3F Objects and Resource Disposal",
+        "references.1.title": "R3F Performance Pitfalls"
+      }
+    },
+    "react-three-fiber-step-26": {
+      "sourceHash": "2739eb99011dd60b216cbbf7ec7882ee43d8f6f03054a90191ef597f88a6b7c5",
+      "values": {
+        "title": "Alternative Controls and Errors in 3D UI",
+        "prerequisites": "Unit 26 continues using the deliverables and experiment records from Unit 25.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "DOM Control Path",
+        "concepts.0.explanation": "Providing every function only through 3D clicks makes keyboard access difficult. Include a DOM list that changes the same selection state.",
+        "concepts.1.title": "Unsupported Environments",
+        "concepts.1.explanation": "Canvas fallback guides users in unsupported GL environments. Runtime loading failures need a separate error boundary.",
+        "outcomes.0": "Select every object using only the keyboard.",
+        "outcomes.1": "Distinguish unsupported-environment guidance from model failure guidance.",
+        "steps.0": "Add DOM selection buttons connected to mesh ids in src/App.jsx.",
+        "steps.1": "Implement distinct Canvas fallback and model error messages.",
+        "steps.2": "Select and clear using only the keyboard, and review the unsupported-environment fallback description.",
+        "variables.0.name": "Input Method",
+        "variables.0.baseline": "3D click",
+        "variables.0.change": "DOM keyboard buttons",
+        "variables.0.expected": "Both produce the same selectedId and detail result.",
+        "criteria.0": "Select every object using only the keyboard.",
+        "criteria.1": "Distinguish unsupported-environment guidance from model failure guidance.",
+        "questions.0": "Does adding only an HTML label to a mesh inside Canvas solve accessibility?",
+        "questions.1": "Which note-taking functions should remain available on the fallback screen?",
+        "references.0.title": "R3F Canvas Configuration",
+        "references.1.title": "R3F Pointer Events"
+      }
+    },
+    "react-three-fiber-step-27": {
+      "sourceHash": "8ba791392568e12d46de48af112483de7017ee85b5a97b97f75bf8e54a852a97",
+      "values": {
+        "title": "Performance Experiments for the Integrated Scene",
+        "prerequisites": "Unit 27 continues using the deliverables and experiment records from Unit 26.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Separate Metrics",
+        "concepts.0.explanation": "React commits, draw calls, frame times, and resource counts describe different costs. Do not judge overall performance from a single number.",
+        "concepts.1.title": "One Variable",
+        "concepts.1.explanation": "Changing object count, DPR, and frameloop together obscures the cause. Fix a baseline scene and compare one condition at a time.",
+        "outcomes.0": "Provide 10-second stationary and interaction records for each condition.",
+        "outcomes.1": "Check draft preservation and selection accuracy under every condition.",
+        "steps.0": "Integrate selection, a model, an instanced grid, and DOM notes in src/StudyScene.jsx.",
+        "steps.1": "Run the same interactions with 100 and 1000 objects separately in always and demand.",
+        "steps.2": "Record conditions, frame times, draw calls, resource counts, and failures in notes/bench.md.",
+        "variables.0.name": "Object Count",
+        "variables.0.baseline": "100 objects",
+        "variables.0.change": "1000 objects",
+        "variables.0.expected": "Measure how CPU, GPU, and selection costs change at the same quality.",
+        "criteria.0": "Provide 10-second stationary and interaction records for each condition.",
+        "criteria.1": "Check draft preservation and selection accuracy under every condition.",
+        "questions.0": "Can fewer React renders alone support a claim of lower GPU cost?",
+        "questions.1": "What else should you record when experiment results differ between devices?",
+        "references.0.title": "R3F Scaling Performance and demand Rendering",
+        "references.1.title": "R3F Performance Pitfalls"
+      }
     }
   }
 }

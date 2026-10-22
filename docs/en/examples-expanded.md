@@ -330,6 +330,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [22. demand Rendering](labs/graphics/react-three-fiber/units/22/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-22/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 | [23. demand and Ending Motion](labs/graphics/react-three-fiber/units/23/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-23/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 | [24. DPR and Shadow Cost](labs/graphics/react-three-fiber/units/24/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-24/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [25. Scene Switching and Resource Audits](labs/graphics/react-three-fiber/units/25/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-25/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [26. Alternative Controls and Errors in 3D UI](labs/graphics/react-three-fiber/units/26/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-26/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [27. Performance Experiments for the Integrated Scene](labs/graphics/react-three-fiber/units/27/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-27/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 
 ## GSAP
 

@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 24 published in English
+Graphics · 4 stages · 28 units in the full series · 27 published in English
 
 ## Series goal
 
@@ -57,6 +57,9 @@ Only published English units are linked below. The full series has 28 units.
 - [22. demand Rendering](units/22/README.md) — Editable example
 - [23. demand and Ending Motion](units/23/README.md) — Editable example
 - [24. DPR and Shadow Cost](units/24/README.md) — Editable example
+- [25. Scene Switching and Resource Audits](units/25/README.md) — Editable example
+- [26. Alternative Controls and Errors in 3D UI](units/26/README.md) — Editable example
+- [27. Performance Experiments for the Integrated Scene](units/27/README.md) — Editable example
 
 ## Capstone project and deliverables
 

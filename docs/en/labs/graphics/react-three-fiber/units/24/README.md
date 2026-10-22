@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: demand and Ending Motion](../23/README.md)
+[Previous: demand and Ending Motion](../23/README.md) · [Next: Scene Switching and Resource Audits](../25/README.md)
 
 ## Experiment notes — write your own
 

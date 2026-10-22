@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 3 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 6 published in English
 
 ## Series goal
 
@@ -27,6 +27,9 @@ Only published English units are linked below. The full series has 28 units.
 - [01. Types and Narrowing](01-foundations/README.md) — Editable example
 - [02. strict Settings and Executable Code](units/02/README.md) — Editable example
 - [03. Inference and Literal Types](units/03/README.md) — Editable example
+- [04. Object Contracts and Optional Fields](units/04/README.md) — Editable example
+- [05. Positional Meaning in Arrays and Tuples](units/05/README.md) — Editable example
+- [06. Function Arguments and Return Contracts](units/06/README.md) — Editable example
 
 ### Stage 2 · Unions and Generics
 
@@ -47,3 +50,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
 - [TypeScript Narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html)
+- [TypeScript Object Types](https://www.typescriptlang.org/docs/handbook/2/objects.html)

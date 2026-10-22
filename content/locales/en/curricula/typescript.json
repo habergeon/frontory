@@ -89,6 +89,85 @@
         "questions.1": "What information is lost when you declare a broad type?",
         "references.0.title": "TypeScript Handbook"
       }
+    },
+    "typescript-step-04": {
+      "sourceHash": "8cbbf2df9f29de23129abbd7b1c94bc6dc7a3dc08b8f3377cbed5d1606f5618e",
+      "values": {
+        "title": "Object Contracts and Optional Fields",
+        "prerequisites": "Work and experiment records from Unit 3, “Inference and Literal Types”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Optional Properties",
+        "concepts.0.explanation": "An optional property may be absent. Handle the possibility of undefined when reading it.",
+        "concepts.1.title": "Structural Compatibility",
+        "concepts.1.explanation": "Types determine compatibility from the required structure. Fresh object literals also undergo excess property checks.",
+        "outcomes.0": "Display an object without tag safely.",
+        "outcomes.1": "Record the diagnostic location for the misspelled object and the corrected result.",
+        "steps.0": "In note.ts, prepare conditions for a valid object, an absent tag, and the typo titel.",
+        "steps.1": "Define Note with id·title·optional tag, and assign objects with missing or misspelled properties.",
+        "steps.2": "Run with a valid object, an absent tag, and the typo titel. Results to check: Display an object without tag safely. Record the diagnostic location for the misspelled object and the corrected result. Record expected and actual results separately.",
+        "variables.0.name": "Property Name",
+        "variables.0.baseline": "title",
+        "variables.0.change": "titel",
+        "variables.0.expected": "Pre-run hypothesis: a missing required property or excess property diagnostic will occur. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Display an object without tag safely.",
+        "criteria.1": "Record the diagnostic location for the misspelled object and the corrected result.",
+        "questions.0": "Do optional and an empty string mean the same thing?",
+        "questions.1": "Why do assignment through a variable and object literal checking differ?",
+        "references.0.title": "TypeScript Handbook",
+        "references.1.title": "TypeScript Object Types"
+      }
+    },
+    "typescript-step-05": {
+      "sourceHash": "7408e477e7000feb126f60d89704eff3e5b6c6334805bda23389cb7b06f996a0",
+      "values": {
+        "title": "Positional Meaning in Arrays and Tuples",
+        "prerequisites": "Work and experiment records from Unit 4, “Object Contracts and Optional Fields”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Array Elements",
+        "concepts.0.explanation": "An array type defines a common contract for all elements. Index access does not guarantee that the index is in bounds.",
+        "concepts.1.title": "Tuples",
+        "concepts.1.explanation": "A tuple expresses types by position and relationships involving length. It suits small data structures where order matters, such as coordinates.",
+        "outcomes.0": "Calculate the distance between two valid coordinates.",
+        "outcomes.1": "Record the compiler diagnostic for an incorrect tuple length.",
+        "steps.0": "In coordinates.ts, prepare conditions for two coordinates and an out-of-bounds index.",
+        "steps.1": "Create a number array and an x·y tuple, and compare calls with positions swapped.",
+        "steps.2": "Run with two coordinates and an out-of-bounds index. Results to check: Calculate the distance between two valid coordinates. Record the compiler diagnostic for an incorrect tuple length. Record expected and actual results separately.",
+        "variables.0.name": "Type",
+        "variables.0.baseline": "number array",
+        "variables.0.change": "coordinate tuple",
+        "variables.0.expected": "Pre-run hypothesis: access outside the defined positions will be detected earlier. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Calculate the distance between two valid coordinates.",
+        "criteria.1": "Record the compiler diagnostic for an incorrect tuple length.",
+        "questions.0": "Are tuple element labels runtime properties?",
+        "questions.1": "Does an array index always exist?",
+        "references.0.title": "TypeScript Handbook"
+      }
+    },
+    "typescript-step-06": {
+      "sourceHash": "3feea60e8e6b7b796d804ad410d7104bcbcec61a2990032f99efaaec156a9e07",
+      "values": {
+        "title": "Function Arguments and Return Contracts",
+        "prerequisites": "Work and experiment records from Unit 5, “Positional Meaning in Arrays and Tuples”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Function Types",
+        "concepts.0.explanation": "Parameters and return types express a call contract. An explicit return type makes missing return paths easier to find.",
+        "concepts.1.title": "Callback Contracts",
+        "concepts.1.explanation": "The caller determines which arguments a callback receives. Do not mark parameters optional merely for the implementer's convenience.",
+        "outcomes.0": "Results for valid and empty titles follow the same contract.",
+        "outcomes.1": "An invalid callback argument type is rejected.",
+        "steps.0": "In functions.ts, prepare conditions for empty and valid titles and an index callback.",
+        "steps.1": "Define a note conversion function and a visitor callback, and return a result on every path.",
+        "steps.2": "Run with empty and valid titles and an index callback. Results to check: Results for valid and empty titles follow the same contract. An invalid callback argument type is rejected. Record expected and actual results separately.",
+        "variables.0.name": "Return Paths",
+        "variables.0.baseline": "return on every path",
+        "variables.0.change": "omit one branch",
+        "variables.0.expected": "Pre-run hypothesis: the return type or noImplicitReturns check will reveal the omission. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Results for valid and empty titles follow the same contract.",
+        "criteria.1": "An invalid callback argument type is rejected.",
+        "questions.0": "How does returning void differ from returning undefined?",
+        "questions.1": "Who is allowed to omit an optional parameter?",
+        "references.0.title": "TypeScript Handbook"
+      }
     }
   }
 }

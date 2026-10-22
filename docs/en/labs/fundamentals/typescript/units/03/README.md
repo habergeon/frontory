@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: strict Settings and Executable Code](../02/README.md)
+[Previous: strict Settings and Executable Code](../02/README.md) · [Next: Object Contracts and Optional Fields](../04/README.md)
 
 ## Experiment notes — write your own
 

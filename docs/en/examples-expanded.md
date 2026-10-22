@@ -40,6 +40,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | --- | --- | --- |
 | [2. strict Settings and Executable Code](labs/fundamentals/typescript/units/02/README.md) | Editable example | [Source code](../../src/labs/typescript-step-02/example.js) — The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM. |
 | [3. Inference and Literal Types](labs/fundamentals/typescript/units/03/README.md) | Editable example | [Source code](../../src/labs/typescript-step-03/example.js) — The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM. |
+| [4. Object Contracts and Optional Fields](labs/fundamentals/typescript/units/04/README.md) | Editable example | [Source code](../../src/labs/typescript-step-04/example.js) — The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM. |
+| [5. Positional Meaning in Arrays and Tuples](labs/fundamentals/typescript/units/05/README.md) | Editable example | [Source code](../../src/labs/typescript-step-05/example.js) — The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM. |
+| [6. Function Arguments and Return Contracts](labs/fundamentals/typescript/units/06/README.md) | Editable example | [Source code](../../src/labs/typescript-step-06/example.js) — The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM. |
 
 ## HTML
 

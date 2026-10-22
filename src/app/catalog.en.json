@@ -393,6 +393,36 @@
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
+      "id": "typescript-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Object Contracts and Optional Fields",
+      "goal": "Display an object without tag safely. Record the diagnostic location for the misspelled object and the corrected result.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/04/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Positional Meaning in Arrays and Tuples",
+      "goal": "Calculate the distance between two valid coordinates. Record the compiler diagnostic for an incorrect tuple length.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/05/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Function Arguments and Return Contracts",
+      "goal": "Results for valid and empty titles follow the same contract. An invalid callback argument type is rejected.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/06/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
       "id": "html-01",
       "day": 1,
       "week": 1,

@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 3 published in English
+Engineering · 4 stages · 28 units in the full series · 6 published in English
 
 ## Series goal
 
@@ -27,6 +27,9 @@ Only published English units are linked below. The full series has 28 units.
 - [01. Transferring Canvas Control](01-foundations/README.md) — Editable example
 - [02. Renderer Contract](units/02/README.md) — Editable example
 - [03. Initialization Handshake](units/03/README.md) — Editable example
+- [04. Context Creation Failure](units/04/README.md) — Editable example
+- [05. Coordinate Units](units/05/README.md) — Editable example
+- [06. Frame Timing](units/06/README.md) — Editable example
 
 ### Stage 2 · Synchronizing Size and Input
 

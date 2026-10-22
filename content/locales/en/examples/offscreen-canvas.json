@@ -10,5 +10,23 @@
     "values": {
       "note": "An interactive Initialization Handshake experiment with cleanup of the resources it uses."
     }
+  },
+  "offscreen-canvas-step-04": {
+    "sourceHash": "01d5bb110afe8f96ecb5997a7d5b32137ae2c035986d0117fc3ae44b3e6c334b",
+    "values": {
+      "note": "An interactive Context Creation Failure experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-05": {
+    "sourceHash": "8784958381ffb206116c88c21af2f76e683a338203a98e1ae43be62a4e90d2dc",
+    "values": {
+      "note": "An interactive Coordinate Units experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-06": {
+    "sourceHash": "69de5dfb4f93f08d4e3dda6fd71a9de88e8f722742ce5038599f6acaeb3e1b25",
+    "values": {
+      "note": "An interactive Frame Timing experiment with cleanup of the resources it uses."
+    }
   }
 }

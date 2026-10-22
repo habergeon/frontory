@@ -534,6 +534,9 @@
     "web-workers-03",
     "offscreen-canvas-01",
     "offscreen-canvas-step-02",
-    "offscreen-canvas-step-03"
+    "offscreen-canvas-step-03",
+    "offscreen-canvas-step-04",
+    "offscreen-canvas-step-05",
+    "offscreen-canvas-step-06"
   ]
 }

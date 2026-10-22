@@ -91,6 +91,87 @@
         "references.0.title": "MDN OffscreenCanvas",
         "references.1.title": "MDN Using Web Workers"
       }
+    },
+    "offscreen-canvas-step-04": {
+      "sourceHash": "656206d95a8afc35e293de385b34cb7bc65e1afa4e873eca0eb6d81fa7527184",
+      "values": {
+        "title": "Context Creation Failure",
+        "prerequisites": "Prepare the experiment results for Ready and Pending input from Unit 3, “Initialization Handshake”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Context",
+        "concepts.0.explanation": "getContext may fail to create the requested context type. Do not treat null as a working renderer.",
+        "concepts.1.title": "Replacement Canvas",
+        "concepts.1.explanation": "Do not transfer an already transferred HTML Canvas again as it is. Replace it with a new DOM Canvas for the fallback.",
+        "outcomes.0": "Learning outcome: explain the role of Context. Input cases: Forced context failure.",
+        "outcomes.1": "Deliverable: Failure guidance and rendering results from the replacement Canvas. Explain the rationale for handling Replacement Canvas, linking it to the code.",
+        "steps.0": "In src/day-4.js in a separate practice project, check the Worker's getContext result and send failures to the main thread. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: Forced context failure. Baseline: Normal. Run under the baseline conditions, then record observations and errors in notes/day-4.md.",
+        "steps.2": "Variable: Initialization; changed value: Inject failure. Run again through the same input path. Deliverable to save: Failure guidance and rendering results from the replacement Canvas. Hypothesis to check: Main-thread rendering recovers on a new Canvas. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Initialization",
+        "variables.0.baseline": "Normal",
+        "variables.0.change": "Inject failure",
+        "variables.0.expected": "Main-thread rendering recovers on a new Canvas.",
+        "criteria.0": "Required deliverable: Failure guidance and rendering results from the replacement Canvas. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Context and Replacement Canvas. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Context affect in this exercise? Input cases: Forced context failure.",
+        "questions.1": "Variable: Initialization. Hypothesis to check: Main-thread rendering recovers on a new Canvas. Did the actual results agree with the hypothesis? Explain the evidence in terms of Replacement Canvas.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-05": {
+      "sourceHash": "cace6d5c0461f0b39213eff119e676518465dd18f8bf1ec67ff5d9b7fe9b4e08",
+      "values": {
+        "title": "Coordinate Units",
+        "prerequisites": "Prepare the experiment results for Context and Replacement Canvas from Unit 4, “Context Creation Failure”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "CSS size",
+        "concepts.0.explanation": "CSS size determines the layout on screen. It differs from the size of the pixel backing store.",
+        "concepts.1.title": "DPR",
+        "concepts.1.explanation": "DPR is the ratio of backing-store pixels to CSS pixels. Rendering and input must use the same units.",
+        "outcomes.0": "Learning outcome: explain the role of CSS size. Input cases: A 100 CSS px square.",
+        "outcomes.1": "Deliverable: CSS·buffer sizes and shape width. Explain the rationale for handling DPR, linking it to the code.",
+        "steps.0": "In src/day-5.js in a separate practice project, set the buffer size from the CSS size and DPR, and apply setTransform. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: A 100 CSS px square. Baseline: 1. Run under the baseline conditions, then record observations and errors in notes/day-5.md.",
+        "steps.2": "Variable: DPR; changed value: 2. Run again through the same input path. Deliverable to save: CSS·buffer sizes and shape width. Hypothesis to check: The shape keeps the same size on screen while the backing-store resolution increases. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "DPR",
+        "variables.0.baseline": "1",
+        "variables.0.change": "2",
+        "variables.0.expected": "The shape keeps the same size on screen while the backing-store resolution increases.",
+        "criteria.0": "Required deliverable: CSS·buffer sizes and shape width. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: CSS size and DPR. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does CSS size affect in this exercise? Input cases: A 100 CSS px square.",
+        "questions.1": "Variable: DPR. Hypothesis to check: The shape keeps the same size on screen while the backing-store resolution increases. Did the actual results agree with the hypothesis? Explain the evidence in terms of DPR.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-06": {
+      "sourceHash": "1c0c9b43abbbeee8cdc8bc013868efaed183bfd1b4f7f68fd3ac4fa79d87f84d",
+      "values": {
+        "title": "Frame Timing",
+        "prerequisites": "Prepare the experiment results for CSS size and DPR from Unit 5, “Coordinate Units”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Delta",
+        "concepts.0.explanation": "Moving by frame number alone makes speed depend on the refresh rate. Integrate position using elapsed time.",
+        "concepts.1.title": "Long gaps",
+        "concepts.1.explanation": "A large delta on return can cause a jump. Define a policy to clamp it or reset the simulation.",
+        "outcomes.0": "Learning outcome: explain the role of Delta. Input cases: Normal frames and input with a long gap.",
+        "outcomes.1": "Deliverable: A table of positions at the same elapsed time. Explain the rationale for handling Long gaps, linking it to the code.",
+        "steps.0": "In src/day-6.js in a separate practice project, check Worker requestAnimationFrame support and implement delta-based movement. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: Normal frames and input with a long gap. Baseline: None. Run under the baseline conditions, then record observations and errors in notes/day-6.md.",
+        "steps.2": "Variable: Delta limit; changed value: Apply an upper bound. Run again through the same input path. Deliverable to save: A table of positions at the same elapsed time. Hypothesis to check: Abrupt movement after a long gap is reduced. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Delta limit",
+        "variables.0.baseline": "None",
+        "variables.0.change": "Apply an upper bound",
+        "variables.0.expected": "Abrupt movement after a long gap is reduced.",
+        "criteria.0": "Required deliverable: A table of positions at the same elapsed time. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Delta and Long gaps. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Delta affect in this exercise? Input cases: Normal frames and input with a long gap.",
+        "questions.1": "Variable: Delta limit. Hypothesis to check: Abrupt movement after a long gap is reduced. Did the actual results agree with the hypothesis? Explain the evidence in terms of Long gaps.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
     }
   }
 }

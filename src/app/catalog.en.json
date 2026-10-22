@@ -5573,6 +5573,36 @@
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/03/README.md",
       "seriesId": "offscreen-canvas",
       "exampleNote": "An interactive Initialization Handshake experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Context Creation Failure",
+      "goal": "Learning outcome: explain the role of Context. Input cases: Forced context failure. Deliverable: Failure guidance and rendering results from the replacement Canvas. Explain the rationale for handling Replacement Canvas, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/04/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Context Creation Failure experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Coordinate Units",
+      "goal": "Learning outcome: explain the role of CSS size. Input cases: A 100 CSS px square. Deliverable: CSS·buffer sizes and shape width. Explain the rationale for handling DPR, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/05/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Coordinate Units experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Frame Timing",
+      "goal": "Learning outcome: explain the role of Delta. Input cases: Normal frames and input with a long gap. Deliverable: A table of positions at the same elapsed time. Explain the rationale for handling Long gaps, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/06/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Frame Timing experiment with cleanup of the resources it uses."
     }
   ]
 }

@@ -248,6 +248,86 @@
         "questions.1": "How should you interpret a metal without an environment map?",
         "references.0.title": "Three.js MeshStandardMaterial"
       }
+    },
+    "threejs-step-10": {
+      "sourceHash": "03fc84d36a8f90935fb5e50f8ae2ba2e5c06d3b8a6c5978c1e3f99008cd91ef3",
+      "values": {
+        "title": "Textures and UVs",
+        "prerequisites": "Prerequisite concepts: Roughness, Metalness. Prepare the result files and observation notes from unit 9.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "UV Mapping",
+        "concepts.0.explanation": "UVs connect vertices to image positions. Stretching geometry may stretch its texture too.",
+        "concepts.1.title": "Repeat Settings",
+        "concepts.1.explanation": "Changing repeat alone does not repeat a texture if wrapping is configured incorrectly. Consider the source texture dimensions together with the surface proportions.",
+        "outcomes.0": "Distinguish UVs from world coordinates.",
+        "outcomes.1": "Report a failed texture URL through an error UI.",
+        "steps.0": "Prepare day-10.js and index.html in the external exercise project. Load a local checker image with TextureLoader and assign it to a plane’s map.",
+        "steps.1": "Set wrapS and wrapT to RepeatWrapping and accept values for repeat.set.",
+        "steps.2": "Save the output under the 1,1 input condition, then run again under the 4,2 condition. Expected: The checker pattern repeats four times horizontally and twice vertically across the surface. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-10-notes.md.",
+        "variables.0.name": "repeat",
+        "variables.0.baseline": "1,1",
+        "variables.0.change": "4,2",
+        "variables.0.expected": "The checker pattern repeats four times horizontally and twice vertically across the surface.",
+        "criteria.0": "Distinguish UVs from world coordinates.",
+        "criteria.1": "Report a failed texture URL through an error UI.",
+        "questions.0": "Why do only edge colors stretch even after changing repeat settings?",
+        "questions.1": "How do the roles of a normal map and a color image differ?",
+        "references.0.title": "Three.js MeshStandardMaterial",
+        "references.1.title": "Three.js Color Management"
+      }
+    },
+    "threejs-step-11": {
+      "sourceHash": "5f5a01792588a75b160fad9ece49d118950be7c231bc9452a379fbd083aed46e",
+      "values": {
+        "title": "Color Spaces and Output",
+        "prerequisites": "Prerequisite concepts: UV Mapping, Repeat Settings. Prepare the result files and observation notes from unit 10.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Color Data",
+        "concepts.0.explanation": "Color textures and numerical data textures have different meanings. Color images need an appropriate colorSpace for correct lighting calculations.",
+        "concepts.1.title": "Output Conversion",
+        "concepts.1.explanation": "The renderer’s output color space belongs to the display stage. Confusing input and output and converting twice changes colors.",
+        "outcomes.0": "Distinguish color maps from normal and roughness maps.",
+        "outcomes.1": "Explain input, working, and output color spaces.",
+        "steps.0": "Prepare day-11.js and index.html in the external exercise project. Assign SRGBColorSpace to a colored checker texture and display it under neutral lighting.",
+        "steps.1": "Create a comparison with an incorrect input color space on the same material, and record the settings in a table.",
+        "steps.2": "Save the output under the SRGBColorSpace input condition, then run again under the NoColorSpace condition. Expected: The interpretation of brightness in the same image may change. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-11-notes.md.",
+        "variables.0.name": "Color texture colorSpace",
+        "variables.0.baseline": "SRGBColorSpace",
+        "variables.0.change": "NoColorSpace",
+        "variables.0.expected": "The interpretation of brightness in the same image may change.",
+        "criteria.0": "Distinguish color maps from normal and roughness maps.",
+        "criteria.1": "Explain input, working, and output color spaces.",
+        "questions.0": "Why should you not assign sRGB to every texture?",
+        "questions.1": "What conditions are needed to compare CSS colors with rendered output?",
+        "references.0.title": "Three.js Color Management"
+      }
+    },
+    "threejs-step-12": {
+      "sourceHash": "7558ed47d6e958a3c58c3e0d480dab6b3a2e2a095426cb29dac9ec5101cc27d6",
+      "values": {
+        "title": "Shadow Maps",
+        "prerequisites": "Prerequisite concepts: Color Data, Output Conversion. Prepare the result files and observation notes from unit 11.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Additional Rendering",
+        "concepts.0.explanation": "Shadows require depth rendering from the light’s viewpoint. The number of lights and casters adds cost.",
+        "concepts.1.title": "Shadow Coverage",
+        "concepts.1.explanation": "The shadow camera range defines the area where shadows are calculated. An excessively wide range spreads the resolution of a fixed map size over more area.",
+        "outcomes.0": "Distinguish caster and receiver settings.",
+        "outcomes.1": "Distinguish clipped shadows from reduced resolution.",
+        "steps.0": "Prepare day-12.js and index.html in the external exercise project. Configure renderer.shadowMap.enabled, castShadow, and receiveShadow.",
+        "steps.1": "Display a shadow camera helper for DirectionalLight and compare before and after narrowing its range.",
+        "steps.2": "Save the output under the Wide area input condition, then run again under the Small area around the target condition. Expected: With the same mapSize, shadows near the target may become more detailed. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-12-notes.md.",
+        "variables.0.name": "shadow coverage",
+        "variables.0.baseline": "Wide area",
+        "variables.0.change": "Small area around the target",
+        "variables.0.expected": "With the same mapSize, shadows near the target may become more detailed.",
+        "criteria.0": "Distinguish caster and receiver settings.",
+        "criteria.1": "Distinguish clipped shadows from reduced resolution.",
+        "questions.0": "What is the cost of increasing mapSize alone?",
+        "questions.1": "Why can a large bias make shadows appear detached?",
+        "references.0.title": "Three.js Shadows",
+        "references.1.title": "Three.js WebGLRenderer"
+      }
     }
   }
 }

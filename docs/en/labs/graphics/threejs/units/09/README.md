@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Light Types and Placement](../08/README.md)
+[Previous: Light Types and Placement](../08/README.md) · [Next: Textures and UVs](../10/README.md)
 
 ## Experiment notes — write your own
 

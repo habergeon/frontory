@@ -286,6 +286,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [7. Shared Geometry and Cloning](labs/graphics/threejs/units/07/README.md) | Editable example | [Source code](../../src/labs/threejs-step-07/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [8. Light Types and Placement](labs/graphics/threejs/units/08/README.md) | Editable example | [Source code](../../src/labs/threejs-step-08/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [9. Roughness and Metalness](labs/graphics/threejs/units/09/README.md) | Editable example | [Source code](../../src/labs/threejs-step-09/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [10. Textures and UVs](labs/graphics/threejs/units/10/README.md) | Editable example | [Source code](../../src/labs/threejs-step-10/example.js) — Checks UV repeat with a generated checker DataTexture instead of an external image. Extend network TextureLoader error handling in an external project. |
+| [11. Color Spaces and Output](labs/graphics/threejs/units/11/README.md) | Editable example | [Source code](../../src/labs/threejs-step-11/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [12. Shadow Maps](labs/graphics/threejs/units/12/README.md) | Editable example | [Source code](../../src/labs/threejs-step-12/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

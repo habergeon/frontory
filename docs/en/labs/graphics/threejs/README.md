@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 9 published in English
+Graphics · 4 stages · 28 units in the full series · 12 published in English
 
 ## Series goal
 
@@ -36,6 +36,9 @@ Only published English units are linked below. The full series has 28 units.
 
 - [08. Light Types and Placement](units/08/README.md) — Editable example
 - [09. Roughness and Metalness](units/09/README.md) — Editable example
+- [10. Textures and UVs](units/10/README.md) — Editable example
+- [11. Color Spaces and Output](units/11/README.md) — Editable example
+- [12. Shadow Maps](units/12/README.md) — Editable example
 
 ### Stage 3 · Animation, Instancing, and Render Passes
 
@@ -57,3 +60,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [Three.js MeshStandardMaterial](https://threejs.org/docs/pages/MeshStandardMaterial.html)
 - [Three.js Cleanup](https://threejs.org/manual/pages/cleanup.html)
 - [Three.js Shadows](https://threejs.org/manual/pages/shadows.html)
+- [Three.js Color Management](https://threejs.org/manual/pages/color-management.html)

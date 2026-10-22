@@ -46,5 +46,23 @@
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "threejs-step-10": {
+    "sourceHash": "f42212a8492813a507f18a7413177688a613a3759a3e31685393f775abbd59d4",
+    "values": {
+      "note": "Checks UV repeat with a generated checker DataTexture instead of an external image. Extend network TextureLoader error handling in an external project."
+    }
+  },
+  "threejs-step-11": {
+    "sourceHash": "de28b0eed295575d0d26d83c6155b680204301ed8cf8cb986748e095f0e7725b",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "threejs-step-12": {
+    "sourceHash": "8971dd91b6e35145b063026e858d829b13a1e1adf39f20705557a741dadf7237",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
   }
 }

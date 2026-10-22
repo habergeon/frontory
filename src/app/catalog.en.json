@@ -2739,6 +2739,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "threejs-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Textures and UVs",
+      "goal": "Distinguish UVs from world coordinates. Report a failed texture URL through an error UI.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/10/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "Checks UV repeat with a generated checker DataTexture instead of an external image. Extend network TextureLoader error handling in an external project."
+    },
+    {
+      "id": "threejs-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Color Spaces and Output",
+      "goal": "Distinguish color maps from normal and roughness maps. Explain input, working, and output color spaces.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/11/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "threejs-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Shadow Maps",
+      "goal": "Distinguish caster and receiver settings. Distinguish clipped shadows from reduced resolution.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/12/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

@@ -739,6 +739,33 @@
         "references.0.title": "MDN Using Web Workers",
         "references.1.title": "MDN Transferable objects"
       }
+    },
+    "web-workers-03": {
+      "sourceHash": "96a1196ac43b966d840fe3220cd1b609119cde2dca9b04dccc551a2e47181e5d",
+      "values": {
+        "title": "Task Queues and Measurement",
+        "prerequisites": "Prepare the experiment results for Lifetime management and Repeated execution from Unit 27, “Disposal and Restart”.",
+        "environment": "The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Total cost",
+        "concepts.0.explanation": "More Workers are not always faster. Evaluate transfer, waiting, and memory costs together.",
+        "concepts.1.title": "Decision-making",
+        "concepts.1.explanation": "Input responsiveness and total throughput may differ. Base adoption decisions on correctness and measured evidence.",
+        "outcomes.0": "Learning outcome: explain the role of Total cost. Input cases: the same task on the main thread, 1 Worker, and 2 Workers.",
+        "outcomes.1": "Deliverable: a report on correctness, end-to-end latency, input delay, and peak buffers. Explain the rationale for handling Decision-making, linking it to the code.",
+        "steps.0": "In src/day-28.js in a separate practice project, use the existing web-workers-03 as a reference, integrate a bounded queue, cancellation, and recovery, and prepare a report. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: the same task on the main thread, 1 Worker, and 2 Workers. Baseline: 1 Worker. Run under the baseline conditions, then record observations and errors in notes/day-28.md.",
+        "steps.2": "Variable: Worker count; changed value: 2 Workers. Run again through the same input path. Deliverable to save: a report on correctness, end-to-end latency, input delay, and peak buffers. Hypothesis to check: The tradeoff between throughput and UI responsiveness becomes apparent. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Worker count",
+        "variables.0.baseline": "1 Worker",
+        "variables.0.change": "2 Workers",
+        "variables.0.expected": "The tradeoff between throughput and UI responsiveness becomes apparent.",
+        "criteria.0": "Required deliverable: a report on correctness, end-to-end latency, input delay, and peak buffers. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Total cost and Decision-making. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Total cost affect in this exercise? Input cases: the same task on the main thread, 1 Worker, and 2 Workers.",
+        "questions.1": "Variable: Worker count. Hypothesis to check: The tradeoff between throughput and UI responsiveness becomes apparent. Did the actual results agree with the hypothesis? Explain the evidence in terms of Decision-making.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
     }
   }
 }

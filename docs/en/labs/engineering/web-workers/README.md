@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 27 published in English
+Engineering · 4 stages · 28 units in the full series · 28 published in English
 
 ## Series goal
 
@@ -60,6 +60,7 @@ Only published English units are linked below. The full series has 28 units.
 - [25. Measuring End-to-End Latency](units/25/README.md) — Editable example
 - [26. Memory and Pool Limits](units/26/README.md) — Editable example
 - [27. Disposal and Restart](units/27/README.md) — Editable example
+- [28. Task Queues and Measurement](03-project/README.md) — Editable example
 
 ## Capstone project and deliverables
 

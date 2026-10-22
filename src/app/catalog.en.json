@@ -5521,6 +5521,15 @@
       "docPath": "/docs/en/labs/engineering/web-workers/units/27/README.md",
       "seriesId": "web-workers",
       "exampleNote": "An interactive Disposal and Restart experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-03",
+      "day": 28,
+      "week": 4,
+      "title": "Task Queues and Measurement",
+      "goal": "Learning outcome: explain the role of Total cost. Input cases: the same task on the main thread, 1 Worker, and 2 Workers. Deliverable: a report on correctness, end-to-end latency, input delay, and peak buffers. Explain the rationale for handling Decision-making, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/03-project/README.md",
+      "seriesId": "web-workers"
     }
   ]
 }

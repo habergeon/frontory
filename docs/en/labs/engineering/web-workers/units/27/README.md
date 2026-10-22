@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Memory and Pool Limits](../26/README.md)
+[Previous: Memory and Pool Limits](../26/README.md) · [Next: Task Queues and Measurement](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

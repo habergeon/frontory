@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Drag Coordinates and Bounds](../17/README.md)
+[Previous: Drag Coordinates and Bounds](../17/README.md) · [Next: Reordering with Buttons](../19/README.md)
 
 ## Experiment notes — write your own
 

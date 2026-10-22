@@ -94,5 +94,23 @@
     "values": {
       "note": "Interactive Inertia and Elasticity experiment with cleanup of the resources used."
     }
+  },
+  "motion-step-19": {
+    "sourceHash": "7a6b6116b5aacefbbee4095bcb03259ba839de7cf68726258ad6a6f356d8e614",
+    "values": {
+      "note": "Interactive Reordering with Buttons experiment with cleanup of the resources used."
+    }
+  },
+  "motion-step-20": {
+    "sourceHash": "39525432746f7b65fdef5c22ca5ddebe05eeac5f9771f714a118f5efd60d4863",
+    "values": {
+      "note": "Interactive MotionValue experiment with resource cleanup."
+    }
+  },
+  "motion-step-21": {
+    "sourceHash": "b2ecc9cbaeeab465d931bd9d0ad7c54a25834835f4157f1692bcaf098e8c4a4f",
+    "values": {
+      "note": "Interactive Connecting Transform and Spring experiment with cleanup of the resources used."
+    }
   }
 }

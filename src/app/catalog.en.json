@@ -5140,6 +5140,36 @@
       "docPath": "/docs/en/labs/animation/motion/units/18/README.md",
       "seriesId": "motion",
       "exampleNote": "Interactive Inertia and Elasticity experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Reordering with Buttons",
+      "goal": "Learning outcome: Explain the role of Explicit order. Input case: Moving the middle card up by one position. Deliverable: The ID array for each input method. Connect your rationale for handling Equivalent alternatives to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/19/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Reordering with Buttons experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "MotionValue",
+      "goal": "Learning outcome: Explain the role of Separate values. Input case: 1 drag. Deliverable: The number of value changes and React renders. Connect your rationale for handling Subscriptions to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/20/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive MotionValue experiment with resource cleanup."
+    },
+    {
+      "id": "motion-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Connecting Transform and Spring",
+      "goal": "Learning outcome: Explain the role of Derived values. Input case: x=-100·0·100. Deliverable: A table of original, derived, and following values. Connect your rationale for handling Following values to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/21/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Connecting Transform and Spring experiment with cleanup of the resources used."
     }
   ]
 }

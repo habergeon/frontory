@@ -1046,6 +1046,36 @@
       "docPath": "/docs/en/labs/animation/gsap/units/16/README.md",
       "seriesId": "gsap",
       "exampleNote": "This is an experiment on Repeated Input and Overwrite. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Pointer and QuickTo",
+      "goal": "Learning outcome: explain the role of Input Frequency. Input case: input at the center and corners. Deliverable: a table of target and final coordinates. Explain the rationale for handling QuickTo, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/17/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Pointer and QuickTo. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Keyboard Step Navigation",
+      "goal": "Learning outcome: explain the role of Equivalent Operation. Input case: mouse and keyboard navigation. Deliverable: a table of the current step and activeElement. Explain the rationale for handling Focus, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/18/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Keyboard Step Navigation. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Reduced-Motion Alternatives",
+      "goal": "Learning outcome: explain the role of User Preference. Input case: three step transitions. Deliverable: a table of step content and button operation. Explain the rationale for handling Immediate State, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/19/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Reduced-Motion Alternatives. It supports direct interaction and cleans up the resources it uses."
     }
   ]
 }

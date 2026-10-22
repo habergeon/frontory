@@ -458,6 +458,87 @@
         "references.0.title": "GSAP Official Documentation",
         "references.1.title": "ScrollTrigger Official Documentation"
       }
+    },
+    "gsap-step-17": {
+      "sourceHash": "4d9a9551e01594da55e609178733814fae370724537f72d802227be76b1dd49e",
+      "values": {
+        "title": "Pointer and QuickTo",
+        "prerequisites": "Prepare the exercise results on Contention and Overwrite from Unit 16, “Repeated Input and Overwrite”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Input Frequency",
+        "concepts.0.explanation": "pointermove occurs frequently. Examine the cost of creating a new tween on every event.",
+        "concepts.1.title": "QuickTo",
+        "concepts.1.explanation": "quickTo handles repeated target changes. First convert coordinates to be relative to the container.",
+        "outcomes.0": "Learning outcome: explain the role of Input Frequency. Input case: input at the center and corners.",
+        "outcomes.1": "Deliverable: a table of target and final coordinates. Explain the rationale for handling QuickTo, connecting it to the code.",
+        "steps.0": "In src/day-17.js of a separate practice project, use getBoundingClientRect and gsap.quickTo to implement pointer following. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: input at the center and corners. Baseline: 0.2 seconds. Run under baseline conditions, then record observations and errors in notes/day-17.md.",
+        "steps.2": "Variable: duration; changed value: 0.8 seconds. Run again using the same input path. Deliverable to save: a table of target and final coordinates. Hypothesis to check: Only tracking lag increases; the final target stays the same. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "duration",
+        "variables.0.baseline": "0.2 seconds",
+        "variables.0.change": "0.8 seconds",
+        "variables.0.expected": "Only tracking lag increases; the final target stays the same.",
+        "criteria.0": "Required deliverable: a table of target and final coordinates. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Input Frequency, QuickTo. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Input Frequency affect in this exercise? Input case: input at the center and corners.",
+        "questions.1": "Variable: duration. Hypothesis to check: Only tracking lag increases; the final target stays the same. Did the actual results match the hypothesis? Explain the evidence in terms of QuickTo.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-18": {
+      "sourceHash": "9879f5c9b9a0663febc720ef5c3f0472ea4102cba9999994883f907db32af250",
+      "values": {
+        "title": "Keyboard Step Navigation",
+        "prerequisites": "Prepare the exercise results on Input Frequency and QuickTo from Unit 17, “Pointer and QuickTo”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Equivalent Operation",
+        "concepts.0.explanation": "A native button supports Enter and Space. The same step must be reachable without a pointer.",
+        "concepts.1.title": "Focus",
+        "concepts.1.explanation": "Screen movement and focus movement are separate. Do not leave focus in a hidden step.",
+        "outcomes.0": "Learning outcome: explain the role of Equivalent Operation. Input case: mouse and keyboard navigation.",
+        "outcomes.1": "Deliverable: a table of the current step and activeElement. Explain the rationale for handling Focus, connecting it to the code.",
+        "steps.0": "In src/day-18.js of a separate practice project, use previous and next buttons to update the timeline label and current heading. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: mouse and keyboard navigation. Baseline: mouse. Run under baseline conditions, then record observations and errors in notes/day-18.md.",
+        "steps.2": "Variable: Input; changed value: keyboard. Run again using the same input path. Deliverable to save: a table of the current step and activeElement. Hypothesis to check: The same step is reached, and focus is preserved. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Input",
+        "variables.0.baseline": "mouse",
+        "variables.0.change": "keyboard",
+        "variables.0.expected": "The same step is reached, and focus is preserved.",
+        "criteria.0": "Required deliverable: a table of the current step and activeElement. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Equivalent Operation, Focus. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Equivalent Operation affect in this exercise? Input case: mouse and keyboard navigation.",
+        "questions.1": "Variable: Input. Hypothesis to check: The same step is reached, and focus is preserved. Did the actual results match the hypothesis? Explain the evidence in terms of Focus.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-19": {
+      "sourceHash": "73a11ed79c7e087763dcc6352c36412fbb6062c6eff2bc998ff6bec600a0a978",
+      "values": {
+        "title": "Reduced-Motion Alternatives",
+        "prerequisites": "Prepare the exercise results on Equivalent Operation and Focus from Unit 18, “Keyboard Step Navigation”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "User Preference",
+        "concepts.0.explanation": "Reduced motion signals that large movements should be reduced. It does not mean removing the information itself.",
+        "concepts.1.title": "Immediate State",
+        "concepts.1.explanation": "Apply the final state even when motion is skipped. Functionality placed only in a completion callback may be missed.",
+        "outcomes.0": "Learning outcome: explain the role of User Preference. Input case: three step transitions.",
+        "outcomes.1": "Deliverable: a table of step content and button operation. Explain the rationale for handling Immediate State, connecting it to the code.",
+        "steps.0": "In src/day-19.js of a separate practice project, apply final styles with gsap.set in the reduced-motion branch. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: three step transitions. Baseline: 180px. Run under baseline conditions, then record observations and errors in notes/day-19.md.",
+        "steps.2": "Variable: Movement Distance; changed value: 0px. Run again using the same input path. Deliverable to save: a table of step content and button operation. Hypothesis to check: Content and completion state are preserved. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Movement Distance",
+        "variables.0.baseline": "180px",
+        "variables.0.change": "0px",
+        "variables.0.expected": "Content and completion state are preserved.",
+        "criteria.0": "Required deliverable: a table of step content and button operation. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: User Preference, Immediate State. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does User Preference affect in this exercise? Input case: three step transitions.",
+        "questions.1": "Variable: Movement Distance. Hypothesis to check: Content and completion state are preserved. Did the actual results match the hypothesis? Explain the evidence in terms of Immediate State.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
     }
   }
 }

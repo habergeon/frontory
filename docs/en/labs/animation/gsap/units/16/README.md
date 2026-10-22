@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: MatchMedia Branches](../15/README.md)
+[Previous: MatchMedia Branches](../15/README.md) · [Next: Pointer and QuickTo](../17/README.md)
 
 ## Experiment notes — write your own
 

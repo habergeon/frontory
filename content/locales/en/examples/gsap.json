@@ -90,5 +90,23 @@
     "values": {
       "note": "This is an experiment on Repeated Input and Overwrite. It supports direct interaction and cleans up the resources it uses."
     }
+  },
+  "gsap-step-17": {
+    "sourceHash": "a7eb0d00507ddb77e4575c33a17e81767a319178c0b5eea17b13c07a6865ba0f",
+    "values": {
+      "note": "This is an experiment on Pointer and QuickTo. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-18": {
+    "sourceHash": "159c7809eb9dd7c95121118f478c2e4780f3cb0dfc52b7c426a8c6051d810689",
+    "values": {
+      "note": "This is an experiment on Keyboard Step Navigation. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-19": {
+    "sourceHash": "37481667829f799be540cc401dd0b8cce39d2398640e7eab07e4aad939da5a9c",
+    "values": {
+      "note": "This is an experiment on Reduced-Motion Alternatives. It supports direct interaction and cleans up the resources it uses."
+    }
   }
 }

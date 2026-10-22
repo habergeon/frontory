@@ -72,7 +72,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Laying Out Multiple Arrays](../17/README.md)
+[Previous: Laying Out Multiple Arrays](../17/README.md) · [Next: Browser Loading and MIME](../19/README.md)
 
 ## Experiment notes — write your own
 

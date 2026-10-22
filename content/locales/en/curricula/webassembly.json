@@ -514,6 +514,90 @@
         "references.1.title": "MDN WebAssembly JavaScript API",
         "references.2.title": "MDN WebAssembly.Memory"
       }
+    },
+    "webassembly-step-19": {
+      "sourceHash": "fd4ecc204b434f9a4440ebed0791eb1074224a718cfeba5694a91828340f7bac",
+      "values": {
+        "title": "Browser Loading and MIME",
+        "prerequisites": "Prepare the experiment results for Encoding and Passing length from Unit 18, “String Byte Contracts”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Streaming",
+        "concepts.0.explanation": "instantiateStreaming uses a response to prepare a module. It requires the correct MIME type and server configuration.",
+        "concepts.1.title": "Failure classification",
+        "concepts.1.explanation": "HTTP failures differ from compilation failures. Record the cause even when providing a fallback.",
+        "outcomes.0": "Learning outcome: explain the role of Streaming. Input cases: valid·404·incorrect MIME.",
+        "outcomes.1": "Deliverable: response statuses and initialization results. Explain the rationale for handling Failure classification, linking it to the code.",
+        "steps.0": "In day-19.mjs in a separate practice project, configure application/wasm responses and fetch checks on an external local server. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: valid·404·incorrect MIME. Baseline: application/wasm. Run under the baseline conditions, then record observations and errors in notes/day-19.md.",
+        "steps.2": "Variable: server MIME; changed value: text/plain. Run again through the same input path. Deliverable to save: response statuses and initialization results. Hypothesis to check: The streaming path may succeed or fail differently. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "server MIME",
+        "variables.0.baseline": "application/wasm",
+        "variables.0.change": "text/plain",
+        "variables.0.expected": "The streaming path may succeed or fail differently.",
+        "criteria.0": "Required deliverable: response statuses and initialization results. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Streaming and Failure classification. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Streaming affect in this exercise? Input cases: valid·404·incorrect MIME.",
+        "questions.1": "Variable: server MIME. Hypothesis to check: The streaming path may succeed or fail differently. Did the actual results agree with the hypothesis? Explain the evidence in terms of Failure classification.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-20": {
+      "sourceHash": "8858975806268543d80c7f89940ff2e431b78f1dd67cbf8e076a34abb5ca3807",
+      "values": {
+        "title": "Reusing Initialization",
+        "prerequisites": "Prepare the experiment results for Streaming and Failure classification from Unit 19, “Browser Loading and MIME”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Initialization cost",
+        "concepts.0.explanation": "Compiling for every request incurs repeated costs. You can reuse a module or initialization Promise.",
+        "concepts.1.title": "Concurrent requests",
+        "concepts.1.explanation": "Concurrent writes to the same instance's memory mix results. Serialize requests or use separate instances.",
+        "outcomes.0": "Learning outcome: explain the role of Initialization cost. Input cases: 5 consecutive requests.",
+        "outcomes.1": "Deliverable: initialization counts and per-request results. Explain the rationale for handling Concurrent requests, linking it to the code.",
+        "steps.0": "In day-20.mjs in a separate practice project, create a single initialization Promise and a request queue, and count compile calls. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 5 consecutive requests. Baseline: initialize for every request. Run under the baseline conditions, then record observations and errors in notes/day-20.md.",
+        "steps.2": "Variable: reuse; changed value: share a Promise. Run again through the same input path. Deliverable to save: initialization counts and per-request results. Hypothesis to check: Initialization happens once, and each request's result is correct. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "reuse",
+        "variables.0.baseline": "initialize for every request",
+        "variables.0.change": "share a Promise",
+        "variables.0.expected": "Initialization happens once, and each request's result is correct.",
+        "criteria.0": "Required deliverable: initialization counts and per-request results. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Initialization cost and Concurrent requests. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Initialization cost affect in this exercise? Input cases: 5 consecutive requests.",
+        "questions.1": "Variable: reuse. Hypothesis to check: Initialization happens once, and each request's result is correct. Did the actual results agree with the hypothesis? Explain the evidence in terms of Concurrent requests.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-21": {
+      "sourceHash": "561d44d8e93a9766ba3fd65604f46c9c3c765cc7952490e91025e07ce7b224c4",
+      "values": {
+        "title": "Workers and Wasm",
+        "prerequisites": "Prepare the experiment results for Initialization cost and Concurrent requests from Unit 20, “Reusing Initialization”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Execution location",
+        "concepts.0.explanation": "A Wasm call occupies the thread on which it runs. Using Wasm does not automatically free the main thread for input.",
+        "concepts.1.title": "Transfer cost",
+        "concepts.1.explanation": "Sending arrays to a Worker requires copying or transfer. Account separately for copies into Wasm memory.",
+        "outcomes.0": "Learning outcome: explain the role of Execution location. Input cases: the same large array and UI clicks.",
+        "outcomes.1": "Deliverable: main-thread·Worker results and round-trip latency. Explain the rationale for handling Transfer cost, linking it to the code.",
+        "steps.0": "In day-21.mjs in a separate practice project, instantiate a module in an external Worker and return the result of processing the input array. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: the same large array and UI clicks. Baseline: main thread. Run under the baseline conditions, then record observations and errors in notes/day-21.md.",
+        "steps.2": "Variable: location; changed value: Worker. Run again through the same input path. Deliverable to save: main-thread·Worker results and round-trip latency. Hypothesis to check: Changes in UI responsiveness and total latency may differ. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "location",
+        "variables.0.baseline": "main thread",
+        "variables.0.change": "Worker",
+        "variables.0.expected": "Changes in UI responsiveness and total latency may differ.",
+        "criteria.0": "Required deliverable: main-thread·Worker results and round-trip latency. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Execution location and Transfer cost. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Execution location affect in this exercise? Input cases: the same large array and UI clicks.",
+        "questions.1": "Variable: location. Hypothesis to check: Changes in UI responsiveness and total latency may differ. Did the actual results agree with the hypothesis? Explain the evidence in terms of Transfer cost.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
     }
   }
 }

@@ -6013,6 +6013,36 @@
       "docPath": "/docs/en/labs/engineering/webassembly/units/18/README.md",
       "seriesId": "webassembly",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Browser Loading and MIME",
+      "goal": "Learning outcome: explain the role of Streaming. Input cases: valid·404·incorrect MIME. Deliverable: response statuses and initialization results. Explain the rationale for handling Failure classification, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/19/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Reusing Initialization",
+      "goal": "Learning outcome: explain the role of Initialization cost. Input cases: 5 consecutive requests. Deliverable: initialization counts and per-request results. Explain the rationale for handling Concurrent requests, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/20/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Workers and Wasm",
+      "goal": "Learning outcome: explain the role of Execution location. Input cases: the same large array and UI clicks. Deliverable: main-thread·Worker results and round-trip latency. Explain the rationale for handling Transfer cost, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/21/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     }
   ]
 }

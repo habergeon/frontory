@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 18 published in English
+Engineering · 4 stages · 28 units in the full series · 21 published in English
 
 ## Series goal
 
@@ -48,6 +48,9 @@ Only published English units are linked below. The full series has 28 units.
 - [16. Aligned and Unaligned Access](units/16/README.md) — External example · preview instructions
 - [17. Laying Out Multiple Arrays](units/17/README.md) — External example · preview instructions
 - [18. String Byte Contracts](units/18/README.md) — External example · preview instructions
+- [19. Browser Loading and MIME](units/19/README.md) — External example · preview instructions
+- [20. Reusing Initialization](units/20/README.md) — External example · preview instructions
+- [21. Workers and Wasm](units/21/README.md) — External example · preview instructions
 
 ### Stage 4 · Correctness and Bottleneck Evaluation
 

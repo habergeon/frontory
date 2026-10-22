@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Nested Timelines](../21/README.md)
+[Previous: Nested Timelines](../21/README.md) · [Next: Interpolating Canvas Objects](../23/README.md)
 
 ## Experiment notes — write your own
 

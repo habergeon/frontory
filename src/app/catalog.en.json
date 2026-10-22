@@ -1106,6 +1106,36 @@
       "docPath": "/docs/en/labs/animation/gsap/units/22/README.md",
       "seriesId": "gsap",
       "exampleNote": "This is an experiment on Controlling SVG Attributes. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Interpolating Canvas Objects",
+      "goal": "Learning outcome: explain the role of Object Values. Input case: start·stop·dispose. Deliverable: draw call counts and final coordinates. Explain the rationale for handling Ticker, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/23/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Interpolating Canvas Objects. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Measuring Frame Cost",
+      "goal": "Learning outcome: explain the role of Long Frames. Input case: 20 cards and 200 cards. Deliverable: frame distribution and input response records. Explain the rationale for handling Recording Conditions, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/24/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Measuring Frame Cost. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Hiding and Returning",
+      "goal": "Learning outcome: explain the role of Background. Input case: returning after hiding the tab. Deliverable: progress logs before and after returning. Explain the rationale for handling Resume Policy, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/25/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Hiding and Returning. It supports direct interaction and cleans up the resources it uses."
     }
   ]
 }

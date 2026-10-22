@@ -126,5 +126,23 @@
     "values": {
       "note": "This is an experiment on Controlling SVG Attributes. It supports direct interaction and cleans up the resources it uses."
     }
+  },
+  "gsap-step-23": {
+    "sourceHash": "11be6e00cc924336e86d7b2e39c33f94f48d7f036c439c699579207f141a9839",
+    "values": {
+      "note": "This is an experiment on Interpolating Canvas Objects. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-24": {
+    "sourceHash": "742ea0385815bfcb4a1b8a87c9e1ffbce4f22965f210e21ab86059cc3f018785",
+    "values": {
+      "note": "This is an experiment on Measuring Frame Cost. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-25": {
+    "sourceHash": "00d90b3102319514ab9af5b2efd128b9fc3a5488cd7d9ae7c105ef973c356c11",
+    "values": {
+      "note": "This is an experiment on Hiding and Returning. It supports direct interaction and cleans up the resources it uses."
+    }
   }
 }

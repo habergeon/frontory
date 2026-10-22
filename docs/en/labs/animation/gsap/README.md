@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Animation · 4 stages · 28 units in the full series · 22 published in English
+Animation · 4 stages · 28 units in the full series · 25 published in English
 
 ## Series goal
 
@@ -55,6 +55,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 4 · Motion system verification
 
 - [22. Controlling SVG Attributes](units/22/README.md) — Editable example
+- [23. Interpolating Canvas Objects](units/23/README.md) — Editable example
+- [24. Measuring Frame Cost](units/24/README.md) — Editable example
+- [25. Hiding and Returning](units/25/README.md) — Editable example
 
 ## Capstone project and deliverables
 

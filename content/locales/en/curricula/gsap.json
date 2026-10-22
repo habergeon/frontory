@@ -620,6 +620,87 @@
         "references.0.title": "GSAP Official Documentation",
         "references.1.title": "ScrollTrigger Official Documentation"
       }
+    },
+    "gsap-step-23": {
+      "sourceHash": "a1a568dd35ee0a3514f62c2f4ad5ea8f1ae7c159432be95bb247851621b77a35",
+      "values": {
+        "title": "Interpolating Canvas Objects",
+        "prerequisites": "Prepare the exercise results on Attr and ViewBox from Unit 22, “Controlling SVG Attributes”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Object Values",
+        "concepts.0.explanation": "GSAP also interpolates plain object values. Canvas must be redrawn when values change.",
+        "concepts.1.title": "Ticker",
+        "concepts.1.explanation": "Registering with ticker creates repeating work. Remove the same function in dispose.",
+        "outcomes.0": "Learning outcome: explain the role of Object Values. Input case: start·stop·dispose.",
+        "outcomes.1": "Deliverable: draw call counts and final coordinates. Explain the rationale for handling Ticker, connecting it to the code.",
+        "steps.0": "In src/day-23.js of a separate practice project, tween a point’s x and draw Canvas with gsap.ticker.add/remove. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: start·stop·dispose. Baseline: 1 time. Run under baseline conditions, then record observations and errors in notes/day-23.md.",
+        "steps.2": "Variable: Remounts; changed value: 5 times. Run again using the same input path. Deliverable to save: draw call counts and final coordinates. Hypothesis to check: Drawing stops after disposal, with no duplicate registrations. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Remounts",
+        "variables.0.baseline": "1 time",
+        "variables.0.change": "5 times",
+        "variables.0.expected": "Drawing stops after disposal, with no duplicate registrations.",
+        "criteria.0": "Required deliverable: draw call counts and final coordinates. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Object Values, Ticker. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Object Values affect in this exercise? Input case: start·stop·dispose.",
+        "questions.1": "Variable: Remounts. Hypothesis to check: Drawing stops after disposal, with no duplicate registrations. Did the actual results match the hypothesis? Explain the evidence in terms of Ticker.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-24": {
+      "sourceHash": "ec3ebfdda4dabfe571ceabdb4673370d30dfc1b1de9305707f02377918fb6b9b",
+      "values": {
+        "title": "Measuring Frame Cost",
+        "prerequisites": "Prepare the exercise results on Object Values and Ticker from Unit 23, “Interpolating Canvas Objects”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Long Frames",
+        "concepts.0.explanation": "Average time can hide momentary stutters. Examine frame distribution and input latency together.",
+        "concepts.1.title": "Recording Conditions",
+        "concepts.1.explanation": "The device and target count affect results. Do not claim a performance improvement without actual measurements.",
+        "outcomes.0": "Learning outcome: explain the role of Long Frames. Input case: 20 cards and 200 cards.",
+        "outcomes.1": "Deliverable: frame distribution and input response records. Explain the rationale for handling Recording Conditions, connecting it to the code.",
+        "steps.0": "In src/day-24.js of a separate practice project, save Performance recordings of the same timeline for each target count. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 20 cards and 200 cards. Baseline: 20 cards. Run under baseline conditions, then record observations and errors in notes/day-24.md.",
+        "steps.2": "Variable: Target Count; changed value: 200 cards. Run again using the same input path. Deliverable to save: frame distribution and input response records. Hypothesis to check: Long frames may increase. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Target Count",
+        "variables.0.baseline": "20 cards",
+        "variables.0.change": "200 cards",
+        "variables.0.expected": "Long frames may increase.",
+        "criteria.0": "Required deliverable: frame distribution and input response records. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Long Frames, Recording Conditions. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Long Frames affect in this exercise? Input case: 20 cards and 200 cards.",
+        "questions.1": "Variable: Target Count. Hypothesis to check: Long frames may increase. Did the actual results match the hypothesis? Explain the evidence in terms of Recording Conditions.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-25": {
+      "sourceHash": "363b5587f29a090ce588b4191876f41e69fafa74a1507bfa76723110b93ba08d",
+      "values": {
+        "title": "Hiding and Returning",
+        "prerequisites": "Prepare the exercise results on Long Frames and Recording Conditions from Unit 24, “Measuring Frame Cost”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Background",
+        "concepts.0.explanation": "Frames may be limited in a hidden document. A timing policy is needed on return.",
+        "concepts.1.title": "Resume Policy",
+        "concepts.1.explanation": "Resuming playback and moving to the final state are different choices. Do not confuse them with data completion state.",
+        "outcomes.0": "Learning outcome: explain the role of Background. Input case: returning after hiding the tab.",
+        "outcomes.1": "Deliverable: progress logs before and after returning. Explain the rationale for handling Resume Policy, connecting it to the code.",
+        "steps.0": "In src/day-25.js of a separate practice project, connect pause and the return policy to visibilitychange. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: returning after hiding the tab. Baseline: resume playback. Run under baseline conditions, then record observations and errors in notes/day-25.md.",
+        "steps.2": "Variable: Policy; changed value: final state. Run again using the same input path. Deliverable to save: progress logs before and after returning. Hypothesis to check: Step data is preserved even if progress differs. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Policy",
+        "variables.0.baseline": "resume playback",
+        "variables.0.change": "final state",
+        "variables.0.expected": "Step data is preserved even if progress differs.",
+        "criteria.0": "Required deliverable: progress logs before and after returning. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Background, Resume Policy. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Background affect in this exercise? Input case: returning after hiding the tab.",
+        "questions.1": "Variable: Policy. Hypothesis to check: Step data is preserved even if progress differs. Did the actual results match the hypothesis? Explain the evidence in terms of Resume Policy.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
     }
   }
 }

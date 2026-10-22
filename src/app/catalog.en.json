@@ -3028,6 +3028,36 @@
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
+      "id": "webgpu-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Indices and Primitives",
+      "goal": "Reuse vertices through indices. Validate primitive and front-face settings.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/07/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Uniforms and Bind Groups",
+      "goal": "Connect resources to bindings. Update small inputs without recreating resources.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/08/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Uniform Struct Alignment",
+      "goal": "Match host and shader layouts. Distinguish the two alignment rules.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/09/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
       "id": "react-three-fiber-01",
       "day": 1,
       "week": 1,

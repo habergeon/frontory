@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Shader Modules and Diagnostics](../05/README.md)
+[Previous: Shader Modules and Diagnostics](../05/README.md) · [Next: Indices and Primitives](../07/README.md)
 
 ## Experiment notes — write your own
 

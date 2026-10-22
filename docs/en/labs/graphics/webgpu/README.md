@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 6 published in English
+Graphics · 4 stages · 28 units in the full series · 9 published in English
 
 ## Series goal
 
@@ -30,9 +30,12 @@ Only published English units are linked below. The full series has 28 units.
 - [04. Recording and Submitting Commands](units/04/README.md) — Editable example
 - [05. Shader Modules and Diagnostics](units/05/README.md) — Editable example
 - [06. Vertex Buffers and Attributes](units/06/README.md) — Editable example
+- [07. Indices and Primitives](units/07/README.md) — Editable example
 
 ### Stage 2 · Render Resources and Display Configuration
 
+- [08. Uniforms and Bind Groups](units/08/README.md) — Editable example
+- [09. Uniform Struct Alignment](units/09/README.md) — Editable example
 
 ### Stage 3 · Compute and Data Movement
 

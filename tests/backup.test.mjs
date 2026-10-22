@@ -46,3 +46,16 @@ test('failed whole import preserves original storage and memory', () => {
   assert.deepEqual([...data], before)
   assert.equal(store.load('a', '').draft.code, 'old')
 })
+
+test('validation failures expose stable codes and preserve raw JSON diagnostics', () => {
+  const cases = [
+    [' '.repeat(MAX_BACKUP_BYTES + 1), 'too-large'],
+    [JSON.stringify({ ...backup(), version: 9 }), 'invalid-format'],
+    [JSON.stringify({ ...backup(), exportedAt: 'invalid' }), 'invalid-time'],
+    [JSON.stringify({ ...backup(), units: [] }), 'invalid-units'],
+    [JSON.stringify({ ...backup(), units: [backup().units[0], backup().units[0]] }), 'invalid-units'],
+    [JSON.stringify({ ...backup(), units: backup().units.map(entry => ({ ...entry, draft: { ...entry.draft, updatedAt: 'invalid' } })) }), 'invalid-time'],
+  ]
+  for (const [text, code] of cases) assert.throws(() => parseBackup(text, ['a', 'b']), error => error.code === code)
+  assert.throws(() => parseBackup('{broken', ['a', 'b']), error => error instanceof SyntaxError && error.message.includes('JSON'))
+})

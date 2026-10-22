@@ -42,6 +42,7 @@ try {
   await wait(() => doc().querySelector('.workspace') && doc().querySelector('.monaco-editor') && doc().querySelector('.workspace iframe'))
   check('English selection uses published stable ID', win().location.hash, '#javascript-step-02')
   check('English title matches current lesson', doc().title.includes(doc().querySelector('.current-lesson h3').textContent), true)
+  check('Editor status translated to English', /checks passed|execution paused/.test(doc().querySelector('.code-check-status').textContent), true)
   const workspace = doc().querySelector('.workspace')
   const editor = doc().querySelector('.monaco-editor')
   const preview = doc().querySelector('.workspace iframe')
@@ -71,7 +72,9 @@ try {
     check('Navigator search ' + query, dialog.querySelectorAll('.series-card').length, count)
     check('Navigator search count wording ' + query, dialog.querySelector('.series-tools p').textContent.startsWith(count + ' series ·'), true)
   }
-  check('Navigator singular unit', dialog.querySelector('.series-card').textContent.includes('1 unit · 0 completed'), true)
+  const snapshot = JSON.parse(win().localStorage.getItem('web-gl-study:all:v1') || '{}')
+  const javascriptDraft = snapshot['javascript-step-02'] ?? JSON.parse(win().localStorage.getItem('web-gl-study:unit:v1:javascript-step-02') || '{}')
+  check('Navigator singular unit', dialog.querySelector('.series-card').textContent.includes('1 unit · ' + (javascriptDraft.progress === 'completed' ? 1 : 0) + ' completed'), true)
   await click(dialog.querySelector('.dialog-header button'))
   await click(doc().querySelector('.current-lesson button'))
   await wait(() => doc().querySelector('.document-dialog article h1'))

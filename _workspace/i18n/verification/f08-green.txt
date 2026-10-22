@@ -1,0 +1,31 @@
+✔ v2 archives validate against their historical catalog after curriculum expansion (1.5247ms)
+✔ v3 requires the entire current catalog and rejects missing duplicate and foreign entries (0.4346ms)
+✔ scoped archive restoration preserves newer notes and restores old code and progress atomically (1.7924ms)
+✔ v1 WebGL import preserves both original non-WebGL and expanded unit records (0.1741ms)
+✔ JSON round trip preserves Unicode, empty code, language and current unit (2.3868ms)
+✔ rejects wrong version, missing/duplicate/unknown units and invalid drafts before import (17.3111ms)
+✔ whole import replaces cached and persisted units and survives later edits (2.3724ms)
+✔ failed whole import preserves original storage and memory (0.5761ms)
+✔ validation failures expose stable codes and preserve raw JSON diagnostics (21.7711ms)
+✔ unit drafts stay separate and survive a fresh store (3.7274ms)
+✔ empty code and notes are intentional values (0.2542ms)
+✔ write failure preserves drafts and warning across unit navigation; retry succeeds (0.2351ms)
+✔ blocked storage access falls back to memory (0.1469ms)
+✔ corrupt or wrong-version data is not deleted on read (0.1857ms)
+✔ restoring source preserves notes without mutating the previous draft (0.0939ms)
+✔ language selection persists while legacy drafts remain readable (0.1462ms)
+✔ begin selects a first-use template once without saving or changing timestamps (0.7331ms)
+✔ begin preserves saved blank and Korean notes and storage bytes across locales (0.3796ms)
+✔ begin preserves edits saved before first start even when storage rejects the save (0.3552ms)
+✔ begin preserves corrupt storage bytes and its read warning (0.1996ms)
+✔ save persists only existing draft fields and replaceAll resets cached first-use choices (0.1896ms)
+✔ blocked storage still allows an English first-use template without losing its warning (0.1197ms)
+✔ storage warning codes preserve failed-save memory (0.1173ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 199.1192

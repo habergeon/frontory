@@ -37,6 +37,7 @@ test('every dictionary key and plural branch has equivalent placeholders and ren
 
 test('count sentences handle zero, one and multiple units or errors', () => {
   for (const [count, units, errors] of [[0, '0 units', '0 errors · execution paused'], [1, '1 unit', '1 error · execution paused'], [2, '2 units', '2 errors · execution paused']]) {
+    assert.equal(message('en', 'backupContents', { count }).startsWith(count + (count === 1 ? ' entry ·' : ' entries ·')), true)
     assert.equal(message('en', 'unitCount', { count }), units)
     assert.equal(message('en', 'catalogCount', { seriesCount: 1, unitCount: count }), '1 series · ' + units.replace('unit', 'learning unit'))
     assert.equal(message('en', 'seriesCompletion', { total: count, completed: 0 }), units + ' · 0 completed')

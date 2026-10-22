@@ -1,17 +1,36 @@
+import { useLocale } from '../i18n/LocaleProvider'
+import { message, messages, type MessageParams } from '../i18n/messages'
 import { useRef, useState } from 'react'
-import { units, legacyUnitIds, v2UnitIds } from './curriculum'
+import { units, legacyUnitIds, v2UnitIds, getLocalizedUnit } from './curriculum'
 import { draftStore } from '../shared/drafts'
-import { MAX_BACKUP_BYTES, parseBackup, mergeBackupDrafts, type StudyBackup } from '../shared/backup'
+import { BackupValidationError, MAX_BACKUP_BYTES, parseBackup, mergeBackupDrafts, type StudyBackup } from '../shared/backup'
+
+type Notice = { key: keyof MessageParams; count?: number; details?: string; importing?: boolean }
 
 export function BackupControls({ selectedId, onRestore }: { selectedId: string; onRestore: (id: string) => void }) {
+  const { locale } = useLocale()
+  const text = messages[locale]
+  const renderNotice = (notice: Notice) => {
+    const detail = notice.key === 'exportRequested' || notice.key === 'exportWarnings'
+      ? message(locale, notice.key, { count: notice.count! })
+      : notice.details ?? message(locale, notice.key, {})
+    return notice.importing ? message(locale, 'importStopped', { error: detail }) : detail
+  }
+  const failure = (cause: unknown, importing = false): Notice => {
+    if (cause instanceof BackupValidationError) {
+      const key = { 'too-large': 'backupTooLarge', 'invalid-format': 'invalidBackup', 'invalid-units': 'invalidBackupUnits', 'invalid-time': 'invalidSavedTime' } as const
+      return { key: key[cause.code], importing }
+    }
+    return { key: importing ? 'fileReadFailed' : 'exportFailed', ...(cause instanceof SyntaxError ? { details: cause.message } : {}), importing }
+  }
   const input = useRef<HTMLInputElement>(null)
   const request = useRef(0)
   const [pending, setPending] = useState<StudyBackup | null>(null)
-  const [message, setMessage] = useState('')
-  const [error, setError] = useState('')
+  const [notice, setMessage] = useState<Notice | null>(null)
+  const [error, setError] = useState<Notice | null>(null)
   const [reading, setReading] = useState(false)
   const download = () => {
-    setError('')
+    setError(null)
     try {
       let warnings = 0
       const backup: StudyBackup = {
@@ -30,20 +49,20 @@ export function BackupControls({ selectedId, onRestore }: { selectedId: string; 
       link.download = 'frontory-' + backup.exportedAt.replace(/[:.]/g, '-') + '.json'
       link.click()
       window.setTimeout(() => URL.revokeObjectURL(url), 1000)
-      setMessage('전체 ' + units.length + '개 단위의 JSON 다운로드를 요청했습니다.')
-      if (warnings) setError('저장소 읽기/쓰기 경고가 있는 단위 ' + warnings + '개가 포함됩니다. 현재 탭에서 읽을 수 있는 내용으로 내보냈으므로 파일을 확인하고 이전 백업도 보관하세요.')
-    } catch (cause) { setError(cause instanceof Error ? cause.message : '내보내기에 실패했습니다.') }
+      setMessage({ key: 'exportRequested', count: units.length })
+      if (warnings) setError({ key: 'exportWarnings', count: warnings })
+    } catch (cause) { setError(failure(cause)) }
   }
   const read = async (file?: File) => {
     if (!file) return
     const current = ++request.current
-    setPending(null); setError(''); setMessage(''); setReading(true)
+    setPending(null); setError(null); setMessage(null); setReading(true)
     try {
-      if (file.size > MAX_BACKUP_BYTES) throw new Error('파일은 10 MiB 이하여야 합니다.')
+      if (file.size > MAX_BACKUP_BYTES) throw new BackupValidationError('too-large')
       const backup = parseBackup(await file.text(), units.map(unit => unit.id), legacyUnitIds, v2UnitIds)
       if (current === request.current) setPending(backup)
     } catch (cause) {
-      if (current === request.current) setError('가져오기 중단: ' + (cause instanceof Error ? cause.message : '파일을 읽지 못했습니다.'))
+      if (current === request.current) setError(failure(cause, true))
     } finally { if (current === request.current) setReading(false) }
   }
   const restore = () => {
@@ -54,22 +73,22 @@ export function BackupControls({ selectedId, onRestore }: { selectedId: string; 
         return draftStore.load(id, unit.source ?? '').draft
       }))
       onRestore(pending.selectedUnitId)
-      setPending(null); setError(''); setMessage('전체 학습 내용을 복원하고 저장된 목차로 이동했습니다.')
+      setPending(null); setError(null); setMessage({ key: 'restoreCompleted' })
     } catch {
-      setError('가져오기를 저장하지 못했습니다. 기존 내용은 유지됩니다. 브라우저 저장 권한·용량을 확인하고 다시 시도하세요.')
+      setError({ key: 'restoreFailed' })
     }
   }
-  return <section className="backup-controls" aria-label="전체 학습 백업">
-    <div className="backup-toolbar"><strong>전체 학습 백업</strong><button onClick={download}>JSON 내보내기</button><button disabled={reading} onClick={() => input.current?.click()}>JSON 가져오기</button>
-      <input ref={input} type="file" accept=".json,application/json" aria-label="학습 백업 JSON 파일" hidden onChange={event => { void read(event.target.files?.[0]); event.target.value = '' }} />
-      <span>{units.length}개 목차 · 코드 · 필기 · 언어 · 학습 상태 · 현재 목차</span></div>
-    {reading && <p role="status">파일 검사 중…</p>}
-    {message && <p role="status">{message}</p>}
-    {error && <p role="alert">{error}</p>}
+  return <section className="backup-controls" aria-label={text.backup}>
+    <div className="backup-toolbar"><strong>{text.backup}</strong><button onClick={download}>{text.exportJson}</button><button disabled={reading} onClick={() => input.current?.click()}>{text.importJson}</button>
+      <input ref={input} type="file" accept=".json,application/json" aria-label={text.backupFile} hidden onChange={event => { void read(event.target.files?.[0]); event.target.value = '' }} />
+      <span>{message(locale, 'backupContents', { count: units.length })}</span></div>
+    {reading && <p role="status">{text.checkingFile}</p>}
+    {notice && <p role="status">{renderNotice(notice)}</p>}
+    {error && <p role="alert">{renderNotice(error)}</p>}
     {pending && <div className="backup-confirm">
-      <p>백업 날짜: {new Date(pending.exportedAt).toLocaleString('ko-KR')} · {pending.units.length}개 단위</p>
-      <p>{pending.version < 3 ? `기존 ${pending.units.length}개 단위만 교체하며 이후 추가된 단위의 기록은 유지합니다.` : '모든 시리즈의 코드·필기·학습 상태를 파일 내용으로 교체합니다.'} 복원 목차: {units.find(unit => unit.id === pending.selectedUnitId)?.title}. 실행 예제가 있는 단위의 코드는 검사 후 실행됩니다. 필요하면 먼저 현재 내용을 내보내세요.</p>
-      <button onClick={restore}>전체 교체하여 복원</button><button onClick={() => { setPending(null); setError('') }}>취소</button>
+      <p>{message(locale, 'backupDate', { date: new Date(pending.exportedAt).toLocaleString(locale === 'ko' ? 'ko-KR' : 'en-US'), count: pending.units.length })}</p>
+      <p>{pending.version < 3 ? message(locale, 'legacyRestore', { count: pending.units.length }) : text.replaceAll} {message(locale, 'restoreHint', { title: getLocalizedUnit(locale, pending.selectedUnitId)?.title ?? pending.selectedUnitId })}</p>
+      <button onClick={restore}>{text.confirmRestore}</button><button onClick={() => { setPending(null); setError(null) }}>{text.cancel}</button>
     </div>}
   </section>
 }

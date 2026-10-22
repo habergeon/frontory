@@ -1,0 +1,83 @@
+✔ JSON round trip preserves Unicode, empty code, language and current unit (1.1607ms)
+✔ rejects wrong version, missing/duplicate/unknown units and invalid drafts before import (13.1311ms)
+✔ whole import replaces cached and persisted units and survives later edits (1.6156ms)
+✔ failed whole import preserves original storage and memory (0.1868ms)
+✖ validation failures expose stable codes and preserve raw JSON diagnostics (15.3484ms)
+✔ unit drafts stay separate and survive a fresh store (2.1631ms)
+✔ empty code and notes are intentional values (0.1946ms)
+✔ write failure preserves drafts and warning across unit navigation; retry succeeds (0.2055ms)
+✔ blocked storage access falls back to memory (0.1345ms)
+✔ corrupt or wrong-version data is not deleted on read (0.1674ms)
+✔ restoring source preserves notes without mutating the previous draft (0.095ms)
+✔ language selection persists while legacy drafts remain readable (0.1521ms)
+✔ begin selects a first-use template once without saving or changing timestamps (0.6866ms)
+✔ begin preserves saved blank and Korean notes and storage bytes across locales (0.2937ms)
+✔ begin preserves edits saved before first start even when storage rejects the save (0.2915ms)
+✔ begin preserves corrupt storage bytes and its read warning (0.1673ms)
+✔ save persists only existing draft fields and replaceAll resets cached first-use choices (0.1596ms)
+✔ blocked storage still allows an English first-use template without losing its warning (0.1488ms)
+✖ storage warning codes preserve failed-save memory (0.8934ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 17
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 141.1422
+
+✖ failing tests:
+
+test at tests\backup.test.mjs:50:1
+✖ validation failures expose stable codes and preserve raw JSON diagnostics (15.3484ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+
+  Caught error:
+
+  Error: 파일은 10 MiB 이하여야 합니다.
+      at TestContext.<anonymous> (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/backup.test.mjs:57:44)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: 파일은 10 MiB 이하여야 합니다.
+        at parseBackup (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/src/shared/backup.ts:13:71)
+        at file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/backup.test.mjs:57:57
+        at getActual (node:assert:611:5)
+        at strict.throws (node:assert:759:24)
+        at TestContext.<anonymous> (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/backup.test.mjs:57:44)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1306:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+        at Test.postRun (node:internal/test_runner/test:1447:19)
+        at Test.run (node:internal/test_runner/test:1372:12),
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\drafts.test.mjs:167:1
+✖ storage warning codes preserve failed-save memory (0.8934ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + '저장된 내용을 읽을 수 없습니다. 손상된 데이터 또는 브라우저 저장 제한을 확인하세요. 기존 저장값은 삭제하지 않았습니다. 편집하면 해당 단위의 저장값을 새 내용으로 덮어씁니다.'
+  - 'read-failed'
+
+      at TestContext.<anonymous> (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/drafts.test.mjs:169:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '저장된 내용을 읽을 수 없습니다. 손상된 데이터 또는 브라우저 저장 제한을 확인하세요. 기존 저장값은 삭제하지 않았습니다. 편집하면 해당 단위의 저장값을 새 내용으로 덮어씁니다.',
+    expected: 'read-failed',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

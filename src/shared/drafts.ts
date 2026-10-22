@@ -15,7 +15,7 @@ interface StorageAccess {
   getItem(key: string): string | null
   setItem(key: string, value: string): void
 }
-export interface DraftResult { draft: Draft; warning: string | null }
+export interface DraftResult { draft: Draft; warning: 'read-failed' | 'write-failed' | null }
 
 export const draftKey = (id: string) => 'web-gl-study:unit:v1:' + id
 export const notesTemplate = notesTemplateFor('ko')
@@ -75,7 +75,7 @@ export function createDraftStore(getStorage: () => StorageAccess) {
           unstarted.delete(id)
         }
       } catch {
-        result.warning = '저장된 내용을 읽을 수 없습니다. 손상된 데이터 또는 브라우저 저장 제한을 확인하세요. 기존 저장값은 삭제하지 않았습니다. 편집하면 해당 단위의 저장값을 새 내용으로 덮어씁니다.'
+        result.warning = 'read-failed'
       }
       memory.set(id, result)
       return result
@@ -102,7 +102,7 @@ export function createDraftStore(getStorage: () => StorageAccess) {
         }
         else getStorage().setItem(draftKey(id), JSON.stringify(result.draft))
       } catch {
-        result.warning = '브라우저 저장에 실패했습니다. 현재 탭에서만 유지됩니다. 새로고침하거나 닫기 전에 필기를 다운로드하고 코드를 복사하세요.'
+        result.warning = 'write-failed'
       }
       memory.set(id, result)
       return result

@@ -325,7 +325,7 @@ const en = {
   exportJson: 'Export JSON',
   importJson: 'Import JSON',
   backupFile: 'Learning backup JSON file',
-  backupContents: '{count} entries · code · notes · code language · learning status · current unit',
+  backupContents: { one: '{count} entry · code · notes · code language · learning status · current unit', other: '{count} entries · code · notes · code language · learning status · current unit' },
   checkingFile: 'Checking file…',
   backupDate: { one: 'Backup date: {date} · {count} unit', other: 'Backup date: {date} · {count} units' },
   legacyRestore: { one: 'Only the original {count} unit will be replaced. Records for units added later will be kept.', other: 'Only the original {count} units will be replaced. Records for units added later will be kept.' },

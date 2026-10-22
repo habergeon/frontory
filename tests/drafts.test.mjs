@@ -163,3 +163,12 @@ test('blocked storage still allows an English first-use template without losing 
   assert.equal(started.warning, loaded.warning)
   assert.strictEqual(store.begin('a', 'original', 'ko'), started)
 })
+
+test('storage warning codes preserve failed-save memory', () => {
+  const store = createDraftStore(() => ({ getItem() { throw Error('denied') }, setItem() { throw Error('denied') } }))
+  assert.equal(store.load('code-contract', 'source').warning, 'read-failed')
+  const result = store.save('code-contract', { version: 1, code: 'edited', notes: 'notes', updatedAt: '' })
+  assert.equal(result.warning, 'write-failed')
+  assert.equal(store.begin('code-contract', 'source', 'en'), result)
+  assert.equal(result.draft.code, 'edited')
+})

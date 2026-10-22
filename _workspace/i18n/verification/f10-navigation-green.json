@@ -1,0 +1,306 @@
+{
+  "state": "PASS",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "results": [
+    {
+      "name": "Language control exists",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Korean catalog remains complete",
+      "actual": 23,
+      "expected": 23,
+      "ok": true
+    },
+    {
+      "name": "English home URL",
+      "actual": "/en/",
+      "expected": "/en/",
+      "ok": true
+    },
+    {
+      "name": "English home language",
+      "actual": "en",
+      "expected": "en",
+      "ok": true
+    },
+    {
+      "name": "Back restores Korean home",
+      "actual": "/",
+      "expected": "/",
+      "ok": true
+    },
+    {
+      "name": "English catalog count",
+      "actual": 4,
+      "expected": 4,
+      "ok": true
+    },
+    {
+      "name": "Home search no-such-series",
+      "actual": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "Home search result wording no-such-series",
+      "actual": "0 series",
+      "expected": "0 series",
+      "ok": true
+    },
+    {
+      "name": "Home search react",
+      "actual": 1,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "name": "Home search result wording react",
+      "actual": "1 series",
+      "expected": "1 series",
+      "ok": true
+    },
+    {
+      "name": "Home search 언어와 웹 기초",
+      "actual": 2,
+      "expected": 2,
+      "ok": true
+    },
+    {
+      "name": "Home search result wording 언어와 웹 기초",
+      "actual": "2 series",
+      "expected": "2 series",
+      "ok": true
+    },
+    {
+      "name": "Home search Languages and web fundamentals",
+      "actual": 2,
+      "expected": 2,
+      "ok": true
+    },
+    {
+      "name": "Home search result wording Languages and web fundamentals",
+      "actual": "2 series",
+      "expected": "2 series",
+      "ok": true
+    },
+    {
+      "name": "Home search ",
+      "actual": 4,
+      "expected": 4,
+      "ok": true
+    },
+    {
+      "name": "Home search result wording ",
+      "actual": "4 series",
+      "expected": "4 series",
+      "ok": true
+    },
+    {
+      "name": "Home unit singular",
+      "actual": "1 unit",
+      "expected": "1 unit",
+      "ok": true
+    },
+    {
+      "name": "English selection uses published stable ID",
+      "actual": "#javascript-step-02",
+      "expected": "#javascript-step-02",
+      "ok": true
+    },
+    {
+      "name": "English title matches current lesson",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Editor status translated to English",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Switch to Korean preserves unit",
+      "actual": "/#javascript-step-02",
+      "expected": "/#javascript-step-02",
+      "ok": true
+    },
+    {
+      "name": "Workspace DOM preserved",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Monaco DOM preserved",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Preview iframe preserved",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Notes remain in the same control",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Code language remains JavaScript",
+      "actual": "javascript",
+      "expected": "javascript",
+      "ok": true
+    },
+    {
+      "name": "Locale switch does not write storage",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Back restores English and same unit",
+      "actual": "/en/#javascript-step-02",
+      "expected": "/en/#javascript-step-02",
+      "ok": true
+    },
+    {
+      "name": "Back keeps Workspace DOM",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Navigator search no-such-series",
+      "actual": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "name": "Navigator search count wording no-such-series",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Navigator search react",
+      "actual": 1,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "name": "Navigator search count wording react",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Navigator search 언어와 웹 기초",
+      "actual": 2,
+      "expected": 2,
+      "ok": true
+    },
+    {
+      "name": "Navigator search count wording 언어와 웹 기초",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Navigator search Languages and web fundamentals",
+      "actual": 2,
+      "expected": 2,
+      "ok": true
+    },
+    {
+      "name": "Navigator search count wording Languages and web fundamentals",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Navigator search ",
+      "actual": 4,
+      "expected": 4,
+      "ok": true
+    },
+    {
+      "name": "Navigator search count wording ",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Navigator singular unit",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "Navigator requests actual English document",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "English document has no Korean lesson fallback",
+      "actual": false,
+      "expected": false,
+      "ok": true
+    },
+    {
+      "name": "Korean next selects canonical unpublished ID",
+      "actual": "#javascript-step-03",
+      "expected": "#javascript-step-03",
+      "ok": true
+    },
+    {
+      "name": "Unpublished ID remains selected in English",
+      "actual": "/en/#javascript-step-03",
+      "expected": "/en/#javascript-step-03",
+      "ok": true
+    },
+    {
+      "name": "English unavailable message",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "No Korean navigator fallback",
+      "actual": null,
+      "expected": null,
+      "ok": true
+    },
+    {
+      "name": "Explicit Korean source URL",
+      "actual": "/#javascript-step-03",
+      "expected": "/#javascript-step-03",
+      "ok": true
+    },
+    {
+      "name": "Korean source control restores same unit",
+      "actual": "/#javascript-step-03",
+      "expected": "/#javascript-step-03",
+      "ok": true
+    },
+    {
+      "name": "Korean navigator is restored",
+      "actual": true,
+      "expected": true,
+      "ok": true
+    },
+    {
+      "name": "No Vite overlay",
+      "actual": false,
+      "expected": false,
+      "ok": true
+    }
+  ]
+}

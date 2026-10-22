@@ -1,8 +1,22 @@
 {
   "css-step-04": {
-    "sourceHash": "6bb8ced0564d868f0c42a0ed52daadc10392e4f9bcb7aff477bd3abd74e9a432",
+    "sourceHash": "fe6f849d0a12fea57d9a9dd549f70798cddfee52238df3ea23b164077fd897d3",
     "values": {
       "note": "Change box-sizing to border-box and compare the measured widths of 244px and 200px. Document body/html selectors are scoped inside the Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "80e271d84b1b9a3849abaa31844529fb5adb58a3d6d2f65ca7a8022a89ee195c",
+      "values": {
+        "messages.title": "Box model and measured dimensions",
+        "messages.note": "Change box-sizing to border-box and compare measured widths of 244px and 200px. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.html": "HTML source",
+        "messages.css": "CSS source",
+        "messages.apply": "Apply",
+        "messages.inspect": "Inspect current DOM / styles",
+        "messages.width": "Container width",
+        "messages.external": "Element to run in an external environment: ",
+        "comments.title": "Box model and measured dimensions: a real HTML/CSS experiment"
+      }
     }
   }
 }

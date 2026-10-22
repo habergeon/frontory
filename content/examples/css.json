@@ -8,6 +8,7 @@
     "note": "initial, inherit, unset을 각각 바꾸고 계산된 color·border를 확인하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-04": {
+    "readingSource": "/examples-en/css-step-04/example.js",
     "mode": "browser",
     "note": "box-sizing을 border-box로 바꿔 실측 너비 244px와 200px를 비교하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },

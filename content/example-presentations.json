@@ -10,5 +10,20 @@
       "title": "문자열 입력과 숫자 변환",
       "help": "편집할 실험 입력과 알고리즘입니다."
     }
+  },
+  "css-step-04": {
+    "messages": {
+      "title": "박스 모델과 실측 크기",
+      "note": "box-sizing을 border-box로 바꿔 실측 너비 244px와 200px를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "html": "HTML 소스",
+      "css": "CSS 소스",
+      "apply": "적용",
+      "inspect": "현재 DOM / 스타일 검사",
+      "width": "컨테이너 폭",
+      "external": "외부 환경에서 실행할 요소: "
+    },
+    "comments": {
+      "title": "박스 모델과 실측 크기: 실제 HTML/CSS 실험"
+    }
   }
 }

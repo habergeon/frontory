@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Async Components and Loading UI](../20/README.md)
+[Previous: Async Components and Loading UI](../20/README.md) · [Next: Creating and Releasing Canvas Resources](../22/README.md)
 
 ## Experiment notes — write your own
 

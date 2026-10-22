@@ -112,5 +112,23 @@
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
     }
+  },
+  "vue-step-22": {
+    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "values": {
+      "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    }
+  },
+  "vue-step-23": {
+    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "values": {
+      "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    }
+  },
+  "vue-step-24": {
+    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "values": {
+      "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    }
   }
 }

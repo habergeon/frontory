@@ -1694,6 +1694,36 @@
       "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
     },
     {
+      "id": "vue-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Creating and Releasing Canvas Resources",
+      "goal": "tick logs stop after removal. Only one circle moves after showing again.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/22/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Separating Frame Values from UI Values",
+      "goal": "The circle stops moving at speed 0. Changing speed does not increase the Canvas creation count.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/23/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Shallow Reactivity and External Objects",
+      "goal": "Consumers read the new handle when the renderer handle is replaced. Template statistics do not update on every frame change.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/24/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

@@ -582,6 +582,90 @@
         "references.1.title": "Vue Watchers and cleanup",
         "references.2.title": "Vue Composables and Lifetime Management"
       }
+    },
+    "vue-step-22": {
+      "sourceHash": "c56c19f0e4fc4095ad797e9f38f828d8668446947c282c8ebdf0011b2ebcee4a",
+      "values": {
+        "title": "Creating and Releasing Canvas Resources",
+        "prerequisites": "Unit 22 builds on the work and experiment records from Unit 21.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "External resources",
+        "concepts.0.explanation": "Canvas contexts and RAF are objects outside Vue reactivity. Create them in onMounted after the DOM is ready.",
+        "concepts.1.title": "Termination",
+        "concepts.1.explanation": "Release RAF, observers, and listeners in onUnmounted. Repeated showing must leave resources from only one generation.",
+        "outcomes.0": "tick logs stop after removal.",
+        "outcomes.1": "Only one circle moves after showing again.",
+        "steps.0": "Create a canvas ref and a 2D context in onMounted in src/CanvasPanel.vue.",
+        "steps.1": "Draw a circle with RAF and add cancellation and ResizeObserver.disconnect to onUnmounted.",
+        "steps.2": "Show and remove it 5 times with v-if, recording active loop counts.",
+        "variables.0.name": "Show count",
+        "variables.0.baseline": "1 time",
+        "variables.0.change": "5 times",
+        "variables.0.expected": "Maintain 1 loop while visible and 0 after removal.",
+        "criteria.0": "tick logs stop after removal.",
+        "criteria.1": "Only one circle moves after showing again.",
+        "questions.0": "Does cleanup run if you switch to v-show?",
+        "questions.1": "Must all external resources be wrapped in reactive?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup",
+        "references.2.title": "Vue Composables and Lifetime Management"
+      }
+    },
+    "vue-step-23": {
+      "sourceHash": "18b772b95a9c0c202a89a3f80ca4354c47e63a49ae7f083e5ce5e2fb1d047788",
+      "values": {
+        "title": "Separating Frame Values from UI Values",
+        "prerequisites": "Unit 23 builds on the work and experiment records from Unit 22.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Update frequency",
+        "concepts.0.explanation": "Frame coordinates change every frame, while UI settings change infrequently. Displaying everything through refs causes unnecessary screen updates.",
+        "concepts.1.title": "Time-based movement",
+        "concepts.1.explanation": "Convert RAF timestamp differences into delta in seconds to calculate movement. Specify a policy for limiting large gaps after returning to a tab.",
+        "outcomes.0": "The circle stops moving at speed 0.",
+        "outcomes.1": "Changing speed does not increase the Canvas creation count.",
+        "steps.0": "In src/CanvasPanel.vue, keep angle as a local variable and receive only speed as a prop.",
+        "steps.1": "Move with angle += delta * speed and record the delta cap.",
+        "steps.2": "Enter speed 0, 1, and 2, and check that stopping and speed changes apply without recreating the renderer.",
+        "variables.0.name": "speed",
+        "variables.0.baseline": "1",
+        "variables.0.change": "2",
+        "variables.0.expected": "Rotation over the same duration is approximately doubled.",
+        "criteria.0": "The circle stops moving at speed 0.",
+        "criteria.1": "Changing speed does not increase the Canvas creation count.",
+        "questions.0": "Does changing local angle automatically appear in the template?",
+        "questions.1": "How does limiting delta on tab return differ from real elapsed time?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup",
+        "references.2.title": "Vue Composables and Lifetime Management"
+      }
+    },
+    "vue-step-24": {
+      "sourceHash": "e96cacf9f4022d2254ff76798d50048cb0e0e9fcb0d6ec01ec9532c04e5f0990",
+      "values": {
+        "title": "Shallow Reactivity and External Objects",
+        "prerequisites": "Unit 24 builds on the work and experiment records from Unit 23.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "shallowRef",
+        "concepts.0.explanation": "shallowRef tracks replacement of .value without deeply wrapping the inner object. Consider it when managing lifetimes of external objects such as Three.js objects.",
+        "concepts.1.title": "Explicit notification",
+        "concepts.1.explanation": "An internal mutation does not always require a Vue update. For an on-screen summary, notify through a separate ref or explicit replacement.",
+        "outcomes.0": "Consumers read the new handle when the renderer handle is replaced.",
+        "outcomes.1": "Template statistics do not update on every frame change.",
+        "steps.0": "Store an external renderer handle in a shallowRef in src/useRenderer.js.",
+        "steps.1": "Change the scene object's internal rotation in the loop, and display separate low-frequency statistics in the UI.",
+        "steps.2": "Compare object identity and UI update logs against a deep ref control.",
+        "variables.0.name": "Storage method",
+        "variables.0.baseline": "Deep ref",
+        "variables.0.change": "shallowRef",
+        "variables.0.expected": "Internal changes to the external object are excluded from Vue's deep tracking.",
+        "criteria.0": "Consumers read the new handle when the renderer handle is replaced.",
+        "criteria.1": "Template statistics do not update on every frame change.",
+        "questions.0": "What options update the UI after a shallowRef's internals change?",
+        "questions.1": "What do markRaw and shallowRef control differently?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup",
+        "references.2.title": "Vue Composables and Lifetime Management"
+      }
     }
   }
 }

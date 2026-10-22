@@ -327,6 +327,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [19. Reducing Allocations during Frames](labs/graphics/react-three-fiber/units/19/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-19/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 | [20. Drawing Repeated Objects with instancedMesh](labs/graphics/react-three-fiber/units/20/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-20/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 | [21. Instance Selection and Bounds](labs/graphics/react-three-fiber/units/21/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-21/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [22. demand Rendering](labs/graphics/react-three-fiber/units/22/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-22/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [23. demand and Ending Motion](labs/graphics/react-three-fiber/units/23/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-23/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [24. DPR and Shadow Cost](labs/graphics/react-three-fiber/units/24/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-24/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 
 ## GSAP
 

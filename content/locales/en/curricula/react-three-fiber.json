@@ -568,6 +568,87 @@
         "references.0.title": "R3F Pointer Events",
         "references.1.title": "R3F Scaling Performance and demand Rendering"
       }
+    },
+    "react-three-fiber-step-22": {
+      "sourceHash": "c15fb563904b318ebfcb0ca8ad5c334aa3cfd3bcb97fe17bb240405cdfca6f7f",
+      "values": {
+        "title": "demand Rendering",
+        "prerequisites": "Unit 22 continues using the deliverables and experiment records from Unit 21.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Render on Demand",
+        "concepts.0.explanation": "frameloop='demand' requests frames when changes occur. It can avoid continuous rendering in a stationary scene.",
+        "concepts.1.title": "Manual Invalidation",
+        "concepts.1.explanation": "React may not know when you change an object directly through a ref. Request the next frame with invalidate to reflect the change on screen.",
+        "outcomes.0": "No unnecessary continuous frames occur during stationary demand periods.",
+        "outcomes.1": "The angle change appears on screen after a button click.",
+        "steps.0": "Set Canvas frameloop to demand in src/DemandScene.jsx.",
+        "steps.1": "Change group.rotation.y and call invalidate in the button Effect.",
+        "steps.2": "Record frame counts for 5 stationary seconds and 5 button interactions in always and demand.",
+        "variables.0.name": "frameloop",
+        "variables.0.baseline": "always",
+        "variables.0.change": "demand",
+        "variables.0.expected": "Stationary frames decrease, while button changes should remain visible.",
+        "criteria.0": "No unnecessary continuous frames occur during stationary demand periods.",
+        "criteria.1": "The angle change appears on screen after a button click.",
+        "questions.0": "Is invalidate an immediate synchronous render command?",
+        "questions.1": "Do multiple invalidate calls guarantee the same number of frames?",
+        "references.0.title": "R3F Scaling Performance and demand Rendering",
+        "references.1.title": "R3F Hooks"
+      }
+    },
+    "react-three-fiber-step-23": {
+      "sourceHash": "f772b3ab3dbfc54242b4aebd0f5db1fb54ac1421e627e3bddd3bef601dc44bfb",
+      "values": {
+        "title": "demand and Ending Motion",
+        "prerequisites": "Unit 23 continues using the deliverables and experiment records from Unit 22.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Continuous Motion",
+        "concepts.0.explanation": "Even in demand mode, animation needs a next frame. Keep requesting invalidate until the target is reached, then stop.",
+        "concepts.1.title": "Convergence Condition",
+        "concepts.1.explanation": "Interpolation may not reach its target exactly. Snap to the target within a tolerance and end the loop.",
+        "outcomes.0": "The final angle error is at most 0.001.",
+        "outcomes.1": "Continuous frames do not accumulate for 3 seconds after convergence.",
+        "steps.0": "Calculate the error between target and current angles in src/DemandMotion.jsx.",
+        "steps.1": "After interpolation in useFrame, call invalidate if the error is at least 0.001.",
+        "steps.2": "Give a new target through a button, and record frame counts before and after motion ends.",
+        "variables.0.name": "Stopping Tolerance",
+        "variables.0.baseline": "0",
+        "variables.0.change": "0.001",
+        "variables.0.expected": "At a small error, snap exactly to the target and stop requesting frames.",
+        "criteria.0": "The final angle error is at most 0.001.",
+        "criteria.1": "Continuous frames do not accumulate for 3 seconds after convergence.",
+        "questions.0": "Who requests the first frame in demand mode?",
+        "questions.1": "Which benefit disappears if invalidate continues after the animation ends?",
+        "references.0.title": "R3F Scaling Performance and demand Rendering",
+        "references.1.title": "R3F Hooks"
+      }
+    },
+    "react-three-fiber-step-24": {
+      "sourceHash": "3de1fe92f15dece80a0380dc9edce11a1d9cd81416de79f664d58e7a1cc21684",
+      "values": {
+        "title": "DPR and Shadow Cost",
+        "prerequisites": "Unit 24 continues using the deliverables and experiment records from Unit 23.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Pixel Count",
+        "concepts.0.explanation": "A larger DPR increases rendered pixels in the same CSS area. Compare image quality and GPU cost with the same camera.",
+        "concepts.1.title": "Shadow Passes",
+        "concepts.1.explanation": "Shadows may require additional render work and a shadow map. Define where they are needed rather than enabling them on every object and light.",
+        "outcomes.0": "Record buffer dimensions with a fixed CSS size.",
+        "outcomes.1": "Compare DPR and shadow variables separately.",
+        "steps.0": "Add dpr choices of 1 and 2 in src/QualityScene.jsx.",
+        "steps.1": "Specify one shadow-casting light and the castShadow and receiveShadow targets.",
+        "steps.2": "Record separate 10-second experiments changing only DPR and only shadows.",
+        "variables.0.name": "DPR",
+        "variables.0.baseline": "1",
+        "variables.0.change": "2",
+        "variables.0.expected": "The buffer pixel count becomes approximately four times larger, so cost and quality may change.",
+        "criteria.0": "Record buffer dimensions with a fixed CSS size.",
+        "criteria.1": "Compare DPR and shadow variables separately.",
+        "questions.0": "Does doubling DPR necessarily halve FPS?",
+        "questions.1": "Are shadow map resolution and Canvas DPR the same setting?",
+        "references.0.title": "R3F Canvas Configuration",
+        "references.1.title": "R3F Scaling Performance and demand Rendering"
+      }
     }
   }
 }

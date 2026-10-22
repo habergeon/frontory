@@ -3149,6 +3149,36 @@
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
+      "id": "react-three-fiber-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "demand Rendering",
+      "goal": "No unnecessary continuous frames occur during stationary demand periods. The angle change appears on screen after a button click.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/22/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "demand and Ending Motion",
+      "goal": "The final angle error is at most 0.001. Continuous frames do not accumulate for 3 seconds after convergence.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/23/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "DPR and Shadow Cost",
+      "goal": "Record buffer dimensions with a fixed CSS size. Compare DPR and shadow variables separately.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/24/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

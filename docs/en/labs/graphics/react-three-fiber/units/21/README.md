@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Drawing Repeated Objects with instancedMesh](../20/README.md)
+[Previous: Drawing Repeated Objects with instancedMesh](../20/README.md) · [Next: demand Rendering](../22/README.md)
 
 ## Experiment notes — write your own
 

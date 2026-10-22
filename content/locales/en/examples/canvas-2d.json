@@ -112,5 +112,23 @@
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "canvas-2d-step-22": {
+    "sourceHash": "11cea7b8126d65fe41aed6847640d54854e89a096b12e8805f6ee63baff1f4b6",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "canvas-2d-step-23": {
+    "sourceHash": "25762b0cc3915142888a185d4ad0ae2195ce06a683dc43214eca31026cff0c23",
+    "values": {
+      "note": "PNG output is generated as a preview, and JSON is imported through an input field. File downloads may require an external environment depending on iframe policy."
+    }
+  },
+  "canvas-2d-step-24": {
+    "sourceHash": "e427ab7e2866f78377b1f6d26c612a69bfef5122a135505135d3d96d693abb2f",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
   }
 }

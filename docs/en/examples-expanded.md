@@ -237,6 +237,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [19. Reading Pixels and Applying Filters](labs/graphics/canvas-2d/units/19/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-19/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [20. Static Layers and Caching](labs/graphics/canvas-2d/units/20/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-20/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [21. High Resolution and Responsive Layout](labs/graphics/canvas-2d/units/21/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-21/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [22. Accessible Canvas Controls](labs/graphics/canvas-2d/units/22/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-22/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [23. Exporting and Source Data](labs/graphics/canvas-2d/units/23/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-23/example.js) — PNG output is generated as a preview, and JSON is imported through an input field. File downloads may require an external environment depending on iframe policy. |
+| [24. Particle State and Emission](labs/graphics/canvas-2d/units/24/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-24/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

@@ -560,6 +560,84 @@
         "references.0.title": "MDN devicePixelRatio",
         "references.1.title": "MDN CanvasRenderingContext2D API"
       }
+    },
+    "canvas-2d-step-22": {
+      "sourceHash": "07ca5116878af8880a85e28440dcf66ffd15ae2ac5ae113c615b5a6914a5e459",
+      "values": {
+        "title": "Accessible Canvas Controls",
+        "prerequisites": "Prerequisite concepts: Observation Target, Resolution Budget. Prepare the result files and observation records from Unit 21.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Alternative Representation",
+        "concepts.0.explanation": "Canvas pixels contain no shape semantics. Provide an HTML list and descriptions so selection targets and state can be read.",
+        "concepts.1.title": "Shared Commands",
+        "concepts.1.explanation": "When pointer and keyboard inputs call the same command functions, their results match. Update text state as well as visually highlighting selection.",
+        "outcomes.0": "Selection, movement, and deletion are possible using only the keyboard.",
+        "outcomes.1": "Convey selection state through text as well as color.",
+        "steps.0": "Prepare day-22.js and index.html in the external practice project. Add an HTML button list for shapes and an output for selection state.",
+        "steps.1": "Connect button clicks and arrow-key movement to selectItem and moveItem.",
+        "steps.2": "Save the output with the input condition pointer, then run again with keyboard only. Expected: The same id is selected, and the same movement commands are applied. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-22-notes.md.",
+        "variables.0.name": "Input Method",
+        "variables.0.baseline": "pointer",
+        "variables.0.change": "keyboard only",
+        "variables.0.expected": "The same id is selected, and the same movement commands are applied",
+        "criteria.0": "Selection, movement, and deletion are possible using only the keyboard.",
+        "criteria.1": "Convey selection state through text as well as color.",
+        "questions.0": "Does an aria-label on canvas alone describe individual shapes?",
+        "questions.1": "How frequently should repeated position announcements be delivered?",
+        "references.0.title": "MDN Canvas Tutorial"
+      }
+    },
+    "canvas-2d-step-23": {
+      "sourceHash": "2f7bca81a013796f8ef1691f039c6735cf9cbfcee3857ef919fd24a214a8c817",
+      "values": {
+        "title": "Exporting and Source Data",
+        "prerequisites": "Prerequisite concepts: Alternative Representation, Shared Commands. Prepare the result files and observation records from Unit 22.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Raster Export",
+        "concepts.0.explanation": "toBlob turns current pixels into an image. Save the source shape data separately if you want to edit it again.",
+        "concepts.1.title": "Validating Serialization",
+        "concepts.1.explanation": "JSON input may have missing or invalid coordinates. Validate it before converting it to a scene to avoid corrupting the display.",
+        "outcomes.0": "Distinguish the purposes of PNG and JSON.",
+        "outcomes.1": "Existing work remains after an invalid import.",
+        "steps.0": "Prepare day-23.js and index.html in the external practice project. Create a PNG download with toBlob and save the shape array as JSON.",
+        "steps.1": "Read a JSON file, validate id, finite coordinates, and color fields, then pass it to renderScene.",
+        "steps.2": "Save the output with the input condition valid coordinates, then run again with a string in x. Expected: Invalid data is rejected, and the existing scene is preserved. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-23-notes.md.",
+        "variables.0.name": "Input JSON",
+        "variables.0.baseline": "valid coordinates",
+        "variables.0.change": "a string in x",
+        "variables.0.expected": "Invalid data is rejected, and the existing scene is preserved",
+        "criteria.0": "Distinguish the purposes of PNG and JSON.",
+        "criteria.1": "Existing work remains after an invalid import.",
+        "questions.0": "Why consider toBlob rather than toDataURL?",
+        "questions.1": "How does a canvas tainted by an external image affect exporting?",
+        "references.0.title": "MDN Canvas Tutorial"
+      }
+    },
+    "canvas-2d-step-24": {
+      "sourceHash": "c348b24af5036a43ad6ad6c3484d3fb295281cd48d5c4e52f8d00050817888e7",
+      "values": {
+        "title": "Particle State and Emission",
+        "prerequisites": "Prerequisite concepts: Raster Export, Validating Serialization. Prepare the result files and observation records from Unit 23.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Particle Lifetime",
+        "concepts.0.explanation": "Particles are data with position, velocity, age, and lifetime. Remove expired items so the count does not keep growing.",
+        "concepts.1.title": "Emission Rate",
+        "concepts.1.explanation": "Connect the per-second generation rate to dt. Keeping fractional accumulation lets you maintain the average emission rate even at low frame rates.",
+        "outcomes.0": "Calculate the emission rate independently of frame rate.",
+        "outcomes.1": "No expired particles remain even after a long run.",
+        "steps.0": "Prepare day-24.js and index.html in the external practice project. Add rate*dt to emitAccumulator and add only the integer count to the particle array.",
+        "steps.1": "Remove particles when age exceeds lifetime, and display the live count in output.",
+        "steps.2": "Save the output with the input condition 20 particles/s, then run again with 80 particles/s. Expected: The average active particle count increases for the same lifetime. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-24-notes.md.",
+        "variables.0.name": "Emission Rate",
+        "variables.0.baseline": "20 particles/s",
+        "variables.0.change": "80 particles/s",
+        "variables.0.expected": "The average active particle count increases for the same lifetime",
+        "criteria.0": "Calculate the emission rate independently of frame rate.",
+        "criteria.1": "No expired particles remain even after a long run.",
+        "questions.0": "What problems arise if you discard fractional emissions?",
+        "questions.1": "Why does iteration direction matter when deleting particles?",
+        "references.0.title": "MDN Canvas Tutorial"
+      }
     }
   }
 }

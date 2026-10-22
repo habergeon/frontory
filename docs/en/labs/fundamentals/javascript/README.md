@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 22 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 25 published in English
 
 ## Series goal
 
@@ -55,6 +55,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 4 · Integrating and verifying the experiment log
 
 - [22. Exporting JSON with Blob](units/22/README.md) — Editable example
+- [23. File Import and Structure Validation](units/23/README.md) — Editable example
+- [24. State Transitions and Undo](units/24/README.md) — Editable example
+- [25. Storing Dates and Localized Display](units/25/README.md) — Editable example
 
 ## Capstone project and deliverables
 

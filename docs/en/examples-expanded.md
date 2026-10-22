@@ -28,6 +28,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [20. URL Filters and Back Navigation](labs/fundamentals/javascript/units/20/README.md) | Editable example | [Source code](../../src/labs/javascript-step-20/example.js) — This example runs a URLSearchParams encoding round trip. Test the actual address bar and back navigation with popstate on a separate HTTP page. |
 | [21. FormData and Domain Validation](labs/fundamentals/javascript/units/21/README.md) | Editable example | [Source code](../../src/labs/javascript-step-21/example.js) — Compare the editable inputs with actual browser execution results. |
 | [22. Exporting JSON with Blob](labs/fundamentals/javascript/units/22/README.md) | Editable example | [Source code](../../src/labs/javascript-step-22/example.js) — Compare the editable inputs with actual browser execution results. |
+| [23. File Import and Structure Validation](labs/fundamentals/javascript/units/23/README.md) | Editable example | [Source code](../../src/labs/javascript-step-23/example.js) — Compare the editable inputs with actual browser execution results. |
+| [24. State Transitions and Undo](labs/fundamentals/javascript/units/24/README.md) | Editable example | [Source code](../../src/labs/javascript-step-24/example.js) — Compare the editable inputs with actual browser execution results. |
+| [25. Storing Dates and Localized Display](labs/fundamentals/javascript/units/25/README.md) | Editable example | [Source code](../../src/labs/javascript-step-25/example.js) — Compare the editable inputs with actual browser execution results. |
 
 ## CSS
 

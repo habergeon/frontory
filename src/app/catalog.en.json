@@ -277,6 +277,36 @@
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
+      "id": "javascript-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "File Import and Structure Validation",
+      "goal": "Restore exactly the number of items in a valid file. The existing id array is unchanged after rejection.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/23/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
+      "id": "javascript-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "State Transitions and Undo",
+      "goal": "After 3 undo operations, id and completion values match the initial state. State is preserved for an unknown action.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/24/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
+      "id": "javascript-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Storing Dates and Localized Display",
+      "goal": "Record the two display values and the identical epoch value. Invalid dates are not saved.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/25/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
       "id": "css-step-04",
       "day": 4,
       "week": 1,

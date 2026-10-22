@@ -604,6 +604,84 @@
         "questions.1": "What happens if the URL is released too early?",
         "references.0.title": "MDN JavaScript Guide"
       }
+    },
+    "javascript-step-23": {
+      "sourceHash": "433711b6dd2199cd00303ef79ea876828a3aefd460aa31571ec703f8b1288892",
+      "values": {
+        "title": "File Import and Structure Validation",
+        "prerequisites": "The work and experiment records from Unit 22, “Exporting JSON with Blob”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Reading Files",
+        "concepts.0.explanation": "File.text returns a Promise for a string. A file extension alone cannot establish that its contents are valid.",
+        "concepts.1.title": "Atomic Updates",
+        "concepts.1.explanation": "Validate the entire input before replacing state. Prevent an error partway through from overwriting only part of the existing data.",
+        "outcomes.0": "Restore exactly the number of items in a valid file.",
+        "criteria.0": "Restore exactly the number of items in a valid file.",
+        "outcomes.1": "The existing id array is unchanged after rejection.",
+        "criteria.1": "The existing id array is unchanged after rejection.",
+        "steps.0": "In import.js, prepare a valid file and a file whose second title is a number.",
+        "steps.1": "Read the file, validate the array, id, and title, and apply only the entire array that passed validation.",
+        "steps.2": "Run with a valid file and a file whose second title is a number. Results to check: Restore exactly the number of items in a valid file. The existing id array is unchanged after rejection. Record expected and actual results separately.",
+        "variables.0.name": "Type of title",
+        "variables.0.baseline": "String",
+        "variables.0.change": "Number",
+        "variables.0.expected": "Hypothesis before running: The import will be rejected and the existing list preserved. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "Why is it risky to modify state during validation?",
+        "questions.1": "What policy should handle duplicate id values?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-step-24": {
+      "sourceHash": "141158ff5ef9b7cfd7b6ca17e0071871df2ce8c1e08454792a992bf2d2b23aac",
+      "values": {
+        "title": "State Transitions and Undo",
+        "prerequisites": "The work and experiment records from Unit 23, “File Import and Structure Validation”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Command Model",
+        "concepts.0.explanation": "Use an action to express why a change occurs. A reducer takes state and an action to calculate the next state.",
+        "concepts.1.title": "Preserving History",
+        "concepts.1.explanation": "Preserving previous states makes undo possible. Directly modifying nested objects also changes past history.",
+        "outcomes.0": "After 3 undo operations, id and completion values match the initial state.",
+        "criteria.0": "After 3 undo operations, id and completion values match the initial state.",
+        "outcomes.1": "State is preserved for an unknown action.",
+        "criteria.1": "State is preserved for an unknown action.",
+        "steps.0": "In reducer.js, prepare adding, completing, and deleting, followed by 3 undo operations.",
+        "steps.1": "Implement add, toggle, remove, and history, and connect the undo button.",
+        "steps.2": "Run by adding, completing, and deleting, followed by 3 undo operations. Results to check: After 3 undo operations, id and completion values match the initial state. State is preserved for an unknown action. Record expected and actual results separately.",
+        "variables.0.name": "Update",
+        "variables.0.baseline": "Modify an inner object",
+        "variables.0.change": "Create a new object",
+        "variables.0.expected": "Hypothesis before running: Past completion states will be preserved. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "Which objects are shared between the past and present?",
+        "questions.1": "How should redo history be handled after a new operation?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-step-25": {
+      "sourceHash": "c06390b5b3965995f35082a1153fb004f21fdd429a7b5249192f7d2306e790b9",
+      "values": {
+        "title": "Storing Dates and Localized Display",
+        "prerequisites": "The work and experiment records from Unit 24, “State Transitions and Undo”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Representing an Instant",
+        "concepts.0.explanation": "Date represents an instant in milliseconds. Distinguish information that needs only a date from an instant with a time zone.",
+        "concepts.1.title": "Localized Display",
+        "concepts.1.explanation": "Intl.DateTimeFormat displays values using the specified locale and time zone. Parsing a display string back as a storage format introduces ambiguity.",
+        "outcomes.0": "Record the two display values and the identical epoch value.",
+        "criteria.0": "Record the two display values and the identical epoch value.",
+        "outcomes.1": "Invalid dates are not saved.",
+        "criteria.1": "Invalid dates are not saved.",
+        "steps.0": "In date.js, prepare a valid ISO value and an invalid date.",
+        "steps.1": "Store a fixed ISO instant and display it with UTC and Asia/Seoul formatters.",
+        "steps.2": "Run with a valid ISO value and an invalid date. Results to check: Record the two display values and the identical epoch value. Invalid dates are not saved. Record expected and actual results separately.",
+        "variables.0.name": "Time zone",
+        "variables.0.baseline": "UTC",
+        "variables.0.change": "Asia/Seoul",
+        "variables.0.expected": "Hypothesis before running: The epoch value will be the same even when the displayed times differ. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "Does a study date necessarily need a time?",
+        "questions.1": "Why is parsing a localized display string again unreliable?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
     }
   }
 }

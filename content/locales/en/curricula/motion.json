@@ -659,6 +659,87 @@
         "references.0.title": "Motion React animation",
         "references.1.title": "Motion AnimatePresence"
       }
+    },
+    "motion-step-25": {
+      "sourceHash": "66af7b26b5b1de3f4ccb53fec782d74f7af744d94273f61ff431952a66c195e2",
+      "values": {
+        "title": "Reduced Motion Policy",
+        "prerequisites": "Prepare the results of the Scope and Asynchronous order exercises from Unit 24, “UseAnimate Cleanup”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Detecting preferences",
+        "concepts.0.explanation": "useReducedMotion reads the user's preference. MotionConfig also supports a reducedMotion policy.",
+        "concepts.1.title": "Preserving content",
+        "concepts.1.explanation": "Selection and order must remain even when movement is reduced. Adjust opacity changes too if they make content unreadable.",
+        "outcomes.0": "Learning outcome: Explain the role of Detecting preferences. Input case: Selection, sorting, and deletion.",
+        "outcomes.1": "Deliverable: A table of final data and content in default and reduced modes. Connect your rationale for handling Preserving content to the code.",
+        "steps.0": "In src/day-25.tsx of a separate exercise project, skip the x transition based on useReducedMotion and apply the same target state. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Selection, sorting, and deletion. Baseline: Default. Run under the baseline condition, then record observations and errors in notes/day-25.md.",
+        "steps.2": "Variable to change: Preference; new value: reduce. Run again with the same input path. Deliverable to save: A table of final data and content in default and reduced modes. Hypothesis to test: Functional results and readable content stay the same. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Preference",
+        "variables.0.baseline": "Default",
+        "variables.0.change": "reduce",
+        "variables.0.expected": "Functional results and readable content stay the same.",
+        "criteria.0": "Required deliverable: A table of final data and content in default and reduced modes. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Detecting preferences and Preserving content. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Detecting preferences affect in this exercise? Input case: Selection, sorting, and deletion.",
+        "questions.1": "Variable to change: Preference. Hypothesis to test: Functional results and readable content stay the same. Did the actual results agree with the hypothesis? Explain your evidence in terms of Preserving content.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    },
+    "motion-step-26": {
+      "sourceHash": "ba07d7d16d9e45e5c4dc95282375cda425c09a964e07dedf816fa213077539d5",
+      "values": {
+        "title": "Observing Renders and Performance",
+        "prerequisites": "Prepare the results of the Detecting preferences and Preserving content exercises from Unit 25, “Reduced Motion Policy”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Render cost",
+        "concepts.0.explanation": "React renders and animation frames are different work. Observe the two metrics separately.",
+        "concepts.1.title": "Measurement",
+        "concepts.1.explanation": "Increasing the card count can change layout cost. Do not automatically conclude that something is faster.",
+        "outcomes.0": "Learning outcome: Explain the role of Render cost. Input case: 20 and 100 cards.",
+        "outcomes.1": "Deliverable: A record of render counts and frame distributions. Connect your rationale for handling Measurement to the code.",
+        "steps.0": "In src/day-26.tsx of a separate exercise project, record reordering with Profiler and Performance. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: 20 and 100 cards. Baseline: 20 cards. Run under the baseline condition, then record observations and errors in notes/day-26.md.",
+        "steps.2": "Variable to change: Card count; new value: 100 cards. Run again with the same input path. Deliverable to save: A record of render counts and frame distributions. Hypothesis to test: Measured costs and bottlenecks may change. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Card count",
+        "variables.0.baseline": "20 cards",
+        "variables.0.change": "100 cards",
+        "variables.0.expected": "Measured costs and bottlenecks may change.",
+        "criteria.0": "Required deliverable: A record of render counts and frame distributions. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Render cost and Measurement. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Render cost affect in this exercise? Input case: 20 and 100 cards.",
+        "questions.1": "Variable to change: Card count. Hypothesis to test: Measured costs and bottlenecks may change. Did the actual results agree with the hypothesis? Explain your evidence in terms of Measurement.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    },
+    "motion-step-27": {
+      "sourceHash": "6913135092195fddf2f85ae0d3767ed2e1f4ac23f593aba4fab46b09c67abbbc",
+      "values": {
+        "title": "Remounting and State Restoration",
+        "prerequisites": "Prepare the results of the Render cost and Measurement exercises from Unit 26, “Observing Renders and Performance”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Lifetime",
+        "concepts.0.explanation": "Removing a component ends the lifetime of its subscriptions and motion. Decide separately where data is stored.",
+        "concepts.1.title": "Restoration",
+        "concepts.1.explanation": "Decide whether the previous order should remain when the component reappears. Do not overuse key changes as an arbitrary reset mechanism.",
+        "outcomes.0": "Learning outcome: Explain the role of Lifetime. Input case: Hiding and showing after reordering.",
+        "outcomes.1": "Deliverable: A table of order, subscriptions, and focus restoration. Connect your rationale for handling Restoration to the code.",
+        "steps.0": "In src/day-27.tsx of a separate exercise project, connect a board visibility toggle to order state above the board and remount 5 times. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Hiding and showing after reordering. Baseline: Inside the card. Run under the baseline condition, then record observations and errors in notes/day-27.md.",
+        "steps.2": "Variable to change: State location; new value: Above the board. Run again with the same input path. Deliverable to save: A table of order, subscriptions, and focus restoration. Hypothesis to test: The order is preserved after the board reappears. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "State location",
+        "variables.0.baseline": "Inside the card",
+        "variables.0.change": "Above the board",
+        "variables.0.expected": "The order is preserved after the board reappears.",
+        "criteria.0": "Required deliverable: A table of order, subscriptions, and focus restoration. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Lifetime and Restoration. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Lifetime affect in this exercise? Input case: Hiding and showing after reordering.",
+        "questions.1": "Variable to change: State location. Hypothesis to test: The order is preserved after the board reappears. Did the actual results agree with the hypothesis? Explain your evidence in terms of Restoration.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
     }
   }
 }

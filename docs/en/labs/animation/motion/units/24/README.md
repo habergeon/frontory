@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: In-View Animation](../23/README.md)
+[Previous: In-View Animation](../23/README.md) · [Next: Reduced Motion Policy](../25/README.md)
 
 ## Experiment notes — write your own
 

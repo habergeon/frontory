@@ -5200,6 +5200,36 @@
       "docPath": "/docs/en/labs/animation/motion/units/24/README.md",
       "seriesId": "motion",
       "exampleNote": "Interactive UseAnimate Cleanup experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Reduced Motion Policy",
+      "goal": "Learning outcome: Explain the role of Detecting preferences. Input case: Selection, sorting, and deletion. Deliverable: A table of final data and content in default and reduced modes. Connect your rationale for handling Preserving content to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/25/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Reduced Motion Policy experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Observing Renders and Performance",
+      "goal": "Learning outcome: Explain the role of Render cost. Input case: 20 and 100 cards. Deliverable: A record of render counts and frame distributions. Connect your rationale for handling Measurement to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/26/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Observing Renders and Performance experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Remounting and State Restoration",
+      "goal": "Learning outcome: Explain the role of Lifetime. Input case: Hiding and showing after reordering. Deliverable: A table of order, subscriptions, and focus restoration. Connect your rationale for handling Restoration to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/27/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Remounting and State Restoration experiment with cleanup of the resources used."
     }
   ]
 }

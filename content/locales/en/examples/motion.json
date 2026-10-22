@@ -130,5 +130,23 @@
     "values": {
       "note": "Interactive UseAnimate Cleanup experiment with cleanup of the resources used."
     }
+  },
+  "motion-step-25": {
+    "sourceHash": "15fff9fab3332e845cc02b0a3cd7dffc8de1572c5791da4d32fba6643623db93",
+    "values": {
+      "note": "Interactive Reduced Motion Policy experiment with cleanup of the resources used."
+    }
+  },
+  "motion-step-26": {
+    "sourceHash": "e8b915e48a42ec870c7bd42037e0b76e53cffd75b517ee2d51b2f74c9cf7ef9a",
+    "values": {
+      "note": "Interactive Observing Renders and Performance experiment with cleanup of the resources used."
+    }
+  },
+  "motion-step-27": {
+    "sourceHash": "7fef6cee9bd5851bb3cd1ae8380bbefb8439a2a52d3f3ff0460aeccf5595307f",
+    "values": {
+      "note": "Interactive Remounting and State Restoration experiment with cleanup of the resources used."
+    }
   }
 }

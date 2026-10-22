@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Animation · 4 stages · 28 units in the full series · 24 published in English
+Animation · 4 stages · 28 units in the full series · 27 published in English
 
 ## Series goal
 
@@ -57,6 +57,9 @@ Only published English units are linked below. The full series has 28 units.
 - [22. Scroll-Linked Animation](units/22/README.md) — Editable example
 - [23. In-View Animation](units/23/README.md) — Editable example
 - [24. UseAnimate Cleanup](units/24/README.md) — Editable example
+- [25. Reduced Motion Policy](units/25/README.md) — Editable example
+- [26. Observing Renders and Performance](units/26/README.md) — Editable example
+- [27. Remounting and State Restoration](units/27/README.md) — Editable example
 
 ## Capstone project and deliverables
 

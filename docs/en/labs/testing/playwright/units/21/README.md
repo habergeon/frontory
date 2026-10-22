@@ -76,7 +76,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Console and PageError](../20/README.md)
+[Previous: Console and PageError](../20/README.md) · [Next: Fixtures and Setup Responsibility](../22/README.md)
 
 ## Experiment notes — write your own
 

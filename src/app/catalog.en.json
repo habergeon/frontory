@@ -6334,6 +6334,36 @@
       "docPath": "/docs/en/labs/testing/playwright/units/21/README.md",
       "seriesId": "playwright",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Fixtures and Setup Responsibility",
+      "goal": "Learning outcome: explain the role of Fixture. Input cases: a successful test and a failure partway through. Deliverable: setup and cleanup logs and remaining files. Explain the rationale for handling Teardown, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/22/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Parallel Execution and Collisions",
+      "goal": "Learning outcome: explain the role of Parallelism. Input cases: two tests of the same backup flow. Deliverable: file paths and each test’s results. Explain the rationale for handling Independence, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/23/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Retries and Flakiness",
+      "goal": "Learning outcome: explain the role of Retry. Input cases: 10 repetitions of the same test. Deliverable: first-attempt and retry results and the rationale for the fix. Explain the rationale for handling Root cause, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/24/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     }
   ]
 }

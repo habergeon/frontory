@@ -15,6 +15,20 @@
       ]
     },
     {
+      "id": "html",
+      "title": "HTML",
+      "category": "fundamentals",
+      "priority": 5,
+      "prerequisites": "Browsers and file paths",
+      "docPath": "/docs/en/labs/fundamentals/html/README.md",
+      "stages": [
+        "Document Meaning and Content",
+        "Tables and Form Inputs",
+        "Native UI and Media",
+        "Accessibility Review and Card Integration"
+      ]
+    },
+    {
       "id": "css",
       "title": "CSS",
       "category": "fundamentals",
@@ -334,6 +348,35 @@
       "goal": "Record the four flows: add, filter, export, and restore. A single click adds only one item, and a failed import preserves existing state.",
       "docPath": "/docs/en/labs/fundamentals/javascript/03-project/README.md",
       "seriesId": "javascript"
+    },
+    {
+      "id": "html-01",
+      "day": 1,
+      "week": 1,
+      "title": "Meaning and Document Structure",
+      "goal": "The accessibility tree distinguishes the main region from the navigation region. Explain the heading levels and navigation/action elements in 3 regions.",
+      "docPath": "/docs/en/labs/fundamentals/html/01-foundations/README.md",
+      "seriesId": "html"
+    },
+    {
+      "id": "html-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Document Skeleton and Character Encoding",
+      "goal": "Check that document.compatMode is CSS1Compat. Check the Korean body text and tab title, and record the encoding value.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/02/README.md",
+      "seriesId": "html",
+      "exampleNote": "Change lang to en and check the accessibility language. The srcdoc string is already Unicode, so test actual HTTP charset misencoding with a separate file. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Metadata and Document Titles",
+      "goal": "The tab titles of the two pages are distinguishable. Record the screen width before and after applying the settings in mobile emulation.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/03/README.md",
+      "seriesId": "html",
+      "exampleNote": "Inspect the document title and meta. Check mobile viewport effects on a standalone page and an actual mobile device. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
       "id": "css-01",

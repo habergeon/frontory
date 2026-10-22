@@ -34,6 +34,13 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [26. Computational Cost and Splitting Work](labs/fundamentals/javascript/units/26/README.md) | Editable example | [Source code](../../src/labs/javascript-step-26/example.js) — Times are observations on the current device and do not establish performance superiority. Compare count and batch under the same conditions. |
 | [27. Listener Cleanup and Repeated Mounting](labs/fundamentals/javascript/units/27/README.md) | Editable example | [Source code](../../src/labs/javascript-step-27/example.js) — Compare the editable inputs with actual browser execution results. |
 
+## HTML
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Document Skeleton and Character Encoding](labs/fundamentals/html/units/02/README.md) | Editable example | [Source code](../../src/labs/html-step-02/example.js) — Change lang to en and check the accessibility language. The srcdoc string is already Unicode, so test actual HTTP charset misencoding with a separate file. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted. |
+| [3. Metadata and Document Titles](labs/fundamentals/html/units/03/README.md) | Editable example | [Source code](../../src/labs/html-step-03/example.js) — Inspect the document title and meta. Check mobile viewport effects on a standalone page and an actual mobile device. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted. |
+
 ## CSS
 
 | Learning unit | Execution mode | Source and supported scope |

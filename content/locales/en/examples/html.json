@@ -1,0 +1,14 @@
+{
+  "html-step-02": {
+    "sourceHash": "898ed085a0e75cee7e7657178f352463f7ee080f4074241da44a7e4717c114c1",
+    "values": {
+      "note": "Change lang to en and check the accessibility language. The srcdoc string is already Unicode, so test actual HTTP charset misencoding with a separate file. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "html-step-03": {
+    "sourceHash": "de1a77570110be897da2eb73313e62cd3ba5f93ccc804fe1991779eadad0e412",
+    "values": {
+      "note": "Inspect the document title and meta. Check mobile viewport effects on a standalone page and an actual mobile device. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  }
+}

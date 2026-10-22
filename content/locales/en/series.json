@@ -26,5 +26,12 @@
       "title": "GSAP",
       "prerequisites": "DOM, CSS transform, and time"
     }
+  },
+  "html": {
+    "sourceHash": "794a3a79cb3208e238e22d10e8a2b0c0dc23b36edbe7531d461228f517e09555",
+    "values": {
+      "title": "HTML",
+      "prerequisites": "Browsers and file paths"
+    }
   }
 }

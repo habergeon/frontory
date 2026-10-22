@@ -1,0 +1,93 @@
+{
+  "series": {
+    "sourceHash": "7b0a85fcdb3c53f9f9222aba0cc1c35945ca90a4b69dd3308cd0b0de133ef09c",
+    "values": {
+      "stages.0": "Document Meaning and Content",
+      "stages.1": "Tables and Form Inputs",
+      "stages.2": "Native UI and Media",
+      "stages.3": "Accessibility Review and Card Integration",
+      "goal": "Express document meaning and input contracts in markup, and check them with keyboard use, resource failure, and zoom.",
+      "capstone": "An accessible learning-card document with headings, a table of contents, image alternatives, and forms"
+    }
+  },
+  "units": {
+    "html-01": {
+      "sourceHash": "ab322648401f5e8c1fce8f146c7c108f67e1b8a473b00943bf01a87a6fceba24",
+      "values": {
+        "title": "Meaning and Document Structure",
+        "prerequisites": "Browsers and file paths",
+        "environment": "Frontory’s existing preview is a limited starting example, not a completed version of the whole assignment. Implement additional files and features yourself in a separate local project. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Heading Hierarchy",
+        "concepts.0.explanation": "Headings express relationships between titles in a text. Choosing levels to change font size obscures the structure.",
+        "concepts.1.title": "Region Semantics",
+        "concepts.1.explanation": "header·nav·main·article identify roles within a document. Use links for navigation and buttons for actions.",
+        "outcomes.0": "The accessibility tree distinguishes the main region from the navigation region.",
+        "outcomes.1": "Explain the heading levels and navigation/action elements in 3 regions.",
+        "criteria.0": "The accessibility tree distinguishes the main region from the navigation region.",
+        "criteria.1": "Explain the heading levels and navigation/action elements in 3 regions.",
+        "steps.0": "In index.html, prepare 1 page title and 3 topic regions.",
+        "steps.1": "Divide a learning page into meaningful regions and distinguish link navigation from button actions.",
+        "steps.2": "Run with 1 page title and 3 topic regions. Results to check: The accessibility tree distinguishes the main region from the navigation region. Explain the heading levels and navigation/action elements in 3 regions. Record expected and actual results separately.",
+        "questions.0": "Where should you change font size?",
+        "questions.1": "How do you distinguish independent content from a general grouping?",
+        "variables.0.name": "Heading Level",
+        "variables.0.baseline": "h2 under h1",
+        "variables.0.change": "h4 under h1",
+        "variables.0.expected": "Pre-run hypothesis: Heading relationships will appear irregular in the accessibility tree. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
+    },
+    "html-step-02": {
+      "sourceHash": "22ee6b8c589b1e8779fb59fe5374340e6f1500d5e19b91d70a769461e9db0b2a",
+      "values": {
+        "title": "Document Skeleton and Character Encoding",
+        "prerequisites": "The work and experiment records from Unit 1, “Meaning and Document Structure”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Document Mode",
+        "concepts.0.explanation": "DOCTYPE tells the browser to interpret the document in standards mode. Omitting it may trigger quirks mode.",
+        "concepts.1.title": "Characters and Language",
+        "concepts.1.explanation": "charset specifies how characters are interpreted, while lang identifies the document language. These attributes address different issues.",
+        "outcomes.0": "Check that document.compatMode is CSS1Compat.",
+        "outcomes.1": "Check the Korean body text and tab title, and record the encoding value.",
+        "criteria.0": "Check that document.compatMode is CSS1Compat.",
+        "criteria.1": "Check the Korean body text and tab title, and record the encoding value.",
+        "steps.0": "In document.html, prepare a Korean title and an English quotation.",
+        "steps.1": "Write DOCTYPE·html lang·head·body and a UTF-8 declaration, and display the title and Korean text.",
+        "steps.2": "Run with a Korean title and an English quotation. Results to check: Check that document.compatMode is CSS1Compat. Check the Korean body text and tab title, and record the encoding value. Record expected and actual results separately.",
+        "questions.0": "How do lang and charset differ?",
+        "questions.1": "Is DOCTYPE a regular HTML element?",
+        "variables.0.name": "lang",
+        "variables.0.baseline": "ko",
+        "variables.0.change": "en",
+        "variables.0.expected": "Pre-run hypothesis: Assistive technology may interpret the language differently. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
+    },
+    "html-step-03": {
+      "sourceHash": "1e800c63587527c024091c56ecda469f34eb29cadacacaaaf55bf1e4e34c4cc4",
+      "values": {
+        "title": "Metadata and Document Titles",
+        "prerequisites": "The work and experiment records from Unit 2, “Document Skeleton and Character Encoding”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Tab Title",
+        "concepts.0.explanation": "title identifies the document in tabs and browsing history. It need not match the visible h1, but their purposes should be related.",
+        "concepts.1.title": "Viewport",
+        "concepts.1.explanation": "The viewport meta tag affects mobile layout viewport settings. Settings that prevent zooming can interfere with reading.",
+        "outcomes.0": "The tab titles of the two pages are distinguishable.",
+        "outcomes.1": "Record the screen width before and after applying the settings in mobile emulation.",
+        "criteria.0": "The tab titles of the two pages are distinguishable.",
+        "criteria.1": "Record the screen width before and after applying the settings in mobile emulation.",
+        "steps.0": "In head.html, prepare two files: a list page and a detail page.",
+        "steps.1": "Write a unique title and description, and set width=device-width·initial-scale=1.",
+        "steps.2": "Run with two files: a list page and a detail page. Results to check: The tab titles of the two pages are distinguishable. Record the screen width before and after applying the settings in mobile emulation. Record expected and actual results separately.",
+        "questions.0": "Is description always used in search results?",
+        "questions.1": "Who is affected by settings that prevent zooming?",
+        "variables.0.name": "viewport",
+        "variables.0.baseline": "No declaration",
+        "variables.0.change": "Basic mobile declaration",
+        "variables.0.expected": "Pre-run hypothesis: The layout width on a narrow screen will be closer to the intended width. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
+    }
+  }
+}

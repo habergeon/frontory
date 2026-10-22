@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 12 published in English
+Graphics · 4 stages · 28 units in the full series · 15 published in English
 
 ## Series goal
 
@@ -39,9 +39,12 @@ Only published English units are linked below. The full series has 28 units.
 - [10. Clips and Masks](units/10/README.md) — Editable example
 - [11. Filter Regions and Cost](units/11/README.md) — Editable example
 - [12. Text and Data Labels](units/12/README.md) — Editable example
+- [13. Screen Coordinates to SVG](units/13/README.md) — Editable example
+- [14. DOM Interaction](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Accessibility and Data Maps
 
+- [15. Accessible Names and Descriptions](units/15/README.md) — Editable example
 
 ### Stage 4 · Export and Large-Scale Comparisons
 
@@ -56,3 +59,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 
 - [MDN SVG from Scratch Tutorial](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch)
 - [MDN SVG title Accessible Name](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/title)
+- [MDN getScreenCTM Coordinate Transformation](https://developer.mozilla.org/en-US/docs/Web/API/SVGGraphicsElement/getScreenCTM)

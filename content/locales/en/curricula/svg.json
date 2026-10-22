@@ -323,6 +323,85 @@
         "references.0.title": "MDN SVG from Scratch Tutorial",
         "references.1.title": "MDN SVG title Accessible Name"
       }
+    },
+    "svg-step-13": {
+      "sourceHash": "2bd446abe0ee0bf201d96572ba406b9c8da530bfd84e36c6f4cad6ecd884caff",
+      "values": {
+        "title": "Screen Coordinates to SVG",
+        "prerequisites": "Prerequisite concepts: Text placement, Alternative information. Prepare the result files and observation records from Unit 12.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Inverse matrix",
+        "concepts.0.explanation": "getScreenCTM is a matrix that maps SVG coordinates to the screen. Transforming with inverse maps the pointer position back into user coordinates.",
+        "concepts.1.title": "Composing transforms",
+        "concepts.1.explanation": "Both viewBox and group transforms affect coordinates. Using the selected group's matrix can reduce manual ratio calculations.",
+        "outcomes.0": "The crosshair follows the pointer even after zooming.",
+        "outcomes.1": "Handle hidden states where a matrix cannot be obtained.",
+        "steps.0": "Prepare day-13.js and index.html in an external practice project. Transform the pointer using DOMPoint(clientX,clientY).matrixTransform(group.getScreenCTM().inverse()).",
+        "steps.1": "Rotate and scale the group, and add a local-coordinate crosshair at the pointer position.",
+        "steps.2": "Save the output under the input condition 1, then run again with 2. Compare the hypothesis, \"The group's local displacement is half the screen displacement,\" against the display and logs, and record the actual result and the causes of any differences in day-13-notes.md.",
+        "variables.0.name": "Group scale",
+        "variables.0.baseline": "1",
+        "variables.0.change": "2",
+        "variables.0.expected": "The group's local displacement is half the screen displacement",
+        "criteria.0": "The crosshair follows the pointer even after zooming.",
+        "criteria.1": "Handle hidden states where a matrix cannot be obtained.",
+        "questions.0": "Which matrix should you use, the root SVG's or the inner g's?",
+        "questions.1": "Why does a simple boundingRect ratio calculation handle rotation poorly?",
+        "references.0.title": "MDN getScreenCTM Coordinate Transformation"
+      }
+    },
+    "svg-02": {
+      "sourceHash": "7b1e2ae87551d4bc1aac52d36a874fb4b7deff91a8e1d250c1de53e0ddba1b8e",
+      "values": {
+        "title": "DOM Interaction",
+        "prerequisites": "Prerequisite concepts: Inverse matrix, Composing transforms. Prepare the result files and observation records from Unit 13.",
+        "environment": "The existing built-in example provides only a starting point. It does not implement all the extended requirements. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Shared selection state",
+        "concepts.0.explanation": "SVG elements are event targets, but you must define what selection means. Pointer input and HTML buttons produce consistent results when they share the same id state.",
+        "concepts.1.title": "Keyboard path",
+        "concepts.1.explanation": "A visual path alone does not provide button behavior. A list of native buttons reliably connects keyboard interaction with accessible names.",
+        "outcomes.0": "Select the same item with keyboard and pointer.",
+        "outcomes.1": "Distinguish focus indicators from selection indicators.",
+        "steps.0": "Prepare day-14.js and index.html in an external practice project. Read the existing svg-02 example and build a node map with a corresponding list of HTML button elements.",
+        "steps.1": "Connect click and button activation to selectNode(id), and update the selection border, description, and aria-pressed.",
+        "steps.2": "Save the output under the input condition Click a node, then run again with Tab and Enter. Compare the hypothesis, \"The same node id and description are selected,\" against the display and logs, and record the actual result and the causes of any differences in day-14-notes.md.",
+        "variables.0.name": "Input path",
+        "variables.0.baseline": "Click a node",
+        "variables.0.change": "Tab and Enter",
+        "variables.0.expected": "The same node id and description are selected",
+        "criteria.0": "Select the same item with keyboard and pointer.",
+        "criteria.1": "Distinguish focus indicators from selection indicators.",
+        "questions.0": "Why can selection state and focus state differ?",
+        "questions.1": "Where should focus move when a node is deleted?",
+        "references.0.title": "MDN SVG title Accessible Name",
+        "references.1.title": "MDN getScreenCTM Coordinate Transformation"
+      }
+    },
+    "svg-step-15": {
+      "sourceHash": "f436c997b382daa07c6a76fa0e6cdf59e2b2b198d16af6505534cd928c8a419f",
+      "values": {
+        "title": "Accessible Names and Descriptions",
+        "prerequisites": "Prerequisite concepts: Shared selection state, Keyboard path. Prepare the result files and observation records from Unit 14.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Linking names",
+        "concepts.0.explanation": "title is used for a short SVG description. When linking it with aria-labelledby, the id must be exact for the name to be found.",
+        "concepts.1.title": "Distinguishing decoration",
+        "concepts.1.explanation": "Meaningless decoration can be excluded from assistive technology navigation. Hiding meaningful data graphics too removes information.",
+        "outcomes.0": "Verify the accessible name of an informational SVG.",
+        "outcomes.1": "Distinguish decoration from data graphics with reasons.",
+        "steps.0": "Prepare day-15.js and index.html in an external practice project. Link title,desc and aria-labelledby on an informational SVG.",
+        "steps.1": "Create decorative aria-hidden and informational versions of the same badge, and inspect the accessibility tree.",
+        "steps.2": "Save the output under the input condition Informational, with a name, then run again with Decorative aria-hidden. Compare the hypothesis, \"Decoration is excluded from navigation while the informational name remains,\" against the display and logs, and record the actual result and the causes of any differences in day-15-notes.md.",
+        "variables.0.name": "Graphic role",
+        "variables.0.baseline": "Informational, with a name",
+        "variables.0.change": "Decorative aria-hidden",
+        "variables.0.expected": "Decoration is excluded from navigation while the informational name remains",
+        "criteria.0": "Verify the accessible name of an informational SVG.",
+        "criteria.1": "Distinguish decoration from data graphics with reasons.",
+        "questions.0": "Can title alone adequately describe a complex chart?",
+        "questions.1": "How do duplicate ids affect name associations?",
+        "references.0.title": "MDN SVG title Accessible Name"
+      }
     }
   }
 }

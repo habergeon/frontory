@@ -2478,6 +2478,35 @@
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "svg-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Screen Coordinates to SVG",
+      "goal": "The crosshair follows the pointer even after zooming. Handle hidden states where a matrix cannot be obtained.",
+      "docPath": "/docs/en/labs/graphics/svg/units/13/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "svg-02",
+      "day": 14,
+      "week": 2,
+      "title": "DOM Interaction",
+      "goal": "Select the same item with keyboard and pointer. Distinguish focus indicators from selection indicators.",
+      "docPath": "/docs/en/labs/graphics/svg/02-experiments/README.md",
+      "seriesId": "svg"
+    },
+    {
+      "id": "svg-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Accessible Names and Descriptions",
+      "goal": "Verify the accessible name of an informational SVG. Distinguish decoration from data graphics with reasons.",
+      "docPath": "/docs/en/labs/graphics/svg/units/15/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

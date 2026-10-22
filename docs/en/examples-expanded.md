@@ -259,6 +259,8 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [10. Clips and Masks](labs/graphics/svg/units/10/README.md) | Editable example | [Source code](../../src/labs/svg-step-10/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 | [11. Filter Regions and Cost](labs/graphics/svg/units/11/README.md) | Editable example | [Source code](../../src/labs/svg-step-11/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 | [12. Text and Data Labels](labs/graphics/svg/units/12/README.md) | Editable example | [Source code](../../src/labs/svg-step-12/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [13. Screen Coordinates to SVG](labs/graphics/svg/units/13/README.md) | Editable example | [Source code](../../src/labs/svg-step-13/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [15. Accessible Names and Descriptions](labs/graphics/svg/units/15/README.md) | Editable example | [Source code](../../src/labs/svg-step-15/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

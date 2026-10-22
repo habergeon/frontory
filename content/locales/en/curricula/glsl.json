@@ -88,6 +88,84 @@
         "questions.1": "What improves when large world coordinates are moved to a camera-relative frame?",
         "references.0.title": "GLSL ES 3.00 Specification"
       }
+    },
+    "glsl-step-04": {
+      "sourceHash": "c2e42132c4e4ff78e878b6c019f48658e06a80e6536937cb8da5d6de09922322",
+      "values": {
+        "title": "Attributes and Interpolation",
+        "prerequisites": "Continue using the output and records from Unit 3. Before experimenting with Attributes and Interpolation, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Vertex Inputs",
+        "concepts.0.explanation": "Attributes supply per-vertex values from buffers. Shader locations must match the size, stride, and offset in vertexAttribPointer.",
+        "concepts.1.title": "Interpolation",
+        "concepts.1.explanation": "Vertex outputs are interpolated across fragments inside a triangle. This data flow explains why intermediate colors absent from the vertices can appear.",
+        "outcomes.0": "Connect vertex data to shaders.",
+        "outcomes.1": "Explain values produced by interpolation.",
+        "steps.0": "Write three vertices with interleaved position and RGB data in attributes.js.",
+        "steps.1": "Connect layout(location=0/1) in with stride 20 and offsets 0/8.",
+        "steps.2": "Receive vertex out color as fragment in color, and observe the three corners and the center.",
+        "variables.0.name": "Vertex colors",
+        "variables.0.baseline": "all red",
+        "variables.0.change": "red, green, and blue",
+        "variables.0.expected": "Expect mixed colors inside the triangle.",
+        "criteria.0": "Create a byte-offset table for vertex attributes.",
+        "criteria.1": "Explain the expected colors at the three corners and the center.",
+        "questions.0": "How does flat interpolation change the center color?",
+        "questions.1": "Can varying types differ if their names match?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-05": {
+      "sourceHash": "a17c26f42256655e860cf67923b8c3b0bb6892f509d437ad0ded332d312e0e3e",
+      "values": {
+        "title": "Tracking Coordinate Spaces",
+        "prerequisites": "Continue using the output and records from Unit 4. Before experimenting with Tracking Coordinate Spaces, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Distinguishing Spaces",
+        "concepts.0.explanation": "Model, world, view, and clip coordinates express the same point relative to different frames. Operations on vectors from different spaces can produce plausible but incorrect results.",
+        "concepts.1.title": "Division",
+        "concepts.1.explanation": "gl_Position contains clip coordinates; perspective division happens at a later stage. Avoid incorrectly handling w when dividing early in the shader.",
+        "outcomes.0": "Distinguish coordinate spaces.",
+        "outcomes.1": "Trace the roles of transformation matrices.",
+        "steps.0": "Apply model, view, and projection matrices in order in spaces.glsl.",
+        "steps.1": "Print CPU coordinates in each space for the origin, an X-axis marker, and a point in front of the camera.",
+        "steps.2": "Disable one matrix at a time and relate screen movement to the table values.",
+        "variables.0.name": "model translation",
+        "variables.0.baseline": "x=0",
+        "variables.0.change": "x=1",
+        "variables.0.expected": "Expect world and clip positions to change while the original vertex data remains unchanged.",
+        "criteria.0": "Record coordinates in four spaces for the three markers.",
+        "criteria.1": "Change positions through uniform matrices without modifying the vertex array.",
+        "questions.0": "Why do direction and position vectors have different w values?",
+        "questions.1": "What problems arise when w approaches 0 in clip coordinates?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-06": {
+      "sourceHash": "9c5bee9537946056603cc9797a1d599679f42f5068c26aa310cb830c7e70b1b1",
+      "values": {
+        "title": "Looking Up and Updating Uniforms",
+        "prerequisites": "Continue using the output and records from Unit 5. Before experimenting with Looking Up and Updating Uniforms, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Shared Inputs",
+        "concepts.0.explanation": "A uniform is an input shared throughout one draw. Per-vertex values require another route, such as an attribute.",
+        "concepts.1.title": "Program Ownership",
+        "concepts.1.explanation": "A uniform location belongs to a specific linked program. Look up locations again after relinking the program.",
+        "outcomes.0": "Update inputs shared by a draw.",
+        "outcomes.1": "Manage the lifetime of uniform locations.",
+        "steps.0": "Group getUniformLocation, uniform1f, and uniform3fv calls in uniforms.js.",
+        "steps.1": "Connect sliders for uGain and uColor, and upload values before drawing.",
+        "steps.2": "Check the path that refreshes the location cache after relinking the program.",
+        "variables.0.name": "uGain",
+        "variables.0.baseline": "0.5",
+        "variables.0.change": "1.0",
+        "variables.0.expected": "Expect linear color output to double when other conditions stay the same.",
+        "criteria.0": "Both uniforms independently affect the display.",
+        "criteria.1": "Look up locations again after relinking and keep the inputs working.",
+        "questions.0": "Why is the location of an unused uniform null?",
+        "questions.1": "Why check which program is active before updating uniforms?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
     }
   }
 }

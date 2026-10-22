@@ -400,6 +400,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | --- | --- | --- |
 | [2. Scalar and Vector Types](labs/shader/glsl/units/02/README.md) | Editable example | [Source code](../../src/labs/glsl-step-02/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
 | [3. Precision and Numeric Range](labs/shader/glsl/units/03/README.md) | Editable example | [Source code](../../src/labs/glsl-step-03/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
+| [4. Attributes and Interpolation](labs/shader/glsl/units/04/README.md) | Editable example | [Source code](../../src/labs/glsl-step-04/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
+| [5. Tracking Coordinate Spaces](labs/shader/glsl/units/05/README.md) | Editable example | [Source code](../../src/labs/glsl-step-05/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
+| [6. Looking Up and Updating Uniforms](labs/shader/glsl/units/06/README.md) | Editable example | [Source code](../../src/labs/glsl-step-06/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
 
 ## WGSL
 

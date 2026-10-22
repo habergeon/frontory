@@ -3857,6 +3857,36 @@
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
+      "id": "glsl-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Attributes and Interpolation",
+      "goal": "Connect vertex data to shaders. Explain values produced by interpolation.",
+      "docPath": "/docs/en/labs/shader/glsl/units/04/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
+      "id": "glsl-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Tracking Coordinate Spaces",
+      "goal": "Distinguish coordinate spaces. Trace the roles of transformation matrices.",
+      "docPath": "/docs/en/labs/shader/glsl/units/05/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
+      "id": "glsl-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Looking Up and Updating Uniforms",
+      "goal": "Update inputs shared by a draw. Manage the lifetime of uniform locations.",
+      "docPath": "/docs/en/labs/shader/glsl/units/06/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
       "id": "wgsl-01",
       "day": 1,
       "week": 1,

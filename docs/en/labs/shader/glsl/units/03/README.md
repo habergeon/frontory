@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Scalar and Vector Types](../02/README.md)
+[Previous: Scalar and Vector Types](../02/README.md) · [Next: Attributes and Interpolation](../04/README.md)
 
 ## Experiment notes — write your own
 

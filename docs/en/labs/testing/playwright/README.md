@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Testing · 4 stages · 28 units in the full series · 24 published in English
+Testing · 4 stages · 28 units in the full series · 27 published in English
 
 ## Series goal
 
@@ -57,6 +57,9 @@ Only published English units are linked below. The full series has 28 units.
 - [22. Fixtures and Setup Responsibility](units/22/README.md) — External example · preview instructions
 - [23. Parallel Execution and Collisions](units/23/README.md) — External example · preview instructions
 - [24. Retries and Flakiness](units/24/README.md) — External example · preview instructions
+- [25. Creating a Visual Baseline](units/25/README.md) — External example · preview instructions
+- [26. Allowed Differences and Review](units/26/README.md) — External example · preview instructions
+- [27. CI Execution and Artifacts](units/27/README.md) — External example · preview instructions
 
 ## Capstone project and deliverables
 

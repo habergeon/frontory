@@ -76,7 +76,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Parallel Execution and Collisions](../23/README.md)
+[Previous: Parallel Execution and Collisions](../23/README.md) · [Next: Creating a Visual Baseline](../25/README.md)
 
 ## Experiment notes — write your own
 

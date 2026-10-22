@@ -1,5 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { readEnglishContent } from './locale-content.mjs'
+import { headings, messages } from '../src/i18n/messages.ts'
 
 const root = path.resolve(import.meta.dirname, '..')
 const read = file => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'))
@@ -95,14 +97,103 @@ for (const series of catalog.series.filter(item => item.id !== 'webgl')) {
   exampleIndex.push('')
 }
 outputs.set(exampleIndexPath.slice(1), exampleIndex.join('\n'))
+const english = readEnglishContent()
+const englishPath = docPath => docPath.replace('/docs/', '/docs/en/')
+const englishCatalog = {
+  series: english.catalog.series.map(series => ({ ...series, docPath: englishPath(series.docPath) })),
+  units: english.catalog.units.map(unit => ({ ...unit, docPath: englishPath(unit.docPath),
+    ...(english.exampleNotes[unit.id] ? { exampleNote: english.exampleNotes[unit.id] } : {}) })),
+}
+const englishExampleLabel = id => !hasExample(id) ? 'Document-based implementation'
+  : metadata[id]?.mode === 'external' ? 'External example · preview instructions' : 'Editable example'
+const englishHeadings = headings.en
+// Translated explanations retain the source document's relative link destinations.
+const englishExplanation = (text, docPath) => text.split(/(```[\s\S]*?```)/g).map((part, index) => index % 2 ? part
+  : part.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, title, href) => {
+    if (/^(?:[a-z]+:|\/|#)/i.test(href)) return match
+    const originalPath = docPath.replace('/docs/en/', '/docs/')
+    const target = path.posix.resolve(path.posix.dirname(originalPath), href)
+    return link(docPath, target, title)
+  })).join('')
+for (const series of englishCatalog.series.filter(series => series.id !== 'webgl')) {
+  const content = english.curricula[series.id]
+  const units = englishCatalog.units.filter(unit => unit.seriesId === series.id)
+  const categoryKey = 'category' + series.category[0].toUpperCase() + series.category.slice(1)
+  const intro = [
+    `# ${series.title}`, '', link(series.docPath, '/docs/en/labs/README.md', 'Frontory technology map'), '',
+    `${messages.en[categoryKey]} · 4 stages · 28 units in the full series · ${units.length} published in English`, '',
+    '## Series goal', '', content.goal, '', '## Prerequisites', '', series.prerequisites, '',
+    '## Practice approach and scope', '',
+    'Learning units are not calendar days. Read the explanation and tasks, check the completion criteria, then move on. Use each example as a starting point: change variables and observe the results. Built-in examples and tasks requiring a separate environment are identified separately. Opening an example does not complete a unit.', '',
+    'Existing unit IDs and notes are preserved. The original 01, 02, and 03 examples occupy positions 1, 14, and 28 in the expanded sequence, so the number in the address may differ from the learning order.', '',
+    'Only published English units are linked below. The full series has 28 units.', '',
+    '## Learning path', '',
+  ]
+  content.stages.forEach((stage, index) => {
+    intro.push(`### Stage ${index + 1} · ${stage}`, '', ...units.filter(unit => unit.week === index + 1)
+      .map(unit => `- ${link(series.docPath, unit.docPath, `${String(unit.day).padStart(2, '0')}. ${unit.title}`)} — ${englishExampleLabel(unit.id)}`), '')
+  })
+  intro.push('## Capstone project and deliverables', '', content.capstone, '',
+    'Keep the implementation, run instructions, baseline and changed conditions, failure cases, and recovery steps together. Do not report unmeasured performance or tests you have not run as results.', '',
+    '## Official references', '', ...[...new Map(content.units.flatMap(unit => unit.references)
+      .map(reference => [reference.url, reference])).values()].map(reference => `- [${reference.title}](${reference.url})`), '')
+  outputs.set(series.docPath.slice(1), intro.join('\n'))
+  for (const unit of content.units) {
+    const entry = units.find(item => item.id === unit.id)
+    const previous = units.find(item => item.day === unit.day - 1)
+    const next = units.find(item => item.day === unit.day + 1)
+    const lines = [
+      `# ${series.title} · ${String(unit.day).padStart(2, '0')} ${unit.title}`, '',
+      link(entry.docPath, series.docPath, 'Series contents') + ' · ' + link(entry.docPath, '/docs/en/labs/README.md', 'Technology map'), '',
+      `Stage: ${content.stages[entry.week - 1]} · ${englishExampleLabel(unit.id)} · Storage ID: \`${unit.id}\``, '',
+      '## Goals and learning outcomes', '', bullets(unit.outcomes), '',
+      '## Prerequisites', '', unit.prerequisites, '',
+      '## Key concepts and explanations', '', ...unit.concepts.flatMap(concept => [`### ${concept.title}`, '', englishExplanation(concept.explanation, entry.docPath), '']),
+      '## Practice setup', '', unit.environment, '',
+      hasExample(unit.id) ? 'The linked example is a starting point. It does not implement every task below. Complete work beyond its supported scope in a separate project.'
+        : 'This unit has no built-in runnable example. Create separate practice files following the steps below and record the results in your notes.', '',
+      '## ' + englishHeadings.tasks, '', numbered(unit.steps), '',
+      '## ' + englishHeadings.variables, '', '| Variable | Baseline | Change | Expected change / hypothesis |', '| --- | --- | --- | --- |',
+      ...unit.variables.map(variable => `| ${[variable.name, variable.baseline, variable.change, variable.expected].map(table).join(' | ')} |`), '',
+      'Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.', '',
+      '## ' + englishHeadings.criteria, '', unit.criteria.map(criterion => '- [ ] ' + criterion).join('\n'), '',
+      '## Self-check', '', numbered(unit.questions), '',
+      '## Official references', '', ...unit.references.map(reference => `- [${reference.title}](${reference.url})`), '',
+      '## Linked example and execution scope', '',
+      hasExample(unit.id) ? `${link(entry.docPath, '/src/labs/' + unit.id + '/example.js', 'Example source')} · ${link(entry.docPath, '/docs/en/examples.md', 'Runtime environments and limits')}` : 'Documents and notes are provided.', '',
+      ...(entry.exampleNote ? [entry.exampleNote, '', ...(metadata[unit.id]?.files ?? []).map(file => '- ' + link(entry.docPath, '/' + file, path.posix.basename(file))), ''] : []),
+      'Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.', '',
+      '## Next learning', '', [previous && link(entry.docPath, previous.docPath, 'Previous: ' + previous.title),
+        next && link(entry.docPath, next.docPath, 'Next: ' + next.title)].filter(Boolean).join(' · '), '',
+      '## ' + englishHeadings.notes + ' — write your own', '',
+      ...['goal', 'concepts', 'prediction', 'result', 'learning', 'questions'].flatMap(key => ['### ' + englishHeadings[key], '']),
+    ]
+    outputs.set(entry.docPath.slice(1), lines.join('\n'))
+  }
+}
+outputs.set('src/app/catalog.en.json', JSON.stringify(englishCatalog, null, 2) + '\n')
+const englishExampleIndexPath = '/docs/en/examples-expanded.md'
+const englishExampleIndex = ['# Expanded learning unit examples', '',
+  'Check the scope of each example. Browser previews and files run in a separate environment may serve different purposes. A linked example does not mean every task is implemented or that the unit is complete.', '',
+  link(englishExampleIndexPath, '/docs/en/examples.md', 'Original examples and shared execution guide'), '']
+for (const series of englishCatalog.series.filter(item => item.id !== 'webgl')) {
+  englishExampleIndex.push('## ' + series.title, '', '| Learning unit | Execution mode | Source and supported scope |', '| --- | --- | --- |')
+  for (const unit of englishCatalog.units.filter(item => item.seriesId === series.id && !baseline.units.some(old => old.id === item.id))) {
+    const source = hasExample(unit.id) ? link(englishExampleIndexPath, '/src/labs/' + unit.id + '/example.js', 'Source code') : 'No built-in example'
+    englishExampleIndex.push(`| ${link(englishExampleIndexPath, unit.docPath, unit.day + '. ' + unit.title)} | ${englishExampleLabel(unit.id)} | ${source} — ${table(unit.exampleNote ?? 'Document-based practice')} |`)
+  }
+  englishExampleIndex.push('')
+}
+outputs.set(englishExampleIndexPath.slice(1), englishExampleIndex.join('\n'))
 const check = process.argv.includes('--check')
 for (const [file, text] of outputs) {
   const target = path.join(root, file)
+  const current = fs.existsSync(target) ? fs.readFileSync(target, 'utf8').replaceAll('\r\n', '\n') : null
   if (check) {
-    if (!fs.existsSync(target) || fs.readFileSync(target, 'utf8').replaceAll('\r\n', '\n') !== text) throw Error('Generated content is stale: ' + file)
-  } else {
+    if (current !== text) throw Error('Generated content is stale: ' + file)
+  } else if (current !== text) {
     fs.mkdirSync(path.dirname(target), { recursive: true })
     fs.writeFileSync(target, text)
   }
 }
-console.log(`${check ? 'Verified' : 'Generated'} ${outputs.size} files; 23 series, 644 units, 94 retained example IDs.`)
+console.log(`${check ? 'Verified' : 'Generated'} ${outputs.size} files; 23 series, 644 Korean units, ${englishCatalog.units.length} English units, 94 retained example IDs.`)

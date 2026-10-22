@@ -10,14 +10,14 @@ There are currently **23 series / 644 units**. Every series has 4 stages and 28 
 
 ## Languages and web fundamentals
 
-- [JavaScript (Korean)](../../labs/fundamentals/javascript/README.md) — ★★★★★ / 28 units / Prerequisites: HTML elements and events
+- [JavaScript](fundamentals/javascript/README.md) — ★★★★★ / 28 units / Prerequisites: HTML elements and events
 - [TypeScript (Korean)](../../labs/fundamentals/typescript/README.md) — ★★★★★ / 28 units / Prerequisites: JavaScript objects, functions, and modules
 - [HTML (Korean)](../../labs/fundamentals/html/README.md) — ★★★★★ / 28 units / Prerequisites: browsers and file paths
-- [CSS (Korean)](../../labs/fundamentals/css/README.md) — ★★★★★ / 28 units / Prerequisites: HTML structure
+- [CSS](fundamentals/css/README.md) — ★★★★★ / 28 units / Prerequisites: HTML structure
 
 ## UI frameworks
 
-- [React (Korean)](../../labs/frameworks/react/README.md) — ★★★★★ / 28 units / Prerequisites: JavaScript, TypeScript, DOM events
+- [React](frameworks/react/README.md) — ★★★★★ / 28 units / Prerequisites: JavaScript, TypeScript, DOM events
 - [Vue (Korean)](../../labs/frameworks/vue/README.md) — ★★★★ / 28 units / Prerequisites: JavaScript, HTML, state concepts to compare with React
 - [Svelte (Korean)](../../labs/frameworks/svelte/README.md) — ★★★ / 28 units / Prerequisites: JavaScript, HTML, CSS
 
@@ -39,7 +39,7 @@ There are currently **23 series / 644 units**. Every series has 4 stages and 28 
 
 ## Animation
 
-- [GSAP (Korean)](../../labs/animation/gsap/README.md) — ★★★★ / 28 units / Prerequisites: DOM, CSS transform, time
+- [GSAP](animation/gsap/README.md) — ★★★★ / 28 units / Prerequisites: DOM, CSS transform, time
 - [Motion (Korean)](../../labs/animation/motion/README.md) — ★★★★ / 28 units / Prerequisites: React state, CSS transform
 
 ## Engineering

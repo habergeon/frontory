@@ -1,4 +1,6 @@
 import catalog from './catalog.json'
+import englishCatalog from './catalog.en.json'
+import type { Locale } from '../i18n/locale'
 import previousCatalog from '../../content/catalog-v2.json'
 
 export interface Unit {
@@ -66,3 +68,22 @@ export const categories: Record<string, string> = {
 export const documents = import.meta.glob<string>('/docs/**/*.md', {
   query: '?raw', import: 'default', eager: true,
 })
+
+const localizedCatalogs = {
+  ko: { series, units },
+  en: {
+    series: englishCatalog.series,
+    units: englishCatalog.units.map<Unit>(entry => {
+      const common = units.find(unit => unit.id === entry.id)!
+      return { ...entry, source: common.source, exampleMode: common.exampleMode, exampleFiles: common.exampleFiles }
+    }),
+  },
+}
+
+export function getCatalog(locale: Locale): { series: typeof series; units: Unit[] } {
+  return localizedCatalogs[locale]
+}
+
+export function getLocalizedUnit(locale: Locale, id: string): Unit | null {
+  return getCatalog(locale).units.find(unit => unit.id === id) ?? null
+}

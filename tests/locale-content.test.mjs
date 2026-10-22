@@ -366,3 +366,31 @@ test('English service and workspace guides retain contact, approval status and b
   assert.match(examples, /1 MiB and 512 splats/)
   assert.match(examples, /does not mean E2E tests have passed/)
 })
+
+test('reader validates required example notes against whole metadata and only translates note', t => {
+  const { root, write } = fixture(t)
+  const metadata = { mode: 'external', note: '별도 실행', files: ['src/labs/example/test.mjs'] }
+  const translated = record(metadata, { note: 'Run separately.' })
+  write('content/examples/javascript.json', { [unit.id]: metadata })
+  assert.throws(() => readEnglishContent({ root }), /example|note|ENOENT/i)
+  write('content/locales/en/examples/javascript.json', { [unit.id]: translated })
+  assert.deepEqual(readEnglishContent({ root }).exampleNotes, { [unit.id]: 'Run separately.' })
+  write('content/examples/javascript.json', { [unit.id]: { ...metadata, mode: 'browser' } })
+  assert.throws(() => readEnglishContent({ root }), /hash/i)
+  write('content/examples/javascript.json', { [unit.id]: metadata })
+  for (const invalid of [
+    { ...translated, sourceHash: sourceHash(metadata.note) },
+    { ...translated, values: { note: 'Run.', mode: 'browser' } },
+    { ...translated, values: {} },
+    { ...translated, values: { note: ' ' } },
+    { ...translated, extra: true },
+  ]) {
+    write('content/locales/en/examples/javascript.json', { [unit.id]: invalid })
+    assert.throws(() => readEnglishContent({ root }), /hash|key|string/i)
+  }
+  write('content/locales/en/examples/javascript.json', { [unit.id]: translated, unknown: translated })
+  assert.throws(() => readEnglishContent({ root }), /key/i)
+  write('content/locales/en/examples/javascript.json', { [unit.id]: translated })
+  write('content/locales/en/examples/other.json', {})
+  assert.throws(() => readEnglishContent({ root }), /file/i)
+})

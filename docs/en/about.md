@@ -12,10 +12,10 @@ Each unit has goals, concepts, exercises, variables to observe, and completion c
 
 These four documents explain example behavior and distinguish values verified during execution from expected values for further experiments.
 
-- [JavaScript: string input and number conversion (Korean)](../labs/fundamentals/javascript/units/02/README.md) — Explore why an empty string should not be accepted as valid input even though it converts to 0.
-- [CSS: the box model and measured size (Korean)](../labs/fundamentals/css/units/04/README.md) — Calculate and compare why an element with a width of 200px measures 244px.
-- [React: events and state snapshots (Korean)](../labs/frameworks/react/units/03/README.md) — Check why updating state three times in the same click can produce either 1 or 3.
-- [GSAP: starting and target values (Korean)](../labs/animation/gsap/units/02/README.md) — Observe the movement ranges of to, from, and fromTo separately from styles immediately after creation.
+- [JavaScript: string input and number conversion](labs/fundamentals/javascript/units/02/README.md) — Explore why an empty string should not be accepted as valid input even though it converts to 0.
+- [CSS: the box model and measured size](labs/fundamentals/css/units/04/README.md) — Calculate and compare why an element with a width of 200px measures 244px.
+- [React: events and state snapshots](labs/frameworks/react/units/03/README.md) — Check why updating state three times in the same click can produce either 1 or 3.
+- [GSAP: starting and target values](labs/animation/gsap/units/02/README.md) — Observe the movement ranges of to, from, and fromTo separately from styles immediately after creation.
 
 ## Documentation and verification scope
 

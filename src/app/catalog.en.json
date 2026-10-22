@@ -1,0 +1,102 @@
+{
+  "series": [
+    {
+      "id": "javascript",
+      "title": "JavaScript",
+      "category": "fundamentals",
+      "priority": 5,
+      "prerequisites": "HTML elements and events",
+      "docPath": "/docs/en/labs/fundamentals/javascript/README.md",
+      "stages": [
+        "Values and calculations",
+        "DOM and asynchronous operations",
+        "Modules and data boundaries",
+        "Integrating and verifying the experiment log"
+      ]
+    },
+    {
+      "id": "css",
+      "title": "CSS",
+      "category": "fundamentals",
+      "priority": 5,
+      "prerequisites": "HTML structure",
+      "docPath": "/docs/en/labs/fundamentals/css/README.md",
+      "stages": [
+        "Cascade and size calculations",
+        "Flex, Grid, and responsive layout",
+        "State, positioning, and accessibility",
+        "Motion, tokens, and rendering verification"
+      ]
+    },
+    {
+      "id": "react",
+      "title": "React",
+      "category": "frameworks",
+      "priority": 5,
+      "prerequisites": "JavaScript, TypeScript, and DOM events",
+      "docPath": "/docs/en/labs/frameworks/react/README.md",
+      "stages": [
+        "Components and state calculations",
+        "Shared state and external systems",
+        "Preserving notes and measuring renders",
+        "Performance verification and an integrated editor"
+      ]
+    },
+    {
+      "id": "gsap",
+      "title": "GSAP",
+      "category": "animation",
+      "priority": 4,
+      "prerequisites": "DOM, CSS transform, and time",
+      "docPath": "/docs/en/labs/animation/gsap/README.md",
+      "stages": [
+        "Tweens and the time model",
+        "Scrolling and lifecycle",
+        "Input and accessibility",
+        "Motion system verification"
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "javascript-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "String input and number conversion",
+      "goal": "Record the validation result and type of all four inputs. The saved count does not increase for whitespace or negative numbers.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/02/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare editable inputs with actual browser execution results."
+    },
+    {
+      "id": "css-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "The box model and measured dimensions",
+      "goal": "Record the actual widths of both cards. Distinguish the content, padding, border, and margin regions in the tools.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/04/README.md",
+      "seriesId": "css",
+      "exampleNote": "Change box-sizing to border-box and compare the measured widths of 244px and 200px. Document body/html selectors are scoped inside the Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "react-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Events and state snapshots",
+      "goal": "Display 3 after functional updates starting from 0. Record the results of the plain-value update control separately.",
+      "docPath": "/docs/en/labs/frameworks/react/units/03/README.md",
+      "seriesId": "react",
+      "exampleNote": "This experiment uses the actual React API. It uses createElement instead of JSX."
+    },
+    {
+      "id": "gsap-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Starting and target values",
+      "goal": "Learning outcome: explain the roles of from and to. Input case: a card initially at x=40. Output: a transform table immediately after creation and after completion. Connect your explanation of initial application to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/02/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This experiment explores starting and target values. You can manipulate it directly, and it cleans up the resources it uses."
+    }
+  ]
+}

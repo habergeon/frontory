@@ -1,6 +1,6 @@
 # Example guide by learning unit
 
-Original examples are linked to all 644 learning units. The table below lists the existing 94 examples; see the separate list for the [550 additional examples and their execution scope (Korean)](../examples-expanded.md). Existing 01, 02, and 03 storage IDs remain at positions 1, 14, and 28 in the expanded sequence (WebGL keeps its existing order).
+Original examples are linked to all 644 learning units. The table below lists the existing 94 examples; see the separate list for the [550 additional examples and their execution scope](examples-expanded.md). Existing 01, 02, and 03 storage IDs remain at positions 1, 14, and 28 in the expanded sequence (WebGL keeps its existing order).
 
 Editing the linked example's JS/TS code updates the actual preview. HTML, CSS, GLSL, and WGSL strings are handled by the relevant browser APIs, separately from Monaco JS/TS diagnostics. An example's availability does not mean that the exercise or the learner's study is complete.
 

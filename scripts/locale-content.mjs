@@ -85,7 +85,7 @@ export function readEnglishContent({ complete = false, root = defaultRoot } = {}
   const files = fs.existsSync(directory) ? fs.readdirSync(directory) : []
   const expectedFiles = seriesIds.filter(id => id !== 'webgl').map(id => `${id}.json`)
   for (const file of files) if (!expectedFiles.includes(file)) fail(`Unknown curriculum file: ${file}`)
-  const result = { catalog: { series: [], units: [] }, documents: new Map(), publishedUnitIds: [...ids], curricula: {} }
+  const result = { catalog: { series: [], units: [] }, documents: new Map(), publishedUnitIds: [...ids], curricula: {}, exampleNotes: {} }
   for (const sourceSeries of baseline.series.filter(series => seriesIds.includes(series.id))) {
     const metadata = { title: sourceSeries.title, prerequisites: sourceSeries.prerequisites }
     if (sourceSeries.id === 'webgl') metadata.stages = sourceSeries.stages
@@ -125,6 +125,32 @@ export function readEnglishContent({ complete = false, root = defaultRoot } = {}
       result.catalog.units.push({ ...entry, title: unit.title, goal: unit.outcomes.join(' ') })
     }
     result.curricula[series.id] = translated
+  }
+  const exampleDirectory = path.join(root, 'content/locales/en/examples')
+  const exampleSources = new Map(seriesIds.map(id => {
+    const file = `content/examples/${id}.json`
+    return [id, fs.existsSync(path.join(root, file)) ? read(file) : {}]
+  }))
+  const exampleSeriesIds = seriesIds.filter(id => ids.some(unitId =>
+    unitMap.get(unitId).seriesId === id && own(exampleSources.get(id), unitId)))
+  if (fs.existsSync(exampleDirectory)) {
+    for (const file of fs.readdirSync(exampleDirectory)) {
+      if (!exampleSeriesIds.some(id => file === `${id}.json`)) fail(`Unknown example file: ${file}`)
+    }
+  }
+  for (const seriesId of exampleSeriesIds) {
+    const sources = exampleSources.get(seriesId)
+    const requiredIds = ids.filter(id => unitMap.get(id).seriesId === seriesId && own(sources, id))
+    const records = read(`content/locales/en/examples/${seriesId}.json`)
+    keys(records, requiredIds, `examples.${seriesId}`)
+    for (const id of requiredIds) {
+      const record = records[id]
+      keys(record, ['sourceHash', 'values'], `examples.${id}`)
+      if (record.sourceHash !== sourceHash(sources[id])) fail(`Stale example source hash: ${id}`)
+      keys(record.values, ['note'], `examples.${id}.values`)
+      if (typeof record.values.note !== 'string' || !record.values.note.trim()) fail(`Expected nonempty note string: ${id}`)
+      result.exampleNotes[id] = record.values.note
+    }
   }
   const documentFile = path.join(root, 'content/locales/en/documents.json')
   const documents = fs.existsSync(documentFile) ? read('content/locales/en/documents.json') : {}

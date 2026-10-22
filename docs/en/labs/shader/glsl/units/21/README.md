@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Normals on Deformed Surfaces](../20/README.md)
+[Previous: Normals on Deformed Surfaces](../20/README.md) · [Next: Framebuffers and Screen Passes](../22/README.md)
 
 ## Experiment notes — write your own
 

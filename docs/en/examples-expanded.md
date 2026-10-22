@@ -417,6 +417,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [19. Specular Lighting and View Vectors](labs/shader/glsl/units/19/README.md) | Editable example | [Source code](../../src/labs/glsl-step-19/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
 | [20. Normals on Deformed Surfaces](labs/shader/glsl/units/20/README.md) | Editable example | [Source code](../../src/labs/glsl-step-20/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
 | [21. Alpha and Compositing State](labs/shader/glsl/units/21/README.md) | Editable example | [Source code](../../src/labs/glsl-step-21/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
+| [22. Framebuffers and Screen Passes](labs/shader/glsl/units/22/README.md) | Editable example | [Source code](../../src/labs/glsl-step-22/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
+| [23. Texel Size and Filters](labs/shader/glsl/units/23/README.md) | Editable example | [Source code](../../src/labs/glsl-step-23/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
+| [24. Pointer Coordinates and Input Smoothing](labs/shader/glsl/units/24/README.md) | Editable example | [Source code](../../src/labs/glsl-step-24/example.js) — Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. |
 
 ## WGSL
 

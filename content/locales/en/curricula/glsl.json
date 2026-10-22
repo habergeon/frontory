@@ -556,6 +556,84 @@
         "questions.1": "Can transparency errors be fixed by changing the shader alone?",
         "references.0.title": "GLSL ES 3.00 Specification"
       }
+    },
+    "glsl-step-22": {
+      "sourceHash": "0062f552b47164a46e4e2490741dcac4c49fab2c881fd53131498f2307ba80c7",
+      "values": {
+        "title": "Framebuffers and Screen Passes",
+        "prerequisites": "Continue using the output and records from Unit 21. Before experimenting with Framebuffers and Screen Passes, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Intermediate Output",
+        "concepts.0.explanation": "Rendering a scene to a framebuffer texture lets the next pass use that result as input. Avoid feedback from sampling an attachment while writing to it.",
+        "concepts.1.title": "Output Size",
+        "concepts.1.explanation": "Each pass's viewport must match its target texture size. Make this explicit especially when screen and intermediate texture sizes differ.",
+        "outcomes.0": "Build multiple passes.",
+        "outcomes.1": "Separate read and write targets.",
+        "steps.0": "Create a color texture and framebuffer in post.js, and check completeness.",
+        "steps.1": "Draw the scene to the intermediate framebuffer, then sample it on a full-screen triangle in the default framebuffer.",
+        "steps.2": "Halve the intermediate resolution and set each viewport separately.",
+        "variables.0.name": "Intermediate resolution",
+        "variables.0.baseline": "same as screen",
+        "variables.0.change": "half width and height",
+        "variables.0.expected": "Expect reduced detail in the postprocessing input and fewer pixels to process.",
+        "criteria.0": "checkFramebufferStatus confirms completeness.",
+        "criteria.1": "No pass reads from a texture that overlaps its write attachment.",
+        "questions.0": "What appears if the final pass viewport is not updated?",
+        "questions.1": "Why use a large triangle instead of a rectangle for a screen copy?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-23": {
+      "sourceHash": "b43e1c5ec480a78daf5c65736f60a616c179d8e58ed73e892178942d12658873",
+      "values": {
+        "title": "Texel Size and Filters",
+        "prerequisites": "Continue using the output and records from Unit 22. Before experimenting with Texel Size and Filters, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Neighbor Samples",
+        "concepts.0.explanation": "A one-pixel step in a screen filter is expressed as the reciprocal of the input texture size. Calculating offsets from the output resolution may change the filter radius.",
+        "concepts.1.title": "Kernel Sum",
+        "concepts.1.explanation": "Blur weights summing to 1 can preserve brightness for constant inputs. Boundary wrap modes also affect the final result.",
+        "outcomes.0": "Write texel-based filters.",
+        "outcomes.1": "Verify brightness preservation by the kernel.",
+        "steps.0": "Use uTexel=1.0/inputSize in blur.glsl to write a 3-tap horizontal filter.",
+        "steps.1": "Apply weights [0.25,0.5,0.25] to a constant gray texture input.",
+        "steps.2": "Add a vertical pass and compare the separable blur with the original.",
+        "variables.0.name": "Sample spacing",
+        "variables.0.baseline": "1 texel",
+        "variables.0.change": "3 texel",
+        "variables.0.expected": "Expect a wider blur radius and more mixing of fine patterns.",
+        "criteria.0": "Average brightness of the constant gray input is preserved within 1/255.",
+        "criteria.1": "The 1 texel offset calculation remains correct when input texture size changes.",
+        "questions.0": "What happens if the weights sum to more than 1?",
+        "questions.1": "What conditions allow a kernel to be used as a separable filter?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-24": {
+      "sourceHash": "66045d5d8a7dbab43fa8feb8f928913d9612f49f1644af00f741e485a667f098",
+      "values": {
+        "title": "Pointer Coordinates and Input Smoothing",
+        "prerequisites": "Continue using the output and records from Unit 23. Before experimenting with Pointer Coordinates and Input Smoothing, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Coordinate Conversion",
+        "concepts.0.explanation": "Pointer client coordinates differ from canvas-local UVs. Account for the bounding rect and Y direction when converting them to shader inputs.",
+        "concepts.1.title": "Time-Based Smoothing",
+        "concepts.1.explanation": "Interpolation that smoothly follows input must account for delta time. Fixed-ratio interpolation can change response speed with frame rate.",
+        "outcomes.0": "Convert input to shader coordinates.",
+        "outcomes.1": "Control response based on time.",
+        "steps.0": "Convert pointer coordinates to rect-relative 0..1 UVs in input.js.",
+        "steps.1": "Separate current and target values, and smooth them with the ratio 1-exp(-lambda*dt).",
+        "steps.2": "Display waves around uPointer and check resize, DPR changes, and keyboard alternatives.",
+        "variables.0.name": "Smoothing coefficient",
+        "variables.0.baseline": "lambda=4",
+        "variables.0.change": "lambda=16",
+        "variables.0.expected": "Expect the same final position with a faster response toward the target.",
+        "criteria.0": "Inputs at all four canvas corners correspond to the expected UVs.",
+        "criteria.1": "After a DPR change, the effect center stays at the same CSS location.",
+        "questions.0": "Why do unconverted client coordinates misalign on a scrolled page?",
+        "questions.1": "What alternative response do you provide for reduced-motion settings?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
     }
   }
 }

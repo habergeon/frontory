@@ -682,6 +682,84 @@
         "questions.1": "Why is parsing a localized display string again unreliable?",
         "references.0.title": "MDN JavaScript Guide"
       }
+    },
+    "javascript-step-26": {
+      "sourceHash": "b26a3e4179c1ecc98ba8178307a8e880ce361cf340d0fb327f22d613205f936a",
+      "values": {
+        "title": "Computational Cost and Splitting Work",
+        "prerequisites": "The work and experiment records from Unit 25, “Storing Dates and Localized Display”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Measurement Scope",
+        "concepts.0.explanation": "Use performance.now to measure elapsed time. Keep data size and execution conditions fixed to make comparisons.",
+        "concepts.1.title": "Input Responsiveness",
+        "concepts.1.explanation": "Long synchronous operations delay input on the main thread. Splitting work can affect total processing time and responsiveness differently.",
+        "outcomes.0": "Measure each of the two paths 3 times using the same data.",
+        "criteria.0": "Measure each of the two paths 3 times using the same data.",
+        "outcomes.1": "Record total time and input responsiveness as separate items.",
+        "criteria.1": "Record total time and input responsiveness as separate items.",
+        "steps.0": "In perf.js, prepare searching 10000 notes, running each path 3 times.",
+        "steps.1": "Split the search into synchronous processing and timer-based batches, and observe the button's responsiveness during processing.",
+        "steps.2": "Run searches over 10000 notes, with each path run 3 times. Results to check: Measure each of the two paths 3 times using the same data. Record total time and input responsiveness as separate items. Record expected and actual results separately.",
+        "variables.0.name": "Batch size",
+        "variables.0.baseline": "10000 items",
+        "variables.0.change": "500 items",
+        "variables.0.expected": "Hypothesis before running: There will be more opportunities to handle input, and total time may increase. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "What delays can be missed by looking only at the average?",
+        "questions.1": "How should input changes be reflected while work is split into batches?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-step-27": {
+      "sourceHash": "6b201a0e73446299847f24ca06269f9d072b68454143946496198041805a0841",
+      "values": {
+        "title": "Listener Cleanup and Repeated Mounting",
+        "prerequisites": "The work and experiment records from Unit 26, “Computational Cost and Splitting Work”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Resource Ownership",
+        "concepts.0.explanation": "Release resources created in mount in dispose. removeEventListener requires the same function reference.",
+        "concepts.1.title": "Idempotent Cleanup",
+        "concepts.1.explanation": "Repeated calls to dispose must have no side effects. Asynchronous callbacks that arrive after cleanup must also be blocked.",
+        "outcomes.0": "After 5 remounts, there is 1 processing log entry.",
+        "criteria.0": "After 5 remounts, there is 1 processing log entry.",
+        "outcomes.1": "Calling dispose twice causes no exceptions and leaves no timers.",
+        "criteria.1": "Calling dispose twice causes no exceptions and leaves no timers.",
+        "steps.0": "In lifecycle.js, prepare 5 mount/unmount cycles followed by a single click.",
+        "steps.1": "Have mount return dispose, and clean up all listeners, timers, and in-flight requests.",
+        "steps.2": "Run with 5 mount/unmount cycles followed by a single click. Results to check: After 5 remounts, there is 1 processing log entry. Calling dispose twice causes no exceptions and leaves no timers. Record expected and actual results separately.",
+        "variables.0.name": "Remounting",
+        "variables.0.baseline": "1 time",
+        "variables.0.change": "5 times",
+        "variables.0.expected": "Hypothesis before running: A single click will be handled 1 time. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "Does removing a node also remove all external listeners?",
+        "questions.1": "Where should responses for a disposed widget be blocked?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-03": {
+      "sourceHash": "6e1be0c69580a75ffb46b169be7f172a18ca737c7d0ddca9625994f2e0ed69a9",
+      "values": {
+        "title": "Modular Experiment Journal",
+        "prerequisites": "The work and experiment records from Unit 27, “Listener Cleanup and Repeated Mounting”",
+        "environment": "Frontory's existing preview is a limited starter example, not a complete solution to the assignment. Implement additional files and features yourself in a separate local project. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Combining Modules",
+        "concepts.0.explanation": "Separating state, storage, and the DOM lets you verify each boundary independently. main handles wiring and cleanup.",
+        "concepts.1.title": "Verifying Flows",
+        "concepts.1.explanation": "Successful individual features do not guarantee the full flow. Check everything from adding notes through export and restore using the same data.",
+        "outcomes.0": "Record the four flows: add, filter, export, and restore.",
+        "criteria.0": "Record the four flows: add, filter, export, and restore.",
+        "outcomes.1": "A single click adds only one item, and a failed import preserves existing state.",
+        "criteria.1": "A single click adds only one item, and a failed import preserves existing state.",
+        "steps.0": "In main.js, prepare 10 notes, 5 remounts, and an import of a corrupted file.",
+        "steps.1": "Connect note creation, filtering, JSON saving, and restore, then remove and reconnect the event handlers.",
+        "steps.2": "Run with 10 notes, 5 remounts, and an import of a corrupted file. Results to check: Record the four flows: add, filter, export, and restore. A single click adds only one item, and a failed import preserves existing state. Record expected and actual results separately.",
+        "variables.0.name": "Number of notes",
+        "variables.0.baseline": "3 items",
+        "variables.0.change": "100 items",
+        "variables.0.expected": "Hypothesis before running: Filter and restore results will match by id. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "Where do responsibility for storage failures and responsibility for rendering failures belong?",
+        "questions.1": "Which boundaries have not been verified?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
     }
   }
 }

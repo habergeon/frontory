@@ -307,6 +307,35 @@
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
+      "id": "javascript-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Computational Cost and Splitting Work",
+      "goal": "Measure each of the two paths 3 times using the same data. Record total time and input responsiveness as separate items.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/26/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Times are observations on the current device and do not establish performance superiority. Compare count and batch under the same conditions."
+    },
+    {
+      "id": "javascript-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Listener Cleanup and Repeated Mounting",
+      "goal": "After 5 remounts, there is 1 processing log entry. Calling dispose twice causes no exceptions and leaves no timers.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/27/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
+      "id": "javascript-03",
+      "day": 28,
+      "week": 4,
+      "title": "Modular Experiment Journal",
+      "goal": "Record the four flows: add, filter, export, and restore. A single click adds only one item, and a failed import preserves existing state.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/03-project/README.md",
+      "seriesId": "javascript"
+    },
+    {
       "id": "css-step-04",
       "day": 4,
       "week": 1,

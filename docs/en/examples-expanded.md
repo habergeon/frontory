@@ -31,6 +31,8 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [23. File Import and Structure Validation](labs/fundamentals/javascript/units/23/README.md) | Editable example | [Source code](../../src/labs/javascript-step-23/example.js) — Compare the editable inputs with actual browser execution results. |
 | [24. State Transitions and Undo](labs/fundamentals/javascript/units/24/README.md) | Editable example | [Source code](../../src/labs/javascript-step-24/example.js) — Compare the editable inputs with actual browser execution results. |
 | [25. Storing Dates and Localized Display](labs/fundamentals/javascript/units/25/README.md) | Editable example | [Source code](../../src/labs/javascript-step-25/example.js) — Compare the editable inputs with actual browser execution results. |
+| [26. Computational Cost and Splitting Work](labs/fundamentals/javascript/units/26/README.md) | Editable example | [Source code](../../src/labs/javascript-step-26/example.js) — Times are observations on the current device and do not establish performance superiority. Compare count and batch under the same conditions. |
+| [27. Listener Cleanup and Repeated Mounting](labs/fundamentals/javascript/units/27/README.md) | Editable example | [Source code](../../src/labs/javascript-step-27/example.js) — Compare the editable inputs with actual browser execution results. |
 
 ## CSS
 

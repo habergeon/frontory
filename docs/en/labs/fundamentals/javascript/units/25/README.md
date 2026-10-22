@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: State Transitions and Undo](../24/README.md)
+[Previous: State Transitions and Undo](../24/README.md) · [Next: Computational Cost and Splitting Work](../26/README.md)
 
 ## Experiment notes — write your own
 

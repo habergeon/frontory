@@ -1,0 +1,96 @@
+{
+  "series": {
+    "sourceHash": "ebda014f37b92493ed4f9b2425b9746d755b55805adbd6a99adf2414c2ddd595",
+    "values": {
+      "stages.0": "Types and Shader Interfaces",
+      "stages.1": "Resource Declarations and Memory Layout",
+      "stages.2": "Parallel Computation and Synchronization",
+      "stages.3": "Numeric Verification and Kernel Design",
+      "goal": "Understand WGSL types, stage interfaces, address spaces, memory layout, and parallel control flow, and write verifiable kernels.",
+      "capstone": "A small compute collection that verifies bounds, layout, and synchronization, and a comparison report against CPU references"
+    }
+  },
+  "units": {
+    "wgsl-01": {
+      "sourceHash": "af3df816348983c72a3a6654d7ccaf71e01604f3d118b6bdef17dc6b390d7252",
+      "values": {
+        "title": "Types and Entry Points",
+        "prerequisites": "WebGPU buffers and pipelines, and vector operations",
+        "environment": "The existing wgsl-01 preview is a starting point. It does not replace implementation or verification of the full subsequent assignment. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Stage Contracts",
+        "concepts.0.explanation": "@vertex, @fragment, and @compute specify the shader stage in which a function runs. Each stage permits different inputs, outputs, and builtins.",
+        "concepts.1.title": "Identifying Inputs and Outputs",
+        "concepts.1.explanation": "@location specifies an interface location for user data, while @builtin passes a system-defined value. These attributes cannot be interchanged by simply renaming them.",
+        "outcomes.0": "Write the input and output contract for each stage.",
+        "outcomes.1": "Diagnose interface errors.",
+        "steps.0": "In shader.wgsl, write an @vertex function that generates triangle positions using vertex_index.",
+        "steps.1": "Return @builtin(position) and a @location(0) color in a structure, and receive them in the fragment stage.",
+        "steps.2": "Introduce a location type mismatch, inspect getCompilationInfo and pipeline errors, and restore the correct types.",
+        "variables.0.name": "Color location",
+        "variables.0.baseline": "0 on both sides",
+        "variables.0.change": "1 in fragment only",
+        "variables.0.expected": "A mismatch is expected to appear during stage linkage validation.",
+        "criteria.0": "Explain builtin and location inputs in two items each.",
+        "criteria.1": "Distinguish diagnostics for valid source from diagnostics for erroneous source.",
+        "questions.0": "Can the position builtin be replaced with an ordinary location?",
+        "questions.1": "How does vertex_index differ from vertex buffer attributes?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-02": {
+      "sourceHash": "cd99ed65ce4a516d446e40dccb41651a9c7cba1c99ff1c1fe31fa89ee5c3e184",
+      "values": {
+        "title": "Literals and Explicit Numeric Types",
+        "prerequisites": "Continue using the output and records from Unit 1. Before experimenting with Literals and Explicit Numeric Types, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Abstract Numbers",
+        "concepts.0.explanation": "A literal without a fixed type can resolve to a concrete type according to its context. Make the intended f32, i32, or u32 explicit at variable and function boundaries.",
+        "concepts.1.title": "Conversions",
+        "concepts.1.explanation": "Signed and unsigned integers have different ranges and operation semantics. Make conversions between indices and computed values explicit to avoid interpreting values unexpectedly.",
+        "outcomes.0": "Choose numeric types.",
+        "outcomes.1": "Make type conversions explicit.",
+        "steps.0": "In types.wgsl, write i32, u32, and f32 variables and explicit conversion functions.",
+        "steps.1": "Record positive, negative, and fractional inputs in a small compute output buffer.",
+        "steps.2": "Create an error case that directly adds different concrete types, then compare the results after conversion.",
+        "variables.0.name": "Input type",
+        "variables.0.baseline": "i32(3)",
+        "variables.0.change": "f32(3.5)",
+        "variables.0.expected": "The fractional part of the result and the available conversions are expected to differ.",
+        "criteria.0": "Tabulate the ranges and uses of the three types.",
+        "criteria.1": "Record the mixed-type error and three values after correction.",
+        "questions.0": "Can converting a negative value to u32 replace input validation?",
+        "questions.1": "How does type resolution differ for the literals 1 and 1u?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-03": {
+      "sourceHash": "7526ced7c3d9890b38b82d98e2c526e620823cab4875dfacafd210181079340d",
+      "values": {
+        "title": "Creating and Multiplying Vectors and Matrices",
+        "prerequisites": "Continue using the output and records from Unit 2. Before experimenting with Creating and Multiplying Vectors and Matrices, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Vector Construction",
+        "concepts.0.explanation": "vec2f, vec3f, and vec4f group components for computation. Distinguish the rules for reading and writing swizzles.",
+        "concepts.1.title": "Matrix Semantics",
+        "concepts.1.explanation": "WGSL matrices consist of column vectors. The column order written by the CPU must match the shader's matrix multiplication for the intended transformation.",
+        "outcomes.0": "Write vector and matrix operations.",
+        "outcomes.1": "Verify the matrix storage convention.",
+        "steps.0": "In math.wgsl, create functions that output vector construction, swizzle, and dot results.",
+        "steps.1": "Choose the two columns of a mat2x2f and a vec2f input, and calculate their product by hand.",
+        "steps.2": "Use readback to compare results from the correct input and an input with the CPU array order changed.",
+        "variables.0.name": "Matrix columns",
+        "variables.0.baseline": "Correct column order",
+        "variables.0.change": "Array with rows and columns swapped",
+        "variables.0.expected": "A nonsymmetric matrix is expected to produce a different transformation.",
+        "criteria.0": "Record expected values for four vector and matrix operations.",
+        "criteria.1": "The GPU result for a nonsymmetric matrix matches the hand calculation.",
+        "questions.0": "Why is it difficult to find row and column errors using only diagonal matrices?",
+        "questions.1": "What are the return types of vector multiplication and dot?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    }
+  }
+}

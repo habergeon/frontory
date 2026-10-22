@@ -183,6 +183,20 @@
       ]
     },
     {
+      "id": "wgsl",
+      "title": "WGSL",
+      "category": "shader",
+      "priority": 5,
+      "prerequisites": "WebGPU buffers and pipelines, vectors",
+      "docPath": "/docs/en/labs/shader/wgsl/README.md",
+      "stages": [
+        "Types and Shader Interfaces",
+        "Resource Declarations and Memory Layout",
+        "Parallel Computation and Synchronization",
+        "Numeric Verification and Kernel Design"
+      ]
+    },
+    {
       "id": "gsap",
       "title": "GSAP",
       "category": "animation",
@@ -3798,6 +3812,35 @@
       "goal": "Test a bottleneck hypothesis by comparing before and after changing one variable. Separate measured values from estimates and unverified items.",
       "docPath": "/docs/en/labs/graphics/pixijs/03-project/README.md",
       "seriesId": "pixijs"
+    },
+    {
+      "id": "wgsl-01",
+      "day": 1,
+      "week": 1,
+      "title": "Types and Entry Points",
+      "goal": "Write the input and output contract for each stage. Diagnose interface errors.",
+      "docPath": "/docs/en/labs/shader/wgsl/01-foundations/README.md",
+      "seriesId": "wgsl"
+    },
+    {
+      "id": "wgsl-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Literals and Explicit Numeric Types",
+      "goal": "Choose numeric types. Make type conversions explicit.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/02/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Creating and Multiplying Vectors and Matrices",
+      "goal": "Write vector and matrix operations. Verify the matrix storage convention.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/03/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
       "id": "gsap-01",

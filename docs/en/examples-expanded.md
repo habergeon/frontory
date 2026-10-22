@@ -394,6 +394,13 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [26. Profiling and Quality Budgets](labs/graphics/pixijs/units/26/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-26/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [27. Completing the 2D Scene Editor](labs/graphics/pixijs/units/27/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-27/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
+## WGSL
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Literals and Explicit Numeric Types](labs/shader/wgsl/units/02/README.md) | Editable example | [Source code](../../src/labs/wgsl-step-02/example.js) — Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results. |
+| [3. Creating and Multiplying Vectors and Matrices](labs/shader/wgsl/units/03/README.md) | Editable example | [Source code](../../src/labs/wgsl-step-03/example.js) — Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results. |
+
 ## GSAP
 
 | Learning unit | Execution mode | Source and supported scope |

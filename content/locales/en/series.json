@@ -96,5 +96,12 @@
       "title": "WebGPU",
       "prerequisites": "WebGL pipeline, TypedArray, and asynchronous JavaScript"
     }
+  },
+  "wgsl": {
+    "sourceHash": "9dee0a848b7e2f7d6407d0b62d969efc2efe378ba5b9b6e1b83142f9b9c30477",
+    "values": {
+      "title": "WGSL",
+      "prerequisites": "WebGPU buffers and pipelines, vectors"
+    }
   }
 }

@@ -35,7 +35,7 @@ There are currently **23 series / 644 units**. Every series has 4 stages and 28 
 ## Shaders
 
 - [GLSL (Korean)](../../labs/shader/glsl/README.md) — ★★★★★ / 28 units / Prerequisites: WebGL pipeline and vectors
-- [WGSL (Korean)](../../labs/shader/wgsl/README.md) — ★★★★★ / 28 units / Prerequisites: WebGPU buffer and pipeline, vectors
+- [WGSL](shader/wgsl/README.md) — ★★★★★ / 28 units / Prerequisites: WebGPU buffer and pipeline, vectors
 
 ## Animation
 

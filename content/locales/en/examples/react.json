@@ -1,8 +1,19 @@
 {
   "react-step-03": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "a7dcdb0efd3b9f9f7a80e350b575bf6fa4de61a5bd119a75d32fa70384044e3d",
     "values": {
       "note": "This experiment uses the actual React API. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "e0f4cdddd151d0856eeb1ac1066d655331f4e9824f3b99bf12134a56a0d046cc",
+      "values": {
+        "messages.title": "Events and state snapshots",
+        "messages.input": "Experiment input",
+        "messages.snapshot": "Snapshot +1 three times",
+        "messages.updater": "Updater +1 three times",
+        "messages.reset": "Reset",
+        "comments.title": "Events and state snapshots"
+      }
     }
   }
 }

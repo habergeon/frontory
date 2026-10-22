@@ -4,6 +4,7 @@
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-03": {
+    "readingSource": "/examples-en/react-step-03/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },

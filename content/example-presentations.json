@@ -25,5 +25,17 @@
     "comments": {
       "title": "박스 모델과 실측 크기: 실제 HTML/CSS 실험"
     }
+  },
+  "react-step-03": {
+    "messages": {
+      "title": "이벤트와 상태 스냅샷",
+      "input": "실험 입력",
+      "snapshot": "Snapshot +1 세 번",
+      "updater": "Updater +1 세 번",
+      "reset": "초기화"
+    },
+    "comments": {
+      "title": "이벤트와 상태 스냅샷"
+    }
   }
 }

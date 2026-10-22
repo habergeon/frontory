@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 22 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 25 published in English
 
 ## Series goal
 
@@ -55,6 +55,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 4 · Motion, tokens, and rendering verification
 
 - [22. Transitions and Intermediate States](units/22/README.md) — Editable example
+- [23. Keyframes and Playback Control](units/23/README.md) — Editable example
+- [24. Organizing Rules with Cascade Layers](units/24/README.md) — Editable example
+- [25. Custom Properties and Themes](units/25/README.md) — Editable example
 
 ## Capstone project and deliverables
 
@@ -71,3 +74,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [MDN using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using)
 - [MDN prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion)
 - [MDN Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
+- [MDN Cascade layers](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)

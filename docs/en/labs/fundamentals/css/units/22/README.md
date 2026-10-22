@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Stacking Contexts and Overlap](../21/README.md)
+[Previous: Stacking Contexts and Overlap](../21/README.md) · [Next: Keyframes and Playback Control](../23/README.md)
 
 ## Experiment notes — write your own
 

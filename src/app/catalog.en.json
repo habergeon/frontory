@@ -554,6 +554,36 @@
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "css-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Keyframes and Playback Control",
+      "goal": "The position is preserved when paused, and playback continues from there when resumed. Nonessential repetition stops under reduce.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/23/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Organizing Rules with Cascade Layers",
+      "goal": "Check the winning layer for normal declarations in computed styles. Record important cases separately to distinguish them from normal rules.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/24/README.md",
+      "seriesId": "css",
+      "exampleNote": "Add an unlayered background declaration or add !important to each layer, and compare computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Custom Properties and Themes",
+      "goal": "Record the color and spacing token connections for the three elements. Check body text contrast and focus indicators in both themes.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/25/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
       "id": "react-step-03",
       "day": 3,
       "week": 1,

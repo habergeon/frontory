@@ -602,6 +602,85 @@
         "questions.1": "Is it safe for functionality to depend on a transition completion event?",
         "references.0.title": "MDN CSS"
       }
+    },
+    "css-step-23": {
+      "sourceHash": "26139e40e0bfec569697c70e1b3ed7776265b4c0ff5d38ae98a421037e6e314e",
+      "values": {
+        "title": "Keyframes and Playback Control",
+        "prerequisites": "The work and experiment records from Unit 22, “Transitions and Intermediate States”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Time Segments",
+        "concepts.0.explanation": "@keyframes defines property values at different progress points. The full movement changes with iteration count and direction.",
+        "concepts.1.title": "Pausing",
+        "concepts.1.explanation": "animation-play-state can pause playback. Under reduced-motion settings, also consider removing nonessential repetition entirely.",
+        "outcomes.0": "The position is preserved when paused, and playback continues from there when resumed.",
+        "outcomes.1": "Nonessential repetition stops under reduce.",
+        "steps.0": "In index.html, prepare content with 1 iteration, infinite repetition, and pause/resume conditions, and connect keyframes.css.",
+        "steps.1": "Create a progress indicator with keyframes, and switch playback according to the pause button state.",
+        "steps.2": "Run with 1 iteration, infinite repetition, and pause/resume conditions. Results to check: The position is preserved when paused, and playback continues from there when resumed. Nonessential repetition stops under reduce. Record expected and actual results separately.",
+        "variables.0.name": "Repetition",
+        "variables.0.baseline": "1 iteration",
+        "variables.0.change": "infinite",
+        "variables.0.expected": "Hypothesis before running: A stop control will be needed because playback will not end. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "The position is preserved when paused, and playback continues from there when resumed.",
+        "criteria.1": "Nonessential repetition stops under reduce.",
+        "questions.0": "Does the progress indicator represent actual task progress?",
+        "questions.1": "Which values does fill-mode leave after playback ends?",
+        "references.0.title": "MDN CSS"
+      }
+    },
+    "css-step-24": {
+      "sourceHash": "51412d412e9557df8cd3fd894ebf315297d9e1304874c2fbd653acd6198560b3",
+      "values": {
+        "title": "Organizing Rules with Cascade Layers",
+        "prerequisites": "The work and experiment records from Unit 23, “Keyframes and Playback Control”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Layer Order",
+        "concepts.0.explanation": "@layer specifies the priority order of style groups. Check the priority order of layered and unlayered rules even at the same importance.",
+        "concepts.1.title": "Ease of Change",
+        "concepts.1.explanation": "Separating base, component, and utility rules makes conflicts easier to trace. !important also changes how layer priority works.",
+        "outcomes.0": "Check the winning layer for normal declarations in computed styles.",
+        "outcomes.1": "Record important cases separately to distinguish them from normal rules.",
+        "steps.0": "In index.html, prepare content with 3 declarations of the same property and an unlayered declaration, and connect layers.css.",
+        "steps.1": "Declare base·components·utilities layers, and create conflicting colors on the same button to compare them.",
+        "steps.2": "Run with 3 declarations of the same property and an unlayered declaration. Results to check: Check the winning layer for normal declarations in computed styles. Record important cases separately to distinguish them from normal rules. Record expected and actual results separately.",
+        "variables.0.name": "Declaration Location",
+        "variables.0.baseline": "components",
+        "variables.0.change": "utilities",
+        "variables.0.expected": "Hypothesis before running: The winning rule will change according to the declared layer order. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Check the winning layer for normal declarations in computed styles.",
+        "criteria.1": "Record important cases separately to distinguish them from normal rules.",
+        "questions.0": "When is specificity compared within a layer?",
+        "questions.1": "Why is an unlayered declaration stronger than expected?",
+        "references.0.title": "MDN CSS",
+        "references.1.title": "MDN Cascade layers"
+      }
+    },
+    "css-step-25": {
+      "sourceHash": "815fb770f4c30128aadad2a94ee1bc9033c55c807f3e2f0dcd877adf0a6917ff",
+      "values": {
+        "title": "Custom Properties and Themes",
+        "prerequisites": "The work and experiment records from Unit 24, “Organizing Rules with Cascade Layers”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Sharing Values",
+        "concepts.0.explanation": "CSS custom properties participate in the cascade and inheritance. Values with the same name are resolved differently depending on where they are declared.",
+        "concepts.1.title": "Fallback Values",
+        "concepts.1.explanation": "The fallback in var is used when the referenced variable is missing or invalid. A value that does not match the final property's grammar can cause a problem at computed-value time.",
+        "outcomes.0": "Record the color and spacing token connections for the three elements.",
+        "outcomes.1": "Check body text contrast and focus indicators in both themes.",
+        "steps.0": "In index.html, prepare content with a card, an input, a button, and two themes, and connect tokens.css.",
+        "steps.1": "Define color, spacing, and radius tokens on :root, and override them for a dark theme with data-theme.",
+        "steps.2": "Run with a card, an input, a button, and two themes. Results to check: Record the color and spacing token connections for the three elements. Check body text contrast and focus indicators in both themes. Record expected and actual results separately.",
+        "variables.0.name": "Theme",
+        "variables.0.baseline": "light",
+        "variables.0.change": "dark",
+        "variables.0.expected": "Hypothesis before running: Elements using shared tokens will change together. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record the color and spacing token connections for the three elements.",
+        "criteria.1": "Check body text contrast and focus indicators in both themes.",
+        "questions.0": "Are custom properties global constants?",
+        "questions.1": "What happens when a token value does not match a property's grammar?",
+        "references.0.title": "MDN CSS"
+      }
     }
   }
 }

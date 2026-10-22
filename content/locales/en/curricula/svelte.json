@@ -422,6 +422,89 @@
         "references.1.title": "Svelte $effect and Cleanup",
         "references.2.title": "Svelte onMount and tick"
       }
+    },
+    "svelte-step-16": {
+      "sourceHash": "315311fb2da77c6a56dd57e6f5448b018a73818d6709dbbe0950c6d8346d02d8",
+      "values": {
+        "title": "Shared Runes Modules",
+        "prerequisites": "Unit 16 continues with the work and experiment records from Unit 15.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Module Files",
+        "concepts.0.explanation": "You can separate logic using runes into .svelte.js or .svelte.ts. Distinguish their compilation requirements from ordinary .js.",
+        "outcomes.0": "The A drafts in two Workspaces differ.",
+        "criteria.0": "The A drafts in two Workspaces differ.",
+        "questions.0": "What restrictions must you check when reassigning and exporting a reactive value?",
+        "concepts.1.title": "Instance Scope",
+        "concepts.1.explanation": "A factory creating a state object can isolate state per call. Creating only one at module scope shares it among all consumers.",
+        "outcomes.1": "Resetting one Workspace does not erase values in the other.",
+        "criteria.1": "Resetting one Workspace does not erase values in the other.",
+        "questions.1": "Why can module-level user state be dangerous in SSR?",
+        "steps.0": "In src/createNotes.svelte.js, write a factory that creates a $state object and an update function.",
+        "steps.1": "Have two Workspace.svelte instances each call the factory.",
+        "steps.2": "Enter different strings for the same unit A and record whether they are shared.",
+        "variables.0.name": "Creation Location",
+        "variables.0.baseline": "1 time at module scope",
+        "variables.0.change": "A call per Workspace",
+        "variables.0.expected": "Drafts in the two workspaces are independent.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup",
+        "references.2.title": "Svelte state rune"
+      }
+    },
+    "svelte-step-17": {
+      "sourceHash": "29040c92ebfc1647b87cc3dca24d74bbcebed0824e1e3fb0c1d5c413bcc0f592",
+      "values": {
+        "title": "Connecting Workspaces with Context",
+        "prerequisites": "Unit 17 continues with the work and experiment records from Unit 16.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Context",
+        "concepts.0.explanation": "setContext and getContext pass dependencies within a component tree. Unlike a single global store, they can provide a separate scope for each tree.",
+        "outcomes.0": "The latest string appears consistently within each tree.",
+        "criteria.0": "The latest string appears consistently within each tree.",
+        "questions.0": "Why is retrieving Context outside initialization a problem?",
+        "concepts.1.title": "Reactive Objects",
+        "concepts.1.explanation": "When you pass a reactive object through Context, consumers read that object. Decide how to preserve the shared contract instead of replacing the entire reference.",
+        "outcomes.1": "Drafts in the other tree do not change.",
+        "criteria.1": "Drafts in the other tree do not change.",
+        "questions.1": "How do you avoid string key collisions?",
+        "steps.0": "In src/Workspace.svelte, use setContext with a Symbol key to provide the notes object and update function.",
+        "steps.1": "Read them with getContext in a deeply nested NoteEditor.svelte.",
+        "steps.2": "Edit the same id in two nested Workspaces and check isolation.",
+        "variables.0.name": "Provider",
+        "variables.0.baseline": "1 shared provider",
+        "variables.0.change": "2 nested providers",
+        "variables.0.expected": "The inner editor reads the draft from the nearest workspace.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup",
+        "references.2.title": "Svelte state rune"
+      }
+    },
+    "svelte-step-18": {
+      "sourceHash": "09fb1af2577f8dc2587284c6fd19c3060014613f261c90c950632baad3bd9c99",
+      "values": {
+        "title": "Requests and Stale Results",
+        "prerequisites": "Unit 18 continues with the work and experiment records from Unit 17.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Asynchronous Races",
+        "concepts.0.explanation": "Search requests can finish in a different order from the order sent. You need a rule that accepts only results for the latest query.",
+        "outcomes.0": "The final query and result id are both B.",
+        "criteria.0": "The final query and result id are both B.",
+        "questions.0": "What happens to the cleanup return if you declare the Effect itself async?",
+        "concepts.1.title": "Effect Cleanup",
+        "concepts.1.explanation": "Read query synchronously at the start of the Effect and create the request. In cleanup, cancel it or mark its eventual result to be ignored.",
+        "outcomes.1": "Results are not applied after component removal.",
+        "criteria.1": "Results are not applied after component removal.",
+        "questions.1": "How do you distinguish cancellation errors from actual failures?",
+        "steps.0": "In src/Search.svelte, connect an AbortController to an $effect that reads query.",
+        "steps.1": "Add delays of 800ms for A and 100ms for B to fakeSearch.",
+        "steps.2": "Enter A followed by B and use a latest-id check to confirm that the final result is B.",
+        "variables.0.name": "Response Delay",
+        "variables.0.baseline": "Both 100ms",
+        "variables.0.change": "Only A at 800ms",
+        "variables.0.expected": "The late A does not change the B result.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup"
+      }
     }
   }
 }

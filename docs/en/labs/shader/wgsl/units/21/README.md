@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Partial-Sum Reduction](../20/README.md)
+[Previous: Partial-Sum Reduction](../20/README.md) · [Next: Stage Constraints on Texture Functions](../22/README.md)
 
 ## Experiment notes — write your own
 

@@ -4022,6 +4022,36 @@
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
+      "id": "wgsl-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Stage Constraints on Texture Functions",
+      "goal": "Choose texture functions appropriate to the stage. Distinguish texel and normalized coordinates.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/22/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Storage Texture Output",
+      "goal": "Configure image compute output. Verify format-dependent value conversions.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/23/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Numeric Stability and Special Inputs",
+      "goal": "Handle unstable inputs. Verify errors across input scales.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/24/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

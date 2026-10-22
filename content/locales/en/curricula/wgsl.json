@@ -577,6 +577,87 @@
         "references.0.title": "WGSL Specification",
         "references.1.title": "WebGPU API"
       }
+    },
+    "wgsl-step-22": {
+      "sourceHash": "af5478259e3e2abe99d29dba78bfc73b4bab8241c7e6fcfee07fcd6b01e5c872",
+      "values": {
+        "title": "Stage Constraints on Texture Functions",
+        "prerequisites": "Continue using the output and records from Unit 21. Before experimenting with Stage Constraints on Texture Functions, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Implicit Derivatives",
+        "concepts.0.explanation": "textureSample is a sampling path that uses implicit derivatives. In compute, choose an appropriate function such as textureLoad or textureSampleLevel with an explicit level.",
+        "concepts.1.title": "Coordinate Units",
+        "concepts.1.explanation": "textureLoad accesses integer texel coordinates, while filtered sampling uses normalized coordinates. The same numbers do not represent the same position.",
+        "outcomes.0": "Choose texture functions appropriate to the stage.",
+        "outcomes.1": "Distinguish texel and normalized coordinates.",
+        "steps.0": "In texture-kernel.wgsl, obtain the input dimensions using textureDimensions.",
+        "steps.1": "Use textureLoad to read a hand-built 4×4 texture and copy it to a storage output.",
+        "steps.2": "Compare corner and center values with a separate fragment path or an explicit-level sampling path.",
+        "variables.0.name": "Access method",
+        "variables.0.baseline": "Integer texel load",
+        "variables.0.change": "Normalized coordinates and linear sampling",
+        "variables.0.expected": "Colors are expected to blend at interpolated positions, while texel load reads stored values.",
+        "criteria.0": "The 16 texel load results match the original.",
+        "criteria.1": "Compute code does not depend on implicit-derivative sampling.",
+        "questions.0": "Why is a 0.5 offset needed when converting texel centers to UVs?",
+        "questions.1": "How does fixing the mipmap level affect minification quality?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-23": {
+      "sourceHash": "812677bbbccb43a9da446b80c4ee190b26647f57560361cc37084c43eaf70b03",
+      "values": {
+        "title": "Storage Texture Output",
+        "prerequisites": "Continue using the output and records from Unit 22. Before experimenting with Storage Texture Output, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Output Format",
+        "concepts.0.explanation": "The format in a storage texture declaration must match the host texture format. The format also determines the range and precision of stored values.",
+        "concepts.1.title": "Connecting Passes",
+        "concepts.1.explanation": "A texture written by compute can be read in the next render pass. Avoid conflicting uses in the same operation and set resource usage accordingly.",
+        "outcomes.0": "Configure image compute output.",
+        "outcomes.1": "Verify format-dependent value conversions.",
+        "steps.0": "In image.wgsl, declare a write storage texture with rgba8unorm format.",
+        "steps.1": "Convert global id x/y into colors and write them using textureStore.",
+        "steps.2": "On the host, create a texture with STORAGE_BINDING|TEXTURE_BINDING and display it in the next render pass.",
+        "variables.0.name": "Output color",
+        "variables.0.baseline": "Range 0..1",
+        "variables.0.change": "Some components above 1",
+        "variables.0.expected": "The unorm format is expected to reveal its storage range limits.",
+        "criteria.0": "The shader and host formats match.",
+        "criteria.1": "Check output at the four corners and the stored values of out-of-range components.",
+        "questions.0": "Are f32 computation results stored unchanged as f32 in the texture?",
+        "questions.1": "Which result structures suit a storage texture or a storage buffer?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-24": {
+      "sourceHash": "6cb083f6ddaae6dba8ae1b943b976628e4df37b9434fea96df2c393fd68de4d8",
+      "values": {
+        "title": "Numeric Stability and Special Inputs",
+        "prerequisites": "Continue using the output and records from Unit 23. Before experimenting with Numeric Stability and Special Inputs, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Unstable Operations",
+        "concepts.0.explanation": "Normalizing a vector of length 0 or dividing by a small number can produce unstable results. Check valid ranges and define meaningful fallback values.",
+        "concepts.1.title": "Algorithmic Stability",
+        "concepts.1.explanation": "Mathematically equivalent expressions can produce different floating-point errors. Compare different input scales rather than checking only whether results are close.",
+        "outcomes.0": "Handle unstable inputs.",
+        "outcomes.1": "Verify errors across input scales.",
+        "steps.0": "In numeric.wgsl, write a function that uses a fallback direction when squared length is below a threshold.",
+        "steps.1": "Compare vectors with 0, 1e-8, 1, and large coordinates against the CPU reference.",
+        "steps.2": "Reject NaN or infinite inputs on the host and record their failure locations.",
+        "variables.0.name": "Vector length",
+        "variables.0.baseline": "1",
+        "variables.0.change": "0 and 1e-8",
+        "variables.0.expected": "The chosen fallback direction is expected to be used instead of the normalization path.",
+        "criteria.0": "The outputs for four valid inputs are finite and follow the rules.",
+        "criteria.1": "Invalid inputs are rejected before GPU submission with their field locations.",
+        "questions.0": "Can one small epsilon be used for every unit of measurement?",
+        "questions.1": "How does a small error differ from algorithmic stability?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
     }
   }
 }

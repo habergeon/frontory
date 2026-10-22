@@ -430,6 +430,90 @@
         "references.1.title": "MDN WebAssembly JavaScript API",
         "references.2.title": "MDN WebAssembly.Memory"
       }
+    },
+    "webassembly-step-16": {
+      "sourceHash": "203399e5708fbabe23d9d68535d89a626e3a5c908f075b73164ab37090bf90cf",
+      "values": {
+        "title": "Aligned and Unaligned Access",
+        "prerequisites": "Prepare the experiment results for Overwriting and Repeat conditions from Unit 15, “In-place Transformation”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Alignment",
+        "concepts.0.explanation": "The byteOffset of Int32Array must be a multiple of its element size. Distinguish Wasm load constraints from JS view constraints.",
+        "concepts.1.title": "DataView",
+        "concepts.1.explanation": "DataView provides byte-based access. It can explicitly read unaligned data.",
+        "outcomes.0": "Learning outcome: explain the role of Alignment. Input cases: the same four bytes.",
+        "outcomes.1": "Deliverable: creation errors and values read. Explain the rationale for handling DataView, linking it to the code.",
+        "steps.0": "In day-16.mjs in a separate practice project, place data at offset 0 and 1 and compare TypedArray creation with DataView access. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: the same four bytes. Baseline: 0. Run under the baseline conditions, then record observations and errors in notes/day-16.md.",
+        "steps.2": "Variable: offset; changed value: 1. Run again through the same input path. Deliverable to save: creation errors and values read. Hypothesis to check: The difference between TypedArray constraints and byte access is exposed. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "offset",
+        "variables.0.baseline": "0",
+        "variables.0.change": "1",
+        "variables.0.expected": "The difference between TypedArray constraints and byte access is exposed.",
+        "criteria.0": "Required deliverable: creation errors and values read. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Alignment and DataView. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Alignment affect in this exercise? Input cases: the same four bytes.",
+        "questions.1": "Variable: offset. Hypothesis to check: The difference between TypedArray constraints and byte access is exposed. Did the actual results agree with the hypothesis? Explain the evidence in terms of DataView.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-17": {
+      "sourceHash": "578d218340d6e85a69916094d46d83404ad99052fe99441800488d9b85cefbd1",
+      "values": {
+        "title": "Laying Out Multiple Arrays",
+        "prerequisites": "Prepare the experiment results for Alignment and DataView from Unit 16, “Aligned and Unaligned Access”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Separate regions",
+        "concepts.0.explanation": "Calculate input and output regions so they do not overlap. Manual pointer layout risks collisions.",
+        "concepts.1.title": "Ownership rules",
+        "concepts.1.explanation": "State who allocates and reuses memory in the wrapper contract. Do not overwrite regions in use with another request.",
+        "outcomes.0": "Learning outcome: explain the role of Separate regions. Input cases: two arrays of different lengths.",
+        "outcomes.1": "Deliverable: a region table and sentinel values. Explain the rationale for handling Ownership rules, linking it to the code.",
+        "steps.0": "In day-17.mjs in a separate practice project, calculate offsets and lengths for two arrays and check boundary contamination with sentinel values. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: two arrays of different lengths. Baseline: separate. Run under the baseline conditions, then record observations and errors in notes/day-17.md.",
+        "steps.2": "Variable: layout; changed value: intentional overlap. Run again through the same input path. Deliverable to save: a region table and sentinel values. Hypothesis to check: Data corruption is detected when the regions overlap. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "layout",
+        "variables.0.baseline": "separate",
+        "variables.0.change": "intentional overlap",
+        "variables.0.expected": "Data corruption is detected when the regions overlap.",
+        "criteria.0": "Required deliverable: a region table and sentinel values. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Separate regions and Ownership rules. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Separate regions affect in this exercise? Input cases: two arrays of different lengths.",
+        "questions.1": "Variable: layout. Hypothesis to check: Data corruption is detected when the regions overlap. Did the actual results agree with the hypothesis? Explain the evidence in terms of Ownership rules.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-18": {
+      "sourceHash": "c393df29bc4da73105cb1054f27a648a675f97dd45d8fa70ffcf790489be59c8",
+      "values": {
+        "title": "String Byte Contracts",
+        "prerequisites": "Prepare the experiment results for Separate regions and Ownership rules from Unit 17, “Laying Out Multiple Arrays”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Encoding",
+        "concepts.0.explanation": "JS string length differs from UTF-8 byte length. Korean characters and emoji use multiple bytes.",
+        "concepts.1.title": "Passing length",
+        "concepts.1.explanation": "A string address alone does not identify its end. Specify byteLength or a termination convention.",
+        "outcomes.0": "Learning outcome: explain the role of Encoding. Input cases: English·Korean·emoji.",
+        "outcomes.1": "Deliverable: character counts·byte counts·round-trip strings. Explain the rationale for handling Passing length, linking it to the code.",
+        "steps.0": "In day-18.mjs in a separate practice project, write strings to memory with TextEncoder and restore the specified range with TextDecoder. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: English·Korean·emoji. Baseline: character count. Run under the baseline conditions, then record observations and errors in notes/day-18.md.",
+        "steps.2": "Variable: length basis; changed value: byteLength. Run again through the same input path. Deliverable to save: character counts·byte counts·round-trip strings. Hypothesis to check: Using byteLength restores the string without truncation. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "length basis",
+        "variables.0.baseline": "character count",
+        "variables.0.change": "byteLength",
+        "variables.0.expected": "Using byteLength restores the string without truncation.",
+        "criteria.0": "Required deliverable: character counts·byte counts·round-trip strings. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Encoding and Passing length. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Encoding affect in this exercise? Input cases: English·Korean·emoji.",
+        "questions.1": "Variable: length basis. Hypothesis to check: Using byteLength restores the string without truncation. Did the actual results agree with the hypothesis? Explain the evidence in terms of Passing length.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
     }
   }
 }

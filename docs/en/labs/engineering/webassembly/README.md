@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 15 published in English
+Engineering · 4 stages · 28 units in the full series · 18 published in English
 
 ## Series goal
 
@@ -45,6 +45,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 3 · Deployment and Execution Structure
 
 - [15. In-place Transformation](units/15/README.md) — External example · preview instructions
+- [16. Aligned and Unaligned Access](units/16/README.md) — External example · preview instructions
+- [17. Laying Out Multiple Arrays](units/17/README.md) — External example · preview instructions
+- [18. String Byte Contracts](units/18/README.md) — External example · preview instructions
 
 ### Stage 4 · Correctness and Bottleneck Evaluation
 

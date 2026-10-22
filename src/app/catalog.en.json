@@ -5983,6 +5983,36 @@
       "docPath": "/docs/en/labs/engineering/webassembly/units/15/README.md",
       "seriesId": "webassembly",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Aligned and Unaligned Access",
+      "goal": "Learning outcome: explain the role of Alignment. Input cases: the same four bytes. Deliverable: creation errors and values read. Explain the rationale for handling DataView, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/16/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Laying Out Multiple Arrays",
+      "goal": "Learning outcome: explain the role of Separate regions. Input cases: two arrays of different lengths. Deliverable: a region table and sentinel values. Explain the rationale for handling Ownership rules, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/17/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "String Byte Contracts",
+      "goal": "Learning outcome: explain the role of Encoding. Input cases: English·Korean·emoji. Deliverable: character counts·byte counts·round-trip strings. Explain the rationale for handling Passing length, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/18/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     }
   ]
 }

@@ -72,7 +72,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Arrays and Boundary Costs](../../02-experiments/README.md)
+[Previous: Arrays and Boundary Costs](../../02-experiments/README.md) · [Next: Aligned and Unaligned Access](../16/README.md)
 
 ## Experiment notes — write your own
 

@@ -253,6 +253,87 @@
         "references.0.title": "MDN OffscreenCanvas",
         "references.1.title": "MDN Using Web Workers"
       }
+    },
+    "offscreen-canvas-step-10": {
+      "sourceHash": "53c24d32bc59af7df61131e779af5bbba1f7184617064dc19a6cb02cd7f5ce26",
+      "values": {
+        "title": "Detecting DPR Changes",
+        "prerequisites": "Prepare the experiment results for Latest size and Acknowledgment from Unit 9, “Resize Sequence Numbers”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Environment changes",
+        "concepts.0.explanation": "Moving between monitors and zooming can change DPR. Recalculate the backing-store size even when the CSS size stays the same.",
+        "concepts.1.title": "Resolution cap",
+        "concepts.1.explanation": "A DPR cap trades quality for memory. Record the applied value separately from the device's actual value.",
+        "outcomes.0": "Learning outcome: explain the role of Environment changes. Input cases: DPR 1·2·3 conditions.",
+        "outcomes.1": "Deliverable: Actual·applied DPR and buffer pixel count. Explain the rationale for handling Resolution cap, linking it to the code.",
+        "steps.0": "In src/day-10.js in a separate practice project, read DPR again on resize and create the backing store with the chosen cap. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: DPR 1·2·3 conditions. Baseline: 3. Run under the baseline conditions, then record observations and errors in notes/day-10.md.",
+        "steps.2": "Variable: Cap; changed value: 2. Run again through the same input path. Deliverable to save: Actual·applied DPR and buffer pixel count. Hypothesis to check: The backing-store size decreases in high-DPR environments. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Cap",
+        "variables.0.baseline": "3",
+        "variables.0.change": "2",
+        "variables.0.expected": "The backing-store size decreases in high-DPR environments.",
+        "criteria.0": "Required deliverable: Actual·applied DPR and buffer pixel count. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Environment changes and Resolution cap. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage do environment changes affect in this exercise? Input cases: DPR 1·2·3 conditions.",
+        "questions.1": "Variable: Cap. Hypothesis to check: The backing-store size decreases in high-DPR environments. Did the actual results agree with the hypothesis? Explain the evidence in terms of Resolution cap.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-11": {
+      "sourceHash": "1495e247af6b3c63c7f80e624deea48dd2efbd050d9caffe80ed7d2ff1bbfbc9",
+      "values": {
+        "title": "Transforming Pointer Coordinates",
+        "prerequisites": "Prepare the experiment results for Environment changes and Resolution cap from Unit 10, “Detecting DPR Changes”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Local coordinates",
+        "concepts.0.explanation": "clientX/Y are relative to the viewport. Subtract the Canvas rect position to obtain local CSS coordinates.",
+        "concepts.1.title": "Matching scales",
+        "concepts.1.explanation": "If rendering uses CSS units, do not multiply pointer coordinates by DPR again. Applying the scale twice offsets the selection.",
+        "outcomes.0": "Learning outcome: explain the role of Local coordinates. Input cases: Clicks at the center and all four corners.",
+        "outcomes.1": "Deliverable: Input coordinates and the selected particle ID. Explain the rationale for handling Matching scales, linking it to the code.",
+        "steps.0": "In src/day-11.js in a separate practice project, transform coordinates with getBoundingClientRect and send pointer messages to the Worker. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: Clicks at the center and all four corners. Baseline: 1. Run under the baseline conditions, then record observations and errors in notes/day-11.md.",
+        "steps.2": "Variable: DPR; changed value: 2. Run again through the same input path. Deliverable to save: Input coordinates and the selected particle ID. Hypothesis to check: The same screen position selects the same particle. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "DPR",
+        "variables.0.baseline": "1",
+        "variables.0.change": "2",
+        "variables.0.expected": "The same screen position selects the same particle.",
+        "criteria.0": "Required deliverable: Input coordinates and the selected particle ID. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Local coordinates and Matching scales. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Local coordinates affect in this exercise? Input cases: Clicks at the center and all four corners.",
+        "questions.1": "Variable: DPR. Hypothesis to check: The same screen position selects the same particle. Did the actual results agree with the hypothesis? Explain the evidence in terms of Matching scales.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-12": {
+      "sourceHash": "3565d9856607f1e71520a3029a9c553e6f3a843bb99453f3e87de158a9032649",
+      "values": {
+        "title": "Coalescing Input",
+        "prerequisites": "Prepare the experiment results for Local coordinates and Matching scales from Unit 11, “Transforming Pointer Coordinates”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Latest value",
+        "concepts.0.explanation": "Some scenes do not need every pointer event. You can send only the latest position once per frame.",
+        "concepts.1.title": "Event semantics",
+        "concepts.1.explanation": "Do not discard boundary events such as down·up. Distinguish continuous move events from discrete events.",
+        "outcomes.0": "Learning outcome: explain the role of Latest value. Input cases: Rapid movement and clicks.",
+        "outcomes.1": "Deliverable: Message counts and a record of down/up pairs. Explain the rationale for handling Event semantics, linking it to the code.",
+        "steps.0": "In src/day-12.js in a separate practice project, coalesce move in rAF and forward down/up immediately. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: Rapid movement and clicks. Baseline: Every move. Run under the baseline conditions, then record observations and errors in notes/day-12.md.",
+        "steps.2": "Variable: Transmission; changed value: Last move per frame. Run again through the same input path. Deliverable to save: Message counts and a record of down/up pairs. Hypothesis to check: Click boundaries are preserved even as the number of move messages decreases. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Transmission",
+        "variables.0.baseline": "Every move",
+        "variables.0.change": "Last move per frame",
+        "variables.0.expected": "Click boundaries are preserved even as the number of move messages decreases.",
+        "criteria.0": "Required deliverable: Message counts and a record of down/up pairs. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Latest value and Event semantics. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Latest value affect in this exercise? Input cases: Rapid movement and clicks.",
+        "questions.1": "Variable: Transmission. Hypothesis to check: Click boundaries are preserved even as the number of move messages decreases. Did the actual results agree with the hypothesis? Explain the evidence in terms of Event semantics.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
     }
   }
 }

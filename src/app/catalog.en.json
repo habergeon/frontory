@@ -5633,6 +5633,36 @@
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/09/README.md",
       "seriesId": "offscreen-canvas",
       "exampleNote": "An interactive Resize Sequence Numbers experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Detecting DPR Changes",
+      "goal": "Learning outcome: explain the role of Environment changes. Input cases: DPR 1·2·3 conditions. Deliverable: Actual·applied DPR and buffer pixel count. Explain the rationale for handling Resolution cap, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/10/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Detecting DPR Changes experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Transforming Pointer Coordinates",
+      "goal": "Learning outcome: explain the role of Local coordinates. Input cases: Clicks at the center and all four corners. Deliverable: Input coordinates and the selected particle ID. Explain the rationale for handling Matching scales, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/11/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Transforming Pointer Coordinates experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Coalescing Input",
+      "goal": "Learning outcome: explain the role of Latest value. Input cases: Rapid movement and clicks. Deliverable: Message counts and a record of down/up pairs. Explain the rationale for handling Event semantics, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/12/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Coalescing Input experiment with cleanup of the resources it uses."
     }
   ]
 }

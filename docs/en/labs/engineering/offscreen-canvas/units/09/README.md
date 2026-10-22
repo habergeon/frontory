@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Resize Messages](../08/README.md)
+[Previous: Resize Messages](../08/README.md) · [Next: Detecting DPR Changes](../10/README.md)
 
 ## Experiment notes — write your own
 

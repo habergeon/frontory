@@ -46,5 +46,23 @@
     "values": {
       "note": "An interactive Resize Sequence Numbers experiment with cleanup of the resources it uses."
     }
+  },
+  "offscreen-canvas-step-10": {
+    "sourceHash": "9d83faab6da358f12567d6472999bd84c5b26f5592fea9097adf5db100f4b75e",
+    "values": {
+      "note": "An interactive Detecting DPR Changes experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-11": {
+    "sourceHash": "e34aa644a25537998d37b3f61f1efa00f6d7815a37479fafcc827256e63df44f",
+    "values": {
+      "note": "An interactive Transforming Pointer Coordinates experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-12": {
+    "sourceHash": "622030b9d7dd8d084f1f887862542fb4ff123bcd3dd5a1f33c1cffc0be1fa0f2",
+    "values": {
+      "note": "An interactive Coalescing Input experiment with cleanup of the resources it uses."
+    }
   }
 }

@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 27 published in English
+Graphics · 4 stages · 28 units in the full series · 28 published in English
 
 ## Series goal
 
@@ -60,6 +60,7 @@ Only published English units are linked below. The full series has 28 units.
 - [25. Integrated Failure-State Tests](units/25/README.md) — Editable example
 - [26. Reproducible Camera Benchmarks](units/26/README.md) — Editable example
 - [27. Describing the Deliverable and Acceptance Conditions](units/27/README.md) — Editable example
+- [28. Sorting, Quality, and Performance](03-project/README.md) — Editable example
 
 ## Capstone project and deliverables
 

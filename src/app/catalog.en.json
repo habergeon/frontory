@@ -3279,6 +3279,15 @@
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
+      "id": "gaussian-splatting-03",
+      "day": 28,
+      "week": 4,
+      "title": "Sorting, Quality, and Performance",
+      "goal": "Compare quality and cost together. Complete a GS viewer deliverable with supporting evidence.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/03-project/README.md",
+      "seriesId": "gaussian-splatting"
+    },
+    {
       "id": "webgpu-01",
       "day": 1,
       "week": 1,

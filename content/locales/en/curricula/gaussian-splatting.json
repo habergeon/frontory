@@ -739,6 +739,33 @@
         "references.0.title": "Spark Official Documentation",
         "references.1.title": "3D Gaussian Splatting Research Project"
       }
+    },
+    "gaussian-splatting-03": {
+      "sourceHash": "adf10f636bae04eb533316d55168a080844581dd273a531aa819d96f51d15056",
+      "values": {
+        "title": "Sorting, Quality, and Performance",
+        "prerequisites": "Continue using the output and records from Unit 27. Before the Sorting, Quality, and Performance experiment, preserve the previous inputs and reference outputs.",
+        "environment": "The existing gaussian-splatting-03 preview is a starting point. It does not replace implementation or verification of the full subsequent assignment. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Joint evaluation",
+        "concepts.0.explanation": "Resolution and Gaussian count change both cost and visual quality. First record changes to one variable at a time, then evaluate combinations.",
+        "concepts.1.title": "Choosing a configuration",
+        "concepts.1.explanation": "The fastest setting may not be the best fit for the purpose. Explain the choice using data provenance, feature limitations, and observed quality.",
+        "outcomes.0": "Compare quality and cost together.",
+        "outcomes.1": "Complete a GS viewer deliverable with supporting evidence.",
+        "steps.0": "In the final viewer.js, run baseline, reduced-resolution, and reduced-item settings along the same path.",
+        "steps.1": "In report.md, collect frame distributions, sorting time, ROI images, and the provenance manifest link.",
+        "steps.2": "Choose the adopted setting and unacceptable quality losses, and recheck error recovery and dispose.",
+        "variables.0.name": "Gaussian count",
+        "variables.0.baseline": "512",
+        "variables.0.change": "256",
+        "variables.0.expected": "Measure with the expectation that sorting work may decrease while some structures may be lost.",
+        "criteria.0": "Present same-path results and quality evidence for the three settings.",
+        "criteria.1": "Provide provenance and reproduction steps without large data, and give two reasons for the choice.",
+        "questions.0": "Would a different measured bottleneck change the selected setting?",
+        "questions.1": "Which claims are beyond the scope of these results?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
     }
   }
 }

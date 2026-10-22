@@ -65,9 +65,6 @@ export const categories: Record<string, string> = {
   fundamentals: '언어와 웹 기초', frameworks: 'UI 프레임워크', graphics: '그래픽스',
   shader: '셰이더', animation: '애니메이션', engineering: '엔지니어링', testing: '테스트',
 }
-export const documents = import.meta.glob<string>('/docs/**/*.md', {
-  query: '?raw', import: 'default', eager: true,
-})
 
 const localizedCatalogs = {
   ko: { series, units },

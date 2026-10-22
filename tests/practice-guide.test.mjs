@@ -15,3 +15,17 @@ test('every lesson exposes tasks, observation variables and completion criteria 
   }
 })
 
+
+test('all four English representative lessons use the shared English section headings', () => {
+  const catalog = JSON.parse(readFileSync(new URL('../src/app/catalog.en.json', import.meta.url), 'utf8'))
+  assert.equal(catalog.units.length, 4)
+  for (const unit of catalog.units) {
+    const text = readFileSync(new URL('..' + unit.docPath, import.meta.url), 'utf8')
+    const guide = practiceGuide(text, 'en')
+    for (const key of ['steps', 'variables', 'criteria']) {
+      assert.ok(guide[key].length > 5, unit.id + ': ' + key)
+      assert.ok(!guide[key].includes('## '), unit.id + ': ' + key + ' section boundary')
+    }
+    assert.equal(practiceGuide(text).steps, '', 'English never parsed as Korean')
+  }
+})

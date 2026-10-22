@@ -1,25 +1,45 @@
-import { useState } from 'react'
-import { documents, type Unit } from './curriculum'
+import { useEffect, useState } from 'react'
+import { units, type Unit } from './curriculum'
 import { practiceGuide } from './guideContent'
 import { MarkdownView } from '../shared/MarkdownView'
+import type { Locale } from '../i18n/locale'
+import { messages } from '../i18n/messages'
+import { DocumentNotFoundError, loadDocument, localizedDocPath } from './documents'
 
-export function PracticeGuide({ unit, onDocument }: { unit: Unit; onDocument: (path: string) => void }) {
+export function PracticeGuide({ unit, onDocument, locale = 'ko' }: { unit: Unit; onDocument: (path: string) => void; locale?: Locale }) {
   const [expanded, setExpanded] = useState(true)
-  const guide = practiceGuide(documents[unit.docPath] ?? '')
-  const markdown = (text: string) => <MarkdownView text={text} documentPath={unit.docPath} onDocument={onDocument} />
+  const [content, setContent] = useState<{ key: string; text: string; error?: 'missing' | 'failed' } | null>(null)
+  const koDocPath = units.find(common => common.id === unit.id)!.docPath
+  const key = locale + ':' + koDocPath
+  const current = content?.key === key ? content : null
+  const copy = messages[locale]
+  useEffect(() => {
+    let cancelled = false
+    loadDocument(locale, koDocPath).then(text => {
+      if (!cancelled) setContent({ key, text })
+    }, error => {
+      if (!cancelled) setContent({ key, text: '', error: error instanceof DocumentNotFoundError ? 'missing' : 'failed' })
+    })
+    return () => { cancelled = true }
+  }, [locale, koDocPath, key])
+  const guide = practiceGuide(current?.text ?? '', locale)
+  const markdown = (text: string) => <MarkdownView locale={locale} text={text} documentPath={localizedDocPath(locale, koDocPath)} onDocument={onDocument} />
   return <section className="practice-guide" aria-labelledby="practice-guide-title">
     <header className="practice-guide-heading">
-      <div><span className="eyebrow">PRACTICE GUIDE · {String(unit.day).padStart(2, '0')}</span><h2 id="practice-guide-title">이번 실습, 이렇게 해보세요</h2></div>
-      <button aria-expanded={expanded} aria-controls="practice-guide-body" onClick={() => setExpanded(value => !value)}>{expanded ? '안내 접기' : '안내 펼치기'}</button>
+      <div><span className="eyebrow">PRACTICE GUIDE · {String(unit.day).padStart(2, '0')}</span><h2 id="practice-guide-title">{copy.practiceGuide}</h2></div>
+      <button aria-expanded={expanded} aria-controls="practice-guide-body" onClick={() => setExpanded(value => !value)}>{expanded ? copy.collapseGuide : copy.expandGuide}</button>
     </header>
-    <p className="practice-guide-goal"><strong>목표</strong> {unit.goal}</p>
-    {expanded && <div id="practice-guide-body">
-      <div className="practice-guide-grid">
-        <div><h3>01 · 따라 할 순서</h3>{markdown(guide.steps || '학습 문서의 실습 과제를 확인하세요.')}</div>
-        <div className="practice-guide-observe"><h3>02 · 비교하고 기록하기</h3>{markdown(guide.variables)}<p>한 번에 변수 하나만 바꾸세요. 변경 전 예상과 실행 후 실제 결과를 오른쪽 필기에 구분해 기록합니다.</p><h3>03 · 완료 전 확인</h3>{markdown(guide.criteria)}</div>
-      </div>
-      <footer><p>{unit.source !== undefined ? '입력을 멈추면 약 600ms 후 코드 검사·반영됩니다. 구문·타입 오류가 나면 마지막 정상 화면을 유지하므로 오류를 먼저 고치세요.' : '문서 기반 실습입니다. 상세 문서의 준비 환경에서 직접 구현하고 예상과 실제 결과를 필기에 남기세요. 내장 실행 예제는 제공하지 않습니다.'}</p><button onClick={() => onDocument(unit.docPath)}>개념·상세 문서 읽기</button></footer>
+    <p className="practice-guide-goal"><strong>{copy.goal}</strong> {unit.goal}</p>
+    {expanded && <div id="practice-guide-body" aria-busy={!current}>
+      {!current ? <p role="status">{locale === 'en' ? 'Loading practice guide…' : '실습 안내 불러오는 중…'}</p>
+        : current.error ? <p role={current.error === 'failed' ? 'alert' : 'status'}>{locale === 'en'
+          ? current.error === 'missing' ? 'This practice guide is not available in English yet.' : 'Could not load the practice guide. Select the unit again to retry.'
+          : current.error === 'missing' ? '실습 안내가 없습니다.' : '실습 안내를 불러오지 못했습니다. 단위를 다시 선택해 주세요.'}{current.error === 'missing' && locale === 'en' && <> <button className="text-link" onClick={() => onDocument(koDocPath)}>Read the Korean document</button></>}</p>
+        : <div className="practice-guide-grid">
+          <div><h3>{copy.guideSteps}</h3>{markdown(guide.steps || copy.guideFallback)}</div>
+          <div className="practice-guide-observe"><h3>{copy.guideObserve}</h3>{markdown(guide.variables)}<p>{copy.observeHint}</p><h3>{copy.guideComplete}</h3>{markdown(guide.criteria)}</div>
+        </div>}
+      <footer><p>{unit.source !== undefined ? copy.executableGuideHint : copy.documentGuideHint}</p><button onClick={() => onDocument(localizedDocPath(locale, koDocPath))}>{copy.readDetailedDocument}</button></footer>
     </div>}
   </section>
 }
-

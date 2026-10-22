@@ -93,10 +93,10 @@ test('localized catalog lookup preserves shared executable identity and has no K
   const examples = Object.fromEntries(read('src/app/catalog.en.json').units.map(unit => [
     '../labs/' + unit.id + '/example.js', fs.readFileSync('src/labs/' + unit.id + '/example.js', 'utf8'),
   ]))
-  const globValues = [{ '../../content/examples/fixture.json': details }, examples, {}]
+  const globValues = [{ '../../content/examples/fixture.json': details }, examples]
   let index = 0
   const runnable = source.replace(/import\.meta\.glob[\s\S]*?\)\r?\n/g, () => JSON.stringify(globValues[index++]) + '\n')
-  assert.equal(index, 3)
+  assert.equal(index, 2)
   const compiled = transformSync(runnable, { loader: 'ts', format: 'cjs' }).code
   const module = { exports: {} }
   new Function('require', 'exports', 'module', compiled)(createRequire(new URL('../src/app/curriculum.ts', import.meta.url)), module.exports, module)

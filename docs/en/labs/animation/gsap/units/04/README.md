@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: The Time Curve of Ease](../03/README.md)
+[Previous: The Time Curve of Ease](../03/README.md) · [Next: Stagger Order](../05/README.md)
 
 ## Experiment notes — write your own
 

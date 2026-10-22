@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Animation · 4 stages · 28 units in the full series · 4 published in English
+Animation · 4 stages · 28 units in the full series · 7 published in English
 
 ## Series goal
 
@@ -28,6 +28,9 @@ Only published English units are linked below. The full series has 28 units.
 - [02. Starting and target values](units/02/README.md) — Editable example
 - [03. The Time Curve of Ease](units/03/README.md) — Editable example
 - [04. Transform and Layout](units/04/README.md) — Editable example
+- [05. Stagger Order](units/05/README.md) — Editable example
+- [06. Labels and Overlap](units/06/README.md) — Editable example
+- [07. Playback Controls](units/07/README.md) — Editable example
 
 ### Stage 2 · Scrolling and lifecycle
 

@@ -24,5 +24,23 @@
     "values": {
       "note": "This is an experiment on Transform and Layout. It supports direct interaction and cleans up the resources it uses."
     }
+  },
+  "gsap-step-05": {
+    "sourceHash": "4b7a9530d8bb01bd6c78709946718a2856c70d872082f1e262632a5df316eb55",
+    "values": {
+      "note": "This is an experiment on Stagger Order. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-06": {
+    "sourceHash": "ad5521279d0ec9ce9ae06bb4124bd9f09aee0cd5fa9034eff4a7634cc8cecff5",
+    "values": {
+      "note": "This is an experiment on Labels and Overlap. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-07": {
+    "sourceHash": "df86c86c2273391ea044b6c48b19af8b62cdda16f7d81739ca36f7bd112fb9fd",
+    "values": {
+      "note": "This is an experiment on Playback Controls. It supports direct interaction and cleans up the resources it uses."
+    }
   }
 }

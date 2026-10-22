@@ -134,6 +134,87 @@
         "references.0.title": "GSAP Official Documentation",
         "references.1.title": "ScrollTrigger Official Documentation"
       }
+    },
+    "gsap-step-05": {
+      "sourceHash": "2e957f4e47aad868674a2527b5c57135163db576990abd2b68de0acc9175201b",
+      "values": {
+        "title": "Stagger Order",
+        "prerequisites": "Prepare the exercise results on Transform and Measurement from Unit 4, “Transform and Layout”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Start Interval",
+        "concepts.0.explanation": "stagger delays the start for each target. The total length increases with the number of targets.",
+        "concepts.1.title": "Order",
+        "concepts.1.explanation": "The from option determines the starting target. DOM reading order and visual order are separate.",
+        "outcomes.0": "Learning outcome: explain the role of Start Interval. Input case: 5 ID cards.",
+        "outcomes.1": "Deliverable: a table of the start order for each card. Explain the rationale for handling Order, connecting it to the code.",
+        "steps.0": "In src/day-5.js of a separate practice project, set stagger.each and from on the cards and record start times. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 5 ID cards. Baseline: start. Run under baseline conditions, then record observations and errors in notes/day-5.md.",
+        "steps.2": "Variable: from; changed value: center. Run again using the same input path. Deliverable to save: a table of the start order for each card. Hypothesis to check: The center card starts first, followed by the cards on either side. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "from",
+        "variables.0.baseline": "start",
+        "variables.0.change": "center",
+        "variables.0.expected": "The center card starts first, followed by the cards on either side.",
+        "criteria.0": "Required deliverable: a table of the start order for each card. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Start Interval, Order. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Start Interval affect in this exercise? Input case: 5 ID cards.",
+        "questions.1": "Variable: from. Hypothesis to check: The center card starts first, followed by the cards on either side. Did the actual results match the hypothesis? Explain the evidence in terms of Order.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-06": {
+      "sourceHash": "1cb0dcbac5b1a837a5577fba983c5cd955558dce0671bc43e9c7e885aa1e23dc",
+      "values": {
+        "title": "Labels and Overlap",
+        "prerequisites": "Prepare the exercise results on Start Interval and Order from Unit 5, “Stagger Order”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Label",
+        "concepts.0.explanation": "A label gives a meaningful name to a time. Step buttons can navigate by name instead of by number.",
+        "concepts.1.title": "Relative Position",
+        "concepts.1.explanation": "A relative position expresses a gap relative to the preceding action. A negative gap overlaps actions.",
+        "outcomes.0": "Learning outcome: explain the role of Label. Input case: intro·ready labels.",
+        "outcomes.1": "Deliverable: a schedule of start and end times for each action. Explain the rationale for handling Relative Position, connecting it to the code.",
+        "steps.0": "In src/day-6.js of a separate practice project, use addLabel and relative positions to build a timeline for the heading, cards, and buttons. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: intro·ready labels. Baseline: 0 seconds. Run under baseline conditions, then record observations and errors in notes/day-6.md.",
+        "steps.2": "Variable: Overlap; changed value: -0.3 seconds. Run again using the same input path. Deliverable to save: a schedule of start and end times for each action. Hypothesis to check: The total length decreases while the order is preserved. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Overlap",
+        "variables.0.baseline": "0 seconds",
+        "variables.0.change": "-0.3 seconds",
+        "variables.0.expected": "The total length decreases while the order is preserved.",
+        "criteria.0": "Required deliverable: a schedule of start and end times for each action. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Label, Relative Position. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Label affect in this exercise? Input case: intro·ready labels.",
+        "questions.1": "Variable: Overlap. Hypothesis to check: The total length decreases while the order is preserved. Did the actual results match the hypothesis? Explain the evidence in terms of Relative Position.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-07": {
+      "sourceHash": "83494a93293a22d82d123362171e41b3b9f331c86169a74c3297499d0632bae9",
+      "values": {
+        "title": "Playback Controls",
+        "prerequisites": "Prepare the exercise results on Label and Relative Position from Unit 6, “Labels and Overlap”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Progress",
+        "concepts.0.explanation": "progress handles normalized positions. seek moves to a time or label.",
+        "concepts.1.title": "Synchronization",
+        "concepts.1.explanation": "The slider and playhead update each other. There is no need to create a new tween on every onUpdate.",
+        "outcomes.0": "Learning outcome: explain the role of Progress. Input case: seeking to 0·50·100%.",
+        "outcomes.1": "Deliverable: results from revisiting positions and the tween count. Explain the rationale for handling Synchronization, connecting it to the code.",
+        "steps.0": "In src/day-7.js of a separate practice project, connect a range input to timeline.progress and display the value with onUpdate. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: seeking to 0·50·100%. Baseline: 1 time. Run under baseline conditions, then record observations and errors in notes/day-7.md.",
+        "steps.2": "Variable: Seek Count; changed value: 10 times. Run again using the same input path. Deliverable to save: results from revisiting positions and the tween count. Hypothesis to check: The same progress produces the same scene. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Seek Count",
+        "variables.0.baseline": "1 time",
+        "variables.0.change": "10 times",
+        "variables.0.expected": "The same progress produces the same scene.",
+        "criteria.0": "Required deliverable: results from revisiting positions and the tween count. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Progress, Synchronization. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Progress affect in this exercise? Input case: seeking to 0·50·100%.",
+        "questions.1": "Variable: Seek Count. Hypothesis to check: The same progress produces the same scene. Did the actual results match the hypothesis? Explain the evidence in terms of Synchronization.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
     }
   }
 }

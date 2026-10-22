@@ -927,6 +927,36 @@
       "docPath": "/docs/en/labs/animation/gsap/units/04/README.md",
       "seriesId": "gsap",
       "exampleNote": "This is an experiment on Transform and Layout. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Stagger Order",
+      "goal": "Learning outcome: explain the role of Start Interval. Input case: 5 ID cards. Deliverable: a table of the start order for each card. Explain the rationale for handling Order, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/05/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Stagger Order. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Labels and Overlap",
+      "goal": "Learning outcome: explain the role of Label. Input case: intro·ready labels. Deliverable: a schedule of start and end times for each action. Explain the rationale for handling Relative Position, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/06/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Labels and Overlap. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Playback Controls",
+      "goal": "Learning outcome: explain the role of Progress. Input case: seeking to 0·50·100%. Deliverable: results from revisiting positions and the tween count. Explain the rationale for handling Synchronization, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/07/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Playback Controls. It supports direct interaction and cleans up the resources it uses."
     }
   ]
 }

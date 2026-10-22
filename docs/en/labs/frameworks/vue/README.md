@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 18 published in English
+UI frameworks · 4 stages · 28 units in the full series · 21 published in English
 
 ## Series goal
 
@@ -48,6 +48,9 @@ Only published English units are linked below. The full series has 28 units.
 - [16. Composable Lifetimes](units/16/README.md) — Editable example
 - [17. provide and inject](units/17/README.md) — Editable example
 - [18. Shared Store Scope](units/18/README.md) — Editable example
+- [19. Restoring Saved Data and Validation](units/19/README.md) — Editable example
+- [20. Async Components and Loading UI](units/20/README.md) — Editable example
+- [21. KeepAlive and Pausing](units/21/README.md) — Editable example
 
 ### Stage 4 · Canvas Integration and Update Verification
 

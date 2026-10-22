@@ -500,6 +500,88 @@
         "references.1.title": "Vue Watchers and cleanup",
         "references.2.title": "Vue Composables and Lifetime Management"
       }
+    },
+    "vue-step-19": {
+      "sourceHash": "ad14ad6433060fa5669964262e93dbe23c8154a5b4c5c6dd71b364f9a90044c0",
+      "values": {
+        "title": "Restoring Saved Data and Validation",
+        "prerequisites": "Unit 19 builds on the work and experiment records from Unit 18.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Serialization",
+        "concepts.0.explanation": "Store the data structure to save in JSON rather than the reactive Proxy itself. Check the version and fields to read older data safely.",
+        "concepts.1.title": "Handling failure",
+        "concepts.1.explanation": "Storage writes can throw exceptions. Retain the in-memory draft and report save failures separately to avoid losing input.",
+        "outcomes.0": "Valid A and B drafts are restored separately.",
+        "outcomes.1": "New input is retained even with invalid data.",
+        "steps.0": "Create versioned notes JSON read/write functions in src/persistence.js.",
+        "steps.1": "Insert only valid data into the store during initial loading.",
+        "steps.2": "Inject broken JSON and write exceptions, and record on-screen errors and draft preservation results.",
+        "variables.0.name": "Restore input",
+        "variables.0.baseline": "Valid JSON",
+        "variables.0.change": "Truncated JSON",
+        "variables.0.expected": "Report the error and continue editing with an empty store.",
+        "criteria.0": "Valid A and B drafts are restored separately.",
+        "criteria.1": "New input is retained even with invalid data.",
+        "questions.0": "What is lost if watch immediate saving runs before the initial restore?",
+        "questions.1": "Is deep watch appropriate for every saving requirement?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup"
+      }
+    },
+    "vue-step-20": {
+      "sourceHash": "08bea42f5980bfef092586319e443a7ad7997c34fbe79d872a4c1e056c33eb41",
+      "values": {
+        "title": "Async Components and Loading UI",
+        "prerequisites": "Unit 20 builds on the work and experiment records from Unit 19.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Lazy loading",
+        "concepts.0.explanation": "defineAsyncComponent defers loading component code. Data requests and code loading have separate failure paths.",
+        "concepts.1.title": "Error boundaries",
+        "concepts.1.explanation": "Loading and error components explain the current state to the user. Provide a fallback screen or retry policy for failures.",
+        "outcomes.0": "Loading guidance appears during a delay instead of a blank screen.",
+        "outcomes.1": "List and note controls remain usable after a failure.",
+        "steps.0": "Load the heavy PreviewPanel.vue through defineAsyncComponent in src/App.vue.",
+        "steps.1": "Specify loadingComponent and errorComponent.",
+        "steps.2": "Add a delay and a failure separately to a mock import Promise, and record the guidance states.",
+        "variables.0.name": "Code loading",
+        "variables.0.baseline": "Immediate success",
+        "variables.0.change": "Failure after a delay",
+        "variables.0.expected": "An error message appears after the loading guidance.",
+        "criteria.0": "Loading guidance appears during a delay instead of a blank screen.",
+        "criteria.1": "List and note controls remain usable after a failure.",
+        "questions.0": "Can code-loading failures and search failures use the same state variable?",
+        "questions.1": "Can the size of a split bundle alone determine perceived performance?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup"
+      }
+    },
+    "vue-step-21": {
+      "sourceHash": "09f8deb9f3b05dc949c25bbcc3023f3bcd1c2f92548586d198d474b2478e4f0b",
+      "values": {
+        "title": "KeepAlive and Pausing",
+        "prerequisites": "Unit 21 builds on the work and experiment records from Unit 20.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Preserving instances",
+        "concepts.0.explanation": "KeepAlive caches inactive component instances. Unlike removal, it can retain local state.",
+        "concepts.1.title": "Active lifetime",
+        "concepts.1.explanation": "Cached components can hold resources even while inactive. Design pausing and resuming through onActivated and onDeactivated.",
+        "outcomes.0": "The Editor's local string remains on return.",
+        "outcomes.1": "The inactive Preview's tick does not increase.",
+        "steps.0": "Wrap Editor and Preview dynamic components with KeepAlive in src/Workspace.vue.",
+        "steps.1": "Start the Preview timer in onActivated and stop it in onDeactivated.",
+        "steps.2": "Alternate panels 5 times and check local values and active timer counts.",
+        "variables.0.name": "Preservation method",
+        "variables.0.baseline": "Ordinary dynamic component",
+        "variables.0.change": "KeepAlive",
+        "variables.0.expected": "Local values remain and inactive timers must stop.",
+        "criteria.0": "The Editor's local string remains on return.",
+        "criteria.1": "The inactive Preview's tick does not increase.",
+        "questions.0": "Does onUnmounted alone stop a cached screen's loop?",
+        "questions.1": "What should you check when limiting the cache count?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup",
+        "references.2.title": "Vue Composables and Lifetime Management"
+      }
     }
   }
 }

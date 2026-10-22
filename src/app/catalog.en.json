@@ -1664,6 +1664,36 @@
       "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
     },
     {
+      "id": "vue-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Restoring Saved Data and Validation",
+      "goal": "Valid A and B drafts are restored separately. New input is retained even with invalid data.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/19/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Async Components and Loading UI",
+      "goal": "Loading guidance appears during a delay instead of a blank screen. List and note controls remain usable after a failure.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/20/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "KeepAlive and Pausing",
+      "goal": "The Editor's local string remains on return. The inactive Preview's tick does not increase.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/21/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

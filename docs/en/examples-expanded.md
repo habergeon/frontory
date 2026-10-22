@@ -174,6 +174,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [16. Composable Lifetimes](labs/frameworks/vue/units/16/README.md) | Editable example | [Source code](../../src/labs/vue-step-16/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 | [17. provide and inject](labs/frameworks/vue/units/17/README.md) | Editable example | [Source code](../../src/labs/vue-step-17/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 | [18. Shared Store Scope](labs/frameworks/vue/units/18/README.md) | Editable example | [Source code](../../src/labs/vue-step-18/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [19. Restoring Saved Data and Validation](labs/frameworks/vue/units/19/README.md) | Editable example | [Source code](../../src/labs/vue-step-19/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [20. Async Components and Loading UI](labs/frameworks/vue/units/20/README.md) | Editable example | [Source code](../../src/labs/vue-step-20/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [21. KeepAlive and Pausing](labs/frameworks/vue/units/21/README.md) | Editable example | [Source code](../../src/labs/vue-step-21/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 
 ## GSAP
 

@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: provide and inject](../17/README.md)
+[Previous: provide and inject](../17/README.md) · [Next: Restoring Saved Data and Validation](../19/README.md)
 
 ## Experiment notes — write your own
 

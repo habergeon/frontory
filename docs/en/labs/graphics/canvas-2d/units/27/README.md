@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Frame Measurement and Bottlenecks](../26/README.md)
+[Previous: Frame Measurement and Bottlenecks](../26/README.md) · [Next: Particles and Cost](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

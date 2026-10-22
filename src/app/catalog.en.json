@@ -2336,6 +2336,15 @@
       "exampleNote": "This is a reduced editor for checking command replay, undo, and JSON state. It does not replace every tool in the full capstone."
     },
     {
+      "id": "canvas-2d-03",
+      "day": 28,
+      "week": 4,
+      "title": "Particles and Cost",
+      "goal": "Keep before-and-after frame records and quality images under identical conditions. Explain improvements and remaining bottlenecks with evidence.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/03-project/README.md",
+      "seriesId": "canvas-2d"
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

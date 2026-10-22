@@ -716,6 +716,33 @@
         "questions.1": "What does regression testing with screenshots alone miss?",
         "references.0.title": "MDN Canvas Tutorial"
       }
+    },
+    "canvas-2d-03": {
+      "sourceHash": "3fa9ae8f117f435783add2e52409196510d0c7b594671a7ede194379c3d39628",
+      "values": {
+        "title": "Particles and Cost",
+        "prerequisites": "Prerequisite concepts: Reproducing Input, Lifetime Cleanup. Prepare the result files and observation records from Unit 27.",
+        "environment": "The existing built-in example provides only a starting point. It does not implement all extended requirements. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Three Axes of Cost",
+        "concepts.0.explanation": "Particle count increases update work, and resolution increases the pixels to fill. State changes also matter, so a single number cannot explain a bottleneck.",
+        "concepts.1.title": "Evidence-Based Improvements",
+        "concepts.1.explanation": "Separating a static background can reduce repeated work. The effect depends on scene composition and the browser, so judge it from records under the same conditions.",
+        "outcomes.0": "Keep before-and-after frame records and quality images under identical conditions.",
+        "outcomes.1": "Explain improvements and remaining bottlenecks with evidence.",
+        "steps.0": "Prepare day-28.js and index.html in the external practice project. Use the existing canvas-2d-03 as a starting point to complete an experiment screen that adjusts particle count, DPR, and background caching.",
+        "steps.1": "Fix the particle seed and viewport, and save a report of frame distributions before and after caching, visual quality, and state after creation and deletion.",
+        "steps.2": "Save the output with the input condition draw paths every frame, then run again with reuse a static layer. Expected: Repeated path cost may decrease, but compare it together with the additional compositing cost. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-28-notes.md.",
+        "variables.0.name": "Background Handling",
+        "variables.0.baseline": "draw paths every frame",
+        "variables.0.change": "reuse a static layer",
+        "variables.0.expected": "Repeated path cost may decrease, but compare it together with the additional compositing cost",
+        "criteria.0": "Keep before-and-after frame records and quality images under identical conditions.",
+        "criteria.1": "Explain improvements and remaining bottlenecks with evidence.",
+        "questions.0": "How did you separate pixel costs from object update costs?",
+        "questions.1": "Can you explain conditions where caching did not help?",
+        "references.0.title": "MDN Canvas Tutorial",
+        "references.1.title": "MDN devicePixelRatio"
+      }
     }
   }
 }

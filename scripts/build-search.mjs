@@ -26,4 +26,4 @@ for (const file of copies) {
   fs.mkdirSync(path.dirname(target), { recursive: true })
   fs.copyFileSync(file, target)
 }
-console.log(`Generated ${pages.size} search assets; sitemap contains 669 canonical URLs.`)
+console.log(`Generated ${pages.size} search assets; sitemap contains ${(pages.get('sitemap.xml').match(/<loc>/g) ?? []).length} canonical URLs.`)

@@ -36,7 +36,7 @@ test('all local Markdown links resolve after folder migration',()=>{
   for(const file of [...walk('docs').filter(p=>p.endsWith('.md')),'README.md']){
     for(const match of fs.readFileSync(file,'utf8').matchAll(/\]\(([^)]+)\)/g)){
       const link=match[1].split('#')[0]
-      if(!link || /^https?:/.test(link))continue
+      if(!link || /^(https?:|mailto:)/.test(link))continue
       assert.ok(fs.existsSync(path.resolve(path.dirname(file),link)),file+' -> '+link)
     }
   }

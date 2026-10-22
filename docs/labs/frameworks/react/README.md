@@ -70,6 +70,10 @@ JavaScript·TypeScript, DOM 이벤트
 
 - [React 학습 가이드](https://react.dev/learn)
 - [React API 참고](https://react.dev/reference/react)
+- [React 상태 스냅샷](https://react.dev/learn/state-as-a-snapshot)
+- [React 상태 갱신 큐와 배칭](https://react.dev/learn/queueing-a-series-of-state-updates)
+- [React 이벤트 핸들러 전달](https://react.dev/learn/responding-to-events)
+- [useState updater와 Strict Mode](https://react.dev/reference/react/useState#my-initializer-or-updater-function-runs-twice)
 - [React 상태 보존과 초기화](https://react.dev/learn/preserving-and-resetting-state)
 - [React useEffect: 외부 시스템과 정리](https://react.dev/reference/react/useEffect)
 - [React useDeferredValue와 느린 자식의 memo 경계](https://react.dev/reference/react/useDeferredValue#deferring-re-rendering-for-a-part-of-the-ui)

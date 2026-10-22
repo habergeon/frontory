@@ -5,7 +5,9 @@ Frontory의 실습 화면은 기존 `/#학습ID` 주소를 유지합니다. `#` 
 - `/learn/`: 전체 시리즈 목록
 - `/learn/<series>/`: 시리즈별 28단위 학습 계획
 - `/learn/<series>/<unit>/`: 목표, 개념, 실습 과제와 공식 참고자료
-- `/sitemap.xml`: 홈과 공개 학습 문서 669개 URL
+- `/privacy/`: 저장 및 개인정보 안내
+- `/about/`: 사이트 소개와 문의
+- `/sitemap.xml`: 홈, 공개 학습 문서와 서비스 안내 671개 URL
 - `/robots.txt`: 공개 페이지 크롤링 허용과 사이트맵 위치
 
 공개 문서는 빌드 시 기존 Markdown에서 생성합니다. JavaScript 없이도 본문과 다음 학습 링크를 읽을 수 있으며 각 페이지에 고유한 제목·설명·canonical을 넣습니다. 본문의 ‘코드 편집 · 실습 · 필기 열기’에서 기존 실습 화면으로 이동합니다. 개인 필기·편집 코드·학습 상태는 공개 문서에 포함하지 않습니다.
@@ -16,7 +18,7 @@ Frontory의 실습 화면은 기존 `/#학습ID` 주소를 유지합니다. `#` 
 
 | 항목 | 설정 | 수정할 파일 |
 | --- | --- | --- |
-| 사이트맵 | 홈, 시리즈, 학습 문서 669개 URL. `#` 실습 주소는 제외 | `scripts/search-pages.mjs` |
+| 사이트맵 | 홈, 시리즈, 학습 문서와 서비스 안내 671개 URL. `#` 실습 주소는 제외 | `scripts/search-pages.mjs` |
 | robots.txt | 크롤링 허용, 사이트맵 절대 주소 안내 | `scripts/search-pages.mjs` |
 | 제목·설명·canonical | 홈은 고정, 학습 문서는 각 단위의 제목과 목표로 생성 | `index.html`, `scripts/search-pages.mjs` |
 | Open Graph | 페이지별 제목·설명·주소, Frontory 사이트명, `ko_KR`, 공통 이미지 | `index.html`, `scripts/social-meta.mjs` |

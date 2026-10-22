@@ -32,3 +32,20 @@
 - GS는 교육용 CPU renderer이며 Spark, 대형 데이터, GPU tile/LOD, 고차 SH, GS picking 검증이 아닙니다.
 - 프레임워크 런타임을 함께 번들하므로 초기 다운로드와 iframe 교체 비용은 후속 최적화 대상입니다.
 - 공개 배포·원격 push는 진행하지 않았습니다.
+
+## 2026-10-22 대표 강의 보강 검증
+
+React 상태 스냅샷, GSAP 시작값과 목표값, JavaScript 숫자 변환, CSS 박스 모델의 설명을 보강하며 Windows의 HeadlessChrome 151.0.7922.34에서 기존 예제를 실행했습니다. 아래 값은 해당 입력에 대한 확인 기록이며 전체 커리큘럼의 상호작용 검증을 뜻하지 않습니다.
+
+| 예제 | 확인한 내용 |
+| --- | --- |
+| React 3단위 | 초기 0, Snapshot 한 클릭 뒤 1, Reset 뒤 0, Updater 한 클릭 뒤 3, 한 번 더 클릭하면 6. 본문 교체 코드에서는 별도 Snapshot 세 클릭의 1 → 2 → 3과 Reset 뒤 Updater의 3도 확인 |
+| JavaScript 2단위 | 기본 문자열 네 개와 공백·0·Infinity·16진수·지수 표기의 판정. 잘못된 JSON의 오류 표시 후 정상 입력으로 복구 |
+| CSS 4단위 | content-box의 테두리 너비 244px와 border-box의 200px. 계산 스타일의 너비에서 padding과 border를 빼면 콘텐츠 너비 156px |
+| GSAP 2단위 | 첫 실행과 다음 실행의 종료 x가 각각 0과 240. 본문 세 카드 비교 코드의 생성 직후·진행도 0.5·진행도 1 결과 및 immediateRender: false 변형 |
+
+재현하려면 `pnpm dev`를 실행한 뒤 `http://127.0.0.1:5173/tests/browser/representative-lessons.html`을 엽니다. [검사 코드](../tests/browser/representative-lessons.js)는 실제 예제의 mount를 호출하고 본문에 포함된 React·GSAP 코드도 추출해 실행합니다. 모든 판정이 맞으면 PASS와 관찰값을 표시합니다. 생성되는 학습 문서는 `pnpm build:curricula`로 갱신합니다.
+
+이 검사는 로컬 검증 페이지에서 mount를 직접 실행합니다. 실제 학습 앱의 sandbox 통합, 자연 재생 소요 시간, 깜박임, 모든 기기와 브라우저의 결과까지 입증하지 않습니다. GSAP의 진행도는 코드로 이동했으며 CSS의 콘텐츠 너비 156px는 테두리 실측값과 계산 스타일로 구한 값입니다.
+
+같은 날 프로덕션 빌드를 로컬 미리보기 서버에서 열어 실제 React 실습의 sandbox 안에서 Updater 버튼 결과 3을 확인했습니다. Markdown 필기를 입력한 뒤 새로고침해 보존되는지 확인하고 검사에 사용한 필기는 원래 양식으로 돌려놓았습니다. 해당 실습 문서에는 AdSense 실행 태그와 광고 네트워크 요청이 없었고 새로고침 후 콘솔 오류도 없었습니다. 소개·개인정보 안내는 모바일 너비에서 본문과 링크가 보이고 페이지 전체의 가로 넘침이 없었습니다. 승인 후 실제 광고의 배치나 CMP 동작을 확인한 결과는 아닙니다.

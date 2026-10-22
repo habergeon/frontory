@@ -2,7 +2,7 @@
 
 **Learn · Experiment · Archive** — 프론트엔드 기술을 배우고 코드를 실험하고 경험을 기록하는 웹 학습 공간입니다. Frontend + Story + Repository라는 의미를 담았습니다.
 
-[사용법](docs/learning-workspace.md) · [기술 지도](docs/labs/README.md) · [학습 로드맵](docs/roadmap.md) · [배포 가이드](docs/deployment.md) · [검색 등록 안내](docs/search-indexing.md) · [기여 안내](CONTRIBUTING.md)
+[사용법](docs/learning-workspace.md) · [기술 지도](docs/labs/README.md) · [학습 로드맵](docs/roadmap.md) · [배포 가이드](docs/deployment.md) · [검색 등록 안내](docs/search-indexing.md) · [광고 운영 점검](docs/adsense.md) · [기여 안내](CONTRIBUTING.md)
 
 ## 무엇을 할 수 있나요?
 

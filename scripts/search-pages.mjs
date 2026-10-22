@@ -10,14 +10,25 @@ const root = path.resolve(import.meta.dirname, '..')
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'src/app/catalog.json'), 'utf8'))
 export const origin = 'https://frontory.pages.dev'
 const repository = 'https://github.com/habergeon/frontory/blob/main'
+// Start with reading pages whose explanations and example results were reviewed.
+const adReadingRoutes = new Set([
+  '/learn/javascript/javascript-step-02/',
+  '/learn/css/css-step-04/',
+  '/learn/react/react-step-03/',
+  '/learn/gsap/gsap-step-02/',
+])
 const documentRoutes = new Map([
   ['/docs/labs/README.md', '/learn/'],
+  ['/docs/privacy.md', '/privacy/'],
+  ['/docs/about.md', '/about/'],
   ...catalog.series.map(series => [series.docPath, `/learn/${series.id}/`]),
   ...catalog.units.map(unit => [unit.docPath, `/learn/${unit.seriesId}/${unit.id}/`]),
 ])
 export const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;')
 
 export function renderDocument(markdown, docPath) {
+  // Omit only the untouched worksheet tail; retain any written experiment record.
+  const publicMarkdown = markdown.replace(/\n## 실험 기록 — 직접 작성\s+### 목표\s+### 핵심 개념\s+### 바꾼 변수와 예상\s+### 실제 결과\s+### 배운 점\s+### 남은 질문\s*$/, '\n')
   return renderToStaticMarkup(React.createElement(Markdown, {
     remarkPlugins: [remarkGfm], skipHtml: true,
     components: {
@@ -30,12 +41,12 @@ export function renderDocument(markdown, docPath) {
         return React.createElement('a', { href: target }, children)
       },
     },
-  }, markdown))
+  }, publicMarkdown))
 }
 
 function page(title, description, route, body, noindex = false) {
-  const adsense = noindex ? '' : '<meta name="google-adsense-account" content="ca-pub-2698855152594465"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698855152594465" crossorigin="anonymous"></script>'
-  return `<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)} · Frontory</title><meta name="description" content="${escape(description)}"><meta name="robots" content="${noindex ? 'noindex,follow' : 'index,follow'}"><link rel="canonical" href="${origin + route}"><meta property="og:type" content="website"><meta property="og:title" content="${escape(title)} · Frontory"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${origin + route}">${socialMeta}${adsense}<link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/learn.css"></head><body><header><a class="brand" href="/">Frontory</a><nav aria-label="사이트 탐색"><a href="/learn/">전체 커리큘럼</a><a href="/">실습 홈</a></nav></header><main>${body}</main><footer>Frontory · 개념을 읽고, 실험하고, 경험을 기록하세요. <a href="https://github.com/habergeon/frontory">GitHub</a></footer></body></html>`
+  const adsense = noindex || !adReadingRoutes.has(route) ? '' : '<meta name="google-adsense-account" content="ca-pub-2698855152594465"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2698855152594465" crossorigin="anonymous"></script>'
+  return `<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)} · Frontory</title><meta name="description" content="${escape(description)}"><meta name="robots" content="${noindex ? 'noindex,follow' : 'index,follow'}"><link rel="canonical" href="${origin + route}"><meta property="og:type" content="website"><meta property="og:title" content="${escape(title)} · Frontory"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${origin + route}">${socialMeta}${adsense}<link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/learn.css"></head><body><header><a class="brand" href="/">Frontory</a><nav aria-label="사이트 탐색"><a href="/learn/">전체 커리큘럼</a><a href="/">실습 홈</a></nav></header><main>${body}</main><footer>Frontory · 개념을 읽고, 실험하고, 경험을 기록하세요. <nav aria-label="서비스 안내"><a href="/about/">소개와 문의</a><a href="/privacy/">저장 및 개인정보</a><a href="https://github.com/habergeon/frontory">GitHub</a></nav></footer></body></html>`
 }
 
 export function generateSearchPages() {
@@ -56,6 +67,9 @@ export function generateSearchPages() {
       pages.set(unitRoute.slice(1) + 'index.html', page(`${series.title} — ${unit.title}`, unit.goal, unitRoute, navigation + launch + renderDocument(fs.readFileSync(path.join(root, unit.docPath), 'utf8'), unit.docPath) + launch + navigation))
     }
   }
+  pages.set('privacy/index.html', page('저장 및 개인정보 안내', 'Frontory의 학습 기록 저장, 분석·광고 데이터 처리와 개인정보 문의 방법.', '/privacy/', renderDocument(fs.readFileSync(path.join(root, 'docs/privacy.md'), 'utf8'), '/docs/privacy.md')))
+  pages.set('about/index.html', page('Frontory 소개와 문의', 'Frontory의 학습 방식, 공개 저장소, 문서 검증 범위와 문의 방법.', '/about/', renderDocument(fs.readFileSync(path.join(root, 'docs/about.md'), 'utf8'), '/docs/about.md')))
+  routes.push('/privacy/', '/about/')
   pages.set('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + routes.map(route => `  <url><loc>${origin + route}</loc></url>`).join('\n') + '\n</urlset>\n')
   pages.set('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`)
   pages.set('404.html', page('페이지를 찾을 수 없습니다', '요청한 학습 페이지가 없습니다.', '/404.html', '<h1>페이지를 찾을 수 없습니다</h1><p>주소를 확인하거나 <a href="/learn/">전체 커리큘럼</a>에서 학습을 찾아보세요.</p>', true))
@@ -63,5 +77,5 @@ export function generateSearchPages() {
 }
 
 export function homeFallback() {
-  return `<main><h1>Frontory — 프론트엔드 학습과 실습</h1><p>23개 시리즈, 644개 학습 단위의 개념과 실습을 읽고 나의 경험을 기록하세요.</p><p><a href="/learn/">전체 학습 문서 읽기</a></p><ul>${catalog.series.map(series => `<li><a href="/learn/${series.id}/">${escape(series.title)} 커리큘럼</a></li>`).join('')}</ul></main>`
+  return `<main><h1>Frontory — 프론트엔드 학습과 실습</h1><p>23개 시리즈, 644개 학습 단위의 개념과 실습을 읽고 나의 경험을 기록하세요.</p><p><a href="/about/">소개와 문의</a> · <a href="/privacy/">저장 및 개인정보 안내</a></p><p><a href="/learn/">전체 학습 문서 읽기</a></p><ul>${catalog.series.map(series => `<li><a href="/learn/${series.id}/">${escape(series.title)} 커리큘럼</a></li>`).join('')}</ul></main>`
 }

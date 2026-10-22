@@ -39,6 +39,6 @@ export function App() {
     <Suspense fallback={<p role="status">실습 환경을 준비하고 있습니다…</p>}><Workspace key={selected.id + ':' + restoreRevision} unit={selected} onProgressChange={() => refreshProgress(value => value + 1)} /></Suspense>
     </>}
     {documentPath && <DocumentDialog initialPath={documentPath} unitPath={selected?.docPath ?? '/docs/labs/README.md'} onClose={() => setDocumentPath(null)} />}
-    <footer className="app-footer"><span>Frontory · 기록은 이 브라우저에 저장됩니다. 정기적으로 JSON 백업을 내려받으세요.</span><nav aria-label="서비스 안내"><button onClick={() => setDocumentPath('/docs/privacy.md')}>저장 및 개인정보</button><a href="https://github.com/habergeon/frontory" target="_blank" rel="noreferrer">GitHub</a></nav></footer>
+    <footer className="app-footer"><span>Frontory · 기록은 이 브라우저에 저장됩니다. 정기적으로 JSON 백업을 내려받으세요.</span><nav aria-label="서비스 안내"><a href="/about/">소개와 문의</a><a href="/privacy/">저장 및 개인정보</a><a href="https://github.com/habergeon/frontory" target="_blank" rel="noreferrer">GitHub</a></nav></footer>
   </main>
 }

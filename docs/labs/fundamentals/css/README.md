@@ -69,6 +69,10 @@ HTML 구조
 ## 공식 참고
 
 - [MDN CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [MDN box-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/box-sizing)
+- [MDN 박스 모델](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model)
+- [MDN getBoundingClientRect](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)
+- [MDN 미디어 쿼리 사용](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using)
 - [MDN prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion)
 - [MDN Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
 - [MDN Cascade layers](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)

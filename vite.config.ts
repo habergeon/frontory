@@ -21,7 +21,7 @@ export default defineConfig({
           response.setHeader('Content-Disposition', 'attachment; filename="' + path.basename(file) + '"')
           response.end(fs.readFileSync(file)); return
         }
-        if (!pathname.startsWith('/learn/') && pathname !== '/learn' && pathname !== '/robots.txt' && pathname !== '/sitemap.xml') { next(); return }
+        if (!pathname.startsWith('/learn/') && pathname !== '/learn' && !pathname.startsWith('/privacy/') && pathname !== '/privacy' && !pathname.startsWith('/about/') && pathname !== '/about' && pathname !== '/robots.txt' && pathname !== '/sitemap.xml') { next(); return }
         pages ??= generateSearchPages()
         const key = pathname.slice(1) + (pathname.endsWith('/') ? 'index.html' : '')
         if (!pathname.endsWith('/') && pages.has(key + '/index.html')) {

@@ -91,6 +91,87 @@
         "references.0.title": "Motion React animation",
         "references.1.title": "Motion AnimatePresence"
       }
+    },
+    "motion-step-04": {
+      "sourceHash": "174e0051082a5978eb9f0741f50d307dda597c63f975cfa5b38c8aafea224516",
+      "values": {
+        "title": "Physical Spring Parameters",
+        "prerequisites": "Prepare the results of the Tween and Per-property settings exercises from Unit 3, “Configuring Transition”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Stiffness",
+        "concepts.0.explanation": "stiffness relates to the force that returns an element to its target. Increasing it changes the response.",
+        "concepts.1.title": "Damping",
+        "concepts.1.explanation": "damping suppresses oscillation. Do not conflate duration-based spring settings with physical settings.",
+        "outcomes.0": "Learning outcome: Explain the role of Stiffness. Input case: x=0 and x=160.",
+        "outcomes.1": "Deliverable: A record of overshoot and settling observations. Connect your rationale for handling Damping to the code.",
+        "steps.0": "In src/day-4.tsx of a separate exercise project, specify stiffness and damping with type:spring and switch the target. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: x=0 and x=160. Baseline: 10. Run under the baseline condition, then record observations and errors in notes/day-4.md.",
+        "steps.2": "Variable to change: damping; new value: 30. Run again with the same input path. Deliverable to save: A record of overshoot and settling observations. Hypothesis to test: Oscillation tends to decrease. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "damping",
+        "variables.0.baseline": "10",
+        "variables.0.change": "30",
+        "variables.0.expected": "Oscillation tends to decrease.",
+        "criteria.0": "Required deliverable: A record of overshoot and settling observations. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Stiffness and Damping. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Stiffness affect in this exercise? Input case: x=0 and x=160.",
+        "questions.1": "Variable to change: damping. Hypothesis to test: Oscillation tends to decrease. Did the actual results agree with the hypothesis? Explain your evidence in terms of Damping.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    },
+    "motion-step-05": {
+      "sourceHash": "19329dd5602dbbfcefcc57de9ec5ac447baa9665effaed6490861e85c1a0bae1",
+      "values": {
+        "title": "Keyframes",
+        "prerequisites": "Prepare the results of the Stiffness and Damping exercises from Unit 4, “Physical Spring Parameters”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Keyframes",
+        "concepts.0.explanation": "An array defines intermediate targets. Its trajectory differs from a transition with only a start and an end.",
+        "concepts.1.title": "Times",
+        "concepts.1.explanation": "times sets the normalized time for each target. Array lengths and order must match.",
+        "outcomes.0": "Learning outcome: Explain the role of Keyframes. Input case: Positions 0→100→60.",
+        "outcomes.1": "Deliverable: A table of positions at each specified time. Connect your rationale for handling Times to the code.",
+        "steps.0": "In src/day-5.tsx of a separate exercise project, configure an x array in animate and transition.times. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Positions 0→100→60. Baseline: 0.5. Run under the baseline condition, then record observations and errors in notes/day-5.md.",
+        "steps.2": "Variable to change: Intermediate time; new value: 0.2. Run again with the same input path. Deliverable to save: A table of positions at each specified time. Hypothesis to test: The intermediate target is reached earlier. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Intermediate time",
+        "variables.0.baseline": "0.5",
+        "variables.0.change": "0.2",
+        "variables.0.expected": "The intermediate target is reached earlier.",
+        "criteria.0": "Required deliverable: A table of positions at each specified time. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Keyframes and Times. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Keyframes affect in this exercise? Input case: Positions 0→100→60.",
+        "questions.1": "Variable to change: Intermediate time. Hypothesis to test: The intermediate target is reached earlier. Did the actual results agree with the hypothesis? Explain your evidence in terms of Times.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    },
+    "motion-step-06": {
+      "sourceHash": "1cee2f750520f12b7ef9962d658cf69b1144afd48d78e0e8ebc37c80da4e6ead",
+      "values": {
+        "title": "Variants",
+        "prerequisites": "Prepare the results of the Keyframes and Times exercises from Unit 5, “Keyframes”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Named states",
+        "concepts.0.explanation": "variants groups visual states by name. A name can be selected from domain state.",
+        "concepts.1.title": "Propagation",
+        "concepts.1.explanation": "A parent variant can propagate to children. Giving a child its own animate changes this relationship.",
+        "outcomes.0": "Learning outcome: Explain the role of Named states. Input case: Changing the selection between two cards.",
+        "outcomes.1": "Deliverable: A table of parent and child target states. Connect your rationale for handling Propagation to the code.",
+        "steps.0": "In src/day-6.tsx of a separate exercise project, define idle and selected variants for a card and its icon. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Changing the selection between two cards. Baseline: Inherited from the parent. Run under the baseline condition, then record observations and errors in notes/day-6.md.",
+        "steps.2": "Variable to change: Child control; new value: Independent animate. Run again with the same input path. Deliverable to save: A table of parent and child target states. Hypothesis to test: The path through which state propagates to the child changes. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Child control",
+        "variables.0.baseline": "Inherited from the parent",
+        "variables.0.change": "Independent animate",
+        "variables.0.expected": "The path through which state propagates to the child changes.",
+        "criteria.0": "Required deliverable: A table of parent and child target states. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Named states and Propagation. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Named states affect in this exercise? Input case: Changing the selection between two cards.",
+        "questions.1": "Variable to change: Child control. Hypothesis to test: The path through which state propagates to the child changes. Did the actual results agree with the hypothesis? Explain your evidence in terms of Propagation.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
     }
   }
 }

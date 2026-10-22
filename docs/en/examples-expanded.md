@@ -520,3 +520,6 @@ Check the scope of each example. Browser previews and files run in a separate en
 | --- | --- | --- |
 | [2. Initial and Animate](labs/animation/motion/units/02/README.md) | Editable example | [Source code](../../src/labs/motion-step-02/example.js) — Interactive Initial and Animate experiment with cleanup of the resources used. |
 | [3. Configuring Transition](labs/animation/motion/units/03/README.md) | Editable example | [Source code](../../src/labs/motion-step-03/example.js) — Interactive Configuring Transition experiment with cleanup of the resources used. |
+| [4. Physical Spring Parameters](labs/animation/motion/units/04/README.md) | Editable example | [Source code](../../src/labs/motion-step-04/example.js) — Interactive Physical Spring Parameters experiment with cleanup of the resources used. |
+| [5. Keyframes](labs/animation/motion/units/05/README.md) | Editable example | [Source code](../../src/labs/motion-step-05/example.js) — Interactive Keyframes experiment with resource cleanup. |
+| [6. Variants](labs/animation/motion/units/06/README.md) | Editable example | [Source code](../../src/labs/motion-step-06/example.js) — Interactive Variants experiment with resource cleanup. |

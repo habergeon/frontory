@@ -162,7 +162,10 @@ test('localized catalog lookup preserves shared executable identity and has no K
     assert.equal(unit.exampleReadingSource, common.exampleReadingSource)
     assert.equal(unit.exampleReadingSource, details[unit.id]?.readingSource)
     assert.equal(unit.exampleFiles, common.exampleFiles)
-    if (details[unit.id]) assert.notEqual(unit.exampleNote, common.exampleNote)
+    if (details[unit.id]) {
+      if (/[가-힣]/.test(common.exampleNote)) assert.notEqual(unit.exampleNote, common.exampleNote)
+      else assert.equal(unit.exampleNote, common.exampleNote)
+    }
     else assert.equal(unit.exampleNote, undefined)
     assert.equal(api.getLocalizedUnit('en', unit.id), unit)
   }

@@ -10,5 +10,23 @@
     "values": {
       "note": "Interactive Configuring Transition experiment with cleanup of the resources used."
     }
+  },
+  "motion-step-04": {
+    "sourceHash": "08e8d576d85e2ececba0a5e9930482d0e58687cc9834054d162875cde360392d",
+    "values": {
+      "note": "Interactive Physical Spring Parameters experiment with cleanup of the resources used."
+    }
+  },
+  "motion-step-05": {
+    "sourceHash": "fdd9f51b7c28f98dd7e4d6ecc0f60e58063fd5431d0f666bfc3e47a1ad7ce4c8",
+    "values": {
+      "note": "Interactive Keyframes experiment with resource cleanup."
+    }
+  },
+  "motion-step-06": {
+    "sourceHash": "06e345f3eedd347555a957b11c60a68113267a7da0092730f1bbc206f2b57d18",
+    "values": {
+      "note": "Interactive Variants experiment with resource cleanup."
+    }
   }
 }

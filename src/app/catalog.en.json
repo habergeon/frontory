@@ -4991,6 +4991,36 @@
       "docPath": "/docs/en/labs/animation/motion/units/03/README.md",
       "seriesId": "motion",
       "exampleNote": "Interactive Configuring Transition experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Physical Spring Parameters",
+      "goal": "Learning outcome: Explain the role of Stiffness. Input case: x=0 and x=160. Deliverable: A record of overshoot and settling observations. Connect your rationale for handling Damping to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/04/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Physical Spring Parameters experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Keyframes",
+      "goal": "Learning outcome: Explain the role of Keyframes. Input case: Positions 0→100→60. Deliverable: A table of positions at each specified time. Connect your rationale for handling Times to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/05/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Keyframes experiment with resource cleanup."
+    },
+    {
+      "id": "motion-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Variants",
+      "goal": "Learning outcome: Explain the role of Named states. Input case: Changing the selection between two cards. Deliverable: A table of parent and child target states. Connect your rationale for handling Propagation to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/06/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Variants experiment with resource cleanup."
     }
   ]
 }

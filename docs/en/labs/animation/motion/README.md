@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Animation · 4 stages · 28 units in the full series · 3 published in English
+Animation · 4 stages · 28 units in the full series · 6 published in English
 
 ## Series goal
 
@@ -27,6 +27,9 @@ Only published English units are linked below. The full series has 28 units.
 - [01. State-Based Animation](01-foundations/README.md) — Editable example
 - [02. Initial and Animate](units/02/README.md) — Editable example
 - [03. Configuring Transition](units/03/README.md) — Editable example
+- [04. Physical Spring Parameters](units/04/README.md) — Editable example
+- [05. Keyframes](units/05/README.md) — Editable example
+- [06. Variants](units/06/README.md) — Editable example
 
 ### Stage 2 · Layout and Presence
 

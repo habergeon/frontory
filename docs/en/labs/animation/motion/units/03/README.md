@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Initial and Animate](../02/README.md)
+[Previous: Initial and Animate](../02/README.md) · [Next: Physical Spring Parameters](../04/README.md)
 
 ## Experiment notes — write your own
 

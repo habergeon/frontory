@@ -264,6 +264,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [16. Pointer Event Regions](labs/graphics/svg/units/16/README.md) | Editable example | [Source code](../../src/labs/svg-step-16/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 | [17. Dragging and Capture](labs/graphics/svg/units/17/README.md) | Editable example | [Source code](../../src/labs/svg-step-17/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 | [18. Zooming and Panning](labs/graphics/svg/units/18/README.md) | Editable example | [Source code](../../src/labs/svg-step-18/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [19. Data and DOM Updates](labs/graphics/svg/units/19/README.md) | Editable example | [Source code](../../src/labs/svg-step-19/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [20. Connectors and Graph Layout](labs/graphics/svg/units/20/README.md) | Editable example | [Source code](../../src/labs/svg-step-20/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [21. Animation and Reduced Motion](labs/graphics/svg/units/21/README.md) | Editable example | [Source code](../../src/labs/svg-step-21/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

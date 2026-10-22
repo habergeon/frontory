@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Dragging and Capture](../17/README.md)
+[Previous: Dragging and Capture](../17/README.md) · [Next: Data and DOM Updates](../19/README.md)
 
 ## Experiment notes — write your own
 

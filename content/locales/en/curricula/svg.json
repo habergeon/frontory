@@ -480,6 +480,84 @@
         "questions.1": "How do you distinguish wheel page scrolling from zooming?",
         "references.0.title": "MDN getScreenCTM Coordinate Transformation"
       }
+    },
+    "svg-step-19": {
+      "sourceHash": "1bc838aad4577fc2ce6b9bd2819ef01a759acd105b4908b212b81017c2c08763",
+      "values": {
+        "title": "Data and DOM Updates",
+        "prerequisites": "Prerequisite concepts: Camera group, Pointer-centered zoom. Prepare the result files and observation records from Unit 18.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Stable ids",
+        "concepts.0.explanation": "A data id connects a DOM element to its data. It identifies the same object even when array order changes.",
+        "concepts.1.title": "Incremental updates",
+        "concepts.1.explanation": "Replacing all innerHTML may lose focus and event connections. Updating only necessary attributes and elements makes state easier to preserve.",
+        "outcomes.0": "The selected id does not change after reordering.",
+        "outcomes.1": "Clean up DOM and Map references for deleted ids.",
+        "steps.0": "Prepare day-19.js and index.html in an external practice project. Implement node creation, modification, and deletion with an id→SVGElement Map.",
+        "steps.1": "Reorder the data, remove one node, and record whether selection and focus persist.",
+        "steps.2": "Save the output under the input condition Full replacement, then run again with id-based attribute updates. Compare the hypothesis, \"Unchanged elements retain their identity and focus,\" against the display and logs, and record the actual result and the causes of any differences in day-19-notes.md.",
+        "variables.0.name": "Update method",
+        "variables.0.baseline": "Full replacement",
+        "variables.0.change": "id-based attribute updates",
+        "variables.0.expected": "Unchanged elements retain their identity and focus",
+        "criteria.0": "The selected id does not change after reordering.",
+        "criteria.1": "Clean up DOM and Map references for deleted ids.",
+        "questions.0": "How do you handle the same id arriving twice?",
+        "questions.1": "Is reusing DOM always the fastest option?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
+    },
+    "svg-step-20": {
+      "sourceHash": "e36427fe63dabc0841bfb76a4c84722c20a047d479c4e8dc9bf44419e77105bd",
+      "values": {
+        "title": "Connectors and Graph Layout",
+        "prerequisites": "Prerequisite concepts: Stable ids, Incremental updates. Prepare the result files and observation records from Unit 19.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Derived paths",
+        "concepts.0.explanation": "Connectors are data calculated from the coordinates of two nodes. Storing them separately may leave stale coordinates after movement.",
+        "concepts.1.title": "Layer order",
+        "concepts.1.explanation": "SVG draws in document order. Placing connectors first displays them beneath nodes and labels.",
+        "outcomes.0": "Reject edges that reference missing nodes.",
+        "outcomes.1": "Connector endpoints match after moving a node.",
+        "steps.0": "Prepare day-20.js and index.html in an external practice project. Build a small learning map with a node array and an edge array using sourceId,targetId.",
+        "steps.1": "Update path d from both endpoints on every drag, and place the connector group before the nodes.",
+        "steps.2": "Save the output under the input condition Fixed, then run again with Move one node by 80 units. Compare the hypothesis, \"Only paths connected to that node point toward its new position,\" against the display and logs, and record the actual result and the causes of any differences in day-20-notes.md.",
+        "variables.0.name": "Node position",
+        "variables.0.baseline": "Fixed",
+        "variables.0.change": "Move one node by 80 units",
+        "variables.0.expected": "Only paths connected to that node point toward its new position",
+        "criteria.0": "Reject edges that reference missing nodes.",
+        "criteria.1": "Connector endpoints match after moving a node.",
+        "questions.0": "Why calculate connector coordinates instead of storing them?",
+        "questions.1": "Does changing layer order also affect selection?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
+    },
+    "svg-step-21": {
+      "sourceHash": "17edcdd3fc24ee457458a7bd3eabd30022436f0f8220bfdf5d9a6871f37fd9e5",
+      "values": {
+        "title": "Animation and Reduced Motion",
+        "prerequisites": "Prerequisite concepts: Derived paths, Layer order. Prepare the result files and observation records from Unit 20.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Interpolation",
+        "concepts.0.explanation": "Calculating between start and end values using a time ratio can smooth movement. Using frame count makes speed depend on refresh rate.",
+        "concepts.1.title": "Motion preference",
+        "concepts.1.explanation": "prefers-reduced-motion signals a preference for less unnecessary movement. State changes must also be communicated without animation.",
+        "outcomes.0": "Information remains even with animation disabled.",
+        "outcomes.1": "Clean up previous frame requests when transitions overlap.",
+        "steps.0": "Prepare day-21.js and index.html in an external practice project. Interpolate the node transform using requestAnimationFrame time.",
+        "steps.1": "Detect reduced motion with matchMedia and add a path that applies the final state immediately.",
+        "steps.2": "Save the output under the input condition Normal, then run again with reduced-motion. Compare the hypothesis, \"The final layout and selection state appear without intermediate movement,\" against the display and logs, and record the actual result and the causes of any differences in day-21-notes.md.",
+        "variables.0.name": "Motion setting",
+        "variables.0.baseline": "Normal",
+        "variables.0.change": "reduced-motion",
+        "variables.0.expected": "The final layout and selection state appear without intermediate movement",
+        "criteria.0": "Information remains even with animation disabled.",
+        "criteria.1": "Clean up previous frame requests when transitions overlap.",
+        "questions.0": "What should the starting value be if a new target arrives mid-transition?",
+        "questions.1": "Which should be reduced, flashing or movement?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
     }
   }
 }

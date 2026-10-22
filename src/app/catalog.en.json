@@ -2537,6 +2537,36 @@
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "svg-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Data and DOM Updates",
+      "goal": "The selected id does not change after reordering. Clean up DOM and Map references for deleted ids.",
+      "docPath": "/docs/en/labs/graphics/svg/units/19/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "svg-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Connectors and Graph Layout",
+      "goal": "Reject edges that reference missing nodes. Connector endpoints match after moving a node.",
+      "docPath": "/docs/en/labs/graphics/svg/units/20/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "svg-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Animation and Reduced Motion",
+      "goal": "Information remains even with animation disabled. Clean up previous frame requests when transitions overlap.",
+      "docPath": "/docs/en/labs/graphics/svg/units/21/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

@@ -721,6 +721,32 @@
         "questions.1": "May a plugin delete resources it does not own?",
         "references.0.title": "TypeScript Handbook"
       }
+    },
+    "typescript-03": {
+      "sourceHash": "e0de626c379cbf5eb4e101719c4f1ed215af7d5fe9cbafa88dc29fa81391889b",
+      "values": {
+        "title": "Plugin Contracts",
+        "prerequisites": "Work and experiment records from Unit 27, “Plugin Ownership and Cleanup Contracts”",
+        "environment": "The existing Frontory preview is a limited starting example, not a complete implementation of the assignment. Implement additional files and features yourself in a separate local project. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Interchangeable Implementations",
+        "concepts.0.explanation": "Swap DOM and Canvas implementations satisfying the same interface. Each implementation owns its specific resources.",
+        "concepts.1.title": "Integration Checks",
+        "concepts.1.explanation": "strict checking and actual behavior checks find different failures. Record their results separately.",
+        "outcomes.0": "Both implementations pass strict type checking.",
+        "outcomes.1": "After 5 swaps, there are no duplicate events and calling dispose 2 times is safe.",
+        "steps.0": "In main.ts, prepare conditions for 5 swaps between two implementations and duplicate dispose calls.",
+        "steps.1": "Connect DOMPlugin and CanvasPlugin with a mount/dispose contract and swap them through a selection UI.",
+        "steps.2": "Run with 5 swaps between two implementations and duplicate dispose calls. Results to check: Both implementations pass strict type checking. After 5 swaps, there are no duplicate events and calling dispose 2 times is safe. Record expected and actual results separately.",
+        "variables.0.name": "Implementation",
+        "variables.0.baseline": "DOM",
+        "variables.0.change": "Canvas",
+        "variables.0.expected": "Pre-run hypothesis: the caller will be able to swap implementations through the same contract. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Both implementations pass strict type checking.",
+        "criteria.1": "After 5 swaps, there are no duplicate events and calling dispose 2 times is safe.",
+        "questions.0": "Do implementation-specific properties leak into the common contract?",
+        "questions.1": "Which lifecycle problems did type checking miss?",
+        "references.0.title": "TypeScript Handbook"
+      }
     }
   }
 }

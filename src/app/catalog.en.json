@@ -632,6 +632,15 @@
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
+      "id": "typescript-03",
+      "day": 28,
+      "week": 4,
+      "title": "Plugin Contracts",
+      "goal": "Both implementations pass strict type checking. After 5 swaps, there are no duplicate events and calling dispose 2 times is safe.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/03-project/README.md",
+      "seriesId": "typescript"
+    },
+    {
       "id": "html-01",
       "day": 1,
       "week": 1,

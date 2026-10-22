@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Cases That Verify Compilation Failures](../26/README.md)
+[Previous: Cases That Verify Compilation Failures](../26/README.md) · [Next: Plugin Contracts](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

@@ -76,5 +76,23 @@
     "values": {
       "note": "An interactive Progress Reporting experiment with cleanup of the resources it uses."
     }
+  },
+  "web-workers-step-16": {
+    "sourceHash": "9b6a95d016f6a86c67513db864716896a03a67a0c460aa0e1896bd7a00e7172c",
+    "values": {
+      "note": "An interactive bounded task queue experiment with cleanup of the resources it uses."
+    }
+  },
+  "web-workers-step-17": {
+    "sourceHash": "9729af5a29222c7f861dc1a746f87f594b050a987cc6eafeed13dbecebdfae84",
+    "values": {
+      "note": "Interactive Worker Pool experiment with resource cleanup."
+    }
+  },
+  "web-workers-step-18": {
+    "sourceHash": "4db798d7c1d30914f9da8dba70ecda0c4631444b3fd09a4778e3b0892a8ee8f1",
+    "values": {
+      "note": "An interactive Restoring Result Order experiment with cleanup of the resources it uses."
+    }
   }
 }

@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Transfer and Cancellation](../../02-experiments/README.md)
+[Previous: Transfer and Cancellation](../../02-experiments/README.md) · [Next: A Bounded Task Queue](../16/README.md)
 
 ## Experiment notes — write your own
 

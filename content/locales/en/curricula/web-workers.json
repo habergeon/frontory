@@ -415,6 +415,87 @@
         "references.0.title": "MDN Using Web Workers",
         "references.1.title": "MDN Transferable objects"
       }
+    },
+    "web-workers-step-16": {
+      "sourceHash": "abcdb7fdf6031ceb8c645b8e191bf3abdd4acae3b5f604b4fbee0a7b54aaafc3",
+      "values": {
+        "title": "A Bounded Task Queue",
+        "prerequisites": "Prepare the experiment results for Reporting frequency and Monotonic progress from Unit 15, “Progress Reporting”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Backpressure",
+        "concepts.0.explanation": "The queue grows when incoming work exceeds production capacity. A length limit and rejection policy are required.",
+        "concepts.1.title": "State transitions",
+        "concepts.1.explanation": "Separate queued, running, and done states. Define which states allow cancellation.",
+        "outcomes.0": "Learning outcome: explain the role of Backpressure. Input cases: 8 simultaneous requests.",
+        "outcomes.1": "Deliverable: a table of accepted, rejected, and completed IDs. Explain the rationale for handling State transitions, linking it to the code.",
+        "steps.0": "In src/day-16.js in a separate practice project, create a FIFO queue with an upper limit of 5 and a rejection notice. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 8 simultaneous requests. Baseline: 5 requests. Run under the baseline conditions, then record observations and errors in notes/day-16.md.",
+        "steps.2": "Variable: Queue limit; changed value: 2 requests. Run again through the same input path. Deliverable to save: a table of accepted, rejected, and completed IDs. Hypothesis to check: The number accepted is limited, and memory does not grow without bound. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Queue limit",
+        "variables.0.baseline": "5 requests",
+        "variables.0.change": "2 requests",
+        "variables.0.expected": "The number accepted is limited, and memory does not grow without bound.",
+        "criteria.0": "Required deliverable: a table of accepted, rejected, and completed IDs. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Backpressure and State transitions. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Backpressure affect in this exercise? Input cases: 8 simultaneous requests.",
+        "questions.1": "Variable: Queue limit. Hypothesis to check: The number accepted is limited, and memory does not grow without bound. Did the actual results agree with the hypothesis? Explain the evidence in terms of State transitions.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-17": {
+      "sourceHash": "5c414f27bca7e37c7ed8df97896de1bf990bfafb112cb0178b1199b840efbe18",
+      "values": {
+        "title": "Worker Pool",
+        "prerequisites": "Prepare the experiment results for Backpressure and State transitions from Unit 16, “A Bounded Task Queue”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Parallelism",
+        "concepts.0.explanation": "Multiple Workers can divide independent tasks. CPU contention and creation costs also increase.",
+        "concepts.1.title": "Idle assignment",
+        "concepts.1.explanation": "Assign tasks only to idle Workers. Do not confuse completion order with submission order.",
+        "outcomes.0": "Learning outcome: explain the role of Parallelism. Input cases: 6 tasks of different sizes.",
+        "outcomes.1": "Deliverable: per-worker task intervals and total completion time. Explain the rationale for handling Idle assignment, linking it to the code.",
+        "steps.0": "In src/day-17.js in a separate practice project, create an idle list and task dispatcher for each pool size. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 6 tasks of different sizes. Baseline: 1 Worker. Run under the baseline conditions, then record observations and errors in notes/day-17.md.",
+        "steps.2": "Variable: Pool size; changed value: 2 Workers. Run again through the same input path. Deliverable to save: per-worker task intervals and total completion time. Hypothesis to check: Concurrency increases, but measurements determine whether speed improves. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Pool size",
+        "variables.0.baseline": "1 Worker",
+        "variables.0.change": "2 Workers",
+        "variables.0.expected": "Concurrency increases, but measurements determine whether speed improves.",
+        "criteria.0": "Required deliverable: per-worker task intervals and total completion time. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Parallelism and Idle assignment. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Parallelism affect in this exercise? Input cases: 6 tasks of different sizes.",
+        "questions.1": "Variable: Pool size. Hypothesis to check: Concurrency increases, but measurements determine whether speed improves. Did the actual results agree with the hypothesis? Explain the evidence in terms of Idle assignment.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-18": {
+      "sourceHash": "b1368a7d6ad9e1d89ba1988d19f997e0bd7e63466bf58a48c98911789ca8a1c2",
+      "values": {
+        "title": "Restoring Result Order",
+        "prerequisites": "Prepare the experiment results for Parallelism and Idle assignment from Unit 17, “Worker Pool”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Completion order",
+        "concepts.0.explanation": "Short tasks may finish first. A screen that requires submission order needs a separate assembly step.",
+        "concepts.1.title": "Index",
+        "concepts.1.explanation": "Use the task index to choose a result slot. Choosing positions by completion count mixes up results.",
+        "outcomes.0": "Learning outcome: explain the role of Completion order. Input cases: 4 arrays of different sizes.",
+        "outcomes.1": "Deliverable: a table of submission, completion, and display order. Explain the rationale for handling Index, linking it to the code.",
+        "steps.0": "In src/day-18.js in a separate practice project, include an index in every request and collect Promise results into their slots. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 4 arrays of different sizes. Baseline: Arrival order. Run under the baseline conditions, then record observations and errors in notes/day-18.md.",
+        "steps.2": "Variable: Display policy; changed value: Submission order. Run again through the same input path. Deliverable to save: a table of submission, completion, and display order. Hypothesis to check: The output array stays in a stable order even when computations finish out of order. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Display policy",
+        "variables.0.baseline": "Arrival order",
+        "variables.0.change": "Submission order",
+        "variables.0.expected": "The output array stays in a stable order even when computations finish out of order.",
+        "criteria.0": "Required deliverable: a table of submission, completion, and display order. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Completion order and Index. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Completion order affect in this exercise? Input cases: 4 arrays of different sizes.",
+        "questions.1": "Variable: Display policy. Hypothesis to check: The output array stays in a stable order even when computations finish out of order. Did the actual results agree with the hypothesis? Explain the evidence in terms of Index.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
     }
   }
 }

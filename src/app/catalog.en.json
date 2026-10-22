@@ -5401,6 +5401,36 @@
       "docPath": "/docs/en/labs/engineering/web-workers/units/15/README.md",
       "seriesId": "web-workers",
       "exampleNote": "An interactive Progress Reporting experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "A Bounded Task Queue",
+      "goal": "Learning outcome: explain the role of Backpressure. Input cases: 8 simultaneous requests. Deliverable: a table of accepted, rejected, and completed IDs. Explain the rationale for handling State transitions, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/16/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive bounded task queue experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Worker Pool",
+      "goal": "Learning outcome: explain the role of Parallelism. Input cases: 6 tasks of different sizes. Deliverable: per-worker task intervals and total completion time. Explain the rationale for handling Idle assignment, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/17/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "Interactive Worker Pool experiment with resource cleanup."
+    },
+    {
+      "id": "web-workers-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Restoring Result Order",
+      "goal": "Learning outcome: explain the role of Completion order. Input cases: 4 arrays of different sizes. Deliverable: a table of submission, completion, and display order. Explain the rationale for handling Index, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/18/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Restoring Result Order experiment with cleanup of the resources it uses."
     }
   ]
 }

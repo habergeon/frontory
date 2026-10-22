@@ -76,7 +76,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Locator Scope](../05/README.md)
+[Previous: Locator Scope](../05/README.md) · [Next: Diagnosing Failures in the First Flow](../07/README.md)
 
 ## Experiment notes — write your own
 

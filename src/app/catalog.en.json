@@ -6185,6 +6185,36 @@
       "docPath": "/docs/en/labs/testing/playwright/units/06/README.md",
       "seriesId": "playwright",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Diagnosing Failures in the First Flow",
+      "goal": "Learning outcome: explain the role of Failure location. Input cases: a correct title and an intentionally incorrect expectation. Deliverable: report showing the failed step. Explain the rationale for handling Steps, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/07/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "BrowserContext Isolation",
+      "goal": "Learning outcome: explain the role of New context. Input cases: different notes for A and B. Deliverable: initial and final values for each test. Explain the rationale for handling Test data, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/08/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Saving and Reloading",
+      "goal": "Learning outcome: explain the role of Persistent state. Input cases: Korean and empty notes. Deliverable: note values before and after reloading. Explain the rationale for handling Completion signal, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/09/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     }
   ]
 }

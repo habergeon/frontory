@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Resource Ownership Ledger](../23/README.md)
+[Previous: Resource Ownership Ledger](../23/README.md) · [Next: HTML Controls and Accessibility](../25/README.md)
 
 ## Experiment notes — write your own
 

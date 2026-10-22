@@ -2888,6 +2888,36 @@
       "exampleNote": "Reproduces reverse completion order and disposal of stale results with delayed procedural geometry. Network model loading itself is not included."
     },
     {
+      "id": "threejs-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "HTML Controls and Accessibility",
+      "goal": "Use the main features without a mouse. Convey errors and selection with text as well as color.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/25/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "threejs-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Render Statistics and Profiling",
+      "goal": "State whether statistics include the whole frame. Do not express resource counts as bytes or total VRAM.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/26/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "threejs-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Integrating the Scene Inspector",
+      "goal": "Keep the camera and UI responsive after errors. Stop the render loop after shutdown.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/27/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "Runs selection, rebuilding, JSON, and rotation lifetimes in a basic-shape inspector. glTF loading and minimap integration are external capstone extensions."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

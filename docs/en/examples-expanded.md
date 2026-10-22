@@ -300,6 +300,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [22. Render Targets and Minimap](labs/graphics/threejs/units/22/README.md) | Editable example | [Source code](../../src/labs/threejs-step-22/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [23. Resource Ownership Ledger](labs/graphics/threejs/units/23/README.md) | Editable example | [Source code](../../src/labs/threejs-step-23/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [24. Asynchronous Scene Replacement](labs/graphics/threejs/units/24/README.md) | Editable example | [Source code](../../src/labs/threejs-step-24/example.js) — Reproduces reverse completion order and disposal of stale results with delayed procedural geometry. Network model loading itself is not included. |
+| [25. HTML Controls and Accessibility](labs/graphics/threejs/units/25/README.md) | Editable example | [Source code](../../src/labs/threejs-step-25/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [26. Render Statistics and Profiling](labs/graphics/threejs/units/26/README.md) | Editable example | [Source code](../../src/labs/threejs-step-26/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [27. Integrating the Scene Inspector](labs/graphics/threejs/units/27/README.md) | Editable example | [Source code](../../src/labs/threejs-step-27/example.js) — Runs selection, rebuilding, JSON, and rotation lifetimes in a basic-shape inspector. glTF loading and minimap integration are external capstone extensions. |
 
 ## GSAP
 

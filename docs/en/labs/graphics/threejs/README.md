@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 24 published in English
+Graphics · 4 stages · 28 units in the full series · 27 published in English
 
 ## Series goal
 
@@ -57,6 +57,9 @@ Only published English units are linked below. The full series has 28 units.
 - [22. Render Targets and Minimap](units/22/README.md) — Editable example
 - [23. Resource Ownership Ledger](units/23/README.md) — Editable example
 - [24. Asynchronous Scene Replacement](units/24/README.md) — Editable example
+- [25. HTML Controls and Accessibility](units/25/README.md) — Editable example
+- [26. Render Statistics and Profiling](units/26/README.md) — Editable example
+- [27. Integrating the Scene Inspector](units/27/README.md) — Editable example
 
 ## Capstone project and deliverables
 

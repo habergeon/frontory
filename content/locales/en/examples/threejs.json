@@ -130,5 +130,23 @@
     "values": {
       "note": "Reproduces reverse completion order and disposal of stale results with delayed procedural geometry. Network model loading itself is not included."
     }
+  },
+  "threejs-step-25": {
+    "sourceHash": "8fee6076a0152b79f6f17d0ea962471081bfe8f8cbd0e5d52aa2979fab3b9894",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "threejs-step-26": {
+    "sourceHash": "674188ca9f41eba1c310c37f3415cb48d56e0bfcb173aa9ed366715f5db117db",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "threejs-step-27": {
+    "sourceHash": "6b265218ae1e1f9c32064b70fd29531f7f779d13d4214370f1be3477880845d8",
+    "values": {
+      "note": "Runs selection, rebuilding, JSON, and rotation lifetimes in a basic-shape inspector. glTF loading and minimap integration are external capstone extensions."
+    }
   }
 }

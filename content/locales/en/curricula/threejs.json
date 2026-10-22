@@ -652,6 +652,88 @@
         "references.0.title": "Three.js GLTFLoader",
         "references.1.title": "Three.js Cleanup"
       }
+    },
+    "threejs-step-25": {
+      "sourceHash": "15bd7749bf2bae5467eda64434ec89eb7205b3b25c045c25a319e0b0599af1f5",
+      "values": {
+        "title": "HTML Controls and Accessibility",
+        "prerequisites": "Prerequisite concepts: Stale Results, Discarded Resources. Prepare the result files and observation notes from unit 24.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Alternative Controls",
+        "concepts.0.explanation": "3D pixels alone do not convey the meaning of individual objects. An HTML object list and buttons can provide selection and camera movement.",
+        "concepts.1.title": "Status Announcements",
+        "concepts.1.explanation": "Convey selection names and loading errors as text. Announcing coordinates every frame may drown out important messages.",
+        "outcomes.0": "Use the main features without a mouse.",
+        "outcomes.1": "Convey errors and selection with text as well as color.",
+        "steps.0": "Prepare day-25.js and index.html in the external exercise project. Create HTML buttons for each object and a selection-description area, and call the same selectObject function used by raycasting.",
+        "steps.1": "Use the keyboard to select objects, fit the camera, and pause, and check that focus returns.",
+        "steps.2": "Save the output under the Pointer input condition, then run again under the Keyboard only condition. Expected: The same objects and camera targets can be selected. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-25-notes.md.",
+        "variables.0.name": "Input",
+        "variables.0.baseline": "Pointer",
+        "variables.0.change": "Keyboard only",
+        "variables.0.expected": "The same objects and camera targets can be selected.",
+        "criteria.0": "Use the main features without a mouse.",
+        "criteria.1": "Convey errors and selection with text as well as color.",
+        "questions.0": "Does a canvas aria-label alone provide an object list?",
+        "questions.1": "Where should focus move when a button disappears after a scene replacement?",
+        "references.0.title": "Three.js Raycaster",
+        "references.1.title": "Three.js OrbitControls"
+      }
+    },
+    "threejs-step-26": {
+      "sourceHash": "2bd40dacaa36488aa0847cb98757fb813fa40497abac3c58394fb83d8f184312",
+      "values": {
+        "title": "Render Statistics and Profiling",
+        "prerequisites": "Prerequisite concepts: Alternative Controls, Status Announcements. Prepare the result files and observation notes from unit 25.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Statistics Scope",
+        "concepts.0.explanation": "renderer.info reports render calls, triangles, and some resource counts. It does not measure total GPU VRAM or exact GPU execution time.",
+        "concepts.1.title": "Multiple Passes",
+        "concepts.1.explanation": "With multiple render calls in a frame, reset timing matters. Adjust autoReset and reset once per frame to compare totals.",
+        "outcomes.0": "State whether statistics include the whole frame.",
+        "outcomes.1": "Do not express resource counts as bytes or total VRAM.",
+        "steps.0": "Prepare day-26.js and index.html in the external exercise project. Group the main-view and minimap renders and collect statistics with info.autoReset=false.",
+        "steps.1": "Call info.reset at the start of the frame and save calls,triangles,memory fields separately from CPU frame intervals.",
+        "steps.2": "Save the output under the Main only input condition, then run again under the Main and minimap condition. Expected: The total calls and triangles for one frame may increase. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-26-notes.md.",
+        "variables.0.name": "Render passes",
+        "variables.0.baseline": "Main only",
+        "variables.0.change": "Main and minimap",
+        "variables.0.expected": "The total calls and triangles for one frame may increase.",
+        "criteria.0": "State whether statistics include the whole frame.",
+        "criteria.1": "Do not express resource counts as bytes or total VRAM.",
+        "questions.0": "Why is render-call time different from GPU completion time?",
+        "questions.1": "Can internal caches keep counts above 0 after dispose?",
+        "references.0.title": "Three.js WebGLRenderer",
+        "references.1.title": "Three.js Cleanup"
+      }
+    },
+    "threejs-step-27": {
+      "sourceHash": "d216380e3faf4bdac0ecbb27afb769d198e09e5d1667fa4e736265c48ae4083d",
+      "values": {
+        "title": "Integrating the Scene Inspector",
+        "prerequisites": "Prerequisite concepts: Statistics Scope, Multiple Passes. Prepare the result files and observation notes from unit 26.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Feature Contracts",
+        "concepts.0.explanation": "Connect loading, selection, camera, and animation through one state model. Separate their error paths so one failure does not stop other features.",
+        "concepts.1.title": "Repeated-Run Verification",
+        "concepts.1.explanation": "Missing cleanup may not appear on the first run. Repeat creation and shutdown, and check trends in event and resource counts.",
+        "outcomes.0": "Keep the camera and UI responsive after errors.",
+        "outcomes.1": "Stop the render loop after shutdown.",
+        "steps.0": "Prepare day-27.js and index.html in the external exercise project. Combine local loading, fallback, a selection list, minimap, and statistics panel in the model inspector.",
+        "steps.1": "Repeat create→select→replace model→error→shutdown 5 times, and record cleanup of the loop, controls, and observer.",
+        "steps.2": "Save the output under the 1 run input condition, then run again under the 5 runs condition. Expected: With correct lifetime management, events and active loops do not accumulate. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-27-notes.md.",
+        "variables.0.name": "Run count",
+        "variables.0.baseline": "1 run",
+        "variables.0.change": "5 runs",
+        "variables.0.expected": "With correct lifetime management, events and active loops do not accumulate.",
+        "criteria.0": "Keep the camera and UI responsive after errors.",
+        "criteria.1": "Stop the render loop after shutdown.",
+        "questions.0": "Does an increased resource count always indicate a leak?",
+        "questions.1": "Where should user settings and GPU resources each be stored?",
+        "references.0.title": "Three.js GLTFLoader",
+        "references.1.title": "Three.js Cleanup",
+        "references.2.title": "Three.js WebGLRenderer"
+      }
     }
   }
 }

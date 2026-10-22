@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Buffers and Render Passes](../../02-experiments/README.md)
+[Previous: Buffers and Render Passes](../../02-experiments/README.md) · [Next: Storage and Ping-Pong](../16/README.md)
 
 ## Experiment notes — write your own
 

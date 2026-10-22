@@ -415,6 +415,87 @@
         "references.0.title": "WebGPU API and Error Handling",
         "references.1.title": "WGSL Specification"
       }
+    },
+    "webgpu-step-16": {
+      "sourceHash": "a25bb15a3fa5712451102e2204e3f2a4c24fd9cc9e6267e932d34b4d4e6f6a2d",
+      "values": {
+        "title": "Storage and Ping-Pong",
+        "concepts.0.title": "Write Conflicts",
+        "concepts.0.explanation": "Reading neighboring values while updating the same array can make results depend on execution order. Separate input and output ping-pong buffers preserve the previous state.",
+        "concepts.1.title": "Swapping Steps",
+        "concepts.1.explanation": "After one step, swap the read and write roles for the next. Two bind groups can be created beforehand and alternated.",
+        "outcomes.0": "Separate input and output states.",
+        "outcomes.1": "Manage data dependencies in repeated computation.",
+        "steps.0": "In simulation.wgsl, write a kernel that outputs the average of three neighboring values.",
+        "steps.1": "Create A→B and B→A bind groups and alternate them each step.",
+        "steps.2": "Compare three steps with CPU calculations using separate input and output arrays.",
+        "variables.0.name": "Input and output resources",
+        "variables.0.baseline": "Separate A/B",
+        "variables.0.change": "Conceptually review reading and writing the same array",
+        "variables.0.expected": "The same-array approach is expected to have possible order dependence and will not be used as the reference.",
+        "criteria.0": "The maximum error over three steps is within the chosen 1e-5 tolerance.",
+        "criteria.1": "Record each step's read and write buffer ids.",
+        "questions.0": "Can independent-element updates write in place?",
+        "questions.1": "Does workgroupBarrier guarantee the previous state of another workgroup?",
+        "prerequisites": "Continue using the output and notes from unit 15. Preserve the previous inputs and reference outputs before the Storage and Ping-Pong experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-17": {
+      "sourceHash": "02a99da418d349932c7b6a3a2465710050d9bb2e40d8ee73885f4a2086457cd4",
+      "values": {
+        "title": "Mapping and Staging Buffers",
+        "concepts.0.title": "Readback Path",
+        "concepts.0.explanation": "Reading a GPU storage buffer directly on the CPU differs from the usual readback contract. Copy to a COPY_DST|MAP_READ staging buffer, then map it.",
+        "concepts.1.title": "Mapped State",
+        "concepts.1.explanation": "A mapped buffer cannot be used by the GPU. Copy the getMappedRange data for retention before calling unmap.",
+        "outcomes.0": "Implement safe readback.",
+        "outcomes.1": "Manage the buffer mapping lifetime.",
+        "steps.0": "In readback.js, separate the result COPY_SRC buffer from the staging buffer.",
+        "steps.1": "Submit copyBufferToBuffer, then await mapAsync(GPUMapMode.READ).",
+        "steps.2": "Copy getMappedRange data, unmap, and then perform the next calculation.",
+        "variables.0.name": "Read count",
+        "variables.0.baseline": "Once at the end",
+        "variables.0.change": "Every step",
+        "variables.0.expected": "Repeated mapping and waiting are expected to increase end-to-end latency.",
+        "criteria.0": "Copied CPU results remain available after unmap.",
+        "criteria.1": "Do not reuse a mapped staging buffer in GPU commands.",
+        "questions.0": "What changes after unmap if you retain the getMappedRange view directly?",
+        "questions.1": "Is readback necessary when you only display GPU results?",
+        "prerequisites": "Continue using the output and notes from unit 16. Preserve the previous inputs and reference outputs before the Mapping and Staging Buffers experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-18": {
+      "sourceHash": "3689e2274f3cd7dac7c4946236a2c65bd3435ba92577b2ef98d08b419316d402",
+      "values": {
+        "title": "Copy Alignment and Texture Rows",
+        "concepts.0.title": "Buffer Copies",
+        "concepts.0.explanation": "copyBufferToBuffer offsets and sizes require 4-byte alignment. Record total buffer capacity separately from the valid data length.",
+        "concepts.1.title": "Texture Rows",
+        "concepts.1.explanation": "For encoder buffer↔texture copies, use a bytesPerRow multiple of 256 bytes where required. Do not confuse this with queue.writeTexture row rules.",
+        "outcomes.0": "Calculate copy alignment.",
+        "outcomes.1": "Remove texture readback padding.",
+        "steps.0": "In copy-layout.js, for a 13-pixel RGBA8 row, calculate the 52 valid bytes and padded stride 256.",
+        "steps.1": "Reconstruct the CPU image by skipping padding in the copyTextureToBuffer result.",
+        "steps.2": "Compare buffer copy offset 4 and invalid offset 2 with an error scope.",
+        "variables.0.name": "Row stride",
+        "variables.0.baseline": "52 bytes of valid data",
+        "variables.0.change": "256-byte copy stride",
+        "variables.0.expected": "Excluding padding is expected to restore the original 13-pixel row.",
+        "criteria.0": "Record valid row bytes and copy stride separately.",
+        "criteria.1": "The reconstructed image matches the original, and the invalid offset produces a validation error.",
+        "questions.0": "Must the multiple-of-256 rule always apply to writeTexture too?",
+        "questions.1": "What stripes appear if padding is read as pixels?",
+        "prerequisites": "Continue using the output and notes from unit 17. Preserve the previous inputs and reference outputs before the Copy Alignment and Texture Rows experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
     }
   }
 }

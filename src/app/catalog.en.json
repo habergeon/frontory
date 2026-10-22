@@ -3117,6 +3117,36 @@
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
+      "id": "webgpu-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Storage and Ping-Pong",
+      "goal": "Separate input and output states. Manage data dependencies in repeated computation.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/16/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Mapping and Staging Buffers",
+      "goal": "Implement safe readback. Manage the buffer mapping lifetime.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/17/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Copy Alignment and Texture Rows",
+      "goal": "Calculate copy alignment. Remove texture readback padding.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/18/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
       "id": "react-three-fiber-01",
       "day": 1,
       "week": 1,

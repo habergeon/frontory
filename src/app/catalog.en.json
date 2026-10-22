@@ -742,6 +742,35 @@
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
+      "id": "react-02",
+      "day": 14,
+      "week": 2,
+      "title": "Effects and External Renderers",
+      "goal": "After 5 switches, only 1 Canvas exists. Frame logs and resize callbacks stop after hiding.",
+      "docPath": "/docs/en/labs/frameworks/react/02-experiments/README.md",
+      "seriesId": "react"
+    },
+    {
+      "id": "react-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Custom Hook Boundaries",
+      "goal": "Both panels display the same size. The subscription count is 0 after removing the last panel.",
+      "docPath": "/docs/en/labs/frameworks/react/units/15/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Saving Notes and Initial Restoration",
+      "goal": "Saved drafts for each unit are restored on reopening. Editing remains possible even with invalid JSON.",
+      "docPath": "/docs/en/labs/frameworks/react/units/16/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
       "id": "gsap-step-02",
       "day": 2,
       "week": 1,

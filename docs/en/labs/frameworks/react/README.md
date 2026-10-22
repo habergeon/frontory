@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 13 published in English
+UI frameworks · 4 stages · 28 units in the full series · 16 published in English
 
 ## Series goal
 
@@ -40,9 +40,12 @@ Only published English units are linked below. The full series has 28 units.
 - [11. Refs and DOM Focus](units/11/README.md) — Editable example
 - [12. Effect Dependencies and Cleanup](units/12/README.md) — Editable example
 - [13. Request Races and Cancellation](units/13/README.md) — Editable example
+- [14. Effects and External Renderers](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Preserving notes and measuring renders
 
+- [15. Custom Hook Boundaries](units/15/README.md) — Editable example
+- [16. Saving Notes and Initial Restoration](units/16/README.md) — Editable example
 
 ### Stage 4 · Performance verification and an integrated editor
 

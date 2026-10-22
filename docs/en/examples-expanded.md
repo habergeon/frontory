@@ -80,6 +80,8 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [11. Refs and DOM Focus](labs/frameworks/react/units/11/README.md) | Editable example | [Source code](../../src/labs/react-step-11/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [12. Effect Dependencies and Cleanup](labs/frameworks/react/units/12/README.md) | Editable example | [Source code](../../src/labs/react-step-12/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [13. Request Races and Cancellation](labs/frameworks/react/units/13/README.md) | Editable example | [Source code](../../src/labs/react-step-13/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [15. Custom Hook Boundaries](labs/frameworks/react/units/15/README.md) | Editable example | [Source code](../../src/labs/react-step-15/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [16. Saving Notes and Initial Restoration](labs/frameworks/react/units/16/README.md) | Editable example | [Source code](../../src/labs/react-step-16/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 
 ## GSAP
 

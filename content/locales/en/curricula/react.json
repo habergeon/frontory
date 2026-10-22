@@ -382,6 +382,90 @@
         "references.1.title": "React API Reference",
         "references.2.title": "React useEffect: External Systems and Cleanup"
       }
+    },
+    "react-02": {
+      "sourceHash": "c440eb2ce2147cf7ee7f5ad2dde24b9279e4e382a7b509be3f8929f4c505d739",
+      "values": {
+        "title": "Effects and External Renderers",
+        "prerequisites": "Unit 14 continues using the work and experiment records from Unit 13.",
+        "environment": "This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler. The existing react-02 preview is a starting point. Implement the expanded deliverable described here in a separate project.",
+        "concepts.0.title": "Renderer Ownership",
+        "concepts.0.explanation": "A Canvas renderer operates separately from React's DOM calculations. Specify who owns created geometry·material·listeners so their disposal points can be identified.",
+        "concepts.1.title": "Symmetrical Cleanup",
+        "concepts.1.explanation": "Close loops and subscriptions created by an Effect in cleanup. If the previous Canvas remains on rerun, renderers are duplicated.",
+        "outcomes.0": "After 5 switches, only 1 Canvas exists.",
+        "outcomes.1": "Frame logs and resize callbacks stop after hiding.",
+        "steps.0": "Create a canvas ref and Effect in src/ThreeScene.jsx, and connect the existing Three.js cube.",
+        "steps.1": "Include RAF cancellation, resize listener removal, and geometry/material/renderer.dispose in cleanup.",
+        "steps.2": "Toggle the display button 5 times, and record active Canvas and loop counts and interaction with the cube after showing it again.",
+        "variables.0.name": "Remount Count",
+        "variables.0.baseline": "1 time",
+        "variables.0.change": "5 times",
+        "variables.0.expected": "Keep 1 active loop while displayed and 0 while hidden.",
+        "criteria.0": "After 5 switches, only 1 Canvas exists.",
+        "criteria.1": "Frame logs and resize callbacks stop after hiding.",
+        "questions.0": "Is it safe to dispose a shared material in a child's cleanup?",
+        "questions.1": "Does the renderer need to be recreated for every color prop change?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference",
+        "references.2.title": "React useEffect: External Systems and Cleanup"
+      }
+    },
+    "react-step-15": {
+      "sourceHash": "e0143ce65311d33f887644d32cb2fcc7cd0de86d4aacd526706fe85126485e08",
+      "values": {
+        "title": "Custom Hook Boundaries",
+        "prerequisites": "Unit 15 continues using the work and experiment records from Unit 14.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Reusing Logic",
+        "concepts.0.explanation": "A custom Hook groups stateful logic. Calling a Hook twice normally creates separate state and Effects.",
+        "concepts.1.title": "Calling Rules",
+        "concepts.1.explanation": "Call Hooks at the top level of a component or Hook. Handle conditions inside the Hook's logic to preserve the call order.",
+        "outcomes.0": "Both panels display the same size.",
+        "outcomes.1": "The subscription count is 0 after removing the last panel.",
+        "steps.0": "Extract the resize subscription and cleanup into src/useWindowSize.js.",
+        "steps.1": "Call the Hook in two panels that display the size.",
+        "steps.2": "Remove one panel, and check updates in the remaining panel and the subscription count.",
+        "variables.0.name": "Hook Consumers",
+        "variables.0.baseline": "1 consumer",
+        "variables.0.change": "2 consumers",
+        "variables.0.expected": "Each independent call creates a subscription, so removing consumers cleans them up one by one.",
+        "criteria.0": "Both panels display the same size.",
+        "criteria.1": "The subscription count is 0 after removing the last panel.",
+        "questions.0": "How does sharing logic differ from sharing state?",
+        "questions.1": "What structure can replace conditional Hook calls?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference",
+        "references.2.title": "React useEffect: External Systems and Cleanup"
+      }
+    },
+    "react-step-16": {
+      "sourceHash": "a41bc4f57784d3e60fbed66004d3c38a1c1e9b814e8742a34f5d36ddd865b6bb",
+      "values": {
+        "title": "Saving Notes and Initial Restoration",
+        "prerequisites": "Unit 16 continues using the work and experiment records from Unit 15.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Lazy Initialization",
+        "concepts.0.explanation": "The useState initializer function separates initial state calculation. Validate the format of saved JSON before using it as state.",
+        "concepts.1.title": "External Storage",
+        "concepts.1.explanation": "Writing to localStorage is an external operation that can fail. Distinguishing the on-screen draft from save success keeps failures visible.",
+        "outcomes.0": "Saved drafts for each unit are restored on reopening.",
+        "outcomes.1": "Editing remains possible even with invalid JSON.",
+        "steps.0": "In src/storage.js, create a read function that checks the version, unit id, and string.",
+        "steps.1": "Connect initial restoration and saving after changes in useNotes.js.",
+        "steps.2": "Inject valid JSON, broken JSON, and storage exceptions separately, and check the draft and error text.",
+        "variables.0.name": "Saved Data",
+        "variables.0.baseline": "Valid JSON",
+        "variables.0.change": "Broken JSON",
+        "variables.0.expected": "Recover with an empty draft and error guidance while the screen keeps working.",
+        "criteria.0": "Saved drafts for each unit are restored on reopening.",
+        "criteria.1": "Editing remains possible even with invalid JSON.",
+        "questions.0": "What might be overwritten by saving an empty value immediately on the initial render?",
+        "questions.1": "Are successful storage and an in-memory update the same event?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference",
+        "references.2.title": "React useEffect: External Systems and Cleanup"
+      }
     }
   }
 }

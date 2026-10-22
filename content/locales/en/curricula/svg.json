@@ -718,6 +718,34 @@
         "references.0.title": "MDN SVG from Scratch Tutorial",
         "references.1.title": "MDN CanvasRenderingContext2D API"
       }
+    },
+    "svg-03": {
+      "sourceHash": "ddf52d086d57ff69cf608e36bd470e1577d834ffd397cd0eefe8fcce66ed7f90",
+      "values": {
+        "title": "Comparing with Canvas",
+        "prerequisites": "Prerequisite concepts: Comparison contract, Recording distributions. Prepare the result files and observation records from Unit 27.",
+        "environment": "The existing built-in example provides only a starting point. It does not implement all the extended requirements. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Representation model",
+        "concepts.0.explanation": "SVG retains individual elements as DOM. Canvas updates pixels and manages object meaning separately.",
+        "concepts.1.title": "Reasons for choosing",
+        "concepts.1.explanation": "Performance alone makes it difficult to choose a representation. Evaluate accessibility, editing, export, and implementation complexity alongside requirements.",
+        "outcomes.0": "Choose based on the advantages and disadvantages of functionality, accessibility, and performance.",
+        "outcomes.1": "Submit outputs and measurement records with the same data and conditions.",
+        "steps.0": "Prepare day-28.js and index.html in an external practice project. Starting from the existing svg-03 comparison example, complete two implementations with the same point distribution, selection, and zoom.",
+        "steps.1": "Collect accessibility checks of the node map, a performance table, and export results into a renderer selection report.",
+        "steps.2": "Save the output under the input condition SVG DOM, then run again with Canvas pixels. Compare the hypothesis, \"Element access and hit testing are implemented differently, and performance must be verified per scene,\" against the display and logs, and record the actual result and the causes of any differences in day-28-notes.md.",
+        "variables.0.name": "Representation",
+        "variables.0.baseline": "SVG DOM",
+        "variables.0.change": "Canvas pixels",
+        "variables.0.expected": "Element access and hit testing are implemented differently, and performance must be verified per scene",
+        "criteria.0": "Choose based on the advantages and disadvantages of functionality, accessibility, and performance.",
+        "criteria.1": "Submit outputs and measurement records with the same data and conditions.",
+        "questions.0": "What supports choosing SVG for this map?",
+        "questions.1": "How might the conclusion change with different scales or input requirements?",
+        "references.0.title": "MDN SVG from Scratch Tutorial",
+        "references.1.title": "MDN CanvasRenderingContext2D API",
+        "references.2.title": "MDN SVG title Accessible Name"
+      }
     }
   }
 }

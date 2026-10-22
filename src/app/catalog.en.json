@@ -2627,6 +2627,15 @@
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "svg-03",
+      "day": 28,
+      "week": 4,
+      "title": "Comparing with Canvas",
+      "goal": "Choose based on the advantages and disadvantages of functionality, accessibility, and performance. Submit outputs and measurement records with the same data and conditions.",
+      "docPath": "/docs/en/labs/graphics/svg/03-project/README.md",
+      "seriesId": "svg"
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

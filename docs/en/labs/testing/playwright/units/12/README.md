@@ -76,7 +76,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: File Upload](../11/README.md)
+[Previous: File Upload](../11/README.md) · [Next: Per-Item Storage Isolation](../13/README.md)
 
 ## Experiment notes — write your own
 

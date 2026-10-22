@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Testing · 4 stages · 28 units in the full series · 12 published in English
+Testing · 4 stages · 28 units in the full series · 15 published in English
 
 ## Series goal
 
@@ -39,9 +39,12 @@ Only published English units are linked below. The full series has 28 units.
 - [10. Download Events](units/10/README.md) — External example · preview instructions
 - [11. File Upload](units/11/README.md) — External example · preview instructions
 - [12. Invalid Files and Preservation](units/12/README.md) — External example · preview instructions
+- [13. Per-Item Storage Isolation](units/13/README.md) — External example · preview instructions
+- [14. Saving, Downloading, and Restoring](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Asynchrony, Isolation, and Diagnosis
 
+- [15. Keyboard Navigation](units/15/README.md) — External example · preview instructions
 
 ### Stage 4 · Visual Regression and Execution Strategy
 

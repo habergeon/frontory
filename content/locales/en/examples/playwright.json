@@ -64,5 +64,17 @@
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     }
+  },
+  "playwright-step-13": {
+    "sourceHash": "bd703327104b3439a6ccfb3d9bdf1531020b57780919df0bcaa5870986730d01",
+    "values": {
+      "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    }
+  },
+  "playwright-step-15": {
+    "sourceHash": "f1d654b530676f7132927d6409986c7b40436c66407c7a729d345a9d90e348c2",
+    "values": {
+      "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    }
   }
 }

@@ -6245,6 +6245,35 @@
       "docPath": "/docs/en/labs/testing/playwright/units/12/README.md",
       "seriesId": "playwright",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Per-Item Storage Isolation",
+      "goal": "Learning outcome: explain the role of Identifier. Input cases: note A and note B. Deliverable: mapping table of input and restored values for each item. Explain the rationale for handling Round trip, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/13/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-02",
+      "day": 14,
+      "week": 2,
+      "title": "Saving, Downloading, and Restoring",
+      "goal": "Learning outcome: explain the role of Round-trip contract. Input cases: empty notes, Korean text, and error files. Deliverable: notes after the round trip and error-preservation results. Explain the rationale for handling Isolation, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/02-experiments/README.md",
+      "seriesId": "playwright"
+    },
+    {
+      "id": "playwright-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Keyboard Navigation",
+      "goal": "Learning outcome: explain the role of Keyboard path. Input cases: Tab·Enter·Escape. Deliverable: activeElement and dialog state at each step. Explain the rationale for handling Focus, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/15/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     }
   ]
 }

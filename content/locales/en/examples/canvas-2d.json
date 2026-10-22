@@ -64,5 +64,17 @@
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "canvas-2d-step-13": {
+    "sourceHash": "dc95b86363c829e9f0f0e4d15603da398f224407f8817f6e96d8c12d911cec72",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "canvas-2d-step-15": {
+    "sourceHash": "5f20a443c24b50bc0ba3c1a4291bacff4fd1d3dbfe6eb7d505a89d8b02f472e5",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
   }
 }

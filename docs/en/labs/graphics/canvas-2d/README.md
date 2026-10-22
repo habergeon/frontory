@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 12 published in English
+Graphics · 4 stages · 28 units in the full series · 15 published in English
 
 ## Series goal
 
@@ -39,9 +39,12 @@ Only published English units are linked below. The full series has 28 units.
 - [10. Boundary Collisions and Integration](units/10/README.md) — Editable example
 - [11. Converting Pointer Coordinates](units/11/README.md) — Editable example
 - [12. Shape Selection and Hit Testing](units/12/README.md) — Editable example
+- [13. Dragging and Pointer Lifetimes](units/13/README.md) — Editable example
+- [14. Time and Input](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Scene Editing and Compositing
 
+- [15. Scene Data and Redrawing](units/15/README.md) — Editable example
 
 ### Stage 4 · Accessibility, Particles, and Performance Verification
 

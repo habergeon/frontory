@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Converting Pointer Coordinates](../11/README.md)
+[Previous: Converting Pointer Coordinates](../11/README.md) · [Next: Dragging and Pointer Lifetimes](../13/README.md)
 
 ## Experiment notes — write your own
 

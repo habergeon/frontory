@@ -229,6 +229,8 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [10. Boundary Collisions and Integration](labs/graphics/canvas-2d/units/10/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-10/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [11. Converting Pointer Coordinates](labs/graphics/canvas-2d/units/11/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-11/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [12. Shape Selection and Hit Testing](labs/graphics/canvas-2d/units/12/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-12/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [13. Dragging and Pointer Lifetimes](labs/graphics/canvas-2d/units/13/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-13/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [15. Scene Data and Redrawing](labs/graphics/canvas-2d/units/15/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-15/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

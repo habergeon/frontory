@@ -2187,6 +2187,35 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "canvas-2d-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Dragging and Pointer Lifetimes",
+      "goal": "Dragging ends even when the pointer is released outside the canvas. The relative position is preserved when grabbing an edge.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/13/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "canvas-2d-02",
+      "day": 14,
+      "week": 2,
+      "title": "Time and Input",
+      "goal": "Movement per unit time remains similar when frame intervals change. Input coordinates remain correct after pausing, resuming, and resizing.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/02-experiments/README.md",
+      "seriesId": "canvas-2d"
+    },
+    {
+      "id": "canvas-2d-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Scene Data and Redrawing",
+      "goal": "No ghost image remains after deletion. Drawing the same data twice produces matching results.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/15/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

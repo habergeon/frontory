@@ -324,6 +324,85 @@
         "questions.1": "Which API is needed for shapes with strokes only?",
         "references.0.title": "MDN CanvasRenderingContext2D API"
       }
+    },
+    "canvas-2d-step-13": {
+      "sourceHash": "193dc89e703e328ca9b87b4d6e7ced8885e23e0c5b400530b0d9f20438b37664",
+      "values": {
+        "title": "Dragging and Pointer Lifetimes",
+        "prerequisites": "Prerequisite concepts: Reusing Paths, Selection Order. Prepare the result files and observation records from Unit 12.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Pointer Capture",
+        "concepts.0.explanation": "setPointerCapture allows events to be received even when the pointer leaves the element. Include pointercancel in termination handling so state does not linger.",
+        "concepts.1.title": "Grab Position",
+        "concepts.1.explanation": "Storing the difference between the center and click position prevents the shape from jumping. Subtracting that offset during movement preserves the grabbed point.",
+        "outcomes.0": "Dragging ends even when the pointer is released outside the canvas.",
+        "outcomes.1": "The relative position is preserved when grabbing an edge.",
+        "steps.0": "Prepare day-13.js and index.html in the external practice project. Store the selected id and dragOffset in pointerdown, and capture the pointer.",
+        "steps.1": "Change the position in pointermove, and end dragging in pointerup and pointercancel.",
+        "steps.2": "Save the output with the input condition shape center, then run again with shape edge. Expected: With offset correction, the center does not jump when dragging starts. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-13-notes.md.",
+        "variables.0.name": "Grab Position",
+        "variables.0.baseline": "shape center",
+        "variables.0.change": "shape edge",
+        "variables.0.expected": "With offset correction, the center does not jump when dragging starts",
+        "criteria.0": "Dragging ends even when the pointer is released outside the canvas.",
+        "criteria.1": "The relative position is preserved when grabbing an edge.",
+        "questions.0": "Which pointerId should you store for multitouch?",
+        "questions.1": "How do pointer capture and shape hit testing differ in purpose?",
+        "references.0.title": "MDN CanvasRenderingContext2D API"
+      }
+    },
+    "canvas-2d-02": {
+      "sourceHash": "a9305acdd32948960ce5f5d4fd9d53b059a0cc7764a1932bf6076d58b6427f28",
+      "values": {
+        "title": "Time and Input",
+        "prerequisites": "Prerequisite concepts: Pointer Capture, Grab Position. Prepare the result files and observation records from Unit 13.",
+        "environment": "The existing built-in example provides only a starting point. It does not implement all extended requirements. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Input Snapshots",
+        "concepts.0.explanation": "Events can store target state, with movement calculated in each frame. Separating input and render loop responsibilities also handles paused state consistently.",
+        "concepts.1.title": "State Transitions",
+        "concepts.1.explanation": "Running and paused are separate states. Separating click markers from motion state lets you inspect positions even while paused.",
+        "outcomes.0": "Movement per unit time remains similar when frame intervals change.",
+        "outcomes.1": "Input coordinates remain correct after pausing, resuming, and resizing.",
+        "steps.0": "Prepare day-14.js and index.html in the external practice project. Read the existing canvas-2d-02 starter code and move time-based ball motion and logical click coordinate output into the external project.",
+        "steps.1": "Combine pause/resume buttons with boundary reflection, and display positions clicked while paused too.",
+        "steps.2": "Save the output with the input condition 60px/s, then run again with 120px/s. Expected: Travel distance over the same time doubles, while click positions remain unchanged. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-14-notes.md.",
+        "variables.0.name": "Speed",
+        "variables.0.baseline": "60px/s",
+        "variables.0.change": "120px/s",
+        "variables.0.expected": "Travel distance over the same time doubles, while click positions remain unchanged",
+        "criteria.0": "Movement per unit time remains similar when frame intervals change.",
+        "criteria.1": "Input coordinates remain correct after pausing, resuming, and resizing.",
+        "questions.0": "Which state does a click while paused change?",
+        "questions.1": "How do you recover if resizing leaves the ball outside a wall?",
+        "references.0.title": "MDN Canvas Tutorial",
+        "references.1.title": "MDN devicePixelRatio"
+      }
+    },
+    "canvas-2d-step-15": {
+      "sourceHash": "c684c897a4673013f33be5b92a1e7a6c88bdd6c6e20a879bc3ad41924e8ea248",
+      "values": {
+        "title": "Scene Data and Redrawing",
+        "prerequisites": "Prerequisite concepts: Input Snapshots, State Transitions. Prepare the result files and observation records from Unit 14.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Source Data",
+        "concepts.0.explanation": "Canvas does not retain individual shape objects. Store positions and colors in an array so you can rebuild the screen after changes and deletions.",
+        "concepts.1.title": "Pure Drawing",
+        "concepts.1.explanation": "If draw modifies data, redrawing changes the result. Separate rendering and mutation functions to make results reproducible.",
+        "outcomes.0": "No ghost image remains after deletion.",
+        "outcomes.1": "Drawing the same data twice produces matching results.",
+        "steps.0": "Prepare day-15.js and index.html in the external practice project. Write renderScene(ctx,items) to accept an array of shapes.",
+        "steps.1": "Delete one id from an HTML list, call clearRect, and redraw the entire scene.",
+        "steps.2": "Save the output with the input condition last shape, then run again with middle shape. Expected: Only the corresponding drawing disappears, while array order is preserved. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-15-notes.md.",
+        "variables.0.name": "Deletion Target",
+        "variables.0.baseline": "last shape",
+        "variables.0.change": "middle shape",
+        "variables.0.expected": "Only the corresponding drawing disappears, while array order is preserved",
+        "criteria.0": "No ghost image remains after deletion.",
+        "criteria.1": "Drawing the same data twice produces matching results.",
+        "questions.0": "Does erasing pixels alone delete an object?",
+        "questions.1": "What problems arise if you store array indices instead of ids?",
+        "references.0.title": "MDN CanvasRenderingContext2D API"
+      }
     }
   }
 }

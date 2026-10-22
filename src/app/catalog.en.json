@@ -2246,6 +2246,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "canvas-2d-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Reading Pixels and Applying Filters",
+      "goal": "Colors do not shift at row boundaries. The alpha of transparent pixels is preserved.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/19/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "canvas-2d-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Static Layers and Caching",
+      "goal": "Background resolution is correct after resizing. Record cache builds separately from frame counts.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/20/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "canvas-2d-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "High Resolution and Responsive Layout",
+      "goal": "Handle hidden containers with width 0 safely. Coordinates and display remain aligned after size changes.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/21/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

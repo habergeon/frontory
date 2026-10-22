@@ -481,6 +481,85 @@
         "questions.1": "What must be restored to expand a nested clip?",
         "references.0.title": "MDN CanvasRenderingContext2D API"
       }
+    },
+    "canvas-2d-step-19": {
+      "sourceHash": "96f928b272501aedd3f01cbe6186d267e3d214ca7d108743e41d6ff2f857fc2b",
+      "values": {
+        "title": "Reading Pixels and Applying Filters",
+        "prerequisites": "Prerequisite concepts: Clipping Region, Drawing Order. Prepare the result files and observation records from Unit 18.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Pixel Arrays",
+        "concepts.0.explanation": "getImageData returns an array of RGBA values. Pixel indices must account for both row width and channel count.",
+        "concepts.1.title": "Direct Writes",
+        "concepts.1.explanation": "putImageData writes pixel data. It is not positioned like a shape under the current transform, so specify buffer coordinates explicitly.",
+        "outcomes.0": "Colors do not shift at row boundaries.",
+        "outcomes.1": "The alpha of transparent pixels is preserved.",
+        "steps.0": "Prepare day-19.js and index.html in the external practice project. Read a small local image and calculate the RGB average for each pixel with getImageData.",
+        "steps.1": "Display the original and grayscale versions on separate canvases with putImageData, preserving alpha.",
+        "steps.2": "Save the output with the input condition entire image, then run again with left half. Expected: Only half becomes grayscale, while transparency stays the same. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-19-notes.md.",
+        "variables.0.name": "Processing Region",
+        "variables.0.baseline": "entire image",
+        "variables.0.change": "left half",
+        "variables.0.expected": "Only half becomes grayscale, while transparency stays the same",
+        "criteria.0": "Colors do not shift at row boundaries.",
+        "criteria.1": "The alpha of transparent pixels is preserved.",
+        "questions.0": "How does the pixel array length change when DPR is 2?",
+        "questions.1": "Why try to avoid readback on every frame?",
+        "references.0.title": "MDN CanvasRenderingContext2D API"
+      }
+    },
+    "canvas-2d-step-20": {
+      "sourceHash": "b8bb6df750a4c33a26de1758cf82095d1a731b5e232a621041071b99e9faef62",
+      "values": {
+        "title": "Static Layers and Caching",
+        "prerequisites": "Prerequisite concepts: Pixel Arrays, Direct Writes. Prepare the result files and observation records from Unit 19.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Prerendering",
+        "concepts.0.explanation": "You can draw an unchanging complex image once on a separate canvas. Copy it with drawImage instead of constructing paths on every frame.",
+        "concepts.1.title": "Invalidation",
+        "concepts.1.explanation": "A cache becomes stale when dimensions or colors change. Specify when it must be rebuilt to preserve sharpness and content.",
+        "outcomes.0": "Background resolution is correct after resizing.",
+        "outcomes.1": "Record cache builds separately from frame counts.",
+        "steps.0": "Prepare day-20.js and index.html in the external practice project. Create rebuildBackground to draw the grid background on an auxiliary canvas.",
+        "steps.1": "Use the cache on the moving shapes and rebuild the background only when resizing.",
+        "steps.2": "Save the output with the input condition every frame, then run again with only on resize. Expected: The number of static path constructions decreases. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-20-notes.md.",
+        "variables.0.name": "Cache Updates",
+        "variables.0.baseline": "every frame",
+        "variables.0.change": "only on resize",
+        "variables.0.expected": "The number of static path constructions decreases",
+        "criteria.0": "Background resolution is correct after resizing.",
+        "criteria.1": "Record cache builds separately from frame counts.",
+        "questions.0": "Which drawings can become more expensive with caching?",
+        "questions.1": "What do you invalidate when theme colors change?",
+        "references.0.title": "MDN Canvas Tutorial"
+      }
+    },
+    "canvas-2d-step-21": {
+      "sourceHash": "00a05bf505ec9d9ccccfb8579a877adb0da4b5616888d48c30871225ab44142d",
+      "values": {
+        "title": "High Resolution and Responsive Layout",
+        "prerequisites": "Prerequisite concepts: Prerendering, Invalidation. Prepare the result files and observation records from Unit 20.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Observation Target",
+        "concepts.0.explanation": "ResizeObserver detects element size changes. Even when window dimensions stay the same, a change in panel width requires adjusting the canvas buffer.",
+        "concepts.1.title": "Resolution Budget",
+        "concepts.1.explanation": "Increasing DPR increases pixel count by area. Compare quality and cost to choose a cap, and record that choice.",
+        "outcomes.0": "Handle hidden containers with width 0 safely.",
+        "outcomes.1": "Coordinates and display remain aligned after size changes.",
+        "steps.0": "Prepare day-21.js and index.html in the external practice project. Observe the container with ResizeObserver and recalculate CSS dimensions and buffer dimensions.",
+        "steps.1": "Add a DPR cap select and redraw while preserving existing shape coordinates.",
+        "steps.2": "In an environment where actual devicePixelRatio is at least 2, compare DPR caps of 1 and 2. Expected: with the same CSS dimensions, the number of buffer pixels becomes four times larger. Record sharpness and frame measurements in day-21-notes.md, and record environments with actual DPR of 1 as a separate condition.",
+        "variables.0.name": "DPR Cap",
+        "variables.0.baseline": "In an environment where actual devicePixelRatio is at least 2, DPR cap 1",
+        "variables.0.change": "2",
+        "variables.0.expected": "Lines may become sharper, but the number of processed pixels becomes four times larger",
+        "criteria.0": "Handle hidden containers with width 0 safely.",
+        "criteria.1": "Coordinates and display remain aligned after size changes.",
+        "questions.0": "When might devicePixelRatio change during execution?",
+        "questions.1": "Why does state disappear if you only resize the buffer?",
+        "references.0.title": "MDN devicePixelRatio",
+        "references.1.title": "MDN CanvasRenderingContext2D API"
+      }
     }
   }
 }

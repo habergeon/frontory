@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Making an Eraser with Compositing](../17/README.md)
+[Previous: Making an Eraser with Compositing](../17/README.md) · [Next: Reading Pixels and Applying Filters](../19/README.md)
 
 ## Experiment notes — write your own
 

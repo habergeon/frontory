@@ -248,6 +248,84 @@
         "references.0.title": "R3F Hooks",
         "references.1.title": "R3F Canvas Configuration"
       }
+    },
+    "react-three-fiber-step-10": {
+      "sourceHash": "7de328adadcbc869038955cb0c1249864abbc95f97547b32e956cd2ec92bcca3",
+      "values": {
+        "title": "Pointer Intersections and Selection",
+        "prerequisites": "Unit 10 continues using the deliverables and experiment records from Unit 9.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "raycast Events",
+        "concepts.0.explanation": "R3F pointer events are delivered based on intersections with 3D objects. event.point contains the world position of the intersection.",
+        "concepts.1.title": "Selection State",
+        "concepts.1.explanation": "A selected id is low-frequency state shared with the UI. Moving coordinates do not need to be copied into React state on every pointer movement.",
+        "outcomes.0": "Exactly 1 object is highlighted as selected.",
+        "outcomes.1": "The DOM detail id matches the clicked mesh id.",
+        "steps.0": "Pass the id to the parent from onClick in src/SelectableBox.jsx.",
+        "steps.1": "Derive the selection color and DOM detail panel from the same selectedId.",
+        "steps.2": "Click the three cubes in sequence, and record id and event.point.",
+        "variables.0.name": "Selection Target",
+        "variables.0.baseline": "Left cube",
+        "variables.0.change": "Right cube",
+        "variables.0.expected": "The color and detail panel change to the same id.",
+        "criteria.0": "Exactly 1 object is highlighted as selected.",
+        "criteria.1": "The DOM detail id matches the clicked mesh id.",
+        "questions.0": "Is event.point in local or world coordinates?",
+        "questions.1": "Why separate the state update frequencies of pointermove and click?",
+        "references.0.title": "R3F Pointer Events"
+      }
+    },
+    "react-three-fiber-step-11": {
+      "sourceHash": "d8b823cd6820fd21a5a5ac9d25bcdb9a3dbdbdc5e07a7a1be972e2add5ffc97b",
+      "values": {
+        "title": "Event Propagation and Occlusion",
+        "prerequisites": "Unit 11 continues using the deliverables and experiment records from Unit 10.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Intersection Propagation",
+        "concepts.0.explanation": "Events reach the nearest intersected object and its ancestors, and may also reach objects behind it. Do not assume this is identical to the DOM overlap model.",
+        "concepts.1.title": "Stopping Propagation",
+        "concepts.1.explanation": "stopPropagation also affects delivery to intersected objects behind the target. Choose whether selection should be exclusive or pass through according to the requirements.",
+        "outcomes.0": "The back cube is not selected in blocking mode.",
+        "outcomes.1": "Record the event order with propagation allowed and blocked.",
+        "steps.0": "Create two cubes overlapping along the camera direction in src/OverlapScene.jsx.",
+        "steps.1": "Record click logs for each mesh and their parent group.",
+        "steps.2": "Add stopPropagation to the front cube, and compare clicks at the same position.",
+        "variables.0.name": "Propagation Policy",
+        "variables.0.baseline": "Allow",
+        "variables.0.change": "Block at the front object",
+        "variables.0.expected": "The delivery scope of logs for the back object and ancestors changes.",
+        "criteria.0": "The back cube is not selected in blocking mode.",
+        "criteria.1": "Record the event order with propagation allowed and blocked.",
+        "questions.0": "Does a transparent material automatically allow events through?",
+        "questions.1": "How do object and eventObject differ in a handler on the parent group?",
+        "references.0.title": "R3F Pointer Events"
+      }
+    },
+    "react-three-fiber-step-12": {
+      "sourceHash": "bc79fe0cdf1e468bf8b2ebf3dd94a145caafb370cb8768b486cfe74e062e77c4",
+      "values": {
+        "title": "Dragging and Pointer Capture",
+        "prerequisites": "Unit 12 continues using the deliverables and experiment records from Unit 11.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Pointer Capture",
+        "concepts.0.explanation": "Capture keeps a drag going when the pointer moves outside the object. R3F capture works alongside intersection-list processing, so check how it differs from the DOM.",
+        "concepts.1.title": "Coordinate Plane",
+        "concepts.1.explanation": "Adding screen displacement directly to a world position makes movement speed depend on the camera. Find movement coordinates by intersecting the ray with a chosen plane.",
+        "outcomes.0": "The dragging state is false even when released outside the object.",
+        "outcomes.1": "React setState is not used on every event during dragging.",
+        "steps.0": "Capture pointerId on pointerdown in src/DraggableBox.jsx.",
+        "steps.1": "On pointermove, apply the intersection of the ray and the z=0 plane to the ref position.",
+        "steps.2": "Release capture on pointerup and cancellation, and test movement outside the object.",
+        "variables.0.name": "Capture",
+        "variables.0.baseline": "Absent",
+        "variables.0.change": "Present",
+        "variables.0.expected": "Drag completion can be handled even outside the object boundary.",
+        "criteria.0": "The dragging state is false even when released outside the object.",
+        "criteria.1": "React setState is not used on every event during dragging.",
+        "questions.0": "What changes if the drag plane is perpendicular to the camera?",
+        "questions.1": "Does capture alone block every event on other objects?",
+        "references.0.title": "R3F Pointer Events"
+      }
     }
   }
 }

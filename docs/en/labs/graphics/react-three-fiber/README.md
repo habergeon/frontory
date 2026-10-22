@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 9 published in English
+Graphics · 4 stages · 28 units in the full series · 12 published in English
 
 ## Series goal
 
@@ -36,6 +36,9 @@ Only published English units are linked below. The full series has 28 units.
 
 - [08. useThree Scope and Selection](units/08/README.md) — Editable example
 - [09. Camera Control and projection Updates](units/09/README.md) — Editable example
+- [10. Pointer Intersections and Selection](units/10/README.md) — Editable example
+- [11. Event Propagation and Occlusion](units/11/README.md) — Editable example
+- [12. Dragging and Pointer Capture](units/12/README.md) — Editable example
 
 ### Stage 3 · Models, Shared Resources, and Instancing
 
@@ -56,3 +59,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [R3F Canvas Configuration](https://r3f.docs.pmnd.rs/api/canvas)
 - [R3F Hooks](https://r3f.docs.pmnd.rs/api/hooks)
 - [R3F Performance Pitfalls](https://r3f.docs.pmnd.rs/advanced/pitfalls)
+- [R3F Pointer Events](https://r3f.docs.pmnd.rs/api/events)

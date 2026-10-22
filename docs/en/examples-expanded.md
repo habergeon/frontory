@@ -316,6 +316,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [7. useFrame and Time-based Rotation](labs/graphics/react-three-fiber/units/07/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-07/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 | [8. useThree Scope and Selection](labs/graphics/react-three-fiber/units/08/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-08/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 | [9. Camera Control and projection Updates](labs/graphics/react-three-fiber/units/09/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-09/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [10. Pointer Intersections and Selection](labs/graphics/react-three-fiber/units/10/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-10/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [11. Event Propagation and Occlusion](labs/graphics/react-three-fiber/units/11/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-11/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [12. Dragging and Pointer Capture](labs/graphics/react-three-fiber/units/12/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-12/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 
 ## GSAP
 

@@ -3030,6 +3030,36 @@
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
+      "id": "react-three-fiber-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Pointer Intersections and Selection",
+      "goal": "Exactly 1 object is highlighted as selected. The DOM detail id matches the clicked mesh id.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/10/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Event Propagation and Occlusion",
+      "goal": "The back cube is not selected in blocking mode. Record the event order with propagation allowed and blocked.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/11/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Dragging and Pointer Capture",
+      "goal": "The dragging state is false even when released outside the object. React setState is not used on every event during dragging.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/12/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

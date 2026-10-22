@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: useThree Scope and Selection](../08/README.md)
+[Previous: useThree Scope and Selection](../08/README.md) · [Next: Pointer Intersections and Selection](../10/README.md)
 
 ## Experiment notes — write your own
 

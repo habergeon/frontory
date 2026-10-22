@@ -81,5 +81,17 @@
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
     }
+  },
+  "javascript-step-15": {
+    "sourceHash": "88921ba4600ce1e07671afb25a78eb5893c5d0140782dde401fd33a4770d62a8",
+    "values": {
+      "note": "Because preview network access is restricted, this example runs 200/404 fixtures using real Response objects. Test fetch and HTTP requests on a local server."
+    }
+  },
+  "javascript-step-16": {
+    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "values": {
+      "note": "Compare the editable inputs with actual browser execution results."
+    }
   }
 }

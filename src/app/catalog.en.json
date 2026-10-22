@@ -188,6 +188,35 @@
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
+      "id": "javascript-02",
+      "day": 14,
+      "week": 2,
+      "title": "Asynchrony and Cancellation",
+      "goal": "The second search term remains on screen even when responses finish in reverse order. Distinguish cancellation logs from ordinary failure logs.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/02-experiments/README.md",
+      "seriesId": "javascript"
+    },
+    {
+      "id": "javascript-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Fetch Responses and HTTP Errors",
+      "goal": "Check both the successful list and the 404 message. Record HTTP errors and JSON parsing errors separately.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/15/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Because preview network access is restricted, this example runs 200/404 fixtures using real Response objects. Test fetch and HTTP requests on a local server."
+    },
+    {
+      "id": "javascript-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Parallel Work and Partial Failure",
+      "goal": "Distinguish completion order from the order of the returned array. The partial-failure screen retains 2 successful items.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/16/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
       "id": "css-step-04",
       "day": 4,
       "week": 1,

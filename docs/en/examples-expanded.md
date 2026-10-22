@@ -20,6 +20,8 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [11. Creating DOM Nodes and Inserting Text](labs/fundamentals/javascript/units/11/README.md) | Editable example | [Source code](../../src/labs/javascript-step-11/example.js) — Compare the editable inputs with actual browser execution results. |
 | [12. Event Propagation and Delegation](labs/fundamentals/javascript/units/12/README.md) | Editable example | [Source code](../../src/labs/javascript-step-12/example.js) — Compare the editable inputs with actual browser execution results. |
 | [13. Promises and Execution Order](labs/fundamentals/javascript/units/13/README.md) | Editable example | [Source code](../../src/labs/javascript-step-13/example.js) — Compare the editable inputs with actual browser execution results. |
+| [15. Fetch Responses and HTTP Errors](labs/fundamentals/javascript/units/15/README.md) | Editable example | [Source code](../../src/labs/javascript-step-15/example.js) — Because preview network access is restricted, this example runs 200/404 fixtures using real Response objects. Test fetch and HTTP requests on a local server. |
+| [16. Parallel Work and Partial Failure](labs/fundamentals/javascript/units/16/README.md) | Editable example | [Source code](../../src/labs/javascript-step-16/example.js) — Compare the editable inputs with actual browser execution results. |
 
 ## CSS
 

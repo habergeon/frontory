@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 13 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 16 published in English
 
 ## Series goal
 
@@ -40,9 +40,12 @@ Only published English units are linked below. The full series has 28 units.
 - [11. Creating DOM Nodes and Inserting Text](units/11/README.md) — Editable example
 - [12. Event Propagation and Delegation](units/12/README.md) — Editable example
 - [13. Promises and Execution Order](units/13/README.md) — Editable example
+- [14. Asynchrony and Cancellation](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Modules and data boundaries
 
+- [15. Fetch Responses and HTTP Errors](units/15/README.md) — Editable example
+- [16. Parallel Work and Partial Failure](units/16/README.md) — Editable example
 
 ### Stage 4 · Integrating and verifying the experiment log
 
@@ -63,3 +66,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [MDN JSON.parse — JSON syntax errors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse#exceptions)
 - [MDN parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
 - [MDN HTMLInputElement.value](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/value)
+- [MDN AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)

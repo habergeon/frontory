@@ -369,6 +369,85 @@
         "questions.1": "Where does a failure go if the Promise was not returned?",
         "references.0.title": "MDN JavaScript Guide"
       }
+    },
+    "javascript-02": {
+      "sourceHash": "4a2b939f1ac2568898b94ee92fbcbb4316a46088a427f3c567fded9ace0cce1f",
+      "values": {
+        "title": "Asynchrony and Cancellation",
+        "prerequisites": "The work and experiment records from Unit 13, “Promises and Execution Order”",
+        "environment": "Frontory's existing preview is a limited starter example, not a complete solution to the assignment. Implement additional files and features yourself in a separate local project. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Response Races",
+        "concepts.0.explanation": "Requests may finish in a different order from the order in which they were made. Checking the request id prevents stale responses from being applied.",
+        "concepts.1.title": "Cancellation Signals",
+        "concepts.1.explanation": "The signal from AbortController communicates cancellation. A mock function must also handle the signal to actually stop.",
+        "outcomes.0": "The second search term remains on screen even when responses finish in reverse order.",
+        "criteria.0": "The second search term remains on screen even when responses finish in reverse order.",
+        "outcomes.1": "Distinguish cancellation logs from ordinary failure logs.",
+        "criteria.1": "Distinguish cancellation logs from ordinary failure logs.",
+        "steps.0": "In search.js, prepare two searches 100ms apart, with the second response taking 100ms.",
+        "steps.1": "Implement request id checks and signal handling in the delayed mock search, and display the final result.",
+        "steps.2": "Run two searches 100ms apart, with the second response taking 100ms. Results to check: The second search term remains on screen even when responses finish in reverse order. Distinguish cancellation logs from ordinary failure logs. Record expected and actual results separately.",
+        "variables.0.name": "First response delay",
+        "variables.0.baseline": "50ms",
+        "variables.0.change": "800ms",
+        "variables.0.expected": "Hypothesis before running: The latest search result will be preserved. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "Which paths still need an id check after cancellation?",
+        "questions.1": "Must the current request also be checked when ending the loading state?",
+        "references.0.title": "MDN JavaScript Guide",
+        "references.1.title": "MDN AbortController"
+      }
+    },
+    "javascript-step-15": {
+      "sourceHash": "25ed70db95bd2ed550e2951f1ae8244f77edba37be65cf1a2f83ce8931a30524",
+      "values": {
+        "title": "Fetch Responses and HTTP Errors",
+        "prerequisites": "The work and experiment records from Unit 14, “Asynchrony and Cancellation”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Response Status",
+        "concepts.0.explanation": "fetch can return a Response even for an HTTP error. Use response.ok to determine success.",
+        "concepts.1.title": "Reading the Body",
+        "concepts.1.explanation": "json is an asynchronous method that reads the body. There are restrictions on reading an already consumed body again.",
+        "outcomes.0": "Check both the successful list and the 404 message.",
+        "criteria.0": "Check both the successful list and the 404 message.",
+        "outcomes.1": "Record HTTP errors and JSON parsing errors separately.",
+        "criteria.1": "Record HTTP errors and JSON parsing errors separately.",
+        "steps.0": "In api.js, prepare data.json and the missing file missing.json.",
+        "steps.1": "Use fetch for same-origin files, check ok, then read json and display the list or an error.",
+        "steps.2": "Run with data.json and the missing file missing.json. Results to check: Check both the successful list and the 404 message. Record HTTP errors and JSON parsing errors separately. Record expected and actual results separately.",
+        "variables.0.name": "Path",
+        "variables.0.baseline": "data.json",
+        "variables.0.change": "missing.json",
+        "variables.0.expected": "Hypothesis before running: An HTTP error will not be treated as valid data. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "Can catch alone handle a 404?",
+        "questions.1": "What happens if you read the body twice?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-step-16": {
+      "sourceHash": "acfa7d2df43f89bd75964f6da75407ba732cc28cadad7999231a1f723a4b8f10",
+      "values": {
+        "title": "Parallel Work and Partial Failure",
+        "prerequisites": "The work and experiment records from Unit 15, “Fetch Responses and HTTP Errors”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "All Tasks Succeed",
+        "concepts.0.explanation": "Promise.all returns successful results in input order. If one input rejects, the resulting Promise also rejects.",
+        "concepts.1.title": "Partial Results",
+        "concepts.1.explanation": "allSettled collects the success or failure of each operation. Decide whether to display only successful items as a product policy.",
+        "outcomes.0": "Distinguish completion order from the order of the returned array.",
+        "criteria.0": "Distinguish completion order from the order of the returned array.",
+        "outcomes.1": "The partial-failure screen retains 2 successful items.",
+        "criteria.1": "The partial-failure screen retains 2 successful items.",
+        "steps.0": "In batch.js, prepare different delays and a failure in the second operation.",
+        "steps.1": "Run 3 delayed operations with all and allSettled, and output their result order and status.",
+        "steps.2": "Run with different delays and a failure in the second operation. Results to check: Distinguish completion order from the order of the returned array. The partial-failure screen retains 2 successful items. Record expected and actual results separately.",
+        "variables.0.name": "Number of failures",
+        "variables.0.baseline": "0",
+        "variables.0.change": "1",
+        "variables.0.expected": "Hypothesis before running: It will be possible to separate 2 successes and 1 failure. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "Does a failure in all cancel the remaining operations?",
+        "questions.1": "How should partial failure be communicated?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
     }
   }
 }

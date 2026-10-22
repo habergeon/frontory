@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Event Propagation and Delegation](../12/README.md)
+[Previous: Event Propagation and Delegation](../12/README.md) · [Next: Asynchrony and Cancellation](../../02-experiments/README.md)
 
 ## Experiment notes — write your own
 

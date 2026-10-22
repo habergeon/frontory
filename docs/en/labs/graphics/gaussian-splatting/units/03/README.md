@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Provenance and File Contracts](../02/README.md)
+[Previous: Provenance and File Contracts](../02/README.md) · [Next: Quaternions and Anisotropy](../04/README.md)
 
 ## Experiment notes — write your own
 

@@ -310,6 +310,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | --- | --- | --- |
 | [2. Provenance and File Contracts](labs/graphics/gaussian-splatting/units/02/README.md) | Editable example | [Source code](../../src/labs/gaussian-splatting-step-02/example.js) — CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance. |
 | [3. Coordinate Systems and Units](labs/graphics/gaussian-splatting/units/03/README.md) | Editable example | [Source code](../../src/labs/gaussian-splatting-step-03/example.js) — CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance. |
+| [4. Quaternions and Anisotropy](labs/graphics/gaussian-splatting/units/04/README.md) | Editable example | [Source code](../../src/labs/gaussian-splatting-step-04/example.js) — CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance. |
+| [5. Reading Shape from Covariance](labs/graphics/gaussian-splatting/units/05/README.md) | Editable example | [Source code](../../src/labs/gaussian-splatting-step-05/example.js) — CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance. |
+| [6. Camera Projection and Screen Ellipses](labs/graphics/gaussian-splatting/units/06/README.md) | Editable example | [Source code](../../src/labs/gaussian-splatting-step-06/example.js) — CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance. |
 
 ## WebGPU
 

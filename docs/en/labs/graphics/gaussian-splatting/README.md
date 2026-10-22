@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 3 published in English
+Graphics · 4 stages · 28 units in the full series · 6 published in English
 
 ## Series goal
 
@@ -27,6 +27,9 @@ Only published English units are linked below. The full series has 28 units.
 - [01. 3DGS Representations and Data](01-foundations/README.md) — Editable example
 - [02. Provenance and File Contracts](units/02/README.md) — Editable example
 - [03. Coordinate Systems and Units](units/03/README.md) — Editable example
+- [04. Quaternions and Anisotropy](units/04/README.md) — Editable example
+- [05. Reading Shape from Covariance](units/05/README.md) — Editable example
+- [06. Camera Projection and Screen Ellipses](units/06/README.md) — Editable example
 
 ### Stage 2 · File Validation and Viewer Integration
 

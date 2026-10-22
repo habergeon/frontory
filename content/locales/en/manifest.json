@@ -450,6 +450,9 @@
     "glsl-03",
     "gaussian-splatting-01",
     "gaussian-splatting-step-02",
-    "gaussian-splatting-step-03"
+    "gaussian-splatting-step-03",
+    "gaussian-splatting-step-04",
+    "gaussian-splatting-step-05",
+    "gaussian-splatting-step-06"
   ]
 }

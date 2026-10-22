@@ -91,6 +91,87 @@
         "references.0.title": "Spark Official Documentation",
         "references.1.title": "3D Gaussian Splatting Research Project"
       }
+    },
+    "gaussian-splatting-step-04": {
+      "sourceHash": "547c251782af3173d9014fa431ed20c02c2345d13d1da481b7bb4e5ef857a9e6",
+      "values": {
+        "title": "Quaternions and Anisotropy",
+        "prerequisites": "Continue using the output and records from Unit 3. Before the Quaternions and Anisotropy experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Representing rotation",
+        "concepts.0.explanation": "A quaternion must maintain unit length to represent a rotation. The component order in a file may differ from the library constructor's order.",
+        "concepts.1.title": "Anisotropy",
+        "concepts.1.explanation": "If the three scale values differ, width varies with direction. For an isotropic Gaussian, changing the rotation leaves the shape unchanged.",
+        "outcomes.0": "Interpret rotation components safely.",
+        "outcomes.1": "Explain how scale and rotation combine.",
+        "steps.0": "In shape.js, write normalization and component-order conversion functions.",
+        "steps.1": "Supply scale [0.3,0.1,0.1] and a 90-degree rotation to the CPU projection input.",
+        "steps.2": "Apply the same rotation to the isotropic [0.1,0.1,0.1] input and compare bounding boxes.",
+        "variables.0.name": "Rotation angle",
+        "variables.0.baseline": "0 degrees",
+        "variables.0.change": "90 degrees about the Z axis",
+        "variables.0.expected": "Expect the anisotropic ellipse's long axis to change while the isotropic shape stays unchanged.",
+        "criteria.0": "The normalized quaternion's length differs from 1 by at most 1e-6.",
+        "criteria.1": "Record the rotation results for both isotropic and anisotropic inputs.",
+        "questions.0": "How should a quaternion of length 0 be handled?",
+        "questions.1": "What shape can a component-order error produce?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-05": {
+      "sourceHash": "c2c2f142d2518499acf96ea741b01157ca4c488ec6c5b2963856b4897d8f71cc",
+      "values": {
+        "title": "Reading Shape from Covariance",
+        "prerequisites": "Continue using the output and records from Unit 4. Before the Reading Shape from Covariance experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Covariance",
+        "concepts.0.explanation": "Combining rotation with per-axis variances represents an ellipsoid in space. When scale is interpreted as standard deviation, variance uses its square.",
+        "concepts.1.title": "Symmetry",
+        "concepts.1.explanation": "Covariance must be symmetric, and valid variances cannot be negative. Projecting invalid inputs directly makes numerical calculations unstable.",
+        "outcomes.0": "Construct a covariance matrix.",
+        "outcomes.1": "Validate shape inputs.",
+        "steps.0": "In covariance.js, calculate R·diag(scale²)·Rᵀ.",
+        "steps.1": "Save the 3×3 results for axis-aligned scale and rotated scale as JSON.",
+        "steps.2": "Print the symmetry error and the rejection result for negative scale inputs.",
+        "variables.0.name": "Long-axis scale",
+        "variables.0.baseline": "0.1",
+        "variables.0.change": "0.2",
+        "variables.0.expected": "Expect the variance on that axis to increase fourfold.",
+        "criteria.0": "The maximum difference between symmetric elements is at most 1e-6.",
+        "criteria.1": "Numerically confirm that doubling scale quadruples variance.",
+        "questions.0": "What changes if scale is confused with variance?",
+        "questions.1": "If covariance is stored, is separate rotation information needed?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-06": {
+      "sourceHash": "bc59dfa675408125b1abb82cf05418bd08441b3aec3c2fb9cf1999cfadc243f8",
+      "values": {
+        "title": "Camera Projection and Screen Ellipses",
+        "prerequisites": "Continue using the output and records from Unit 5. Before the Camera Projection and Screen Ellipses experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Perspective projection",
+        "concepts.0.explanation": "A nearby Gaussian appears larger even at the same world-space size. Screen covariance must reflect the local rate of change of the projection.",
+        "concepts.1.title": "Near plane",
+        "concepts.1.explanation": "Points behind the camera or near the near plane cannot be handled safely through simple division. Check visibility limits and finite values before projection.",
+        "outcomes.0": "Distinguish world-space size from screen-space size.",
+        "outcomes.1": "Handle projection boundary cases.",
+        "steps.0": "In project.js, separate the view-space transformation from the perspective divide.",
+        "steps.1": "Project identical Gaussians at depths 2 and 4 and print their screen centers and radii.",
+        "steps.2": "Supply inputs on either side of the near plane and behind the camera, and record whether they are excluded.",
+        "variables.0.name": "Camera distance",
+        "variables.0.baseline": "2",
+        "variables.0.change": "4",
+        "variables.0.expected": "Expect the screen width of a small Gaussian to be approximately halved.",
+        "criteria.0": "Calculate the screen-width ratio at the two depths.",
+        "criteria.1": "No NaN or Infinity remains in screen coordinates for the three boundary inputs.",
+        "questions.0": "Is the linear approximation accurate for large Gaussians too?",
+        "questions.1": "If the center is off screen, is the entire Gaussian invisible?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
     }
   }
 }

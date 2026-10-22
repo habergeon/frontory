@@ -3040,6 +3040,36 @@
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
+      "id": "gaussian-splatting-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Quaternions and Anisotropy",
+      "goal": "Interpret rotation components safely. Explain how scale and rotation combine.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/04/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Reading Shape from Covariance",
+      "goal": "Construct a covariance matrix. Validate shape inputs.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/05/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Camera Projection and Screen Ellipses",
+      "goal": "Distinguish world-space size from screen-space size. Handle projection boundary cases.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/06/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
       "id": "webgpu-01",
       "day": 1,
       "week": 1,

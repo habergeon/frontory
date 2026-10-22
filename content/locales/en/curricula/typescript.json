@@ -407,6 +407,84 @@
         "questions.1": "How do you decide whether inherited properties are allowed?",
         "references.0.title": "TypeScript Handbook"
       }
+    },
+    "typescript-step-16": {
+      "sourceHash": "d8191cc4c55d0793a8d277be2337c76e5ce5817bdc2268d061ffa57011392575",
+      "values": {
+        "title": "Passing Failures with Result Types",
+        "prerequisites": "Work and experiment records from Unit 15, “Type Guards and False Guarantees”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Explicit Results",
+        "concepts.0.explanation": "An ok tag distinguishes success values from errors. Callers narrow the result before accessing the required fields.",
+        "concepts.1.title": "Exception Boundaries",
+        "concepts.1.explanation": "Converting exceptions to Result treats expected failures as values. Classify errors so that programming errors are not hidden unconditionally.",
+        "outcomes.0": "The success value is inferred as Note.",
+        "outcomes.1": "Distinguish the two kinds of failure by code.",
+        "steps.0": "In result.ts, prepare conditions for two cases: invalid JSON and an invalid structure.",
+        "steps.1": "Create Result<T,E> and parseNote, and convert error codes to UI messages.",
+        "steps.2": "Run with two cases: invalid JSON and an invalid structure. Results to check: The success value is inferred as Note. Distinguish the two kinds of failure by code. Record expected and actual results separately.",
+        "variables.0.name": "Error Kind",
+        "variables.0.baseline": "syntax error",
+        "variables.0.change": "structure error",
+        "variables.0.expected": "Pre-run hypothesis: different error codes will be returned. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "The success value is inferred as Note.",
+        "criteria.1": "Distinguish the two kinds of failure by code.",
+        "questions.0": "When should you use exceptions versus Result?",
+        "questions.1": "What narrowing is needed before reading error?",
+        "references.0.title": "TypeScript Handbook"
+      }
+    },
+    "typescript-step-17": {
+      "sourceHash": "583387c4cae32e155c57bf08704954ae0a672239439c83f2abb06daef65770e6",
+      "values": {
+        "title": "Editing Models with Utility Types",
+        "prerequisites": "Work and experiment records from Unit 16, “Passing Failures with Result Types”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Derived Models",
+        "concepts.0.explanation": "Pick and Omit create new contracts from some properties of an existing type. They do not automatically remove properties from runtime objects.",
+        "concepts.1.title": "Partial Updates",
+        "concepts.1.explanation": "Partial makes all properties optional. Decide first whether id should also be editable.",
+        "outcomes.0": "Both valid patches preserve the existing id.",
+        "outcomes.1": "Record the compiler error for an id patch.",
+        "steps.0": "In patch.ts, prepare conditions for a title-only update, a completion-only update, and an attempted id change.",
+        "steps.1": "Create an editing type excluding id and a read-summary type, then implement applyPatch.",
+        "steps.2": "Run with a title-only update, a completion-only update, and an attempted id change. Results to check: Both valid patches preserve the existing id. Record the compiler error for an id patch. Record expected and actual results separately.",
+        "variables.0.name": "Patch Key",
+        "variables.0.baseline": "title",
+        "variables.0.change": "id",
+        "variables.0.expected": "Pre-run hypothesis: the non-editable field will be rejected. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Both valid patches preserve the existing id.",
+        "criteria.1": "Record the compiler error for an id patch.",
+        "questions.0": "Does Omit delete fields from JSON?",
+        "questions.1": "Can Partial alone prevent an empty patch?",
+        "references.0.title": "TypeScript Handbook"
+      }
+    },
+    "typescript-step-18": {
+      "sourceHash": "1a73f3861069834e8c3c8d8e7bf03c70c762b4ec531246c2665a4ff3c1035cd6",
+      "values": {
+        "title": "Checking Configuration with satisfies",
+        "prerequisites": "Work and experiment records from Unit 17, “Editing Models with Utility Types”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Contract Checking",
+        "concepts.0.explanation": "satisfies checks whether a value meets a contract. It preserves the value's inferred information where possible.",
+        "concepts.1.title": "Type Annotations",
+        "concepts.1.explanation": "An explicit type annotation defines the contract visible through a variable. Compare it with as const when preserving literals matters.",
+        "outcomes.0": "The invalid key is rejected during compilation.",
+        "outcomes.1": "Record literal inference for the valid configuration.",
+        "steps.0": "In config.ts, prepare conditions for a valid theme and an invalid property name.",
+        "steps.1": "Declare theme configuration with a type annotation and with as const satisfies, then compare key and value usage.",
+        "steps.2": "Run with a valid theme and an invalid property name. Results to check: The invalid key is rejected during compilation. Record literal inference for the valid configuration. Record expected and actual results separately.",
+        "variables.0.name": "Configuration Key",
+        "variables.0.baseline": "foreground",
+        "variables.0.change": "foregound",
+        "variables.0.expected": "Pre-run hypothesis: the contract check will detect the typo. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "The invalid key is rejected during compilation.",
+        "criteria.1": "Record literal inference for the valid configuration.",
+        "questions.0": "How does satisfies differ from an as assertion?",
+        "questions.1": "Is the configuration object also frozen at runtime?",
+        "references.0.title": "TypeScript Handbook"
+      }
     }
   }
 }

@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Generics and Boundary Validation](../../02-experiments/README.md)
+[Previous: Generics and Boundary Validation](../../02-experiments/README.md) · [Next: Passing Failures with Result Types](../16/README.md)
 
 ## Experiment notes — write your own
 

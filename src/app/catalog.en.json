@@ -512,6 +512,36 @@
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
+      "id": "typescript-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Passing Failures with Result Types",
+      "goal": "The success value is inferred as Note. Distinguish the two kinds of failure by code.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/16/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Editing Models with Utility Types",
+      "goal": "Both valid patches preserve the existing id. Record the compiler error for an id patch.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/17/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Checking Configuration with satisfies",
+      "goal": "The invalid key is rejected during compilation. Record literal inference for the valid configuration.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/18/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
       "id": "html-01",
       "day": 1,
       "week": 1,

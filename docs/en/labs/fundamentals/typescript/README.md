@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 15 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 18 published in English
 
 ## Series goal
 
@@ -45,6 +45,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 3 · Validation and Type Transformations
 
 - [15. Type Guards and False Guarantees](units/15/README.md) — Editable example
+- [16. Passing Failures with Result Types](units/16/README.md) — Editable example
+- [17. Editing Models with Utility Types](units/17/README.md) — Editable example
+- [18. Checking Configuration with satisfies](units/18/README.md) — Editable example
 
 ### Stage 4 · Module Contracts and Plugins
 

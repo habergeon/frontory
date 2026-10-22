@@ -1,0 +1,47 @@
+javascript 25
+typescript 25
+html 25
+css 25
+react: 25 new examples
+vue: 25 new examples
+svelte: 25 new examples
+react-three-fiber: 25 new examples
+gsap 25
+motion 25
+web-workers 25
+offscreen-canvas 25
+webassembly 25
+playwright 25
+Generated 650 files; 23 series, 644 Korean units, 4 English units, 94 retained example IDs.
+Preview runtime bundled locally.
+Generated 686 search assets; sitemap contains 683 canonical URLs.
+{
+  "commands": [
+    [
+      "node",
+      "scripts/generate-foundations-examples.mjs"
+    ],
+    [
+      "node",
+      "scripts/generate-framework-examples.mjs"
+    ],
+    [
+      "node",
+      "scripts/generate-engineering-examples.mjs"
+    ],
+    [
+      "node",
+      "scripts/build-curricula.mjs"
+    ],
+    [
+      "node",
+      "scripts/build-preview.mjs"
+    ],
+    [
+      "node",
+      "scripts/build-search.mjs"
+    ]
+  ],
+  "trackedFilesCompared": 1783,
+  "changed": []
+}

@@ -1,0 +1,172 @@
+{
+  "origin": "http://127.0.0.1:4186",
+  "results": [
+    {
+      "path": "/en/",
+      "status": 200,
+      "english": true,
+      "ads": false
+    },
+    {
+      "asset": "/assets/index-4z-nmi2o.js",
+      "status": 200,
+      "mime": "text/javascript"
+    },
+    {
+      "asset": "/assets/rolldown-runtime-XKyaHtl9.js",
+      "status": 200,
+      "mime": "text/javascript"
+    },
+    {
+      "asset": "/assets/index-DFnlwHLn.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "path": "/en/learn/",
+      "status": 200,
+      "english": true,
+      "ads": false
+    },
+    {
+      "path": "/en/about/",
+      "status": 200,
+      "english": true,
+      "ads": false
+    },
+    {
+      "path": "/en/privacy/",
+      "status": 200,
+      "english": true,
+      "ads": false
+    },
+    {
+      "path": "/en/learn/javascript/",
+      "status": 200,
+      "english": true,
+      "ads": false
+    },
+    {
+      "path": "/en/learn/css/",
+      "status": 200,
+      "english": true,
+      "ads": false
+    },
+    {
+      "path": "/en/learn/react/",
+      "status": 200,
+      "english": true,
+      "ads": false
+    },
+    {
+      "path": "/en/learn/gsap/",
+      "status": 200,
+      "english": true,
+      "ads": false
+    },
+    {
+      "path": "/en/learn/javascript/javascript-step-02/",
+      "status": 200,
+      "english": true,
+      "ads": false
+    },
+    {
+      "path": "/en/learn/css/css-step-04/",
+      "status": 200,
+      "english": true,
+      "ads": false
+    },
+    {
+      "path": "/en/learn/react/react-step-03/",
+      "status": 200,
+      "english": true,
+      "ads": false
+    },
+    {
+      "path": "/en/learn/gsap/gsap-step-02/",
+      "status": 200,
+      "english": true,
+      "ads": false
+    },
+    {
+      "path": "/en/learn/vue/",
+      "status": 404,
+      "noindex": true
+    },
+    {
+      "path": "/en/not-found/",
+      "status": 404,
+      "noindex": true
+    },
+    {
+      "path": "/learn/missing/",
+      "status": 404,
+      "noindex": true
+    },
+    {
+      "id": "javascript-step-02",
+      "koreanAdsTag": true
+    },
+    {
+      "source": "/examples/javascript-step-02/example.js",
+      "status": 200,
+      "noindex": true,
+      "attachment": true
+    },
+    {
+      "source": "/examples-en/javascript-step-02/example.js",
+      "status": 200,
+      "noindex": true,
+      "attachment": true
+    },
+    {
+      "id": "css-step-04",
+      "koreanAdsTag": true
+    },
+    {
+      "source": "/examples/css-step-04/example.js",
+      "status": 200,
+      "noindex": true,
+      "attachment": true
+    },
+    {
+      "source": "/examples-en/css-step-04/example.js",
+      "status": 200,
+      "noindex": true,
+      "attachment": true
+    },
+    {
+      "id": "react-step-03",
+      "koreanAdsTag": true
+    },
+    {
+      "source": "/examples/react-step-03/example.js",
+      "status": 200,
+      "noindex": true,
+      "attachment": true
+    },
+    {
+      "source": "/examples-en/react-step-03/example.js",
+      "status": 200,
+      "noindex": true,
+      "attachment": true
+    },
+    {
+      "id": "gsap-step-02",
+      "koreanAdsTag": true
+    },
+    {
+      "source": "/examples/gsap-step-02/example.js",
+      "status": 200,
+      "noindex": true,
+      "attachment": true
+    },
+    {
+      "source": "/examples-en/gsap-step-02/example.js",
+      "status": 200,
+      "noindex": true,
+      "attachment": true
+    }
+  ],
+  "passed": 30
+}

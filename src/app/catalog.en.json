@@ -957,6 +957,36 @@
       "docPath": "/docs/en/labs/animation/gsap/units/07/README.md",
       "seriesId": "gsap",
       "exampleNote": "This is an experiment on Playback Controls. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Context and Restoration",
+      "goal": "Learning outcome: explain the role of Context. Input case: a card with an existing inline transform. Deliverable: a style table before and after mounting. Explain the rationale for handling Revert, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/08/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Context and Restoration. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Connecting Native Scroll",
+      "goal": "Learning outcome: explain the role of Progress. Input case: a long document and a short document. Deliverable: progress at the top, middle, and bottom and the NaN count. Explain the rationale for handling Manual Connection, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/09/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Connecting Native Scroll. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Registering ScrollTrigger",
+      "goal": "Learning outcome: explain the role of Plugin. Input case: two section elements. Deliverable: a table of start/end pixel values. Explain the rationale for handling Boundaries, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/10/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Registering ScrollTrigger. It supports direct interaction and cleans up the resources it uses."
     }
   ]
 }

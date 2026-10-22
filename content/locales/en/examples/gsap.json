@@ -42,5 +42,23 @@
     "values": {
       "note": "This is an experiment on Playback Controls. It supports direct interaction and cleans up the resources it uses."
     }
+  },
+  "gsap-step-08": {
+    "sourceHash": "a72152407caac308f386c1777bbf7abc3afb7f94ba7934454e60afd5ffeb2913",
+    "values": {
+      "note": "This is an experiment on Context and Restoration. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-09": {
+    "sourceHash": "f9dd67f0b6e0c275671b75984b0fb49fbc2a4b14dd5c52ab0e6d4f382bdd45a2",
+    "values": {
+      "note": "This is an experiment on Connecting Native Scroll. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-10": {
+    "sourceHash": "e8ad549b5756ba3c889ba8a4f1791030cb3592eb68bd0bf9ada9b00a4632ca2a",
+    "values": {
+      "note": "This is an experiment on Registering ScrollTrigger. It supports direct interaction and cleans up the resources it uses."
+    }
   }
 }

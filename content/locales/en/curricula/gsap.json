@@ -215,6 +215,87 @@
         "references.0.title": "GSAP Official Documentation",
         "references.1.title": "ScrollTrigger Official Documentation"
       }
+    },
+    "gsap-step-08": {
+      "sourceHash": "c0214a33386e7afdd90a9eeedcb91583d2e8383caab7f549513b0f1b2dcf4775",
+      "values": {
+        "title": "Context and Restoration",
+        "prerequisites": "Prepare the exercise results on Progress and Synchronization from Unit 7, “Playback Controls”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Context",
+        "concepts.0.explanation": "context groups the animations it creates. A container can limit the scope of selectors.",
+        "concepts.1.title": "Revert",
+        "concepts.1.explanation": "revert restores previous styles. kill alone does not guarantee the same restoration.",
+        "outcomes.0": "Learning outcome: explain the role of Context. Input case: a card with an existing inline transform.",
+        "outcomes.1": "Deliverable: a style table before and after mounting. Explain the rationale for handling Revert, connecting it to the code.",
+        "steps.0": "In src/day-8.js of a separate practice project, create gsap.context in mount and connect revert to dispose. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: a card with an existing inline transform. Baseline: kill. Run under baseline conditions, then record observations and errors in notes/day-8.md.",
+        "steps.2": "Variable: Cleanup Method; changed value: revert. Run again using the same input path. Deliverable to save: a style table before and after mounting. Hypothesis to check: The previous inline styles are restored. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Cleanup Method",
+        "variables.0.baseline": "kill",
+        "variables.0.change": "revert",
+        "variables.0.expected": "The previous inline styles are restored.",
+        "criteria.0": "Required deliverable: a style table before and after mounting. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Context, Revert. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Context affect in this exercise? Input case: a card with an existing inline transform.",
+        "questions.1": "Variable: Cleanup Method. Hypothesis to check: The previous inline styles are restored. Did the actual results match the hypothesis? Explain the evidence in terms of Revert.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-09": {
+      "sourceHash": "d940cb3f59ca808547bd3f629d035d23c13782e4959c265b41f053a30f657983",
+      "values": {
+        "title": "Connecting Native Scroll",
+        "prerequisites": "Prepare the exercise results on Context and Revert from Unit 8, “Context and Restoration”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Progress",
+        "concepts.0.explanation": "Divide scrollTop by the effective scroll length. A length of 0 needs separate handling.",
+        "concepts.1.title": "Manual Connection",
+        "concepts.1.explanation": "A scroll event can directly control a paused timeline. This path does not execute ScrollTrigger.",
+        "outcomes.0": "Learning outcome: explain the role of Progress. Input case: a long document and a short document.",
+        "outcomes.1": "Deliverable: progress at the top, middle, and bottom and the NaN count. Explain the rationale for handling Manual Connection, connecting it to the code.",
+        "steps.0": "In src/day-9.js of a separate practice project, check the denominator, then update a paused timeline.progress in the scroll handler. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: a long document and a short document. Baseline: two screens. Run under baseline conditions, then record observations and errors in notes/day-9.md.",
+        "steps.2": "Variable: Document Length; changed value: half a screen. Run again using the same input path. Deliverable to save: progress at the top, middle, and bottom and the NaN count. Hypothesis to check: Progress remains valid even without scrolling. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Document Length",
+        "variables.0.baseline": "two screens",
+        "variables.0.change": "half a screen",
+        "variables.0.expected": "Progress remains valid even without scrolling.",
+        "criteria.0": "Required deliverable: progress at the top, middle, and bottom and the NaN count. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Progress, Manual Connection. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Progress affect in this exercise? Input case: a long document and a short document.",
+        "questions.1": "Variable: Document Length. Hypothesis to check: Progress remains valid even without scrolling. Did the actual results match the hypothesis? Explain the evidence in terms of Manual Connection.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-10": {
+      "sourceHash": "c38ee19e7a9cec592eea7f657105de53cca5815b6ddf58a459b359a534684e3b",
+      "values": {
+        "title": "Registering ScrollTrigger",
+        "prerequisites": "Prepare the exercise results on Progress and Manual Connection from Unit 9, “Connecting Native Scroll”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Plugin",
+        "concepts.0.explanation": "In a separate project, import the plugin and call registerPlugin. Distinguish this from the preview’s native scroll code.",
+        "concepts.1.title": "Boundaries",
+        "concepts.1.explanation": "start and end define where an element meets the viewport. Use markers to check the calculated positions.",
+        "outcomes.0": "Learning outcome: explain the role of Plugin. Input case: two section elements.",
+        "outcomes.1": "Deliverable: a table of start/end pixel values. Explain the rationale for handling Boundaries, connecting it to the code.",
+        "steps.0": "In src/day-10.js of a separate practice project, configure ScrollTrigger.create and markers in a separate app. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: two section elements. Baseline: top bottom. Run under baseline conditions, then record observations and errors in notes/day-10.md.",
+        "steps.2": "Variable: start; changed value: top center. Run again using the same input path. Deliverable to save: a table of start/end pixel values. Hypothesis to check: The start boundary changes to the center of the viewport. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "start",
+        "variables.0.baseline": "top bottom",
+        "variables.0.change": "top center",
+        "variables.0.expected": "The start boundary changes to the center of the viewport.",
+        "criteria.0": "Required deliverable: a table of start/end pixel values. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Plugin, Boundaries. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Plugin affect in this exercise? Input case: two section elements.",
+        "questions.1": "Variable: start. Hypothesis to check: The start boundary changes to the center of the viewport. Did the actual results match the hypothesis? Explain the evidence in terms of Boundaries.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
     }
   }
 }

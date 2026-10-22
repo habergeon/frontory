@@ -172,6 +172,87 @@
         "references.0.title": "WGSL Specification",
         "references.1.title": "WebGPU API"
       }
+    },
+    "wgsl-step-07": {
+      "sourceHash": "19392d4ade9384e492a94036f8b86e40c7620593b63831456a7a63a5cff1b488",
+      "values": {
+        "title": "Interpolation and Stage Interfaces",
+        "prerequisites": "Continue using the output and records from Unit 6. Before experimenting with Interpolation and Stage Interfaces, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Interpolation Rules",
+        "concepts.0.explanation": "Floating-point vertex outputs are interpolated in the fragment stage. Integer identifiers must explicitly use flat interpolation.",
+        "concepts.1.title": "System Coordinates",
+        "concepts.1.explanation": "The vertex position output and fragment position input do not represent the same coordinates. Check screen coordinate conventions when using fragment positions.",
+        "outcomes.0": "Configure interpolation between stages.",
+        "outcomes.1": "Distinguish the meanings of system coordinates.",
+        "steps.0": "In interface.wgsl, output both a color and an integer id with @interpolate(flat).",
+        "steps.1": "Display id-based colors and interpolated colors in separate fragment modes.",
+        "steps.2": "Compare screen UVs obtained by normalizing fragment position by resolution with vertex UVs.",
+        "variables.0.name": "Color interpolation",
+        "variables.0.baseline": "Default interpolation",
+        "variables.0.change": "flat interpolation",
+        "variables.0.expected": "Color variation inside the triangle is expected to disappear, filling it with the value from the designated vertex.",
+        "criteria.0": "Explicitly specify flat interpolation for an integer location.",
+        "criteria.1": "Compare the two modes: screen position and vertex UV.",
+        "questions.0": "When do perspective interpolation and linear screen interpolation differ?",
+        "questions.1": "Why must you check which vertex supplies the flat value?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-08": {
+      "sourceHash": "f2771bfdb9e871e1e3ec8c0c83fc9cc0ca84e707ca9caea8096dbf470749884a",
+      "values": {
+        "title": "Address Spaces and Access Modes",
+        "prerequisites": "Continue using the output and records from Unit 7. Before experimenting with Address Spaces and Access Modes, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Address Spaces",
+        "concepts.0.explanation": "function, private, workgroup, uniform, and storage determine value lifetimes and sharing scopes. Even similar-looking names have different sets of invocations that can access them.",
+        "concepts.1.title": "Write Permissions",
+        "concepts.1.explanation": "Writing to a uniform or read-only storage violates its contract. Specify storage read or read_write access according to the actual operation.",
+        "outcomes.0": "Choose address spaces.",
+        "outcomes.1": "Respect resource access permissions.",
+        "steps.0": "In spaces.wgsl, declare a read-only uniform, read storage, and a read_write output.",
+        "steps.1": "Add comments distinguishing a function-local accumulator from a private variable.",
+        "steps.2": "Create an error by writing to a read-only input, then restore the code by writing to the output.",
+        "variables.0.name": "Input access",
+        "variables.0.baseline": "read",
+        "variables.0.change": "Attempt to write to the input",
+        "variables.0.expected": "Validation or shader diagnostics are expected to reveal the contract violation.",
+        "criteria.0": "Tabulate the sharing scopes of the five address spaces.",
+        "criteria.1": "Write results to a separate output without changing the read-only input.",
+        "questions.0": "Is a private variable shared by all invocations?",
+        "questions.1": "Can workgroup memory be used in the same way in the fragment stage?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-09": {
+      "sourceHash": "bd50811e4f508bd934e4e152d121c2de030db5e6b05d7fcd795abd9eae42a892",
+      "values": {
+        "title": "Groups, Bindings, and Host Connections",
+        "prerequisites": "Continue using the output and records from Unit 8. Before experimenting with Groups, Bindings, and Host Connections, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Resource Locations",
+        "concepts.0.explanation": "@group and @binding specify resource connection locations in the shader. Even with matching numbers, texture, sampler, and buffer types must satisfy the host contract.",
+        "concepts.1.title": "Minimum Size",
+        "concepts.1.explanation": "A buffer binding must contain enough data for the shader to read. Check both the bind group layout's minimum size and the actual binding range.",
+        "outcomes.0": "Connect resource locations to the host.",
+        "outcomes.1": "Trace binding validation errors.",
+        "steps.0": "In bindings.wgsl, declare a color uniform in group 0 and a storage array in group 1.",
+        "steps.1": "In host.js, write two bind group layouts and the corresponding resources.",
+        "steps.2": "Use error scopes to check cases with an incorrect binding number, visibility, or buffer type, one at a time.",
+        "variables.0.name": "Binding number",
+        "variables.0.baseline": "0 on both sides",
+        "variables.0.change": "1 on the host only",
+        "variables.0.expected": "Validation is expected to fail because the resource connections do not match.",
+        "criteria.0": "Create a correspondence table between shader declarations and host descriptors.",
+        "criteria.1": "Distinguish three error types and restore the correct values.",
+        "questions.0": "Does a group number represent a memory address?",
+        "questions.1": "Does automatic layout remove validation of shader and resource types?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
     }
   }
 }

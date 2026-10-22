@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Shaders · 4 stages · 28 units in the full series · 6 published in English
+Shaders · 4 stages · 28 units in the full series · 9 published in English
 
 ## Series goal
 
@@ -30,9 +30,12 @@ Only published English units are linked below. The full series has 28 units.
 - [04. Const, Let, Var, and Override](units/04/README.md) — Editable example
 - [05. Function and Structure Contracts](units/05/README.md) — Editable example
 - [06. Conditions, Loops, and Termination](units/06/README.md) — Editable example
+- [07. Interpolation and Stage Interfaces](units/07/README.md) — Editable example
 
 ### Stage 2 · Resource Declarations and Memory Layout
 
+- [08. Address Spaces and Access Modes](units/08/README.md) — Editable example
+- [09. Groups, Bindings, and Host Connections](units/09/README.md) — Editable example
 
 ### Stage 3 · Parallel Computation and Synchronization
 

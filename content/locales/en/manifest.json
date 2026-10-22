@@ -397,6 +397,9 @@
     "wgsl-step-03",
     "wgsl-step-04",
     "wgsl-step-05",
-    "wgsl-step-06"
+    "wgsl-step-06",
+    "wgsl-step-07",
+    "wgsl-step-08",
+    "wgsl-step-09"
   ]
 }

@@ -3873,6 +3873,36 @@
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
+      "id": "wgsl-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Interpolation and Stage Interfaces",
+      "goal": "Configure interpolation between stages. Distinguish the meanings of system coordinates.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/07/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Address Spaces and Access Modes",
+      "goal": "Choose address spaces. Respect resource access permissions.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/08/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Groups, Bindings, and Host Connections",
+      "goal": "Connect resource locations to the host. Trace binding validation errors.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/09/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

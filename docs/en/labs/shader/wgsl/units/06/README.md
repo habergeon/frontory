@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Function and Structure Contracts](../05/README.md)
+[Previous: Function and Structure Contracts](../05/README.md) · [Next: Interpolation and Stage Interfaces](../07/README.md)
 
 ## Experiment notes — write your own
 

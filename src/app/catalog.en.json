@@ -652,6 +652,36 @@
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
+      "id": "react-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Conditional Screens and Empty States",
+      "goal": "The guidance appears exactly once when there are 0 results. Resetting restores the 3 cards.",
+      "docPath": "/docs/en/labs/frameworks/react/units/05/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "List Keys and Identity",
+      "goal": "With id keys, note A stays on the original card. Record the comparison with index keys together with the ids.",
+      "docPath": "/docs/en/labs/frameworks/react/units/06/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Controlled Inputs and Form Validation",
+      "goal": "The card count stays the same after submitting whitespace. One Enter submission adds 1 card.",
+      "docPath": "/docs/en/labs/frameworks/react/units/07/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
       "id": "gsap-step-02",
       "day": 2,
       "week": 1,

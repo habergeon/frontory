@@ -363,6 +363,13 @@ test('actual English content publishes exactly the approved lessons with complet
       assert.equal(proseWithoutCode.split(fixture).length - 1, originalCount)
       proseWithoutCode = proseWithoutCode.replaceAll(fixture, '')
     }
+    if (id === 'react-step-07') {
+      const fixture = '새 카드'
+      assert.equal(original.variables[0].change, fixture)
+      assert.equal(translated.variables[0].change, fixture)
+      assert.equal(proseWithoutCode.split(fixture).length - 1, 1)
+      proseWithoutCode = proseWithoutCode.replace(fixture, '')
+    }
     assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
     assert.equal(result.curricula[seriesId].stages.length, source.stages.length)
   }

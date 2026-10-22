@@ -136,6 +136,88 @@
         "references.0.title": "React Learning Guide",
         "references.1.title": "React API Reference"
       }
+    },
+    "react-step-05": {
+      "sourceHash": "06c3c01482379b5040a2345226eace28cc92e582c7dedb09c63365611e8625e1",
+      "values": {
+        "title": "Conditional Screens and Empty States",
+        "prerequisites": "Unit 5 continues using the work and experiment records from Unit 4.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Conditional Rendering",
+        "concepts.0.explanation": "Choosing JSX based on a condition changes which components exist. Hiding with CSS and removing have different lifecycles.",
+        "concepts.1.title": "Empty States",
+        "concepts.1.explanation": "0 search results is a valid state rather than an error. Placing the number 0 before && can display 0 on the screen.",
+        "outcomes.0": "The guidance appears exactly once when there are 0 results.",
+        "outcomes.1": "Resetting restores the 3 cards.",
+        "steps.0": "In src/CardList.jsx, display a guidance sentence when there are no results.",
+        "steps.1": "Enter a string that matches nothing in the filter input, and connect a reset button.",
+        "steps.2": "Change the result count condition to an explicit comparison, and check for unwanted text showing 0.",
+        "variables.0.name": "Search Query",
+        "variables.0.baseline": "Empty string",
+        "variables.0.change": "Nonexistent title",
+        "variables.0.expected": "An empty state and reset button appear in place of the list.",
+        "criteria.0": "The guidance appears exactly once when there are 0 results.",
+        "criteria.1": "Resetting restores the 3 cards.",
+        "questions.0": "Does an editor hidden with CSS lose its state?",
+        "questions.1": "Why distinguish empty results from a failed request?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
+    },
+    "react-step-06": {
+      "sourceHash": "4ff4d7fa9bf08aec5eb898b76b1e1e8a948b0228db590b8bdc3fdc8dc4067274",
+      "values": {
+        "title": "List Keys and Identity",
+        "prerequisites": "Unit 6 continues using the work and experiment records from Unit 5.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Stable Keys",
+        "concepts.0.explanation": "key represents the identity of sibling items. Using the array index can attach local input to different data after reordering.",
+        "concepts.1.title": "State Position",
+        "concepts.1.explanation": "Component state is tied to its position in the tree, type, and key. Separate data ids from sort order to preserve the editing target.",
+        "outcomes.0": "With id keys, note A stays on the original card.",
+        "outcomes.1": "Record the comparison with index keys together with the ids.",
+        "steps.0": "Add a local note input in src/CardRow.jsx.",
+        "steps.1": "Create an experimental branch in CardList that switches between id keys and index keys.",
+        "steps.2": "Enter A on the first card, reverse the list, and record the id carrying the note.",
+        "variables.0.name": "key",
+        "variables.0.baseline": "index",
+        "variables.0.change": "item.id",
+        "variables.0.expected": "The note stays with the same id after reversing the order.",
+        "criteria.0": "With id keys, note A stays on the original card.",
+        "criteria.1": "Record the comparison with index keys together with the ids.",
+        "questions.0": "Can key be read directly from props?",
+        "questions.1": "What disappears if a random key is created on every render?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference",
+        "references.2.title": "React: Preserving and Resetting State"
+      }
+    },
+    "react-step-07": {
+      "sourceHash": "2bbf4a74eb7bc2f2c45d79e62882432fe4074a95b01780946f6b27ea87e8386e",
+      "values": {
+        "title": "Controlled Inputs and Form Validation",
+        "prerequisites": "Unit 7 continues using the work and experiment records from Unit 6.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Controlled Inputs",
+        "concepts.0.explanation": "Providing value and onChange together makes React state the source of the input. Initialize it to an empty string so its controlled status does not change.",
+        "concepts.1.title": "Form Submission",
+        "concepts.1.explanation": "A form's submit event handles both Enter and button submissions. If validation fails, preserve the input and tell users where to make a correction.",
+        "outcomes.0": "The card count stays the same after submitting whitespace.",
+        "outcomes.1": "One Enter submission adds 1 card.",
+        "steps.0": "Write a label·input·submit button in src/AddCardForm.jsx.",
+        "steps.1": "If the trimmed title is empty, display an error; otherwise add a card with a new id.",
+        "steps.2": "Submit whitespace and a Korean title using Enter, and record the list counts.",
+        "variables.0.name": "Title",
+        "variables.0.baseline": "Whitespace only",
+        "variables.0.change": "새 카드",
+        "variables.0.expected": "Whitespace is rejected, and a valid title is added once.",
+        "criteria.0": "The card count stays the same after submitting whitespace.",
+        "criteria.1": "One Enter submission adds 1 card.",
+        "questions.0": "What gaps in keyboard submission arise from handling only onClick?",
+        "questions.1": "How does ownership differ between value and defaultValue?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
     }
   }
 }

@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Events and state snapshots](../03/README.md)
+[Previous: Events and state snapshots](../03/README.md) · [Next: Conditional Screens and Empty States](../05/README.md)
 
 ## Experiment notes — write your own
 

@@ -1,0 +1,5 @@
+
+> frontory@1.0.0 check:curricula C:\Users\johjh\AppData\Roaming\orca\codex-accounts\57cbddad-72f6-43b5-b71a-5426d73a880f\home\worktrees\4ea8\web-gl-study
+> node scripts/build-curricula.mjs --check
+
+Verified 650 files; 23 series, 644 Korean units, 4 English units, 94 retained example IDs.

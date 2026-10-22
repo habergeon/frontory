@@ -1,8 +1,16 @@
 {
   "gsap-step-02": {
-    "sourceHash": "503a85f1f2db9ad9d445a2fcd593987f38cbee148822add86448e5209d330bf8",
+    "sourceHash": "bf91401904966867910edb09ce6afa7f10e7c2da2766e289caf7e658e62277c7",
     "values": {
       "note": "This experiment explores starting and target values. You can manipulate it directly, and it cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "e7ac44ba498d35a34bec4944789243aa5ccfbf1e41e9e3fbbae5a10df69f1d11",
+      "values": {
+        "messages.markup": "<h3>Starting and target values</h3><p>from and to / initial rendering</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.result": "fromTo supplies both endpoints; initial styles stay unchanged until Run",
+        "comments.title": "gsap-step-02: Starting and target values"
+      }
     }
   }
 }

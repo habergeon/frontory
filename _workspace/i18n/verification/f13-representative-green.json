@@ -1,0 +1,1346 @@
+[
+  {
+    "query": "",
+    "state": "PASS",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "results": [
+      {
+        "name": "React localized title",
+        "actual": "이벤트와 상태 스냅샷",
+        "expected": "이벤트와 상태 스냅샷",
+        "ok": true
+      },
+      {
+        "name": "React localized controls",
+        "actual": [
+          "Snapshot +1 세 번",
+          "Updater +1 세 번",
+          "초기화"
+        ],
+        "expected": [
+          "Snapshot +1 세 번",
+          "Updater +1 세 번",
+          "초기화"
+        ],
+        "ok": true
+      },
+      {
+        "name": "React initial",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "React snapshot three updates",
+        "actual": 1,
+        "expected": 1,
+        "ok": true
+      },
+      {
+        "name": "React reset",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "React functional three updates",
+        "actual": 3,
+        "expected": 3,
+        "ok": true
+      },
+      {
+        "name": "React functional second click",
+        "actual": 6,
+        "expected": 6,
+        "ok": true
+      },
+      {
+        "name": "React cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "React documented separate snapshot click",
+        "actual": 1,
+        "expected": 1,
+        "ok": true
+      },
+      {
+        "name": "React documented separate snapshot click",
+        "actual": 2,
+        "expected": 2,
+        "ok": true
+      },
+      {
+        "name": "React documented separate snapshot click",
+        "actual": 3,
+        "expected": 3,
+        "ok": true
+      },
+      {
+        "name": "React documented reset",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "React documented updater",
+        "actual": 3,
+        "expected": 3,
+        "ok": true
+      },
+      {
+        "name": "React documented cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "JavaScript localized title",
+        "actual": "문자열 입력과 숫자 변환",
+        "expected": "문자열 입력과 숫자 변환",
+        "ok": true
+      },
+      {
+        "name": "JavaScript input aria",
+        "actual": "실험 JSON 입력",
+        "expected": "실험 JSON 입력",
+        "ok": true
+      },
+      {
+        "name": "JavaScript localized help",
+        "actual": "15 → 빈 문자열 조건으로 입력을 바꿔 실행하세요.",
+        "expected": "15 → 빈 문자열 조건으로 입력을 바꿔 실행하세요.",
+        "ok": true
+      },
+      {
+        "name": "JavaScript localized button",
+        "actual": "실험 실행",
+        "expected": "실험 실행",
+        "ok": true
+      },
+      {
+        "name": "JavaScript initial conversion",
+        "actual": [
+          [
+            "15",
+            true,
+            15
+          ],
+          [
+            "",
+            false,
+            0
+          ],
+          [
+            "15px",
+            false,
+            null
+          ],
+          [
+            "-1",
+            false,
+            -1
+          ]
+        ],
+        "expected": [
+          [
+            "15",
+            true,
+            15
+          ],
+          [
+            "",
+            false,
+            0
+          ],
+          [
+            "15px",
+            false,
+            null
+          ],
+          [
+            "-1",
+            false,
+            -1
+          ]
+        ],
+        "ok": true
+      },
+      {
+        "name": "JavaScript numeric boundaries",
+        "actual": [
+          [
+            "  ",
+            false,
+            0
+          ],
+          [
+            "0",
+            true,
+            0
+          ],
+          [
+            "Infinity",
+            false,
+            null
+          ],
+          [
+            "0x10",
+            true,
+            16
+          ],
+          [
+            "1e3",
+            true,
+            1000
+          ]
+        ],
+        "expected": [
+          [
+            "  ",
+            false,
+            0
+          ],
+          [
+            "0",
+            true,
+            0
+          ],
+          [
+            "Infinity",
+            false,
+            null
+          ],
+          [
+            "0x10",
+            true,
+            16
+          ],
+          [
+            "1e3",
+            true,
+            1000
+          ]
+        ],
+        "ok": true
+      },
+      {
+        "name": "JavaScript invalid JSON reports error",
+        "actual": "string",
+        "expected": "string",
+        "ok": true
+      },
+      {
+        "name": "JavaScript recovers after invalid JSON",
+        "actual": 2,
+        "expected": 2,
+        "ok": true
+      },
+      {
+        "name": "JavaScript cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "CSS localized title",
+        "actual": "박스 모델과 실측 크기",
+        "expected": "박스 모델과 실측 크기",
+        "ok": true
+      },
+      {
+        "name": "CSS input aria",
+        "actual": [
+          "HTML 소스",
+          "CSS 소스"
+        ],
+        "expected": [
+          "HTML 소스",
+          "CSS 소스"
+        ],
+        "ok": true
+      },
+      {
+        "name": "CSS inspect label",
+        "actual": "현재 DOM / 스타일 검사",
+        "expected": "현재 DOM / 스타일 검사",
+        "ok": true
+      },
+      {
+        "name": "CSS width aria",
+        "actual": "컨테이너 폭",
+        "expected": "컨테이너 폭",
+        "ok": true
+      },
+      {
+        "name": "CSS content-box border width",
+        "actual": 244,
+        "expected": 244,
+        "ok": true
+      },
+      {
+        "name": "CSS border-box border width",
+        "actual": 200,
+        "expected": 200,
+        "ok": true
+      },
+      {
+        "name": "CSS border-box content width",
+        "actual": 156,
+        "expected": 156,
+        "ok": true
+      },
+      {
+        "name": "CSS cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP localized title",
+        "actual": "시작값과 목표값",
+        "expected": "시작값과 목표값",
+        "ok": true
+      },
+      {
+        "name": "GSAP localized description",
+        "actual": "from과 to / 초기 적용",
+        "expected": "from과 to / 초기 적용",
+        "ok": true
+      },
+      {
+        "name": "GSAP localized button",
+        "actual": "실험 실행",
+        "expected": "실험 실행",
+        "ok": true
+      },
+      {
+        "name": "GSAP initial position",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP localized result",
+        "actual": "fromTo는 시작값과 목표값을 모두 지정합니다. 실행 전에는 초기 스타일을 유지합니다.",
+        "expected": "fromTo는 시작값과 목표값을 모두 지정합니다. 실행 전에는 초기 스타일을 유지합니다.",
+        "ok": true
+      },
+      {
+        "name": "GSAP immediateRender false before first render",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP first run midpoint",
+        "x": 60,
+        "opacity": 0.8
+      },
+      {
+        "name": "GSAP first run target",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP first run target opacity",
+        "actual": 1,
+        "expected": 1,
+        "ok": true
+      },
+      {
+        "name": "GSAP second run target",
+        "actual": 240,
+        "expected": 240,
+        "ok": true
+      },
+      {
+        "name": "GSAP cleanup tween count",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP cleanup DOM",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP documented three-card comparison, immediateRender=true",
+        "actual": [
+          40,
+          40,
+          40,
+          40,
+          -80,
+          -80,
+          140,
+          -20,
+          80,
+          240,
+          40,
+          240
+        ],
+        "expected": [
+          40,
+          40,
+          40,
+          40,
+          -80,
+          -80,
+          140,
+          -20,
+          80,
+          240,
+          40,
+          240
+        ],
+        "ok": true
+      },
+      {
+        "name": "GSAP documented comparison cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP documented three-card comparison, immediateRender=false",
+        "actual": [
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          140,
+          -20,
+          80,
+          240,
+          40,
+          240
+        ],
+        "expected": [
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          140,
+          -20,
+          80,
+          240,
+          40,
+          240
+        ],
+        "ok": true
+      },
+      {
+        "name": "GSAP documented comparison cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      }
+    ]
+  },
+  {
+    "query": "?locale=ko",
+    "state": "PASS",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "results": [
+      {
+        "name": "React localized title",
+        "actual": "이벤트와 상태 스냅샷",
+        "expected": "이벤트와 상태 스냅샷",
+        "ok": true
+      },
+      {
+        "name": "React localized controls",
+        "actual": [
+          "Snapshot +1 세 번",
+          "Updater +1 세 번",
+          "초기화"
+        ],
+        "expected": [
+          "Snapshot +1 세 번",
+          "Updater +1 세 번",
+          "초기화"
+        ],
+        "ok": true
+      },
+      {
+        "name": "React initial",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "React snapshot three updates",
+        "actual": 1,
+        "expected": 1,
+        "ok": true
+      },
+      {
+        "name": "React reset",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "React functional three updates",
+        "actual": 3,
+        "expected": 3,
+        "ok": true
+      },
+      {
+        "name": "React functional second click",
+        "actual": 6,
+        "expected": 6,
+        "ok": true
+      },
+      {
+        "name": "React cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "React documented separate snapshot click",
+        "actual": 1,
+        "expected": 1,
+        "ok": true
+      },
+      {
+        "name": "React documented separate snapshot click",
+        "actual": 2,
+        "expected": 2,
+        "ok": true
+      },
+      {
+        "name": "React documented separate snapshot click",
+        "actual": 3,
+        "expected": 3,
+        "ok": true
+      },
+      {
+        "name": "React documented reset",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "React documented updater",
+        "actual": 3,
+        "expected": 3,
+        "ok": true
+      },
+      {
+        "name": "React documented cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "JavaScript localized title",
+        "actual": "문자열 입력과 숫자 변환",
+        "expected": "문자열 입력과 숫자 변환",
+        "ok": true
+      },
+      {
+        "name": "JavaScript input aria",
+        "actual": "실험 JSON 입력",
+        "expected": "실험 JSON 입력",
+        "ok": true
+      },
+      {
+        "name": "JavaScript localized help",
+        "actual": "15 → 빈 문자열 조건으로 입력을 바꿔 실행하세요.",
+        "expected": "15 → 빈 문자열 조건으로 입력을 바꿔 실행하세요.",
+        "ok": true
+      },
+      {
+        "name": "JavaScript localized button",
+        "actual": "실험 실행",
+        "expected": "실험 실행",
+        "ok": true
+      },
+      {
+        "name": "JavaScript initial conversion",
+        "actual": [
+          [
+            "15",
+            true,
+            15
+          ],
+          [
+            "",
+            false,
+            0
+          ],
+          [
+            "15px",
+            false,
+            null
+          ],
+          [
+            "-1",
+            false,
+            -1
+          ]
+        ],
+        "expected": [
+          [
+            "15",
+            true,
+            15
+          ],
+          [
+            "",
+            false,
+            0
+          ],
+          [
+            "15px",
+            false,
+            null
+          ],
+          [
+            "-1",
+            false,
+            -1
+          ]
+        ],
+        "ok": true
+      },
+      {
+        "name": "JavaScript numeric boundaries",
+        "actual": [
+          [
+            "  ",
+            false,
+            0
+          ],
+          [
+            "0",
+            true,
+            0
+          ],
+          [
+            "Infinity",
+            false,
+            null
+          ],
+          [
+            "0x10",
+            true,
+            16
+          ],
+          [
+            "1e3",
+            true,
+            1000
+          ]
+        ],
+        "expected": [
+          [
+            "  ",
+            false,
+            0
+          ],
+          [
+            "0",
+            true,
+            0
+          ],
+          [
+            "Infinity",
+            false,
+            null
+          ],
+          [
+            "0x10",
+            true,
+            16
+          ],
+          [
+            "1e3",
+            true,
+            1000
+          ]
+        ],
+        "ok": true
+      },
+      {
+        "name": "JavaScript invalid JSON reports error",
+        "actual": "string",
+        "expected": "string",
+        "ok": true
+      },
+      {
+        "name": "JavaScript recovers after invalid JSON",
+        "actual": 2,
+        "expected": 2,
+        "ok": true
+      },
+      {
+        "name": "JavaScript cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "CSS localized title",
+        "actual": "박스 모델과 실측 크기",
+        "expected": "박스 모델과 실측 크기",
+        "ok": true
+      },
+      {
+        "name": "CSS input aria",
+        "actual": [
+          "HTML 소스",
+          "CSS 소스"
+        ],
+        "expected": [
+          "HTML 소스",
+          "CSS 소스"
+        ],
+        "ok": true
+      },
+      {
+        "name": "CSS inspect label",
+        "actual": "현재 DOM / 스타일 검사",
+        "expected": "현재 DOM / 스타일 검사",
+        "ok": true
+      },
+      {
+        "name": "CSS width aria",
+        "actual": "컨테이너 폭",
+        "expected": "컨테이너 폭",
+        "ok": true
+      },
+      {
+        "name": "CSS content-box border width",
+        "actual": 244,
+        "expected": 244,
+        "ok": true
+      },
+      {
+        "name": "CSS border-box border width",
+        "actual": 200,
+        "expected": 200,
+        "ok": true
+      },
+      {
+        "name": "CSS border-box content width",
+        "actual": 156,
+        "expected": 156,
+        "ok": true
+      },
+      {
+        "name": "CSS cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP localized title",
+        "actual": "시작값과 목표값",
+        "expected": "시작값과 목표값",
+        "ok": true
+      },
+      {
+        "name": "GSAP localized description",
+        "actual": "from과 to / 초기 적용",
+        "expected": "from과 to / 초기 적용",
+        "ok": true
+      },
+      {
+        "name": "GSAP localized button",
+        "actual": "실험 실행",
+        "expected": "실험 실행",
+        "ok": true
+      },
+      {
+        "name": "GSAP initial position",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP localized result",
+        "actual": "fromTo는 시작값과 목표값을 모두 지정합니다. 실행 전에는 초기 스타일을 유지합니다.",
+        "expected": "fromTo는 시작값과 목표값을 모두 지정합니다. 실행 전에는 초기 스타일을 유지합니다.",
+        "ok": true
+      },
+      {
+        "name": "GSAP immediateRender false before first render",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP first run midpoint",
+        "x": 60,
+        "opacity": 0.8
+      },
+      {
+        "name": "GSAP first run target",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP first run target opacity",
+        "actual": 1,
+        "expected": 1,
+        "ok": true
+      },
+      {
+        "name": "GSAP second run target",
+        "actual": 240,
+        "expected": 240,
+        "ok": true
+      },
+      {
+        "name": "GSAP cleanup tween count",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP cleanup DOM",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP documented three-card comparison, immediateRender=true",
+        "actual": [
+          40,
+          40,
+          40,
+          40,
+          -80,
+          -80,
+          140,
+          -20,
+          80,
+          240,
+          40,
+          240
+        ],
+        "expected": [
+          40,
+          40,
+          40,
+          40,
+          -80,
+          -80,
+          140,
+          -20,
+          80,
+          240,
+          40,
+          240
+        ],
+        "ok": true
+      },
+      {
+        "name": "GSAP documented comparison cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP documented three-card comparison, immediateRender=false",
+        "actual": [
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          140,
+          -20,
+          80,
+          240,
+          40,
+          240
+        ],
+        "expected": [
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          140,
+          -20,
+          80,
+          240,
+          40,
+          240
+        ],
+        "ok": true
+      },
+      {
+        "name": "GSAP documented comparison cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      }
+    ]
+  },
+  {
+    "query": "?locale=en",
+    "state": "PASS",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "results": [
+      {
+        "name": "React localized title",
+        "actual": "Events and state snapshots",
+        "expected": "Events and state snapshots",
+        "ok": true
+      },
+      {
+        "name": "React localized controls",
+        "actual": [
+          "Snapshot +1 three times",
+          "Updater +1 three times",
+          "Reset"
+        ],
+        "expected": [
+          "Snapshot +1 three times",
+          "Updater +1 three times",
+          "Reset"
+        ],
+        "ok": true
+      },
+      {
+        "name": "React initial",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "React snapshot three updates",
+        "actual": 1,
+        "expected": 1,
+        "ok": true
+      },
+      {
+        "name": "React reset",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "React functional three updates",
+        "actual": 3,
+        "expected": 3,
+        "ok": true
+      },
+      {
+        "name": "React functional second click",
+        "actual": 6,
+        "expected": 6,
+        "ok": true
+      },
+      {
+        "name": "React cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "React documented separate snapshot click",
+        "actual": 1,
+        "expected": 1,
+        "ok": true
+      },
+      {
+        "name": "React documented separate snapshot click",
+        "actual": 2,
+        "expected": 2,
+        "ok": true
+      },
+      {
+        "name": "React documented separate snapshot click",
+        "actual": 3,
+        "expected": 3,
+        "ok": true
+      },
+      {
+        "name": "React documented reset",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "React documented updater",
+        "actual": 3,
+        "expected": 3,
+        "ok": true
+      },
+      {
+        "name": "React documented cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "JavaScript localized title",
+        "actual": "String input and number conversion",
+        "expected": "String input and number conversion",
+        "ok": true
+      },
+      {
+        "name": "JavaScript input aria",
+        "actual": "Experiment JSON input",
+        "expected": "Experiment JSON input",
+        "ok": true
+      },
+      {
+        "name": "JavaScript localized help",
+        "actual": "Change the input from 15 to an empty string and run the experiment.",
+        "expected": "Change the input from 15 to an empty string and run the experiment.",
+        "ok": true
+      },
+      {
+        "name": "JavaScript localized button",
+        "actual": "Run experiment",
+        "expected": "Run experiment",
+        "ok": true
+      },
+      {
+        "name": "JavaScript initial conversion",
+        "actual": [
+          [
+            "15",
+            true,
+            15
+          ],
+          [
+            "",
+            false,
+            0
+          ],
+          [
+            "15px",
+            false,
+            null
+          ],
+          [
+            "-1",
+            false,
+            -1
+          ]
+        ],
+        "expected": [
+          [
+            "15",
+            true,
+            15
+          ],
+          [
+            "",
+            false,
+            0
+          ],
+          [
+            "15px",
+            false,
+            null
+          ],
+          [
+            "-1",
+            false,
+            -1
+          ]
+        ],
+        "ok": true
+      },
+      {
+        "name": "JavaScript numeric boundaries",
+        "actual": [
+          [
+            "  ",
+            false,
+            0
+          ],
+          [
+            "0",
+            true,
+            0
+          ],
+          [
+            "Infinity",
+            false,
+            null
+          ],
+          [
+            "0x10",
+            true,
+            16
+          ],
+          [
+            "1e3",
+            true,
+            1000
+          ]
+        ],
+        "expected": [
+          [
+            "  ",
+            false,
+            0
+          ],
+          [
+            "0",
+            true,
+            0
+          ],
+          [
+            "Infinity",
+            false,
+            null
+          ],
+          [
+            "0x10",
+            true,
+            16
+          ],
+          [
+            "1e3",
+            true,
+            1000
+          ]
+        ],
+        "ok": true
+      },
+      {
+        "name": "JavaScript invalid JSON reports error",
+        "actual": "string",
+        "expected": "string",
+        "ok": true
+      },
+      {
+        "name": "JavaScript recovers after invalid JSON",
+        "actual": 2,
+        "expected": 2,
+        "ok": true
+      },
+      {
+        "name": "JavaScript cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "CSS localized title",
+        "actual": "Box model and measured dimensions",
+        "expected": "Box model and measured dimensions",
+        "ok": true
+      },
+      {
+        "name": "CSS input aria",
+        "actual": [
+          "HTML source",
+          "CSS source"
+        ],
+        "expected": [
+          "HTML source",
+          "CSS source"
+        ],
+        "ok": true
+      },
+      {
+        "name": "CSS inspect label",
+        "actual": "Inspect current DOM / styles",
+        "expected": "Inspect current DOM / styles",
+        "ok": true
+      },
+      {
+        "name": "CSS width aria",
+        "actual": "Container width",
+        "expected": "Container width",
+        "ok": true
+      },
+      {
+        "name": "CSS content-box border width",
+        "actual": 244,
+        "expected": 244,
+        "ok": true
+      },
+      {
+        "name": "CSS border-box border width",
+        "actual": 200,
+        "expected": 200,
+        "ok": true
+      },
+      {
+        "name": "CSS border-box content width",
+        "actual": 156,
+        "expected": 156,
+        "ok": true
+      },
+      {
+        "name": "CSS cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP localized title",
+        "actual": "Starting and target values",
+        "expected": "Starting and target values",
+        "ok": true
+      },
+      {
+        "name": "GSAP localized description",
+        "actual": "from and to / initial rendering",
+        "expected": "from and to / initial rendering",
+        "ok": true
+      },
+      {
+        "name": "GSAP localized button",
+        "actual": "Run experiment",
+        "expected": "Run experiment",
+        "ok": true
+      },
+      {
+        "name": "GSAP initial position",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP localized result",
+        "actual": "fromTo supplies both endpoints; initial styles stay unchanged until Run",
+        "expected": "fromTo supplies both endpoints; initial styles stay unchanged until Run",
+        "ok": true
+      },
+      {
+        "name": "GSAP immediateRender false before first render",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP first run midpoint",
+        "x": 60,
+        "opacity": 0.8
+      },
+      {
+        "name": "GSAP first run target",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP first run target opacity",
+        "actual": 1,
+        "expected": 1,
+        "ok": true
+      },
+      {
+        "name": "GSAP second run target",
+        "actual": 240,
+        "expected": 240,
+        "ok": true
+      },
+      {
+        "name": "GSAP cleanup tween count",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP cleanup DOM",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP documented three-card comparison, immediateRender=true",
+        "actual": [
+          40,
+          40,
+          40,
+          40,
+          -80,
+          -80,
+          140,
+          -20,
+          80,
+          240,
+          40,
+          240
+        ],
+        "expected": [
+          40,
+          40,
+          40,
+          40,
+          -80,
+          -80,
+          140,
+          -20,
+          80,
+          240,
+          40,
+          240
+        ],
+        "ok": true
+      },
+      {
+        "name": "GSAP documented comparison cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      },
+      {
+        "name": "GSAP documented three-card comparison, immediateRender=false",
+        "actual": [
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          140,
+          -20,
+          80,
+          240,
+          40,
+          240
+        ],
+        "expected": [
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          140,
+          -20,
+          80,
+          240,
+          40,
+          240
+        ],
+        "ok": true
+      },
+      {
+        "name": "GSAP documented comparison cleanup",
+        "actual": 0,
+        "expected": 0,
+        "ok": true
+      }
+    ]
+  }
+]

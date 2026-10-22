@@ -1,0 +1,102 @@
+{
+  "url": "http://127.0.0.1:4185/en/#javascript-step-02",
+  "title": "String input and number conversion · Frontory",
+  "results": [
+    {
+      "name": "javascript-step-02 exact download path",
+      "ok": true
+    },
+    {
+      "name": "javascript-step-02 reading source exists",
+      "ok": true
+    },
+    {
+      "name": "javascript-step-02 English comment header",
+      "ok": true
+    },
+    {
+      "name": "javascript-step-02 actual download",
+      "ok": true
+    },
+    {
+      "name": "javascript-step-02 all storage bytes unchanged",
+      "ok": true
+    },
+    {
+      "name": "css-step-04 exact download path",
+      "ok": true
+    },
+    {
+      "name": "css-step-04 reading source exists",
+      "ok": true
+    },
+    {
+      "name": "css-step-04 English comment header",
+      "ok": true
+    },
+    {
+      "name": "css-step-04 actual download",
+      "ok": true
+    },
+    {
+      "name": "css-step-04 all storage bytes unchanged",
+      "ok": true
+    },
+    {
+      "name": "react-step-03 exact download path",
+      "ok": true
+    },
+    {
+      "name": "react-step-03 reading source exists",
+      "ok": true
+    },
+    {
+      "name": "react-step-03 English comment header",
+      "ok": true
+    },
+    {
+      "name": "react-step-03 actual download",
+      "ok": true
+    },
+    {
+      "name": "react-step-03 all storage bytes unchanged",
+      "ok": true
+    },
+    {
+      "name": "gsap-step-02 exact download path",
+      "ok": true
+    },
+    {
+      "name": "gsap-step-02 reading source exists",
+      "ok": true
+    },
+    {
+      "name": "gsap-step-02 English comment header",
+      "ok": true
+    },
+    {
+      "name": "gsap-step-02 actual download",
+      "ok": true
+    },
+    {
+      "name": "gsap-step-02 all storage bytes unchanged",
+      "ok": true
+    },
+    {
+      "name": "edited code, notes, progress and ISO time remain byte-identical",
+      "ok": true
+    },
+    {
+      "name": "edited notes stay in editor",
+      "ok": true
+    },
+    {
+      "name": "Monaco and running frame stay mounted",
+      "ok": true
+    },
+    {
+      "name": "no framework overlay",
+      "ok": true
+    }
+  ]
+}

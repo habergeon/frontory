@@ -1,0 +1,1 @@
+Three generators rerun; 903 tracked example/metadata and reading files remain byte-identical.

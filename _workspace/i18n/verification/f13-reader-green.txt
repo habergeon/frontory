@@ -1,0 +1,39 @@
+✔ sourceHash sorts object keys, preserves array order and normalizes nested CRLF (1.3801ms)
+✔ mergeTranslation translates all prose while retaining identity, URLs, literals and the original (1.0226ms)
+✔ mergeTranslation rejects stale source hashes (0.4366ms)
+✔ mergeTranslation rejects forbidden or out-of-range key id (0.2283ms)
+✔ mergeTranslation rejects forbidden or out-of-range key day (0.1792ms)
+✔ mergeTranslation rejects forbidden or out-of-range key references.0.url (0.1218ms)
+✔ mergeTranslation rejects forbidden or out-of-range key file (0.1081ms)
+✔ mergeTranslation rejects forbidden or out-of-range key mode (0.1226ms)
+✔ mergeTranslation rejects forbidden or out-of-range key concepts.1.title (0.138ms)
+✔ mergeTranslation rejects forbidden or out-of-range key __proto__.title (0.1611ms)
+✔ mergeTranslation rejects missing prose, empty strings, nested values and extra record fields (0.6165ms)
+✔ reader publishes approved units using curriculum stages independently of legacy metadata (9.8635ms)
+✔ reader rejects unknown, duplicate and missing approved IDs (9.5142ms)
+✔ reader rejects extra unit IDs, unknown series, unexpected filenames and malformed manifest (10.5586ms)
+✔ reader rejects stale series hashes and changed translation array lengths (8.6873ms)
+✔ manual document records validate original hashes and return existing English text (11.0263ms)
+✔ manual documents reject stale hashes, missing files, unknown fields and unsafe paths (19.4862ms)
+✔ WebGL translations use baseline metadata and manual unit records without a curriculum (12.9707ms)
+✔ complete mode refuses a partial archive instead of claiming 23 series and 644 units (9.8982ms)
+✔ complete mode accepts 23 translated series and 644 units only with all required manual documents (225.055ms)
+✔ actual English content publishes exactly four representative lessons with complete prose and unchanged fixtures (13.8782ms)
+✔ reader rejects malformed curriculum stages without depending on legacy stage count (10.9152ms)
+✔ actual English guide about.md exists, is fresh and preserves link destinations (11.9805ms)
+✔ actual English guide privacy.md exists, is fresh and preserves link destinations (10.8185ms)
+✔ actual English guide learning-workspace.md exists, is fresh and preserves link destinations (12.9416ms)
+✔ actual English guide roadmap.md exists, is fresh and preserves link destinations (11.9835ms)
+✔ actual English guide examples.md exists, is fresh and preserves link destinations (26.2598ms)
+✔ actual English guide labs/README.md exists, is fresh and preserves link destinations (11.7683ms)
+✔ English service and workspace guides retain contact, approval status and backup limits (9.166ms)
+✔ reader validates required example notes against whole metadata and only translates note (23.5737ms)
+✔ reader validates independent presentation hashes, exact flat keys and reading-source availability (25.1164ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 593.2832

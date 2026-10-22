@@ -111,6 +111,8 @@ test('localized catalog lookup preserves shared executable identity and has no K
     assert.ok(unit.source)
     assert.equal(unit.exampleMode, common.exampleMode)
     assert.equal(unit.exampleMode, details[unit.id].mode)
+    assert.equal(unit.exampleReadingSource, common.exampleReadingSource)
+    assert.equal(unit.exampleReadingSource, `/examples-en/${unit.id}/example.js`)
     assert.equal(unit.exampleFiles, common.exampleFiles)
     assert.notEqual(unit.exampleNote, common.exampleNote)
     assert.equal(api.getLocalizedUnit('en', unit.id), unit)

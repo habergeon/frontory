@@ -1,0 +1,48 @@
+✔ each of 23 series has 28 ordered units in four complete stages (2.1288ms)
+✔ existing bookmarks, document paths and example identities remain intact (3.7317ms)
+✔ expanded curricula contain explained concepts and concrete experiment contracts (67.431ms)
+✔ English generated catalog and lessons match approved content without unpublished navigation (46.8433ms)
+✔ localized catalog lookup preserves shared executable identity and has no Korean fallback (67.9466ms)
+✔ javascript-step-02: English reading source changes only anchored comments and preserves parsed executable tokens (62.7018ms)
+✔ css-step-04: English reading source changes only anchored comments and preserves parsed executable tokens (14.8423ms)
+✔ react-step-03: English reading source changes only anchored comments and preserves parsed executable tokens (12.2395ms)
+✔ gsap-step-02: English reading source changes only anchored comments and preserves parsed executable tokens (12.5294ms)
+✔ sourceHash sorts object keys, preserves array order and normalizes nested CRLF (1.0728ms)
+✔ mergeTranslation translates all prose while retaining identity, URLs, literals and the original (0.8602ms)
+✔ mergeTranslation rejects stale source hashes (0.4056ms)
+✔ mergeTranslation rejects forbidden or out-of-range key id (0.226ms)
+✔ mergeTranslation rejects forbidden or out-of-range key day (0.1744ms)
+✔ mergeTranslation rejects forbidden or out-of-range key references.0.url (0.1142ms)
+✔ mergeTranslation rejects forbidden or out-of-range key file (0.0993ms)
+✔ mergeTranslation rejects forbidden or out-of-range key mode (0.1114ms)
+✔ mergeTranslation rejects forbidden or out-of-range key concepts.1.title (0.1153ms)
+✔ mergeTranslation rejects forbidden or out-of-range key __proto__.title (0.1708ms)
+✔ mergeTranslation rejects missing prose, empty strings, nested values and extra record fields (0.6219ms)
+✔ reader publishes approved units using curriculum stages independently of legacy metadata (8.3669ms)
+✔ reader rejects unknown, duplicate and missing approved IDs (8.2543ms)
+✔ reader rejects extra unit IDs, unknown series, unexpected filenames and malformed manifest (8.7298ms)
+✔ reader rejects stale series hashes and changed translation array lengths (8.6991ms)
+✔ manual document records validate original hashes and return existing English text (11.0687ms)
+✔ manual documents reject stale hashes, missing files, unknown fields and unsafe paths (15.3121ms)
+✔ WebGL translations use baseline metadata and manual unit records without a curriculum (10.0134ms)
+✔ complete mode refuses a partial archive instead of claiming 23 series and 644 units (5.7043ms)
+✔ complete mode accepts 23 translated series and 644 units only with all required manual documents (201.6012ms)
+✔ actual English content publishes exactly four representative lessons with complete prose and unchanged fixtures (13.1201ms)
+✔ reader rejects malformed curriculum stages without depending on legacy stage count (10.6219ms)
+✔ actual English guide about.md exists, is fresh and preserves link destinations (10.8088ms)
+✔ actual English guide privacy.md exists, is fresh and preserves link destinations (8.8242ms)
+✔ actual English guide learning-workspace.md exists, is fresh and preserves link destinations (10.0592ms)
+✔ actual English guide roadmap.md exists, is fresh and preserves link destinations (9.4181ms)
+✔ actual English guide examples.md exists, is fresh and preserves link destinations (22.9261ms)
+✔ actual English guide labs/README.md exists, is fresh and preserves link destinations (13.9833ms)
+✔ English service and workspace guides retain contact, approval status and backup limits (11.9712ms)
+✔ reader validates required example notes against whole metadata and only translates note (26.5566ms)
+✔ reader validates independent presentation hashes, exact flat keys and reading-source availability (23.3004ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 545.0924

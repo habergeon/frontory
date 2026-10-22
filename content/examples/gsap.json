@@ -1,5 +1,6 @@
 {
   "gsap-step-02": {
+    "readingSource": "/examples-en/gsap-step-02/example.js",
     "mode": "browser",
     "note": "시작값과 목표값 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },

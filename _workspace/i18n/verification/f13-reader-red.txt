@@ -1,0 +1,184 @@
+✔ sourceHash sorts object keys, preserves array order and normalizes nested CRLF (1.741ms)
+✔ mergeTranslation translates all prose while retaining identity, URLs, literals and the original (2.0119ms)
+✔ mergeTranslation rejects stale source hashes (0.7137ms)
+✔ mergeTranslation rejects forbidden or out-of-range key id (0.3098ms)
+✔ mergeTranslation rejects forbidden or out-of-range key day (0.2619ms)
+✔ mergeTranslation rejects forbidden or out-of-range key references.0.url (0.1573ms)
+✔ mergeTranslation rejects forbidden or out-of-range key file (0.1282ms)
+✔ mergeTranslation rejects forbidden or out-of-range key mode (0.1571ms)
+✔ mergeTranslation rejects forbidden or out-of-range key concepts.1.title (0.1584ms)
+✔ mergeTranslation rejects forbidden or out-of-range key __proto__.title (0.1946ms)
+✔ mergeTranslation rejects missing prose, empty strings, nested values and extra record fields (1.3973ms)
+✔ reader publishes approved units using curriculum stages independently of legacy metadata (24.6401ms)
+✔ reader rejects unknown, duplicate and missing approved IDs (17.8828ms)
+✔ reader rejects extra unit IDs, unknown series, unexpected filenames and malformed manifest (31.174ms)
+✔ reader rejects stale series hashes and changed translation array lengths (22.9502ms)
+✔ manual document records validate original hashes and return existing English text (25.3389ms)
+✔ manual documents reject stale hashes, missing files, unknown fields and unsafe paths (34.8327ms)
+✔ WebGL translations use baseline metadata and manual unit records without a curriculum (23.4132ms)
+✔ complete mode refuses a partial archive instead of claiming 23 series and 644 units (12.8821ms)
+✔ complete mode accepts 23 translated series and 644 units only with all required manual documents (428.9296ms)
+✖ actual English content publishes exactly four representative lessons with complete prose and unchanged fixtures (16.2285ms)
+✔ reader rejects malformed curriculum stages without depending on legacy stage count (20.4678ms)
+✖ actual English guide about.md exists, is fresh and preserves link destinations (13.5231ms)
+✖ actual English guide privacy.md exists, is fresh and preserves link destinations (12.0145ms)
+✖ actual English guide learning-workspace.md exists, is fresh and preserves link destinations (10.4682ms)
+✖ actual English guide roadmap.md exists, is fresh and preserves link destinations (12.7395ms)
+✖ actual English guide examples.md exists, is fresh and preserves link destinations (13.8517ms)
+✖ actual English guide labs/README.md exists, is fresh and preserves link destinations (15.3777ms)
+✖ English service and workspace guides retain contact, approval status and backup limits (14.1378ms)
+✔ reader validates required example notes against whole metadata and only translates note (60.2622ms)
+✖ reader validates independent presentation hashes, exact flat keys and reading-source availability (20.5868ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 22
+ℹ fail 9
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1007.8151
+
+✖ failing tests:
+
+test at tests\locale-content.test.mjs:271:1
+✖ actual English content publishes exactly four representative lessons with complete prose and unchanged fixtures (16.2285ms)
+  Error: Unknown key examples.javascript-step-02.presentation
+      at fail (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:7:33)
+      at keys (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:12:69)
+      at readEnglishContent (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:172:7)
+      at TestContext.<anonymous> (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/locale-content.test.mjs:273:18)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7)
+
+test at tests\locale-content.test.mjs:314:3
+✖ actual English guide about.md exists, is fresh and preserves link destinations (13.5231ms)
+  Error: Unknown key examples.javascript-step-02.presentation
+      at fail (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:7:33)
+      at keys (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:12:69)
+      at readEnglishContent (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:172:7)
+      at TestContext.<anonymous> (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/locale-content.test.mjs:316:20)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7)
+
+test at tests\locale-content.test.mjs:314:3
+✖ actual English guide privacy.md exists, is fresh and preserves link destinations (12.0145ms)
+  Error: Unknown key examples.javascript-step-02.presentation
+      at fail (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:7:33)
+      at keys (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:12:69)
+      at readEnglishContent (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:172:7)
+      at TestContext.<anonymous> (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/locale-content.test.mjs:316:20)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7)
+
+test at tests\locale-content.test.mjs:314:3
+✖ actual English guide learning-workspace.md exists, is fresh and preserves link destinations (10.4682ms)
+  Error: Unknown key examples.javascript-step-02.presentation
+      at fail (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:7:33)
+      at keys (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:12:69)
+      at readEnglishContent (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:172:7)
+      at TestContext.<anonymous> (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/locale-content.test.mjs:316:20)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7)
+
+test at tests\locale-content.test.mjs:314:3
+✖ actual English guide roadmap.md exists, is fresh and preserves link destinations (12.7395ms)
+  Error: Unknown key examples.javascript-step-02.presentation
+      at fail (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:7:33)
+      at keys (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:12:69)
+      at readEnglishContent (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:172:7)
+      at TestContext.<anonymous> (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/locale-content.test.mjs:316:20)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7)
+
+test at tests\locale-content.test.mjs:314:3
+✖ actual English guide examples.md exists, is fresh and preserves link destinations (13.8517ms)
+  Error: Unknown key examples.javascript-step-02.presentation
+      at fail (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:7:33)
+      at keys (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:12:69)
+      at readEnglishContent (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:172:7)
+      at TestContext.<anonymous> (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/locale-content.test.mjs:316:20)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7)
+
+test at tests\locale-content.test.mjs:314:3
+✖ actual English guide labs/README.md exists, is fresh and preserves link destinations (15.3777ms)
+  Error: Unknown key examples.javascript-step-02.presentation
+      at fail (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:7:33)
+      at keys (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:12:69)
+      at readEnglishContent (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:172:7)
+      at TestContext.<anonymous> (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/locale-content.test.mjs:316:20)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7)
+
+test at tests\locale-content.test.mjs:349:1
+✖ English service and workspace guides retain contact, approval status and backup limits (14.1378ms)
+  Error: Unknown key examples.javascript-step-02.presentation
+      at fail (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:7:33)
+      at keys (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:12:69)
+      at readEnglishContent (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:172:7)
+      at TestContext.<anonymous> (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/locale-content.test.mjs:350:21)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7)
+
+test at tests\locale-content.test.mjs:398:1
+✖ reader validates independent presentation hashes, exact flat keys and reading-source availability (20.5868ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /reading|ENOENT/i. Input:
+
+  'Error: Unknown key examples.javascript-step-02.presentation'
+
+      at TestContext.<anonymous> (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/locale-content.test.mjs:406:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: Unknown key examples.javascript-step-02.presentation
+        at fail (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:7:33)
+        at keys (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:12:69)
+        at readEnglishContent (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/scripts/locale-content.mjs:172:7)
+        at file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/locale-content.test.mjs:406:23
+        at getActual (node:assert:611:5)
+        at strict.throws (node:assert:759:24)
+        at TestContext.<anonymous> (file:///C:/Users/johjh/AppData/Roaming/orca/codex-accounts/57cbddad-72f6-43b5-b71a-5426d73a880f/home/worktrees/4ea8/web-gl-study/tests/locale-content.test.mjs:406:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1306:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:897:18),
+    expected: /reading|ENOENT/i,
+    operator: 'throws',
+    diff: 'simple'
+  }

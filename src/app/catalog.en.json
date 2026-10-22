@@ -987,6 +987,36 @@
       "docPath": "/docs/en/labs/animation/gsap/units/10/README.md",
       "seriesId": "gsap",
       "exampleNote": "This is an experiment on Registering ScrollTrigger. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Scrub Following",
+      "goal": "Learning outcome: explain the role of Scrub. Input case: a short scroll followed by a stop. Deliverable: the times when input stops and motion stops. Explain the rationale for handling Readability, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/11/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Scrub Following. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Pin and Document Flow",
+      "goal": "Learning outcome: explain the role of Pin. Input case: scrolling and Tab. Deliverable: a table of subsequent section positions and obscured focus. Explain the rationale for handling Focus, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/12/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Pin and Document Flow. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Refresh and Measurement Timing",
+      "goal": "Learning outcome: explain the role of Layout Changes. Input case: an image that loads late. Deliverable: a table of boundary errors before and after loading. Explain the rationale for handling Refresh, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/13/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Refresh and Measurement Timing. It supports direct interaction and cleans up the resources it uses."
     }
   ]
 }

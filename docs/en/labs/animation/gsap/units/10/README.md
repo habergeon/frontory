@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Connecting Native Scroll](../09/README.md)
+[Previous: Connecting Native Scroll](../09/README.md) · [Next: Scrub Following](../11/README.md)
 
 ## Experiment notes — write your own
 

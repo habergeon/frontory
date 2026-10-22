@@ -60,5 +60,23 @@
     "values": {
       "note": "This is an experiment on Registering ScrollTrigger. It supports direct interaction and cleans up the resources it uses."
     }
+  },
+  "gsap-step-11": {
+    "sourceHash": "db6566b54904fb78afc90588233a5d1b9d32b7e9e436ce6dd59c6208210dc08e",
+    "values": {
+      "note": "This is an experiment on Scrub Following. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-12": {
+    "sourceHash": "cff9b9ef082e74ed030529811267adef353de2ba601db2e2d792d321e8f59195",
+    "values": {
+      "note": "This is an experiment on Pin and Document Flow. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-13": {
+    "sourceHash": "b71c2f5dd205be1f796aa29590a602d17d20a4a7c4ccfa7f7e97243a4c7621fc",
+    "values": {
+      "note": "This is an experiment on Refresh and Measurement Timing. It supports direct interaction and cleans up the resources it uses."
+    }
   }
 }

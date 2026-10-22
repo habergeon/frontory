@@ -296,6 +296,87 @@
         "references.0.title": "GSAP Official Documentation",
         "references.1.title": "ScrollTrigger Official Documentation"
       }
+    },
+    "gsap-step-11": {
+      "sourceHash": "e330da11c595af0b32beff1af533bb051733707f1a0fa23d87816ad0f2eb2a6e",
+      "values": {
+        "title": "Scrub Following",
+        "prerequisites": "Prepare the exercise results on Plugin and Boundaries from Unit 10, “Registering ScrollTrigger”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Scrub",
+        "concepts.0.explanation": "scrub connects scroll progress to motion. A numeric value allows time to catch up to the target.",
+        "concepts.1.title": "Readability",
+        "concepts.1.explanation": "Content must remain readable while motion catches up. Do not make the presence of text depend on progress.",
+        "outcomes.0": "Learning outcome: explain the role of Scrub. Input case: a short scroll followed by a stop.",
+        "outcomes.1": "Deliverable: the times when input stops and motion stops. Explain the rationale for handling Readability, connecting it to the code.",
+        "steps.0": "In src/day-11.js of a separate practice project, compare scrub true and 0.5 and record progress after stopping. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: a short scroll followed by a stop. Baseline: true. Run under baseline conditions, then record observations and errors in notes/day-11.md.",
+        "steps.2": "Variable: scrub; changed value: 0.5. Run again using the same input path. Deliverable to save: the times when input stops and motion stops. Hypothesis to check: A catch-up interval occurs after scrolling stops. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "scrub",
+        "variables.0.baseline": "true",
+        "variables.0.change": "0.5",
+        "variables.0.expected": "A catch-up interval occurs after scrolling stops.",
+        "criteria.0": "Required deliverable: the times when input stops and motion stops. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Scrub, Readability. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Scrub affect in this exercise? Input case: a short scroll followed by a stop.",
+        "questions.1": "Variable: scrub. Hypothesis to check: A catch-up interval occurs after scrolling stops. Did the actual results match the hypothesis? Explain the evidence in terms of Readability.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-12": {
+      "sourceHash": "3d5fd12a9cf3e7be983f39829a6fc2ccc88531f761185d6f07f1b4c5073474fb",
+      "values": {
+        "title": "Pin and Document Flow",
+        "prerequisites": "Prepare the exercise results on Scrub and Readability from Unit 11, “Scrub Following”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Pin",
+        "concepts.0.explanation": "pin fixes an element over a specified interval. The space for the pinned element relates to the layout of subsequent content.",
+        "concepts.1.title": "Focus",
+        "concepts.1.explanation": "A pinned area may obscure focus. Test Tab navigation separately as well.",
+        "outcomes.0": "Learning outcome: explain the role of Pin. Input case: scrolling and Tab.",
+        "outcomes.1": "Deliverable: a table of subsequent section positions and obscured focus. Explain the rationale for handling Focus, connecting it to the code.",
+        "steps.0": "In src/day-12.js of a separate practice project, change pinSpacing and place three links in the pinned section. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: scrolling and Tab. Baseline: true. Run under baseline conditions, then record observations and errors in notes/day-12.md.",
+        "steps.2": "Variable: pinSpacing; changed value: false. Run again using the same input path. Deliverable to save: a table of subsequent section positions and obscured focus. Hypothesis to check: The likelihood of overlap with subsequent content changes. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "pinSpacing",
+        "variables.0.baseline": "true",
+        "variables.0.change": "false",
+        "variables.0.expected": "The likelihood of overlap with subsequent content changes.",
+        "criteria.0": "Required deliverable: a table of subsequent section positions and obscured focus. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Pin, Focus. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Pin affect in this exercise? Input case: scrolling and Tab.",
+        "questions.1": "Variable: pinSpacing. Hypothesis to check: The likelihood of overlap with subsequent content changes. Did the actual results match the hypothesis? Explain the evidence in terms of Focus.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-13": {
+      "sourceHash": "bb21b3dd4f70276efdfd1a646eb8e2bf3af83b3c695a760d54c44d29b16a2282",
+      "values": {
+        "title": "Refresh and Measurement Timing",
+        "prerequisites": "Prepare the exercise results on Pin and Focus from Unit 12, “Pin and Document Flow”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Layout Changes",
+        "concepts.0.explanation": "Images that load late change document positions. Boundaries become misaligned if only the initial measurements continue to be used.",
+        "concepts.1.title": "Refresh",
+        "concepts.1.explanation": "refresh recalculates boundaries. There is no reason to call it on every scroll event.",
+        "outcomes.0": "Learning outcome: explain the role of Layout Changes. Input case: an image that loads late.",
+        "outcomes.1": "Deliverable: a table of boundary errors before and after loading. Explain the rationale for handling Refresh, connecting it to the code.",
+        "steps.0": "In src/day-13.js of a separate practice project, call ScrollTrigger.refresh after the image load event. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: an image that loads late. Baseline: none. Run under baseline conditions, then record observations and errors in notes/day-13.md.",
+        "steps.2": "Variable: refresh; changed value: call after load. Run again using the same input path. Deliverable to save: a table of boundary errors before and after loading. Hypothesis to check: The difference between the actual position and the boundary decreases. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "refresh",
+        "variables.0.baseline": "none",
+        "variables.0.change": "call after load",
+        "variables.0.expected": "The difference between the actual position and the boundary decreases.",
+        "criteria.0": "Required deliverable: a table of boundary errors before and after loading. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Layout Changes, Refresh. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Layout Changes affect in this exercise? Input case: an image that loads late.",
+        "questions.1": "Variable: refresh. Hypothesis to check: The difference between the actual position and the boundary decreases. Did the actual results match the hypothesis? Explain the evidence in terms of Refresh.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
     }
   }
 }

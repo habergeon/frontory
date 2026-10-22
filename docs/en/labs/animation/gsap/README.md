@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Animation · 4 stages · 28 units in the full series · 10 published in English
+Animation · 4 stages · 28 units in the full series · 13 published in English
 
 ## Series goal
 
@@ -37,6 +37,9 @@ Only published English units are linked below. The full series has 28 units.
 - [08. Context and Restoration](units/08/README.md) — Editable example
 - [09. Connecting Native Scroll](units/09/README.md) — Editable example
 - [10. Registering ScrollTrigger](units/10/README.md) — Editable example
+- [11. Scrub Following](units/11/README.md) — Editable example
+- [12. Pin and Document Flow](units/12/README.md) — Editable example
+- [13. Refresh and Measurement Timing](units/13/README.md) — Editable example
 
 ### Stage 3 · Input and accessibility
 

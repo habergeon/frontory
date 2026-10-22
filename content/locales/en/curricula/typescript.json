@@ -168,6 +168,86 @@
         "questions.1": "Who is allowed to omit an optional parameter?",
         "references.0.title": "TypeScript Handbook"
       }
+    },
+    "typescript-step-07": {
+      "sourceHash": "384b7b57ef2861cbde0d41dadf835145390a69615167e48365b8e62d376d5856",
+      "values": {
+        "title": "unknown and Safe Access",
+        "prerequisites": "Work and experiment records from Unit 6, “Function Arguments and Return Contracts”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "The unknown Boundary",
+        "concepts.0.explanation": "unknown prevents property access before checking. any bypasses checking itself, losing information at the boundary.",
+        "concepts.1.title": "Basic Guards",
+        "concepts.1.explanation": "Combine typeof and null checks to narrow values. Handle the fact that typeof null is object separately.",
+        "outcomes.0": "Record success or failure for all four inputs.",
+        "outcomes.1": "Pass tsc checking without any or unconditional assertions.",
+        "steps.0": "In unknown.ts, prepare conditions for a string, a number, null, and an object.",
+        "steps.1": "Write a function that accepts unknown and returns a string length using typeof branches.",
+        "steps.2": "Run with a string, a number, null, and an object. Results to check: Record success or failure for all four inputs. Pass tsc checking without any or unconditional assertions. Record expected and actual results separately.",
+        "variables.0.name": "Input",
+        "variables.0.baseline": "string",
+        "variables.0.change": "null",
+        "variables.0.expected": "Pre-run hypothesis: the value will be rejected before property access. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record success or failure for all four inputs.",
+        "criteria.1": "Pass tsc checking without any or unconditional assertions.",
+        "questions.0": "Can typeof object alone exclude null?",
+        "questions.1": "Does using unknown generate runtime checking code?",
+        "references.0.title": "TypeScript Handbook"
+      }
+    },
+    "typescript-step-08": {
+      "sourceHash": "58664044e6ce76a04155e1dcc2d64b45b1825272cae3c446e45af81f2fba48b1",
+      "values": {
+        "title": "Modeling Async State with Discriminated Unions",
+        "prerequisites": "Work and experiment records from Unit 7, “unknown and Safe Access”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Fields by State",
+        "concepts.0.explanation": "Putting data only in the success state reduces impossible combinations. Whether loading needs previous data is a separate design decision.",
+        "concepts.1.title": "Transition Functions",
+        "concepts.1.explanation": "Returning the next state from an event lets you collect transition rules in one place. Handle disallowed transitions explicitly.",
+        "outcomes.0": "Record the state order for success and failure paths.",
+        "outcomes.1": "Compilation fails if an error field is incorrectly added to loading.",
+        "steps.0": "In request-state.ts, prepare conditions for two paths from idle: start then success, and start then failure.",
+        "steps.1": "Transition state with start·resolve·reject events and calculate UI strings.",
+        "steps.2": "Run with two paths from idle: start then success, and start then failure. Results to check: Record the state order for success and failure paths. Compilation fails if an error field is incorrectly added to loading. Record expected and actual results separately.",
+        "variables.0.name": "Event",
+        "variables.0.baseline": "resolve in loading",
+        "variables.0.change": "resolve in idle",
+        "variables.0.expected": "Pre-run hypothesis: the invalid transition will be rejected according to the chosen policy. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record the state order for success and failure paths.",
+        "criteria.1": "Compilation fails if an error field is incorrectly added to loading.",
+        "questions.0": "How would you represent a state that retains previous data?",
+        "questions.1": "What combinations arise when tags and optional fields are mixed?",
+        "references.0.title": "TypeScript Handbook",
+        "references.1.title": "TypeScript Narrowing"
+      }
+    },
+    "typescript-step-09": {
+      "sourceHash": "59d5751cccb6140866b973c1584c90b2862df401cd48bb45be5135373e3e8b36",
+      "values": {
+        "title": "Finding Missing Branches with never",
+        "prerequisites": "Work and experiment records from Unit 8, “Modeling Async State with Discriminated Unions”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Exhaustiveness Checking",
+        "concepts.0.explanation": "After all union members are handled, the remaining value is never. A missing member makes assignment to never an error.",
+        "concepts.1.title": "Propagating Changes",
+        "concepts.1.explanation": "Adding a state affects consumers' switch statements. Use error locations to find uses that need changes.",
+        "outcomes.0": "Record error locations when a new member is added.",
+        "outcomes.1": "After handling cancelled, tsc reports 0 diagnostics.",
+        "steps.0": "In exhaustive.ts, prepare conditions for existing states and a new cancelled state.",
+        "steps.1": "Create assertNever and call it in the state switch default branch.",
+        "steps.2": "Run with existing states and a new cancelled state. Results to check: Record error locations when a new member is added. After handling cancelled, tsc reports 0 diagnostics. Record expected and actual results separately.",
+        "variables.0.name": "Union Members",
+        "variables.0.baseline": "3 members",
+        "variables.0.change": "add cancelled",
+        "variables.0.expected": "Pre-run hypothesis: an unhandled switch will produce a diagnostic. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record error locations when a new member is added.",
+        "criteria.1": "After handling cancelled, tsc reports 0 diagnostics.",
+        "questions.0": "Does returning a string in default detect omissions?",
+        "questions.1": "Is never a runtime value?",
+        "references.0.title": "TypeScript Handbook",
+        "references.1.title": "TypeScript Narrowing"
+      }
     }
   }
 }

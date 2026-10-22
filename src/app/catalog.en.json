@@ -423,6 +423,36 @@
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
+      "id": "typescript-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "unknown and Safe Access",
+      "goal": "Record success or failure for all four inputs. Pass tsc checking without any or unconditional assertions.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/07/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Modeling Async State with Discriminated Unions",
+      "goal": "Record the state order for success and failure paths. Compilation fails if an error field is incorrectly added to loading.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/08/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Finding Missing Branches with never",
+      "goal": "Record error locations when a new member is added. After handling cancelled, tsc reports 0 diagnostics.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/09/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
       "id": "html-01",
       "day": 1,
       "week": 1,

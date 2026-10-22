@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 6 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 9 published in English
 
 ## Series goal
 
@@ -30,9 +30,12 @@ Only published English units are linked below. The full series has 28 units.
 - [04. Object Contracts and Optional Fields](units/04/README.md) — Editable example
 - [05. Positional Meaning in Arrays and Tuples](units/05/README.md) — Editable example
 - [06. Function Arguments and Return Contracts](units/06/README.md) — Editable example
+- [07. unknown and Safe Access](units/07/README.md) — Editable example
 
 ### Stage 2 · Unions and Generics
 
+- [08. Modeling Async State with Discriminated Unions](units/08/README.md) — Editable example
+- [09. Finding Missing Branches with never](units/09/README.md) — Editable example
 
 ### Stage 3 · Validation and Type Transformations
 

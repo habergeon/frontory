@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Positional Meaning in Arrays and Tuples](../05/README.md)
+[Previous: Positional Meaning in Arrays and Tuples](../05/README.md) · [Next: unknown and Safe Access](../07/README.md)
 
 ## Experiment notes — write your own
 

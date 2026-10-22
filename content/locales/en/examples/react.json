@@ -111,5 +111,23 @@
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     }
+  },
+  "react-step-20": {
+    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "values": {
+      "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    }
+  },
+  "react-step-21": {
+    "sourceHash": "8a3d435f05e78959fc0e23f2688b017eb4e032f2e33dc5b452b6b1f054f1c1b3",
+    "values": {
+      "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX. Measure the Profiler callback in a build with profiling support. The callback may be inactive in a production React build."
+    }
+  },
+  "react-step-22": {
+    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "values": {
+      "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    }
   }
 }

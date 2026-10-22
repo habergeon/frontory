@@ -85,6 +85,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [17. Preserving State by Unit](labs/frameworks/react/units/17/README.md) | Editable example | [Source code](../../src/labs/react-step-17/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [18. Component Composition and children](labs/frameworks/react/units/18/README.md) | Editable example | [Source code](../../src/labs/react-step-18/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [19. Making Asynchronous State Explicit](labs/frameworks/react/units/19/README.md) | Editable example | [Source code](../../src/labs/react-step-19/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [20. Transitions and Deferred Results](labs/frameworks/react/units/20/README.md) | Editable example | [Source code](../../src/labs/react-step-20/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [21. Finding Bottlenecks with Profiler](labs/frameworks/react/units/21/README.md) | Editable example | [Source code](../../src/labs/react-step-21/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. Measure the Profiler callback in a build with profiling support. The callback may be inactive in a production React build. |
+| [22. Memoizing Only Measured Paths](labs/frameworks/react/units/22/README.md) | Editable example | [Source code](../../src/labs/react-step-22/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 
 ## GSAP
 

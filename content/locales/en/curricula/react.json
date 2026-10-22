@@ -548,6 +548,88 @@
         "references.0.title": "React Learning Guide",
         "references.1.title": "React API Reference"
       }
+    },
+    "react-step-20": {
+      "sourceHash": "8f218b0a81dd56df66be033a5f7f43570eadbd537c7ac560ef5955bd4dc12fa1",
+      "values": {
+        "title": "Transitions and Deferred Results",
+        "prerequisites": "Unit 20 continues using the work and experiment records from Unit 19.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Urgent Input",
+        "concepts.0.explanation": "The input string is a value users need to see immediately. It does not have to share the priority of expensive result updates.",
+        "concepts.1.title": "Deferred Values",
+        "concepts.1.explanation": "useDeferredValue temporarily shows the previous value while preparing to render new results. Wrap the slow child in memo and keep its other props stable to skip child work during urgent input renders; this differs from debounce.",
+        "outcomes.0": "The input retains the exact last string.",
+        "outcomes.1": "Show that results are deferred, and ensure the final results match the latest input.",
+        "steps.0": "Create a filter for 5000 titles in src/LargeList.jsx and wrap it in memo. Keep references to list data and event props stable.",
+        "steps.1": "In the parent, defer query with useDeferredValue and pass deferredQuery to LargeList inside the memo boundary. This exercise does not assume React Compiler automatic memoization.",
+        "steps.2": "Under CPU throttling, compare with a control without memo. Record responsiveness over 10 inputs, list render logs, the deferred indicator, and final search results.",
+        "variables.0.name": "List query",
+        "variables.0.baseline": "Immediate value",
+        "variables.0.change": "deferred value",
+        "variables.0.expected": "Input appears immediately, while the list may keep previous results briefly.",
+        "criteria.0": "The input retains the exact last string.",
+        "criteria.1": "Show that results are deferred, and ensure the final results match the latest input.",
+        "questions.0": "Does a deferred value reduce network requests?",
+        "questions.1": "What problems arise if the input state itself is put in a transition?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference",
+        "references.2.title": "React useDeferredValue and the memo Boundary for Slow Children"
+      }
+    },
+    "react-step-21": {
+      "sourceHash": "50008de80cb4794eae070f911886177504bfcc02833cfa64d1c5bf174db32c27",
+      "values": {
+        "title": "Finding Bottlenecks with Profiler",
+        "prerequisites": "Unit 21 continues using the work and experiment records from Unit 20.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Measurement Scope",
+        "concepts.0.explanation": "Profiler observes render costs for React commits. It does not measure GPU rendering time or network time in their place.",
+        "concepts.1.title": "Comparison Conditions",
+        "concepts.1.explanation": "Different development modes or input data distort time comparisons. Record the same operation several times, noting the range and variation.",
+        "outcomes.0": "There are 10 recordings for each of the two conditions.",
+        "outcomes.1": "Record React render costs separately from Canvas costs without confusing them.",
+        "steps.0": "Wrap the list in Profiler in src/App.jsx, and save onRender records.",
+        "steps.1": "With the same 1000 cards, perform 10 inputs and 10 selections separately.",
+        "steps.2": "Summarize actualDuration, commit count, and environment in notes/profile.md, and choose one path with the largest cost.",
+        "variables.0.name": "Item Count",
+        "variables.0.baseline": "100 items",
+        "variables.0.change": "1000 items",
+        "variables.0.expected": "Use measurements to judge whether list rendering costs increase.",
+        "criteria.0": "There are 10 recordings for each of the two conditions.",
+        "criteria.1": "Record React render costs separately from Canvas costs without confusing them.",
+        "questions.0": "Do more renders always mean slower performance?",
+        "questions.1": "Why might a default production build have no Profiler callbacks?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
+    },
+    "react-step-22": {
+      "sourceHash": "5972019fce717e31aec16bebda0f6be302032144caea4563a5cf83e488b4b3c7",
+      "values": {
+        "title": "Memoizing Only Measured Paths",
+        "prerequisites": "Unit 22 continues using the work and experiment records from Unit 21.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "memo",
+        "concepts.0.explanation": "memo allows a child render to be skipped when props are the same. Passing a new object or function every time may change the comparison result.",
+        "concepts.1.title": "Cache Costs",
+        "concepts.1.explanation": "useMemo and useCallback also carry dependency management and storage costs. Judge performance optimization using measurements under identical conditions.",
+        "outcomes.0": "There are before/after records for 10 identical inputs.",
+        "outcomes.1": "Toggle and delete functionality stays consistent after memoization.",
+        "steps.0": "Apply memo to the bottleneck candidate in src/CardRow.jsx.",
+        "steps.1": "Pass only necessary props, and check event function identity.",
+        "steps.2": "Repeat the inputs from Unit 21 to compare commits and times before and after; if there is no benefit, explain why.",
+        "variables.0.name": "memo",
+        "variables.0.baseline": "Not applied",
+        "variables.0.change": "Applied",
+        "variables.0.expected": "Additional renders of cards with unchanged props may decrease.",
+        "criteria.0": "There are before/after records for 10 identical inputs.",
+        "criteria.1": "Toggle and delete functionality stays consistent after memoization.",
+        "questions.0": "Why is memo less effective without stable props?",
+        "questions.1": "Why is using useMemo as a correctness guarantee dangerous?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
     }
   }
 }

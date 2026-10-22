@@ -801,6 +801,36 @@
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
+      "id": "react-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Transitions and Deferred Results",
+      "goal": "The input retains the exact last string. Show that results are deferred, and ensure the final results match the latest input.",
+      "docPath": "/docs/en/labs/frameworks/react/units/20/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Finding Bottlenecks with Profiler",
+      "goal": "There are 10 recordings for each of the two conditions. Record React render costs separately from Canvas costs without confusing them.",
+      "docPath": "/docs/en/labs/frameworks/react/units/21/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX. Measure the Profiler callback in a build with profiling support. The callback may be inactive in a production React build."
+    },
+    {
+      "id": "react-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Memoizing Only Measured Paths",
+      "goal": "There are before/after records for 10 identical inputs. Toggle and delete functionality stays consistent after memoization.",
+      "docPath": "/docs/en/labs/frameworks/react/units/22/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
       "id": "gsap-step-02",
       "day": 2,
       "week": 1,

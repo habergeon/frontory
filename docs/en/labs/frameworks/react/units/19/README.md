@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Component Composition and children](../18/README.md)
+[Previous: Component Composition and children](../18/README.md) · [Next: Transitions and Deferred Results](../20/README.md)
 
 ## Experiment notes — write your own
 

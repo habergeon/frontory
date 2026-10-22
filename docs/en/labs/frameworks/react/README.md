@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 19 published in English
+UI frameworks · 4 stages · 28 units in the full series · 22 published in English
 
 ## Series goal
 
@@ -49,9 +49,12 @@ Only published English units are linked below. The full series has 28 units.
 - [17. Preserving State by Unit](units/17/README.md) — Editable example
 - [18. Component Composition and children](units/18/README.md) — Editable example
 - [19. Making Asynchronous State Explicit](units/19/README.md) — Editable example
+- [20. Transitions and Deferred Results](units/20/README.md) — Editable example
+- [21. Finding Bottlenecks with Profiler](units/21/README.md) — Editable example
 
 ### Stage 4 · Performance verification and an integrated editor
 
+- [22. Memoizing Only Measured Paths](units/22/README.md) — Editable example
 
 ## Capstone project and deliverables
 
@@ -69,3 +72,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [useState updaters and Strict Mode](https://react.dev/reference/react/useState#my-initializer-or-updater-function-runs-twice)
 - [React: Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)
 - [React useEffect: External Systems and Cleanup](https://react.dev/reference/react/useEffect)
+- [React useDeferredValue and the memo Boundary for Slow Children](https://react.dev/reference/react/useDeferredValue#deferring-re-rendering-for-a-part-of-the-ui)

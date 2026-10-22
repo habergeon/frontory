@@ -28,5 +28,23 @@
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "pixijs-step-07": {
+    "sourceHash": "48bb634c391c245eff0022d1d479ade87a4b00335fec165a28939e074085edd5",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "pixijs-step-08": {
+    "sourceHash": "6b4b21a74beca19ec19e91e09e8cf3cd76b162d004ab1e470bc14f4f60d3443c",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "pixijs-step-09": {
+    "sourceHash": "3eba3553fca1bde94a126bbe8eda0972d102c20e758a48189526dea4fef5dec9",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
   }
 }

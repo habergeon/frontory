@@ -3291,6 +3291,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "pixijs-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Responsive Screens and Resolution",
+      "goal": "Keep the Sprite centered after resizing. Display logical size and buffer size separately.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/07/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "pixijs-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Ticker and Time Units",
+      "goal": "Distinguish the ticker object from numeric time. State time units explicitly in the formula.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/08/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "pixijs-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Starting, Stopping, and Callback Cleanup",
+      "goal": "Do not update the simulation while paused. Leave no callbacks from a removed scene.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/09/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

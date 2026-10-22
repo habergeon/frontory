@@ -169,6 +169,85 @@
         "questions.1": "Should selection results stay the same when overlap order changes?",
         "references.0.title": "PixiJS 8 container"
       }
+    },
+    "pixijs-step-07": {
+      "sourceHash": "d5c0b917aff26582e6745759c66212f9cb7e8123bfaab4c9b0417a83b569ea76",
+      "values": {
+        "title": "Responsive Screens and Resolution",
+        "prerequisites": "Prerequisite concepts: Child Order, zIndex Sorting. Prepare the output files and observation records from Unit 6.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Logical Size",
+        "concepts.0.explanation": "app.screen represents the renderer's logical screen size. resolution controls the pixel density of the buffer.",
+        "concepts.1.title": "CSS Density",
+        "concepts.1.explanation": "autoDensity helps align resolution and CSS size. After setting a high resolution, check that input coordinates still use the same logical space.",
+        "outcomes.0": "Keep the Sprite centered after resizing.",
+        "outcomes.1": "Display logical size and buffer size separately.",
+        "steps.0": "Prepare day-07.js and index.html in the external practice project. Set resizeTo:container,autoDensity:true and resolution in app.init.",
+        "steps.1": "Change the container width and print app.screen, the canvas buffer size, and the Sprite's center position.",
+        "steps.2": "Save the output with the input condition 1, then run again with 2. Expected: The logical size stays the same and the buffer has four times as many pixels. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-07-notes.md.",
+        "variables.0.name": "resolution",
+        "variables.0.baseline": "1",
+        "variables.0.change": "2",
+        "variables.0.expected": "The logical size stays the same and the buffer has four times as many pixels",
+        "criteria.0": "Keep the Sprite centered after resizing.",
+        "criteria.1": "Display logical size and buffer size separately.",
+        "questions.0": "Are resolution and devicePixelRatio always the same?",
+        "questions.1": "What mismatch can occur if you force a separate CSS size?",
+        "references.0.title": "PixiJS 8 app"
+      }
+    },
+    "pixijs-step-08": {
+      "sourceHash": "d7b101ebc328b9594ac887bc2c293afca50d9feb94b798610ca56c1b9f0ace88",
+      "values": {
+        "title": "Ticker and Time Units",
+        "prerequisites": "Prerequisite concepts: Logical Size, CSS Density. Prepare the output files and observation records from Unit 7.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Callback Argument",
+        "concepts.0.explanation": "A PixiJS 8 ticker callback receives a Ticker object. Assuming the argument is a numeric delta produces incorrect movement calculations.",
+        "concepts.1.title": "Converting Milliseconds",
+        "concepts.1.explanation": "deltaMS can be used for time-based movement. Divide it by 1000 to convert to seconds when multiplying by a speed in px/s.",
+        "outcomes.0": "Distinguish the ticker object from numeric time.",
+        "outcomes.1": "State time units explicitly in the formula.",
+        "steps.0": "Prepare day-08.js and index.html in the external practice project. Move a Sprite using deltaMS/1000 inside app.ticker.add(ticker=>...).",
+        "steps.1": "Add a speed input and distance output, and compare accumulated movement at two frame intervals.",
+        "steps.2": "Save the output with the input condition 50px/s, then run again with 100px/s. Expected: Distance doubles for the same accumulated time. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-08-notes.md.",
+        "variables.0.name": "Speed",
+        "variables.0.baseline": "50px/s",
+        "variables.0.change": "100px/s",
+        "variables.0.expected": "Distance doubles for the same accumulated time",
+        "criteria.0": "Distinguish the ticker object from numeric time.",
+        "criteria.1": "State time units explicitly in the formula.",
+        "questions.0": "What is the difference between deltaTime and deltaMS?",
+        "questions.1": "Should you record elapsedMS or the adjusted deltaMS?",
+        "references.0.title": "PixiJS 8 ticker"
+      }
+    },
+    "pixijs-step-09": {
+      "sourceHash": "68dd0a334e5459eb85737a05601ad4f548b68d312b71799e3ca9f1356dee82d0",
+      "values": {
+        "title": "Starting, Stopping, and Callback Cleanup",
+        "prerequisites": "Prerequisite concepts: Callback Argument, Converting Milliseconds. Prepare the output files and observation records from Unit 8.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Ticker Ownership",
+        "concepts.0.explanation": "An Application can use its own ticker or a shared ticker. Stopping a shared ticker used by other screens can affect them.",
+        "concepts.1.title": "Function References",
+        "concepts.1.explanation": "ticker.remove needs the callback reference used for registration. Passing a new function with the same body does not remove the existing registration.",
+        "outcomes.0": "Do not update the simulation while paused.",
+        "outcomes.1": "Leave no callbacks from a removed scene.",
+        "steps.0": "Prepare day-09.js and index.html in the external practice project. Register a named update function with the ticker and implement pause/resume buttons.",
+        "steps.1": "Repeat scene creation and removal, recording add/remove counts and update calls per frame.",
+        "steps.2": "Save the output with the input condition 1 run, then run again with Recreate 5 times. Expected: With correct cleanup, the number of update calls per frame does not increase. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-09-notes.md.",
+        "variables.0.name": "Registration count",
+        "variables.0.baseline": "1 run",
+        "variables.0.change": "Recreate 5 times",
+        "variables.0.expected": "With correct cleanup, the number of update calls per frame does not increase",
+        "criteria.0": "Do not update the simulation while paused.",
+        "criteria.1": "Leave no callbacks from a removed scene.",
+        "questions.0": "What does a scene using sharedTicker own?",
+        "questions.1": "Why does rewriting an anonymous function for remove not work?",
+        "references.0.title": "PixiJS 8 ticker",
+        "references.1.title": "PixiJS 8 app"
+      }
     }
   }
 }

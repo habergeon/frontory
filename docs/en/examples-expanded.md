@@ -343,6 +343,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [4. Graphics 8 Shape API](labs/graphics/pixijs/units/04/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-04/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [5. Text and Style Updates](labs/graphics/pixijs/units/05/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-05/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [6. Layers and Drawing Order](labs/graphics/pixijs/units/06/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-06/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [7. Responsive Screens and Resolution](labs/graphics/pixijs/units/07/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-07/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [8. Ticker and Time Units](labs/graphics/pixijs/units/08/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-08/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [9. Starting, Stopping, and Callback Cleanup](labs/graphics/pixijs/units/09/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-09/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

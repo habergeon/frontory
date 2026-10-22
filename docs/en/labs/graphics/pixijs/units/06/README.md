@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Text and Style Updates](../05/README.md)
+[Previous: Text and Style Updates](../05/README.md) · [Next: Responsive Screens and Resolution](../07/README.md)
 
 ## Experiment notes — write your own
 

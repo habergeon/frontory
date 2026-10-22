@@ -1955,6 +1955,36 @@
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
+      "id": "svelte-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Await Blocks and State Guidance",
+      "goal": "While pending, 1 loading message appears. The error message disappears after a successful retry.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/19/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
+      "id": "svelte-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Saving and Restoring Drafts",
+      "goal": "Valid A·B drafts are restored separately. The entered string remains on screen after a write failure.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/20/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
+      "id": "svelte-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Key Blocks and Draft Preservation",
+      "goal": "A and B drafts do not get mixed. The edit count returns to its initial value after a key change.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/21/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

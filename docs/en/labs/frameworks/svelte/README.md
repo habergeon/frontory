@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 18 published in English
+UI frameworks · 4 stages · 28 units in the full series · 21 published in English
 
 ## Series goal
 
@@ -48,6 +48,9 @@ Only published English units are linked below. The full series has 28 units.
 - [16. Shared Runes Modules](units/16/README.md) — External example · preview instructions
 - [17. Connecting Workspaces with Context](units/17/README.md) — External example · preview instructions
 - [18. Requests and Stale Results](units/18/README.md) — External example · preview instructions
+- [19. Await Blocks and State Guidance](units/19/README.md) — External example · preview instructions
+- [20. Saving and Restoring Drafts](units/20/README.md) — External example · preview instructions
+- [21. Key Blocks and Draft Preservation](units/21/README.md) — External example · preview instructions
 
 ### Stage 4 · Canvas Verification and Framework Comparison
 

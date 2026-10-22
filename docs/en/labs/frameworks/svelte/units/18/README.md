@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Connecting Workspaces with Context](../17/README.md)
+[Previous: Connecting Workspaces with Context](../17/README.md) · [Next: Await Blocks and State Guidance](../19/README.md)
 
 ## Experiment notes — write your own
 

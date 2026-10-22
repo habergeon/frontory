@@ -505,6 +505,89 @@
         "references.0.title": "Svelte Official Documentation and Runes Index",
         "references.1.title": "Svelte $effect and Cleanup"
       }
+    },
+    "svelte-step-19": {
+      "sourceHash": "a54fd32520e34b3a74fa7abdbc7cfa2b13c9bfc94a570d23aed19f08382af8e0",
+      "values": {
+        "title": "Await Blocks and State Guidance",
+        "prerequisites": "Unit 19 continues with the work and experiment records from Unit 18.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Promise Presentation",
+        "concepts.0.explanation": "{#await} separates pending, successful, and failed Promise screens. Treat an empty array as one kind of successful result.",
+        "outcomes.0": "While pending, 1 loading message appears.",
+        "criteria.0": "While pending, 1 loading message appears.",
+        "questions.0": "Does an await block alone solve all request cancellation problems?",
+        "concepts.1.title": "User Recovery",
+        "concepts.1.explanation": "Failure guidance needs a retry or another input path. Also define whether to retain or clear previous results as part of the screen contract.",
+        "outcomes.1": "The error message disappears after a successful retry.",
+        "criteria.1": "The error message disappears after a successful retry.",
+        "questions.1": "Should you send an empty array to catch?",
+        "steps.0": "In src/Results.svelte, write pending·then·catch blocks.",
+        "steps.1": "Create an input that selects delayed success, an empty array, or failure in fakeSearch.",
+        "steps.2": "Connect retry after failure and record all three output states.",
+        "variables.0.name": "Response",
+        "variables.0.baseline": "Successful array",
+        "variables.0.change": "Failure",
+        "variables.0.expected": "An error and retry button appear in place of the list.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup"
+      }
+    },
+    "svelte-step-20": {
+      "sourceHash": "fdac129215068aaf163efc1909ee74caae1675c986beb58928e6b86416407ac8",
+      "values": {
+        "title": "Saving and Restoring Drafts",
+        "prerequisites": "Unit 20 continues with the work and experiment records from Unit 19.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Storage Format",
+        "concepts.0.explanation": "Store a version and per-unit strings in JSON. When passing a Proxy outside, consider an explicit data boundary such as $state.snapshot.",
+        "outcomes.0": "Valid A·B drafts are restored separately.",
+        "criteria.0": "Valid A·B drafts are restored separately.",
+        "questions.0": "Does a snapshot stay connected to the reactive object?",
+        "concepts.1.title": "Preserving Input on Failure",
+        "concepts.1.explanation": "A save failure must not become an editing failure. Retain the in-memory draft and separate the failure message from the retry path.",
+        "outcomes.1": "The entered string remains on screen after a write failure.",
+        "criteria.1": "The entered string remains on screen after a write failure.",
+        "questions.1": "What do you lose if you save empty values before the initial restoration?",
+        "steps.0": "In src/persistence.js, implement version/string validation and reads/writes.",
+        "steps.1": "Restore during App.svelte initialization and display save status after changes.",
+        "steps.2": "Inject valid JSON, truncated JSON, and a write failure, and check draft and error output.",
+        "variables.0.name": "Storage Input",
+        "variables.0.baseline": "Valid JSON",
+        "variables.0.change": "Truncated JSON",
+        "variables.0.expected": "After the error message, editing continues with an empty draft.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup",
+        "references.2.title": "Svelte state rune"
+      }
+    },
+    "svelte-step-21": {
+      "sourceHash": "015a9dcd1ea833584743e620c86ea83a1c12332f88c6a3b05198daee9717d8e0",
+      "values": {
+        "title": "Key Blocks and Draft Preservation",
+        "prerequisites": "Unit 21 continues with the work and experiment records from Unit 20.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Recreation",
+        "concepts.0.explanation": "{#key unitId} recreates its block when the value changes. Use it when you intend to reset local state.",
+        "outcomes.0": "A and B drafts do not get mixed.",
+        "criteria.0": "A and B drafts do not get mixed.",
+        "questions.0": "What repeats if you change the key every frame?",
+        "concepts.1.title": "Preservation Location",
+        "concepts.1.explanation": "Keep per-unit drafts outside the key block so they survive switching. Define a separate reset policy for cursor or temporary panel state.",
+        "outcomes.1": "The edit count returns to its initial value after a key change.",
+        "criteria.1": "The edit count returns to its initial value after a key change.",
+        "questions.1": "Is a key block suitable when you need to preserve all state?",
+        "steps.0": "In src/App.svelte, create draftsById and wrap Editor in {#key unitId}.",
+        "steps.1": "Store strings in the parent and display the editor’s local edit count.",
+        "steps.2": "Switch A→B→A and compare drafts and edit counts.",
+        "variables.0.name": "key",
+        "variables.0.baseline": "Fixed value",
+        "variables.0.change": "unitId",
+        "variables.0.expected": "The draft remains, but the local edit count resets.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup",
+        "references.2.title": "Svelte state rune"
+      }
     }
   }
 }

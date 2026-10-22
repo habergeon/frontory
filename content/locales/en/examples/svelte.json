@@ -94,5 +94,23 @@
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     }
+  },
+  "svelte-step-19": {
+    "sourceHash": "3eb5082c74a69152f69d643411f55f5f10582a435734724a44fcba48f95b0f2d",
+    "values": {
+      "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    }
+  },
+  "svelte-step-20": {
+    "sourceHash": "4e562db08a4277b1ff480512897e1f422334241eb455ccd4636b0922caf94a6c",
+    "values": {
+      "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    }
+  },
+  "svelte-step-21": {
+    "sourceHash": "742e5d839cee74c11173f0eead4a216cc5129992669111b8fe7a40b5b5c3c090",
+    "values": {
+      "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    }
   }
 }

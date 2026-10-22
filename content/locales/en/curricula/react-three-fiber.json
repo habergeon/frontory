@@ -408,6 +408,87 @@
         "references.0.title": "R3F Model Loading",
         "references.1.title": "R3F Hooks"
       }
+    },
+    "react-three-fiber-step-16": {
+      "sourceHash": "77cb39c31d99aecf0d00c34f93e759747a789b5721348dfcbfc2633b9ca9528f",
+      "values": {
+        "title": "Cloning and Sharing Cached Models",
+        "prerequisites": "Unit 16 continues using the deliverables and experiment records from Unit 15.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Scene Objects",
+        "concepts.0.explanation": "The same Object3D cannot be attached to two parents simultaneously. Distinguish cloning strategies from shared resources when multiple instances are needed.",
+        "concepts.1.title": "Clone Scope",
+        "concepts.1.explanation": "Even when scene.clone copies the object hierarchy, geometry and material may remain shared. Check an appropriate separate cloning method for skeletal models.",
+        "outcomes.0": "Two instances appear simultaneously at different positions.",
+        "outcomes.1": "Record whether objects and geometry/material are shared.",
+        "steps.0": "Create a control using the same non-skeletal GLB scene twice in src/ModelPair.jsx.",
+        "steps.1": "Create scene.clone() once for each instance, and place them at different positions.",
+        "steps.2": "Compare object, geometry, and material uuid values, and record the shared effects of color changes.",
+        "variables.0.name": "Cloning Method",
+        "variables.0.baseline": "Same scene reference",
+        "variables.0.change": "Clone the object hierarchy",
+        "variables.0.expected": "Models appear at two positions, but some resources may remain shared.",
+        "criteria.0": "Two instances appear simultaneously at different positions.",
+        "criteria.1": "Record whether objects and geometry/material are shared.",
+        "questions.0": "Why can changing the material color of one cloned model change the other model too?",
+        "questions.1": "What should you check before applying a simple clone to a skinned model?",
+        "references.0.title": "R3F Model Loading",
+        "references.1.title": "R3F Objects and Resource Disposal"
+      }
+    },
+    "react-three-fiber-step-17": {
+      "sourceHash": "85a5398ca1f5855378554bf02696d8c305de9a5a371789289da47fcac593ecc7",
+      "values": {
+        "title": "Texture Inputs and Updates",
+        "prerequisites": "Unit 17 continues using the deliverables and experiment records from Unit 16.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Texture Meaning",
+        "concepts.0.explanation": "Color textures differ in meaning from data textures such as normal and roughness. Check color space settings for each texture type.",
+        "concepts.1.title": "Memory Cost",
+        "concepts.1.explanation": "Texture resolution affects GPU memory as well as download size. Compare this with the visual quality gained.",
+        "outcomes.0": "Record texture types and color space settings.",
+        "outcomes.1": "Provide comparison images at two resolutions with the same camera.",
+        "steps.0": "Prepare a small color texture whose usage rights you have checked in public/textures.",
+        "steps.1": "Connect TextureLoader and the material map in src/TexturedBox.jsx.",
+        "steps.2": "Compare versions at resolutions 256 and 1024 with the same camera, and record dimensions and file sizes.",
+        "variables.0.name": "Texture Resolution",
+        "variables.0.baseline": "256×256",
+        "variables.0.change": "1024×1024",
+        "variables.0.expected": "Both detail and memory cost may change.",
+        "criteria.0": "Record texture types and color space settings.",
+        "criteria.1": "Provide comparison images at two resolutions with the same camera.",
+        "questions.0": "Is compressed file size the same as GPU memory usage?",
+        "questions.1": "What errors arise if a roughness texture is treated as color data?",
+        "references.0.title": "R3F Hooks",
+        "references.1.title": "R3F Model Loading"
+      }
+    },
+    "react-three-fiber-step-18": {
+      "sourceHash": "3bd2f0d21f4726da21d3cb7243c0d3c0fade103259da06c17c1dddc12bea2199",
+      "values": {
+        "title": "Shared geometry and material",
+        "prerequisites": "Unit 18 continues using the deliverables and experiment records from Unit 17.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Resource Sharing",
+        "concepts.0.explanation": "Passing the same geometry and material to multiple mesh objects can reduce duplicate creation. Each mesh retains its independent transform.",
+        "concepts.1.title": "Disposal Responsibility",
+        "concepts.1.explanation": "If one child disposes a shared resource, other consumers are affected. When using dispose={null}, the final owner must explicitly dispose it.",
+        "outcomes.0": "All 36 mesh objects have the same geometry uuid.",
+        "outcomes.1": "At final shutdown, the owner disposes each resource once.",
+        "steps.0": "Create geometry and material once in the owning component in src/SharedGrid.jsx.",
+        "steps.1": "Pass the same references to 36 mesh objects, and specify the child automatic disposal policy.",
+        "steps.2": "Remove one mesh and the entire grid separately, and record uuid and dispose logs.",
+        "variables.0.name": "Resource Creation",
+        "variables.0.baseline": "Create per mesh",
+        "variables.0.change": "Share once from the parent",
+        "variables.0.expected": "All 36 mesh objects reference the same 1 geometry and 1 material.",
+        "criteria.0": "All 36 mesh objects have the same geometry uuid.",
+        "criteria.1": "At final shutdown, the owner disposes each resource once.",
+        "questions.0": "Is useMemo guaranteed to be a permanent lifetime store?",
+        "questions.1": "What remains if you set dispose=null and omit cleanup?",
+        "references.0.title": "R3F Objects and Resource Disposal",
+        "references.1.title": "R3F Scaling Performance and demand Rendering"
+      }
     }
   }
 }

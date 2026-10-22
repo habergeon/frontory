@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 15 published in English
+Graphics · 4 stages · 28 units in the full series · 18 published in English
 
 ## Series goal
 
@@ -45,6 +45,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 3 · Models, Shared Resources, and Instancing
 
 - [15. Model Loading and Suspense](units/15/README.md) — External example · preview instructions
+- [16. Cloning and Sharing Cached Models](units/16/README.md) — Editable example
+- [17. Texture Inputs and Updates](units/17/README.md) — Editable example
+- [18. Shared geometry and material](units/18/README.md) — Editable example
 
 ### Stage 4 · demand Policy and Performance Verification
 
@@ -64,3 +67,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [R3F Performance Pitfalls](https://r3f.docs.pmnd.rs/advanced/pitfalls)
 - [R3F Pointer Events](https://r3f.docs.pmnd.rs/api/events)
 - [R3F Model Loading](https://r3f.docs.pmnd.rs/tutorials/loading-models)
+- [R3F Scaling Performance and demand Rendering](https://r3f.docs.pmnd.rs/advanced/scaling-performance)

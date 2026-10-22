@@ -76,5 +76,23 @@
     "values": {
       "note": "The preview performs actual JSON model loading with Three ObjectLoader. GLB, Suspense, and error boundary experiments require the external App.jsx and a valid /model.glb."
     }
+  },
+  "react-three-fiber-step-16": {
+    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "values": {
+      "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    }
+  },
+  "react-three-fiber-step-17": {
+    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "values": {
+      "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    }
+  },
+  "react-three-fiber-step-18": {
+    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "values": {
+      "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    }
   }
 }

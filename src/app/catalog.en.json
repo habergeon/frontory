@@ -3089,6 +3089,36 @@
       "exampleNote": "The preview performs actual JSON model loading with Three ObjectLoader. GLB, Suspense, and error boundary experiments require the external App.jsx and a valid /model.glb."
     },
     {
+      "id": "react-three-fiber-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Cloning and Sharing Cached Models",
+      "goal": "Two instances appear simultaneously at different positions. Record whether objects and geometry/material are shared.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/16/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Texture Inputs and Updates",
+      "goal": "Record texture types and color space settings. Provide comparison images at two resolutions with the same camera.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/17/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Shared geometry and material",
+      "goal": "All 36 mesh objects have the same geometry uuid. At final shutdown, the owner disposes each resource once.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/18/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

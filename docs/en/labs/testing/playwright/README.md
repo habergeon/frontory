@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Testing · 4 stages · 28 units in the full series · 3 published in English
+Testing · 4 stages · 28 units in the full series · 6 published in English
 
 ## Series goal
 
@@ -27,6 +27,9 @@ Only published English units are linked below. The full series has 28 units.
 - [01. Testing from the User’s Perspective](01-foundations/README.md) — Editable example
 - [02. Configuration and Execution Scope](units/02/README.md) — External example · preview instructions
 - [03. Role and Accessible Name](units/03/README.md) — External example · preview instructions
+- [04. Label and Input](units/04/README.md) — External example · preview instructions
+- [05. Locator Scope](units/05/README.md) — External example · preview instructions
+- [06. Retrying Assertions](units/06/README.md) — External example · preview instructions
 
 ### Stage 2 · Persistent Data and File Round Trips
 

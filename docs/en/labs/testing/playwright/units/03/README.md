@@ -76,7 +76,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Configuration and Execution Scope](../02/README.md)
+[Previous: Configuration and Execution Scope](../02/README.md) · [Next: Label and Input](../04/README.md)
 
 ## Experiment notes — write your own
 

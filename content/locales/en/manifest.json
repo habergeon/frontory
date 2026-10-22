@@ -590,6 +590,9 @@
     "webassembly-03",
     "playwright-01",
     "playwright-step-02",
-    "playwright-step-03"
+    "playwright-step-03",
+    "playwright-step-04",
+    "playwright-step-05",
+    "playwright-step-06"
   ]
 }

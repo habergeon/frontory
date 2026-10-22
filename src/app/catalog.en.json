@@ -6155,6 +6155,36 @@
       "docPath": "/docs/en/labs/testing/playwright/units/03/README.md",
       "seriesId": "playwright",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Label and Input",
+      "goal": "Learning outcome: explain the role of Label. Input cases: notes with Korean text and line breaks. Deliverable: input values and saved-state results. Explain the rationale for handling Value assertion, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/04/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Locator Scope",
+      "goal": "Learning outcome: explain the role of Narrowing scope. Input cases: three cards with the same button name. Deliverable: selected card ID and title. Explain the rationale for handling Strictness, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/05/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Retrying Assertions",
+      "goal": "Learning outcome: explain the role of Waiting for state. Input cases: fast and delayed responses. Deliverable: assertion success and failure messages. Explain the rationale for handling Failure explanation, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/06/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     }
   ]
 }

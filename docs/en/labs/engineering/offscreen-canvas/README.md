@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 6 published in English
+Engineering · 4 stages · 28 units in the full series · 9 published in English
 
 ## Series goal
 
@@ -30,9 +30,12 @@ Only published English units are linked below. The full series has 28 units.
 - [04. Context Creation Failure](units/04/README.md) — Editable example
 - [05. Coordinate Units](units/05/README.md) — Editable example
 - [06. Frame Timing](units/06/README.md) — Editable example
+- [07. Basic Rendering Validation](units/07/README.md) — Editable example
 
 ### Stage 2 · Synchronizing Size and Input
 
+- [08. Resize Messages](units/08/README.md) — Editable example
+- [09. Resize Sequence Numbers](units/09/README.md) — Editable example
 
 ### Stage 3 · Rendering Lifecycle and Recovery
 

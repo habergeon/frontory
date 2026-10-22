@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Coordinate Units](../05/README.md)
+[Previous: Coordinate Units](../05/README.md) · [Next: Basic Rendering Validation](../07/README.md)
 
 ## Experiment notes — write your own
 

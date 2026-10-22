@@ -5603,6 +5603,36 @@
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/06/README.md",
       "seriesId": "offscreen-canvas",
       "exampleNote": "An interactive Frame Timing experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Basic Rendering Validation",
+      "goal": "Learning outcome: explain the role of Equivalence. Input cases: The same seed and 10 particles. Deliverable: Coordinate arrays and a record of the still image. Explain the rationale for handling Validation scope, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/07/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Basic Rendering Validation experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Resize Messages",
+      "goal": "Learning outcome: explain the role of Measurement. Input cases: Changes to width and height. Deliverable: A table of backing-store sizes and shape styles. Explain the rationale for handling Cost of changes, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/08/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Resize Messages experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Resize Sequence Numbers",
+      "goal": "Learning outcome: explain the role of Latest size. Input cases: Input in seq 1·3·2 order. Deliverable: The applied seq and final size. Explain the rationale for handling Acknowledgment, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/09/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Resize Sequence Numbers experiment with cleanup of the resources it uses."
     }
   ]
 }

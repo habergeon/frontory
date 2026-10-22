@@ -28,5 +28,23 @@
     "values": {
       "note": "An interactive Frame Timing experiment with cleanup of the resources it uses."
     }
+  },
+  "offscreen-canvas-step-07": {
+    "sourceHash": "27de8fdf2547eca2c9fdea807f4968572eb0f890cc4a8fe3b4b36f3fe99a532a",
+    "values": {
+      "note": "An interactive Basic Rendering Validation experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-08": {
+    "sourceHash": "012497ebf05c74ec7ab3d4b5cea74c59f4a06e3338c1eeaaa586d36a1936cf0b",
+    "values": {
+      "note": "An interactive Resize Messages experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-09": {
+    "sourceHash": "312139a8f0102028ab362772d2a383bf1f3c0e0d4cfa55cc25519a533b3ca5bb",
+    "values": {
+      "note": "An interactive Resize Sequence Numbers experiment with cleanup of the resources it uses."
+    }
   }
 }

@@ -172,6 +172,87 @@
         "references.0.title": "MDN OffscreenCanvas",
         "references.1.title": "MDN Using Web Workers"
       }
+    },
+    "offscreen-canvas-step-07": {
+      "sourceHash": "15058a836d3e2b86e5776a373f4f9d7236027a52c9e9f7b9cec6299a7b227fee",
+      "values": {
+        "title": "Basic Rendering Validation",
+        "prerequisites": "Prepare the experiment results for Delta and Long gaps from Unit 6, “Frame Timing”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Equivalence",
+        "concepts.0.explanation": "Compare the same initial state to isolate differences in execution context. Fix the seed for random initial values.",
+        "concepts.1.title": "Validation scope",
+        "concepts.1.explanation": "Pixel comparisons are affected by environmental differences. Also validate state such as coordinates and colors.",
+        "outcomes.0": "Learning outcome: explain the role of Equivalence. Input cases: The same seed and 10 particles.",
+        "outcomes.1": "Deliverable: Coordinate arrays and a record of the still image. Explain the rationale for handling Validation scope, linking it to the code.",
+        "steps.0": "In src/day-7.js in a separate practice project, share the seed and draw function to render a static scene in both modes. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: The same seed and 10 particles. Baseline: 7. Run under the baseline conditions, then record observations and errors in notes/day-7.md.",
+        "steps.2": "Variable: seed; changed value: 11. Run again through the same input path. Deliverable to save: Coordinate arrays and a record of the still image. Hypothesis to check: Matching seeds produce matching layouts, while different seeds produce different layouts. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "seed",
+        "variables.0.baseline": "7",
+        "variables.0.change": "11",
+        "variables.0.expected": "Matching seeds produce matching layouts, while different seeds produce different layouts.",
+        "criteria.0": "Required deliverable: Coordinate arrays and a record of the still image. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Equivalence and Validation scope. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Equivalence affect in this exercise? Input cases: The same seed and 10 particles.",
+        "questions.1": "Variable: seed. Hypothesis to check: Matching seeds produce matching layouts, while different seeds produce different layouts. Did the actual results agree with the hypothesis? Explain the evidence in terms of Validation scope.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-08": {
+      "sourceHash": "a60d0c35f0171f7b7031b0ae253e8b0be68d94cae1f71dbf07e12daf98d6a29b",
+      "values": {
+        "title": "Resize Messages",
+        "prerequisites": "Prepare the experiment results for Equivalence and Validation scope from Unit 7, “Basic Rendering Validation”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Measurement",
+        "concepts.0.explanation": "A Worker cannot read DOM dimensions. A ResizeObserver on the main thread sends the observed values.",
+        "concepts.1.title": "Cost of changes",
+        "concepts.1.explanation": "Changing Canvas dimensions may reset its state. Reapply the transform and styles after setting the dimensions.",
+        "outcomes.0": "Learning outcome: explain the role of Measurement. Input cases: Changes to width and height.",
+        "outcomes.1": "Deliverable: A table of backing-store sizes and shape styles. Explain the rationale for handling Cost of changes, linking it to the code.",
+        "steps.0": "In src/day-8.js in a separate practice project, send cssWidth·cssHeight·dpr from ResizeObserver and reset the Worker renderer accordingly. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: Changes to width and height. Baseline: 400×240. Run under the baseline conditions, then record observations and errors in notes/day-8.md.",
+        "steps.2": "Variable: Size; changed value: 240×400. Run again through the same input path. Deliverable to save: A table of backing-store sizes and shape styles. Hypothesis to check: Styles and coordinate rules are preserved after the aspect ratio changes. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Size",
+        "variables.0.baseline": "400×240",
+        "variables.0.change": "240×400",
+        "variables.0.expected": "Styles and coordinate rules are preserved after the aspect ratio changes.",
+        "criteria.0": "Required deliverable: A table of backing-store sizes and shape styles. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Measurement and Cost of changes. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Measurement affect in this exercise? Input cases: Changes to width and height.",
+        "questions.1": "Variable: Size. Hypothesis to check: Styles and coordinate rules are preserved after the aspect ratio changes. Did the actual results agree with the hypothesis? Explain the evidence in terms of Cost of changes.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-09": {
+      "sourceHash": "186dfc5ba53767512aaf0fdeba076d64e8d4d3bc49df133d7484a9c3cd37050f",
+      "values": {
+        "title": "Resize Sequence Numbers",
+        "prerequisites": "Prepare the experiment results for Measurement and Cost of changes from Unit 8, “Resize Messages”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Latest size",
+        "concepts.0.explanation": "Rapid resizing generates multiple messages. Attach a seq so that only the latest size remains valid.",
+        "concepts.1.title": "Acknowledgment",
+        "concepts.1.explanation": "Returning the applied seq lets you match it to the main-thread request. Do not interpret an old acknowledgment as completion of the latest request.",
+        "outcomes.0": "Learning outcome: explain the role of Latest size. Input cases: Input in seq 1·3·2 order.",
+        "outcomes.1": "Deliverable: The applied seq and final size. Explain the rationale for handling Acknowledgment, linking it to the code.",
+        "steps.0": "In src/day-9.js in a separate practice project, implement resize seq and lastApplied checks. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: Input in seq 1·3·2 order. Baseline: 1·2·3. Run under the baseline conditions, then record observations and errors in notes/day-9.md.",
+        "steps.2": "Variable: Delivery order; changed value: 1·3·2. Run again through the same input path. Deliverable to save: The applied seq and final size. Hypothesis to check: seq 2 does not overwrite the latest size. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Delivery order",
+        "variables.0.baseline": "1·2·3",
+        "variables.0.change": "1·3·2",
+        "variables.0.expected": "seq 2 does not overwrite the latest size.",
+        "criteria.0": "Required deliverable: The applied seq and final size. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Latest size and Acknowledgment. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Latest size affect in this exercise? Input cases: Input in seq 1·3·2 order.",
+        "questions.1": "Variable: Delivery order. Hypothesis to check: seq 2 does not overwrite the latest size. Did the actual results agree with the hypothesis? Explain the evidence in terms of Acknowledgment.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
     }
   }
 }

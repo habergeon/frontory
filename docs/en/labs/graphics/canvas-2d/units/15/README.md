@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Time and Input](../../02-experiments/README.md)
+[Previous: Time and Input](../../02-experiments/README.md) · [Next: Undo and History](../16/README.md)
 
 ## Experiment notes — write your own
 

@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 15 published in English
+Graphics · 4 stages · 28 units in the full series · 18 published in English
 
 ## Series goal
 
@@ -45,6 +45,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 3 · Scene Editing and Compositing
 
 - [15. Scene Data and Redrawing](units/15/README.md) — Editable example
+- [16. Undo and History](units/16/README.md) — Editable example
+- [17. Making an Eraser with Compositing](units/17/README.md) — Editable example
+- [18. Clipping and Masks](units/18/README.md) — Editable example
 
 ### Stage 4 · Accessibility, Particles, and Performance Verification
 

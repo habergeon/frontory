@@ -2216,6 +2216,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "canvas-2d-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Undo and History",
+      "goal": "Movement and deletion are each undone in a single step. Later changes do not alter earlier snapshots.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/16/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "canvas-2d-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Making an Eraser with Compositing",
+      "goal": "The normal pen works correctly after using the eraser. Explain which layers own the background and ink.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/17/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "canvas-2d-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Clipping and Masks",
+      "goal": "The image does not leak outside the circle. The following label is not cut off by clipping.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/18/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

@@ -403,6 +403,84 @@
         "questions.1": "What problems arise if you store array indices instead of ids?",
         "references.0.title": "MDN CanvasRenderingContext2D API"
       }
+    },
+    "canvas-2d-step-16": {
+      "sourceHash": "41d8c6ecb1a56abf0505318e1c68cfdc558fc30b9623b746c3427fca7a32203e",
+      "values": {
+        "title": "Undo and History",
+        "prerequisites": "Prerequisite concepts: Source Data, Pure Drawing. Prepare the result files and observation records from Unit 15.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Snapshots",
+        "concepts.0.explanation": "Undo restores an earlier data state. Saving only references can let later changes affect past states too.",
+        "concepts.1.title": "Command Boundaries",
+        "concepts.1.explanation": "Recording every move during a drag makes undo require too many steps. You can group the start and end as one user action.",
+        "outcomes.0": "Movement and deletion are each undone in a single step.",
+        "outcomes.1": "Later changes do not alter earlier snapshots.",
+        "steps.0": "Prepare day-16.js and index.html in the external practice project. Save the scene before changes in history with structuredClone, and connect an undo button.",
+        "steps.1": "Record only when dragging ends; perform deletion and movement in succession, then restore them in reverse order.",
+        "steps.2": "Save the output with the input condition every pointermove, then run again with pointerup. Expected: One drag is reverted with one undo. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-16-notes.md.",
+        "variables.0.name": "Recording Time",
+        "variables.0.baseline": "every pointermove",
+        "variables.0.change": "pointerup",
+        "variables.0.expected": "One drag is reverted with one undo",
+        "criteria.0": "Movement and deletion are each undone in a single step.",
+        "criteria.1": "Later changes do not alter earlier snapshots.",
+        "questions.0": "What happens to redo when you perform a new action after undo?",
+        "questions.1": "Should large image data be copied too?",
+        "references.0.title": "MDN Canvas Tutorial"
+      }
+    },
+    "canvas-2d-step-17": {
+      "sourceHash": "4e34de6971575fef973f0d9bcb15aac0ffde0d62986d1cf31100e185afafab98",
+      "values": {
+        "title": "Making an Eraser with Compositing",
+        "prerequisites": "Prerequisite concepts: Snapshots, Command Boundaries. Prepare the result files and observation records from Unit 16.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Compositing Operations",
+        "concepts.0.explanation": "globalCompositeOperation sets the rule for combining new and existing pixels. destination-out erases existing areas using the new shape's alpha.",
+        "concepts.1.title": "Separate Layers",
+        "concepts.1.explanation": "An eraser acts only on pixels in its target canvas. If the background was drawn there too, it may also be erased.",
+        "outcomes.0": "The normal pen works correctly after using the eraser.",
+        "outcomes.1": "Explain which layers own the background and ink.",
+        "steps.0": "Prepare day-17.js and index.html in the external practice project. Draw lines on a separate ink canvas and apply destination-out in eraser mode.",
+        "steps.1": "Restore source-over afterward and check whether the HTML background shows through transparent areas.",
+        "steps.2": "Save the output with the input condition 1, then run again with 0.3. Expected: Repeated passes gradually fade the area instead of erasing it completely. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-17-notes.md.",
+        "variables.0.name": "Eraser Alpha",
+        "variables.0.baseline": "1",
+        "variables.0.change": "0.3",
+        "variables.0.expected": "Repeated passes gradually fade the area instead of erasing it completely",
+        "criteria.0": "The normal pen works correctly after using the eraser.",
+        "criteria.1": "Explain which layers own the background and ink.",
+        "questions.0": "How does this differ from painting over an area in white?",
+        "questions.1": "What happens when a translucent eraser repeatedly passes over the same spot?",
+        "references.0.title": "MDN CanvasRenderingContext2D API"
+      }
+    },
+    "canvas-2d-step-18": {
+      "sourceHash": "aef81146373574e78296c001bcb958071785a8b1fed4e0de14f5a2c4fe96e911",
+      "values": {
+        "title": "Clipping and Masks",
+        "prerequisites": "Prerequisite concepts: Compositing Operations, Separate Layers. Prepare the result files and observation records from Unit 17.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Clipping Region",
+        "concepts.0.explanation": "clip restricts the visible region for subsequent drawing. Without save and restore around it, later operations remain confined to the same region.",
+        "concepts.1.title": "Drawing Order",
+        "concepts.1.explanation": "Set the mask path before drawing. Calling clip afterward does not retroactively crop pixels already drawn.",
+        "outcomes.0": "The image does not leak outside the circle.",
+        "outcomes.1": "The following label is not cut off by clipping.",
+        "steps.0": "Prepare day-18.js and index.html in the external practice project. Use a circular path to clip, then fill it with a local image using drawImage.",
+        "steps.1": "Draw the label outside the mask after restore to compose a circular avatar and description.",
+        "steps.2": "Save the output with the input condition 60, then run again with 30. Expected: The image position stays the same, and only the exposed area shrinks. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-18-notes.md.",
+        "variables.0.name": "Mask Radius",
+        "variables.0.baseline": "60",
+        "variables.0.change": "30",
+        "variables.0.expected": "The image position stays the same, and only the exposed area shrinks",
+        "criteria.0": "The image does not leak outside the circle.",
+        "criteria.1": "The following label is not cut off by clipping.",
+        "questions.0": "How does clip differ from destination-in?",
+        "questions.1": "What must be restored to expand a nested clip?",
+        "references.0.title": "MDN CanvasRenderingContext2D API"
+      }
     }
   }
 }

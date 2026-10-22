@@ -1,0 +1,1 @@
+{"url":"http://127.0.0.1:4185/tests/browser/i18n.html","title":"Frontory interface language verification","state":"FAIL","results":[{"name":"Language control exists","actual":false,"expected":true,"ok":false},{"error":"Error: Language control exists: false"}],"reason":"Browser plugin not available; actual app DOM has no interface language control before F09."}

@@ -1,0 +1,4 @@
+
+> frontory@1.0.0 typecheck C:\Users\johjh\AppData\Roaming\orca\codex-accounts\57cbddad-72f6-43b5-b71a-5426d73a880f\home\worktrees\4ea8\web-gl-study
+> tsc --noEmit
+

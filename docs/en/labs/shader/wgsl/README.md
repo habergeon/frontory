@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Shaders · 4 stages · 28 units in the full series · 3 published in English
+Shaders · 4 stages · 28 units in the full series · 6 published in English
 
 ## Series goal
 
@@ -27,6 +27,9 @@ Only published English units are linked below. The full series has 28 units.
 - [01. Types and Entry Points](01-foundations/README.md) — Editable example
 - [02. Literals and Explicit Numeric Types](units/02/README.md) — Editable example
 - [03. Creating and Multiplying Vectors and Matrices](units/03/README.md) — Editable example
+- [04. Const, Let, Var, and Override](units/04/README.md) — Editable example
+- [05. Function and Structure Contracts](units/05/README.md) — Editable example
+- [06. Conditions, Loops, and Termination](units/06/README.md) — Editable example
 
 ### Stage 2 · Resource Declarations and Memory Layout
 

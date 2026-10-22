@@ -394,6 +394,9 @@
     "webgpu-03",
     "wgsl-01",
     "wgsl-step-02",
-    "wgsl-step-03"
+    "wgsl-step-03",
+    "wgsl-step-04",
+    "wgsl-step-05",
+    "wgsl-step-06"
   ]
 }

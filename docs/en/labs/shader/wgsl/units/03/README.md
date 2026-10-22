@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Literals and Explicit Numeric Types](../02/README.md)
+[Previous: Literals and Explicit Numeric Types](../02/README.md) · [Next: Const, Let, Var, and Override](../04/README.md)
 
 ## Experiment notes — write your own
 

@@ -3843,6 +3843,36 @@
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
+      "id": "wgsl-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Const, Let, Var, and Override",
+      "goal": "Choose declarations that match value lifetimes. Distinguish pipeline constants from runtime inputs.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/04/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Function and Structure Contracts",
+      "goal": "Create computation functions with explicit types. Distinguish the purposes of structures.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/05/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Conditions, Loops, and Termination",
+      "goal": "Write explicit control flow. Maintain safe access conditions.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/06/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

@@ -91,6 +91,87 @@
         "references.0.title": "WGSL Specification",
         "references.1.title": "WebGPU API"
       }
+    },
+    "wgsl-step-04": {
+      "sourceHash": "e2efd3b352815eca048ec40426eaf6ab4b5df66335afdb15b745aee56aae4da2",
+      "values": {
+        "title": "Const, Let, Var, and Override",
+        "prerequisites": "Continue using the output and records from Unit 3. Before experimenting with Const, Let, Var, and Override, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Mutability",
+        "concepts.0.explanation": "const and let express values that are not reassigned, but differ in evaluation time. Use var for state that changes during function execution.",
+        "concepts.1.title": "Pipeline Constants",
+        "concepts.1.explanation": "override defines a value that can be supplied when creating a pipeline. A resource such as a uniform is more suitable than override for inputs that change every frame.",
+        "outcomes.0": "Choose declarations that match value lifetimes.",
+        "outcomes.1": "Distinguish pipeline constants from runtime inputs.",
+        "steps.0": "In constants.wgsl, distinguish a const coefficient, a let intermediate value, and a var accumulator.",
+        "steps.1": "Set override SCALE to 1 and 2 through pipeline constants.",
+        "steps.2": "Inspect a let reassignment error and move per-frame color input into a uniform.",
+        "variables.0.name": "SCALE",
+        "variables.0.baseline": "1",
+        "variables.0.change": "Create a pipeline with 2",
+        "variables.0.expected": "The pipeline's result is expected to double, with a lifetime different from a uniform update.",
+        "criteria.0": "Tabulate when the four declarations are evaluated and can change.",
+        "criteria.1": "Record the results for two pipeline constants and the let reassignment error.",
+        "questions.0": "Why does changing override require a different pipeline configuration?",
+        "questions.1": "Which declaration suits a value that stays unchanged during a function call?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-05": {
+      "sourceHash": "54e92bc536266f102b3d43daa091c0e8bed9560b2f714c923bfcf7b2330c5412",
+      "values": {
+        "title": "Function and Structure Contracts",
+        "prerequisites": "Continue using the output and records from Unit 4. Before experimenting with Function and Structure Contracts, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Separating Functions",
+        "concepts.0.explanation": "Separating pure computation functions makes it easier to verify the same mathematics in vertex and compute stages. Declare concrete input and return types.",
+        "concepts.1.title": "Structures",
+        "concepts.1.explanation": "Structures group related fields, but stage attributes and memory conventions depend on where a structure is used. Do not assume a screen input/output structure is also a storage structure.",
+        "outcomes.0": "Create computation functions with explicit types.",
+        "outcomes.1": "Distinguish the purposes of structures.",
+        "steps.0": "In functions.wgsl, write wave(x,time,amplitude) and a result structure.",
+        "steps.1": "Pass five x inputs to the function from a compute entry point and output the results.",
+        "steps.2": "Use the same function for vertex displacement, then compare the numeric output and maximum displacement.",
+        "variables.0.name": "Amplitude",
+        "variables.0.baseline": "0.1",
+        "variables.0.change": "0.3",
+        "variables.0.expected": "The wavelength is expected to remain unchanged while maximum displacement triples.",
+        "criteria.0": "The CPU and WGSL function values differ by no more than 1e-5 for five inputs.",
+        "criteria.1": "Separate the inputs of stage functions and pure computation functions.",
+        "questions.0": "Should stage attributes be attached to ordinary computation function arguments?",
+        "questions.1": "Does splitting functions always increase GPU call overhead?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-06": {
+      "sourceHash": "cfed5210c222e62f1b6751e77ce4e234edb6f9d504c14ff60ac093929fda4cc9",
+      "values": {
+        "title": "Conditions, Loops, and Termination",
+        "prerequisites": "Continue using the output and records from Unit 5. Before experimenting with Conditions, Loops, and Termination, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Control Flow",
+        "concepts.0.explanation": "if, switch, for, and loop express computation paths and iteration counts. Set an upper bound when connecting termination conditions to inputs to prevent unexpectedly long work.",
+        "concepts.1.title": "Branch Semantics",
+        "concepts.1.explanation": "select is different from an ordinary short-circuiting if. Do not hide unsafe memory access in one of select's arguments.",
+        "outcomes.0": "Write explicit control flow.",
+        "outcomes.1": "Maintain safe access conditions.",
+        "steps.0": "In flow.wgsl, write an accumulating for loop with an upper bound of 8 and a mode switch.",
+        "steps.1": "Use if to branch before buffer access when the length is insufficient.",
+        "steps.2": "Compare the results for two modes and iteration counts 0, 1, and 8 with a CPU function.",
+        "variables.0.name": "Iteration count",
+        "variables.0.baseline": "1",
+        "variables.0.change": "8",
+        "variables.0.expected": "The accumulated result and workload are expected to increase; 0 is expected to return the initial value.",
+        "criteria.0": "The results for six combinations match the CPU reference.",
+        "criteria.1": "Array bounds checks do not depend on select argument evaluation.",
+        "questions.0": "Can you assume that only one of the two expressions in select is evaluated?",
+        "questions.1": "What problems arise if loop termination depends only on external data?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
     }
   }
 }

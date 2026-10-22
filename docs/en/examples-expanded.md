@@ -400,6 +400,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | --- | --- | --- |
 | [2. Literals and Explicit Numeric Types](labs/shader/wgsl/units/02/README.md) | Editable example | [Source code](../../src/labs/wgsl-step-02/example.js) — Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results. |
 | [3. Creating and Multiplying Vectors and Matrices](labs/shader/wgsl/units/03/README.md) | Editable example | [Source code](../../src/labs/wgsl-step-03/example.js) — Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results. |
+| [4. Const, Let, Var, and Override](labs/shader/wgsl/units/04/README.md) | Editable example | [Source code](../../src/labs/wgsl-step-04/example.js) — Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results. |
+| [5. Function and Structure Contracts](labs/shader/wgsl/units/05/README.md) | Editable example | [Source code](../../src/labs/wgsl-step-05/example.js) — Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results. |
+| [6. Conditions, Loops, and Termination](labs/shader/wgsl/units/06/README.md) | Editable example | [Source code](../../src/labs/wgsl-step-06/example.js) — Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results. |
 
 ## GSAP
 

@@ -771,6 +771,36 @@
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
+      "id": "react-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Preserving State by Unit",
+      "goal": "Strings for A and B do not mix. Distinguish at least two fields that reset when the key changes.",
+      "docPath": "/docs/en/labs/frameworks/react/units/17/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Component Composition and children",
+      "goal": "Panel does not directly read the items or notes structure. Each panel displays its own title and buttons correctly.",
+      "docPath": "/docs/en/labs/frameworks/react/units/18/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Making Asynchronous State Explicit",
+      "goal": "loading and error guidance do not appear together. The error text disappears after a successful retry.",
+      "docPath": "/docs/en/labs/frameworks/react/units/19/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
       "id": "gsap-step-02",
       "day": 2,
       "week": 1,

@@ -82,6 +82,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [13. Request Races and Cancellation](labs/frameworks/react/units/13/README.md) | Editable example | [Source code](../../src/labs/react-step-13/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [15. Custom Hook Boundaries](labs/frameworks/react/units/15/README.md) | Editable example | [Source code](../../src/labs/react-step-15/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [16. Saving Notes and Initial Restoration](labs/frameworks/react/units/16/README.md) | Editable example | [Source code](../../src/labs/react-step-16/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [17. Preserving State by Unit](labs/frameworks/react/units/17/README.md) | Editable example | [Source code](../../src/labs/react-step-17/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [18. Component Composition and children](labs/frameworks/react/units/18/README.md) | Editable example | [Source code](../../src/labs/react-step-18/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [19. Making Asynchronous State Explicit](labs/frameworks/react/units/19/README.md) | Editable example | [Source code](../../src/labs/react-step-19/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 
 ## GSAP
 

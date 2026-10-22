@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Custom Hook Boundaries](../15/README.md)
+[Previous: Custom Hook Boundaries](../15/README.md) · [Next: Preserving State by Unit](../17/README.md)
 
 ## Experiment notes — write your own
 

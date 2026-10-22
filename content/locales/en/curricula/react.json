@@ -466,6 +466,88 @@
         "references.1.title": "React API Reference",
         "references.2.title": "React useEffect: External Systems and Cleanup"
       }
+    },
+    "react-step-17": {
+      "sourceHash": "5f90b8ead19f0c40278d6427abaeb006b9db4fffaa68754e424a4594ba0b837e",
+      "values": {
+        "title": "Preserving State by Unit",
+        "prerequisites": "Unit 17 continues using the work and experiment records from Unit 16.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Tree Identity",
+        "concepts.0.explanation": "The same component at the same position preserves state. Changing its key treats it as a new component and resets local state.",
+        "concepts.1.title": "Persistent Drafts",
+        "concepts.1.explanation": "Data that must outlive a disappearing editor belongs to a parent store. Temporary UI state such as cursor position can remain in the editor.",
+        "outcomes.0": "Strings for A and B do not mix.",
+        "outcomes.1": "Distinguish at least two fields that reset when the key changes.",
+        "steps.0": "Add a unit key and local cursor display to src/NoteEditor.jsx.",
+        "steps.1": "Store the actual strings in App's draftsById.",
+        "steps.2": "After entering A→entering B→returning to A, record the difference between strings and local state.",
+        "variables.0.name": "Editor key",
+        "variables.0.baseline": "Fixed",
+        "variables.0.change": "unitId",
+        "variables.0.expected": "Local UI resets, but drafts held by the parent are preserved.",
+        "criteria.0": "Strings for A and B do not mix.",
+        "criteria.1": "Distinguish at least two fields that reset when the key changes.",
+        "questions.0": "What disappears on switching if drafts exist only in local state?",
+        "questions.1": "Which requirements call for changing the key, and which call for preserving it?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference",
+        "references.2.title": "React: Preserving and Resetting State"
+      }
+    },
+    "react-step-18": {
+      "sourceHash": "b303e5d66b91010fdf41857929510c22395d1c51f0b73074deec53121c028c87",
+      "values": {
+        "title": "Component Composition and children",
+        "prerequisites": "Unit 18 continues using the work and experiment records from Unit 17.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Composition",
+        "concepts.0.explanation": "children is an input for placing UI passed by the parent. A layout can wrap content without knowing the card data structure.",
+        "concepts.1.title": "Limiting Responsibilities",
+        "concepts.1.explanation": "Handling every screen with multiple booleans quickly multiplies combinations. Separate shared layout from content using slot-like props or children.",
+        "outcomes.0": "Panel does not directly read the items or notes structure.",
+        "outcomes.1": "Each panel displays its own title and buttons correctly.",
+        "steps.0": "Arrange the title, tools area, and children in src/Panel.jsx.",
+        "steps.1": "Use the same Panel for the list panel and notes panel.",
+        "steps.2": "Pass a save button to only one panel, and check whether empty space remains in the other panel.",
+        "variables.0.name": "Tools Area",
+        "variables.0.baseline": "None",
+        "variables.0.change": "Save button",
+        "variables.0.expected": "Only the tools are added, without changing the content area.",
+        "criteria.0": "Panel does not directly read the items or notes structure.",
+        "criteria.1": "Each panel displays its own title and buttons correctly.",
+        "questions.0": "When would children be accepted as a function?",
+        "questions.1": "Why does putting every variation into boolean props make verification difficult?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
+    },
+    "react-step-19": {
+      "sourceHash": "dbc27a53b367fb285e5c816e3c092b12037ab965045a5ba491e07acd0fb4c095",
+      "values": {
+        "title": "Making Asynchronous State Explicit",
+        "prerequisites": "Unit 19 continues using the work and experiment records from Unit 18.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "State Model",
+        "concepts.0.explanation": "Representing idle·loading·success·error as one state reduces contradictions. Independent loading and error booleans can both be on at once.",
+        "concepts.1.title": "Retrying",
+        "concepts.1.explanation": "A failure screen should provide the cause and an action to retry. Set a rule for handling a previous failure when starting a request.",
+        "outcomes.0": "loading and error guidance do not appear together.",
+        "outcomes.1": "The error text disappears after a successful retry.",
+        "steps.0": "Define status-based state transitions in src/loadState.js.",
+        "steps.1": "In Search.jsx, render success, empty results, and failure as separate screens.",
+        "steps.2": "Run a failing fakeSearch once, then make a retry succeed.",
+        "variables.0.name": "Response Type",
+        "variables.0.baseline": "Successful array",
+        "variables.0.change": "Failure followed by success",
+        "variables.0.expected": "Retrying after error guidance switches to a successful list.",
+        "criteria.0": "loading and error guidance do not appear together.",
+        "criteria.1": "The error text disappears after a successful retry.",
+        "questions.0": "Is an empty array success or error?",
+        "questions.1": "How do you decide whether to keep previous results during a new request?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
     }
   }
 }

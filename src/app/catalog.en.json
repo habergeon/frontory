@@ -409,6 +409,36 @@
       "exampleNote": "The example.test links are for examining path resolution; actual documents are not provided. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "html-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Images and Alternative Text",
+      "goal": "Record 3 alt policies for informative, decorative, and linked images. The link purpose and body content remain understandable when images fail.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/07/README.md",
+      "seriesId": "html",
+      "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "figure and Combined Descriptions",
+      "goal": "Check the 2 pieces of material and their shared comparison conditions. Write down the distinct roles of image-difference descriptions and the caption.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/08/README.md",
+      "seriesId": "html",
+      "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Table Row and Column Relationships",
+      "goal": "Check which headers each value in the 3 rows belongs to. State the table’s purpose and units in caption.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/09/README.md",
+      "seriesId": "html",
+      "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
       "id": "css-01",
       "day": 1,
       "week": 1,

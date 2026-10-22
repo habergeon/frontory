@@ -166,6 +166,84 @@
         "variables.0.expected": "Pre-run hypothesis: The request location will move to the parent folder. Keep other conditions fixed and record the actual result separately after running.",
         "references.0.title": "MDN HTML"
       }
+    },
+    "html-step-07": {
+      "sourceHash": "94756b1ed2c4e3895c7fd5c4bfa5e1aa8b78175fba0e59ee20de6996352e62e7",
+      "values": {
+        "title": "Images and Alternative Text",
+        "prerequisites": "The work and experiment records from Unit 6, “Link Paths and In-page Navigation”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Alternative Information",
+        "concepts.0.explanation": "alt expresses an image’s purpose in text. Use empty alt for decorative images to reduce redundant information.",
+        "concepts.1.title": "Reserving Space",
+        "concepts.1.explanation": "width and height provide image aspect-ratio information. Appropriate dimensions can reduce layout shifts during loading.",
+        "outcomes.0": "Record 3 alt policies for informative, decorative, and linked images.",
+        "outcomes.1": "The link purpose and body content remain understandable when images fail.",
+        "criteria.0": "Record 3 alt policies for informative, decorative, and linked images.",
+        "criteria.1": "The link purpose and body content remain understandable when images fail.",
+        "steps.0": "In images.html, prepare 1 informative image, 1 decorative image, and 1 linked image.",
+        "steps.1": "Assign alt text and dimensions suited to the purpose of the explanatory, decorative, and linked images.",
+        "steps.2": "Run with 1 informative image, 1 decorative image, and 1 linked image. Results to check: Record 3 alt policies for informative, decorative, and linked images. The link purpose and body content remain understandable when images fail. Record expected and actual results separately.",
+        "questions.0": "Is an image filename sufficient as alt text?",
+        "questions.1": "How should content be divided between a caption and alt text?",
+        "variables.0.name": "Image Request",
+        "variables.0.baseline": "Valid src",
+        "variables.0.change": "Nonexistent path",
+        "variables.0.expected": "Pre-run hypothesis: Alternative text will let you identify the purpose. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
+    },
+    "html-step-08": {
+      "sourceHash": "60b539c7756e4a48d056a1236202646f771b1f1df92619c8bfcdb9833686cd51",
+      "values": {
+        "title": "figure and Combined Descriptions",
+        "prerequisites": "The work and experiment records from Unit 7, “Images and Alternative Text”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Self-contained Material",
+        "concepts.0.explanation": "figure groups self-contained material referenced in the body. Depending on context, it can contain code or tables as well as images.",
+        "concepts.1.title": "Captions",
+        "concepts.1.explanation": "figcaption provides a description for a figure. It does not always need to repeat the image’s alt text.",
+        "outcomes.0": "Check the 2 pieces of material and their shared comparison conditions.",
+        "outcomes.1": "Write down the distinct roles of image-difference descriptions and the caption.",
+        "criteria.0": "Check the 2 pieces of material and their shared comparison conditions.",
+        "criteria.1": "Write down the distinct roles of image-difference descriptions and the caption.",
+        "steps.0": "In figure.html, prepare before-and-after images of the same scene and a reference in the body.",
+        "steps.1": "Group two before-and-after experiment images in a figure, and write the comparison conditions in figcaption.",
+        "steps.2": "Run with before-and-after images of the same scene and a reference in the body. Results to check: Check the 2 pieces of material and their shared comparison conditions. Write down the distinct roles of image-difference descriptions and the caption. Record expected and actual results separately.",
+        "questions.0": "Does the material remain understandable if moved within the body?",
+        "questions.1": "Can a figure contain multiple images?",
+        "variables.0.name": "Description Location",
+        "variables.0.baseline": "Regular p",
+        "variables.0.change": "figcaption",
+        "variables.0.expected": "Pre-run hypothesis: The structure will express the relationship between the material and its description. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
+    },
+    "html-step-09": {
+      "sourceHash": "aa14315f8ff4dafef56e324e5fd54c5d62eb9f273d2f8ad2faa7376f785be048",
+      "values": {
+        "title": "Table Row and Column Relationships",
+        "prerequisites": "The work and experiment records from Unit 8, “figure and Combined Descriptions”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Data Tables",
+        "concepts.0.explanation": "Use table for data with row and column relationships. Using it for page layout disrupts reading relationships.",
+        "concepts.1.title": "Header Associations",
+        "concepts.1.explanation": "th and scope express the direction of a cell’s headers. Complex tables may require additional associations such as headers and id.",
+        "outcomes.0": "Check which headers each value in the 3 rows belongs to.",
+        "outcomes.1": "State the table’s purpose and units in caption.",
+        "criteria.0": "Check which headers each value in the 3 rows belongs to.",
+        "criteria.1": "State the table’s purpose and units in caption.",
+        "steps.0": "In table.html, prepare 3 experiment rows and 2 columns for time and memory.",
+        "steps.1": "Build an experiment results table using caption·thead·tbody and row/column th elements.",
+        "steps.2": "Run with 3 experiment rows and 2 columns for time and memory. Results to check: Check which headers each value in the 3 rows belongs to. State the table’s purpose and units in caption. Record expected and actual results separately.",
+        "questions.0": "Does this data actually require a table?",
+        "questions.1": "Which associations should you check as merged cells become more numerous?",
+        "variables.0.name": "Header Element",
+        "variables.0.baseline": "td",
+        "variables.0.change": "th scope",
+        "variables.0.expected": "Pre-run hypothesis: The relationship between cells and headers will be conveyed more clearly. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
     }
   }
 }

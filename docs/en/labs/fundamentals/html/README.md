@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 6 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 9 published in English
 
 ## Series goal
 
@@ -30,9 +30,12 @@ Only published English units are linked below. The full series has 28 units.
 - [04. Paragraphs and Text Semantics](units/04/README.md) — Editable example
 - [05. Lists and Term Descriptions](units/05/README.md) — Editable example
 - [06. Link Paths and In-page Navigation](units/06/README.md) — Editable example
+- [07. Images and Alternative Text](units/07/README.md) — Editable example
 
 ### Stage 2 · Tables and Form Inputs
 
+- [08. figure and Combined Descriptions](units/08/README.md) — Editable example
+- [09. Table Row and Column Relationships](units/09/README.md) — Editable example
 
 ### Stage 3 · Native UI and Media
 

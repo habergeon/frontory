@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Lists and Term Descriptions](../05/README.md)
+[Previous: Lists and Term Descriptions](../05/README.md) · [Next: Images and Alternative Text](../07/README.md)
 
 ## Experiment notes — write your own
 

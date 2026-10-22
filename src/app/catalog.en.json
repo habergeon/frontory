@@ -1017,6 +1017,35 @@
       "docPath": "/docs/en/labs/animation/gsap/units/13/README.md",
       "seriesId": "gsap",
       "exampleNote": "This is an experiment on Refresh and Measurement Timing. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-02",
+      "day": 14,
+      "week": 2,
+      "title": "Scroll and Lifecycle",
+      "goal": "Learning outcome: explain the role of Scope of the Existing Example. Input case: 5 remounts and resize. Deliverable: event counts and a record of all explanations being displayed. Explain the rationale for handling Cleanup, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/02-experiments/README.md",
+      "seriesId": "gsap"
+    },
+    {
+      "id": "gsap-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "MatchMedia Branches",
+      "goal": "Learning outcome: explain the role of Responsive Motion. Input case: widths of 375·1024px. Deliverable: final positions and cleanup counts for each width. Explain the rationale for handling Distance Units, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/15/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on MatchMedia Branches. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Repeated Input and Overwrite",
+      "goal": "Learning outcome: explain the role of Contention. Input case: 10 alternating clicks. Deliverable: the latest target and final x value. Explain the rationale for handling Overwrite, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/16/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Repeated Input and Overwrite. It supports direct interaction and cleans up the resources it uses."
     }
   ]
 }

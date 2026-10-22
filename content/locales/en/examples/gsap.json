@@ -78,5 +78,17 @@
     "values": {
       "note": "This is an experiment on Refresh and Measurement Timing. It supports direct interaction and cleans up the resources it uses."
     }
+  },
+  "gsap-step-15": {
+    "sourceHash": "8138d25f50227a431014584d16b004ff6ec536b93ec3994eae22c95943a1eb3b",
+    "values": {
+      "note": "This is an experiment on MatchMedia Branches. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-16": {
+    "sourceHash": "329b94753b1558398742cb52356f74804b82949b63f1c26ba241bb25e155ebd1",
+    "values": {
+      "note": "This is an experiment on Repeated Input and Overwrite. It supports direct interaction and cleans up the resources it uses."
+    }
   }
 }

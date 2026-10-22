@@ -377,6 +377,87 @@
         "references.0.title": "GSAP Official Documentation",
         "references.1.title": "ScrollTrigger Official Documentation"
       }
+    },
+    "gsap-02": {
+      "sourceHash": "a997518755f7a506714bbed03634cf48f0df89f98bd0da48bb131cc8ba227884",
+      "values": {
+        "title": "Scroll and Lifecycle",
+        "prerequisites": "Prepare the exercise results on Layout Changes and Refresh from Unit 13, “Refresh and Measurement Timing”.",
+        "environment": "The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Scope of the Existing Example",
+        "concepts.0.explanation": "gsap-02 uses native scroll events and a timeline. Its preview does not run ScrollTrigger.",
+        "concepts.1.title": "Cleanup",
+        "concepts.1.explanation": "Remove events and restore styles together. Provide static explanations for reduced motion.",
+        "outcomes.0": "Learning outcome: explain the role of Scope of the Existing Example. Input case: 5 remounts and resize.",
+        "outcomes.1": "Deliverable: event counts and a record of all explanations being displayed. Explain the rationale for handling Cleanup, connecting it to the code.",
+        "steps.0": "In src/day-14.js of a separate practice project, read the existing gsap-02 and implement resize·dispose·reduced-motion branches in a separate app. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 5 remounts and resize. Baseline: off. Run under baseline conditions, then record observations and errors in notes/day-14.md.",
+        "steps.2": "Variable: Reduced Motion; changed value: on. Run again using the same input path. Deliverable to save: event counts and a record of all explanations being displayed. Hypothesis to check: Explanations remain without motion, and events are not duplicated. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Reduced Motion",
+        "variables.0.baseline": "off",
+        "variables.0.change": "on",
+        "variables.0.expected": "Explanations remain without motion, and events are not duplicated.",
+        "criteria.0": "Required deliverable: event counts and a record of all explanations being displayed. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Scope of the Existing Example, Cleanup. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Scope of the Existing Example affect in this exercise? Input case: 5 remounts and resize.",
+        "questions.1": "Variable: Reduced Motion. Hypothesis to check: Explanations remain without motion, and events are not duplicated. Did the actual results match the hypothesis? Explain the evidence in terms of Cleanup.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-15": {
+      "sourceHash": "e6f1aad38653df8bdc5f0f67d2787f1dbbb8eb9d2cae37aaf15d9f22730a356d",
+      "values": {
+        "title": "MatchMedia Branches",
+        "prerequisites": "Prepare the exercise results on Scope of the Existing Example and Cleanup from Unit 14, “Scroll and Lifecycle”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Responsive Motion",
+        "concepts.0.explanation": "matchMedia configures motion for each condition. Clean up the previous configuration when conditions change.",
+        "concepts.1.title": "Distance Units",
+        "concepts.1.explanation": "A fixed px distance may exceed a small screen. Function-based values must specify the reference size.",
+        "outcomes.0": "Learning outcome: explain the role of Responsive Motion. Input case: widths of 375·1024px.",
+        "outcomes.1": "Deliverable: final positions and cleanup counts for each width. Explain the rationale for handling Distance Units, connecting it to the code.",
+        "steps.0": "In src/day-15.js of a separate practice project, split movement distances at a 600px boundary and add a reduced-motion condition. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: widths of 375·1024px. Baseline: 1024px. Run under baseline conditions, then record observations and errors in notes/day-15.md.",
+        "steps.2": "Variable: Screen Width; changed value: 375px. Run again using the same input path. Deliverable to save: final positions and cleanup counts for each width. Hypothesis to check: The card stays inside the small container. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Screen Width",
+        "variables.0.baseline": "1024px",
+        "variables.0.change": "375px",
+        "variables.0.expected": "The card stays inside the small container.",
+        "criteria.0": "Required deliverable: final positions and cleanup counts for each width. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Responsive Motion, Distance Units. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Responsive Motion affect in this exercise? Input case: widths of 375·1024px.",
+        "questions.1": "Variable: Screen Width. Hypothesis to check: The card stays inside the small container. Did the actual results match the hypothesis? Explain the evidence in terms of Distance Units.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-16": {
+      "sourceHash": "50a59dd0a38954a7617957af0794c1748513c2f787cbab9967e4f2fac629669a",
+      "values": {
+        "title": "Repeated Input and Overwrite",
+        "prerequisites": "Prepare the exercise results on Responsive Motion and Distance Units from Unit 15, “MatchMedia Branches”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Contention",
+        "concepts.0.explanation": "Targets conflict when multiple tweens write the same property. Decide first whether the latest input takes priority.",
+        "concepts.1.title": "Overwrite",
+        "concepts.1.explanation": "overwrite:auto clears conflicting properties. There is no need to stop motion on independent properties too.",
+        "outcomes.0": "Learning outcome: explain the role of Contention. Input case: 10 alternating clicks.",
+        "outcomes.1": "Deliverable: the latest target and final x value. Explain the rationale for handling Overwrite, connecting it to the code.",
+        "steps.0": "In src/day-16.js of a separate practice project, apply overwrite:auto to the x tweens for the left and right buttons. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 10 alternating clicks. Baseline: 800ms. Run under baseline conditions, then record observations and errors in notes/day-16.md.",
+        "steps.2": "Variable: Input Interval; changed value: 80ms. Run again using the same input path. Deliverable to save: the latest target and final x value. Hypothesis to check: The final target is reached even with rapid input. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Input Interval",
+        "variables.0.baseline": "800ms",
+        "variables.0.change": "80ms",
+        "variables.0.expected": "The final target is reached even with rapid input.",
+        "criteria.0": "Required deliverable: the latest target and final x value. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Contention, Overwrite. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Contention affect in this exercise? Input case: 10 alternating clicks.",
+        "questions.1": "Variable: Input Interval. Hypothesis to check: The final target is reached even with rapid input. Did the actual results match the hypothesis? Explain the evidence in terms of Overwrite.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
     }
   }
 }

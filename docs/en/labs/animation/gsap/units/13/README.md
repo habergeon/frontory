@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Pin and Document Flow](../12/README.md)
+[Previous: Pin and Document Flow](../12/README.md) · [Next: Scroll and Lifecycle](../../02-experiments/README.md)
 
 ## Experiment notes — write your own
 

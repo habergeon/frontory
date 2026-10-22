@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Animation · 4 stages · 28 units in the full series · 13 published in English
+Animation · 4 stages · 28 units in the full series · 16 published in English
 
 ## Series goal
 
@@ -40,9 +40,12 @@ Only published English units are linked below. The full series has 28 units.
 - [11. Scrub Following](units/11/README.md) — Editable example
 - [12. Pin and Document Flow](units/12/README.md) — Editable example
 - [13. Refresh and Measurement Timing](units/13/README.md) — Editable example
+- [14. Scroll and Lifecycle](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Input and accessibility
 
+- [15. MatchMedia Branches](units/15/README.md) — Editable example
+- [16. Repeated Input and Overwrite](units/16/README.md) — Editable example
 
 ### Stage 4 · Motion system verification
 

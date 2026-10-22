@@ -88,6 +88,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [20. Transitions and Deferred Results](labs/frameworks/react/units/20/README.md) | Editable example | [Source code](../../src/labs/react-step-20/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [21. Finding Bottlenecks with Profiler](labs/frameworks/react/units/21/README.md) | Editable example | [Source code](../../src/labs/react-step-21/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. Measure the Profiler callback in a build with profiling support. The callback may be inactive in a production React build. |
 | [22. Memoizing Only Measured Paths](labs/frameworks/react/units/22/README.md) | Editable example | [Source code](../../src/labs/react-step-22/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [23. Display Ranges for Long Lists](labs/frameworks/react/units/23/README.md) | Editable example | [Source code](../../src/labs/react-step-23/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [24. Event Boundaries and Accessible Selection](labs/frameworks/react/units/24/README.md) | Editable example | [Source code](../../src/labs/react-step-24/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [25. Subscription Stores and Snapshots](labs/frameworks/react/units/25/README.md) | Editable example | [Source code](../../src/labs/react-step-25/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 
 ## GSAP
 

@@ -831,6 +831,36 @@
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
+      "id": "react-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Display Ranges for Long Lists",
+      "goal": "There are no more than 50 card rows in the DOM. Changing the filter does not leave the user on an invalid empty page.",
+      "docPath": "/docs/en/labs/frameworks/react/units/23/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Event Boundaries and Accessible Selection",
+      "goal": "1 delete click causes only 1 delete action. Perform both selection and deletion using only the keyboard.",
+      "docPath": "/docs/en/labs/frameworks/react/units/24/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Subscription Stores and Snapshots",
+      "goal": "Both panels display the same latest id. The subscription count is 0 after removing all panels.",
+      "docPath": "/docs/en/labs/frameworks/react/units/25/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
       "id": "gsap-step-02",
       "day": 2,
       "week": 1,

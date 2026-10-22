@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 22 published in English
+UI frameworks · 4 stages · 28 units in the full series · 25 published in English
 
 ## Series goal
 
@@ -55,6 +55,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 4 · Performance verification and an integrated editor
 
 - [22. Memoizing Only Measured Paths](units/22/README.md) — Editable example
+- [23. Display Ranges for Long Lists](units/23/README.md) — Editable example
+- [24. Event Boundaries and Accessible Selection](units/24/README.md) — Editable example
+- [25. Subscription Stores and Snapshots](units/25/README.md) — Editable example
 
 ## Capstone project and deliverables
 

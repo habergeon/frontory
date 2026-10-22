@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Finding Bottlenecks with Profiler](../21/README.md)
+[Previous: Finding Bottlenecks with Profiler](../21/README.md) · [Next: Display Ranges for Long Lists](../23/README.md)
 
 ## Experiment notes — write your own
 

@@ -630,6 +630,88 @@
         "references.0.title": "React Learning Guide",
         "references.1.title": "React API Reference"
       }
+    },
+    "react-step-23": {
+      "sourceHash": "9af31aeb4ffb2da24531d8f5e75012b08b003ce3ccd72b1532b946dc1219a0ae",
+      "values": {
+        "title": "Display Ranges for Long Lists",
+        "prerequisites": "Unit 23 continues using the work and experiment records from Unit 22.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "DOM Costs",
+        "concepts.0.explanation": "Many rows increase layout work and DOM memory as well as React calculations. Limiting the range needed on screen also changes other costs.",
+        "concepts.1.title": "Pages and Accessibility",
+        "concepts.1.explanation": "Pagination keeps implementation and keyboard navigation simple. Show the item count and current range so users know their position.",
+        "outcomes.0": "There are no more than 50 card rows in the DOM.",
+        "outcomes.1": "Changing the filter does not leave the user on an invalid empty page.",
+        "steps.0": "Implement 50 items per page and previous/next buttons in src/PagedList.jsx.",
+        "steps.1": "Filter 1000 cards before applying slice, and display the total result count.",
+        "steps.2": "On the last page, change the filter and adjust the current page to the valid range.",
+        "variables.0.name": "Page Size",
+        "variables.0.baseline": "1000 items",
+        "variables.0.change": "50 items",
+        "variables.0.expected": "DOM rows decrease to at most 50 while the total result count is preserved.",
+        "criteria.0": "There are no more than 50 card rows in the DOM.",
+        "criteria.1": "Changing the filter does not leave the user on an invalid empty page.",
+        "questions.0": "How do results change if slice is applied before the filter?",
+        "questions.1": "Why is keyboard navigation difficult with virtual scrolling?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
+    },
+    "react-step-24": {
+      "sourceHash": "6379dab228c81edae743ab783c1c7768d2cce8d0071424a821f93ae6f800e9e1",
+      "values": {
+        "title": "Event Boundaries and Accessible Selection",
+        "prerequisites": "Unit 24 continues using the work and experiment records from Unit 23.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Event Propagation",
+        "concepts.0.explanation": "A child button click may propagate to the parent's click handler. Separate the roles of nested interactions or deliberately control propagation.",
+        "concepts.1.title": "Native Controls",
+        "concepts.1.explanation": "button provides built-in keyboard behavior and focus. Adding only a click handler to a div does not provide the same interaction path.",
+        "outcomes.0": "1 delete click causes only 1 delete action.",
+        "outcomes.1": "Perform both selection and deletion using only the keyboard.",
+        "steps.0": "Split selection and deletion into separate buttons in src/CardRow.jsx.",
+        "steps.1": "Use logs to check whether a delete click also changes selection.",
+        "steps.2": "Perform selection and deletion using only Tab·Enter·Space, and implement focus restoration.",
+        "variables.0.name": "Deletion Location",
+        "variables.0.baseline": "Inside the selection area",
+        "variables.0.change": "Independent button",
+        "variables.0.expected": "One deletion is not followed by a selection change event.",
+        "criteria.0": "1 delete click causes only 1 delete action.",
+        "criteria.1": "Perform both selection and deletion using only the keyboard.",
+        "questions.0": "How does stopPropagation differ from preventDefault?",
+        "questions.1": "Where should focus move after deleting the currently focused card?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
+    },
+    "react-step-25": {
+      "sourceHash": "9d6e40a88862fa7167a88604af1927f4265bba79baa8b1b881d2d82c923e007a",
+      "values": {
+        "title": "Subscription Stores and Snapshots",
+        "prerequisites": "Unit 25 continues using the work and experiment records from Unit 24.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "External Stores",
+        "concepts.0.explanation": "A store updated outside React requires subscriptions and snapshot reads. useSyncExternalStore lets React read through this contract.",
+        "concepts.1.title": "Snapshot Stability",
+        "concepts.1.explanation": "When nothing changes, getSnapshot must return the same value. Creating a new object every time makes changes difficult to distinguish.",
+        "outcomes.0": "Both panels display the same latest id.",
+        "outcomes.1": "The subscription count is 0 after removing all panels.",
+        "steps.0": "Implement getSnapshot·subscribe·update in src/store.js.",
+        "steps.1": "Use useSyncExternalStore to display the same selected id in two panels.",
+        "steps.2": "Call an external update, and remove the panels in turn to check the subscription count.",
+        "variables.0.name": "Snapshot",
+        "variables.0.baseline": "New object every time",
+        "variables.0.change": "New object only on changes",
+        "variables.0.expected": "Reads with no changes do not trigger unnecessary updates.",
+        "criteria.0": "Both panels display the same latest id.",
+        "criteria.1": "The subscription count is 0 after removing all panels.",
+        "questions.0": "When does the screen update if an external value is only read through a regular ref?",
+        "questions.1": "What function must subscribe return?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference",
+        "references.2.title": "React useEffect: External Systems and Cleanup"
+      }
     }
   }
 }

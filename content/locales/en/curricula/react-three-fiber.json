@@ -1,0 +1,94 @@
+{
+  "series": {
+    "sourceHash": "6480bb676ab56e838f3384d6ee611a60e653a21f2d09495dc039e626ae77fad7",
+    "values": {
+      "stages.0": "Declarative Scenes and Frame Coordinates",
+      "stages.1": "3D Input and UI State",
+      "stages.2": "Models, Shared Resources, and Instancing",
+      "stages.3": "demand Policy and Performance Verification",
+      "goal": "Build Three.js scenes with React components, and manage frame values, selection state, and shared resource lifetimes separately.",
+      "capstone": "A 3D learning scene with selection and notes, a comparison of individual mesh objects and instancing, demand behavior verification, and a resource ownership report."
+    }
+  },
+  "units": {
+    "react-three-fiber-01": {
+      "sourceHash": "04be498fa1c435d3bcb4c342652db26f7d17e25db4750a8cd25537c967235d95",
+      "values": {
+        "title": "Declarative Scenes",
+        "prerequisites": "React state, ref, Effect and cleanup; Three.js geometry, material, and cameras; vectors and delta.",
+        "environment": "Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref. The existing react-three-fiber-01 preview is a starting point. Implement the extended deliverables described here in a separate project.",
+        "concepts.0.title": "React renderer",
+        "concepts.0.explanation": "R3F represents Three.js objects as a React tree. A mesh inside Canvas is not a DOM element; a separate renderer manages it.",
+        "concepts.1.title": "Object Ownership",
+        "concepts.1.explanation": "The geometry and material declared in JSX are attached to the scene tree. When passing objects created externally, check who is responsible for their lifetime.",
+        "outcomes.0": "The corresponding code for the cube, camera, and lights is recorded.",
+        "outcomes.1": "Changing scale changes the cube size.",
+        "steps.0": "Install compatible React, Three.js, and @react-three/fiber versions in an external React Vite project, and record them.",
+        "steps.1": "Declare a mesh, boxGeometry, meshStandardMaterial, and lights inside Canvas in src/Scene.jsx.",
+        "steps.2": "In notes/day01.md, map the existing imperative cube creation, addition, and removal code to JSX.",
+        "variables.0.name": "scale prop",
+        "variables.0.baseline": "1",
+        "variables.0.change": "1.5",
+        "variables.0.expected": "The displayed cube becomes larger while using the same geometry.",
+        "criteria.0": "The corresponding code for the cube, camera, and lights is recorded.",
+        "criteria.1": "Changing scale changes the cube size.",
+        "questions.0": "Why does putting an ordinary div inside Canvas cause problems?",
+        "questions.1": "What objects do a mesh declaration and geometry creation produce?",
+        "references.0.title": "R3F Getting Started and React Version Compatibility",
+        "references.1.title": "R3F Objects and Resource Disposal"
+      }
+    },
+    "react-three-fiber-step-02": {
+      "sourceHash": "969e71b9a798446bbcde2227c45214952b46bc0fdd8d6b7b4a4d944ec42d25f2",
+      "values": {
+        "title": "Canvas Size and Camera",
+        "prerequisites": "Unit 2 continues using the deliverables and experiment records from Unit 1.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Canvas Area",
+        "concepts.0.explanation": "Canvas determines its rendering area from the size of its parent element. Without a parent height, the scene may not be visible.",
+        "concepts.1.title": "Field of View",
+        "concepts.1.explanation": "Camera position and fov determine what fits on screen. Changing object size and camera settings together makes it difficult to identify the cause.",
+        "outcomes.0": "The Canvas area updates when the parent size changes.",
+        "outcomes.1": "Record the screen coverage at two fov values in the same viewport.",
+        "steps.0": "Give the Canvas parent a height of 400px in src/App.jsx.",
+        "steps.1": "Set camera position [0,0,5] and fov 50 to view the cube.",
+        "steps.2": "Change the parent width, and separately record the screen with only fov changed to 75.",
+        "variables.0.name": "fov",
+        "variables.0.baseline": "50",
+        "variables.0.change": "75",
+        "variables.0.expected": "At the same distance, the cube appears smaller on screen.",
+        "criteria.0": "The Canvas area updates when the parent size changes.",
+        "criteria.1": "Record the screen coverage at two fov values in the same viewport.",
+        "questions.0": "How do you distinguish a parent height of 0 from an object behind the camera?",
+        "questions.1": "Do changing fov and changing camera distance always have the same effect?",
+        "references.0.title": "R3F Canvas Configuration"
+      }
+    },
+    "react-three-fiber-step-03": {
+      "sourceHash": "08637af8fb51a6994802ddffee25c058f705acb96c94b60c912455c012197d9c",
+      "values": {
+        "title": "args and Object Recreation",
+        "prerequisites": "Unit 3 continues using the deliverables and experiment records from Unit 2.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Constructor Arguments",
+        "concepts.0.explanation": "args passes arguments to a Three.js constructor. Changing args may recreate the object, so distinguish this from a simple transform.",
+        "concepts.1.title": "Property Updates",
+        "concepts.1.explanation": "position, rotation, and scale are transform properties of an existing object. Recreating geometry dimensions and changing scale have different costs.",
+        "outcomes.0": "Changing only scale does not change the geometry uuid.",
+        "outcomes.1": "Record the uuid before and after changing args.",
+        "steps.0": "In src/Box.jsx, accept boxGeometry args and mesh scale as separate props.",
+        "steps.1": "Record the geometry uuid in an Effect log.",
+        "steps.2": "Change the width args and scale separately, and compare the uuid and screen.",
+        "variables.0.name": "Resizing Method",
+        "variables.0.baseline": "mesh scale",
+        "variables.0.change": "geometry args",
+        "variables.0.expected": "Changing args changes the geometry identity.",
+        "criteria.0": "Changing only scale does not change the geometry uuid.",
+        "criteria.1": "Record the uuid before and after changing args.",
+        "questions.0": "What happens if you keep calling new BoxGeometry inside render?",
+        "questions.1": "Which geometry changes should not be represented with scale?",
+        "references.0.title": "R3F Objects and Resource Disposal"
+      }
+    }
+  }
+}

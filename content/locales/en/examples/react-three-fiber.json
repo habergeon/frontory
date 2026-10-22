@@ -1,0 +1,14 @@
+{
+  "react-three-fiber-step-02": {
+    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "values": {
+      "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    }
+  },
+  "react-three-fiber-step-03": {
+    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "values": {
+      "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    }
+  }
+}

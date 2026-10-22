@@ -141,6 +141,20 @@
       ]
     },
     {
+      "id": "react-three-fiber",
+      "title": "React Three Fiber",
+      "category": "graphics",
+      "priority": 5,
+      "prerequisites": "React effect and ref; Three.js",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/README.md",
+      "stages": [
+        "Declarative Scenes and Frame Coordinates",
+        "3D Input and UI State",
+        "Models, Shared Resources, and Instancing",
+        "demand Policy and Performance Verification"
+      ]
+    },
+    {
       "id": "gsap",
       "title": "GSAP",
       "category": "animation",
@@ -2925,6 +2939,35 @@
       "goal": "Record metrics under identical conditions and the resource cleanup process. Explain performance changes together with whether quality and selection features are preserved.",
       "docPath": "/docs/en/labs/graphics/threejs/03-project/README.md",
       "seriesId": "threejs"
+    },
+    {
+      "id": "react-three-fiber-01",
+      "day": 1,
+      "week": 1,
+      "title": "Declarative Scenes",
+      "goal": "The corresponding code for the cube, camera, and lights is recorded. Changing scale changes the cube size.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/01-foundations/README.md",
+      "seriesId": "react-three-fiber"
+    },
+    {
+      "id": "react-three-fiber-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Canvas Size and Camera",
+      "goal": "The Canvas area updates when the parent size changes. Record the screen coverage at two fov values in the same viewport.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/02/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "args and Object Recreation",
+      "goal": "Changing only scale does not change the geometry uuid. Record the uuid before and after changing args.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/03/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
       "id": "gsap-01",

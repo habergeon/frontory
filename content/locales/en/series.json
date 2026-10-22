@@ -75,5 +75,12 @@
       "title": "Three.js",
       "prerequisites": "A first WebGL scene, vectors and matrices"
     }
+  },
+  "react-three-fiber": {
+    "sourceHash": "e10c8f3e7b51d8b7f2f385d6d9ef1b9d17c47e05ff31788ce78ba7b699692e9a",
+    "values": {
+      "title": "React Three Fiber",
+      "prerequisites": "React effect and ref; Three.js"
+    }
   }
 }

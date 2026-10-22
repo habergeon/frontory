@@ -304,6 +304,13 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [26. Render Statistics and Profiling](labs/graphics/threejs/units/26/README.md) | Editable example | [Source code](../../src/labs/threejs-step-26/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [27. Integrating the Scene Inspector](labs/graphics/threejs/units/27/README.md) | Editable example | [Source code](../../src/labs/threejs-step-27/example.js) — Runs selection, rebuilding, JSON, and rotation lifetimes in a basic-shape inspector. glTF loading and minimap integration are external capstone extensions. |
 
+## React Three Fiber
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Canvas Size and Camera](labs/graphics/react-three-fiber/units/02/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-02/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [3. args and Object Recreation](labs/graphics/react-three-fiber/units/03/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-03/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+
 ## GSAP
 
 | Learning unit | Execution mode | Source and supported scope |

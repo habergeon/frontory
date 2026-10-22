@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 24 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 27 published in English
 
 ## Series goal
 
@@ -57,6 +57,9 @@ Only published English units are linked below. The full series has 28 units.
 - [22. template and Repeated Content](units/22/README.md) — Editable example
 - [23. Script Loading and Document Parsing](units/23/README.md) — External example · preview instructions
 - [24. Accessible Names and Descriptions](units/24/README.md) — Editable example
+- [25. Reading Order and Skip Links](units/25/README.md) — Editable example
+- [26. HTML Errors and Browser Recovery](units/26/README.md) — Editable example
+- [27. Checking Image Failure and Zoom](units/27/README.md) — Editable example
 
 ## Capstone project and deliverables
 

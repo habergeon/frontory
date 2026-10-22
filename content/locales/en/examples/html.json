@@ -130,5 +130,23 @@
     "values": {
       "note": "Change aria-label to differ from the visible text, and inspect the actual computed name in the browser accessibility panel. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     }
+  },
+  "html-step-25": {
+    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "values": {
+      "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "html-step-26": {
+    "sourceHash": "fba7c83f9a495c316eb8026fee8ec65552db1c0cd8bbd566a545c306c2758e35",
+    "values": {
+      "note": "The inspection result displays the body tree recovered by the browser. Change p/div into siblings and compare the result with HTML validator diagnostics. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "html-step-27": {
+    "sourceHash": "e63f87516369064fb3d50e214f77a4249e0e8d14213dd09aa66dbf6883b44bf7",
+    "values": {
+      "note": "Reduce preview width to check reflow, and separately test actual browser zoom at 200%·400%. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
   }
 }

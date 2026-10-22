@@ -588,6 +588,36 @@
       "exampleNote": "Change aria-label to differ from the visible text, and inspect the actual computed name in the browser accessibility panel. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "html-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Reading Order and Skip Links",
+      "goal": "The shortcut link is available on the first keyboard interaction. Record focus and scroll positions before and after moving to the main content.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/25/README.md",
+      "seriesId": "html",
+      "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "HTML Errors and Browser Recovery",
+      "goal": "Record the recovered DOM for 2 errors. The corrected version has 0 of the relevant validation errors.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/26/README.md",
+      "seriesId": "html",
+      "exampleNote": "The inspection result displays the body tree recovered by the browser. Change p/div into siblings and compare the result with HTML validator diagnostics. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Checking Image Failure and Zoom",
+      "goal": "Card titles and action purposes remain with 6 failed images. There is a record of reaching every control at both zoom levels.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/27/README.md",
+      "seriesId": "html",
+      "exampleNote": "Reduce preview width to check reflow, and separately test actual browser zoom at 200%·400%. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
       "id": "css-01",
       "day": 1,
       "week": 1,

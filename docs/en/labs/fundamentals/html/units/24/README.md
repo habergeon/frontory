@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Script Loading and Document Parsing](../23/README.md)
+[Previous: Script Loading and Document Parsing](../23/README.md) · [Next: Reading Order and Skip Links](../25/README.md)
 
 ## Experiment notes — write your own
 

@@ -324,6 +324,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [16. Cloning and Sharing Cached Models](labs/graphics/react-three-fiber/units/16/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-16/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 | [17. Texture Inputs and Updates](labs/graphics/react-three-fiber/units/17/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-17/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 | [18. Shared geometry and material](labs/graphics/react-three-fiber/units/18/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-18/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [19. Reducing Allocations during Frames](labs/graphics/react-three-fiber/units/19/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-19/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [20. Drawing Repeated Objects with instancedMesh](labs/graphics/react-three-fiber/units/20/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-20/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [21. Instance Selection and Bounds](labs/graphics/react-three-fiber/units/21/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-21/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 
 ## GSAP
 

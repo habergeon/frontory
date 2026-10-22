@@ -3119,6 +3119,36 @@
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
+      "id": "react-three-fiber-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Reducing Allocations during Frames",
+      "goal": "There are 0 new Vector3 calls inside frames on the reuse path. Record averages and long frames in both performance records under the same conditions.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/19/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Drawing Repeated Objects with instancedMesh",
+      "goal": "100 objects appear in the same layout. Record draw calls for both representations under the same pass conditions.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/20/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Instance Selection and Bounds",
+      "goal": "The clicked id matches the DOM selection panel. Check selection and display at the new position too.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/21/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

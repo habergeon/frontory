@@ -489,6 +489,85 @@
         "references.0.title": "R3F Objects and Resource Disposal",
         "references.1.title": "R3F Scaling Performance and demand Rendering"
       }
+    },
+    "react-three-fiber-step-19": {
+      "sourceHash": "dcc73b7177047ae99ea4b27386246eb20f95f3bad94e871c3147feaed48b3c56",
+      "values": {
+        "title": "Reducing Allocations during Frames",
+        "prerequisites": "Unit 19 continues using the deliverables and experiment records from Unit 18.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Allocation Cost",
+        "concepts.0.explanation": "Creating objects such as Vector3 every frame may increase garbage collection pressure. Prepare reusable temporary objects outside the frame.",
+        "concepts.1.title": "Measurement",
+        "concepts.1.explanation": "Short frame delays may not stand out in average FPS. Observe frame-time distributions and allocations together in the same scene.",
+        "outcomes.0": "There are 0 new Vector3 calls inside frames on the reuse path.",
+        "outcomes.1": "Record averages and long frames in both performance records under the same conditions.",
+        "steps.0": "Create a control in src/MovingCloud.jsx that allocates Vector3 every frame.",
+        "steps.1": "Keep a reusable Vector3 in a ref or stable initialization path, and update it with set and copy.",
+        "steps.2": "Using the same 500 objects, compare 10-second performance records of both methods.",
+        "variables.0.name": "Temporary Objects",
+        "variables.0.baseline": "new every frame",
+        "variables.0.change": "Reuse",
+        "variables.0.expected": "Allocations may decrease, but measure the actual timing change.",
+        "criteria.0": "There are 0 new Vector3 calls inside frames on the reuse path.",
+        "criteria.1": "Record averages and long frames in both performance records under the same conditions.",
+        "questions.0": "When can object reuse unintentionally share values?",
+        "questions.1": "Does reduced memory allocation always increase FPS?",
+        "references.0.title": "R3F Performance Pitfalls"
+      }
+    },
+    "react-three-fiber-step-20": {
+      "sourceHash": "d12d81ff9f77f2c0fd9e9084f3db5c4bcf7be8c7d0ae2e6194ea61df00a5887d",
+      "values": {
+        "title": "Drawing Repeated Objects with instancedMesh",
+        "prerequisites": "Unit 20 continues using the deliverables and experiment records from Unit 19.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Instancing",
+        "concepts.0.explanation": "InstancedMesh combines many transforms using the same geometry and material into one object. Its event and update methods differ from individual mesh objects.",
+        "concepts.1.title": "Matrix Upload",
+        "concepts.1.explanation": "After setMatrixAt, signal changes with instanceMatrix.needsUpdate. Distinguish CPU array changes from GPU updates.",
+        "outcomes.0": "100 objects appear in the same layout.",
+        "outcomes.1": "Record draw calls for both representations under the same pass conditions.",
+        "steps.0": "Create an instancedMesh and 100 positions in src/InstancedGrid.jsx.",
+        "steps.1": "Compute matrices with a temporary Object3D, call setMatrixAt, then set needsUpdate.",
+        "steps.2": "Compare renderer.info.render.calls with the same 100 individual mesh objects.",
+        "variables.0.name": "Representation",
+        "variables.0.baseline": "100 individual mesh objects",
+        "variables.0.change": "100 objects in instancedMesh",
+        "variables.0.expected": "The draw call count may decrease under the same resource conditions.",
+        "criteria.0": "100 objects appear in the same layout.",
+        "criteria.1": "Record draw calls for both representations under the same pass conditions.",
+        "questions.0": "Is it easy to combine objects with different materials into one instancedMesh?",
+        "questions.1": "If needsUpdate is omitted, do CPU changes appear on screen?",
+        "references.0.title": "R3F Scaling Performance and demand Rendering"
+      }
+    },
+    "react-three-fiber-step-21": {
+      "sourceHash": "7c1f82d73394b023384e8ce613775a960e6319282bbcccea6b4de5497a9f3a09",
+      "values": {
+        "title": "Instance Selection and Bounds",
+        "prerequisites": "Unit 21 continues using the deliverables and experiment records from Unit 20.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Instance id",
+        "concepts.0.explanation": "The intersection event's instanceId identifies an item within the group. Keep a mapping between array indices and actual domain ids.",
+        "concepts.1.title": "Updating Bounds",
+        "concepts.1.explanation": "Changing instance matrices may also affect bounds calculations. Check bounding information if picking or culling is incorrect after movement.",
+        "outcomes.0": "The clicked id matches the DOM selection panel.",
+        "outcomes.1": "Check selection and display at the new position too.",
+        "steps.0": "Convert instanceId to a domain id in onClick in src/InstancedGrid.jsx.",
+        "steps.1": "Change selection colors with setColorAt and instanceColor.needsUpdate.",
+        "steps.2": "Move an instance far away, and compare bounds recalculation and click results.",
+        "variables.0.name": "Instance Position",
+        "variables.0.baseline": "Initial grid",
+        "variables.0.change": "Move outside the grid",
+        "variables.0.expected": "Update bounding information to assess picking and culling at the new position.",
+        "criteria.0": "The clicked id matches the DOM selection panel.",
+        "criteria.1": "Check selection and display at the new position too.",
+        "questions.0": "Can instanceId serve as a permanent data id?",
+        "questions.1": "Are needsUpdate for matrix and color buffers the same property?",
+        "references.0.title": "R3F Pointer Events",
+        "references.1.title": "R3F Scaling Performance and demand Rendering"
+      }
     }
   }
 }

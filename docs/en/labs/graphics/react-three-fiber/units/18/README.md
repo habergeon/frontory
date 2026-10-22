@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Texture Inputs and Updates](../17/README.md)
+[Previous: Texture Inputs and Updates](../17/README.md) · [Next: Reducing Allocations during Frames](../19/README.md)
 
 ## Experiment notes — write your own
 

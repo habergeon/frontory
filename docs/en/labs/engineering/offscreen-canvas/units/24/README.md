@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Canvas Context Loss](../23/README.md)
+[Previous: Canvas Context Loss](../23/README.md) · [Next: Resolution and Workload](../25/README.md)
 
 ## Experiment notes — write your own
 

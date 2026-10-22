@@ -130,5 +130,23 @@
     "values": {
       "note": "An interactive Request and Display Latency experiment with cleanup of the resources it uses."
     }
+  },
+  "offscreen-canvas-step-25": {
+    "sourceHash": "3a969d5fd621156a65c75215ee890142d130180c7e5a93eded0a72ef78859533",
+    "values": {
+      "note": "An interactive Resolution and Workload experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-26": {
+    "sourceHash": "dc2574ea191a623b0e3f90e2a2af0d8c55c017a328e9f23fb39e73c868ad52b7",
+    "values": {
+      "note": "An interactive Main-Thread Contention Experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-27": {
+    "sourceHash": "188f7d936315ae1af275a512eae208ff140e7b3ffbf1bae8f41b06cfc6a329aa",
+    "values": {
+      "note": "An interactive Summarizing Experiment Results experiment with cleanup of the resources it uses."
+    }
   }
 }

@@ -5782,6 +5782,36 @@
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/24/README.md",
       "seriesId": "offscreen-canvas",
       "exampleNote": "An interactive Request and Display Latency experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Resolution and Workload",
+      "goal": "Learning outcome: explain the role of Pixel cost. Input cases: The same scene at two DPR values. Deliverable: A table of pixel counts and frame-time distributions. Explain the rationale for handling Measurement, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/25/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Resolution and Workload experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Main-Thread Contention Experiment",
+      "goal": "Learning outcome: explain the role of Competing work. Input cases: The same scene and a click counter. Deliverable: Input latency and frame-time distributions by mode. Explain the rationale for handling Fair comparison, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/26/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Main-Thread Contention Experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Summarizing Experiment Results",
+      "goal": "Learning outcome: explain the role of Distributions. Input cases: 3 repeated runs. Deliverable: A comparison table including conditions and raw values. Explain the rationale for handling Limitations, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/27/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Summarizing Experiment Results experiment with cleanup of the resources it uses."
     }
   ]
 }

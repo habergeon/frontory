@@ -658,6 +658,87 @@
         "references.0.title": "MDN OffscreenCanvas",
         "references.1.title": "MDN Using Web Workers"
       }
+    },
+    "offscreen-canvas-step-25": {
+      "sourceHash": "20493cb6a78e73c04fffdfe449b857df55fe176be1dbd5425241eb3ff7e29e15",
+      "values": {
+        "title": "Resolution and Workload",
+        "prerequisites": "Prepare the experiment results for Visible updates and Separating measurements from Unit 24, “Request and Display Latency”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Pixel cost",
+        "concepts.0.explanation": "Increasing DPR increases the backing-store pixel count quadratically. This has an effect separate from particle count.",
+        "concepts.1.title": "Measurement",
+        "concepts.1.explanation": "Moving rendering to a Worker does not eliminate GPU cost. Use the same resolution in both modes.",
+        "outcomes.0": "Learning outcome: explain the role of Pixel cost. Input cases: The same scene at two DPR values.",
+        "outcomes.1": "Deliverable: A table of pixel counts and frame-time distributions. Explain the rationale for handling Measurement, linking it to the code.",
+        "steps.0": "In src/day-25.js in a separate practice project, keep particle count fixed and collect frame duration for each DPR. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: The same scene at two DPR values. Baseline: 1. Run under the baseline conditions, then record observations and errors in notes/day-25.md.",
+        "steps.2": "Variable: DPR; changed value: 2. Run again through the same input path. Deliverable to save: A table of pixel counts and frame-time distributions. Hypothesis to check: The pixel count quadruples and the cost may change. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "DPR",
+        "variables.0.baseline": "1",
+        "variables.0.change": "2",
+        "variables.0.expected": "The pixel count quadruples and the cost may change.",
+        "criteria.0": "Required deliverable: A table of pixel counts and frame-time distributions. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Pixel cost and Measurement. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Pixel cost affect in this exercise? Input cases: The same scene at two DPR values.",
+        "questions.1": "Variable: DPR. Hypothesis to check: The pixel count quadruples and the cost may change. Did the actual results agree with the hypothesis? Explain the evidence in terms of Measurement.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-26": {
+      "sourceHash": "5fb01d5378b76d4cf863d544f167e557ea526031f90c6ef40a6fb2b4f89f82fb",
+      "values": {
+        "title": "Main-Thread Contention Experiment",
+        "prerequisites": "Prepare the experiment results for Pixel cost and Measurement from Unit 25, “Resolution and Workload”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Competing work",
+        "concepts.0.explanation": "Long tasks on the main thread can delay input and rendering. Worker rendering and UI input are separate metrics.",
+        "concepts.1.title": "Fair comparison",
+        "concepts.1.explanation": "Use the same competing work and seed. Workers also share CPU and GPU resources.",
+        "outcomes.0": "Learning outcome: explain the role of Competing work. Input cases: The same scene and a click counter.",
+        "outcomes.1": "Deliverable: Input latency and frame-time distributions by mode. Explain the rationale for handling Fair comparison, linking it to the code.",
+        "steps.0": "In src/day-26.js in a separate practice project, enable a bounded main-thread computation load and compare both rendering modes. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: The same scene and a click counter. Baseline: None. Run under the baseline conditions, then record observations and errors in notes/day-26.md.",
+        "steps.2": "Variable: Main-thread load; changed value: Add bounded computation. Run again through the same input path. Deliverable to save: Input latency and frame-time distributions by mode. Hypothesis to check: Changes in rendering and UI responsiveness may differ. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Main-thread load",
+        "variables.0.baseline": "None",
+        "variables.0.change": "Add bounded computation",
+        "variables.0.expected": "Changes in rendering and UI responsiveness may differ.",
+        "criteria.0": "Required deliverable: Input latency and frame-time distributions by mode. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Competing work and Fair comparison. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Competing work affect in this exercise? Input cases: The same scene and a click counter.",
+        "questions.1": "Variable: Main-thread load. Hypothesis to check: Changes in rendering and UI responsiveness may differ. Did the actual results agree with the hypothesis? Explain the evidence in terms of Fair comparison.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-27": {
+      "sourceHash": "e4489f0b9aeb3db3c141e8e54f00e02c3e3387d9e5cdcde5db845985b185983d",
+      "values": {
+        "title": "Summarizing Experiment Results",
+        "prerequisites": "Prepare the experiment results for Competing work and Fair comparison from Unit 26, “Main-Thread Contention Experiment”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Distributions",
+        "concepts.0.explanation": "An average alone does not reveal brief stalls. Summarize the median together with long frames.",
+        "concepts.1.title": "Limitations",
+        "concepts.1.explanation": "Device, browser, and power state affect results. Do not extend conclusions to environments you have not measured.",
+        "outcomes.0": "Learning outcome: explain the role of Distributions. Input cases: 3 repeated runs.",
+        "outcomes.1": "Deliverable: A comparison table including conditions and raw values. Explain the rationale for handling Limitations, linking it to the code.",
+        "steps.0": "In src/day-27.js in a separate practice project, collect result JSON and build a comparison table by mode·particle count·DPR. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 3 repeated runs. Baseline: Main thread first. Run under the baseline conditions, then record observations and errors in notes/day-27.md.",
+        "steps.2": "Variable: Run order; changed value: Worker first. Run again through the same input path. Deliverable to save: A comparison table including conditions and raw values. Hypothesis to check: Warm-up or ordering effects can be identified. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Run order",
+        "variables.0.baseline": "Main thread first",
+        "variables.0.change": "Worker first",
+        "variables.0.expected": "Warm-up or ordering effects can be identified.",
+        "criteria.0": "Required deliverable: A comparison table including conditions and raw values. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Distributions and Limitations. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Distributions affect in this exercise? Input cases: 3 repeated runs.",
+        "questions.1": "Variable: Run order. Hypothesis to check: Warm-up or ordering effects can be identified. Did the actual results agree with the hypothesis? Explain the evidence in terms of Limitations.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
     }
   }
 }

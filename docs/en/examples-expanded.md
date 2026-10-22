@@ -297,6 +297,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [19. Instancing Basics](labs/graphics/threejs/units/19/README.md) | Editable example | [Source code](../../src/labs/threejs-step-19/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [20. Instance Selection and Updates](labs/graphics/threejs/units/20/README.md) | Editable example | [Source code](../../src/labs/threejs-step-20/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [21. Offscreen Objects and Level of Detail](labs/graphics/threejs/units/21/README.md) | Editable example | [Source code](../../src/labs/threejs-step-21/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [22. Render Targets and Minimap](labs/graphics/threejs/units/22/README.md) | Editable example | [Source code](../../src/labs/threejs-step-22/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [23. Resource Ownership Ledger](labs/graphics/threejs/units/23/README.md) | Editable example | [Source code](../../src/labs/threejs-step-23/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [24. Asynchronous Scene Replacement](labs/graphics/threejs/units/24/README.md) | Editable example | [Source code](../../src/labs/threejs-step-24/example.js) — Reproduces reverse completion order and disposal of stale results with delayed procedural geometry. Network model loading itself is not included. |
 
 ## GSAP
 

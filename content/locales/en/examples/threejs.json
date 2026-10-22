@@ -112,5 +112,23 @@
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "threejs-step-22": {
+    "sourceHash": "78700b063e68ae04c1111491b7985f4b1931fa6dd8bbcb51fcb21e566aeef12a",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "threejs-step-23": {
+    "sourceHash": "de8ebf04e1429d77de18c8984f4dec452c0ccfba184287f43cd9b27d112e190a",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "threejs-step-24": {
+    "sourceHash": "cc0f5fb4345ed59066bc10a3d1eec171ff0ca62245a3e85f1e4614fdb527f19d",
+    "values": {
+      "note": "Reproduces reverse completion order and disposal of stale results with delayed procedural geometry. Network model loading itself is not included."
+    }
   }
 }

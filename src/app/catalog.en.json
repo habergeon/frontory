@@ -2858,6 +2858,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "threejs-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Render Targets and Minimap",
+      "goal": "Update the main view and minimap separately. Restore the render target and screen state.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/22/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "threejs-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Resource Ownership Ledger",
+      "goal": "Distinguish removing an object from releasing resources. Avoid duplicate dispose calls for the same resource.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/23/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "threejs-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Asynchronous Scene Replacement",
+      "goal": "Prevent a late response from replacing the new model. Provide a cleanup path for discarded results.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/24/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "Reproduces reverse completion order and disposal of stale results with delayed procedural geometry. Network model loading itself is not included."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

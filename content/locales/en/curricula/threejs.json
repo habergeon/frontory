@@ -571,6 +571,87 @@
         "references.0.title": "Three.js BufferGeometry",
         "references.1.title": "Three.js WebGLRenderer"
       }
+    },
+    "threejs-step-22": {
+      "sourceHash": "eb686e8cc7199ef55d29ee9ebb78ee32e7cb8167c802d780f2d4bfabe99cba77",
+      "values": {
+        "title": "Render Targets and Minimap",
+        "prerequisites": "Prerequisite concepts: Frustum Culling, Level of Detail. Prepare the result files and observation notes from unit 21.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Offscreen Output",
+        "concepts.0.explanation": "WebGLRenderTarget renders to a texture instead of the screen. You can use another camera’s result on a surface within the screen.",
+        "concepts.1.title": "Restoring State",
+        "concepts.1.explanation": "setRenderTarget(null) returns to the default screen. Missing this step makes subsequent renders keep writing to the target.",
+        "outcomes.0": "Update the main view and minimap separately.",
+        "outcomes.1": "Restore the render target and screen state.",
+        "steps.0": "Prepare day-22.js and index.html in the external exercise project. Render the scene to a render target with a camera looking down from above.",
+        "steps.1": "Connect the target texture to a minimap plane, and isolate that plane in the main scene so it is not seen again by the minimap camera.",
+        "steps.2": "Save the output under the 256×256 input condition, then run again under the 512×512 condition. Expected: Minimap sharpness and the number of processed pixels both increase. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-22-notes.md.",
+        "variables.0.name": "Target size",
+        "variables.0.baseline": "256×256",
+        "variables.0.change": "512×512",
+        "variables.0.expected": "Minimap sharpness and the number of processed pixels both increase.",
+        "criteria.0": "Update the main view and minimap separately.",
+        "criteria.1": "Restore the render target and screen state.",
+        "questions.0": "How do you avoid feedback from reading the texture being written?",
+        "questions.1": "When should a render target be disposed of?",
+        "references.0.title": "Three.js WebGLRenderer",
+        "references.1.title": "Three.js Cleanup"
+      }
+    },
+    "threejs-step-23": {
+      "sourceHash": "ffcf8dc8f075561ff343990f078cffed7834b57a50957364d66037ae28f7948b",
+      "values": {
+        "title": "Resource Ownership Ledger",
+        "prerequisites": "Prerequisite concepts: Offscreen Output, Restoring State. Prepare the result files and observation notes from unit 22.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Explicit Release",
+        "concepts.0.explanation": "scene.remove only detaches an object from the scene. GPU-related resources of geometry,material,texture need separate dispose calls.",
+        "concepts.1.title": "Shared Lifetimes",
+        "concepts.1.explanation": "Multiple objects can use one resource. Record owners and reference scope so it is not released before its last user finishes.",
+        "outcomes.0": "Distinguish removing an object from releasing resources.",
+        "outcomes.1": "Avoid duplicate dispose calls for the same resource.",
+        "steps.0": "Prepare day-23.js and index.html in the external exercise project. Write a resourceTracker that tracks created geometry,material,texture in a Set.",
+        "steps.1": "Remove only one of two Mesh objects sharing a material, keep the other rendering, and release each resource once at final shutdown.",
+        "steps.2": "Save the output under the One user only input condition, then run again under the All users condition. Expected: Shared resources must be released after the last user finishes. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-23-notes.md.",
+        "variables.0.name": "Removal scope",
+        "variables.0.baseline": "One user only",
+        "variables.0.change": "All users",
+        "variables.0.expected": "Shared resources must be released after the last user finishes.",
+        "criteria.0": "Distinguish removing an object from releasing resources.",
+        "criteria.1": "Avoid duplicate dispose calls for the same resource.",
+        "questions.0": "Does material.dispose automatically release textures too?",
+        "questions.1": "What else should you check about the lifetime of glTF ImageBitmap objects?",
+        "references.0.title": "Three.js Cleanup",
+        "references.1.title": "Three.js GLTFLoader"
+      }
+    },
+    "threejs-step-24": {
+      "sourceHash": "c3ff8bb93f72fb1f317d83a2d5f25f6a3cc1876154ee2f2d30735d246fb720a4",
+      "values": {
+        "title": "Asynchronous Scene Replacement",
+        "prerequisites": "Prerequisite concepts: Explicit Release, Shared Lifetimes. Prepare the result files and observation notes from unit 23.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Stale Results",
+        "concepts.0.explanation": "A model from a previous request may arrive late. Compare request tokens to decide whether to attach it to the current scene.",
+        "concepts.1.title": "Discarded Resources",
+        "concepts.1.explanation": "Unused loading results may still own resources. Clean up owned resources even when the result was never attached to the screen.",
+        "outcomes.0": "Prevent a late response from replacing the new model.",
+        "outcomes.1": "Provide a cleanup path for discarded results.",
+        "steps.0": "Prepare day-24.js and index.html in the external exercise project. Store a requestId that increments on every model selection and compare it when loadAsync completes.",
+        "steps.1": "Alternate requests for slow model A and fast B, and log whether only B is visible and A’s resources are released.",
+        "steps.2": "Save the output under the Request order input condition, then run again under the Reverse order condition. Expected: A result that does not match the current request does not overwrite the scene. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-24-notes.md.",
+        "variables.0.name": "Completion order",
+        "variables.0.baseline": "Request order",
+        "variables.0.change": "Reverse order",
+        "variables.0.expected": "A result that does not match the current request does not overwrite the scene.",
+        "criteria.0": "Prevent a late response from replacing the new model.",
+        "criteria.1": "Provide a cleanup path for discarded results.",
+        "questions.0": "Does a token check also cancel the network request?",
+        "questions.1": "Should an error from a previous failed request appear in the current UI?",
+        "references.0.title": "Three.js GLTFLoader",
+        "references.1.title": "Three.js Cleanup"
+      }
     }
   }
 }

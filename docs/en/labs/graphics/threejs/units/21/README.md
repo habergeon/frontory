@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Instance Selection and Updates](../20/README.md)
+[Previous: Instance Selection and Updates](../20/README.md) · [Next: Render Targets and Minimap](../22/README.md)
 
 ## Experiment notes — write your own
 

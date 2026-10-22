@@ -360,6 +360,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [22. Releasing Textures and Owning Caches](labs/graphics/pixijs/units/22/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-22/example.js) — Experiments with the reference lifetimes of directly owned frame Textures and TextureSources. See day 10 for the Assets.unload example. |
 | [23. Large Particle Sets and Feature Boundaries](labs/graphics/pixijs/units/23/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-23/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [24. Offscreen Handling and Fewer Updates](labs/graphics/pixijs/units/24/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-24/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [25. Forming a Batching Hypothesis](labs/graphics/pixijs/units/25/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-25/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [26. Profiling and Quality Budgets](labs/graphics/pixijs/units/26/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-26/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [27. Completing the 2D Scene Editor](labs/graphics/pixijs/units/27/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-27/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

@@ -653,6 +653,87 @@
         "references.0.title": "PixiJS 8 perf",
         "references.1.title": "PixiJS 8 container"
       }
+    },
+    "pixijs-step-25": {
+      "sourceHash": "2192c204714a9a49a1246d95e09ab6011b8b3c40e7cf5712e6fc9ec778c6eeac",
+      "values": {
+        "title": "Forming a Batching Hypothesis",
+        "prerequisites": "Prerequisite concepts: Visibility and Computation, Visibility Bounds. Prepare the output files and observation records from Unit 24.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "State Changes",
+        "concepts.0.explanation": "Textures, blending, and shape types affect rendering batches. Alternating between two textures does not necessarily double the calls.",
+        "concepts.1.title": "Preserving Behavior",
+        "concepts.1.explanation": "Sorting optimizations can change translucent overlaps. Reorder only objects whose visual order can be preserved.",
+        "outcomes.0": "Compare while preserving the visual result.",
+        "outcomes.1": "Do not infer draw call counts from frame intervals.",
+        "steps.0": "Prepare day-25.js and index.html in the external practice project. Arrange non-overlapping Sprites and Graphics in alternating order and grouped by type.",
+        "steps.1": "Keep counts and positions unchanged, recording profiles and frame intervals; report call counts only if a tool can verify them directly.",
+        "steps.2": "Save the output with the input condition Alternate Sprites and Graphics, then run again with Group by type. Expected: State transition costs may decrease, but actual measurement is required. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-25-notes.md.",
+        "variables.0.name": "Drawing order",
+        "variables.0.baseline": "Alternate Sprites and Graphics",
+        "variables.0.change": "Group by type",
+        "variables.0.expected": "State transition costs may decrease, but actual measurement is required",
+        "criteria.0": "Compare while preserving the visual result.",
+        "criteria.1": "Do not infer draw call counts from frame intervals.",
+        "questions.0": "Can multiple textures be included in one batch?",
+        "questions.1": "What breaks when sorting changes translucent overlaps?",
+        "references.0.title": "PixiJS 8 perf"
+      }
+    },
+    "pixijs-step-26": {
+      "sourceHash": "946da622c0aed57a0e43f31ac159160f3bdcdf096d76ccbffe73daabafbe95ba",
+      "values": {
+        "title": "Profiling and Quality Budgets",
+        "prerequisites": "Prerequisite concepts: State Changes, Preserving Behavior. Prepare the output files and observation records from Unit 25.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Timing Metrics",
+        "concepts.0.explanation": "ticker.elapsedMS can be used to observe frame intervals. It is neither GPU execution time nor the time spent only on CPU work.",
+        "concepts.1.title": "Controlling Variables",
+        "concepts.1.explanation": "Changing resolution, filters, and object counts together makes causes hard to identify. Change one variable and record quality loss as well.",
+        "outcomes.0": "Record sample counts, environment, and settings.",
+        "outcomes.1": "Do not call frame intervals GPU time.",
+        "steps.0": "Prepare day-26.js and index.html in the external practice project. Add start and stop measurement buttons to a Sprite list generated with a fixed seed.",
+        "steps.1": "After warmup, save the same number of elapsedMS samples and record the median, 95th percentile, and screen images.",
+        "steps.2": "Save the output with the input condition 1, then run again with 2. Expected: More buffer pixels may increase filter or fill workload. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-26-notes.md.",
+        "variables.0.name": "resolution",
+        "variables.0.baseline": "1",
+        "variables.0.change": "2",
+        "variables.0.expected": "More buffer pixels may increase filter or fill workload",
+        "criteria.0": "Record sample counts, environment, and settings.",
+        "criteria.1": "Do not call frame intervals GPU time.",
+        "questions.0": "Can a VSync-limited value reveal small improvements?",
+        "questions.1": "How do you distinguish CPU-loop bottlenecks from filter bottlenecks?",
+        "references.0.title": "PixiJS 8 ticker",
+        "references.1.title": "PixiJS 8 perf"
+      }
+    },
+    "pixijs-step-27": {
+      "sourceHash": "e43cf1517c4bbe84917730d957059951ad658850004eb08c38832906a78eacbc",
+      "values": {
+        "title": "Completing the 2D Scene Editor",
+        "prerequisites": "Prerequisite concepts: Timing Metrics, Controlling Variables. Prepare the output files and observation records from Unit 26.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Data and Display",
+        "concepts.0.explanation": "Store object ids, positions, and frame names in JSON. Distinguish this from storing Sprite instances themselves.",
+        "concepts.1.title": "Lifetime Regression Checks",
+        "concepts.1.explanation": "Repeated screen transitions and failures can reveal missed cleanup. Check owners of ticker callbacks, events, observers, and textures together.",
+        "outcomes.0": "Preserve ids and coordinates after restoring JSON.",
+        "outcomes.1": "Make retry and shutdown work correctly after failure.",
+        "steps.0": "Prepare day-27.js and index.html in the external practice project. Integrate a scene editor with atlas selection, dragging, a keyboard list, and JSON saving.",
+        "steps.1": "Repeat create→delete→save→restore→loading failure→shutdown, recording callback counts and shared resource states.",
+        "steps.2": "Save the output with the input condition 1 run, then run again with 5 runs. Expected: With correct cleanup, commands per input and ticker callback counts do not increase. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-27-notes.md.",
+        "variables.0.name": "Reruns",
+        "variables.0.baseline": "1 run",
+        "variables.0.change": "5 runs",
+        "variables.0.expected": "With correct cleanup, commands per input and ticker callback counts do not increase",
+        "criteria.0": "Preserve ids and coordinates after restoring JSON.",
+        "criteria.1": "Make retry and shutdown work correctly after failure.",
+        "questions.0": "How do you handle a missing frame name in imported JSON?",
+        "questions.1": "Who shuts down directly created resources and the Assets cache?",
+        "references.0.title": "PixiJS 8 assets",
+        "references.1.title": "PixiJS 8 gc",
+        "references.2.title": "PixiJS 8 events"
+      }
     }
   }
 }

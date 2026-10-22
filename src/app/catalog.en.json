@@ -3470,6 +3470,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "pixijs-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Forming a Batching Hypothesis",
+      "goal": "Compare while preserving the visual result. Do not infer draw call counts from frame intervals.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/25/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "pixijs-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Profiling and Quality Budgets",
+      "goal": "Record sample counts, environment, and settings. Do not call frame intervals GPU time.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/26/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "pixijs-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Completing the 2D Scene Editor",
+      "goal": "Preserve ids and coordinates after restoring JSON. Make retry and shutdown work correctly after failure.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/27/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

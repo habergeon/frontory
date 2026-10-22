@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Asynchronous Errors and Task Identity](../23/README.md)
+[Previous: Asynchronous Errors and Task Identity](../23/README.md) · [Next: CPU References and Error Budgets](../25/README.md)
 
 ## Experiment notes — write your own
 

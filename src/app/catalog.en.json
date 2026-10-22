@@ -3207,6 +3207,36 @@
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
+      "id": "webgpu-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "CPU References and Error Budgets",
+      "goal": "Write a CPU reference. Judge numerical error explicitly.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/25/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Workgroup Size Experiments",
+      "goal": "Compare kernel configurations within limits. Measure costs while preserving correctness.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/26/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Acceptance of the Integrated Particle Experiment",
+      "goal": "Document the full project contract. Perform acceptance checks including failures and restarts.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/27/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
       "id": "react-three-fiber-01",
       "day": 1,
       "week": 1,

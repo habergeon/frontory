@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 24 published in English
+Graphics · 4 stages · 28 units in the full series · 27 published in English
 
 ## Series goal
 
@@ -57,6 +57,9 @@ Only published English units are linked below. The full series has 28 units.
 - [22. Device Loss and Reinitialization](units/22/README.md) — Editable example
 - [23. Asynchronous Errors and Task Identity](units/23/README.md) — Editable example
 - [24. The Scope of Timing](units/24/README.md) — Editable example
+- [25. CPU References and Error Budgets](units/25/README.md) — Editable example
+- [26. Workgroup Size Experiments](units/26/README.md) — Editable example
+- [27. Acceptance of the Integrated Particle Experiment](units/27/README.md) — Editable example
 
 ## Capstone project and deliverables
 

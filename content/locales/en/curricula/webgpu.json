@@ -658,6 +658,87 @@
         "references.0.title": "WebGPU API and Error Handling",
         "references.1.title": "WGSL Specification"
       }
+    },
+    "webgpu-step-25": {
+      "sourceHash": "d0b9130aa4ee50c81c618e442d164bc0ee41ab773fe643b69468c57fe7bb0850",
+      "values": {
+        "title": "CPU References and Error Budgets",
+        "concepts.0.title": "Floating Point",
+        "concepts.0.explanation": "CPU JavaScript number and GPU f32 operations have different precision. Summation with a different association order can produce small errors.",
+        "concepts.1.title": "Validation Criteria",
+        "concepts.1.explanation": "Absolute and relative error serve different roles depending on magnitude. Define tolerances and special-value handling before viewing results.",
+        "outcomes.0": "Write a CPU reference.",
+        "outcomes.1": "Judge numerical error explicitly.",
+        "steps.0": "In reference.js, write a CPU particle-update function and generate fixed-seed inputs.",
+        "steps.1": "Calculate per-element absolute and relative errors against the readback result.",
+        "steps.2": "For inputs containing 0, negative, small, and large values, print the maximum error and failing indices.",
+        "variables.0.name": "Validation input",
+        "variables.0.baseline": "Small positive values",
+        "variables.0.change": "Mix of 0, negative, and large values",
+        "variables.0.expected": "Inputs of different magnitudes are expected to expose limitations of a relative-error-only criterion.",
+        "criteria.0": "Record the tolerance abs<=1e-5+1e-4*abs(reference) in advance.",
+        "criteria.1": "On failure, print the element index, reference value, and GPU value.",
+        "questions.0": "Which tasks require exactly identical bit results?",
+        "questions.1": "Can including NaN in error comparisons allow a check to pass?",
+        "prerequisites": "Continue using the output and notes from unit 24. Preserve the previous inputs and reference outputs before the CPU References and Error Budgets experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-26": {
+      "sourceHash": "b14dde38fc2e5731b1be7540b69549253a4cde22fda99bbaa91876cb67563f36",
+      "values": {
+        "title": "Workgroup Size Experiments",
+        "concepts.0.title": "Configuration Constraints",
+        "concepts.0.explanation": "Workgroup size must satisfy both device limits and the shader declaration. Larger sizes are not always faster.",
+        "concepts.1.title": "Fair Comparison",
+        "concepts.1.explanation": "Compare identical inputs, operations, and readback policies. Changing the algorithm along with kernel configuration makes causes hard to isolate.",
+        "outcomes.0": "Compare kernel configurations within limits.",
+        "outcomes.1": "Measure costs while preserving correctness.",
+        "steps.0": "In tuning.js, prepare 32·64·128-lane kernel variants and check limits.",
+        "steps.1": "Run the same N=1003 input with each configuration.",
+        "steps.2": "After checking correctness, save five end-to-end latency runs and the list of supported configurations.",
+        "variables.0.name": "Workgroup size",
+        "variables.0.baseline": "64",
+        "variables.0.change": "32 and 128",
+        "variables.0.expected": "Execution efficiency is expected to depend on the device, while all configurations should produce the same results.",
+        "criteria.0": "All three configurations pass the CPU reference through the last element.",
+        "criteria.1": "Skip unsupported configurations and record why.",
+        "questions.0": "How does a larger workgroup affect shared-memory use?",
+        "questions.1": "Is it appropriate to fix one device's optimum as the default?",
+        "prerequisites": "Continue using the output and notes from unit 25. Preserve the previous inputs and reference outputs before starting \"Workgroup Size Experiments\".",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-27": {
+      "sourceHash": "ed971a6049e5f6f8f3306e30bc181e6e809403e09ad31709dab423ad3ae89a14",
+      "values": {
+        "title": "Acceptance of the Integrated Particle Experiment",
+        "concepts.0.title": "Separate Components",
+        "concepts.0.explanation": "Separating initial data, kernels, rendering, readback, and UI clarifies error locations. Module contracts include buffer sizes and lifetimes.",
+        "concepts.1.title": "Acceptance Evidence",
+        "concepts.1.explanation": "Visible animation alone cannot prove computational correctness. Keep failure-recovery and CPU-comparison results together.",
+        "outcomes.0": "Document the full project contract.",
+        "outcomes.1": "Perform acceptance checks including failures and restarts.",
+        "steps.0": "In README.md, tabulate each module's inputs, outputs, and resource ownership.",
+        "steps.1": "Run five scenarios: unsupported environment, device loss, resize, N=0, and N=1003.",
+        "steps.2": "Export the current settings JSON and CPU-comparison results, then restore them in a new session.",
+        "variables.0.name": "Starting state",
+        "variables.0.baseline": "Existing session",
+        "variables.0.change": "New session with saved settings",
+        "variables.0.expected": "The same initial data is expected to be reproduced without hidden GPU state.",
+        "criteria.0": "Each of the five scenarios has an actual observation or a reason it was not run.",
+        "criteria.1": "The seed and initial positions match after restart.",
+        "questions.0": "What computational errors can remain hidden in apparently normal animation?",
+        "questions.1": "Which GPU work need not be created for empty input?",
+        "prerequisites": "Continue using the output and notes from unit 26. Preserve the previous inputs and reference outputs before starting \"Acceptance of the Integrated Particle Experiment\".",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
     }
   }
 }

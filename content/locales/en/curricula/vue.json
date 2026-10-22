@@ -172,6 +172,87 @@
         "references.0.title": "Vue Reactivity Fundamentals",
         "references.1.title": "Vue Composition API Guide"
       }
+    },
+    "vue-step-07": {
+      "sourceHash": "75b75d59727d6e2bc35cddc8f96788ebc8b83ab6b769e6456fbf46c009086d04",
+      "values": {
+        "title": "Expressing State with Classes and Styles",
+        "prerequisites": "Unit 7 builds on the work and experiment records from Unit 6.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Declarative styles",
+        "concepts.0.explanation": "class and style bindings calculate presentation from state. Directly editing DOM classes can conflict with the next render result.",
+        "concepts.1.title": "Conveying meaning",
+        "concepts.1.explanation": "Using color alone to indicate completion can lose meaning. Derive text and aria attributes from the same state as well.",
+        "outcomes.0": "Completion text and aria-pressed agree across all four combinations.",
+        "outcomes.1": "Changing the selection style does not affect other cards.",
+        "steps.0": "In src/Card.vue, pass done and selected conditions to :class.",
+        "steps.1": "Connect completion text and aria-pressed, and distinguish the two states with scoped CSS.",
+        "steps.2": "Create the four completion and selection combinations, and record screenshots and DOM values.",
+        "variables.0.name": "State combination",
+        "variables.0.baseline": "done false·selected false",
+        "variables.0.change": "done true·selected true",
+        "variables.0.expected": "Both states are expressed separately without conflict.",
+        "criteria.0": "Completion text and aria-pressed agree across all four combinations.",
+        "criteria.1": "Changing the selection style does not affect other cards.",
+        "questions.0": "Does scoped CSS completely block global styles?",
+        "questions.1": "Who determines the final value when direct class edits and bindings are mixed?",
+        "references.0.title": "Vue Reactivity Fundamentals",
+        "references.1.title": "Vue Composition API Guide"
+      }
+    },
+    "vue-step-08": {
+      "sourceHash": "741f8a7595c19ed5d588443e8fd05d09a8275a13ce220e5b56731d35242f2b5c",
+      "values": {
+        "title": "The One-Way Contract of props",
+        "prerequisites": "Unit 8 builds on the work and experiment records from Unit 7.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "props",
+        "concepts.0.explanation": "props are inputs owned by the parent. Direct edits by the child make ownership and change paths difficult to trace.",
+        "concepts.1.title": "Defaults and validation",
+        "concepts.1.explanation": "Prop types and defaults expose a component's usage conditions. They do not automatically replace all runtime data validation.",
+        "outcomes.0": "The child code contains no direct assignment to props.",
+        "outcomes.1": "The child title matches after the parent title changes.",
+        "steps.0": "Declare id, title, and done with defineProps in src/Card.vue.",
+        "steps.1": "Connect the child display so that it changes when the parent changes the input.",
+        "steps.2": "Remove direct mutations inside the child and describe its read-only role in notes/contracts.md.",
+        "variables.0.name": "title input",
+        "variables.0.baseline": "State",
+        "variables.0.change": "Reactivity",
+        "variables.0.expected": "The parent's change is reflected in the child title.",
+        "criteria.0": "The child code contains no direct assignment to props.",
+        "criteria.1": "The child title matches after the parent title changes.",
+        "questions.0": "Does mutating an object prop internally also affect the parent?",
+        "questions.1": "If you copy an initial value into a local ref, does it follow later prop changes?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup"
+      }
+    },
+    "vue-step-09": {
+      "sourceHash": "ed6f8b91a2db533d1118017a97d0ca798194f36e7d3b095389dbbf37f50ab175",
+      "values": {
+        "title": "Communicating Change Intent with emits",
+        "prerequisites": "Unit 9 builds on the work and experiment records from Unit 8.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Component events",
+        "concepts.0.explanation": "defineEmits declares events that a child can announce. The parent receives them and decides how to change the actual state.",
+        "concepts.1.title": "payload",
+        "concepts.1.explanation": "Pass the target id and necessary values with an event. This makes the contract clearer than passing the entire DOM event object.",
+        "outcomes.0": "1 click produces 1 toggle event.",
+        "outcomes.1": "After sorting, only the clicked card changes completion state.",
+        "steps.0": "Declare a toggle event in src/Card.vue and pass the id.",
+        "steps.1": "In App.vue's @toggle handler, change only done for that id.",
+        "steps.2": "Log the events of the three cards and compare the clicked id with the changed id.",
+        "variables.0.name": "payload",
+        "variables.0.baseline": "Array index",
+        "variables.0.change": "Card id",
+        "variables.0.expected": "The same target changes even after sorting.",
+        "criteria.0": "1 click produces 1 toggle event.",
+        "criteria.1": "After sorting, only the clicked card changes completion state.",
+        "questions.0": "Do component emits automatically propagate to ancestors like DOM events?",
+        "questions.1": "How is this better than directly editing the parent's array from the child?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup"
+      }
     }
   }
 }

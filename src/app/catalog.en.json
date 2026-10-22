@@ -1545,6 +1545,36 @@
       "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
     },
     {
+      "id": "vue-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Expressing State with Classes and Styles",
+      "goal": "Completion text and aria-pressed agree across all four combinations. Changing the selection style does not affect other cards.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/07/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "The One-Way Contract of props",
+      "goal": "The child code contains no direct assignment to props. The child title matches after the parent title changes.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/08/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Communicating Change Intent with emits",
+      "goal": "1 click produces 1 toggle event. After sorting, only the clicked card changes completion state.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/09/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

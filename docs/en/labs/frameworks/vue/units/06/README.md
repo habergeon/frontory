@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: List Keys and Conditional Lifetimes](../05/README.md)
+[Previous: List Keys and Conditional Lifetimes](../05/README.md) · [Next: Expressing State with Classes and Styles](../07/README.md)
 
 ## Experiment notes — write your own
 

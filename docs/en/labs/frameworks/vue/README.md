@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 6 published in English
+UI frameworks · 4 stages · 28 units in the full series · 9 published in English
 
 ## Series goal
 
@@ -30,9 +30,12 @@ Only published English units are linked below. The full series has 28 units.
 - [04. Pure Computation with computed](units/04/README.md) — Editable example
 - [05. List Keys and Conditional Lifetimes](units/05/README.md) — Editable example
 - [06. Events and Input Conversion](units/06/README.md) — Editable example
+- [07. Expressing State with Classes and Styles](units/07/README.md) — Editable example
 
 ### Stage 2 · Component Contracts and Watching
 
+- [08. The One-Way Contract of props](units/08/README.md) — Editable example
+- [09. Communicating Change Intent with emits](units/09/README.md) — Editable example
 
 ### Stage 3 · Composables and Store Lifetimes
 
@@ -50,3 +53,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 
 - [Vue Reactivity Fundamentals](https://vuejs.org/guide/essentials/reactivity-fundamentals.html)
 - [Vue Composition API Guide](https://vuejs.org/guide/introduction.html)
+- [Vue Watchers and cleanup](https://vuejs.org/guide/essentials/watchers.html)

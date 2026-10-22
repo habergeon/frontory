@@ -45,5 +45,23 @@
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
     }
+  },
+  "javascript-step-08": {
+    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "values": {
+      "note": "Compare the editable inputs with actual browser execution results."
+    }
+  },
+  "javascript-step-09": {
+    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "values": {
+      "note": "Compare the editable inputs with actual browser execution results."
+    }
+  },
+  "javascript-step-10": {
+    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "values": {
+      "note": "Compare the editable inputs with actual browser execution results."
+    }
   }
 }

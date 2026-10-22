@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Scope and Closures](../06/README.md)
+[Previous: Scope and Closures](../06/README.md) · [Next: Object Destructuring and Optional Access](../08/README.md)
 
 ## Experiment notes — write your own
 

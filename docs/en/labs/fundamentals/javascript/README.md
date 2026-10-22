@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 7 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 10 published in English
 
 ## Series goal
 
@@ -34,6 +34,9 @@ Only published English units are linked below. The full series has 28 units.
 
 ### Stage 2 · DOM and asynchronous operations
 
+- [08. Object Destructuring and Optional Access](units/08/README.md) — Editable example
+- [09. Map and Set Indexes](units/09/README.md) — Editable example
+- [10. Exceptions and Recovery Paths](units/10/README.md) — Editable example
 
 ### Stage 3 · Modules and data boundaries
 

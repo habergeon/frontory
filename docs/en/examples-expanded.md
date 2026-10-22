@@ -14,6 +14,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [5. Functions and Pure Calculations](labs/fundamentals/javascript/units/05/README.md) | Editable example | [Source code](../../src/labs/javascript-step-05/example.js) — Compare the editable inputs with actual browser execution results. |
 | [6. Scope and Closures](labs/fundamentals/javascript/units/06/README.md) | Editable example | [Source code](../../src/labs/javascript-step-06/example.js) — Compare the editable inputs with actual browser execution results. |
 | [7. Array Aggregation and Empty Input](labs/fundamentals/javascript/units/07/README.md) | Editable example | [Source code](../../src/labs/javascript-step-07/example.js) — Compare the editable inputs with actual browser execution results. |
+| [8. Object Destructuring and Optional Access](labs/fundamentals/javascript/units/08/README.md) | Editable example | [Source code](../../src/labs/javascript-step-08/example.js) — Compare the editable inputs with actual browser execution results. |
+| [9. Map and Set Indexes](labs/fundamentals/javascript/units/09/README.md) | Editable example | [Source code](../../src/labs/javascript-step-09/example.js) — Compare the editable inputs with actual browser execution results. |
+| [10. Exceptions and Recovery Paths](labs/fundamentals/javascript/units/10/README.md) | Editable example | [Source code](../../src/labs/javascript-step-10/example.js) — Compare the editable inputs with actual browser execution results. |
 
 ## CSS
 

@@ -213,6 +213,84 @@
         "references.0.title": "MDN JavaScript Guide",
         "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels."
       }
+    },
+    "javascript-step-08": {
+      "sourceHash": "695e3c15bd85e4151227b2845a97bf123f55153dec216c3d2a03a43a26efe986",
+      "values": {
+        "title": "Object Destructuring and Optional Access",
+        "prerequisites": "The work and experiment records from Unit 7, “Array Aggregation and Empty Input”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Destructuring",
+        "concepts.0.explanation": "You can extract properties into local names. A default value applies when a property is undefined.",
+        "concepts.1.title": "Optional Access",
+        "concepts.1.explanation": "?. stops access at a nullish value. Distinguish optional information from required fields so that missing required fields are not silently hidden.",
+        "outcomes.0": "Display the information without exceptions whether contact details are present or absent.",
+        "criteria.0": "Display the information without exceptions whether contact details are present or absent.",
+        "outcomes.1": "A missing name is not saved as a valid name.",
+        "criteria.1": "A missing name is not saved as a valid name.",
+        "steps.0": "In profile.js, prepare a valid author, an author without contact, and an author without name.",
+        "steps.1": "Destructure the name and use contact?.email to display supplementary information.",
+        "steps.2": "Run with a valid author, missing contact, and missing name. Results to check: Display the information without exceptions whether contact details are present or absent. A missing name is not saved as a valid name. Record expected and actual results separately.",
+        "variables.0.name": "Contact details",
+        "variables.0.baseline": "Object present",
+        "variables.0.change": "Absent",
+        "variables.0.expected": "Hypothesis before running: Only the supplementary information will change to the default guidance. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "Which missing values should not be hidden with ?.?",
+        "questions.1": "Do destructuring defaults also apply to null?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-step-09": {
+      "sourceHash": "a99e098204ac961afe018c0c28a603fd97c1902896ac24798be2e8821fb32fef",
+      "values": {
+        "title": "Map and Set Indexes",
+        "prerequisites": "The work and experiment records from Unit 8, “Object Destructuring and Optional Access”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Key-Based Lookup",
+        "concepts.0.explanation": "Map associates keys with values. Calling set with the same key replaces the existing value.",
+        "concepts.1.title": "Removing Duplicates",
+        "concepts.1.explanation": "Set stores the same value only once. Objects are distinguished by reference rather than by their contents.",
+        "outcomes.0": "Record the tag counts before and after removing duplicates.",
+        "criteria.0": "Record the tag counts before and after removing duplicates.",
+        "outcomes.1": "Verify a lookup for a missing id and an update to an existing id separately.",
+        "criteria.1": "Verify a lookup for a missing id and an update to an existing id separately.",
+        "steps.0": "In index.js, prepare 6 tags containing duplicates and 3 notes.",
+        "steps.1": "Use Set to reduce the tags and Map to look up notes, then update an existing id.",
+        "steps.2": "Run with 6 tags containing duplicates and 3 notes. Results to check: Record the tag counts before and after removing duplicates. Verify a lookup for a missing id and an update to an existing id separately. Record expected and actual results separately.",
+        "variables.0.name": "Key passed to set",
+        "variables.0.baseline": "New id 4",
+        "variables.0.change": "Existing id 2",
+        "variables.0.expected": "Hypothesis before running: The size will stay the same, and the value for id 2 will change. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "How should duplicates be defined for object tags?",
+        "questions.1": "How do the purposes of Map and array searches differ?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-step-10": {
+      "sourceHash": "5a0749da730f156f807d6c2d87dccb1f20053c52490230166584c51913d5fa30",
+      "values": {
+        "title": "Exceptions and Recovery Paths",
+        "prerequisites": "The work and experiment records from Unit 9, “Map and Set Indexes”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Exception Propagation",
+        "concepts.0.explanation": "throw transfers control to the nearest catch. In catch, recover or add context and pass the exception on.",
+        "concepts.1.title": "Guaranteed Cleanup",
+        "concepts.1.explanation": "finally runs after success and failure. A return here can override the original return value or exception.",
+        "outcomes.0": "The busy state ends after both success and failure.",
+        "criteria.0": "The busy state ends after both success and failure.",
+        "outcomes.1": "Read valid input again after a failure.",
+        "criteria.1": "Read valid input again after a failure.",
+        "steps.0": "In parse.js, prepare valid JSON and JSON with a missing closing bracket.",
+        "steps.1": "Wrap JSON.parse in try/catch and turn off the progress indicator in finally.",
+        "steps.2": "Run with valid JSON and JSON with a missing closing bracket. Results to check: The busy state ends after both success and failure. Read valid input again after a failure. Record expected and actual results separately.",
+        "variables.0.name": "JSON",
+        "variables.0.baseline": "Valid",
+        "variables.0.change": "Missing bracket",
+        "variables.0.expected": "Hypothesis before running: The progress indicator will turn off after the failure message. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "What information does an empty catch lose?",
+        "questions.1": "Why must you be careful with return in finally?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
     }
   }
 }

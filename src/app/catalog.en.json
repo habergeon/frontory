@@ -128,6 +128,36 @@
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
+      "id": "javascript-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Object Destructuring and Optional Access",
+      "goal": "Display the information without exceptions whether contact details are present or absent. A missing name is not saved as a valid name.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/08/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
+      "id": "javascript-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Map and Set Indexes",
+      "goal": "Record the tag counts before and after removing duplicates. Verify a lookup for a missing id and an update to an existing id separately.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/09/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
+      "id": "javascript-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Exceptions and Recovery Paths",
+      "goal": "The busy state ends after both success and failure. Read valid input again after a failure.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/10/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
       "id": "css-step-04",
       "day": 4,
       "week": 1,

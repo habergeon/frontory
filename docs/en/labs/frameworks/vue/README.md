@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 9 published in English
+UI frameworks · 4 stages · 28 units in the full series · 12 published in English
 
 ## Series goal
 
@@ -36,6 +36,9 @@ Only published English units are linked below. The full series has 28 units.
 
 - [08. The One-Way Contract of props](units/08/README.md) — Editable example
 - [09. Communicating Change Intent with emits](units/09/README.md) — Editable example
+- [10. Component v-model](units/10/README.md) — Editable example
+- [11. Composing Screens with Slots](units/11/README.md) — Editable example
+- [12. watch Sources and Timing](units/12/README.md) — Editable example
 
 ### Stage 3 · Composables and Store Lifetimes
 

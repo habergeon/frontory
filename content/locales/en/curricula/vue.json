@@ -253,6 +253,87 @@
         "references.0.title": "Vue Composition API Guide",
         "references.1.title": "Vue Watchers and cleanup"
       }
+    },
+    "vue-step-10": {
+      "sourceHash": "4e7cc015aa0288886f9c32c511431f29199487493a62f15854757410fc9ef5f0",
+      "values": {
+        "title": "Component v-model",
+        "prerequisites": "Unit 10 builds on the work and experiment records from Unit 9.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Model contract",
+        "concepts.0.explanation": "Component v-model combines a passed value and an update event. Implementing modelValue and update:modelValue directly makes ownership visible.",
+        "concepts.1.title": "Draft management",
+        "concepts.1.explanation": "The parent stores drafts that must survive editor removal. The child displays the current value and announces only a new string.",
+        "outcomes.0": "Input in editor A appears in editor B.",
+        "outcomes.1": "The parent's draft remains after removing and showing the child again.",
+        "steps.0": "Implement a modelValue prop and update:modelValue emit in src/NoteEditor.vue.",
+        "steps.1": "Connect the textarea value and input, and use v-model in App.",
+        "steps.2": "Connect both editors to the same ref and check that input in one appears in the other.",
+        "variables.0.name": "Draft owner",
+        "variables.0.baseline": "Child local ref",
+        "variables.0.change": "Parent ref",
+        "variables.0.expected": "Both editors display the same string.",
+        "criteria.0": "Input in editor A appears in editor B.",
+        "criteria.1": "The parent's draft remains after removing and showing the child again.",
+        "questions.0": "Where does value ownership lie when using defineModel?",
+        "questions.1": "What mismatch occurs if the default differs from the parent's initial value?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup"
+      }
+    },
+    "vue-step-11": {
+      "sourceHash": "73b37441bbe4e11fa18dd57c4bbe06edf4573885e4c6aed77da35ec9ecb82984",
+      "values": {
+        "title": "Composing Screens with Slots",
+        "prerequisites": "Unit 11 builds on the work and experiment records from Unit 10.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Slots",
+        "concepts.0.explanation": "Slots place parent-provided content inside a child's layout. Template expressions written by the parent use the parent's scope.",
+        "concepts.1.title": "Scoped slots",
+        "concepts.1.explanation": "Pass child data through slot props when the parent needs to render it. Separate data ownership from presentation responsibility for reuse.",
+        "outcomes.0": "The two panels' footers display different content.",
+        "outcomes.1": "The number of filtered results stays the same after changing slots.",
+        "steps.0": "Create header, default, and footer slots in src/Panel.vue.",
+        "steps.1": "Supply different headers and footers to the list and note panels.",
+        "steps.2": "Use CardList's item slot so the parent renders the title and completion badge.",
+        "variables.0.name": "item slot",
+        "variables.0.baseline": "Default title",
+        "variables.0.change": "Title and badge",
+        "variables.0.expected": "List calculations stay the same while only the row presentation changes.",
+        "criteria.0": "The two panels' footers display different content.",
+        "criteria.1": "The number of filtered results stays the same after changing slots.",
+        "questions.0": "Can a parent slot access a child's local variables directly?",
+        "questions.1": "How do you choose between props and slots?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup"
+      }
+    },
+    "vue-step-12": {
+      "sourceHash": "6e0b12b3ecf3ecfd7f76025a909a039fe3c45fb7cacaadfc649869f323e416c4",
+      "values": {
+        "title": "watch Sources and Timing",
+        "prerequisites": "Unit 12 builds on the work and experiment records from Unit 11.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Explicit watching",
+        "concepts.0.explanation": "watch runs side effects when specified reactive sources change. computed is more direct when you need the calculated result itself.",
+        "concepts.1.title": "Watch scope",
+        "concepts.1.explanation": "Deeply watching an entire object can react to many changes. Reading only required fields in a getter narrows the watch's intent.",
+        "outcomes.0": "Changing theme does not start a search request.",
+        "outcomes.1": "After changing query, the request log contains the latest string.",
+        "steps.0": "Write watch(() => filters.query, ...) in src/useSearch.js.",
+        "steps.1": "Display the query change count and request-start log.",
+        "steps.2": "Change theme, onlyOpen, and query in turn, and record which changes run the watcher.",
+        "variables.0.name": "Watch source",
+        "variables.0.baseline": "Deep watch of all filters",
+        "variables.0.change": "query getter",
+        "variables.0.expected": "Request starts are tied only to search query changes.",
+        "criteria.0": "Changing theme does not start a search request.",
+        "criteria.1": "After changing query, the request log contains the latest string.",
+        "questions.0": "How do watchEffect and watch determine dependencies?",
+        "questions.1": "Which execution timing should you check to measure after a DOM update?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup"
+      }
     }
   }
 }

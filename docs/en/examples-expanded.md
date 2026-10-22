@@ -166,6 +166,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [7. Expressing State with Classes and Styles](labs/frameworks/vue/units/07/README.md) | Editable example | [Source code](../../src/labs/vue-step-07/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 | [8. The One-Way Contract of props](labs/frameworks/vue/units/08/README.md) | Editable example | [Source code](../../src/labs/vue-step-08/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 | [9. Communicating Change Intent with emits](labs/frameworks/vue/units/09/README.md) | Editable example | [Source code](../../src/labs/vue-step-09/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [10. Component v-model](labs/frameworks/vue/units/10/README.md) | Editable example | [Source code](../../src/labs/vue-step-10/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [11. Composing Screens with Slots](labs/frameworks/vue/units/11/README.md) | Editable example | [Source code](../../src/labs/vue-step-11/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [12. watch Sources and Timing](labs/frameworks/vue/units/12/README.md) | Editable example | [Source code](../../src/labs/vue-step-12/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 
 ## GSAP
 

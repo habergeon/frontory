@@ -1575,6 +1575,36 @@
       "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
     },
     {
+      "id": "vue-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Component v-model",
+      "goal": "Input in editor A appears in editor B. The parent's draft remains after removing and showing the child again.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/10/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Composing Screens with Slots",
+      "goal": "The two panels' footers display different content. The number of filtered results stays the same after changing slots.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/11/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "watch Sources and Timing",
+      "goal": "Changing theme does not start a search request. After changing query, the request log contains the latest string.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/12/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

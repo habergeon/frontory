@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: The One-Way Contract of props](../08/README.md)
+[Previous: The One-Way Contract of props](../08/README.md) · [Next: Component v-model](../10/README.md)
 
 ## Experiment notes — write your own
 

@@ -7,6 +7,7 @@ import { DocumentNotFoundError, loadDocument, localizedDocPath, parseDocumentPat
 interface Props { initialPath: string; unitPath: string; onClose: () => void; locale?: Locale }
 export function DocumentDialog({ initialPath, unitPath, onClose, locale = 'ko' }: Props) {
   const dialog = useRef<HTMLDialogElement>(null)
+  const previousFocus = useRef(document.activeElement)
   const article = useRef<HTMLElement>(null)
   const [selection, setSelection] = useState({ path: initialPath, locale })
   const path = selection.locale === locale ? selection.path : localizedDocPath(locale, parseDocumentPath(selection.path).koDocPath)
@@ -15,7 +16,16 @@ export function DocumentDialog({ initialPath, unitPath, onClose, locale = 'ko' }
   const key = request.locale + ':' + request.koDocPath
   const current = content?.key === key ? content : null
   const copy = messages[locale]
-  useEffect(() => { dialog.current?.showModal() }, [])
+  useEffect(() => {
+    const element = dialog.current
+    element?.showModal()
+    return () => {
+      // Restore after React removes the modal and its inert background.
+      queueMicrotask(() => {
+        if (!element?.isConnected && previousFocus.current instanceof HTMLElement) previousFocus.current.focus()
+      })
+    }
+  }, [])
   useEffect(() => {
     setSelection(current => current.locale === locale ? current : {
       path: localizedDocPath(locale, parseDocumentPath(current.path).koDocPath), locale,

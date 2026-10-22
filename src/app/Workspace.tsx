@@ -89,7 +89,7 @@ export function Workspace({ unit, onProgressChange }: { unit: Unit; onProgressCh
           <button aria-pressed={notePreview} onClick={() => setNotePreview(true)}>{text.preview}</button>
           <span>{message(locale, 'unitDay', { day: String(unit.day).padStart(2, '0') })}</span>
         </div>
-        {notePreview ? <div className="notes-preview"><MarkdownView text={draft.notes} /></div> :
+        {notePreview ? <div className="notes-preview"><MarkdownView locale={locale} text={draft.notes} /></div> :
           <textarea aria-label={text.markdownNotes} className="notes-editor" spellCheck={false} value={draft.notes}
             onChange={event => save({ ...draft, notes: event.target.value })} />}
         <p className="panel-hint">{text.notesHint}</p>

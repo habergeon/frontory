@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Shaders · 4 stages · 28 units in the full series · 15 published in English
+Shaders · 4 stages · 28 units in the full series · 18 published in English
 
 ## Series goal
 
@@ -45,6 +45,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 3 · Lighting and Procedural Surfaces
 
 - [15. 2D Distance-Field Shapes](units/15/README.md) — Editable example
+- [16. Building Value Noise](units/16/README.md) — Editable example
+- [17. Octaves and Band Limiting](units/17/README.md) — Editable example
+- [18. Normals and Diffuse Lighting](units/18/README.md) — Editable example
 
 ### Stage 4 · Interaction, Postprocessing, and Cost Evaluation
 

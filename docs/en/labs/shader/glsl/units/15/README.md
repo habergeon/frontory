@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: UVs, Uniforms, and Waves](../../02-experiments/README.md)
+[Previous: UVs, Uniforms, and Waves](../../02-experiments/README.md) · [Next: Building Value Noise](../16/README.md)
 
 ## Experiment notes — write your own
 

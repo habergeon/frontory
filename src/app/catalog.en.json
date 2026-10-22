@@ -3976,6 +3976,36 @@
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
+      "id": "glsl-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Building Value Noise",
+      "goal": "Implement the grid and interpolation of noise. Check determinism and boundary continuity.",
+      "docPath": "/docs/en/labs/shader/glsl/units/16/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
+      "id": "glsl-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Octaves and Band Limiting",
+      "goal": "Build noise with multiple frequencies. Assess the cost and limits of added detail.",
+      "docPath": "/docs/en/labs/shader/glsl/units/17/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
+      "id": "glsl-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Normals and Diffuse Lighting",
+      "goal": "Transform normals into the correct space. Calculate diffuse lighting.",
+      "docPath": "/docs/en/labs/shader/glsl/units/18/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
       "id": "wgsl-01",
       "day": 1,
       "week": 1,

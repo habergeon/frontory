@@ -400,6 +400,84 @@
         "questions.1": "Are distances still exact after nonuniform scale?",
         "references.0.title": "GLSL ES 3.00 Specification"
       }
+    },
+    "glsl-step-16": {
+      "sourceHash": "e15bc5d815ced14881f9c9cc4fec8164e40ee9c6154430708dc6366061b82538",
+      "values": {
+        "title": "Building Value Noise",
+        "prerequisites": "Continue using the output and records from Unit 15. Before experimenting with Building Value Noise, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Grid Values",
+        "concepts.0.explanation": "Value noise interpolates cell-corner values to create continuous variation. Separate pseudorandom values for cell ids from interpolation inside a cell.",
+        "concepts.1.title": "Interpolation Curves",
+        "concepts.1.explanation": "Linear and smooth interpolation have different derivative behavior at cell boundaries. Zoom in to check for rough boundaries.",
+        "outcomes.0": "Implement the grid and interpolation of noise.",
+        "outcomes.1": "Check determinism and boundary continuity.",
+        "steps.0": "Write a deterministic hash and a four-corner interpolation function in noise.glsl.",
+        "steps.1": "Display linear and smooth-curve interpolation side by side using the same seed constant.",
+        "steps.2": "Record zoomed views of cell boundaries and values at 5 fixed coordinates.",
+        "variables.0.name": "Interpolation",
+        "variables.0.baseline": "linear",
+        "variables.0.change": "smooth polynomial curve",
+        "variables.0.expected": "Expect changes in slope at cell boundaries to become less prominent.",
+        "criteria.0": "Repeated inputs of the same coordinates produce the same values.",
+        "criteria.1": "Keep zoomed boundary images for both interpolation methods.",
+        "questions.0": "Can a display hash be used as a cryptographic random source?",
+        "questions.1": "What flickering can occur when time is used directly as the seed?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-17": {
+      "sourceHash": "64b6f9ef1175fa0bb907e167fb6da07fecc058af160a2117d24ed6df6c3c1936",
+      "values": {
+        "title": "Octaves and Band Limiting",
+        "prerequisites": "Continue using the output and records from Unit 16. Before experimenting with Octaves and Band Limiting, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Multiple Frequencies",
+        "concepts.0.explanation": "Adding noise frequencies with decreasing amplitude can produce broad shapes and fine detail together. More iterations also increase computation.",
+        "concepts.1.title": "Excess Detail",
+        "concepts.1.explanation": "Changes smaller than screen pixels are difficult to display consistently. Adding high frequencies indiscriminately may increase aliasing instead of quality.",
+        "outcomes.0": "Build noise with multiple frequencies.",
+        "outcomes.1": "Assess the cost and limits of added detail.",
+        "steps.0": "Separate the fixed maximum iteration count from the octave-count input in fbm.glsl.",
+        "steps.1": "Combine 1, 3, and 5 octaves using a rule that doubles frequency and halves amplitude.",
+        "steps.2": "Compare detail, flickering, and frame intervals on small and large screens.",
+        "variables.0.name": "Octave count",
+        "variables.0.baseline": "1",
+        "variables.0.change": "5",
+        "variables.0.expected": "Expect more detail and computation, with possible aliasing on a small screen.",
+        "criteria.0": "Save images at the same time point for all three iteration counts.",
+        "criteria.1": "Distinguish useful detail from noise added by extra octaves on a small screen.",
+        "questions.0": "How does brightness change without normalizing the amplitude sum?",
+        "questions.1": "Can you relate the frequency limit to resolution?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-18": {
+      "sourceHash": "2819c828ec5ff760fa552066f3e7f02ba76485816221c22613f4ee8ede8ac1d2",
+      "values": {
+        "title": "Normals and Diffuse Lighting",
+        "prerequisites": "Continue using the output and records from Unit 17. Before experimenting with Normals and Diffuse Lighting, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Normal Space",
+        "concepts.0.explanation": "Normals and light directions must share a coordinate space. For nonuniform scale, use an appropriate inverse-transpose transform instead of a plain model matrix.",
+        "concepts.1.title": "Diffuse Term",
+        "concepts.1.explanation": "The dot of normalized normals and light directions represents their angular relationship. Remove negative values to prevent negative colors on back-facing surfaces.",
+        "outcomes.0": "Transform normals into the correct space.",
+        "outcomes.1": "Calculate diffuse lighting.",
+        "steps.0": "Transform normals with the normal matrix in lighting.glsl and normalize them in the fragment shader.",
+        "steps.1": "Calculate the diffuse term for a solid-color surface with max(dot(N,L),0).",
+        "steps.2": "Apply nonuniform scale and compare the correct normal matrix with a plain transform.",
+        "variables.0.name": "scale",
+        "variables.0.baseline": "[1,1,1]",
+        "variables.0.change": "[2,1,0.5]",
+        "variables.0.expected": "Expect the direction of the bright region to be incorrect with the wrong normal transform.",
+        "criteria.0": "State the space of normals and light directions in comments.",
+        "criteria.1": "Record lighting differences between the two transforms under nonuniform scale.",
+        "questions.0": "Why normalize interpolated normals again in the fragment shader?",
+        "questions.1": "Should a negative dot value add light?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
     }
   }
 }

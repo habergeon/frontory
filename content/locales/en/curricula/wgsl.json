@@ -739,6 +739,33 @@
         "references.0.title": "WGSL Specification",
         "references.1.title": "WebGPU API"
       }
+    },
+    "wgsl-03": {
+      "sourceHash": "9d6cee1249c86c303ec0c5f14f6b29d3ca5d675aa4df22cc7b63c241379de244",
+      "values": {
+        "title": "Compute and Boundaries",
+        "prerequisites": "Continue using the output and records from Unit 27. Before experimenting with Compute and Boundaries, preserve the previous inputs and reference outputs.",
+        "environment": "The existing wgsl-03 preview is a starting point. It does not replace implementation or verification of the full subsequent assignment. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Combining Boundary Strategies",
+        "concepts.0.explanation": "Logical element counts may differ from invocation counts. Apply early return for independent kernels separately from neutral-value participation in cooperative kernels.",
+        "concepts.1.title": "Combining Verification",
+        "concepts.1.explanation": "Check correctness through the final element, partial workgroups, and repeated execution. Even with correct barriers and memory layout, incorrect formulas need separate CPU comparisons.",
+        "outcomes.0": "Apply a boundary strategy for each kernel.",
+        "outcomes.1": "Verify layout, synchronization, and numeric correctness together.",
+        "steps.0": "Run map, reduction, and stencil at lengths 1, 65, and 1003, and compare with CPU references.",
+        "steps.1": "Mark pre-access checks in independent kernels and all-lane barrier participation in reduction in the source.",
+        "steps.2": "In report.md, collect the final element, sentinel, maximum error, total latency, and device information, then judge the completion criteria.",
+        "variables.0.name": "Element count",
+        "variables.0.baseline": "Multiple of 64",
+        "variables.0.change": "65 and 1003",
+        "variables.0.expected": "Correct handling of extra lanes is expected to produce CPU-matching results without missing elements.",
+        "criteria.0": "Results and final-element checks are recorded for three kernels and three lengths.",
+        "criteria.1": "Synchronization paths contain neither nonuniform barriers nor wait loops between groups.",
+        "questions.0": "Why does copying a bounds return directly into reduction cause failure?",
+        "questions.1": "What must be saved for reproduction besides matching results?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
     }
   }
 }

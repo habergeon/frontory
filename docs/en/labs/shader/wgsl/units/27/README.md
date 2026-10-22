@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Workgroup Configuration and Measurement](../26/README.md)
+[Previous: Workgroup Configuration and Measurement](../26/README.md) · [Next: Compute and Boundaries](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

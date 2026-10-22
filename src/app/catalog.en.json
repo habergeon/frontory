@@ -4082,6 +4082,15 @@
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
+      "id": "wgsl-03",
+      "day": 28,
+      "week": 4,
+      "title": "Compute and Boundaries",
+      "goal": "Apply a boundary strategy for each kernel. Verify layout, synchronization, and numeric correctness together.",
+      "docPath": "/docs/en/labs/shader/wgsl/03-project/README.md",
+      "seriesId": "wgsl"
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 6 published in English
+Engineering · 4 stages · 28 units in the full series · 9 published in English
 
 ## Series goal
 
@@ -30,9 +30,12 @@ Only published English units are linked below. The full series has 28 units.
 - [04. Inspecting Exports](units/04/README.md) — External example · preview instructions
 - [05. Imports and Host Functions](units/05/README.md) — External example · preview instructions
 - [06. I32 and JS Number](units/06/README.md) — External example · preview instructions
+- [07. Traps and Input Validation](units/07/README.md) — External example · preview instructions
 
 ### Stage 2 · Memory and Array Boundaries
 
+- [08. Pages and Byte Offset](units/08/README.md) — External example · preview instructions
+- [09. Views and Endianness](units/09/README.md) — External example · preview instructions
 
 ### Stage 3 · Deployment and Execution Structure
 

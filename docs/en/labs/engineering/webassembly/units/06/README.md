@@ -72,7 +72,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Imports and Host Functions](../05/README.md)
+[Previous: Imports and Host Functions](../05/README.md) · [Next: Traps and Input Validation](../07/README.md)
 
 ## Experiment notes — write your own
 

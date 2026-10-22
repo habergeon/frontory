@@ -178,6 +178,90 @@
         "references.1.title": "MDN WebAssembly JavaScript API",
         "references.2.title": "MDN WebAssembly.Memory"
       }
+    },
+    "webassembly-step-07": {
+      "sourceHash": "d54b8f6dedefc3918d31b14b567a3b77cdf11bc9e0c58c9ca55e5fd2602b138b",
+      "values": {
+        "title": "Traps and Input Validation",
+        "prerequisites": "Prepare the experiment results for Numeric representation and Overflow from Unit 6, “I32 and JS Number”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Trap",
+        "concepts.0.explanation": "Out-of-bounds memory access can cause a runtime trap. Catch it as a JS exception and distinguish it from user errors.",
+        "concepts.1.title": "Preflight checks",
+        "concepts.1.explanation": "Validate pointers and lengths before calling. Do not overuse traps as normal input validation.",
+        "outcomes.0": "Learning outcome: explain the role of Trap. Input cases: valid·negative length·out of bounds.",
+        "outcomes.1": "Deliverable: rejection reasons and RuntimeError records. Explain the rationale for handling Preflight checks, linking it to the code.",
+        "steps.0": "In day-7.mjs in a separate practice project, add integer·negative-value·bounds checks to a sum call wrapper and classify errors. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: valid·negative length·out of bounds. Baseline: none. Run under the baseline conditions, then record observations and errors in notes/day-7.md.",
+        "steps.2": "Variable: validation; changed value: preflight checks. Run again through the same input path. Deliverable to save: rejection reasons and RuntimeError records. Hypothesis to check: Invalid inputs are rejected before the module call. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "validation",
+        "variables.0.baseline": "none",
+        "variables.0.change": "preflight checks",
+        "variables.0.expected": "Invalid inputs are rejected before the module call.",
+        "criteria.0": "Required deliverable: rejection reasons and RuntimeError records. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Trap and Preflight checks. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Trap affect in this exercise? Input cases: valid·negative length·out of bounds.",
+        "questions.1": "Variable: validation. Hypothesis to check: Invalid inputs are rejected before the module call. Did the actual results agree with the hypothesis? Explain the evidence in terms of Preflight checks.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-08": {
+      "sourceHash": "d5e806d6f7111aed6255d9034a9d89d398c919f2b71b5fe302a4354eaf849eed",
+      "values": {
+        "title": "Pages and Byte Offset",
+        "prerequisites": "Prepare the experiment results for Trap and Preflight checks from Unit 7, “Traps and Input Validation”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Pages",
+        "concepts.0.explanation": "A Wasm memory page is 65536 bytes. Element counts and byte counts use different units.",
+        "concepts.1.title": "Pointers",
+        "concepts.1.explanation": "Pointer arguments are interpreted as byte offsets. Passing an Int32 element index directly reads a different location.",
+        "outcomes.0": "Learning outcome: explain the role of Pages. Input cases: four distinct integers.",
+        "outcomes.1": "Deliverable: a table of index·offset·value read. Explain the rationale for handling Pointers, linking it to the code.",
+        "steps.0": "In day-8.mjs in a separate practice project, print the memory.buffer size and at(index*4). Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: four distinct integers. Baseline: index. Run under the baseline conditions, then record observations and errors in notes/day-8.md.",
+        "steps.2": "Variable: pointer unit; changed value: index×4. Run again through the same input path. Deliverable to save: a table of index·offset·value read. Hypothesis to check: Values are read from the intended integer addresses. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "pointer unit",
+        "variables.0.baseline": "index",
+        "variables.0.change": "index×4",
+        "variables.0.expected": "Values are read from the intended integer addresses.",
+        "criteria.0": "Required deliverable: a table of index·offset·value read. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Pages and Pointers. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Pages affect in this exercise? Input cases: four distinct integers.",
+        "questions.1": "Variable: pointer unit. Hypothesis to check: Values are read from the intended integer addresses. Did the actual results agree with the hypothesis? Explain the evidence in terms of Pointers.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-09": {
+      "sourceHash": "b6fcbf287e17d828a5eb391b5803a84d1a7a9720513c11ccdcbe300091c1eebf",
+      "values": {
+        "title": "Views and Endianness",
+        "prerequisites": "Prepare the experiment results for Pages and Pointers from Unit 8, “Pages and Byte Offset”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Shared storage",
+        "concepts.0.explanation": "Different TypedArrays interpret the same bytes differently. Creating a view does not copy the data.",
+        "concepts.1.title": "Byte order",
+        "concepts.1.explanation": "Numeric values in Wasm memory use little-endian layout. Explicitly setting the order in DataView makes interpretation clear.",
+        "outcomes.0": "Learning outcome: explain the role of Shared storage. Input cases: one 32-bit integer.",
+        "outcomes.1": "Deliverable: four bytes and the reconstructed number. Explain the rationale for handling Byte order, linking it to the code.",
+        "steps.0": "In day-9.mjs in a separate practice project, write 0x12345678 with DataView in little-endian order and read it with Uint8Array. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: one 32-bit integer. Baseline: little-endian. Run under the baseline conditions, then record observations and errors in notes/day-9.md.",
+        "steps.2": "Variable: interpretation order; changed value: big-endian. Run again through the same input path. Deliverable to save: four bytes and the reconstructed number. Hypothesis to check: The number read from the same bytes changes. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "interpretation order",
+        "variables.0.baseline": "little-endian",
+        "variables.0.change": "big-endian",
+        "variables.0.expected": "The number read from the same bytes changes.",
+        "criteria.0": "Required deliverable: four bytes and the reconstructed number. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Shared storage and Byte order. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Shared storage affect in this exercise? Input cases: one 32-bit integer.",
+        "questions.1": "Variable: interpretation order. Hypothesis to check: The number read from the same bytes changes. Did the actual results agree with the hypothesis? Explain the evidence in terms of Byte order.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
     }
   }
 }

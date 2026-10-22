@@ -5894,6 +5894,36 @@
       "docPath": "/docs/en/labs/engineering/webassembly/units/06/README.md",
       "seriesId": "webassembly",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Traps and Input Validation",
+      "goal": "Learning outcome: explain the role of Trap. Input cases: valid·negative length·out of bounds. Deliverable: rejection reasons and RuntimeError records. Explain the rationale for handling Preflight checks, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/07/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Pages and Byte Offset",
+      "goal": "Learning outcome: explain the role of Pages. Input cases: four distinct integers. Deliverable: a table of index·offset·value read. Explain the rationale for handling Pointers, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/08/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Views and Endianness",
+      "goal": "Learning outcome: explain the role of Shared storage. Input cases: one 32-bit integer. Deliverable: four bytes and the reconstructed number. Explain the rationale for handling Byte order, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/09/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     }
   ]
 }

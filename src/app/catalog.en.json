@@ -5230,6 +5230,15 @@
       "docPath": "/docs/en/labs/animation/motion/units/27/README.md",
       "seriesId": "motion",
       "exampleNote": "Interactive Remounting and State Restoration experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-03",
+      "day": 28,
+      "week": 4,
+      "title": "Gestures and Accessibility",
+      "goal": "Learning outcome: Explain the role of Equivalent functionality. Input case: Reordering without a pointer, consecutive deletions, and reduce. Deliverable: A validation report of ID arrays, focus, and content for each input. Connect your rationale for handling Comprehensive validation to the code.",
+      "docPath": "/docs/en/labs/animation/motion/03-project/README.md",
+      "seriesId": "motion"
     }
   ]
 }

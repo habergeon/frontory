@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Observing Renders and Performance](../26/README.md)
+[Previous: Observing Renders and Performance](../26/README.md) · [Next: Gestures and Accessibility](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

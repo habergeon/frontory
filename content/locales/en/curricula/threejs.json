@@ -734,6 +734,34 @@
         "references.1.title": "Three.js Cleanup",
         "references.2.title": "Three.js WebGLRenderer"
       }
+    },
+    "threejs-03": {
+      "sourceHash": "7fe52c448f09d741146125daba9762464179aa4a43a9d8c9ce4e484c6c049b46",
+      "values": {
+        "title": "Rendering Resources and Measurement",
+        "prerequisites": "Prerequisite concepts: Feature Contracts, Repeated-Run Verification. Prepare the result files and observation notes from unit 27.",
+        "environment": "The existing built-in example provides only a starting point. It does not implement all expanded requirements. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Separating Bottlenecks",
+        "concepts.0.explanation": "Reducing draw calls and reducing pixel cost are different improvements. Change one variable at a time in the same scene to interpret the effect.",
+        "concepts.1.title": "Repeated Cleanup",
+        "concepts.1.explanation": "At shutdown, release the loop, controls, observers, and owned resources together. A stable renderer.info trend is supporting evidence, not proof that all VRAM has been freed.",
+        "outcomes.0": "Record metrics under identical conditions and the resource cleanup process.",
+        "outcomes.1": "Explain performance changes together with whether quality and selection features are preserved.",
+        "steps.0": "Prepare day-28.js and index.html in the external exercise project. Connect scene creation and deletion and switching between individual Mesh objects and InstancedMesh to the existing threejs-03 starting code.",
+        "steps.1": "With the same camera, count, and DPR, record before-and-after calls and frame distributions, and submit a cleanup ledger for geometry,material,texture,render target.",
+        "steps.2": "Save the output under the Individual Mesh objects input condition, then run again under the InstancedMesh condition. Expected: With identical geometry and material, calls can be reduced, but the effect on the whole frame must be measured. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-28-notes.md.",
+        "variables.0.name": "Repeated-object representation",
+        "variables.0.baseline": "Individual Mesh objects",
+        "variables.0.change": "InstancedMesh",
+        "variables.0.expected": "With identical geometry and material, calls can be reduced, but the effect on the whole frame must be measured.",
+        "criteria.0": "Record metrics under identical conditions and the resource cleanup process.",
+        "criteria.1": "Explain performance changes together with whether quality and selection features are preserved.",
+        "questions.0": "What should you suspect if draw calls decrease but frame timing stays the same?",
+        "questions.1": "What memory information is unavailable from renderer.info?",
+        "references.0.title": "Three.js InstancedMesh",
+        "references.1.title": "Three.js WebGLRenderer",
+        "references.2.title": "Three.js Cleanup"
+      }
     }
   }
 }

@@ -71,7 +71,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Render Statistics and Profiling](../26/README.md)
+[Previous: Render Statistics and Profiling](../26/README.md) · [Next: Rendering Resources and Measurement](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

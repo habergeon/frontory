@@ -2918,6 +2918,15 @@
       "exampleNote": "Runs selection, rebuilding, JSON, and rotation lifetimes in a basic-shape inspector. glTF loading and minimap integration are external capstone extensions."
     },
     {
+      "id": "threejs-03",
+      "day": 28,
+      "week": 4,
+      "title": "Rendering Resources and Measurement",
+      "goal": "Record metrics under identical conditions and the resource cleanup process. Explain performance changes together with whether quality and selection features are preserved.",
+      "docPath": "/docs/en/labs/graphics/threejs/03-project/README.md",
+      "seriesId": "threejs"
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

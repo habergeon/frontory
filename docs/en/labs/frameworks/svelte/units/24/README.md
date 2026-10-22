@@ -71,7 +71,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Style Scope and Accessibility](../23/README.md)
+[Previous: Style Scope and Accessibility](../23/README.md) · [Next: Observing Compilation Output and Performance](../25/README.md)
 
 ## Experiment notes — write your own
 

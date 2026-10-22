@@ -671,6 +671,87 @@
         "references.1.title": "Svelte $effect and Cleanup",
         "references.2.title": "Svelte onMount and tick"
       }
+    },
+    "svelte-step-25": {
+      "sourceHash": "a6e142ecf810fcccd40c023223097a9a9d83b0d31cc24767054eaf8bdb2d7fc2",
+      "values": {
+        "title": "Observing Compilation Output and Performance",
+        "prerequisites": "Unit 25 continues with the work and experiment records from Unit 24.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Compilation Output",
+        "concepts.0.explanation": "Source length differs from what the browser executes. Inspect build output to see which code and dependencies it includes.",
+        "outcomes.0": "There is a record of 10 inputs at each of two data sizes.",
+        "criteria.0": "There is a record of 10 inputs at each of two data sizes.",
+        "questions.0": "Does a compiled framework have 0 runtime cost?",
+        "concepts.1.title": "Fair Measurement",
+        "concepts.1.explanation": "Compare with the same data, input, and build mode. Do not treat React Profiler numbers as the same metric as Svelte’s total render time.",
+        "outcomes.1": "Record build mode, device, and browser.",
+        "criteria.1": "Record build mode, device, and browser.",
+        "questions.1": "Can bundle size alone explain input latency?",
+        "steps.0": "Build the external project and record dist asset sizes and configuration in notes/build.md.",
+        "steps.1": "With 100 and 1000 cards, measure the same 10 filter inputs.",
+        "steps.2": "Distinguish scripting and layout sections in the browser performance recording.",
+        "variables.0.name": "Card Count",
+        "variables.0.baseline": "100 cards",
+        "variables.0.change": "1000 cards",
+        "variables.0.expected": "Measure changes in update cost without assuming linear growth.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup"
+      }
+    },
+    "svelte-step-26": {
+      "sourceHash": "afa72c907842f1a564be7d9665a058b270f1047e6530d51596289f27077c902c",
+      "values": {
+        "title": "Regression Scenarios for the Same Contract",
+        "prerequisites": "Unit 26 continues with the work and experiment records from Unit 25.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Behavior Contract",
+        "concepts.0.explanation": "Define adding, toggling, filtering, and draft preservation as inputs and outputs. Comparison is meaningful when all three frameworks meet the same contract.",
+        "outcomes.0": "Expected outputs for the 4 core flows are explicit.",
+        "criteria.0": "Expected outputs for the 4 core flows are explicit.",
+        "questions.0": "What becomes difficult if a test depends on component variable names?",
+        "concepts.1.title": "Test Independence",
+        "concepts.1.explanation": "Each run must start from the same initial data. Clean up leftover storage values and timers to remove the effects of previous runs.",
+        "outcomes.1": "Cards from the previous test do not remain on a second run.",
+        "criteria.1": "Cards from the previous test do not remain on a second run.",
+        "questions.1": "Can testing the store adapter establish that compiled components have also been verified?",
+        "steps.0": "In tests/workspace.spec.js, prepare 3 cards with fixed ids.",
+        "steps.1": "Check adding, toggling, the incomplete filter, and returning to A/B drafts.",
+        "steps.2": "Also check for 1 event and 1 loop after hiding and showing the Canvas again.",
+        "variables.0.name": "Initial State",
+        "variables.0.baseline": "Fresh run",
+        "variables.0.change": "Includes saved drafts",
+        "variables.0.expected": "Only the initial expectations change; the editing contract is preserved.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup"
+      }
+    },
+    "svelte-step-27": {
+      "sourceHash": "1ee734d7d45a94b23548aa661d297054efce1696752c6243429f15dd1c067677",
+      "values": {
+        "title": "Preparing a Three-Framework Comparison",
+        "prerequisites": "Unit 27 continues with the work and experiment records from Unit 26.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Identical Input",
+        "concepts.0.explanation": "Fix the ids, titles, completion states, and operation order in the comparison data. Different functionality weakens the basis for comparing code size and response speed.",
+        "outcomes.0": "All three implementations use the same fixture.",
+        "criteria.0": "All three implementations use the same fixture.",
+        "questions.0": "Do fewer source lines always mean easier maintenance?",
+        "concepts.1.title": "Separate Observations",
+        "concepts.1.explanation": "Record implementation differences separately from personal preferences. Mark items you could not actually run as not run.",
+        "outcomes.1": "The table includes execution status and locations of APIs to compare.",
+        "criteria.1": "The table includes execution status and locations of APIs to compare.",
+        "questions.1": "From which kinds of comparisons should the built-in Svelte column be excluded?",
+        "steps.0": "In notes/comparison-plan.md, write the contract for 3 cards, toggling, filtering, and A/B notes.",
+        "steps.1": "Provide the same data to separate React·Vue projects and record their execution environments.",
+        "steps.2": "Collect corresponding code locations for state, derived values, events, and cleanup.",
+        "variables.0.name": "Input Data",
+        "variables.0.baseline": "Different data per framework",
+        "variables.0.change": "Shared fixture",
+        "variables.0.expected": "Output differences can be explained against the same inputs.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup"
+      }
     }
   }
 }

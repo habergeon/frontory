@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Renderer and Display Size](../02/README.md)
+[Previous: Renderer and Display Size](../02/README.md) · [Next: Rotation and Pivots](../04/README.md)
 
 ## Experiment notes — write your own
 

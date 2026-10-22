@@ -2679,6 +2679,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "threejs-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Rotation and Pivots",
+      "goal": "Implement a pivot without modifying geometry. Distinguish parent axes from child axes.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/04/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "threejs-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Buffer Geometry",
+      "goal": "Distinguish the vertex count from the triangle count. Avoid indices outside the valid range.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/05/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "threejs-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Normals and Surface Orientation",
+      "goal": "Compare geometry with and without normals. Create flat and smooth boundaries as intended.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/06/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

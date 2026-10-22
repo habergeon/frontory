@@ -280,6 +280,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | --- | --- | --- |
 | [2. Renderer and Display Size](labs/graphics/threejs/units/02/README.md) | Editable example | [Source code](../../src/labs/threejs-step-02/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [3. Perspective and Orthographic Projection](labs/graphics/threejs/units/03/README.md) | Editable example | [Source code](../../src/labs/threejs-step-03/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [4. Rotation and Pivots](labs/graphics/threejs/units/04/README.md) | Editable example | [Source code](../../src/labs/threejs-step-04/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [5. Buffer Geometry](labs/graphics/threejs/units/05/README.md) | Editable example | [Source code](../../src/labs/threejs-step-05/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [6. Normals and Surface Orientation](labs/graphics/threejs/units/06/README.md) | Editable example | [Source code](../../src/labs/threejs-step-06/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

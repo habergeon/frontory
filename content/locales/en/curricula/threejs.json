@@ -89,6 +89,85 @@
         "references.0.title": "Three.js Fundamentals",
         "references.1.title": "Three.js WebGLRenderer"
       }
+    },
+    "threejs-step-04": {
+      "sourceHash": "0ae4fcc56010fc3d23836bdb6a0d21d8cc0bbc5bd0d62c6bce4e3d86f7da07aa",
+      "values": {
+        "title": "Rotation and Pivots",
+        "prerequisites": "Prerequisite concepts: Perspective Projection, Orthographic Projection. Prepare the result files and observation notes from unit 3.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Pivot Groups",
+        "concepts.0.explanation": "To change the center of rotation, you can separate the parent group from the child offset. You do not need to modify the geometry itself every time.",
+        "concepts.1.title": "Euler Order",
+        "concepts.1.explanation": "Rotations about multiple axes produce different results depending on their order. For complex orientations, also consider a quaternion representation.",
+        "outcomes.0": "Implement a pivot without modifying geometry.",
+        "outcomes.1": "Distinguish parent axes from child axes.",
+        "steps.0": "Prepare day-04.js and index.html in the external exercise project. Create a Group at the door hinge and offset the door Mesh by half its width.",
+        "steps.1": "Open the door with a rotation slider, and compare the results of changing the order of rotations about two axes.",
+        "steps.2": "Save the output under the Door center input condition, then run again under the Door edge condition. Expected: The door moves around its hinge instead of rotating around its center. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-04-notes.md.",
+        "variables.0.name": "Pivot position",
+        "variables.0.baseline": "Door center",
+        "variables.0.change": "Door edge",
+        "variables.0.expected": "The door moves around its hinge instead of rotating around its center.",
+        "criteria.0": "Implement a pivot without modifying geometry.",
+        "criteria.1": "Distinguish parent axes from child axes.",
+        "questions.0": "Along which axes does translate apply after rotation?",
+        "questions.1": "Why are two rotations with different Euler orders unequal?",
+        "references.0.title": "Three.js Fundamentals"
+      }
+    },
+    "threejs-step-05": {
+      "sourceHash": "5329d434e6c8cd21729b2e405e5d14d3bac627b8bf6acc7723f792b8296e0020",
+      "values": {
+        "title": "Buffer Geometry",
+        "prerequisites": "Prerequisite concepts: Pivot Groups, Euler Order. Prepare the result files and observation notes from unit 4.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Vertex Attributes",
+        "concepts.0.explanation": "BufferGeometry groups arrays such as position and normal. itemSize is the number of components in one vertex.",
+        "concepts.1.title": "Index Sharing",
+        "concepts.1.explanation": "Indices reuse vertices to connect triangles. Even at the same position, different UV or normal values may require separate vertices.",
+        "outcomes.0": "Distinguish the vertex count from the triangle count.",
+        "outcomes.1": "Avoid indices outside the valid range.",
+        "steps.0": "Prepare day-05.js and index.html in the external exercise project. Define the vertices of a rectangle with Float32Array and BufferAttribute.",
+        "steps.1": "Connect two triangles with setIndex and inspect winding and face orientation with a wireframe material.",
+        "steps.2": "Save the output under the Counterclockwise input condition, then run again under the Clockwise condition. Expected: The default front-face classification changes, so the face may disappear. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-05-notes.md.",
+        "variables.0.name": "Index order",
+        "variables.0.baseline": "Counterclockwise",
+        "variables.0.change": "Clockwise",
+        "variables.0.expected": "The default front-face classification changes, so the face may disappear.",
+        "criteria.0": "Distinguish the vertex count from the triangle count.",
+        "criteria.1": "Avoid indices outside the valid range.",
+        "questions.0": "Why can vertices with the same coordinates not always be merged?",
+        "questions.1": "What changes if itemSize is mistakenly set to 2?",
+        "references.0.title": "Three.js BufferGeometry"
+      }
+    },
+    "threejs-step-06": {
+      "sourceHash": "6914b088e290efcff0e64ee1d7443ded3d028a8d0df1c57e67fcfe654d94f419",
+      "values": {
+        "title": "Normals and Surface Orientation",
+        "prerequisites": "Prerequisite concepts: Vertex Attributes, Index Sharing. Prepare the result files and observation notes from unit 5.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "The Role of Normals",
+        "concepts.0.explanation": "Normals are used to calculate the direction in which light meets a surface. Different normals can make an edge look different even when positions are identical.",
+        "concepts.1.title": "Smoothing",
+        "concepts.1.explanation": "Averaging normals at shared vertices makes the transition between faces look smooth. To preserve sharp edges, separate the attributes.",
+        "outcomes.0": "Compare geometry with and without normals.",
+        "outcomes.1": "Create flat and smooth boundaries as intended.",
+        "steps.0": "Prepare day-06.js and index.html in the external exercise project. Apply computeVertexNormals to your custom geometry.",
+        "steps.1": "Alternate between MeshNormalMaterial and a lit material, and compare shared and separate vertices.",
+        "steps.2": "Save the output under the Separate per face input condition, then run again under the Shared at edges condition. Expected: Averaged normals may make edges look smooth. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-06-notes.md.",
+        "variables.0.name": "Vertex sharing",
+        "variables.0.baseline": "Separate per face",
+        "variables.0.change": "Shared at edges",
+        "variables.0.expected": "Averaged normals may make edges look smooth.",
+        "criteria.0": "Compare geometry with and without normals.",
+        "criteria.1": "Create flat and smooth boundaries as intended.",
+        "questions.0": "Are normal colors the actual material colors?",
+        "questions.1": "Why does nonuniform scale affect normal handling?",
+        "references.0.title": "Three.js BufferGeometry",
+        "references.1.title": "Three.js MeshStandardMaterial"
+      }
     }
   }
 }

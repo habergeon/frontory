@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 21 published in English
+UI frameworks · 4 stages · 28 units in the full series · 24 published in English
 
 ## Series goal
 
@@ -54,6 +54,9 @@ Only published English units are linked below. The full series has 28 units.
 
 ### Stage 4 · Canvas Verification and Framework Comparison
 
+- [22. Separating Canvas Loops from Reactivity](units/22/README.md) — External example · preview instructions
+- [23. Style Scope and Accessibility](units/23/README.md) — External example · preview instructions
+- [24. Checking Lifetimes During Transitions](units/24/README.md) — External example · preview instructions
 
 ## Capstone project and deliverables
 

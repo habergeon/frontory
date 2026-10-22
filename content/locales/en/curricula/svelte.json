@@ -588,6 +588,89 @@
         "references.1.title": "Svelte $effect and Cleanup",
         "references.2.title": "Svelte state rune"
       }
+    },
+    "svelte-step-22": {
+      "sourceHash": "6c5ba1e41593350af4329a2f111796f5326b70302d2e56f7f8a16c85dc64b32a",
+      "values": {
+        "title": "Separating Canvas Loops from Reactivity",
+        "prerequisites": "Unit 22 continues with the work and experiment records from Unit 21.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Frame State",
+        "concepts.0.explanation": "Coordinates and angles are values a render loop changes frequently. Keep them in local variables if they do not need to appear in the UI every frame.",
+        "outcomes.0": "The circle stops at speed 0.",
+        "criteria.0": "The circle stops at speed 0.",
+        "questions.0": "When is it necessary to make the angle $state?",
+        "concepts.1.title": "Time Calculation",
+        "concepts.1.explanation": "Calculate movement by multiplying delta and speed. Capping large delta values reduces abrupt motion on returning to a tab, but changes the meaning of elapsed time.",
+        "outcomes.1": "Changing speed does not recreate the Canvas.",
+        "criteria.1": "Changing speed does not recreate the Canvas.",
+        "questions.1": "How do you explain time omitted by the delta cap?",
+        "steps.0": "Keep angle local in src/CanvasScene.svelte and pass only speed as a $state input.",
+        "steps.1": "Calculate delta from the RAF timestamp to move the circle.",
+        "steps.2": "Observe speed 0·1·2 and returning to the tab, then make a table of frame values and UI values.",
+        "variables.0.name": "speed",
+        "variables.0.baseline": "1",
+        "variables.0.change": "2",
+        "variables.0.expected": "Rotation over the same time becomes approximately twice as large.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup",
+        "references.2.title": "Svelte onMount and tick"
+      }
+    },
+    "svelte-step-23": {
+      "sourceHash": "d067f9b122c32a5ad9d5ff1082d2fe2f33763ec37c38935c163296246e8fa526",
+      "values": {
+        "title": "Style Scope and Accessibility",
+        "prerequisites": "Unit 23 continues with the work and experiment records from Unit 22.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Style Scope",
+        "concepts.0.explanation": "Svelte component styles are scoped to their markup. When using global rules, check their effects on other components.",
+        "outcomes.0": "Change completion state without a mouse.",
+        "criteria.0": "Change completion state without a mouse.",
+        "questions.0": "What do you check before adding a comment that suppresses a warning?",
+        "concepts.1.title": "Keyboard Contract",
+        "concepts.1.explanation": "Represent clickable items with native buttons. Read compiler accessibility warnings alongside actual keyboard checks.",
+        "outcomes.1": "The focus position is visually distinguishable.",
+        "criteria.1": "The focus position is visually distinguishable.",
+        "questions.1": "Who might miss information if selection is expressed only through color?",
+        "steps.0": "In src/Card.svelte, replace the clickable div with button and connect aria-pressed.",
+        "steps.1": "Add focus styling to the component CSS.",
+        "steps.2": "Use Tab·Enter·Space to select cards and toggle completion, and review warning output.",
+        "variables.0.name": "Interactive Element",
+        "variables.0.baseline": "Clickable div",
+        "variables.0.change": "button",
+        "variables.0.expected": "Native keyboard interaction and focus are available.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup"
+      }
+    },
+    "svelte-step-24": {
+      "sourceHash": "a0cea83ca8ca266034d0fa1f0d25d19198fdc6c921cd009e2c782794bd4e41c0",
+      "values": {
+        "title": "Checking Lifetimes During Transitions",
+        "prerequisites": "Unit 24 continues with the work and experiment records from Unit 23.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Transitions",
+        "concepts.0.explanation": "A transition applies visual changes when an element appears or disappears. Distinguish the time it visually disappears from the time data changes.",
+        "outcomes.0": "The A draft remains at both duration values.",
+        "criteria.0": "The A draft remains at both duration values.",
+        "questions.0": "Can an element remain during an exit transition?",
+        "concepts.1.title": "Motion Preference",
+        "concepts.1.explanation": "Respecting reduced-motion preferences lets users access essential functions without motion. Do not use the end of a transition as a condition for saving to be complete.",
+        "outcomes.1": "There are 0 active timers after the final hide.",
+        "criteria.1": "There are 0 active timers after the final hide.",
+        "questions.1": "Can you assume that cleanup logs and visual disappearance happen at the same time?",
+        "steps.0": "Add a fade transition to src/EditorPanel.svelte.",
+        "steps.1": "Set duration to 0 under reduced-motion conditions.",
+        "steps.2": "Quickly repeat showing and hiding, and record DOM/resource cleanup timing and note preservation.",
+        "variables.0.name": "duration",
+        "variables.0.baseline": "300ms",
+        "variables.0.change": "0ms",
+        "variables.0.expected": "Functionality and drafts stay the same; only the visual transition time changes.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup",
+        "references.2.title": "Svelte onMount and tick"
+      }
     }
   }
 }

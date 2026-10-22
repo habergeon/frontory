@@ -72,7 +72,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Saving and Restoring Drafts](../20/README.md)
+[Previous: Saving and Restoring Drafts](../20/README.md) · [Next: Separating Canvas Loops from Reactivity](../22/README.md)
 
 ## Experiment notes — write your own
 

@@ -1985,6 +1985,36 @@
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
+      "id": "svelte-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Separating Canvas Loops from Reactivity",
+      "goal": "The circle stops at speed 0. Changing speed does not recreate the Canvas.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/22/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
+      "id": "svelte-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Style Scope and Accessibility",
+      "goal": "Change completion state without a mouse. The focus position is visually distinguishable.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/23/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
+      "id": "svelte-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Checking Lifetimes During Transitions",
+      "goal": "The A draft remains at both duration values. There are 0 active timers after the final hide.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/24/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

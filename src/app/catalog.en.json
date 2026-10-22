@@ -3237,6 +3237,15 @@
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
+      "id": "webgpu-03",
+      "day": 28,
+      "week": 4,
+      "title": "Compute and Readback",
+      "goal": "Compare compute correctness and overall cost. Decide when to use the GPU based on evidence.",
+      "docPath": "/docs/en/labs/graphics/webgpu/03-project/README.md",
+      "seriesId": "webgpu"
+    },
+    {
       "id": "react-three-fiber-01",
       "day": 1,
       "week": 1,

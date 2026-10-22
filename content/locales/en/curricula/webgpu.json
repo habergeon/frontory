@@ -739,6 +739,33 @@
         "references.0.title": "WebGPU API and Error Handling",
         "references.1.title": "WGSL Specification"
       }
+    },
+    "webgpu-03": {
+      "sourceHash": "98524bc71874c6167e16701ea090f7ec58a7398b3c4bf5d160e5c27c9819a5ba",
+      "values": {
+        "title": "Compute and Readback",
+        "concepts.0.title": "Combined Comparison",
+        "concepts.0.explanation": "When moving array calculations to the GPU, data movement can determine the overall benefit. Compare both the compute interval and the latency until results reach the user.",
+        "concepts.1.title": "Adoption Evidence",
+        "concepts.1.explanation": "Input sizes where the GPU path is not faster are results too. Define conditions for use that include correctness, support coverage, and recovery costs.",
+        "outcomes.0": "Compare compute correctness and overall cost.",
+        "outcomes.1": "Decide when to use the GPU based on evidence.",
+        "steps.0": "Run the final kernel and CPU function with the same seed for 65·1003·65536 elements.",
+        "steps.1": "Record end-to-end latency for three readback policies: none, once at the end, and every step.",
+        "steps.2": "In report.md, document maximum error, environment, selected workgroup, device loss recovery results, and adoption conditions.",
+        "variables.0.name": "Readback frequency",
+        "variables.0.baseline": "Once at the end",
+        "variables.0.change": "Every step",
+        "variables.0.expected": "Results are expected to remain the same, but repeated transfer and waiting may increase end-to-end latency.",
+        "criteria.0": "Check the error criterion through the last element at all three lengths.",
+        "criteria.1": "Distinguish total costs for the three readback policies from unmeasured GPU items.",
+        "questions.0": "For which inputs is the CPU path more suitable?",
+        "questions.1": "How do comparison conditions change if results are drawn directly on the GPU?",
+        "prerequisites": "Continue using the output and notes from unit 27. Preserve the previous inputs and reference outputs before the Compute and Readback experiment.",
+        "environment": "The existing webgpu-03 preview is a starting point. It does not replace implementation or validation of the entire subsequent assignment. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
     }
   }
 }

@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Workgroup Size Experiments](../26/README.md)
+[Previous: Workgroup Size Experiments](../26/README.md) · [Next: Compute and Readback](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

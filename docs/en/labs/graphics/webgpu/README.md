@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 27 published in English
+Graphics · 4 stages · 28 units in the full series · 28 published in English
 
 ## Series goal
 
@@ -60,6 +60,7 @@ Only published English units are linked below. The full series has 28 units.
 - [25. CPU References and Error Budgets](units/25/README.md) — Editable example
 - [26. Workgroup Size Experiments](units/26/README.md) — Editable example
 - [27. Acceptance of the Integrated Particle Experiment](units/27/README.md) — Editable example
+- [28. Compute and Readback](03-project/README.md) — Editable example
 
 ## Capstone project and deliverables
 

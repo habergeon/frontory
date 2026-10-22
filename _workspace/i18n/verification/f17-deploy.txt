@@ -1,0 +1,5 @@
+
+> frontory@1.0.0 check:deploy C:\Users\johjh\AppData\Roaming\orca\codex-accounts\57cbddad-72f6-43b5-b71a-5426d73a880f\home\worktrees\4ea8\web-gl-study
+> node scripts/check-deploy.mjs
+
+Pages asset check passed: 2364 files; largest 6904626 bytes

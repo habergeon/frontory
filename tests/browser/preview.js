@@ -16,7 +16,7 @@ async page => {
   const restore = async () => {
     await page.locator('#panel-code .panel-header button').click()
     await page.locator('.reset-confirm button').first().click()
-    await page.frameLocator('.workspace iframe').getByRole('textbox', { name: '실험 JSON 입력' }).waitFor()
+    await page.frameLocator('.workspace iframe').getByRole('textbox', { name: /실험 JSON 입력|Experiment JSON input/ }).waitFor()
     await page.waitForFunction(() => document.querySelector('.code-check-status')?.textContent.includes('검사 통과') || document.querySelector('.code-check-status')?.textContent.includes('checks passed'))
   }
   await restore()

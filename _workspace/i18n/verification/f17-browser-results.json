@@ -1,0 +1,1249 @@
+{
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "suites": [
+    {
+      "name": "i18n-roundtrip",
+      "results": [
+        {
+          "name": "UI saves notes progress and ISO time",
+          "ok": true
+        },
+        {
+          "name": "English note image placeholder",
+          "ok": true
+        },
+        {
+          "name": "ko note preview language",
+          "ok": true
+        },
+        {
+          "name": "ko switch preserves every storage byte",
+          "ok": true
+        },
+        {
+          "name": "en note preview language",
+          "ok": true
+        },
+        {
+          "name": "en switch preserves every storage byte",
+          "ok": true
+        },
+        {
+          "name": "Intentionally empty notes survive reload",
+          "ok": true
+        },
+        {
+          "name": "UI exports version 3",
+          "ok": true
+        },
+        {
+          "name": "UI exports complete stable catalog",
+          "ok": true
+        },
+        {
+          "name": "Malformed JSON does not write",
+          "ok": true
+        },
+        {
+          "name": "Cancel restore does not write",
+          "ok": true
+        },
+        {
+          "name": "v3 restores code notes progress ISO language exactly",
+          "ok": true
+        },
+        {
+          "name": "v1 restores legacy notes in actual UI",
+          "ok": true
+        },
+        {
+          "name": "v1 preserves newer unit bytes",
+          "ok": true
+        },
+        {
+          "name": "v2 restores legacy notes in actual UI",
+          "ok": true
+        },
+        {
+          "name": "v2 preserves newer unit bytes",
+          "ok": true
+        },
+        {
+          "name": "en 320 document does not overflow",
+          "ok": true
+        },
+        {
+          "name": "en 320 header/footer/button bounds",
+          "ok": true
+        },
+        {
+          "name": "English 320 table columns readable",
+          "ok": true
+        },
+        {
+          "name": "en 320 code uses internal scrolling",
+          "ok": true
+        },
+        {
+          "name": "en 375 document does not overflow",
+          "ok": true
+        },
+        {
+          "name": "en 375 header/footer/button bounds",
+          "ok": true
+        },
+        {
+          "name": "English 375 table columns readable",
+          "ok": true
+        },
+        {
+          "name": "en 375 code uses internal scrolling",
+          "ok": true
+        },
+        {
+          "name": "en 768 document does not overflow",
+          "ok": true
+        },
+        {
+          "name": "en 768 header/footer/button bounds",
+          "ok": true
+        },
+        {
+          "name": "English 768 table columns readable",
+          "ok": true
+        },
+        {
+          "name": "en 768 code uses internal scrolling",
+          "ok": true
+        },
+        {
+          "name": "en 1280 document does not overflow",
+          "ok": true
+        },
+        {
+          "name": "en 1280 header/footer/button bounds",
+          "ok": true
+        },
+        {
+          "name": "English 1280 table columns readable",
+          "ok": true
+        },
+        {
+          "name": "en 1280 code uses internal scrolling",
+          "ok": true
+        },
+        {
+          "name": "ko 320 document does not overflow",
+          "ok": true
+        },
+        {
+          "name": "ko 320 header/footer/button bounds",
+          "ok": true
+        },
+        {
+          "name": "ko 320 code uses internal scrolling",
+          "ok": true
+        },
+        {
+          "name": "ko 375 document does not overflow",
+          "ok": true
+        },
+        {
+          "name": "ko 375 header/footer/button bounds",
+          "ok": true
+        },
+        {
+          "name": "ko 375 code uses internal scrolling",
+          "ok": true
+        },
+        {
+          "name": "ko 768 document does not overflow",
+          "ok": true
+        },
+        {
+          "name": "ko 768 header/footer/button bounds",
+          "ok": true
+        },
+        {
+          "name": "ko 768 code uses internal scrolling",
+          "ok": true
+        },
+        {
+          "name": "ko 1280 document does not overflow",
+          "ok": true
+        },
+        {
+          "name": "ko 1280 header/footer/button bounds",
+          "ok": true
+        },
+        {
+          "name": "ko 1280 code uses internal scrolling",
+          "ok": true
+        },
+        {
+          "name": "Dialog accessible name",
+          "ok": true
+        },
+        {
+          "name": "Dialog initially focuses Close",
+          "ok": true
+        },
+        {
+          "name": "Modal keyboard returns inside dialog",
+          "ok": true
+        },
+        {
+          "name": "Rapid navigation shows final requested document",
+          "ok": true
+        },
+        {
+          "name": "Escape closes dialog",
+          "ok": true
+        },
+        {
+          "name": "Focus restored to document trigger",
+          "ok": true
+        },
+        {
+          "name": "No framework overlay",
+          "ok": true
+        },
+        {
+          "name": "No application runtime errors",
+          "ok": true
+        }
+      ],
+      "runtimeErrors": []
+    },
+    {
+      "name": "i18n-storage",
+      "results": [
+        {
+          "name": "blocked-read visible English warning",
+          "ok": true
+        },
+        {
+          "name": "blocked-read warning translates Korean",
+          "ok": true
+        },
+        {
+          "name": "blocked-read in-memory notes preserved",
+          "ok": true
+        },
+        {
+          "name": "blocked-read locale does not write corrupted storage",
+          "ok": true
+        },
+        {
+          "name": "blocked-read no uncaught runtime error",
+          "ok": true
+        },
+        {
+          "name": "blocked-write visible English warning",
+          "ok": true
+        },
+        {
+          "name": "blocked-write warning translates Korean",
+          "ok": true
+        },
+        {
+          "name": "blocked-write in-memory notes preserved",
+          "ok": true
+        },
+        {
+          "name": "blocked-write locale does not write corrupted storage",
+          "ok": true
+        },
+        {
+          "name": "Retry saves after storage recovers",
+          "ok": true
+        },
+        {
+          "name": "blocked-write no uncaught runtime error",
+          "ok": true
+        },
+        {
+          "name": "Corrupt unit recovers through actual edit",
+          "ok": true
+        },
+        {
+          "name": "corrupt-unit no uncaught runtime error",
+          "ok": true
+        },
+        {
+          "name": "corrupt-snapshot visible English warning",
+          "ok": true
+        },
+        {
+          "name": "corrupt-snapshot warning translates Korean",
+          "ok": true
+        },
+        {
+          "name": "corrupt-snapshot in-memory notes preserved",
+          "ok": true
+        },
+        {
+          "name": "corrupt-snapshot locale does not write corrupted storage",
+          "ok": true
+        },
+        {
+          "name": "corrupt-snapshot no uncaught runtime error",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "name": "i18n-entry",
+      "results": [
+        {
+          "name": "Direct /en/ renders actual app",
+          "ok": true
+        },
+        {
+          "name": "Direct /en/ has four published series",
+          "ok": true
+        },
+        {
+          "name": "Refresh keeps real English app",
+          "ok": true
+        },
+        {
+          "name": "English public document loads",
+          "ok": true
+        },
+        {
+          "name": "Public document opens practice stable ID",
+          "ok": true
+        },
+        {
+          "name": "Production locale switch to ko",
+          "ok": true
+        },
+        {
+          "name": "Production back restores en same unit",
+          "ok": true
+        },
+        {
+          "name": "Production switch and back preserve bytes",
+          "ok": true
+        },
+        {
+          "name": "Practice direct refresh preserves edited notes",
+          "ok": true
+        },
+        {
+          "name": "Practice returns to English public document",
+          "ok": true
+        },
+        {
+          "name": "Unavailable public English URL is real 404",
+          "ok": true
+        },
+        {
+          "name": "No framework overlay",
+          "ok": true
+        },
+        {
+          "name": "No uncaught runtime errors",
+          "ok": true
+        }
+      ],
+      "consoleMessages": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        }
+      ],
+      "runtimeErrors": []
+    },
+    {
+      "name": "workspace",
+      "url": "http://127.0.0.1:4185/#javascript-step-02",
+      "title": "문자열 입력과 숫자 변환 · Frontory",
+      "results": [
+        {
+          "name": "Page identity",
+          "ok": true
+        },
+        {
+          "name": "Meaningful English workspace",
+          "ok": true
+        },
+        {
+          "name": "Backup warning starts in English",
+          "ok": true
+        },
+        {
+          "name": "Selected tab remains",
+          "ok": true
+        },
+        {
+          "name": "Code language stays TypeScript",
+          "ok": true
+        },
+        {
+          "name": "Notes preview text preserved",
+          "ok": true
+        },
+        {
+          "name": "Error status translated",
+          "ok": true
+        },
+        {
+          "name": "Backup warning translated while open",
+          "ok": true
+        },
+        {
+          "name": "Reset warning translated while open",
+          "ok": true
+        },
+        {
+          "name": "Monaco accessible name translated",
+          "ok": true
+        },
+        {
+          "name": "Monaco instance DOM preserved",
+          "ok": true
+        },
+        {
+          "name": "Monaco input and model DOM preserved",
+          "ok": true
+        },
+        {
+          "name": "Last working iframe preserved",
+          "ok": true
+        },
+        {
+          "name": "Notes preview DOM preserved",
+          "ok": true
+        },
+        {
+          "name": "Compiler details unchanged",
+          "ok": true
+        },
+        {
+          "name": "Code notes progress and ISO timestamps unchanged",
+          "ok": true
+        },
+        {
+          "name": "Monaco model identity version and selection preserved",
+          "ok": true
+        },
+        {
+          "name": "Open backup warning translates back",
+          "ok": true
+        },
+        {
+          "name": "Editor accessible name translates back",
+          "ok": true
+        },
+        {
+          "name": "JSON parser details preserved under translated prefix",
+          "ok": true
+        },
+        {
+          "name": "Backup date uses English locale",
+          "ok": true
+        },
+        {
+          "name": "Pending backup date uses Korean locale",
+          "ok": true
+        },
+        {
+          "name": "Pending backup and language switches do not save",
+          "ok": true
+        },
+        {
+          "name": "No Vite overlay",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "name": "preview",
+      "url": "http://127.0.0.1:4185/en/#javascript-step-02",
+      "title": "String input and number conversion · Frontory",
+      "results": [
+        {
+          "name": "Initial frame uses Korean mount context",
+          "ok": true
+        },
+        {
+          "name": "English URL",
+          "ok": true
+        },
+        {
+          "name": "Exterior status translates immediately",
+          "ok": true
+        },
+        {
+          "name": "Iframe title translates immediately",
+          "ok": true
+        },
+        {
+          "name": "Iframe element and contentWindow preserved",
+          "ok": true
+        },
+        {
+          "name": "Example user input preserved",
+          "ok": true
+        },
+        {
+          "name": "Running frame lang remains Korean",
+          "ok": true
+        },
+        {
+          "name": "Language mismatch notice is English",
+          "ok": true
+        },
+        {
+          "name": "Language switch preserves editor and all storage bytes",
+          "ok": true
+        },
+        {
+          "name": "Explicit rerun uses English context",
+          "ok": true
+        },
+        {
+          "name": "Rerun frame lang is English",
+          "ok": true
+        },
+        {
+          "name": "Mismatch clears after rerun",
+          "ok": true
+        },
+        {
+          "name": "Mismatch notice translates back",
+          "ok": true
+        },
+        {
+          "name": "First code application uses latest Korean context",
+          "ok": true
+        },
+        {
+          "name": "Code application frame lang is Korean",
+          "ok": true
+        },
+        {
+          "name": "Mismatch clears after code application",
+          "ok": true
+        },
+        {
+          "name": "Runtime error status translates",
+          "ok": true
+        },
+        {
+          "name": "Error heading translates",
+          "ok": true
+        },
+        {
+          "name": "Error help translates",
+          "ok": true
+        },
+        {
+          "name": "Raw runtime error preserved",
+          "ok": true
+        },
+        {
+          "name": "Error frame preserved on language switch",
+          "ok": true
+        },
+        {
+          "name": "Sandbox preserved",
+          "ok": true
+        },
+        {
+          "name": "No framework overlay",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "name": "reading-source",
+      "url": "http://127.0.0.1:4185/en/#javascript-step-02",
+      "title": "String input and number conversion · Frontory",
+      "results": [
+        {
+          "name": "javascript-step-02 exact download path",
+          "ok": true
+        },
+        {
+          "name": "javascript-step-02 reading source exists",
+          "ok": true
+        },
+        {
+          "name": "javascript-step-02 English comment header",
+          "ok": true
+        },
+        {
+          "name": "javascript-step-02 actual download",
+          "ok": true
+        },
+        {
+          "name": "javascript-step-02 all storage bytes unchanged",
+          "ok": true
+        },
+        {
+          "name": "css-step-04 exact download path",
+          "ok": true
+        },
+        {
+          "name": "css-step-04 reading source exists",
+          "ok": true
+        },
+        {
+          "name": "css-step-04 English comment header",
+          "ok": true
+        },
+        {
+          "name": "css-step-04 actual download",
+          "ok": true
+        },
+        {
+          "name": "css-step-04 all storage bytes unchanged",
+          "ok": true
+        },
+        {
+          "name": "react-step-03 exact download path",
+          "ok": true
+        },
+        {
+          "name": "react-step-03 reading source exists",
+          "ok": true
+        },
+        {
+          "name": "react-step-03 English comment header",
+          "ok": true
+        },
+        {
+          "name": "react-step-03 actual download",
+          "ok": true
+        },
+        {
+          "name": "react-step-03 all storage bytes unchanged",
+          "ok": true
+        },
+        {
+          "name": "gsap-step-02 exact download path",
+          "ok": true
+        },
+        {
+          "name": "gsap-step-02 reading source exists",
+          "ok": true
+        },
+        {
+          "name": "gsap-step-02 English comment header",
+          "ok": true
+        },
+        {
+          "name": "gsap-step-02 actual download",
+          "ok": true
+        },
+        {
+          "name": "gsap-step-02 all storage bytes unchanged",
+          "ok": true
+        },
+        {
+          "name": "edited code, notes, progress and ISO time remain byte-identical",
+          "ok": true
+        },
+        {
+          "name": "edited notes stay in editor",
+          "ok": true
+        },
+        {
+          "name": "Monaco and running frame stay mounted",
+          "ok": true
+        },
+        {
+          "name": "no framework overlay",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "name": "i18n.html",
+      "results": [
+        {
+          "name": "Language control exists",
+          "ok": true
+        },
+        {
+          "name": "Korean catalog remains complete",
+          "ok": true
+        },
+        {
+          "name": "English home URL",
+          "ok": true
+        },
+        {
+          "name": "English home language",
+          "ok": true
+        },
+        {
+          "name": "Back restores Korean home",
+          "ok": true
+        },
+        {
+          "name": "English catalog count",
+          "ok": true
+        },
+        {
+          "name": "Home search no-such-series",
+          "ok": true
+        },
+        {
+          "name": "Home search result wording no-such-series",
+          "ok": true
+        },
+        {
+          "name": "Home search react",
+          "ok": true
+        },
+        {
+          "name": "Home search result wording react",
+          "ok": true
+        },
+        {
+          "name": "Home search 언어와 웹 기초",
+          "ok": true
+        },
+        {
+          "name": "Home search result wording 언어와 웹 기초",
+          "ok": true
+        },
+        {
+          "name": "Home search Languages and web fundamentals",
+          "ok": true
+        },
+        {
+          "name": "Home search result wording Languages and web fundamentals",
+          "ok": true
+        },
+        {
+          "name": "Home search ",
+          "ok": true
+        },
+        {
+          "name": "Home search result wording ",
+          "ok": true
+        },
+        {
+          "name": "Home unit singular",
+          "ok": true
+        },
+        {
+          "name": "English selection uses published stable ID",
+          "ok": true
+        },
+        {
+          "name": "English title matches current lesson",
+          "ok": true
+        },
+        {
+          "name": "Editor status translated to English",
+          "ok": true
+        },
+        {
+          "name": "Switch to Korean preserves unit",
+          "ok": true
+        },
+        {
+          "name": "Workspace DOM preserved",
+          "ok": true
+        },
+        {
+          "name": "Monaco DOM preserved",
+          "ok": true
+        },
+        {
+          "name": "Preview iframe preserved",
+          "ok": true
+        },
+        {
+          "name": "Notes remain in the same control",
+          "ok": true
+        },
+        {
+          "name": "Code language remains JavaScript",
+          "ok": true
+        },
+        {
+          "name": "Locale switch does not write storage",
+          "ok": true
+        },
+        {
+          "name": "Back restores English and same unit",
+          "ok": true
+        },
+        {
+          "name": "Back keeps Workspace DOM",
+          "ok": true
+        },
+        {
+          "name": "Navigator search no-such-series",
+          "ok": true
+        },
+        {
+          "name": "Navigator search count wording no-such-series",
+          "ok": true
+        },
+        {
+          "name": "Navigator search react",
+          "ok": true
+        },
+        {
+          "name": "Navigator search count wording react",
+          "ok": true
+        },
+        {
+          "name": "Navigator search 언어와 웹 기초",
+          "ok": true
+        },
+        {
+          "name": "Navigator search count wording 언어와 웹 기초",
+          "ok": true
+        },
+        {
+          "name": "Navigator search Languages and web fundamentals",
+          "ok": true
+        },
+        {
+          "name": "Navigator search count wording Languages and web fundamentals",
+          "ok": true
+        },
+        {
+          "name": "Navigator search ",
+          "ok": true
+        },
+        {
+          "name": "Navigator search count wording ",
+          "ok": true
+        },
+        {
+          "name": "Navigator singular unit",
+          "ok": true
+        },
+        {
+          "name": "Navigator requests actual English document",
+          "ok": true
+        },
+        {
+          "name": "English document has no Korean lesson fallback",
+          "ok": true
+        },
+        {
+          "name": "Korean next selects canonical unpublished ID",
+          "ok": true
+        },
+        {
+          "name": "Unpublished ID remains selected in English",
+          "ok": true
+        },
+        {
+          "name": "English unavailable message",
+          "ok": true
+        },
+        {
+          "name": "No Korean navigator fallback",
+          "ok": true
+        },
+        {
+          "name": "Explicit Korean source URL",
+          "ok": true
+        },
+        {
+          "name": "Korean source control restores same unit",
+          "ok": true
+        },
+        {
+          "name": "Korean navigator is restored",
+          "ok": true
+        },
+        {
+          "name": "No Vite overlay",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "name": "representative-lessons.html",
+      "results": [
+        {
+          "name": "React localized title",
+          "ok": true
+        },
+        {
+          "name": "React localized controls",
+          "ok": true
+        },
+        {
+          "name": "React initial",
+          "ok": true
+        },
+        {
+          "name": "React snapshot three updates",
+          "ok": true
+        },
+        {
+          "name": "React reset",
+          "ok": true
+        },
+        {
+          "name": "React functional three updates",
+          "ok": true
+        },
+        {
+          "name": "React functional second click",
+          "ok": true
+        },
+        {
+          "name": "React cleanup",
+          "ok": true
+        },
+        {
+          "name": "React documented separate snapshot click",
+          "ok": true
+        },
+        {
+          "name": "React documented separate snapshot click",
+          "ok": true
+        },
+        {
+          "name": "React documented separate snapshot click",
+          "ok": true
+        },
+        {
+          "name": "React documented reset",
+          "ok": true
+        },
+        {
+          "name": "React documented updater",
+          "ok": true
+        },
+        {
+          "name": "React documented cleanup",
+          "ok": true
+        },
+        {
+          "name": "JavaScript localized title",
+          "ok": true
+        },
+        {
+          "name": "JavaScript input aria",
+          "ok": true
+        },
+        {
+          "name": "JavaScript localized help",
+          "ok": true
+        },
+        {
+          "name": "JavaScript localized button",
+          "ok": true
+        },
+        {
+          "name": "JavaScript initial conversion",
+          "ok": true
+        },
+        {
+          "name": "JavaScript numeric boundaries",
+          "ok": true
+        },
+        {
+          "name": "JavaScript invalid JSON reports error",
+          "ok": true
+        },
+        {
+          "name": "JavaScript recovers after invalid JSON",
+          "ok": true
+        },
+        {
+          "name": "JavaScript cleanup",
+          "ok": true
+        },
+        {
+          "name": "CSS localized title",
+          "ok": true
+        },
+        {
+          "name": "CSS input aria",
+          "ok": true
+        },
+        {
+          "name": "CSS inspect label",
+          "ok": true
+        },
+        {
+          "name": "CSS width aria",
+          "ok": true
+        },
+        {
+          "name": "CSS content-box border width",
+          "ok": true
+        },
+        {
+          "name": "CSS border-box border width",
+          "ok": true
+        },
+        {
+          "name": "CSS border-box content width",
+          "ok": true
+        },
+        {
+          "name": "CSS cleanup",
+          "ok": true
+        },
+        {
+          "name": "GSAP localized title",
+          "ok": true
+        },
+        {
+          "name": "GSAP localized description",
+          "ok": true
+        },
+        {
+          "name": "GSAP localized button",
+          "ok": true
+        },
+        {
+          "name": "GSAP initial position",
+          "ok": true
+        },
+        {
+          "name": "GSAP localized result",
+          "ok": true
+        },
+        {
+          "name": "GSAP immediateRender false before first render",
+          "ok": true
+        },
+        {
+          "name": "GSAP first run target",
+          "ok": true
+        },
+        {
+          "name": "GSAP first run target opacity",
+          "ok": true
+        },
+        {
+          "name": "GSAP second run target",
+          "ok": true
+        },
+        {
+          "name": "GSAP cleanup tween count",
+          "ok": true
+        },
+        {
+          "name": "GSAP cleanup DOM",
+          "ok": true
+        },
+        {
+          "name": "GSAP documented three-card comparison, immediateRender=true",
+          "ok": true
+        },
+        {
+          "name": "GSAP documented comparison cleanup",
+          "ok": true
+        },
+        {
+          "name": "GSAP documented three-card comparison, immediateRender=false",
+          "ok": true
+        },
+        {
+          "name": "GSAP documented comparison cleanup",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "name": "representative-lessons.html?locale=en",
+      "results": [
+        {
+          "name": "React localized title",
+          "ok": true
+        },
+        {
+          "name": "React localized controls",
+          "ok": true
+        },
+        {
+          "name": "React initial",
+          "ok": true
+        },
+        {
+          "name": "React snapshot three updates",
+          "ok": true
+        },
+        {
+          "name": "React reset",
+          "ok": true
+        },
+        {
+          "name": "React functional three updates",
+          "ok": true
+        },
+        {
+          "name": "React functional second click",
+          "ok": true
+        },
+        {
+          "name": "React cleanup",
+          "ok": true
+        },
+        {
+          "name": "React documented separate snapshot click",
+          "ok": true
+        },
+        {
+          "name": "React documented separate snapshot click",
+          "ok": true
+        },
+        {
+          "name": "React documented separate snapshot click",
+          "ok": true
+        },
+        {
+          "name": "React documented reset",
+          "ok": true
+        },
+        {
+          "name": "React documented updater",
+          "ok": true
+        },
+        {
+          "name": "React documented cleanup",
+          "ok": true
+        },
+        {
+          "name": "JavaScript localized title",
+          "ok": true
+        },
+        {
+          "name": "JavaScript input aria",
+          "ok": true
+        },
+        {
+          "name": "JavaScript localized help",
+          "ok": true
+        },
+        {
+          "name": "JavaScript localized button",
+          "ok": true
+        },
+        {
+          "name": "JavaScript initial conversion",
+          "ok": true
+        },
+        {
+          "name": "JavaScript numeric boundaries",
+          "ok": true
+        },
+        {
+          "name": "JavaScript invalid JSON reports error",
+          "ok": true
+        },
+        {
+          "name": "JavaScript recovers after invalid JSON",
+          "ok": true
+        },
+        {
+          "name": "JavaScript cleanup",
+          "ok": true
+        },
+        {
+          "name": "CSS localized title",
+          "ok": true
+        },
+        {
+          "name": "CSS input aria",
+          "ok": true
+        },
+        {
+          "name": "CSS inspect label",
+          "ok": true
+        },
+        {
+          "name": "CSS width aria",
+          "ok": true
+        },
+        {
+          "name": "CSS content-box border width",
+          "ok": true
+        },
+        {
+          "name": "CSS border-box border width",
+          "ok": true
+        },
+        {
+          "name": "CSS border-box content width",
+          "ok": true
+        },
+        {
+          "name": "CSS cleanup",
+          "ok": true
+        },
+        {
+          "name": "GSAP localized title",
+          "ok": true
+        },
+        {
+          "name": "GSAP localized description",
+          "ok": true
+        },
+        {
+          "name": "GSAP localized button",
+          "ok": true
+        },
+        {
+          "name": "GSAP initial position",
+          "ok": true
+        },
+        {
+          "name": "GSAP localized result",
+          "ok": true
+        },
+        {
+          "name": "GSAP immediateRender false before first render",
+          "ok": true
+        },
+        {
+          "name": "GSAP first run target",
+          "ok": true
+        },
+        {
+          "name": "GSAP first run target opacity",
+          "ok": true
+        },
+        {
+          "name": "GSAP second run target",
+          "ok": true
+        },
+        {
+          "name": "GSAP cleanup tween count",
+          "ok": true
+        },
+        {
+          "name": "GSAP cleanup DOM",
+          "ok": true
+        },
+        {
+          "name": "GSAP documented three-card comparison, immediateRender=true",
+          "ok": true
+        },
+        {
+          "name": "GSAP documented comparison cleanup",
+          "ok": true
+        },
+        {
+          "name": "GSAP documented three-card comparison, immediateRender=false",
+          "ok": true
+        },
+        {
+          "name": "GSAP documented comparison cleanup",
+          "ok": true
+        }
+      ]
+    }
+  ],
+  "passed": 296
+}

@@ -1,0 +1,72 @@
+{
+  "environment": {
+    "browserPlugin": "Browser plugin not available",
+    "browser": "Chromium 155 / Windows",
+    "harness": "http://127.0.0.1:4185",
+    "builtPreview": "http://127.0.0.1:4186"
+  },
+  "red": [
+    {
+      "finding": "English notes image placeholder was Korean",
+      "actual": "[이미지: F17 image — 외부 이미지는 자동 로드하지 않습니다]"
+    },
+    {
+      "finding": "English table columns too narrow at 1280",
+      "widths": [
+        37.140625,
+        37.609375,
+        46.078125,
+        326.078125
+      ]
+    },
+    {
+      "finding": "Adding readable table columns exposed mobile grid minimum",
+      "viewport": 320,
+      "scrollWidth": 432
+    },
+    {
+      "finding": "Escape removed dialog without restoring trigger focus",
+      "actual": false
+    }
+  ],
+  "green": {
+    "passed": 296,
+    "englishTableWidths": {
+      "320": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "375": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "768": [
+        100,
+        100,
+        100,
+        381
+      ]
+    },
+    "normalProductionScreenshotConsole": [],
+    "expectedConsole": [
+      "Entry suite requests /en/learn/vue/ and records the corresponding 404 resource message.",
+      "Preview suite intentionally runs F12 raw error in the sandbox."
+    ]
+  },
+  "baselineLimitation": {
+    "origin": "http://127.0.0.1:4185",
+    "key": "web-gl-study:unit:v1:javascript-step-02",
+    "fieldsWritten": [
+      "notes",
+      "updatedAt"
+    ],
+    "marker": "F09 locale continuity",
+    "pretestSnapshot": false,
+    "currentSnapshot": ".superpowers/sdd/2026-10-22-ko-en-foundation/f17-baseline-current-storage.json",
+    "laterRuns": "Fresh isolated contexts; no further writes to the baseline context."
+  }
+}

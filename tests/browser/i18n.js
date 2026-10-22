@@ -37,7 +37,7 @@ try {
     check('Home search ' + query, doc().querySelectorAll('.home-series-row').length, count)
     check('Home search result wording ' + query, doc().querySelector('.home-result-count').textContent, count + ' series')
   }
-  check('Home unit singular', doc().querySelector('.home-series-progress').textContent, '1 unit')
+  check('Home unit singular', doc().querySelector('.home-series-progress').firstChild.textContent, '1 unit')
   await click([...doc().querySelectorAll('.home-series-row')].find(row => row.querySelector('h3').textContent === 'JavaScript').querySelector('button'))
   await wait(() => doc().querySelector('.workspace') && doc().querySelector('.monaco-editor') && doc().querySelector('.workspace iframe'))
   check('English selection uses published stable ID', win().location.hash, '#javascript-step-02')

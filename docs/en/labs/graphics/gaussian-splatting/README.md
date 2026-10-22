@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 9 published in English
+Graphics · 4 stages · 28 units in the full series · 12 published in English
 
 ## Series goal
 
@@ -36,6 +36,9 @@ Only published English units are linked below. The full series has 28 units.
 
 - [08. Alpha Compositing and Order](units/08/README.md) — Editable example
 - [09. Limits of Depth Sorting](units/09/README.md) — Editable example
+- [10. Checking PLY Headers](units/10/README.md) — Editable example
+- [11. Value Decoding and Validation](units/11/README.md) — Editable example
+- [12. Spherical Harmonic Color](units/12/README.md) — Editable example
 
 ### Stage 3 · Visibility and Quality Experiments
 

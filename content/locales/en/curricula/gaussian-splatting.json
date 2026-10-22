@@ -253,6 +253,87 @@
         "references.0.title": "Spark Official Documentation",
         "references.1.title": "3D Gaussian Splatting Research Project"
       }
+    },
+    "gaussian-splatting-step-10": {
+      "sourceHash": "560e6b580dba620e7a3899ce5d44ea8b4d4981c30f3dbca2df1fad2102f2fc71",
+      "values": {
+        "title": "Checking PLY Headers",
+        "prerequisites": "Continue using the output and records from Unit 9. Before the Checking PLY Headers experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Container",
+        "concepts.0.explanation": "PLY can contain many kinds of point and face attributes. Do not assume GS parameters are present based on the file extension alone.",
+        "concepts.1.title": "Attribute contract",
+        "concepts.1.explanation": "Training code may use different storage conventions for scale, rotation, and color. Declare supported field names and encodings as the parser's contract.",
+        "outcomes.0": "Distinguish PLY from GS data.",
+        "outcomes.1": "Validate the header contract.",
+        "steps.0": "In plyHeader.js, implement reading format, element, and property from ASCII headers.",
+        "steps.1": "Create small string fixtures: a position-only PLY and one with the specified GS attributes.",
+        "steps.2": "Reject missing required attributes, binary format, and excessive vertex counts as distinct errors.",
+        "variables.0.name": "Attribute set",
+        "variables.0.baseline": "Position and required GS attributes",
+        "variables.0.change": "Keep only position x/y/z",
+        "variables.0.expected": "Expect the input to be identified as a point cloud and rejected for GS loading.",
+        "criteria.0": "The three error types produce different messages.",
+        "criteria.1": "Reject inputs whose actual row count differs from the header's vertex count.",
+        "questions.0": "Can values have different meanings even when PLY headers are identical?",
+        "questions.1": "Why is automatically reading unsupported binary PLY risky?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-11": {
+      "sourceHash": "1e1c07562bfa078910209eec7e1f908cd98db6f879d52df48b08ffc6c62d3b10",
+      "values": {
+        "title": "Value Decoding and Validation",
+        "prerequisites": "Continue using the output and records from Unit 10. Before the Value Decoding and Validation experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Activation functions",
+        "concepts.0.explanation": "Training files may store scale or opacity in a transformed space. Apply reconstruction functions such as exp and sigmoid only after checking the file producer's convention.",
+        "concepts.1.title": "Abnormal values",
+        "concepts.1.explanation": "Nonfinite numbers can break sorting and projection. Check ranges and quaternion length even after conversion.",
+        "outcomes.0": "Distinguish stored values from rendering values.",
+        "outcomes.1": "Report decoding errors with their locations.",
+        "steps.0": "In decode.js, write a function that accepts an encoding setting and reconstructs scale and opacity.",
+        "steps.1": "Put the same actual scale into raw and log-scale fixtures and compare decoded results.",
+        "steps.2": "Supply NaN, very large values, and a 0 quaternion, and print errors containing the field locations.",
+        "variables.0.name": "scale encoding",
+        "variables.0.baseline": "raw 0.1",
+        "variables.0.change": "log(0.1) with the log setting",
+        "variables.0.expected": "Expect both inputs to reconstruct the same scale.",
+        "criteria.0": "The two decoded results differ by at most 1e-6.",
+        "criteria.1": "Reject the three invalid values before rendering.",
+        "questions.0": "What happens if sigmoid is applied again to opacity that has already been transformed?",
+        "questions.1": "Where should the file producer's convention be recorded?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-12": {
+      "sourceHash": "db40080b869158507e0b54a50e4232089fb4019337fe62b31d55a6cb7fe229be",
+      "values": {
+        "title": "Spherical Harmonic Color",
+        "prerequisites": "Continue using the output and records from Unit 11. Before the Spherical Harmonic Color experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "View dependence",
+        "concepts.0.explanation": "SH coefficients represent color that varies with direction. Using only the constant term removes view-dependent changes.",
+        "concepts.1.title": "Degree and evidence",
+        "concepts.1.explanation": "Increasing the degree does not improve quality if the source lacks valid coefficients. Compare memory, computation, and actually observed quality together.",
+        "outcomes.0": "Explain the view dependence of SH.",
+        "outcomes.1": "Distinguish degree from claims about quality.",
+        "steps.0": "In sh.js, write a function that calculates only the constant term and a synthetic directional term of order 1.",
+        "steps.1": "Write the coefficient normalization and direction conventions in notes.md and supply the six axis directions.",
+        "steps.2": "Move the camera around a fixed Gaussian and tabulate colors for directions from the Gaussian toward the camera. Also compare a control that only rotates camera orientation at the same position, and label the data as synthetic.",
+        "variables.0.name": "SH terms used",
+        "variables.0.baseline": "Constant term only",
+        "variables.0.change": "Include synthetic terms of order 1",
+        "variables.0.expected": "Expect colors to vary by direction, while recognizing that this is not evidence of improved training quality.",
+        "criteria.0": "Save RGB for the six directions.",
+        "criteria.1": "In constant-term mode, color differences across directions are at most 1e-6.",
+        "questions.0": "Can the degree be increased without source coefficients?",
+        "questions.1": "How does reversing the sign of the camera direction change the color?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
     }
   }
 }

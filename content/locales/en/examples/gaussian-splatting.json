@@ -46,5 +46,23 @@
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     }
+  },
+  "gaussian-splatting-step-10": {
+    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "values": {
+      "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    }
+  },
+  "gaussian-splatting-step-11": {
+    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "values": {
+      "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    }
+  },
+  "gaussian-splatting-step-12": {
+    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "values": {
+      "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    }
   }
 }

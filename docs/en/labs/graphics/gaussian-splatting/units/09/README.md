@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Alpha Compositing and Order](../08/README.md)
+[Previous: Alpha Compositing and Order](../08/README.md) · [Next: Checking PLY Headers](../10/README.md)
 
 ## Experiment notes — write your own
 

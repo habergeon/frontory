@@ -3100,6 +3100,36 @@
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
+      "id": "gaussian-splatting-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Checking PLY Headers",
+      "goal": "Distinguish PLY from GS data. Validate the header contract.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/10/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Value Decoding and Validation",
+      "goal": "Distinguish stored values from rendering values. Report decoding errors with their locations.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/11/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Spherical Harmonic Color",
+      "goal": "Explain the view dependence of SH. Distinguish degree from claims about quality.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/12/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
       "id": "webgpu-01",
       "day": 1,
       "week": 1,

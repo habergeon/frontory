@@ -6043,6 +6043,36 @@
       "docPath": "/docs/en/labs/engineering/webassembly/units/21/README.md",
       "seriesId": "webassembly",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Module Caching and Versions",
+      "goal": "Learning outcome: explain the role of Cache. Input cases: the correct version and a stale binary. Deliverable: source hashes·binary hashes·check results. Explain the rationale for handling Version, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/22/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Breaking Down Cold Execution",
+      "goal": "Learning outcome: explain the role of Cold costs. Input cases: the first request in a new process. Deliverable: per-stage durations and a table of included work. Explain the rationale for handling Measurement boundaries, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/23/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Warm Repeats and Warm-up",
+      "goal": "Learning outcome: explain the role of Warm-up. Input cases: 5 and 20 repetitions. Deliverable: raw durations·medians·whether errors occurred. Explain the rationale for handling Equivalent conditions, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/24/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     }
   ]
 }

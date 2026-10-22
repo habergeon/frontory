@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 21 published in English
+Engineering · 4 stages · 28 units in the full series · 24 published in English
 
 ## Series goal
 
@@ -54,6 +54,9 @@ Only published English units are linked below. The full series has 28 units.
 
 ### Stage 4 · Correctness and Bottleneck Evaluation
 
+- [22. Module Caching and Versions](units/22/README.md) — External example · preview instructions
+- [23. Breaking Down Cold Execution](units/23/README.md) — External example · preview instructions
+- [24. Warm Repeats and Warm-up](units/24/README.md) — External example · preview instructions
 
 ## Capstone project and deliverables
 

@@ -598,6 +598,90 @@
         "references.1.title": "MDN WebAssembly JavaScript API",
         "references.2.title": "MDN WebAssembly.Memory"
       }
+    },
+    "webassembly-step-22": {
+      "sourceHash": "0531e11fb5e2204cf7ee8248c3bac9cdc284cc21625bbb158707b41f4dece995",
+      "values": {
+        "title": "Module Caching and Versions",
+        "prerequisites": "Prepare the experiment results for Execution location and Transfer cost from Unit 21, “Workers and Wasm”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Cache",
+        "concepts.0.explanation": "Reusing a compiled module can reduce preparation costs. Using an old binary after a source change invalidates verification.",
+        "concepts.1.title": "Version",
+        "concepts.1.explanation": "Record source·binary·build-tool versions together. An identical file name does not imply identical code.",
+        "outcomes.0": "Learning outcome: explain the role of Cache. Input cases: the correct version and a stale binary.",
+        "outcomes.1": "Deliverable: source hashes·binary hashes·check results. Explain the rationale for handling Version, linking it to the code.",
+        "steps.0": "In day-22.mjs in a separate practice project, add module version metadata to a separate app and inspect exports after the build. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: the correct version and a stale binary. Baseline: new build. Run under the baseline conditions, then record observations and errors in notes/day-22.md.",
+        "steps.2": "Variable: binary; changed value: previous build. Run again through the same input path. Deliverable to save: source hashes·binary hashes·check results. Hypothesis to check: A version mismatch is detected and excluded from the comparison. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "binary",
+        "variables.0.baseline": "new build",
+        "variables.0.change": "previous build",
+        "variables.0.expected": "A version mismatch is detected and excluded from the comparison.",
+        "criteria.0": "Required deliverable: source hashes·binary hashes·check results. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Cache and Version. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Cache affect in this exercise? Input cases: the correct version and a stale binary.",
+        "questions.1": "Variable: binary. Hypothesis to check: A version mismatch is detected and excluded from the comparison. Did the actual results agree with the hypothesis? Explain the evidence in terms of Version.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-23": {
+      "sourceHash": "5406bf3874644247b76ab042bb3614ff9fea26e4d5041cc3f1ad1227c8e2c444",
+      "values": {
+        "title": "Breaking Down Cold Execution",
+        "prerequisites": "Prepare the experiment results for Cache and Version from Unit 22, “Module Caching and Versions”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Cold costs",
+        "concepts.0.explanation": "File loading·compilation·instantiation·the first call are distinct stages. A user's first request may encounter them together.",
+        "concepts.1.title": "Measurement boundaries",
+        "concepts.1.explanation": "The existing coldHarnessTotalMs includes validation and other experiments. Do not mistake it for pure initialization time.",
+        "outcomes.0": "Learning outcome: explain the role of Cold costs. Input cases: the first request in a new process.",
+        "outcomes.1": "Deliverable: per-stage durations and a table of included work. Explain the rationale for handling Measurement boundaries, linking it to the code.",
+        "steps.0": "In day-23.mjs in a separate practice project, map the benchmark's timer boundaries into a table and write a new measurement wrapper. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: the first request in a new process. Baseline: kernel only. Run under the baseline conditions, then record observations and errors in notes/day-23.md.",
+        "steps.2": "Variable: measurement scope; changed value: entire first request. Run again through the same input path. Deliverable to save: per-stage durations and a table of included work. Hypothesis to check: The entire first request adds preparation·copy costs. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "measurement scope",
+        "variables.0.baseline": "kernel only",
+        "variables.0.change": "entire first request",
+        "variables.0.expected": "The entire first request adds preparation·copy costs.",
+        "criteria.0": "Required deliverable: per-stage durations and a table of included work. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Cold costs and Measurement boundaries. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Cold costs affect in this exercise? Input cases: the first request in a new process.",
+        "questions.1": "Variable: measurement scope. Hypothesis to check: The entire first request adds preparation·copy costs. Did the actual results agree with the hypothesis? Explain the evidence in terms of Measurement boundaries.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-24": {
+      "sourceHash": "e08aa148a57b3b86e3ddbe20d5b0f608591b7552339865d29e5845e8cad224c1",
+      "values": {
+        "title": "Warm Repeats and Warm-up",
+        "prerequisites": "Prepare the experiment results for Cold costs and Measurement boundaries from Unit 23, “Breaking Down Cold Execution”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Warm-up",
+        "concepts.0.explanation": "Engine state may change over repeated runs. Do not mix first-run and subsequent values.",
+        "concepts.1.title": "Equivalent conditions",
+        "concepts.1.explanation": "Use identical inputs and warm-up for JS and Wasm. Record result validation separately from the measurement interval.",
+        "outcomes.0": "Learning outcome: explain the role of Warm-up. Input cases: 5 and 20 repetitions.",
+        "outcomes.1": "Deliverable: raw durations·medians·whether errors occurred. Explain the rationale for handling Equivalent conditions, linking it to the code.",
+        "steps.0": "In day-24.mjs in a separate practice project, warm up both paths for the same number of iterations and restore the input before each measurement. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 5 and 20 repetitions. Baseline: 5 repetitions. Run under the baseline conditions, then record observations and errors in notes/day-24.md.",
+        "steps.2": "Variable: repeat count; changed value: 20 repetitions. Run again through the same input path. Deliverable to save: raw durations·medians·whether errors occurred. Hypothesis to check: More samples reveal variation, but do not predetermine the result. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "repeat count",
+        "variables.0.baseline": "5 repetitions",
+        "variables.0.change": "20 repetitions",
+        "variables.0.expected": "More samples reveal variation, but do not predetermine the result.",
+        "criteria.0": "Required deliverable: raw durations·medians·whether errors occurred. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Warm-up and Equivalent conditions. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Warm-up affect in this exercise? Input cases: 5 and 20 repetitions.",
+        "questions.1": "Variable: repeat count. Hypothesis to check: More samples reveal variation, but do not predetermine the result. Did the actual results agree with the hypothesis? Explain the evidence in terms of Equivalent conditions.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
     }
   }
 }

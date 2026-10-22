@@ -217,6 +217,36 @@
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
+      "id": "javascript-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Debouncing and Timer Cleanup",
+      "goal": "With the 300ms setting, there is 1 search call. There are 0 pending search calls after dispose.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/17/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
+      "id": "javascript-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Public Interfaces of ES Modules",
+      "goal": "Call the calculations in state.js without the DOM. The initial list is displayed after the path is restored.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/18/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "This example runs the public interface of a Blob ES module. Test actual separation into relative files and Network paths in an HTTP project."
+    },
+    {
+      "id": "javascript-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Storage and Restore Failures",
+      "goal": "The 3 note id values are the same before and after a refresh. The guidance differs for corrupted data and a valid empty list.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/19/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "The practice-only key is removed after execution. SecurityError caused by the iframe storage policy is also displayed."
+    },
+    {
       "id": "css-step-04",
       "day": 4,
       "week": 1,

@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 16 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 19 published in English
 
 ## Series goal
 
@@ -46,6 +46,9 @@ Only published English units are linked below. The full series has 28 units.
 
 - [15. Fetch Responses and HTTP Errors](units/15/README.md) — Editable example
 - [16. Parallel Work and Partial Failure](units/16/README.md) — Editable example
+- [17. Debouncing and Timer Cleanup](units/17/README.md) — Editable example
+- [18. Public Interfaces of ES Modules](units/18/README.md) — Editable example
+- [19. Storage and Restore Failures](units/19/README.md) — Editable example
 
 ### Stage 4 · Integrating and verifying the experiment log
 

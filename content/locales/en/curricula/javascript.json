@@ -448,6 +448,84 @@
         "questions.1": "How should partial failure be communicated?",
         "references.0.title": "MDN JavaScript Guide"
       }
+    },
+    "javascript-step-17": {
+      "sourceHash": "224b5be09b2d3bbfc0a9ac8cdc617a50726fab85ed8d8cc41fe844dddeef1b11",
+      "values": {
+        "title": "Debouncing and Timer Cleanup",
+        "prerequisites": "The work and experiment records from Unit 16, “Parallel Work and Partial Failure”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Grouping Input",
+        "concepts.0.explanation": "Debouncing cancels the previous timer on every new input. It runs after the specified time has elapsed since the last input.",
+        "concepts.1.title": "Lifecycle",
+        "concepts.1.explanation": "Clear pending timers when removing the screen. Cancellation of requests that have already started is handled separately.",
+        "outcomes.0": "With the 300ms setting, there is 1 search call.",
+        "criteria.0": "With the 300ms setting, there is 1 search call.",
+        "outcomes.1": "There are 0 pending search calls after dispose.",
+        "criteria.1": "There are 0 pending search calls after dispose.",
+        "steps.0": "In debounce.js, prepare inputs 100ms apart, 5 times, and a dispose call while a search is pending.",
+        "steps.1": "Use clearTimeout to delay the search, and cancel pending work in dispose.",
+        "steps.2": "Run with inputs 100ms apart, 5 times, and a dispose call while a search is pending. Results to check: With the 300ms setting, there is 1 search call. There are 0 pending search calls after dispose. Record expected and actual results separately.",
+        "variables.0.name": "Delay",
+        "variables.0.baseline": "0ms",
+        "variables.0.change": "300ms",
+        "variables.0.expected": "Hypothesis before running: Search calls will be grouped into a single call for the last input. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "How does debouncing differ from request cancellation?",
+        "questions.1": "When should the search term be captured?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-step-18": {
+      "sourceHash": "4b9965892e41a8fc91b554d2bc99166deb7afbbc4ef90824ced8e313bed9a912",
+      "values": {
+        "title": "Public Interfaces of ES Modules",
+        "prerequisites": "The work and experiment records from Unit 17, “Debouncing and Timer Cleanup”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Module Contracts",
+        "concepts.0.explanation": "export and import define a file's public items. Paths and MIME types also affect loading in the browser.",
+        "concepts.1.title": "Separating Responsibilities",
+        "concepts.1.explanation": "A calculation module can be called without knowing about the DOM. The view module receives and displays the calculation result.",
+        "outcomes.0": "Call the calculations in state.js without the DOM.",
+        "criteria.0": "Call the calculations in state.js without the DOM.",
+        "outcomes.1": "The initial list is displayed after the path is restored.",
+        "criteria.1": "The initial list is displayed after the path is restored.",
+        "steps.0": "In main.js, prepare a valid relative path and a missing.js path.",
+        "steps.1": "Separate state.js and view.js, import them, and load the modules through an HTTP server.",
+        "steps.2": "Run with a valid relative path and a missing.js path. Results to check: Call the calculations in state.js without the DOM. The initial list is displayed after the path is restored. Record expected and actual results separately.",
+        "variables.0.name": "import path",
+        "variables.0.baseline": "./state.js",
+        "variables.0.change": "./missing.js",
+        "variables.0.expected": "Hypothesis before running: A module loading error will appear. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "How does opening a file directly differ from using HTTP?",
+        "questions.1": "What initialization problems can circular imports cause?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-step-19": {
+      "sourceHash": "58ba937099a989cfbaa48717695e5c9c2fa49c4c2f4b4cc1583edcc0582c3182",
+      "values": {
+        "title": "Storage and Restore Failures",
+        "prerequisites": "The work and experiment records from Unit 18, “Public Interfaces of ES Modules”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Storing Strings",
+        "concepts.0.explanation": "localStorage stores strings. JSON serialization and parsing rules are part of the storage contract.",
+        "concepts.1.title": "Displaying Failures",
+        "concepts.1.explanation": "Storage can fail because of environment policies or capacity limits. Distinguish an in-memory update from a successful save in the guidance.",
+        "outcomes.0": "The 3 note id values are the same before and after a refresh.",
+        "criteria.0": "The 3 note id values are the same before and after a refresh.",
+        "outcomes.1": "The guidance differs for corrupted data and a valid empty list.",
+        "criteria.1": "The guidance differs for corrupted data and a valid empty list.",
+        "steps.0": "In storage.js, prepare 3 notes and a corrupted stored string.",
+        "steps.1": "Save and restore with a practice-only key, and display parsing errors and write failures using catch.",
+        "steps.2": "Run with 3 notes and a corrupted stored string. Results to check: The 3 note id values are the same before and after a refresh. The guidance differs for corrupted data and a valid empty list. Record expected and actual results separately.",
+        "variables.0.name": "Stored value",
+        "variables.0.baseline": "Valid JSON",
+        "variables.0.change": "Truncated JSON",
+        "variables.0.expected": "Hypothesis before running: A restore failure will be reported while the screen remains available. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "Does valid JSON also mean that the note structure is valid?",
+        "questions.1": "What is lost when a storage failure is ignored?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
     }
   }
 }

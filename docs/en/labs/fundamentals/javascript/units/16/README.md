@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Fetch Responses and HTTP Errors](../15/README.md)
+[Previous: Fetch Responses and HTTP Errors](../15/README.md) · [Next: Debouncing and Timer Cleanup](../17/README.md)
 
 ## Experiment notes — write your own
 

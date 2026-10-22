@@ -22,6 +22,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [13. Promises and Execution Order](labs/fundamentals/javascript/units/13/README.md) | Editable example | [Source code](../../src/labs/javascript-step-13/example.js) — Compare the editable inputs with actual browser execution results. |
 | [15. Fetch Responses and HTTP Errors](labs/fundamentals/javascript/units/15/README.md) | Editable example | [Source code](../../src/labs/javascript-step-15/example.js) — Because preview network access is restricted, this example runs 200/404 fixtures using real Response objects. Test fetch and HTTP requests on a local server. |
 | [16. Parallel Work and Partial Failure](labs/fundamentals/javascript/units/16/README.md) | Editable example | [Source code](../../src/labs/javascript-step-16/example.js) — Compare the editable inputs with actual browser execution results. |
+| [17. Debouncing and Timer Cleanup](labs/fundamentals/javascript/units/17/README.md) | Editable example | [Source code](../../src/labs/javascript-step-17/example.js) — Compare the editable inputs with actual browser execution results. |
+| [18. Public Interfaces of ES Modules](labs/fundamentals/javascript/units/18/README.md) | Editable example | [Source code](../../src/labs/javascript-step-18/example.js) — This example runs the public interface of a Blob ES module. Test actual separation into relative files and Network paths in an HTTP project. |
+| [19. Storage and Restore Failures](labs/fundamentals/javascript/units/19/README.md) | Editable example | [Source code](../../src/labs/javascript-step-19/example.js) — The practice-only key is removed after execution. SecurityError caused by the iframe storage policy is also displayed. |
 
 ## CSS
 

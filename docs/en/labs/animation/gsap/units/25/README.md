@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Measuring Frame Cost](../24/README.md)
+[Previous: Measuring Frame Cost](../24/README.md) · [Next: Motion Tokens](../26/README.md)
 
 ## Experiment notes — write your own
 

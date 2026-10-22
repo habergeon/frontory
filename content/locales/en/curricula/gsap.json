@@ -701,6 +701,87 @@
         "references.0.title": "GSAP Official Documentation",
         "references.1.title": "ScrollTrigger Official Documentation"
       }
+    },
+    "gsap-step-26": {
+      "sourceHash": "c66d1b73c3aa8fe118003a86d2e557e4b15e92ec3a7047eaacda4d324b0b63b8",
+      "values": {
+        "title": "Motion Tokens",
+        "prerequisites": "Prepare the exercise results on Background and Resume Policy from Unit 25, “Hiding and Returning”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Meaning",
+        "concepts.0.explanation": "Give shared names to time and distance. There is no need to make every effect identical.",
+        "concepts.1.title": "Impact of Changes",
+        "concepts.1.explanation": "Token changes propagate to their uses. Separate emphasis actions from brief feedback.",
+        "outcomes.0": "Learning outcome: explain the role of Meaning. Input case: the same button input across three steps.",
+        "outcomes.1": "Deliverable: a table of token uses and settings. Explain the rationale for handling Impact of Changes, connecting it to the code.",
+        "steps.0": "In src/day-26.js of a separate practice project, create a motionTokens object and apply short·emphasis. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: the same button input across three steps. Baseline: 0.2 seconds. Run under baseline conditions, then record observations and errors in notes/day-26.md.",
+        "steps.2": "Variable: short Duration; changed value: 0.4 seconds. Run again using the same input path. Deliverable to save: a table of token uses and settings. Hypothesis to check: Only actions using short become longer. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "short Duration",
+        "variables.0.baseline": "0.2 seconds",
+        "variables.0.change": "0.4 seconds",
+        "variables.0.expected": "Only actions using short become longer.",
+        "criteria.0": "Required deliverable: a table of token uses and settings. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Meaning, Impact of Changes. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Meaning affect in this exercise? Input case: the same button input across three steps.",
+        "questions.1": "Variable: short Duration. Hypothesis to check: Only actions using short become longer. Did the actual results match the hypothesis? Explain the evidence in terms of Impact of Changes.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-27": {
+      "sourceHash": "0bfb6d2ffa355f7e6d8d867bcea2fdb0d22a61bfcd9853da6d4df514e10c9c07",
+      "values": {
+        "title": "Cleanup on Failure Paths",
+        "prerequisites": "Prepare the exercise results on Meaning and Impact of Changes from Unit 26, “Motion Tokens”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Resource Inventory",
+        "concepts.0.explanation": "Events·ticker·timeline each need cleanup. Initialization failure may also leave some resources behind.",
+        "concepts.1.title": "Repeated Disposal",
+        "concepts.1.explanation": "dispose must be safe to call twice. Compare creation and cleanup counts.",
+        "outcomes.0": "Learning outcome: explain the role of Resource Inventory. Input case: normal execution·exceptions·duplicate dispose.",
+        "outcomes.1": "Deliverable: remaining registration counts for each path. Explain the rationale for handling Repeated Disposal, connecting it to the code.",
+        "steps.0": "In src/day-27.js of a separate practice project, inject an exception midway through mount and release registered resources in dispose. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: normal execution·exceptions·duplicate dispose. Baseline: normal. Run under baseline conditions, then record observations and errors in notes/day-27.md.",
+        "steps.2": "Variable: Initialization; changed value: exception midway. Run again using the same input path. Deliverable to save: remaining registration counts for each path. Hypothesis to check: No repeating work remains after failure. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Initialization",
+        "variables.0.baseline": "normal",
+        "variables.0.change": "exception midway",
+        "variables.0.expected": "No repeating work remains after failure.",
+        "criteria.0": "Required deliverable: remaining registration counts for each path. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Resource Inventory, Repeated Disposal. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Resource Inventory affect in this exercise? Input case: normal execution·exceptions·duplicate dispose.",
+        "questions.1": "Variable: Initialization. Hypothesis to check: No repeating work remains after failure. Did the actual results match the hypothesis? Explain the evidence in terms of Repeated Disposal.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-03": {
+      "sourceHash": "2601de720f810c4c0820139e67c7a3da5c649d0b3d4f34398c90e232c83efb41",
+      "values": {
+        "title": "Motion Design and Verification",
+        "prerequisites": "Prepare the exercise results on Resource Inventory and Repeated Disposal from Unit 27, “Cleanup on Failure Paths”.",
+        "environment": "The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Information Hierarchy",
+        "concepts.0.explanation": "Motion should indicate the current step and next action. Reduce it if it interferes with reading or input.",
+        "concepts.1.title": "Combined Verification",
+        "concepts.1.explanation": "Keyboard and reduced-motion tests find different failures. Explain design choices with measurement and cleanup records.",
+        "outcomes.0": "Learning outcome: explain the role of Information Hierarchy. Input case: keyboard·10 rapid inputs·5 remounts.",
+        "outcomes.1": "Deliverable: an input·accessibility·cleanup·frame verification report. Explain the rationale for handling Combined Verification, connecting it to the code.",
+        "steps.0": "In src/day-28.js of a separate practice project, use the existing gsap-03 as a starting point to complete a learning-step motion system and report. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: keyboard·10 rapid inputs·5 remounts. Baseline: default distance. Run under baseline conditions, then record observations and errors in notes/day-28.md.",
+        "steps.2": "Variable: Motion; changed value: distance 0. Run again using the same input path. Deliverable to save: an input·accessibility·cleanup·frame verification report. Hypothesis to check: Functionality, content, and focus are preserved. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Motion",
+        "variables.0.baseline": "default distance",
+        "variables.0.change": "distance 0",
+        "variables.0.expected": "Functionality, content, and focus are preserved.",
+        "criteria.0": "Required deliverable: an input·accessibility·cleanup·frame verification report. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Information Hierarchy, Combined Verification. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Information Hierarchy affect in this exercise? Input case: keyboard·10 rapid inputs·5 remounts.",
+        "questions.1": "Variable: Motion. Hypothesis to check: Functionality, content, and focus are preserved. Did the actual results match the hypothesis? Explain the evidence in terms of Combined Verification.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
     }
   }
 }

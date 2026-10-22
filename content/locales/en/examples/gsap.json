@@ -144,5 +144,17 @@
     "values": {
       "note": "This is an experiment on Hiding and Returning. It supports direct interaction and cleans up the resources it uses."
     }
+  },
+  "gsap-step-26": {
+    "sourceHash": "78ca1049a04ac15ba5be157031f3b330e6190ff64ae864fe6f40d306a061c1fc",
+    "values": {
+      "note": "This is an experiment on Motion Tokens. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-27": {
+    "sourceHash": "6bf72686bb269bf68c5e6be98b161cdc11515cb174ca3c66a4421d17e5f31868",
+    "values": {
+      "note": "This is an experiment on Cleanup on Failure Paths. It supports direct interaction and cleans up the resources it uses."
+    }
   }
 }

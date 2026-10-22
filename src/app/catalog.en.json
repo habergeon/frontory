@@ -1136,6 +1136,35 @@
       "docPath": "/docs/en/labs/animation/gsap/units/25/README.md",
       "seriesId": "gsap",
       "exampleNote": "This is an experiment on Hiding and Returning. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Motion Tokens",
+      "goal": "Learning outcome: explain the role of Meaning. Input case: the same button input across three steps. Deliverable: a table of token uses and settings. Explain the rationale for handling Impact of Changes, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/26/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Motion Tokens. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Cleanup on Failure Paths",
+      "goal": "Learning outcome: explain the role of Resource Inventory. Input case: normal execution·exceptions·duplicate dispose. Deliverable: remaining registration counts for each path. Explain the rationale for handling Repeated Disposal, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/27/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Cleanup on Failure Paths. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-03",
+      "day": 28,
+      "week": 4,
+      "title": "Motion Design and Verification",
+      "goal": "Learning outcome: explain the role of Information Hierarchy. Input case: keyboard·10 rapid inputs·5 remounts. Deliverable: an input·accessibility·cleanup·frame verification report. Explain the rationale for handling Combined Verification, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/03-project/README.md",
+      "seriesId": "gsap"
     }
   ]
 }

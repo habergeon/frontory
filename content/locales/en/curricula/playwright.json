@@ -823,6 +823,36 @@
         "references.3.title": "Playwright Downloads",
         "references.4.title": "Playwright Visual comparisons"
       }
+    },
+    "playwright-03": {
+      "sourceHash": "3c6b457c8a498be5a42f63e2c417e64daa6c15652cbe0e78d9df58099bcb77d3",
+      "values": {
+        "title": "Visual Regression and Flakiness",
+        "prerequisites": "Prepare the experiment results for Reproducible environment and Failure artifacts from Unit 27, “CI Execution and Artifacts”.",
+        "environment": "Write and run all tests in a separate Node project using @playwright/test and a dedicated local test origin. The existing playwright-01·02·03 previews only display test source; they do not run Playwright in the iframe. Write new test files yourself for the assignments and judge whether they pass only from actual runner output. Do not use a user profile or storage used for everyday work; preserve CSP and isolation.",
+        "concepts.0.title": "Environment differences",
+        "concepts.0.explanation": "GPU scenes, time, and fonts may make image comparisons unstable. Record fixed conditions and the reasons for allowed differences.",
+        "concepts.1.title": "Combined verification",
+        "concepts.1.explanation": "Pixel comparison cannot prove every function. Combine user flows, state assertions, and traces.",
+        "outcomes.0": "Learning outcome: explain the role of Environment differences. Input cases: fixed viewport, stopped rotation, and font readiness.",
+        "outcomes.1": "Deliverable: baseline image, functional report, failure trace, and limitations document. Explain the rationale for handling Combined verification, linking it to the code.",
+        "steps.0": "In tests/day-28.spec.ts in a separate practice project, refer to the intent of the existing playwright-03 and combine static UI baselines with separate checks of nondeterministic scenes. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: fixed viewport, stopped rotation, and font readiness. Baseline: continuously rotating. Run under the baseline conditions, then record observations and errors in notes/day-28.md.",
+        "steps.2": "Variable: scene; changed value: stopped or verified through separate state checks. Run again through the same input path. Deliverable to save: baseline image, functional report, failure trace, and limitations document. Hypothesis to check: Distinguish reproducible UI baselines from the scope of scene verification. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "scene",
+        "variables.0.baseline": "continuously rotating",
+        "variables.0.change": "stopped or verified through separate state checks",
+        "variables.0.expected": "Distinguish reproducible UI baselines from the scope of scene verification.",
+        "criteria.0": "Required deliverable: baseline image, functional report, failure trace, and limitations document. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Environment differences and Combined verification. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Environment differences affect in this exercise? Input cases: fixed viewport, stopped rotation, and font readiness.",
+        "questions.1": "Variable: scene. Hypothesis to check: Distinguish reproducible UI baselines from the scope of scene verification. Did the actual results agree with the hypothesis? Explain the evidence in terms of Combined verification.",
+        "references.0.title": "Playwright Installation and Execution",
+        "references.1.title": "Playwright Locators",
+        "references.2.title": "Playwright Assertions",
+        "references.3.title": "Playwright Downloads",
+        "references.4.title": "Playwright Visual comparisons"
+      }
     }
   }
 }

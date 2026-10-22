@@ -77,7 +77,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Allowed Differences and Review](../26/README.md)
+[Previous: Allowed Differences and Review](../26/README.md) · [Next: Visual Regression and Flakiness](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

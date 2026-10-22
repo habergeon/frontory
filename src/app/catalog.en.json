@@ -6394,6 +6394,15 @@
       "docPath": "/docs/en/labs/testing/playwright/units/27/README.md",
       "seriesId": "playwright",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-03",
+      "day": 28,
+      "week": 4,
+      "title": "Visual Regression and Flakiness",
+      "goal": "Learning outcome: explain the role of Environment differences. Input cases: fixed viewport, stopped rotation, and font readiness. Deliverable: baseline image, functional report, failure trace, and limitations document. Explain the rationale for handling Combined verification, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/03-project/README.md",
+      "seriesId": "playwright"
     }
   ]
 }

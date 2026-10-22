@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Testing · 4 stages · 28 units in the full series · 27 published in English
+Testing · 4 stages · 28 units in the full series · 28 published in English
 
 ## Series goal
 
@@ -60,6 +60,7 @@ Only published English units are linked below. The full series has 28 units.
 - [25. Creating a Visual Baseline](units/25/README.md) — External example · preview instructions
 - [26. Allowed Differences and Review](units/26/README.md) — External example · preview instructions
 - [27. CI Execution and Artifacts](units/27/README.md) — External example · preview instructions
+- [28. Visual Regression and Flakiness](03-project/README.md) — Editable example
 
 ## Capstone project and deliverables
 

@@ -634,6 +634,84 @@
         "questions.1": "What alternative response do you provide for reduced-motion settings?",
         "references.0.title": "GLSL ES 3.00 Specification"
       }
+    },
+    "glsl-step-25": {
+      "sourceHash": "ccd4d857060340e02ca665925a12fe812a7280f67ad83b09b42096f1084df846",
+      "values": {
+        "title": "The Cost of Branches and Loops",
+        "prerequisites": "Continue using the output and records from Unit 24. Before experimenting with The Cost of Branches and Loops, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Conditional Execution",
+        "concepts.0.explanation": "Branch cost depends on the distribution of conditions and the work performed. Replacing every if with mix is not always an optimization.",
+        "concepts.1.title": "Experimental Controls",
+        "concepts.1.explanation": "Changing iteration count, sample count, and resolution together makes the cause of a change hard to identify. Change one at a time with the same static inputs.",
+        "outcomes.0": "Separate cost variables.",
+        "outcomes.1": "Assess optimization hypotheses through measurement.",
+        "steps.0": "Expose noise iterations and texture sample count as independent settings in cost.glsl.",
+        "steps.1": "Compare 1, 4, and 8 iterations with identical uTime and uPointer.",
+        "steps.2": "Record frame intervals at fixed resolution, changing resolution only in the next experiment.",
+        "variables.0.name": "Iteration count",
+        "variables.0.baseline": "1",
+        "variables.0.change": "8",
+        "variables.0.expected": "Expect additional computation, while actual frame differences depend on the bottleneck.",
+        "criteria.0": "Keep same-time images and frame records for all three iteration settings.",
+        "criteria.1": "State in the results that sample count and resolution were fixed.",
+        "questions.0": "Are expensive calculations in both arguments to mix skipped?",
+        "questions.1": "Can frame intervals be treated as pure shader GPU time?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-26": {
+      "sourceHash": "d04e1eaf8580456f19d2c53604dc8ec81b49fefa4bc972ebba79679a22654579",
+      "values": {
+        "title": "Editing Failures and Context Recovery",
+        "prerequisites": "Continue using the output and records from Unit 25. Before experimenting with Editing Failures and Context Recovery, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Safe Replacement",
+        "concepts.0.explanation": "Keeping the last working program when a new shader fails lets editing continue. Replace the active program only with a validated new program.",
+        "concepts.1.title": "Context Lifetime",
+        "concepts.1.explanation": "After WebGL context restoration, previous GPU resources must be recreated. Save source and CPU inputs to prepare a recreation path.",
+        "outcomes.0": "Apply shader edits safely.",
+        "outcomes.1": "Design GPU resource recovery.",
+        "steps.0": "Compile and link a candidate program in editor.js, replacing the current program only on success.",
+        "steps.1": "Enter a syntax error and check the error line and whether the existing display is retained.",
+        "steps.2": "Handle webglcontextlost and webglcontextrestored, and list resources to recreate in README.",
+        "variables.0.name": "New source",
+        "variables.0.baseline": "valid source",
+        "variables.0.change": "contains a syntax error",
+        "variables.0.expected": "Expect an error display while retaining the last working image.",
+        "criteria.0": "An erroneous input does not delete the existing program.",
+        "criteria.1": "The recovery path recreates buffers, textures, and programs and looks up uniforms again.",
+        "questions.0": "When should failed candidate shaders be deleted?",
+        "questions.1": "Must UI state also be reset during context recovery?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-27": {
+      "sourceHash": "18b7486505950d33311df6f6e810cac28c56616b007406229e8ca221db58289d",
+      "values": {
+        "title": "Quality Criteria and Regression Records",
+        "prerequisites": "Continue using the output and records from Unit 26. Before experimenting with Quality Criteria and Regression Records, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Fixed Inputs",
+        "concepts.0.explanation": "Fixing time and pointer inputs makes image comparisons reproducible. Different rendering environments can produce pixel differences, so record tolerances.",
+        "concepts.1.title": "Regions of Interest",
+        "concepts.1.explanation": "A whole-image average difference can hide lost small highlights or thin boundaries. Compare both the full screen and selected regions.",
+        "outcomes.0": "Create reproducible visual references.",
+        "outcomes.1": "Record local quality losses.",
+        "steps.0": "Save time, pointer, resolution, and effect variables in presets.json.",
+        "steps.1": "Capture reference and half-resolution images for three presets.",
+        "steps.2": "Record boundary, blur, and highlight ROI differences and the environment in report.md.",
+        "variables.0.name": "Quality setting",
+        "variables.0.baseline": "full resolution and 4 octaves",
+        "variables.0.change": "half resolution and the same octave count",
+        "variables.0.expected": "Expect lower pixel cost but greater loss of boundaries and high-frequency detail.",
+        "criteria.0": "Save input values and environment details for all three presets.",
+        "criteria.1": "Describe losses in three ROIs using numbers or pixel locations.",
+        "questions.0": "Should every pixel difference on another GPU count as a regression?",
+        "questions.1": "When should reference images be updated?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
     }
   }
 }

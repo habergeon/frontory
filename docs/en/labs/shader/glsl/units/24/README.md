@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Texel Size and Filters](../23/README.md)
+[Previous: Texel Size and Filters](../23/README.md) · [Next: The Cost of Branches and Loops](../25/README.md)
 
 ## Experiment notes — write your own
 

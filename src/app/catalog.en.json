@@ -4066,6 +4066,36 @@
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
+      "id": "glsl-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "The Cost of Branches and Loops",
+      "goal": "Separate cost variables. Assess optimization hypotheses through measurement.",
+      "docPath": "/docs/en/labs/shader/glsl/units/25/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
+      "id": "glsl-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Editing Failures and Context Recovery",
+      "goal": "Apply shader edits safely. Design GPU resource recovery.",
+      "docPath": "/docs/en/labs/shader/glsl/units/26/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
+      "id": "glsl-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Quality Criteria and Regression Records",
+      "goal": "Create reproducible visual references. Record local quality losses.",
+      "docPath": "/docs/en/labs/shader/glsl/units/27/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
       "id": "wgsl-01",
       "day": 1,
       "week": 1,

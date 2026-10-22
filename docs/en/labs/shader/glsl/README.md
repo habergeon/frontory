@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Shaders · 4 stages · 28 units in the full series · 24 published in English
+Shaders · 4 stages · 28 units in the full series · 27 published in English
 
 ## Series goal
 
@@ -57,6 +57,9 @@ Only published English units are linked below. The full series has 28 units.
 - [22. Framebuffers and Screen Passes](units/22/README.md) — Editable example
 - [23. Texel Size and Filters](units/23/README.md) — Editable example
 - [24. Pointer Coordinates and Input Smoothing](units/24/README.md) — Editable example
+- [25. The Cost of Branches and Loops](units/25/README.md) — Editable example
+- [26. Editing Failures and Context Recovery](units/26/README.md) — Editable example
+- [27. Quality Criteria and Regression Records](units/27/README.md) — Editable example
 
 ## Capstone project and deliverables
 

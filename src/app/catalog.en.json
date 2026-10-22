@@ -1605,6 +1605,35 @@
       "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
     },
     {
+      "id": "vue-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Watcher Cleanup and Out-of-Order Requests",
+      "goal": "The final result matches the latest B input. Request updates are not applied after removing the component.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/13/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-02",
+      "day": 14,
+      "week": 2,
+      "title": "Component Contracts and Watching",
+      "goal": "Switching to B after entering A does not contaminate B's saved value. After 5 consecutive inputs, only the last value completes saving.",
+      "docPath": "/docs/en/labs/frameworks/vue/02-experiments/README.md",
+      "seriesId": "vue"
+    },
+    {
+      "id": "vue-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Template Refs and nextTick",
+      "goal": "The textarea is the active element when the panel opens. There is no null access error while hidden.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/15/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

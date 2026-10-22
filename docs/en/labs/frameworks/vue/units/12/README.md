@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Composing Screens with Slots](../11/README.md)
+[Previous: Composing Screens with Slots](../11/README.md) · [Next: Watcher Cleanup and Out-of-Order Requests](../13/README.md)
 
 ## Experiment notes — write your own
 

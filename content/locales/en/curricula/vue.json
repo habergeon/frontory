@@ -334,6 +334,88 @@
         "references.0.title": "Vue Composition API Guide",
         "references.1.title": "Vue Watchers and cleanup"
       }
+    },
+    "vue-step-13": {
+      "sourceHash": "31f3b19e0e6c7047e30a74e2212227b5bbd084d864c4d4520034f882e1a74c92",
+      "values": {
+        "title": "Watcher Cleanup and Out-of-Order Requests",
+        "prerequisites": "Unit 13 builds on the work and experiment records from Unit 12.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "cleanup",
+        "concepts.0.explanation": "onCleanup in a watch callback registers a function to clean up previous work. Cancel timers or requests before rerunning to limit the previous work's effects.",
+        "concepts.1.title": "Response consistency",
+        "concepts.1.explanation": "A late response can overwrite the latest search result. Checking a request id also distinguishes completion paths that cancellation alone did not handle.",
+        "outcomes.0": "The final result matches the latest B input.",
+        "outcomes.1": "Request updates are not applied after removing the component.",
+        "steps.0": "Add AbortController and onCleanup to src/useSearch.js.",
+        "steps.1": "In fakeSearch, create delays of A 800ms and B 100ms.",
+        "steps.2": "Enter A followed by B, and compare the final query, result id, and cancellation records.",
+        "variables.0.name": "Response delay",
+        "variables.0.baseline": "Same 100ms",
+        "variables.0.change": "A 800ms·B 100ms",
+        "variables.0.expected": "A late A response does not overwrite the B result.",
+        "criteria.0": "The final result matches the latest B input.",
+        "criteria.1": "Request updates are not applied after removing the component.",
+        "questions.0": "How does automatic cleanup scope change if you create watch inside an asynchronous callback?",
+        "questions.1": "Should AbortError be displayed as a user error?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup"
+      }
+    },
+    "vue-02": {
+      "sourceHash": "35b980e0cedad083b857b9b8453e617f1e3c5ec6b541073cc9900712d6f0301a",
+      "values": {
+        "title": "Component Contracts and Watching",
+        "prerequisites": "Unit 14 builds on the work and experiment records from Unit 13.",
+        "environment": "Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler. The existing vue-02 preview is a starting point. Implement the extended deliverables described here in a separate project.",
+        "concepts.0.title": "Drafts and saving",
+        "concepts.0.explanation": "Parent ownership of per-unit drafts preserves strings when editors are replaced. Pending saves must be distinguished from completed saves.",
+        "concepts.1.title": "Identifying delayed work",
+        "concepts.1.explanation": "Reading the current unit when a timer runs can overwrite another note. Capture the id and string at the start, and clean up the previous timer.",
+        "outcomes.0": "Switching to B after entering A does not contaminate B's saved value.",
+        "outcomes.1": "After 5 consecutive inputs, only the last value completes saving.",
+        "steps.0": "Connect src/NoteEditor.vue with props/emits and create draftsById in the parent.",
+        "steps.1": "Capture id, text, and delay from the watch input for delayed saving, and call clearTimeout through onCleanup.",
+        "steps.2": "Switch to B immediately after entering A, then compare savedById and draftsById.",
+        "variables.0.name": "Save delay",
+        "variables.0.baseline": "100ms",
+        "variables.0.change": "1000ms",
+        "variables.0.expected": "Switching cancels the previous scheduled save and does not overwrite another unit.",
+        "criteria.0": "Switching to B after entering A does not contaminate B's saved value.",
+        "criteria.1": "After 5 consecutive inputs, only the last value completes saving.",
+        "questions.0": "Where should the canceled A draft remain?",
+        "questions.1": "What problem occurs if you read unit.value inside the timer?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup"
+      }
+    },
+    "vue-step-15": {
+      "sourceHash": "01c608acf5c9a5583d84590845dbc1c8bf94feed44988cb58f7d22046b8bcb81",
+      "values": {
+        "title": "Template Refs and nextTick",
+        "prerequisites": "Unit 15 builds on the work and experiment records from Unit 14.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "DOM references",
+        "concepts.0.explanation": "A template ref points to the connected DOM element or component. It can be null when a conditional element is absent.",
+        "concepts.1.title": "Batched updates",
+        "concepts.1.explanation": "Vue batches DOM updates. After changing state, check after nextTick before handling actual DOM dimensions or focus.",
+        "outcomes.0": "The textarea is the active element when the panel opens.",
+        "outcomes.1": "There is no null access error while hidden.",
+        "steps.0": "Create a conditional textarea and ref in src/EditorPanel.vue.",
+        "steps.1": "After setting visibility to true, connect await nextTick and focus.",
+        "steps.2": "Repeat showing and hiding 5 times, checking the active element and null handling.",
+        "variables.0.name": "Focus timing",
+        "variables.0.baseline": "Immediately after changing state",
+        "variables.0.change": "After nextTick",
+        "variables.0.expected": "The created textarea can receive focus.",
+        "criteria.0": "The textarea is the active element when the panel opens.",
+        "criteria.1": "There is no null access error while hidden.",
+        "questions.0": "Does nextTick also wait for network completion?",
+        "questions.1": "Can a computed result replace a DOM reference?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup",
+        "references.2.title": "Vue Composables and Lifetime Management"
+      }
     }
   }
 }

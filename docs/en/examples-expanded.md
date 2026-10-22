@@ -169,6 +169,8 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [10. Component v-model](labs/frameworks/vue/units/10/README.md) | Editable example | [Source code](../../src/labs/vue-step-10/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 | [11. Composing Screens with Slots](labs/frameworks/vue/units/11/README.md) | Editable example | [Source code](../../src/labs/vue-step-11/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 | [12. watch Sources and Timing](labs/frameworks/vue/units/12/README.md) | Editable example | [Source code](../../src/labs/vue-step-12/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [13. Watcher Cleanup and Out-of-Order Requests](labs/frameworks/vue/units/13/README.md) | Editable example | [Source code](../../src/labs/vue-step-13/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [15. Template Refs and nextTick](labs/frameworks/vue/units/15/README.md) | Editable example | [Source code](../../src/labs/vue-step-15/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 
 ## GSAP
 

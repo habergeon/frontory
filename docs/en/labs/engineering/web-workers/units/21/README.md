@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Failure Recovery](../20/README.md)
+[Previous: Failure Recovery](../20/README.md) · [Next: Splitting and Merging Data](../22/README.md)
 
 ## Experiment notes — write your own
 

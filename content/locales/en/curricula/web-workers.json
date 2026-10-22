@@ -577,6 +577,87 @@
         "references.0.title": "MDN Using Web Workers",
         "references.1.title": "MDN Transferable objects"
       }
+    },
+    "web-workers-step-22": {
+      "sourceHash": "464b1588d0f6522ab0329b84aef9d2d8146dccc6a06751ab50e17962bd5b906d",
+      "values": {
+        "title": "Splitting and Merging Data",
+        "prerequisites": "Prepare the experiment results for Ports and Disposal from Unit 21, “Separating MessageChannels”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Partitioning",
+        "concepts.0.explanation": "An array sum can be divided into partial sums. Do not miss the boundary of the last chunk.",
+        "concepts.1.title": "Combining",
+        "concepts.1.explanation": "The properties of the combining operation affect the result. Floating-point sums may have different errors depending on order.",
+        "outcomes.0": "Learning outcome: explain the role of Partitioning. Input cases: an integer array of length 1003.",
+        "outcomes.1": "Deliverable: chunk ranges and the CPU baseline sum. Explain the rationale for handling Combining, linking it to the code.",
+        "steps.0": "In src/day-22.js in a separate practice project, partition an array whose length is not evenly divisible and merge the partial sums. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: an integer array of length 1003. Baseline: 2 chunks. Run under the baseline conditions, then record observations and errors in notes/day-22.md.",
+        "steps.2": "Variable: Chunk count; changed value: 4 chunks. Run again through the same input path. Deliverable to save: chunk ranges and the CPU baseline sum. Hypothesis to check: Every element is processed exactly once, producing the same integer sum. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Chunk count",
+        "variables.0.baseline": "2 chunks",
+        "variables.0.change": "4 chunks",
+        "variables.0.expected": "Every element is processed exactly once, producing the same integer sum.",
+        "criteria.0": "Required deliverable: chunk ranges and the CPU baseline sum. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Partitioning and Combining. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Partitioning affect in this exercise? Input cases: an integer array of length 1003.",
+        "questions.1": "Variable: Chunk count. Hypothesis to check: Every element is processed exactly once, producing the same integer sum. Did the actual results agree with the hypothesis? Explain the evidence in terms of Combining.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-23": {
+      "sourceHash": "8f1ea6b60b871f5d01e2af44de8d95e0f4b799ee2a079a92ccb3b949381b4620",
+      "values": {
+        "title": "Shared Memory Requirements",
+        "prerequisites": "Prepare the experiment results for Partitioning and Combining from Unit 22, “Splitting and Merging Data”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Isolation",
+        "concepts.0.explanation": "SharedArrayBuffer depends on browser security requirements. Check COOP, COEP, and crossOriginIsolated in an external project you control.",
+        "concepts.1.title": "Fallback",
+        "concepts.1.explanation": "Use the transfer path in an environment without isolation. Do not weaken the existing iframe CSP or isolation.",
+        "outcomes.0": "Learning outcome: explain the role of Isolation. Input cases: isolated and non-isolated environments.",
+        "outcomes.1": "Deliverable: a table of headers, crossOriginIsolated, and the selected path. Explain the rationale for handling Fallback, linking it to the code.",
+        "steps.0": "In src/day-23.js in a separate practice project, display support requirements in an external project and implement a transfer fallback branch. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: isolated and non-isolated environments. Baseline: Non-isolated. Run under the baseline conditions, then record observations and errors in notes/day-23.md.",
+        "steps.2": "Variable: Environment; changed value: Controlled isolated server. Run again through the same input path. Deliverable to save: a table of headers, crossOriginIsolated, and the selected path. Hypothesis to check: Shared memory is used only when the requirements are met. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Environment",
+        "variables.0.baseline": "Non-isolated",
+        "variables.0.change": "Controlled isolated server",
+        "variables.0.expected": "Shared memory is used only when the requirements are met.",
+        "criteria.0": "Required deliverable: a table of headers, crossOriginIsolated, and the selected path. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Isolation and Fallback. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Isolation affect in this exercise? Input cases: isolated and non-isolated environments.",
+        "questions.1": "Variable: Environment. Hypothesis to check: Shared memory is used only when the requirements are met. Did the actual results agree with the hypothesis? Explain the evidence in terms of Fallback.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-24": {
+      "sourceHash": "b4dcc33d969825bde44aa3fb5691a1174e4885afa5c36b5e6e13b0879c7949f2",
+      "values": {
+        "title": "Atomics and Synchronization",
+        "prerequisites": "Prepare the experiment results for Isolation and Fallback from Unit 23, “Shared Memory Requirements”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Races",
+        "concepts.0.explanation": "Shared memory accesses the same storage without copying. Concurrent updates create race conditions.",
+        "concepts.1.title": "Atomics",
+        "concepts.1.explanation": "Atomics synchronizes access to shared integers. Avoid waiting methods that block the main thread.",
+        "outcomes.0": "Learning outcome: explain the role of Races. Input cases: 10000 increments per Worker.",
+        "outcomes.1": "Deliverable: the final counter and the expected value 20000. Explain the rationale for handling Atomics, linking it to the code.",
+        "steps.0": "In src/day-24.js in a separate practice project, compare Atomics.add counters in two Workers in an isolated external project. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 10000 increments per Worker. Baseline: Ordinary reads and writes. Run under the baseline conditions, then record observations and errors in notes/day-24.md.",
+        "steps.2": "Variable: Update; changed value: Atomics.add. Run again through the same input path. Deliverable to save: the final counter and the expected value 20000. Hypothesis to check: The atomic path does not lose increments. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Update",
+        "variables.0.baseline": "Ordinary reads and writes",
+        "variables.0.change": "Atomics.add",
+        "variables.0.expected": "The atomic path does not lose increments.",
+        "criteria.0": "Required deliverable: the final counter and the expected value 20000. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Races and Atomics. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Races affect in this exercise? Input cases: 10000 increments per Worker.",
+        "questions.1": "Variable: Update. Hypothesis to check: The atomic path does not lose increments. Did the actual results agree with the hypothesis? Explain the evidence in terms of Atomics.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
     }
   }
 }

@@ -5461,6 +5461,36 @@
       "docPath": "/docs/en/labs/engineering/web-workers/units/21/README.md",
       "seriesId": "web-workers",
       "exampleNote": "An interactive Separating MessageChannels experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Splitting and Merging Data",
+      "goal": "Learning outcome: explain the role of Partitioning. Input cases: an integer array of length 1003. Deliverable: chunk ranges and the CPU baseline sum. Explain the rationale for handling Combining, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/22/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Splitting and Merging Data experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Shared Memory Requirements",
+      "goal": "Learning outcome: explain the role of Isolation. Input cases: isolated and non-isolated environments. Deliverable: a table of headers, crossOriginIsolated, and the selected path. Explain the rationale for handling Fallback, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/23/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Shared Memory Requirements experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Atomics and Synchronization",
+      "goal": "Learning outcome: explain the role of Races. Input cases: 10000 increments per Worker. Deliverable: the final counter and the expected value 20000. Explain the rationale for handling Atomics, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/24/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Atomics and Synchronization experiment with cleanup of the resources it uses."
     }
   ]
 }

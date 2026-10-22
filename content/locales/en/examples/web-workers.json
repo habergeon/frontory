@@ -112,5 +112,23 @@
     "values": {
       "note": "An interactive Separating MessageChannels experiment with cleanup of the resources it uses."
     }
+  },
+  "web-workers-step-22": {
+    "sourceHash": "e95ea261259901d317aab6c3f2f5989a0f19ec0e074c1c882820373cc918fc38",
+    "values": {
+      "note": "An interactive Splitting and Merging Data experiment with cleanup of the resources it uses."
+    }
+  },
+  "web-workers-step-23": {
+    "sourceHash": "1b092dd91a6290e2a6fdd9b5ca36f7f71d4db89e7b586a7a3997fd0c356f2a25",
+    "values": {
+      "note": "An interactive Shared Memory Requirements experiment with cleanup of the resources it uses."
+    }
+  },
+  "web-workers-step-24": {
+    "sourceHash": "1e56df75830fdefa62c7383617a1b07847aafdcc80225894fdb721968d90e60f",
+    "values": {
+      "note": "An interactive Atomics and Synchronization experiment with cleanup of the resources it uses."
+    }
   }
 }

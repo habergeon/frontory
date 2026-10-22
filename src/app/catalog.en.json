@@ -2418,6 +2418,36 @@
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "svg-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Symbols and Reuse",
+      "goal": "Editing one definition updates its instances. Reference ids in the two SVGs do not collide.",
+      "docPath": "/docs/en/labs/graphics/svg/units/07/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "svg-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Styles and Themes",
+      "goal": "Icons change together with the theme. Find the source of the final color in developer tools.",
+      "docPath": "/docs/en/labs/graphics/svg/units/08/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "svg-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Gradient Coordinates",
+      "goal": "Compare the results of the two coordinate systems. Adjust coordinate values when changing units.",
+      "docPath": "/docs/en/labs/graphics/svg/units/09/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

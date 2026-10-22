@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 6 published in English
+Graphics · 4 stages · 28 units in the full series · 9 published in English
 
 ## Series goal
 
@@ -30,9 +30,12 @@ Only published English units are linked below. The full series has 28 units.
 - [04. Adjusting Bézier Curves](units/04/README.md) — Editable example
 - [05. Arcs and Donut Segments](units/05/README.md) — Editable example
 - [06. Groups and Transform Order](units/06/README.md) — Editable example
+- [07. Symbols and Reuse](units/07/README.md) — Editable example
 
 ### Stage 2 · Styles, Effects, and DOM Input
 
+- [08. Styles and Themes](units/08/README.md) — Editable example
+- [09. Gradient Coordinates](units/09/README.md) — Editable example
 
 ### Stage 3 · Accessibility and Data Maps
 

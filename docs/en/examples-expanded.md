@@ -253,6 +253,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [4. Adjusting Bézier Curves](labs/graphics/svg/units/04/README.md) | Editable example | [Source code](../../src/labs/svg-step-04/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 | [5. Arcs and Donut Segments](labs/graphics/svg/units/05/README.md) | Editable example | [Source code](../../src/labs/svg-step-05/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 | [6. Groups and Transform Order](labs/graphics/svg/units/06/README.md) | Editable example | [Source code](../../src/labs/svg-step-06/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [7. Symbols and Reuse](labs/graphics/svg/units/07/README.md) | Editable example | [Source code](../../src/labs/svg-step-07/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [8. Styles and Themes](labs/graphics/svg/units/08/README.md) | Editable example | [Source code](../../src/labs/svg-step-08/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [9. Gradient Coordinates](labs/graphics/svg/units/09/README.md) | Editable example | [Source code](../../src/labs/svg-step-09/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

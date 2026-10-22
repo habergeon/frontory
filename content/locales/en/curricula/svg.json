@@ -166,6 +166,84 @@
         "questions.1": "How can you verify the order of a transform string?",
         "references.0.title": "MDN SVG from Scratch Tutorial"
       }
+    },
+    "svg-step-07": {
+      "sourceHash": "df054f9f078c8b689bd9c1d83ae0dccd70a7e3ff5f38d2e8c40a7c44ee155d70",
+      "values": {
+        "title": "Symbols and Reuse",
+        "prerequisites": "Prerequisite concepts: Group transforms, Matrix order. Prepare the result files and observation records from Unit 6.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Definitions and instances",
+        "concepts.0.explanation": "Content in defs is not visible by itself. When use references a definition, it displays the same shape in multiple places.",
+        "concepts.1.title": "Identifier scope",
+        "concepts.1.explanation": "An id must not collide within the document. Combining multiple SVGs can mix up gradient or symbol references with identical names.",
+        "outcomes.0": "Editing one definition updates its instances.",
+        "outcomes.1": "Reference ids in the two SVGs do not collide.",
+        "steps.0": "Prepare day-07.js and index.html in an external practice project. Define a badge in symbol and create instances at three sizes using use href.",
+        "steps.1": "Choose an id prefix convention and place two SVGs in the same HTML.",
+        "steps.2": "Save the output under the input condition All use badge, then run again with A prefix for each SVG. Compare the hypothesis, \"Collisions that incorrectly reference another definition are avoided,\" against the display and logs, and record the actual result and the causes of any differences in day-07-notes.md.",
+        "variables.0.name": "id convention",
+        "variables.0.baseline": "All use badge",
+        "variables.0.change": "A prefix for each SVG",
+        "variables.0.expected": "Collisions that incorrectly reference another definition are avoided",
+        "criteria.0": "Editing one definition updates its instances.",
+        "criteria.1": "Reference ids in the two SVGs do not collide.",
+        "questions.0": "How would you design use so each instance can have a different color?",
+        "questions.1": "Why is a symbol viewBox useful?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
+    },
+    "svg-step-08": {
+      "sourceHash": "709dce2cabd0dc5c14fc179721de975e9be08ca7c1f36d8a5a570324d5bc0b7a",
+      "values": {
+        "title": "Styles and Themes",
+        "prerequisites": "Prerequisite concepts: Definitions and instances, Identifier scope. Prepare the result files and observation records from Unit 7.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Cascade",
+        "concepts.0.explanation": "CSS affects SVG presentation attributes. Reading only an attribute value may not tell you the final color.",
+        "concepts.1.title": "Inherited color",
+        "concepts.1.explanation": "currentColor uses the surrounding color. This makes it easy to match an icon theme to page text color.",
+        "outcomes.0": "Icons change together with the theme.",
+        "outcomes.1": "Find the source of the final color in developer tools.",
+        "steps.0": "Prepare day-08.js and index.html in an external practice project. Create an icon that uses currentColor for stroke and fill.",
+        "steps.1": "Switch CSS variables with a theme button and record the final fill using getComputedStyle.",
+        "steps.2": "Save the output under the input condition fill attribute only, then run again with Add a CSS fill rule. Compare the hypothesis, \"The cascade may make the displayed color differ from the attribute string,\" against the display and logs, and record the actual result and the causes of any differences in day-08-notes.md.",
+        "variables.0.name": "Color specification",
+        "variables.0.baseline": "fill attribute only",
+        "variables.0.change": "Add a CSS fill rule",
+        "variables.0.expected": "The cascade may make the displayed color differ from the attribute string",
+        "criteria.0": "Icons change together with the theme.",
+        "criteria.1": "Find the source of the final color in developer tools.",
+        "questions.0": "Does the same CSS apply to an external SVG in img?",
+        "questions.1": "Which element's color does currentColor use?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
+    },
+    "svg-step-09": {
+      "sourceHash": "0aa72c4bba1e7f5e8073f466fada2462fe4ace88f5c4e0e58e39b3ed6b3d4f9e",
+      "values": {
+        "title": "Gradient Coordinates",
+        "prerequisites": "Prerequisite concepts: Cascade, Inherited color. Prepare the result files and observation records from Unit 8.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Bounding box units",
+        "concepts.0.explanation": "objectBoundingBox uses the shape's bounding box as its reference. The same definition may look different depending on the shape's proportions.",
+        "concepts.1.title": "User space",
+        "concepts.1.explanation": "userSpaceOnUse defines a gradient in user coordinates. It can create a continuous color band across several shapes.",
+        "outcomes.0": "Compare the results of the two coordinate systems.",
+        "outcomes.1": "Adjust coordinate values when changing units.",
+        "steps.0": "Prepare day-09.js and index.html in an external practice project. Create linearGradient in defs and apply it to rectangles of different widths.",
+        "steps.1": "Switch gradientUnits and adjust the start and end coordinates together.",
+        "steps.2": "Save the output under the input condition objectBoundingBox, then run again with userSpaceOnUse. Compare the hypothesis, \"Color bands that stretched per shape align to common coordinates,\" against the display and logs, and record the actual result and the causes of any differences in day-09-notes.md.",
+        "variables.0.name": "gradientUnits",
+        "variables.0.baseline": "objectBoundingBox",
+        "variables.0.change": "userSpaceOnUse",
+        "variables.0.expected": "Color bands that stretched per shape align to common coordinates",
+        "criteria.0": "Compare the results of the two coordinate systems.",
+        "criteria.1": "Adjust coordinate values when changing units.",
+        "questions.0": "What problem does the bounding box of a shape with width 0 have?",
+        "questions.1": "Which units would you use to connect one lighting effect across several shapes?",
+        "references.0.title": "MDN SVG from Scratch Tutorial"
+      }
     }
   }
 }

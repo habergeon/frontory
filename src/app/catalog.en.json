@@ -379,6 +379,36 @@
       "exampleNote": "Inspect the document title and meta. Check mobile viewport effects on a standalone page and an actual mobile device. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "html-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Paragraphs and Text Semantics",
+      "goal": "The 3 body paragraphs consist of 3 p elements. Write 1 reason each for choosing strong and em.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/04/README.md",
+      "seriesId": "html",
+      "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Lists and Term Descriptions",
+      "goal": "Check in the DOM that the item counts are 4·3·2 respectively. Descriptions are associated with the two terms.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/05/README.md",
+      "seriesId": "html",
+      "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Link Paths and In-page Navigation",
+      "goal": "The three table-of-contents links navigate to different headings. Distinguish successful and failing paths in the Network panel.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/06/README.md",
+      "seriesId": "html",
+      "exampleNote": "The example.test links are for examining path resolution; actual documents are not provided. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
       "id": "css-01",
       "day": 1,
       "week": 1,

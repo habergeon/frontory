@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Document Skeleton and Character Encoding](../02/README.md)
+[Previous: Document Skeleton and Character Encoding](../02/README.md) · [Next: Paragraphs and Text Semantics](../04/README.md)
 
 ## Experiment notes — write your own
 

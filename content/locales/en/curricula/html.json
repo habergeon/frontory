@@ -88,6 +88,84 @@
         "variables.0.expected": "Pre-run hypothesis: The layout width on a narrow screen will be closer to the intended width. Keep other conditions fixed and record the actual result separately after running.",
         "references.0.title": "MDN HTML"
       }
+    },
+    "html-step-04": {
+      "sourceHash": "390e30e9a2fe0f0b3e9d94fd55b375296031f45c60edce02bbf0463fb7189086",
+      "values": {
+        "title": "Paragraphs and Text Semantics",
+        "prerequisites": "The work and experiment records from Unit 3, “Metadata and Document Titles”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Paragraph Boundaries",
+        "concepts.0.explanation": "p represents a paragraph. Repeating br to adjust spacing mixes document structure with presentation.",
+        "concepts.1.title": "Emphasis Semantics",
+        "concepts.1.explanation": "strong expresses importance, and em expresses stress within a sentence. Use CSS when you only need bold or italic styling.",
+        "outcomes.0": "The 3 body paragraphs consist of 3 p elements.",
+        "outcomes.1": "Write 1 reason each for choosing strong and em.",
+        "criteria.0": "The 3 body paragraphs consist of 3 p elements.",
+        "criteria.1": "Write 1 reason each for choosing strong and em.",
+        "steps.0": "In text.html, prepare 3 explanatory paragraphs and 1 important warning.",
+        "steps.1": "Divide the learning explanation into p elements and use appropriate elements for the important warning and sentence emphasis.",
+        "steps.2": "Run with 3 explanatory paragraphs and 1 important warning. Results to check: The 3 body paragraphs consist of 3 p elements. Write 1 reason each for choosing strong and em. Record expected and actual results separately.",
+        "questions.0": "How do b·i differ from strong·em?",
+        "questions.1": "Does the sentence retain its meaning without visual emphasis?",
+        "variables.0.name": "Paragraph Boundaries",
+        "variables.0.baseline": "Repeated br",
+        "variables.0.change": "p elements",
+        "variables.0.expected": "Pre-run hypothesis: Paragraph navigation and structure will become clearer. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
+    },
+    "html-step-05": {
+      "sourceHash": "b77d4f47a94aad6d68a8dae8ea0b124ebe8818259ed0fcb423fe4ba05f66fa40",
+      "values": {
+        "title": "Lists and Term Descriptions",
+        "prerequisites": "The work and experiment records from Unit 4, “Paragraphs and Text Semantics”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "List Order",
+        "concepts.0.explanation": "ol represents items whose order matters. ul is suitable for groupings where order does not matter.",
+        "concepts.1.title": "Description Lists",
+        "concepts.1.explanation": "dl associates terms with descriptions. Do not choose dt and dd simply for indentation.",
+        "outcomes.0": "Check in the DOM that the item counts are 4·3·2 respectively.",
+        "outcomes.1": "Descriptions are associated with the two terms.",
+        "criteria.0": "Check in the DOM that the item counts are 4·3·2 respectively.",
+        "criteria.1": "Descriptions are associated with the two terms.",
+        "steps.0": "In lists.html, prepare 4 exercise steps, 3 supplies, and 2 terms.",
+        "steps.1": "Use ol for the exercise sequence, ul for supplies, and dl for the glossary.",
+        "steps.2": "Run with 4 exercise steps, 3 supplies, and 2 terms. Results to check: Check in the DOM that the item counts are 4·3·2 respectively. Descriptions are associated with the two terms. Record expected and actual results separately.",
+        "questions.0": "Does a visually ordered presentation always call for ol?",
+        "questions.1": "Inside which item should a nested list go?",
+        "variables.0.name": "Procedure Element",
+        "variables.0.baseline": "ul",
+        "variables.0.change": "ol",
+        "variables.0.expected": "Pre-run hypothesis: Ordering information will be included in the list semantics. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
+    },
+    "html-step-06": {
+      "sourceHash": "2fb7913bbcff4fc3b3bf569806734f92471142df4ad2134effd086b0383a4010",
+      "values": {
+        "title": "Link Paths and In-page Navigation",
+        "prerequisites": "The work and experiment records from Unit 5, “Lists and Term Descriptions”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Path Resolution",
+        "concepts.0.explanation": "A relative URL is resolved against the current document’s base URL. Moving a folder can change the destination of the same string.",
+        "concepts.1.title": "Fragments",
+        "concepts.1.explanation": "A link pointing to an id navigates to a location within the document. Duplicate ids make the destination ambiguous.",
+        "outcomes.0": "The three table-of-contents links navigate to different headings.",
+        "outcomes.1": "Distinguish successful and failing paths in the Network panel.",
+        "criteria.0": "The three table-of-contents links navigate to different headings.",
+        "criteria.1": "Distinguish successful and failing paths in the Network panel.",
+        "steps.0": "In links/index.html, prepare a detail page in a subfolder and 3 sections.",
+        "steps.1": "Create a detail-page link and #section links in the table of contents, and describe each destination in its link text.",
+        "steps.2": "Run with a detail page in a subfolder and 3 sections. Results to check: The three table-of-contents links navigate to different headings. Distinguish successful and failing paths in the Network panel. Record expected and actual results separately.",
+        "questions.0": "What problems arise if the link text only says “here”?",
+        "questions.1": "How can you find duplicate ids?",
+        "variables.0.name": "Relative Path",
+        "variables.0.baseline": "./detail.html",
+        "variables.0.change": "../detail.html",
+        "variables.0.expected": "Pre-run hypothesis: The request location will move to the parent folder. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
     }
   }
 }

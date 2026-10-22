@@ -577,6 +577,87 @@
         "references.0.title": "WebGPU API and Error Handling",
         "references.1.title": "WGSL Specification"
       }
+    },
+    "webgpu-step-22": {
+      "sourceHash": "da01925b1c5b8199d7da8009031723881d951d234c5a8cae449d44e287eb59f1",
+      "values": {
+        "title": "Device Loss and Reinitialization",
+        "concepts.0.title": "Lost State",
+        "concepts.0.explanation": "device.lost signals that the device is no longer valid. Resources from the previous device cannot be reused unchanged on a new device.",
+        "concepts.1.title": "Recreation",
+        "concepts.1.explanation": "Recovery needs a path that recreates shaders, buffers, and pipelines. Retain CPU settings and initial data in a reproducible form.",
+        "outcomes.0": "Handle device loss.",
+        "outcomes.1": "Validate the resource recreation path.",
+        "steps.0": "In device.js, connect device.lost handling to stopping the render loop.",
+        "steps.1": "Call device.destroy from a development button and display the loss reason.",
+        "steps.2": "On explicit user retry, create a new device and resources and restore saved settings.",
+        "variables.0.name": "Device state",
+        "variables.0.baseline": "Normal",
+        "variables.0.change": "Intentional loss through destroy",
+        "variables.0.expected": "The loop is expected to stop and recover with new resources after an explicit retry.",
+        "criteria.0": "Do not submit to the previous device after loss.",
+        "criteria.1": "After retry, create the same initial scene with a new device.",
+        "questions.0": "Should retry policies for a destroy reason and unexpected loss be identical?",
+        "questions.1": "What information must remain on the CPU for recovery?",
+        "prerequisites": "Continue using the output and notes from unit 21. Preserve the previous inputs and reference outputs before the Device Loss and Reinitialization experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-23": {
+      "sourceHash": "f81ab411611f2254eb83d9b91a18f512979de915dbb6c7ae9aefadf0188a44bd",
+      "values": {
+        "title": "Asynchronous Errors and Task Identity",
+        "concepts.0.title": "Error Channels",
+        "concepts.0.explanation": "Error scopes and uncapturederror are different error observation paths. Display expected validation failures separately from unexpected errors.",
+        "concepts.1.title": "Generation Numbers",
+        "concepts.1.explanation": "Earlier asynchronous work can finish during reinitialization. Use a device generation number to prevent stale results from modifying new state.",
+        "outcomes.0": "Connect asynchronous errors to tasks.",
+        "outcomes.1": "Block stale results from being applied.",
+        "steps.0": "In errors.js, add an uncapturederror listener and task labels.",
+        "steps.1": "Create a delayed fixture that requests reinitialization during pipeline creation.",
+        "steps.2": "Compare the completed result's generation and record discarded earlier results.",
+        "variables.0.name": "Completion order",
+        "variables.0.baseline": "Current generation first",
+        "variables.0.change": "Previous generation completes late",
+        "variables.0.expected": "The late result is expected not to replace the new pipeline.",
+        "criteria.0": "Error logs display the task label and generation.",
+        "criteria.1": "Only current-generation resources are used in both completion orders.",
+        "questions.0": "Why does an overly broad error scope make tracing causes harder?",
+        "questions.1": "What cleanup is needed when discarding a stale pipeline result?",
+        "prerequisites": "Continue using the output and notes from unit 22. Preserve the previous inputs and reference outputs before the Asynchronous Errors and Task Identity experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-24": {
+      "sourceHash": "8386afae3805a18d1d78679ee7556a4b63ef17654203836074e5025eecf6e380",
+      "values": {
+        "title": "The Scope of Timing",
+        "concepts.0.title": "End-to-End Latency",
+        "concepts.0.explanation": "The interval from the CPU-side start to completed readback includes transfer and waiting. Do not interpret it as compute kernel execution time.",
+        "concepts.1.title": "Optional Measurement",
+        "concepts.1.explanation": "Use timestamp-query only after checking support and requesting it. If unsupported, leave the GPU interval unmeasured and provide CPU elapsed time.",
+        "outcomes.0": "State the measurement scope clearly.",
+        "outcomes.1": "Use optional measurement features safely.",
+        "steps.0": "In benchmark.js, separate input generation, upload, submission, and map-completion intervals.",
+        "steps.1": "Record timestamp-query support and configure pass timestamps and the resolve path only when supported.",
+        "steps.2": "After warmup, save end-to-end latencies for five runs and any available GPU interval values in separate columns.",
+        "variables.0.name": "Array size",
+        "variables.0.baseline": "1024",
+        "variables.0.change": "65536",
+        "variables.0.expected": "Computation is expected to increase, while fixed transfer costs are more prominent for small inputs.",
+        "criteria.0": "Record end-to-end latency and GPU intervals under different names.",
+        "criteria.1": "Do not request unsupported features, and state which items remain unmeasured.",
+        "questions.0": "Is elapsed onSubmittedWorkDone time kernel time?",
+        "questions.1": "Why might the first run before warmup be slow?",
+        "prerequisites": "Continue using the output and notes from unit 23. Preserve the previous inputs and reference outputs before starting \"The Scope of Timing\".",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
     }
   }
 }

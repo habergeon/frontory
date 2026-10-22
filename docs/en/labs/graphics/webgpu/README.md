@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 21 published in English
+Graphics · 4 stages · 28 units in the full series · 24 published in English
 
 ## Series goal
 
@@ -54,6 +54,9 @@ Only published English units are linked below. The full series has 28 units.
 
 ### Stage 4 · Recovery, Measurement, and an Integrated Project
 
+- [22. Device Loss and Reinitialization](units/22/README.md) — Editable example
+- [23. Asynchronous Errors and Task Identity](units/23/README.md) — Editable example
+- [24. The Scope of Timing](units/24/README.md) — Editable example
 
 ## Capstone project and deliverables
 

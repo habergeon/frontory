@@ -3177,6 +3177,36 @@
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
+      "id": "webgpu-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Device Loss and Reinitialization",
+      "goal": "Handle device loss. Validate the resource recreation path.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/22/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Asynchronous Errors and Task Identity",
+      "goal": "Connect asynchronous errors to tasks. Block stale results from being applied.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/23/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "The Scope of Timing",
+      "goal": "State the measurement scope clearly. Use optional measurement features safely.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/24/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
       "id": "react-three-fiber-01",
       "day": 1,
       "week": 1,

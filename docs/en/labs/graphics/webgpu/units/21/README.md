@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Rendering Compute Results](../20/README.md)
+[Previous: Rendering Compute Results](../20/README.md) · [Next: Device Loss and Reinitialization](../22/README.md)
 
 ## Experiment notes — write your own
 

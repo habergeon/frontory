@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Shaders · 4 stages · 28 units in the full series · 9 published in English
+Shaders · 4 stages · 28 units in the full series · 12 published in English
 
 ## Series goal
 
@@ -36,6 +36,9 @@ Only published English units are linked below. The full series has 28 units.
 
 - [08. Address Spaces and Access Modes](units/08/README.md) — Editable example
 - [09. Groups, Bindings, and Host Connections](units/09/README.md) — Editable example
+- [10. Scalar and Vector Alignment](units/10/README.md) — Editable example
+- [11. Matrix and Array Strides](units/11/README.md) — Editable example
+- [12. Additional Uniform Layout Constraints](units/12/README.md) — Editable example
 
 ### Stage 3 · Parallel Computation and Synchronization
 

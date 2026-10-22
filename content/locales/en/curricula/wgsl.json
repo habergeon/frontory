@@ -253,6 +253,87 @@
         "references.0.title": "WGSL Specification",
         "references.1.title": "WebGPU API"
       }
+    },
+    "wgsl-step-10": {
+      "sourceHash": "b9d05508315b1e92eebebc416eadf61b8d1c3b531da0b3776025f21e79920df2",
+      "values": {
+        "title": "Scalar and Vector Alignment",
+        "prerequisites": "Continue using the output and records from Unit 9. Before experimenting with Scalar and Vector Alignment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Alignment and Size",
+        "concepts.0.explanation": "Alignment constrains the multiples at which a starting address can occur; size is the space occupied by the data. Distinguish vec3f alignment 16 from size 12 to calculate the next member's position.",
+        "concepts.1.title": "Member Offsets",
+        "concepts.1.explanation": "Round each member's start up from the previous end to its own alignment. Round the entire structure size up to the structure's alignment as well.",
+        "outcomes.0": "Calculate member layouts.",
+        "outcomes.1": "Match byte writes to shader interpretation.",
+        "steps.0": "In layout.md, calculate offsets 0, 16, and 28 for a:f32,b:vec3f,c:f32 and a total size of 32.",
+        "steps.1": "Use DataView to write values at these byte offsets and create a storage buffer.",
+        "steps.2": "Copy the three fields into separate output positions in compute and read them back.",
+        "variables.0.name": "b offset",
+        "variables.0.baseline": "16",
+        "variables.0.change": "Intentionally use 4",
+        "variables.0.expected": "b and c are expected to be read incorrectly because the positions differ from those expected by the shader.",
+        "criteria.0": "The table of each member's alignment, size, and offset is correct.",
+        "criteria.1": "All components read from the correct layout match the input.",
+        "questions.0": "Does an f32 after a vec3 always occur 16 bytes later?",
+        "questions.1": "What changes if trailing structure padding is ignored in an array?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-11": {
+      "sourceHash": "eec371d6ddc8a6398ed4e720a26ab9d0ab5ec21c307e95ecc7ae3cf6e792319b",
+      "values": {
+        "title": "Matrix and Array Strides",
+        "prerequisites": "Continue using the output and records from Unit 10. Before experimenting with Matrix and Array Strides, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Matrix Layout",
+        "concepts.0.explanation": "mat3x3f stores three vec3f columns at aligned intervals. Although there are nine values, its storage layout differs from a simple contiguous 36-byte array.",
+        "concepts.1.title": "Array Spacing",
+        "concepts.1.explanation": "An array element's stride is its size rounded up to its alignment. Use the same stride when moving to the next element on the CPU.",
+        "outcomes.0": "Calculate matrix column layouts.",
+        "outcomes.1": "Verify array strides.",
+        "steps.0": "In matrix-layout.md, record mat3x3f column offsets 0, 16, and 32 and size 48.",
+        "steps.1": "Write two matrices with a 48-byte stride and multiply each by a different vector.",
+        "steps.2": "Compare normal readback results with a case incorrectly written at 36-byte intervals.",
+        "variables.0.name": "Matrix stride",
+        "variables.0.baseline": "48 bytes",
+        "variables.0.change": "Incorrectly assume 36 bytes",
+        "variables.0.expected": "The second matrix and the values in each column are expected to be misaligned.",
+        "criteria.0": "Record padding for the three columns and starting positions of the two elements.",
+        "criteria.1": "The results for two nonsymmetric matrices match the CPU reference.",
+        "questions.0": "Which padding errors can be missed if you test only mat4x4f?",
+        "questions.1": "Are array stride and dynamic binding offset the same value?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-12": {
+      "sourceHash": "c107e25afc553e9aae2d90357a4daa3762a926e768c82846ea6a89dfb9baf00e",
+      "values": {
+        "title": "Additional Uniform Layout Constraints",
+        "prerequisites": "Continue using the output and records from Unit 11. Before experimenting with Additional Uniform Layout Constraints, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Uniform Rules",
+        "concepts.0.explanation": "Additional layout constraints may apply to arrays and nested structures in the uniform address space. For a baseline compatible path, design array spacing in units of 16 bytes and check the rules actually supported.",
+        "concepts.1.title": "Explicit Padding",
+        "concepts.1.explanation": "Matching padding declarations in the host and shader can produce a compatible layout. @size and @align do not automatically create the host bytes.",
+        "outcomes.0": "Design uniform-compatible layouts.",
+        "outcomes.1": "Reflect explicit padding in the host.",
+        "steps.0": "In uniform-array.wgsl, write an Element structure with a @size(16) value:f32 member and a fixed-size array.",
+        "steps.1": "In host.js, use DataView to place each value 16 bytes apart.",
+        "steps.2": "Compare readback results and diagnostics for a tightly packed 4-byte array and a compatible layout.",
+        "variables.0.name": "Element spacing",
+        "variables.0.baseline": "16 bytes",
+        "variables.0.change": "Incorrectly write at 4-byte intervals",
+        "variables.0.expected": "Values are expected to be incorrect because the element positions differ from those expected by the shader.",
+        "criteria.0": "Specify offsets 0, 16, 32, and 48 for four elements.",
+        "criteria.1": "The four values update independently in the compatible layout.",
+        "questions.0": "Can storage and uniform arrays be assumed to have the same layout?",
+        "questions.1": "What problems arise if you change baseline rules without checking language extension support?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
     }
   }
 }

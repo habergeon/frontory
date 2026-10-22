@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Address Spaces and Access Modes](../08/README.md)
+[Previous: Address Spaces and Access Modes](../08/README.md) · [Next: Scalar and Vector Alignment](../10/README.md)
 
 ## Experiment notes — write your own
 

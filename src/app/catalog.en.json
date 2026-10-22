@@ -3903,6 +3903,36 @@
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
+      "id": "wgsl-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Scalar and Vector Alignment",
+      "goal": "Calculate member layouts. Match byte writes to shader interpretation.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/10/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Matrix and Array Strides",
+      "goal": "Calculate matrix column layouts. Verify array strides.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/11/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Additional Uniform Layout Constraints",
+      "goal": "Design uniform-compatible layouts. Reflect explicit padding in the host.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/12/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

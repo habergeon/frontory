@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 3 published in English
+Engineering · 4 stages · 28 units in the full series · 6 published in English
 
 ## Series goal
 
@@ -27,6 +27,9 @@ Only published English units are linked below. The full series has 28 units.
 - [01. Messages and Execution Boundaries](01-foundations/README.md) — Editable example
 - [02. Module Worker Loading](units/02/README.md) — Editable example
 - [03. Message Contracts](units/03/README.md) — Editable example
+- [04. Structured Clone](units/04/README.md) — Editable example
+- [05. TypedArray and Buffer](units/05/README.md) — Editable example
+- [06. Error Response Contracts](units/06/README.md) — Editable example
 
 ### Stage 2 · Ownership and Cancellation
 

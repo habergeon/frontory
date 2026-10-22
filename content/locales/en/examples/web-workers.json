@@ -10,5 +10,23 @@
     "values": {
       "note": "An interactive Message Contracts experiment with cleanup of the resources it uses."
     }
+  },
+  "web-workers-step-04": {
+    "sourceHash": "3d7ff1071fc9abf7a269f2c0092b9fa1196080a3f67160831bb03bfb1b407e27",
+    "values": {
+      "note": "Interactive Structured Clone experiment with resource cleanup."
+    }
+  },
+  "web-workers-step-05": {
+    "sourceHash": "b3cf5d9e4822e9e130f5fe378f3192455dd5e22f3f406aa98880dd308d78d7f3",
+    "values": {
+      "note": "An interactive TypedArray and Buffer experiment with cleanup of the resources it uses."
+    }
+  },
+  "web-workers-step-06": {
+    "sourceHash": "f07e70e8471ec9932eaccef04722de6c01d5c69601c6960ee2cfa1950040c8b4",
+    "values": {
+      "note": "An interactive Error Response Contracts experiment with cleanup of the resources it uses."
+    }
   }
 }

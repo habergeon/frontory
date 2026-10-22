@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Module Worker Loading](../02/README.md)
+[Previous: Module Worker Loading](../02/README.md) · [Next: Structured Clone](../04/README.md)
 
 ## Experiment notes — write your own
 

@@ -91,6 +91,87 @@
         "references.0.title": "MDN Using Web Workers",
         "references.1.title": "MDN Transferable objects"
       }
+    },
+    "web-workers-step-04": {
+      "sourceHash": "fcbd091de550c6f7be563188632b4e0d6ca1fbb1bb9269723910e79505a44006",
+      "values": {
+        "title": "Structured Clone",
+        "prerequisites": "Prepare the experiment results for Tags and Validation from Unit 3, “Message Contracts”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Copying",
+        "concepts.0.explanation": "Ordinary objects sent with postMessage are structured-cloned. Changing the object after sending it does not change the separate received object.",
+        "concepts.1.title": "Cloning limitations",
+        "concepts.1.explanation": "Functions and DOM nodes cannot be cloned in ordinary messages. Handle failures at the sending stage.",
+        "outcomes.0": "Learning outcome: explain the role of Copying. Input cases: an object and a function field.",
+        "outcomes.1": "Deliverable: sent and received values and a DataCloneError record. Explain the rationale for handling Cloning limitations, linking it to the code.",
+        "steps.0": "In src/day-4.js in a separate practice project, send a nested object, modify the original afterward, and also try a message containing a function. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: an object and a function field. Baseline: Number. Run under the baseline conditions, then record observations and errors in notes/day-4.md.",
+        "steps.2": "Variable: Field; changed value: Function. Run again through the same input path. Deliverable to save: sent and received values and a DataCloneError record. Hypothesis to check: Values that cannot be cloned are handled separately as sending errors. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Field",
+        "variables.0.baseline": "Number",
+        "variables.0.change": "Function",
+        "variables.0.expected": "Values that cannot be cloned are handled separately as sending errors.",
+        "criteria.0": "Required deliverable: sent and received values and a DataCloneError record. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Copying and Cloning limitations. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Copying affect in this exercise? Input cases: an object and a function field.",
+        "questions.1": "Variable: Field. Hypothesis to check: Values that cannot be cloned are handled separately as sending errors. Did the actual results agree with the hypothesis? Explain the evidence in terms of Cloning limitations.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-05": {
+      "sourceHash": "7212053c997b296d3fadd6fc2294328f49d2bda58f7052f8aad6a9eecbe4db60",
+      "values": {
+        "title": "TypedArray and Buffer",
+        "prerequisites": "Prepare the experiment results for Copying and Cloning limitations from Unit 4, “Structured Clone”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "View",
+        "concepts.0.explanation": "A TypedArray is a view interpreting an ArrayBuffer. The view and the underlying storage may cover different ranges.",
+        "concepts.1.title": "Offset",
+        "concepts.1.explanation": "subarray points to part of the same storage. Preserve offset and length on the receiving side as well.",
+        "outcomes.0": "Learning outcome: explain the role of View. Input cases: the middle two values of [10,20,30,40].",
+        "outcomes.1": "Deliverable: a table of sent and received ranges and sums. Explain the rationale for handling Offset, linking it to the code.",
+        "steps.0": "In src/day-5.js in a separate practice project, send the full array and a subarray, and print byteOffset, length, and values. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: the middle two values of [10,20,30,40]. Baseline: Full array. Run under the baseline conditions, then record observations and errors in notes/day-5.md.",
+        "steps.2": "Variable: Range; changed value: Middle subarray. Run again through the same input path. Deliverable to save: a table of sent and received ranges and sums. Hypothesis to check: Only the partial range contributes to the computed sum. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Range",
+        "variables.0.baseline": "Full array",
+        "variables.0.change": "Middle subarray",
+        "variables.0.expected": "Only the partial range contributes to the computed sum.",
+        "criteria.0": "Required deliverable: a table of sent and received ranges and sums. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: View and Offset. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does View affect in this exercise? Input cases: the middle two values of [10,20,30,40].",
+        "questions.1": "Variable: Range. Hypothesis to check: Only the partial range contributes to the computed sum. Did the actual results agree with the hypothesis? Explain the evidence in terms of Offset.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-06": {
+      "sourceHash": "3452a8d4f07fc688e4617d8b2ae04e3507ac0b77f4d2f478abb833e174cdac6d",
+      "values": {
+        "title": "Error Response Contracts",
+        "prerequisites": "Prepare the experiment results for View and Offset from Unit 5, “TypedArray and Buffer”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Task errors",
+        "concepts.0.explanation": "A computation exception is a failure of an individual request. Distinguish it from a Worker loading or runtime error.",
+        "concepts.1.title": "Cleanup",
+        "concepts.1.explanation": "Remove failed requests from the pending list as well. Other valid requests can continue to be processed.",
+        "outcomes.0": "Learning outcome: explain the role of Task errors. Input cases: 0, negative sizes, and sizes above the allowed limit.",
+        "outcomes.1": "Deliverable: per-request states and pending size. Explain the rationale for handling Cleanup, linking it to the code.",
+        "steps.0": "In src/day-6.js in a separate practice project, create an error response containing requestId in try/catch and clean up the main-side pending list. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 0, negative sizes, and sizes above the allowed limit. Baseline: Within the allowed range. Run under the baseline conditions, then record observations and errors in notes/day-6.md.",
+        "steps.2": "Variable: Size; changed value: Above the upper limit. Run again through the same input path. Deliverable to save: per-request states and pending size. Hypothesis to check: No pending entry remains after failure. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Size",
+        "variables.0.baseline": "Within the allowed range",
+        "variables.0.change": "Above the upper limit",
+        "variables.0.expected": "No pending entry remains after failure.",
+        "criteria.0": "Required deliverable: per-request states and pending size. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Task errors and Cleanup. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Task errors affect in this exercise? Input cases: 0, negative sizes, and sizes above the allowed limit.",
+        "questions.1": "Variable: Size. Hypothesis to check: No pending entry remains after failure. Did the actual results agree with the hypothesis? Explain the evidence in terms of Cleanup.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
     }
   }
 }

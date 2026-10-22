@@ -5282,6 +5282,36 @@
       "docPath": "/docs/en/labs/engineering/web-workers/units/03/README.md",
       "seriesId": "web-workers",
       "exampleNote": "An interactive Message Contracts experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Structured Clone",
+      "goal": "Learning outcome: explain the role of Copying. Input cases: an object and a function field. Deliverable: sent and received values and a DataCloneError record. Explain the rationale for handling Cloning limitations, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/04/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "Interactive Structured Clone experiment with resource cleanup."
+    },
+    {
+      "id": "web-workers-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "TypedArray and Buffer",
+      "goal": "Learning outcome: explain the role of View. Input cases: the middle two values of [10,20,30,40]. Deliverable: a table of sent and received ranges and sums. Explain the rationale for handling Offset, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/05/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive TypedArray and Buffer experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Error Response Contracts",
+      "goal": "Learning outcome: explain the role of Task errors. Input cases: 0, negative sizes, and sizes above the allowed limit. Deliverable: per-request states and pending size. Explain the rationale for handling Cleanup, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/06/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Error Response Contracts experiment with cleanup of the resources it uses."
     }
   ]
 }

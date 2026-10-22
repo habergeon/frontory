@@ -550,3 +550,6 @@ Check the scope of each example. Browser previews and files run in a separate en
 | --- | --- | --- |
 | [2. Module Worker Loading](labs/engineering/web-workers/units/02/README.md) | Editable example | [Source code](../../src/labs/web-workers-step-02/example.js) — An interactive Module Worker Loading experiment with cleanup of the resources it uses. |
 | [3. Message Contracts](labs/engineering/web-workers/units/03/README.md) | Editable example | [Source code](../../src/labs/web-workers-step-03/example.js) — An interactive Message Contracts experiment with cleanup of the resources it uses. |
+| [4. Structured Clone](labs/engineering/web-workers/units/04/README.md) | Editable example | [Source code](../../src/labs/web-workers-step-04/example.js) — Interactive Structured Clone experiment with resource cleanup. |
+| [5. TypedArray and Buffer](labs/engineering/web-workers/units/05/README.md) | Editable example | [Source code](../../src/labs/web-workers-step-05/example.js) — An interactive TypedArray and Buffer experiment with cleanup of the resources it uses. |
+| [6. Error Response Contracts](labs/engineering/web-workers/units/06/README.md) | Editable example | [Source code](../../src/labs/web-workers-step-06/example.js) — An interactive Error Response Contracts experiment with cleanup of the resources it uses. |

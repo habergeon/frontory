@@ -130,5 +130,23 @@
     "values": {
       "note": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     }
+  },
+  "wgsl-step-25": {
+    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "values": {
+      "note": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    }
+  },
+  "wgsl-step-26": {
+    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "values": {
+      "note": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    }
+  },
+  "wgsl-step-27": {
+    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "values": {
+      "note": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    }
   }
 }

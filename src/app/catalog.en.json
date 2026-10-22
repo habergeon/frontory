@@ -4052,6 +4052,36 @@
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
+      "id": "wgsl-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Kernel Tests and Sentinels",
+      "goal": "Build tests focused on boundaries. Report numeric failures with reproducible information.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/25/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Workgroup Configuration and Measurement",
+      "goal": "Validate kernel configuration candidates. Interpret results according to the measurement scope.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/26/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Documenting Kernel Contracts",
+      "goal": "Document kernel resource contracts. Manage reproduction and failure states.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/27/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

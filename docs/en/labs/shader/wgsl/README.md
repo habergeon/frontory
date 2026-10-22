@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Shaders · 4 stages · 28 units in the full series · 24 published in English
+Shaders · 4 stages · 28 units in the full series · 27 published in English
 
 ## Series goal
 
@@ -57,6 +57,9 @@ Only published English units are linked below. The full series has 28 units.
 - [22. Stage Constraints on Texture Functions](units/22/README.md) — Editable example
 - [23. Storage Texture Output](units/23/README.md) — Editable example
 - [24. Numeric Stability and Special Inputs](units/24/README.md) — Editable example
+- [25. Kernel Tests and Sentinels](units/25/README.md) — Editable example
+- [26. Workgroup Configuration and Measurement](units/26/README.md) — Editable example
+- [27. Documenting Kernel Contracts](units/27/README.md) — Editable example
 
 ## Capstone project and deliverables
 

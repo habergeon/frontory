@@ -658,6 +658,87 @@
         "references.0.title": "WGSL Specification",
         "references.1.title": "WebGPU API"
       }
+    },
+    "wgsl-step-25": {
+      "sourceHash": "7b5beda1e33fd3605fd71af18ec8b47dca6a929c464545b332d498a9e211ec60",
+      "values": {
+        "title": "Kernel Tests and Sentinels",
+        "prerequisites": "Continue using the output and records from Unit 24. Before experimenting with Kernel Tests and Sentinels, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Test Fixtures",
+        "concepts.0.explanation": "Random input alone makes boundary errors difficult to find. Create fixed cases covering empty arrays, one element, lengths around multiples, negative values, and repeated values.",
+        "concepts.1.title": "Write Range",
+        "concepts.1.explanation": "A sentinel region after the output helps detect unintended writes. An unchanged sentinel alone does not prove all memory safety.",
+        "outcomes.0": "Build tests focused on boundaries.",
+        "outcomes.1": "Report numeric failures with reproducible information.",
+        "steps.0": "In cases.json, record lengths 0, 1, 63, 64, 65, and 1003 and value distributions.",
+        "steps.1": "Initialize sentinel values after the logical output range and check them after execution.",
+        "steps.2": "For each kernel, save the CPU reference, maximum error, and first failing index in report.json.",
+        "variables.0.name": "Length",
+        "variables.0.baseline": "64",
+        "variables.0.change": "63 and 65",
+        "variables.0.expected": "Missing elements or range errors at boundaries are expected to appear in reference comparisons or sentinel checks.",
+        "criteria.0": "Record results and sentinel states for six lengths.",
+        "criteria.1": "On failure, output the expected value, actual value, and index.",
+        "questions.0": "Can sentinels alone detect out-of-bounds reads?",
+        "questions.1": "Why must the same random seed be saved?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-26": {
+      "sourceHash": "01d8d1725475308eba9574143bb796eb17e8c05bf43a63684961f15d4cb699c4",
+      "values": {
+        "title": "Workgroup Configuration and Measurement",
+        "prerequisites": "Continue using the output and records from Unit 25. Before experimenting with Workgroup Configuration and Measurement, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Choosing Configurations",
+        "concepts.0.explanation": "Workgroup size changes parallel organization and shared memory usage. Create pipelines only for candidates that stay within device limits.",
+        "concepts.1.title": "Comparison Scope",
+        "concepts.1.explanation": "Time from command submission to readback is not kernel-only time. If the GPU interval cannot be measured, label it total latency.",
+        "outcomes.0": "Validate kernel configuration candidates.",
+        "outcomes.1": "Interpret results according to the measurement scope.",
+        "steps.0": "In tune.wgsl, write override-based workgroup candidates of 32, 64, and 128.",
+        "steps.1": "Check limits on the host, then test correctness first using the same 1003 inputs.",
+        "steps.2": "After warmup, record five total-latency measurements and the shared array size in bytes.",
+        "variables.0.name": "Workgroup size",
+        "variables.0.baseline": "64",
+        "variables.0.change": "32 and 128",
+        "variables.0.expected": "The computation results are expected to remain equal within tolerance even if costs differ by device.",
+        "criteria.0": "Every supported candidate passes the CPU reference check.",
+        "criteria.1": "Record limits, shared memory, and total latency for each candidate.",
+        "questions.0": "Why are larger groups not always faster?",
+        "questions.1": "Can the optimal configuration change with the input length?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-27": {
+      "sourceHash": "5e1c82d24fc64e6cc59727ed65cd7f03e106fee2ddc49736abb6419a0aada78c",
+      "values": {
+        "title": "Documenting Kernel Contracts",
+        "prerequisites": "Continue using the output and records from Unit 26. Before experimenting with Documenting Kernel Contracts, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Input Contracts",
+        "concepts.0.explanation": "Specify kernel types, lengths, alignment, and access permissions to preserve results when the host implementation changes. A simple function description has difficulty conveying GPU resource contracts.",
+        "concepts.1.title": "Failure Contracts",
+        "concepts.1.explanation": "Unsupported environments, compilation failures, and device loss differ from numeric errors. Distinguish their causes and unexecuted states in the result file.",
+        "outcomes.0": "Document kernel resource contracts.",
+        "outcomes.1": "Manage reproduction and failure states.",
+        "steps.0": "In README.md, tabulate the inputs, outputs, layout, and synchronization scopes of three kernels: map, reduction, and stencil.",
+        "steps.1": "Review an intentional shader error and the recreation procedure after device loss.",
+        "steps.2": "In a new session, run tests with the saved seed, settings, and fixtures, then export the results.",
+        "variables.0.name": "Execution start",
+        "variables.0.baseline": "Existing device state",
+        "variables.0.change": "Reinitialized new session",
+        "variables.0.expected": "The same results are expected to be reproducible if the CPU inputs and contracts are sufficient.",
+        "criteria.0": "The document includes synchronization scopes and access permissions for three kernels.",
+        "criteria.1": "Show execution results separately from unsupported and unexecuted states.",
+        "questions.0": "Does successful compilation guarantee numeric correctness?",
+        "questions.1": "Which test should fail first if the host layout changes?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
     }
   }
 }

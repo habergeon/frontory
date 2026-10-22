@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Storage Texture Output](../23/README.md)
+[Previous: Storage Texture Output](../23/README.md) · [Next: Kernel Tests and Sentinels](../25/README.md)
 
 ## Experiment notes — write your own
 

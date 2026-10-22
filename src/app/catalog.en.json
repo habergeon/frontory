@@ -6215,6 +6215,36 @@
       "docPath": "/docs/en/labs/testing/playwright/units/09/README.md",
       "seriesId": "playwright",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Download Events",
+      "goal": "Learning outcome: explain the role of Event order. Input cases: a backup containing two notes. Deliverable: filename, JSON structure, and note values. Explain the rationale for handling File validation, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/10/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "File Upload",
+      "goal": "Create a valid v3 backup that retains all 644 units while modifying only the notes of one or more units. Distinguish file selection, validation, restoration confirmation, and reloading, and verify that the edited notes are restored to the corresponding IDs.",
+      "docPath": "/docs/en/labs/testing/playwright/units/11/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Invalid Files and Preservation",
+      "goal": "Learning outcome: explain the role of Validation failure. Input cases: existing notes and two error files. Deliverable: error guidance, existing values, and values after reloading. Explain the rationale for handling Negative path, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/12/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     }
   ]
 }

@@ -404,6 +404,15 @@ test('actual English content publishes exactly the approved lessons with complet
       assert.equal(proseWithoutCode.split(fixture).length - 1, 1)
       proseWithoutCode = proseWithoutCode.replace(fixture, '')
     }
+    if (['playwright-step-11', 'playwright-02'].includes(id)) {
+      const fixtures = id === 'playwright-step-11'
+        ? [['학습 백업 JSON', 1], ['전체 교체하여 복원', 2]] : [['전체 교체하여 복원', 1]]
+      for (const [fixture, count] of fixtures) {
+        assert.equal(JSON.stringify(original).split(fixture).length - 1, count)
+        assert.equal(proseWithoutCode.split(fixture).length - 1, count)
+        proseWithoutCode = proseWithoutCode.replaceAll(fixture, '')
+      }
+    }
     assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
     assert.equal(result.curricula[seriesId].stages.length, source.stages.length)
   }

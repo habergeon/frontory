@@ -107,6 +107,17 @@ test('English generated catalog and lessons match approved content without unpub
       assert.equal(proseWithoutCode.split(fixture).length - 1, 1)
       proseWithoutCode = proseWithoutCode.replace(fixture, '')
     }
+    if (['playwright-step-11', 'playwright-02'].includes(unit.id)) {
+      const source = read('content/curricula/playwright.json').units.find(item => item.id === unit.id)
+      const fixtures = unit.id === 'playwright-step-11'
+        ? [['학습 백업 JSON', 1], ['전체 교체하여 복원', 2]] : [['전체 교체하여 복원', 1]]
+      for (const [fixture, count] of fixtures) {
+        assert.equal(JSON.stringify(source).split(fixture).length - 1, count)
+        assert.equal(JSON.stringify(translated).split(fixture).length - 1, count)
+        assert.equal(proseWithoutCode.split(fixture).length - 1, count)
+        proseWithoutCode = proseWithoutCode.replaceAll(fixture, '')
+      }
+    }
     assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
     for (const name of ['tasks', 'variables', 'criteria', 'notes']) assert.ok(markdown.includes('## ' + headings.en[name]), name)
     for (const step of translated.steps) assert.ok(markdown.includes(step), unit.id)

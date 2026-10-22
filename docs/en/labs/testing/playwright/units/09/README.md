@@ -76,7 +76,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: BrowserContext Isolation](../08/README.md)
+[Previous: BrowserContext Isolation](../08/README.md) · [Next: Download Events](../10/README.md)
 
 ## Experiment notes — write your own
 

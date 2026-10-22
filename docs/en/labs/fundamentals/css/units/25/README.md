@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Organizing Rules with Cascade Layers](../24/README.md)
+[Previous: Organizing Rules with Cascade Layers](../24/README.md) · [Next: Observing Layout and Paint](../26/README.md)
 
 ## Experiment notes — write your own
 

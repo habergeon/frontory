@@ -150,5 +150,17 @@
     "values": {
       "note": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     }
+  },
+  "css-step-26": {
+    "sourceHash": "017b0f0251ad93bb340d9fd37fdff2073f5114465231811043c4cfd5042ad115",
+    "values": {
+      "note": "Record both conditions separately in DevTools Performance to measure actual Layout/Paint/Composite costs. The preview does not infer costs automatically. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "css-step-27": {
+    "sourceHash": "e402053783a4208775fc6e9afe14a0b8fb8a232b159618f7c7fba9d603685485",
+    "values": {
+      "note": "Change content-visibility to visible and record initial rendering and scrolling. Also check whether search and Tab reach the cards near the end. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
   }
 }

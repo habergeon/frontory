@@ -584,6 +584,35 @@
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "css-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Observing Layout and Paint",
+      "goal": "Distinguish Layout·Paint intervals in both recordings. Keep 2 recordings under identical conditions and document the limits of the observations.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/26/README.md",
+      "seriesId": "css",
+      "exampleNote": "Record both conditions separately in DevTools Performance to measure actual Layout/Paint/Composite costs. The preview does not infer costs automatically. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "contain and Offscreen Content",
+      "goal": "Compare the initial recording with height changes during scrolling. Reach offscreen cards using search and keyboard navigation.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/27/README.md",
+      "seriesId": "css",
+      "exampleNote": "Change content-visibility to visible and record initial rendering and scrolling. Also check whether search and Tab reach the cards near the end. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-03",
+      "day": 28,
+      "week": 4,
+      "title": "Tokens and Rendering Observations",
+      "goal": "There are two performance recordings under identical conditions and observations for each stage. Document body text contrast and keyboard focus in both themes.",
+      "docPath": "/docs/en/labs/fundamentals/css/03-project/README.md",
+      "seriesId": "css"
+    },
+    {
       "id": "react-step-03",
       "day": 3,
       "week": 1,

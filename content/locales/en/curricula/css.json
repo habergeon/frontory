@@ -681,6 +681,85 @@
         "questions.1": "What happens when a token value does not match a property's grammar?",
         "references.0.title": "MDN CSS"
       }
+    },
+    "css-step-26": {
+      "sourceHash": "1068d9476fe06e03307062ec74e8d41b2c791621a9bbaceeea239fa3f519db25",
+      "values": {
+        "title": "Observing Layout and Paint",
+        "prerequisites": "The work and experiment records from Unit 25, “Custom Properties and Themes”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Rendering Stages",
+        "concepts.0.explanation": "Property changes can affect style, layout, paint, and compositing differently. Check the actual path for the browser and element conditions.",
+        "concepts.1.title": "Comparing Measurements",
+        "concepts.1.explanation": "Compare using the same element count and duration. Do not assume that transform is always free of cost.",
+        "outcomes.0": "Distinguish Layout·Paint intervals in both recordings.",
+        "outcomes.1": "Keep 2 recordings under identical conditions and document the limits of the observations.",
+        "steps.0": "In index.html, prepare content with 50 cards, a duration of 500ms, and the same browser, and connect render-cost.css.",
+        "steps.1": "Implement the same card movement using width changes and transform changes, and collect a performance recording for each.",
+        "steps.2": "Run with 50 cards, a duration of 500ms, and the same browser. Results to check: Distinguish Layout·Paint intervals in both recordings. Keep 2 recordings under identical conditions and document the limits of the observations. Record expected and actual results separately.",
+        "variables.0.name": "Changed Property",
+        "variables.0.baseline": "width",
+        "variables.0.change": "transform",
+        "variables.0.expected": "Hypothesis before running: Layout work may decrease. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Distinguish Layout·Paint intervals in both recordings.",
+        "criteria.1": "Keep 2 recordings under identical conditions and document the limits of the observations.",
+        "questions.0": "How do you verify that only compositing occurs?",
+        "questions.1": "What happens to memory costs as the number of layers grows?",
+        "references.0.title": "MDN CSS"
+      }
+    },
+    "css-step-27": {
+      "sourceHash": "45a359a417d262fd503eaba4a7fdf0d361cccc60b92c54d4d8263af9c4d6fef6",
+      "values": {
+        "title": "contain and Offscreen Content",
+        "prerequisites": "The work and experiment records from Unit 26, “Observing Layout and Paint”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Containment Boundaries",
+        "concepts.0.explanation": "contain restricts an element's relationships in computation, layout, and painting. Incorrect use can change overflowing content or size calculations.",
+        "concepts.1.title": "Skipping Rendering",
+        "concepts.1.explanation": "content-visibility:auto can reduce rendering work for offscreen content. Also check estimated sizes and accessibility behavior.",
+        "outcomes.0": "Compare the initial recording with height changes during scrolling.",
+        "outcomes.1": "Reach offscreen cards using search and keyboard navigation.",
+        "steps.0": "In index.html, prepare content with 200 cards with different heights, and connect containment.css.",
+        "steps.1": "Apply content-visibility and contain-intrinsic-size to a long card list, and compare scrolling.",
+        "steps.2": "Run with 200 cards with different heights. Results to check: Compare the initial recording with height changes during scrolling. Reach offscreen cards using search and keyboard navigation. Record expected and actual results separately.",
+        "variables.0.name": "Rendering Policy",
+        "variables.0.baseline": "Default",
+        "variables.0.change": "content-visibility:auto",
+        "variables.0.expected": "Hypothesis before running: Initial rendering work may decrease, but the scroll size may change. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Compare the initial recording with height changes during scrolling.",
+        "criteria.1": "Reach offscreen cards using search and keyboard navigation.",
+        "questions.0": "What changes if the estimated height is wrong?",
+        "questions.1": "Does contain clip any content?",
+        "references.0.title": "MDN CSS",
+        "references.1.title": "MDN content-visibility"
+      }
+    },
+    "css-03": {
+      "sourceHash": "2d27cd0275a5a95384e918187dda6f16f99b0baafa17b1618fe29092958ce298",
+      "values": {
+        "title": "Tokens and Rendering Observations",
+        "prerequisites": "The work and experiment records from Unit 27, “contain and Offscreen Content”",
+        "environment": "Frontory's existing preview is a limited starter example, not a complete solution to the assignment. Implement additional files and features yourself in a separate local project. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Design Decisions",
+        "concepts.0.explanation": "Color and spacing tokens apply the same decisions across multiple elements. Preserve text contrast and distinguishable states even when switching themes.",
+        "concepts.1.title": "Evidence-Based Adjustments",
+        "concepts.1.explanation": "Judge performance improvements using actual layout and paint recordings. Do not directly compare results with different element counts and speeds.",
+        "outcomes.0": "There are two performance recordings under identical conditions and observations for each stage.",
+        "outcomes.1": "Document body text contrast and keyboard focus in both themes.",
+        "steps.0": "In index.html, prepare content with 50 cards, a 500ms transition, and light/dark themes, and connect theme-report.css.",
+        "steps.1": "Complete two token-based themes, record width·transform transitions under the same conditions, and compare them in report.md.",
+        "steps.2": "Run with 50 cards, a 500ms transition, and light/dark themes. Results to check: There are two performance recordings under identical conditions and observations for each stage. Document body text contrast and keyboard focus in both themes. Record expected and actual results separately.",
+        "variables.0.name": "Element Count",
+        "variables.0.baseline": "50 elements",
+        "variables.0.change": "200 elements",
+        "variables.0.expected": "Hypothesis before running: Rendering work may increase, and differences between paths must be checked through measurement. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "There are two performance recordings under identical conditions and observations for each stage.",
+        "criteria.1": "Document body text contrast and keyboard focus in both themes.",
+        "questions.0": "Which intervals support the optimization conclusion?",
+        "questions.1": "Did any adjustment sacrifice maintainability or accessibility?",
+        "references.0.title": "MDN CSS"
+      }
     }
   }
 }

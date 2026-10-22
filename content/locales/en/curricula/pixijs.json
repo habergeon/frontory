@@ -90,6 +90,85 @@
         "questions.1": "Is movement along the x axis still horizontal on screen when the parent rotates?",
         "references.0.title": "PixiJS 8 container"
       }
+    },
+    "pixijs-step-04": {
+      "sourceHash": "38cfb6483020113076d05aa718f823d030033525d575d28c65835c2f80e77a00",
+      "values": {
+        "title": "Graphics 8 Shape API",
+        "prerequisites": "Prerequisite concepts: Nested Transforms, Inverse Coordinate Transforms. Prepare the output files and observation records from Unit 3.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Style After Geometry",
+        "concepts.0.explanation": "PixiJS 8 Graphics creates paths with rect or circle, then applies fill and stroke. Check the installed version to avoid copying the authoring order from older versions.",
+        "concepts.1.title": "Object Transforms",
+        "concepts.1.explanation": "An existing shape can move through position and rotation. Clearing and rebuilding the path on every movement may be unnecessary.",
+        "outcomes.0": "Draw using the v8 shape-then-fill order.",
+        "outcomes.1": "Distinguish geometry changes from position changes.",
+        "steps.0": "Prepare day-04.js and index.html in the external practice project. Draw a card background with new Graphics().roundRect(...).fill(...).stroke(...).",
+        "steps.1": "Move the same card by rebuilding its path and by changing position, and record call counts.",
+        "steps.2": "Save the output with the input condition clear and rebuild every frame, then run again with Change position only. Expected: The number of path reconstructions can be reduced. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-04-notes.md.",
+        "variables.0.name": "Movement method",
+        "variables.0.baseline": "clear and rebuild every frame",
+        "variables.0.change": "Change position only",
+        "variables.0.expected": "The number of path reconstructions can be reduced",
+        "criteria.0": "Draw using the v8 shape-then-fill order.",
+        "criteria.1": "Distinguish geometry changes from position changes.",
+        "questions.0": "What does calling fill multiple times fill?",
+        "questions.1": "How do you separate changes in shape from changes in position alone?",
+        "references.0.title": "PixiJS 8 graphics"
+      }
+    },
+    "pixijs-step-05": {
+      "sourceHash": "0448423b548dc6a3fe91227378dd7191a514361583b4ec954aa51bd0c83e702b",
+      "values": {
+        "title": "Text and Style Updates",
+        "prerequisites": "Prerequisite concepts: Style After Geometry, Object Transforms. Prepare the output files and observation records from Unit 4.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Creating Text",
+        "concepts.0.explanation": "v8 Text can be configured with an options object containing text and style. Font and size affect text measurement and visual quality.",
+        "concepts.1.title": "Update Costs",
+        "concepts.1.explanation": "Changing a string may also update the text rendering resources. Avoid assigning the same content again every frame.",
+        "outcomes.0": "Skip repeated assignments of the same value.",
+        "outcomes.1": "Keep long text within the specified area.",
+        "steps.0": "Prepare day-05.js and index.html in the external practice project. Create a scoreboard with new Text({text:'점수 0',style:{fontSize:24,fill:...}}).",
+        "steps.1": "Update text only when the score changes and compare line wrapping for a long Korean string.",
+        "steps.2": "Save the output with the input condition Every frame, then run again with When the value changes. Expected: Unnecessary text update requests decrease. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-05-notes.md.",
+        "variables.0.name": "Update frequency",
+        "variables.0.baseline": "Every frame",
+        "variables.0.change": "When the value changes",
+        "variables.0.expected": "Unnecessary text update requests decrease",
+        "criteria.0": "Skip repeated assignments of the same value.",
+        "criteria.1": "Keep long text within the specified area.",
+        "questions.0": "Why can enlarged text look blurry?",
+        "questions.1": "When would you consider BitmapText?",
+        "references.0.title": "PixiJS 8 text",
+        "references.1.title": "PixiJS 8 perf"
+      }
+    },
+    "pixijs-step-06": {
+      "sourceHash": "5f7ac7fccb59b5114b42011b45d99796454a4f4e2fb5b2fc80e0fe2dd7013d8e",
+      "values": {
+        "title": "Layers and Drawing Order",
+        "prerequisites": "Prerequisite concepts: Creating Text, Update Costs. Prepare the output files and observation records from Unit 5.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Child Order",
+        "concepts.0.explanation": "The order of a container's children affects which objects cover others. Separating background, world, and UI makes the hierarchy easier to manage.",
+        "concepts.1.title": "zIndex Sorting",
+        "concepts.1.explanation": "Enabling sortableChildren allows sorting by zIndex. Frequent order changes also affect cost and selection results.",
+        "outcomes.0": "Keep the HUD from being covered by world objects.",
+        "outcomes.1": "Explain that sorting is scoped to a parent.",
+        "steps.0": "Prepare day-06.js and index.html in the external practice project. Add background,world,hud Containers to the stage in that order.",
+        "steps.1": "Enable world.sortableChildren and change the selected Sprite's zIndex.",
+        "steps.2": "Save the output with the input condition All 0, then run again with Selected object 10. Expected: The selected object appears in front of the other objects in the same container. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-06-notes.md.",
+        "variables.0.name": "zIndex",
+        "variables.0.baseline": "All 0",
+        "variables.0.change": "Selected object 10",
+        "variables.0.expected": "The selected object appears in front of the other objects in the same container",
+        "criteria.0": "Keep the HUD from being covered by world objects.",
+        "criteria.1": "Explain that sorting is scoped to a parent.",
+        "questions.0": "Can a child's zIndex cross into another parent group?",
+        "questions.1": "Should selection results stay the same when overlap order changes?",
+        "references.0.title": "PixiJS 8 container"
+      }
     }
   }
 }

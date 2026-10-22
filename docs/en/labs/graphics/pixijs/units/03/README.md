@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Sprites and Anchors](../02/README.md)
+[Previous: Sprites and Anchors](../02/README.md) · [Next: Graphics 8 Shape API](../04/README.md)
 
 ## Experiment notes — write your own
 

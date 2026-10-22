@@ -397,6 +397,13 @@ test('actual English content publishes exactly the approved lessons with complet
       assert.equal(proseWithoutCode.split(fixture).length - 1, 2)
       proseWithoutCode = proseWithoutCode.replaceAll(fixture, '')
     }
+    if (id === 'pixijs-step-05') {
+      const fixture = "new Text({text:'점수 0',style:{fontSize:24,fill:...}})"
+      assert.equal(original.steps[0], "외부 실습 프로젝트의 day-05.js와 index.html을 준비하세요. new Text({text:'점수 0',style:{fontSize:24,fill:...}})로 점수판을 만드세요.")
+      assert.equal(translated.steps[0], "Prepare day-05.js and index.html in the external practice project. Create a scoreboard with new Text({text:'점수 0',style:{fontSize:24,fill:...}}).")
+      assert.equal(proseWithoutCode.split(fixture).length - 1, 1)
+      proseWithoutCode = proseWithoutCode.replace(fixture, '')
+    }
     assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
     assert.equal(result.curricula[seriesId].stages.length, source.stages.length)
   }

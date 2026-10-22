@@ -340,6 +340,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | --- | --- | --- |
 | [2. Sprites and Anchors](labs/graphics/pixijs/units/02/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-02/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [3. Containers and Local Coordinates](labs/graphics/pixijs/units/03/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-03/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [4. Graphics 8 Shape API](labs/graphics/pixijs/units/04/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-04/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [5. Text and Style Updates](labs/graphics/pixijs/units/05/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-05/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [6. Layers and Drawing Order](labs/graphics/pixijs/units/06/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-06/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

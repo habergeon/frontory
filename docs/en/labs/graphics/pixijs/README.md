@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 3 published in English
+Graphics · 4 stages · 28 units in the full series · 6 published in English
 
 ## Series goal
 
@@ -27,6 +27,9 @@ Only published English units are linked below. The full series has 28 units.
 - [01. Application and Scene Graph](01-foundations/README.md) — Editable example
 - [02. Sprites and Anchors](units/02/README.md) — Editable example
 - [03. Containers and Local Coordinates](units/03/README.md) — Editable example
+- [04. Graphics 8 Shape API](units/04/README.md) — Editable example
+- [05. Text and Style Updates](units/05/README.md) — Editable example
+- [06. Layers and Drawing Order](units/06/README.md) — Editable example
 
 ### Stage 2 · Ticker, Assets, and Pointer Input
 
@@ -49,3 +52,6 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [PixiJS 8 container](https://pixijs.com/8.x/guides/components/scene-objects/container)
 - [PixiJS 8 sprite](https://pixijs.com/8.x/guides/components/scene-objects/sprite)
 - [PixiJS 8 assets](https://pixijs.com/8.x/guides/components/assets)
+- [PixiJS 8 graphics](https://pixijs.com/8.x/guides/components/scene-objects/graphics)
+- [PixiJS 8 text](https://pixijs.com/8.x/guides/components/scene-objects/text)
+- [PixiJS 8 perf](https://pixijs.com/8.x/guides/concepts/performance-tips)

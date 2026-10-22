@@ -3261,6 +3261,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "pixijs-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Graphics 8 Shape API",
+      "goal": "Draw using the v8 shape-then-fill order. Distinguish geometry changes from position changes.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/04/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "pixijs-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Text and Style Updates",
+      "goal": "Skip repeated assignments of the same value. Keep long text within the specified area.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/05/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "pixijs-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Layers and Drawing Order",
+      "goal": "Keep the HUD from being covered by world objects. Explain that sorting is scoped to a parent.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/06/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

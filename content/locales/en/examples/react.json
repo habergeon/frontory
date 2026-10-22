@@ -15,5 +15,17 @@
         "comments.title": "Events and state snapshots"
       }
     }
+  },
+  "react-step-02": {
+    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "values": {
+      "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    }
+  },
+  "react-step-04": {
+    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "values": {
+      "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    }
   }
 }

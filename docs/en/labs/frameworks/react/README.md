@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 1 published in English
+UI frameworks · 4 stages · 28 units in the full series · 4 published in English
 
 ## Series goal
 
@@ -24,7 +24,10 @@ Only published English units are linked below. The full series has 28 units.
 
 ### Stage 1 · Components and state calculations
 
+- [01. State and Ownership](01-foundations/README.md) — Editable example
+- [02. JSX and Pure Rendering](units/02/README.md) — Editable example
 - [03. Events and state snapshots](units/03/README.md) — Editable example
+- [04. Updating Objects and Arrays](units/04/README.md) — Editable example
 
 ### Stage 2 · Shared state and external systems
 
@@ -43,6 +46,8 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 
 ## Official references
 
+- [React Learning Guide](https://react.dev/learn)
+- [React API Reference](https://react.dev/reference/react)
 - [React state as a snapshot](https://react.dev/learn/state-as-a-snapshot)
 - [React state update queues and batching](https://react.dev/learn/queueing-a-series-of-state-updates)
 - [React passing event handlers](https://react.dev/learn/responding-to-events)

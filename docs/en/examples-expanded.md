@@ -68,7 +68,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 
 | Learning unit | Execution mode | Source and supported scope |
 | --- | --- | --- |
+| [2. JSX and Pure Rendering](labs/frameworks/react/units/02/README.md) | Editable example | [Source code](../../src/labs/react-step-02/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [3. Events and state snapshots](labs/frameworks/react/units/03/README.md) | Editable example | [Source code](../../src/labs/react-step-03/example.js) — This experiment uses the actual React API. It uses createElement instead of JSX. |
+| [4. Updating Objects and Arrays](labs/frameworks/react/units/04/README.md) | Editable example | [Source code](../../src/labs/react-step-04/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 
 ## GSAP
 

@@ -123,7 +123,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-
+[Previous: JSX and Pure Rendering](../02/README.md) · [Next: Updating Objects and Arrays](../04/README.md)
 
 ## Experiment notes — write your own
 

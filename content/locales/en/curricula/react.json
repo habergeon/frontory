@@ -55,6 +55,87 @@
         "references.3.title": "useState updaters and Strict Mode",
         "environment": "The project dependencies are React 19.3.1 and react-dom 19.3.1. The built-in example src/labs/react-step-03/example.js runs with React and createRoot supplied to mount, using React.createElement. The button comparison in this unit does not require a separate project. Only when moving to a separate React Vite project do you need to prepare the React import and root mounting setup and record the versions and lockfile."
       }
+    },
+    "react-01": {
+      "sourceHash": "18d9ad0f6b333f7d356f2279a96ddd34da72c6a53ff6250cd576397e2d330c1f",
+      "values": {
+        "title": "State and Ownership",
+        "prerequisites": "JavaScript arrays·objects·functions, DOM events, and running npm projects.",
+        "environment": "This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler. The existing react-01 preview is a starting point. Implement the expanded deliverable described here in a separate project.",
+        "concepts.0.title": "Single Source of Truth",
+        "concepts.0.explanation": "useState holds values the screen needs to remember. Derive the completed count from the list during render so it stays consistent with the source.",
+        "concepts.1.title": "Component Boundaries",
+        "concepts.1.explanation": "props are inputs a parent passes to a child. When two children use the same value, their common parent owns it and passes a function for changing it.",
+        "outcomes.0": "After toggling 1 card, the total increases by exactly 1.",
+        "outcomes.1": "The state of the original 3 cards is preserved when the filter is turned off and on again.",
+        "steps.0": "In src/App.jsx of an external React Vite project, use useState to create 3 cards with id·title·done.",
+        "steps.1": "Separate CardList and Summary, and calculate the list and completed count from the same items.",
+        "steps.2": "Connect the completion toggle and incomplete filter, and record a state ownership diagram in notes/day01.md.",
+        "variables.0.name": "Completed Items",
+        "variables.0.baseline": "0 items",
+        "variables.0.change": "1 item",
+        "variables.0.expected": "The total changes to 1, and only that card disappears from the incomplete list.",
+        "criteria.0": "After toggling 1 card, the total increases by exactly 1.",
+        "criteria.1": "The state of the original 3 cards is preserved when the filter is turned off and on again.",
+        "questions.0": "What inconsistencies can arise if the completed count is stored as separate state?",
+        "questions.1": "Who should own the filter and completion state respectively?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
+    },
+    "react-step-02": {
+      "sourceHash": "7a1e321e5a078498313e29843b515e7ecccf90df75641f03aeb37a6b1c2ede47",
+      "values": {
+        "title": "JSX and Pure Rendering",
+        "prerequisites": "Unit 2 continues using the work and experiment records from Unit 1.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "JSX Expressions",
+        "concepts.0.explanation": "JavaScript expressions go inside JSX braces. Calculate strings and attributes from data, but do not change the data during render.",
+        "concepts.1.title": "Purity",
+        "concepts.1.explanation": "The same props and state should produce the same screen calculation. Code that calls push on an array or increments an external counter changes the result according to how many times it is called.",
+        "outcomes.0": "The title and badge match when rendered twice with the same input.",
+        "outcomes.1": "aria-pressed is true on a completed card.",
+        "steps.0": "In src/Card.jsx, write a function component that receives title and done props.",
+        "steps.1": "Calculate the badge and aria-pressed from done without changing the card data.",
+        "steps.2": "Render the same card twice with input frozen using Object.freeze, and compare the title and badge.",
+        "variables.0.name": "done",
+        "variables.0.baseline": "false",
+        "variables.0.change": "true",
+        "variables.0.expected": "Only the badge and pressed state change; the original object stays unchanged.",
+        "criteria.0": "The title and badge match when rendered twice with the same input.",
+        "criteria.1": "aria-pressed is true on a completed card.",
+        "questions.0": "Why is calling push during render dangerous?",
+        "questions.1": "Should a display badge be stored in state?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
+    },
+    "react-step-04": {
+      "sourceHash": "d46bde7935db4a7b8123d87db4fe987e0ec0d51b4ac115e2184dd913c56d84f6",
+      "values": {
+        "title": "Updating Objects and Arrays",
+        "prerequisites": "Unit 4 continues using the work and experiment records from Unit 3.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Immutable Updates",
+        "concepts.0.explanation": "Mutating an object also contaminates snapshots from earlier renders. Copy the path being changed and pass a new reference.",
+        "concepts.1.title": "Partial Changes",
+        "concepts.1.explanation": "map is suitable for replacing only the target id with a new object. References to unchanged items can be preserved.",
+        "outcomes.0": "The done values in the original array do not change.",
+        "outcomes.1": "References to cards other than the target are preserved.",
+        "steps.0": "Write toggle(items,id) in src/model.js.",
+        "steps.1": "Connect toggle to the setter in App.jsx using a functional update.",
+        "steps.2": "Keep a copy of the input array, and compare references and done for target and non-target objects.",
+        "variables.0.name": "Change Target",
+        "variables.0.baseline": "id 1",
+        "variables.0.change": "id 2",
+        "variables.0.expected": "Only the selected item's object gets a new reference.",
+        "criteria.0": "The done values in the original array do not change.",
+        "criteria.1": "References to cards other than the target are preserved.",
+        "questions.0": "Is a shallow copy enough to keep nested objects safe?",
+        "questions.1": "What problems arise if sort is called on the original array?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
     }
   }
 }

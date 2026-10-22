@@ -613,6 +613,25 @@
       "seriesId": "css"
     },
     {
+      "id": "react-01",
+      "day": 1,
+      "week": 1,
+      "title": "State and Ownership",
+      "goal": "After toggling 1 card, the total increases by exactly 1. The state of the original 3 cards is preserved when the filter is turned off and on again.",
+      "docPath": "/docs/en/labs/frameworks/react/01-foundations/README.md",
+      "seriesId": "react"
+    },
+    {
+      "id": "react-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "JSX and Pure Rendering",
+      "goal": "The title and badge match when rendered twice with the same input. aria-pressed is true on a completed card.",
+      "docPath": "/docs/en/labs/frameworks/react/units/02/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
       "id": "react-step-03",
       "day": 3,
       "week": 1,
@@ -621,6 +640,16 @@
       "docPath": "/docs/en/labs/frameworks/react/units/03/README.md",
       "seriesId": "react",
       "exampleNote": "This experiment uses the actual React API. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Updating Objects and Arrays",
+      "goal": "The done values in the original array do not change. References to cards other than the target are preserved.",
+      "docPath": "/docs/en/labs/frameworks/react/units/04/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
       "id": "gsap-step-02",

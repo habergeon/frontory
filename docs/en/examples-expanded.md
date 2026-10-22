@@ -77,6 +77,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [8. Lifting State Up](labs/frameworks/react/units/08/README.md) | Editable example | [Source code](../../src/labs/react-step-08/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [9. Collecting Update Rules in a Reducer](labs/frameworks/react/units/09/README.md) | Editable example | [Source code](../../src/labs/react-step-09/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [10. Passing Settings with Context](labs/frameworks/react/units/10/README.md) | Editable example | [Source code](../../src/labs/react-step-10/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [11. Refs and DOM Focus](labs/frameworks/react/units/11/README.md) | Editable example | [Source code](../../src/labs/react-step-11/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [12. Effect Dependencies and Cleanup](labs/frameworks/react/units/12/README.md) | Editable example | [Source code](../../src/labs/react-step-12/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [13. Request Races and Cancellation](labs/frameworks/react/units/13/README.md) | Editable example | [Source code](../../src/labs/react-step-13/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 
 ## GSAP
 

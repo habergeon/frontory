@@ -299,6 +299,89 @@
         "references.0.title": "React Learning Guide",
         "references.1.title": "React API Reference"
       }
+    },
+    "react-step-11": {
+      "sourceHash": "72d38d9477cedc49c69058bb1acf9430cd704cdad49fc586731f5581eda2fbb8",
+      "values": {
+        "title": "Refs and DOM Focus",
+        "prerequisites": "Unit 11 continues using the work and experiment records from Unit 10.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "ref",
+        "concepts.0.explanation": "useRef keeps a value between renders, but changing it alone does not request a render. Distinguish data to display from DOM handles.",
+        "concepts.1.title": "DOM Access",
+        "concepts.1.explanation": "ref.current can be used after the DOM is attached. Do not move focus inside the render function.",
+        "outcomes.0": "After adding, the active element is the title input.",
+        "outcomes.1": "Record the observation that changing a ref alone does not change the display.",
+        "steps.0": "Attach a ref to the input in src/AddCardForm.jsx.",
+        "steps.1": "After a successful addition, clear the input and call focus.",
+        "steps.2": "Place a ref counter and state counter side by side, and compare screen updates from each button input.",
+        "variables.0.name": "Counter Storage",
+        "variables.0.baseline": "ref",
+        "variables.0.change": "state",
+        "variables.0.expected": "Only a state change immediately updates the counter text.",
+        "criteria.0": "After adding, the active element is the title input.",
+        "criteria.1": "Record the observation that changing a ref alone does not change the display.",
+        "questions.0": "Why is building UI by reading a ref during render confusing?",
+        "questions.1": "How should focus be handled when a conditional input is absent?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
+    },
+    "react-step-12": {
+      "sourceHash": "60ce4ce1313b4efb0b7827ab61e68365743ae4e302cf787751231b1ffbf4a8c7",
+      "values": {
+        "title": "Effect Dependencies and Cleanup",
+        "prerequisites": "Unit 12 continues using the work and experiment records from Unit 11.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Synchronization",
+        "concepts.0.explanation": "An Effect synchronizes render results with an external system. Calculable derived values do not need an Effect.",
+        "concepts.1.title": "Cleanup Order",
+        "concepts.1.explanation": "When dependencies change, cleanup for the previous setup runs before the new setup starts. The extra execution in development StrictMode checks for missing cleanup.",
+        "outcomes.0": "The active connection count is 1 while displayed and 0 after removal.",
+        "outcomes.1": "In the A→B transition logs, disconnection precedes the new connection.",
+        "steps.0": "In src/Connection.jsx, create an Effect that receives a channel prop and logs connections and disconnections.",
+        "steps.1": "Put channel in the dependency array, and change it through A→B→A.",
+        "steps.2": "Remove the component through conditional rendering, and count whether the last connection is also disconnected.",
+        "variables.0.name": "channel",
+        "variables.0.baseline": "Keep A",
+        "variables.0.change": "Change to B",
+        "variables.0.expected": "The B connection log appears after A is disconnected.",
+        "criteria.0": "The active connection count is 1 while displayed and 0 after removal.",
+        "criteria.1": "In the A→B transition logs, disconnection precedes the new connection.",
+        "questions.0": "What stale values remain if dependency warnings are suppressed?",
+        "questions.1": "Can two start logs in StrictMode alone prove a leak?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference",
+        "references.2.title": "React useEffect: External Systems and Cleanup"
+      }
+    },
+    "react-step-13": {
+      "sourceHash": "02aebe76a229b0e90b250aaaea043d238a8d216ef76f4d2ee1814bfe966834a0",
+      "values": {
+        "title": "Request Races and Cancellation",
+        "prerequisites": "Unit 13 continues using the work and experiment records from Unit 12.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Response Order",
+        "concepts.0.explanation": "Responses may arrive in a different order from requests. Only results corresponding to the latest input should appear on the screen.",
+        "concepts.1.title": "Cancellation and Ignoring",
+        "concepts.1.explanation": "AbortController aborts requests that support it. An active flag or request id check may also be needed to prevent processing that has already completed from taking effect.",
+        "outcomes.0": "The final search query B matches the result id.",
+        "outcomes.1": "A response completed after removal does not request a screen update.",
+        "steps.0": "Write a query-dependent Effect and AbortController in src/Search.jsx.",
+        "steps.1": "In src/fakeSearch.js, reproduce an A response of 800ms and a B response of 100ms.",
+        "steps.2": "Enter B immediately after A, and use cleanup and a latest-request check to preserve B's result.",
+        "variables.0.name": "Response Delay",
+        "variables.0.baseline": "A 100ms·B 100ms",
+        "variables.0.change": "A 800ms·B 100ms",
+        "variables.0.expected": "Late A does not overwrite the latest B result.",
+        "criteria.0": "The final search query B matches the result id.",
+        "criteria.1": "A response completed after removal does not request a screen update.",
+        "questions.0": "How do you distinguish cancellation errors from actual network errors?",
+        "questions.1": "Should a request be sent when the input is an empty string?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference",
+        "references.2.title": "React useEffect: External Systems and Cleanup"
+      }
     }
   }
 }

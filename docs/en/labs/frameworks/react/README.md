@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 10 published in English
+UI frameworks · 4 stages · 28 units in the full series · 13 published in English
 
 ## Series goal
 
@@ -37,6 +37,9 @@ Only published English units are linked below. The full series has 28 units.
 - [08. Lifting State Up](units/08/README.md) — Editable example
 - [09. Collecting Update Rules in a Reducer](units/09/README.md) — Editable example
 - [10. Passing Settings with Context](units/10/README.md) — Editable example
+- [11. Refs and DOM Focus](units/11/README.md) — Editable example
+- [12. Effect Dependencies and Cleanup](units/12/README.md) — Editable example
+- [13. Request Races and Cancellation](units/13/README.md) — Editable example
 
 ### Stage 3 · Preserving notes and measuring renders
 
@@ -59,3 +62,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [React passing event handlers](https://react.dev/learn/responding-to-events)
 - [useState updaters and Strict Mode](https://react.dev/reference/react/useState#my-initializer-or-updater-function-runs-twice)
 - [React: Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)
+- [React useEffect: External Systems and Cleanup](https://react.dev/reference/react/useEffect)

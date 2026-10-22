@@ -712,6 +712,36 @@
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
+      "id": "react-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Refs and DOM Focus",
+      "goal": "After adding, the active element is the title input. Record the observation that changing a ref alone does not change the display.",
+      "docPath": "/docs/en/labs/frameworks/react/units/11/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Effect Dependencies and Cleanup",
+      "goal": "The active connection count is 1 while displayed and 0 after removal. In the A→B transition logs, disconnection precedes the new connection.",
+      "docPath": "/docs/en/labs/frameworks/react/units/12/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Request Races and Cancellation",
+      "goal": "The final search query B matches the result id. A response completed after removal does not request a screen update.",
+      "docPath": "/docs/en/labs/frameworks/react/units/13/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
       "id": "gsap-step-02",
       "day": 2,
       "week": 1,

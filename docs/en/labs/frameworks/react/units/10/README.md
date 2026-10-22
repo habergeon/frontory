@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Collecting Update Rules in a Reducer](../09/README.md)
+[Previous: Collecting Update Rules in a Reducer](../09/README.md) · [Next: Refs and DOM Focus](../11/README.md)
 
 ## Experiment notes — write your own
 

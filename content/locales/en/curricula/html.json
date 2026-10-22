@@ -323,6 +323,85 @@
         "references.0.title": "MDN HTML",
         "references.1.title": "MDN input"
       }
+    },
+    "html-step-13": {
+      "sourceHash": "dfed636b8241ecc1ccd361e1f291d8f9768baf6b8cc4fbd3455865f5e33e0ce0",
+      "values": {
+        "title": "Grouped Inputs and Selection Semantics",
+        "prerequisites": "The work and experiment records from Unit 12, “Input Types and Autocomplete”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Group Names",
+        "concepts.0.explanation": "fieldset and legend convey the name of a group of related inputs. Put questions that individual labels cannot adequately express at the group level.",
+        "concepts.1.title": "Selection Rules",
+        "concepts.1.explanation": "Radio inputs with the same name allow one selection within a group. Checkbox inputs express multiple independent selections.",
+        "outcomes.0": "Only one radio input can be selected in the appropriate group.",
+        "outcomes.1": "Check the two submitted values when two checkbox inputs are selected.",
+        "criteria.0": "Only one radio input can be selected in the appropriate group.",
+        "criteria.1": "Check the two submitted values when two checkbox inputs are selected.",
+        "steps.0": "In choices.html, prepare 3 difficulty levels and 3 topics.",
+        "steps.1": "Separate difficulty radio inputs and topic-of-interest checkbox inputs into fieldset elements.",
+        "steps.2": "Run with 3 difficulty levels and 3 topics. Results to check: Only one radio input can be selected in the appropriate group. Check the two submitted values when two checkbox inputs are selected. Record expected and actual results separately.",
+        "questions.0": "How do legend and label divide information?",
+        "questions.1": "How do you read multiple values with the same name?",
+        "variables.0.name": "radio name",
+        "variables.0.baseline": "All use level",
+        "variables.0.change": "A different name for each",
+        "variables.0.expected": "Pre-run hypothesis: Multiple radio inputs will be selected at the same time. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
+    },
+    "html-02": {
+      "sourceHash": "1ecf365e26a3eb3ac4f5f60433372a1f25cc386733f01dc6d712f2b39b9fbbe3",
+      "values": {
+        "title": "Forms and the Keyboard",
+        "prerequisites": "The work and experiment records from Unit 13, “Grouped Inputs and Selection Semantics”.",
+        "environment": "Frontory’s existing preview is a limited starting example, not a completed version of the whole assignment. Implement additional files and features yourself in a separate local project. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Input Names",
+        "concepts.0.explanation": "label provides an input’s name. A placeholder disappears after input and cannot replace a label.",
+        "concepts.1.title": "Constraints and Descriptions",
+        "concepts.1.explanation": "required and length constraints perform basic validation. Associate error descriptions with the relevant input to explain the cause.",
+        "outcomes.0": "Save a valid title using only Tab and Enter.",
+        "outcomes.1": "Check the failing field’s name and description in the accessibility tree.",
+        "criteria.0": "Save a valid title using only Tab and Enter.",
+        "criteria.1": "Check the failing field’s name and description in the accessibility tree.",
+        "steps.0": "In keyboard-form.html, prepare an empty value, a short title, and a valid title.",
+        "steps.1": "Add required·minlength·aria-describedby to the note-title input and save form, and write error guidance.",
+        "steps.2": "Run with an empty value, a short title, and a valid title. Results to check: Save a valid title using only Tab and Enter. Check the failing field’s name and description in the accessibility tree. Record expected and actual results separately.",
+        "questions.0": "Can you identify the input after typing if only a placeholder remains?",
+        "questions.1": "Where should focus be when an error occurs?",
+        "variables.0.name": "Title Length",
+        "variables.0.baseline": "5 characters",
+        "variables.0.change": "1 character",
+        "variables.0.expected": "Pre-run hypothesis: The minlength constraint will block submission. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML",
+        "references.1.title": "MDN input"
+      }
+    },
+    "html-step-15": {
+      "sourceHash": "e01e7aa9180c56c0867fe4af0a143907929fe2e1a0b9ad97935b10b534f974fb",
+      "values": {
+        "title": "The Difference Between disabled and readonly",
+        "prerequisites": "The work and experiment records from Unit 14, “Forms and the Keyboard”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Disabled Inputs",
+        "concepts.0.explanation": "Disabled controls are generally excluded from submission data. They are also skipped in focus navigation, which may affect access to explanations.",
+        "concepts.1.title": "Read-only Inputs",
+        "concepts.1.explanation": "readonly prevents editing on supported inputs. Submission and focus behavior may differ from disabled.",
+        "outcomes.0": "Record whether each of the three inputs is included in submission.",
+        "outcomes.1": "Record which inputs are reachable through keyboard navigation.",
+        "criteria.0": "Record whether each of the three inputs is included in submission.",
+        "criteria.1": "Record which inputs are reachable through keyboard navigation.",
+        "steps.0": "In readonly.html, prepare 3 text inputs with the same value.",
+        "steps.1": "Compare the same identifier input in normal·readonly·disabled states and display FormData.",
+        "steps.2": "Run with 3 text inputs with the same value. Results to check: Record whether each of the three inputs is included in submission. Record which inputs are reachable through keyboard navigation. Record expected and actual results separately.",
+        "questions.0": "Can the server trust a value just because it is hidden or disabled?",
+        "questions.1": "Can readonly be used with every input type?",
+        "variables.0.name": "State",
+        "variables.0.baseline": "readonly",
+        "variables.0.change": "disabled",
+        "variables.0.expected": "Pre-run hypothesis: The input will be excluded from submission data. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
     }
   }
 }

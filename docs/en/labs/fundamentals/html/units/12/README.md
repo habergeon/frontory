@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: The Form Submission Contract](../11/README.md)
+[Previous: The Form Submission Contract](../11/README.md) · [Next: Grouped Inputs and Selection Semantics](../13/README.md)
 
 ## Experiment notes — write your own
 

@@ -469,6 +469,35 @@
       "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "html-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Grouped Inputs and Selection Semantics",
+      "goal": "Only one radio input can be selected in the appropriate group. Check the two submitted values when two checkbox inputs are selected.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/13/README.md",
+      "seriesId": "html",
+      "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-02",
+      "day": 14,
+      "week": 2,
+      "title": "Forms and the Keyboard",
+      "goal": "Save a valid title using only Tab and Enter. Check the failing field’s name and description in the accessibility tree.",
+      "docPath": "/docs/en/labs/fundamentals/html/02-experiments/README.md",
+      "seriesId": "html"
+    },
+    {
+      "id": "html-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "The Difference Between disabled and readonly",
+      "goal": "Record whether each of the three inputs is included in submission. Record which inputs are reachable through keyboard navigation.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/15/README.md",
+      "seriesId": "html",
+      "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
       "id": "css-01",
       "day": 1,
       "week": 1,

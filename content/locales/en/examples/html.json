@@ -64,5 +64,17 @@
     "values": {
       "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     }
+  },
+  "html-step-13": {
+    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "values": {
+      "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "html-step-15": {
+    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "values": {
+      "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
   }
 }

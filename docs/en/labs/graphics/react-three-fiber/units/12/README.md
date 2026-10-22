@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Event Propagation and Occlusion](../11/README.md)
+[Previous: Event Propagation and Occlusion](../11/README.md) · [Next: UI State and Frame Targets](../13/README.md)
 
 ## Experiment notes — write your own
 

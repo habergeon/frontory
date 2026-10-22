@@ -319,6 +319,8 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [10. Pointer Intersections and Selection](labs/graphics/react-three-fiber/units/10/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-10/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 | [11. Event Propagation and Occlusion](labs/graphics/react-three-fiber/units/11/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-11/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 | [12. Dragging and Pointer Capture](labs/graphics/react-three-fiber/units/12/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-12/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [13. UI State and Frame Targets](labs/graphics/react-three-fiber/units/13/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-13/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [15. Model Loading and Suspense](labs/graphics/react-three-fiber/units/15/README.md) | External example · preview instructions | [Source code](../../src/labs/react-three-fiber-step-15/example.js) — The preview performs actual JSON model loading with Three ObjectLoader. GLB, Suspense, and error boundary experiments require the external App.jsx and a valid /model.glb. |
 
 ## GSAP
 

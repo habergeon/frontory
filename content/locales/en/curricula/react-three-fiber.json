@@ -326,6 +326,88 @@
         "questions.1": "Does capture alone block every event on other objects?",
         "references.0.title": "R3F Pointer Events"
       }
+    },
+    "react-three-fiber-step-13": {
+      "sourceHash": "6c465ca96f4882049d7cdf204b4b4f3fe2b78a0a9993c99c6fa1272bdc471ef1",
+      "values": {
+        "title": "UI State and Frame Targets",
+        "prerequisites": "Unit 13 continues using the deliverables and experiment records from Unit 12.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Target State",
+        "concepts.0.explanation": "A slider's target angle can be represented in React state. Keep the actual frame interpolation value in the ref object's property.",
+        "concepts.1.title": "Interpolation",
+        "concepts.1.explanation": "Gradually moving the current value toward the target creates a smooth transition. Use a time-dependent coefficient to reduce differences caused by frame count.",
+        "outcomes.0": "Angle error decreases when the target is fixed.",
+        "outcomes.1": "There is no setState in the frame path.",
+        "steps.0": "Pass the targetAngle prop to src/SmoothBox.jsx.",
+        "steps.1": "In useFrame, approach the target angle using the coefficient 1-exp(-k*delta).",
+        "steps.2": "Change the target from 0→1 and k from 2→8 separately, and record the resulting error.",
+        "variables.0.name": "Interpolation k",
+        "variables.0.baseline": "2",
+        "variables.0.change": "8",
+        "variables.0.expected": "The error from the target is smaller after the same elapsed time.",
+        "criteria.0": "Angle error decreases when the target is fixed.",
+        "criteria.1": "There is no setState in the frame path.",
+        "questions.0": "What becomes complicated if the target and current angle share the same state?",
+        "questions.1": "Does interpolation with a fixed coefficient of 0.1 take the same time on every device?",
+        "references.0.title": "R3F Hooks",
+        "references.1.title": "R3F Performance Pitfalls"
+      }
+    },
+    "react-three-fiber-02": {
+      "sourceHash": "29dd98618db65ba4728bcaa0086f7c31715c49f8937b92a95836c552555406bd",
+      "values": {
+        "title": "Frames and Events",
+        "prerequisites": "Unit 14 continues using the deliverables and experiment records from Unit 13.",
+        "environment": "Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref. The existing react-three-fiber-02 preview is a starting point. Implement the extended deliverables described here in a separate project.",
+        "concepts.0.title": "Separate Responsibilities",
+        "concepts.0.explanation": "useFrame updates frequent coordinate and rotation changes through refs. Update React state only when UI meaning changes, such as hover or click selection.",
+        "concepts.1.title": "Propagation Policy",
+        "concepts.1.explanation": "Pointer propagation rules determine selection for overlapping objects. Use event logs to check actual intersection order and duplicate selection.",
+        "outcomes.0": "10 clicks produce only the intended 10 selection changes.",
+        "outcomes.1": "React state is not updated every frame during rotation.",
+        "steps.0": "Integrate hover color, click selection, and delta rotation in src/InteractiveScene.jsx.",
+        "steps.1": "Implement a stopPropagation policy for overlapping cubes and selection clearing with onPointerMissed.",
+        "steps.2": "Record 10 clicks and 5 seconds of rotation, and check that there is no frame setState.",
+        "variables.0.name": "Propagation",
+        "variables.0.baseline": "Allow",
+        "variables.0.change": "Block at the front mesh",
+        "variables.0.expected": "One click does not also change the selection of an object behind it.",
+        "criteria.0": "10 clicks produce only the intended 10 selection changes.",
+        "criteria.1": "React state is not updated every frame during rotation.",
+        "questions.0": "Are hover and actual selection the same state?",
+        "questions.1": "How can you distinguish a click in empty space from a click at the end of a drag?",
+        "references.0.title": "R3F Hooks",
+        "references.1.title": "R3F Pointer Events",
+        "references.2.title": "R3F Performance Pitfalls"
+      }
+    },
+    "react-three-fiber-step-15": {
+      "sourceHash": "7f78a6db7d231301b0acccaa7fe46660084b22efcf297349823df3dd7efaf085",
+      "values": {
+        "title": "Model Loading and Suspense",
+        "prerequisites": "Unit 15 continues using the deliverables and experiment records from Unit 14.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Loader",
+        "concepts.0.explanation": "useLoader reads and caches resources by loader and URL. Results for the same URL may be shared, so check ownership.",
+        "concepts.1.title": "Waiting and Failure",
+        "concepts.1.explanation": "Suspense displays a fallback while loading. Handle loading failures with a separate error boundary and recovery behavior.",
+        "outcomes.0": "The model appears at a valid URL.",
+        "outcomes.1": "An invalid URL shows error guidance instead of a blank screen.",
+        "steps.0": "Place a small GLB whose usage rights you have checked and a source record in public/models.",
+        "steps.1": "Use useLoader(GLTFLoader,url) and primitive in src/Model.jsx.",
+        "steps.2": "Add a Suspense fallback scene and an error boundary outside Canvas, and test valid and missing URLs.",
+        "variables.0.name": "Model URL",
+        "variables.0.baseline": "Valid GLB",
+        "variables.0.change": "Missing GLB",
+        "variables.0.expected": "Failure guidance appears, and other UI controls remain usable.",
+        "criteria.0": "The model appears at a valid URL.",
+        "criteria.1": "An invalid URL shows error guidance instead of a blank screen.",
+        "questions.0": "Does Suspense fallback automatically handle loading errors too?",
+        "questions.1": "Who should call dispose when a URL cache is shared?",
+        "references.0.title": "R3F Model Loading",
+        "references.1.title": "R3F Hooks"
+      }
     }
   }
 }

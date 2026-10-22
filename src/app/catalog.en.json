@@ -3060,6 +3060,35 @@
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
+      "id": "react-three-fiber-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "UI State and Frame Targets",
+      "goal": "Angle error decreases when the target is fixed. There is no setState in the frame path.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/13/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-02",
+      "day": 14,
+      "week": 2,
+      "title": "Frames and Events",
+      "goal": "10 clicks produce only the intended 10 selection changes. React state is not updated every frame during rotation.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/02-experiments/README.md",
+      "seriesId": "react-three-fiber"
+    },
+    {
+      "id": "react-three-fiber-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Model Loading and Suspense",
+      "goal": "The model appears at a valid URL. An invalid URL shows error guidance instead of a blank screen.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/15/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "The preview performs actual JSON model loading with Three ObjectLoader. GLB, Suspense, and error boundary experiments require the external App.jsx and a valid /model.glb."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

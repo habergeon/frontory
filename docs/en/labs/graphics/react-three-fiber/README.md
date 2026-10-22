@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 12 published in English
+Graphics · 4 stages · 28 units in the full series · 15 published in English
 
 ## Series goal
 
@@ -39,9 +39,12 @@ Only published English units are linked below. The full series has 28 units.
 - [10. Pointer Intersections and Selection](units/10/README.md) — Editable example
 - [11. Event Propagation and Occlusion](units/11/README.md) — Editable example
 - [12. Dragging and Pointer Capture](units/12/README.md) — Editable example
+- [13. UI State and Frame Targets](units/13/README.md) — Editable example
+- [14. Frames and Events](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Models, Shared Resources, and Instancing
 
+- [15. Model Loading and Suspense](units/15/README.md) — External example · preview instructions
 
 ### Stage 4 · demand Policy and Performance Verification
 
@@ -60,3 +63,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [R3F Hooks](https://r3f.docs.pmnd.rs/api/hooks)
 - [R3F Performance Pitfalls](https://r3f.docs.pmnd.rs/advanced/pitfalls)
 - [R3F Pointer Events](https://r3f.docs.pmnd.rs/api/events)
+- [R3F Model Loading](https://r3f.docs.pmnd.rs/tutorials/loading-models)

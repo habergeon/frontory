@@ -72,7 +72,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Memory Grow and View Lifetime](../11/README.md)
+[Previous: Memory Grow and View Lifetime](../11/README.md) · [Next: Scalar and Batch Calls](../13/README.md)
 
 ## Experiment notes — write your own
 

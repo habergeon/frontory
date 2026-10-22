@@ -5954,6 +5954,35 @@
       "docPath": "/docs/en/labs/engineering/webassembly/units/12/README.md",
       "seriesId": "webassembly",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Scalar and Batch Calls",
+      "goal": "Learning outcome: explain the role of Call count. Input cases: 100 and 100003 integers. Deliverable: call counts·sums·measured times. Explain the rationale for handling Fair comparison, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/13/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-02",
+      "day": 14,
+      "week": 2,
+      "title": "Arrays and Boundary Costs",
+      "goal": "Learning outcome: explain the role of Memory layout. Input cases: the existing 100003 inputs and a small array. Deliverable: matching sums·copyMs·batchMs·scalarMs·view lengths. Explain the rationale for handling View lifetime, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/02-experiments/README.md",
+      "seriesId": "webassembly"
+    },
+    {
+      "id": "webassembly-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "In-place Transformation",
+      "goal": "Learning outcome: explain the role of Overwriting. Input cases: arrays containing negative numbers·0·positive numbers. Deliverable: expected·actual values for every element. Explain the rationale for handling Repeat conditions, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/15/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     }
   ]
 }

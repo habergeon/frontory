@@ -346,6 +346,90 @@
         "references.1.title": "MDN WebAssembly JavaScript API",
         "references.2.title": "MDN WebAssembly.Memory"
       }
+    },
+    "webassembly-step-13": {
+      "sourceHash": "cff7d9f8c416b444bff50c604dfd9f43a216e776b1e840be74ba40026df1ba8a",
+      "values": {
+        "title": "Scalar and Batch Calls",
+        "prerequisites": "Prepare the experiment results for Maximum and Capacity calculation from Unit 12, “Capacity Limits and Failure”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Call count",
+        "concepts.0.explanation": "Calling an export for every element repeatedly crosses the boundary. A batch calls once and loops internally.",
+        "concepts.1.title": "Fair comparison",
+        "concepts.1.explanation": "Use identical data and the same sum contract. Record copy time separately as well.",
+        "outcomes.0": "Learning outcome: explain the role of Call count. Input cases: 100 and 100003 integers.",
+        "outcomes.1": "Deliverable: call counts·sums·measured times. Explain the rationale for handling Fair comparison, linking it to the code.",
+        "steps.0": "In day-13.mjs in a separate practice project, run the existing at loop and sum(0,n) on the same array. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 100 and 100003 integers. Baseline: at for each element. Run under the baseline conditions, then record observations and errors in notes/day-13.md.",
+        "steps.2": "Variable: call method; changed value: one sum call. Run again through the same input path. Deliverable to save: call counts·sums·measured times. Hypothesis to check: The result is the same, and the number of boundary calls decreases. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "call method",
+        "variables.0.baseline": "at for each element",
+        "variables.0.change": "one sum call",
+        "variables.0.expected": "The result is the same, and the number of boundary calls decreases.",
+        "criteria.0": "Required deliverable: call counts·sums·measured times. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Call count and Fair comparison. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Call count affect in this exercise? Input cases: 100 and 100003 integers.",
+        "questions.1": "Variable: call method. Hypothesis to check: The result is the same, and the number of boundary calls decreases. Did the actual results agree with the hypothesis? Explain the evidence in terms of Fair comparison.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-02": {
+      "sourceHash": "c3c70f95d4bd523c33f842d7797e555c963487864f2bb26f5285b747ab199580",
+      "values": {
+        "title": "Arrays and Boundary Costs",
+        "prerequisites": "Prepare the experiment results for Call count and Fair comparison from Unit 13, “Scalar and Batch Calls”.",
+        "environment": "The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Memory layout",
+        "concepts.0.explanation": "Passing an array requires a byte offset and length. Copy cost is separate from kernel computation.",
+        "concepts.1.title": "View lifetime",
+        "concepts.1.explanation": "Recreate views after grow. Continuing to use stale references prevents correct validation.",
+        "outcomes.0": "Learning outcome: explain the role of Memory layout. Input cases: the existing 100003 inputs and a small array.",
+        "outcomes.1": "Deliverable: matching sums·copyMs·batchMs·scalarMs·view lengths. Explain the rationale for handling View lifetime, linking it to the code.",
+        "steps.0": "In day-14.mjs in a separate practice project, run node src/labs/webassembly-02/benchmark.mjs in a separate Node environment and inspect the copy·batch·scalar·grow results. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: the existing 100003 inputs and a small array. Baseline: 100 elements. Run under the baseline conditions, then record observations and errors in notes/day-14.md.",
+        "steps.2": "Variable: batch size; changed value: 100003 elements. Run again through the same input path. Deliverable to save: matching sums·copyMs·batchMs·scalarMs·view lengths. Hypothesis to check: The proportions of call and copy costs change, and the results match. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "batch size",
+        "variables.0.baseline": "100 elements",
+        "variables.0.change": "100003 elements",
+        "variables.0.expected": "The proportions of call and copy costs change, and the results match.",
+        "criteria.0": "Required deliverable: matching sums·copyMs·batchMs·scalarMs·view lengths. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Memory layout and View lifetime. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Memory layout affect in this exercise? Input cases: the existing 100003 inputs and a small array.",
+        "questions.1": "Variable: batch size. Hypothesis to check: The proportions of call and copy costs change, and the results match. Did the actual results agree with the hypothesis? Explain the evidence in terms of View lifetime.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-15": {
+      "sourceHash": "8f1cd03d1653cb6ddf4078c5fb085883ba420d55a00bba0c6f6b02fcbde157b5",
+      "values": {
+        "title": "In-place Transformation",
+        "prerequisites": "Prepare the experiment results for Memory layout and View lifetime from Unit 14, “Arrays and Boundary Costs”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Overwriting",
+        "concepts.0.explanation": "transform modifies input memory directly. A comparison that needs the original requires a copy.",
+        "concepts.1.title": "Repeat conditions",
+        "concepts.1.explanation": "Feeding transformed results back in makes values keep growing. Restore the original on every iteration for a fair comparison.",
+        "outcomes.0": "Learning outcome: explain the role of Overwriting. Input cases: arrays containing negative numbers·0·positive numbers.",
+        "outcomes.1": "Deliverable: expected·actual values for every element. Explain the rationale for handling Repeat conditions, linking it to the code.",
+        "steps.0": "In day-15.mjs in a separate practice project, set source before the existing transform(0,n) and compare with the JS result for 2x+1. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: arrays containing negative numbers·0·positive numbers. Baseline: none. Run under the baseline conditions, then record observations and errors in notes/day-15.md.",
+        "steps.2": "Variable: input restoration; changed value: restore every iteration. Run again through the same input path. Deliverable to save: expected·actual values for every element. Hypothesis to check: Each iteration compares the same computation. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "input restoration",
+        "variables.0.baseline": "none",
+        "variables.0.change": "restore every iteration",
+        "variables.0.expected": "Each iteration compares the same computation.",
+        "criteria.0": "Required deliverable: expected·actual values for every element. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Overwriting and Repeat conditions. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Overwriting affect in this exercise? Input cases: arrays containing negative numbers·0·positive numbers.",
+        "questions.1": "Variable: input restoration. Hypothesis to check: Each iteration compares the same computation. Did the actual results agree with the hypothesis? Explain the evidence in terms of Repeat conditions.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
     }
   }
 }

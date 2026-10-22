@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 12 published in English
+Engineering · 4 stages · 28 units in the full series · 15 published in English
 
 ## Series goal
 
@@ -39,9 +39,12 @@ Only published English units are linked below. The full series has 28 units.
 - [10. Array Copies and Bounds](units/10/README.md) — External example · preview instructions
 - [11. Memory Grow and View Lifetime](units/11/README.md) — External example · preview instructions
 - [12. Capacity Limits and Failure](units/12/README.md) — External example · preview instructions
+- [13. Scalar and Batch Calls](units/13/README.md) — External example · preview instructions
+- [14. Arrays and Boundary Costs](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Deployment and Execution Structure
 
+- [15. In-place Transformation](units/15/README.md) — External example · preview instructions
 
 ### Stage 4 · Correctness and Bottleneck Evaluation
 

@@ -5924,6 +5924,36 @@
       "docPath": "/docs/en/labs/engineering/webassembly/units/09/README.md",
       "seriesId": "webassembly",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Array Copies and Bounds",
+      "goal": "Learning outcome: explain the role of Set. Input cases: arrays of length 0·4·1003. Deliverable: a table of input·memory·result ranges. Explain the rationale for handling Bounds, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/10/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Memory Grow and View Lifetime",
+      "goal": "Learning outcome: explain the role of Grow. Input cases: one non-shared memory. Deliverable: capacity before·after growth and old/new view lengths. Explain the rationale for handling Recreation, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/11/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Capacity Limits and Failure",
+      "goal": "Learning outcome: explain the role of Maximum. Input cases: lengths on either side of a page boundary. Deliverable: a table of required·allocated pages and errors. Explain the rationale for handling Capacity calculation, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/12/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     }
   ]
 }

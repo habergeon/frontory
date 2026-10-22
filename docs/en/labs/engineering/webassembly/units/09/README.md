@@ -72,7 +72,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Pages and Byte Offset](../08/README.md)
+[Previous: Pages and Byte Offset](../08/README.md) · [Next: Array Copies and Bounds](../10/README.md)
 
 ## Experiment notes — write your own
 

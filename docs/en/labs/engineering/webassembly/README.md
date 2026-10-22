@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 9 published in English
+Engineering · 4 stages · 28 units in the full series · 12 published in English
 
 ## Series goal
 
@@ -36,6 +36,9 @@ Only published English units are linked below. The full series has 28 units.
 
 - [08. Pages and Byte Offset](units/08/README.md) — External example · preview instructions
 - [09. Views and Endianness](units/09/README.md) — External example · preview instructions
+- [10. Array Copies and Bounds](units/10/README.md) — External example · preview instructions
+- [11. Memory Grow and View Lifetime](units/11/README.md) — External example · preview instructions
+- [12. Capacity Limits and Failure](units/12/README.md) — External example · preview instructions
 
 ### Stage 3 · Deployment and Execution Structure
 

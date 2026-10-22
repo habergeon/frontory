@@ -262,6 +262,90 @@
         "references.1.title": "MDN WebAssembly JavaScript API",
         "references.2.title": "MDN WebAssembly.Memory"
       }
+    },
+    "webassembly-step-10": {
+      "sourceHash": "1123c541c2a70b63fafb4d9b2e0dda76b5524e4df683691a00cd7fa3bfc51a1d",
+      "values": {
+        "title": "Array Copies and Bounds",
+        "prerequisites": "Prepare the experiment results for Shared storage and Byte order from Unit 9, “Views and Endianness”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Set",
+        "concepts.0.explanation": "TypedArray.set copies values into the target memory. The original array may have separate storage.",
+        "concepts.1.title": "Bounds",
+        "concepts.1.explanation": "offset+length×4 must fit within memory. Check capacity before increasing the length.",
+        "outcomes.0": "Learning outcome: explain the role of Set. Input cases: arrays of length 0·4·1003.",
+        "outcomes.1": "Deliverable: a table of input·memory·result ranges. Explain the rationale for handling Bounds, linking it to the code.",
+        "steps.0": "In day-10.mjs in a separate practice project, copy source into Int32Array(memory.buffer,offset,n) and calculate the sum. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: arrays of length 0·4·1003. Baseline: 4 elements. Run under the baseline conditions, then record observations and errors in notes/day-10.md.",
+        "steps.2": "Variable: length; changed value: 1003 elements. Run again through the same input path. Deliverable to save: a table of input·memory·result ranges. Hypothesis to check: All inputs fit within the specified range, and the sums match. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "length",
+        "variables.0.baseline": "4 elements",
+        "variables.0.change": "1003 elements",
+        "variables.0.expected": "All inputs fit within the specified range, and the sums match.",
+        "criteria.0": "Required deliverable: a table of input·memory·result ranges. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Set and Bounds. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Set affect in this exercise? Input cases: arrays of length 0·4·1003.",
+        "questions.1": "Variable: length. Hypothesis to check: All inputs fit within the specified range, and the sums match. Did the actual results agree with the hypothesis? Explain the evidence in terms of Bounds.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-11": {
+      "sourceHash": "e0ce5337289f684d6a6e6bdc5e452591da7b01be9b8c12195064249af57e06aa",
+      "values": {
+        "title": "Memory Grow and View Lifetime",
+        "prerequisites": "Prepare the experiment results for Set and Bounds from Unit 10, “Array Copies and Bounds”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Grow",
+        "concepts.0.explanation": "memory.grow increases capacity in pages. Views of the existing non-shared buffer may become invalid.",
+        "concepts.1.title": "Recreation",
+        "concepts.1.explanation": "Recreate views from memory.buffer after growth. Code that caches old views must also update them.",
+        "outcomes.0": "Learning outcome: explain the role of Grow. Input cases: one non-shared memory.",
+        "outcomes.1": "Deliverable: capacity before·after growth and old/new view lengths. Explain the rationale for handling Recreation, linking it to the code.",
+        "steps.0": "In day-11.mjs in a separate practice project, keep the existing view and compare its byteLength with a new view after grow(1). Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: one non-shared memory. Baseline: none. Run under the baseline conditions, then record observations and errors in notes/day-11.md.",
+        "steps.2": "Variable: grow; changed value: 1 page. Run again through the same input path. Deliverable to save: capacity before·after growth and old/new view lengths. Hypothesis to check: The existing view becomes invalid, and the new view can read the data. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "grow",
+        "variables.0.baseline": "none",
+        "variables.0.change": "1 page",
+        "variables.0.expected": "The existing view becomes invalid, and the new view can read the data.",
+        "criteria.0": "Required deliverable: capacity before·after growth and old/new view lengths. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Grow and Recreation. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Grow affect in this exercise? Input cases: one non-shared memory.",
+        "questions.1": "Variable: grow. Hypothesis to check: The existing view becomes invalid, and the new view can read the data. Did the actual results agree with the hypothesis? Explain the evidence in terms of Recreation.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-12": {
+      "sourceHash": "1cb27f176771ac4004504a627a68175244446c7ebf5a43ca7fce2f699622ef65",
+      "values": {
+        "title": "Capacity Limits and Failure",
+        "prerequisites": "Prepare the experiment results for Grow and Recreation from Unit 11, “Memory Grow and View Lifetime”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Maximum",
+        "concepts.0.explanation": "Memory can limit growth with maximum. Handle failures when a request exceeds the limit.",
+        "concepts.1.title": "Capacity calculation",
+        "concepts.1.explanation": "Round required bytes up to pages. Allocating one page too few leaves the final element out of bounds.",
+        "outcomes.0": "Learning outcome: explain the role of Maximum. Input cases: lengths on either side of a page boundary.",
+        "outcomes.1": "Deliverable: a table of required·allocated pages and errors. Explain the rationale for handling Capacity calculation, linking it to the code.",
+        "steps.0": "In day-12.mjs in a separate practice project, add required-page calculation and grow exception handling to the wrapper. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: lengths on either side of a page boundary. Baseline: within the limit. Run under the baseline conditions, then record observations and errors in notes/day-12.md.",
+        "steps.2": "Variable: requested capacity; changed value: over the limit. Run again through the same input path. Deliverable to save: a table of required·allocated pages and errors. Hypothesis to check: An excessive request ends with an error, and the previous data is preserved. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "requested capacity",
+        "variables.0.baseline": "within the limit",
+        "variables.0.change": "over the limit",
+        "variables.0.expected": "An excessive request ends with an error, and the previous data is preserved.",
+        "criteria.0": "Required deliverable: a table of required·allocated pages and errors. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Maximum and Capacity calculation. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Maximum affect in this exercise? Input cases: lengths on either side of a page boundary.",
+        "questions.1": "Variable: requested capacity. Hypothesis to check: An excessive request ends with an error, and the previous data is preserved. Did the actual results agree with the hypothesis? Explain the evidence in terms of Capacity calculation.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
     }
   }
 }

@@ -3130,6 +3130,35 @@
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
+      "id": "gaussian-splatting-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Loader States and Cancellation",
+      "goal": "Model loading states. Block results that arrive late.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/13/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-02",
+      "day": 14,
+      "week": 2,
+      "title": "Integrating Loading and Camera State",
+      "goal": "Integrate loader and camera state. Specify the meaning of GS picking.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/02-experiments/README.md",
+      "seriesId": "gaussian-splatting"
+    },
+    {
+      "id": "gaussian-splatting-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Screen-Space Selection Approximation",
+      "goal": "Implement a selection approximation. Show selection ambiguity to users.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/15/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
       "id": "webgpu-01",
       "day": 1,
       "week": 1,

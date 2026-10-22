@@ -334,6 +334,87 @@
         "references.0.title": "Spark Official Documentation",
         "references.1.title": "3D Gaussian Splatting Research Project"
       }
+    },
+    "gaussian-splatting-step-13": {
+      "sourceHash": "b967ff93665e49eabd6199320a53cd2f03828720711c13676f40be5f83106985",
+      "values": {
+        "title": "Loader States and Cancellation",
+        "prerequisites": "Continue using the output and records from Unit 12. Before the Loader States and Cancellation experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Asynchronous states",
+        "concepts.0.explanation": "Finishing a read and finishing data validation are different stages. Distinguish states to tell users where a failure occurred.",
+        "concepts.1.title": "Latest request",
+        "concepts.1.explanation": "A delayed read of an earlier file can overwrite the new scene. Use request ids to apply only the latest result and discard canceled results.",
+        "outcomes.0": "Model loading states.",
+        "outcomes.1": "Block results that arrive late.",
+        "steps.0": "In loader.js, define idle, reading, validating, ready, and error states.",
+        "steps.1": "Select two fixtures with injected delays consecutively and include the request id in the results.",
+        "steps.2": "Prevent earlier results from being applied on a new selection or dispose, and print the state-transition log.",
+        "variables.0.name": "Completion order",
+        "variables.0.baseline": "A, then B",
+        "variables.0.change": "B, then A",
+        "variables.0.expected": "Expect only B, the last selection, to remain on screen.",
+        "criteria.0": "B's id is retained even when completion order is reversed.",
+        "criteria.1": "Selecting a valid file after an invalid one restores ready.",
+        "questions.0": "How does canceling a File read differ from discarding its result?",
+        "questions.1": "How do you decide whether to keep or clear the previous scene when validation fails?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-02": {
+      "sourceHash": "723440a15bb436f2d1f3bbd76c5adce9d9f4392e650dc4bac7a40fa43b40a1f9",
+      "values": {
+        "title": "Integrating Loading and Camera State",
+        "prerequisites": "Continue using the output and records from Unit 13. Before the Integrating Loading and Camera State experiment, preserve the previous inputs and reference outputs.",
+        "environment": "The existing gaussian-splatting-02 preview is a starting point. It does not replace implementation or verification of the full subsequent assignment. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Integration boundary",
+        "concepts.0.explanation": "Check Spark's supported formats and APIs in the documentation for the installed version. Do not infer successful Spark execution from the existing CPU teaching viewer.",
+        "concepts.1.title": "Selection contract",
+        "concepts.1.explanation": "GS selection requires the chosen renderer's picking method or a separate approximation. An ordinary mesh raycaster does not directly return a Gaussian's pixel contribution.",
+        "outcomes.0": "Integrate loader and camera state.",
+        "outcomes.1": "Specify the meaning of GS picking.",
+        "steps.0": "In integration.md, summarize the candidate installation version and the supported formats, dispose, and picking entries in the official documentation.",
+        "steps.1": "In a separate viewer.js, connect a Three.js camera to loading state and verify axes using a small fixture you create.",
+        "steps.2": "Apply the camera.json reset and check the error screen and selection policy for an unsupported input format.",
+        "variables.0.name": "Camera up",
+        "variables.0.baseline": "Verified Y-up",
+        "variables.0.change": "A fixture with different axes",
+        "variables.0.expected": "Expect misalignment before correction and reproducible reset after correction.",
+        "criteria.0": "Record one supported-format path and one unsupported-format path.",
+        "criteria.1": "The maximum difference between view matrices before and after reset is at most 1e-6, and the picking policy is documented.",
+        "questions.0": "Can CPU viewer results support claims about Spark performance?",
+        "questions.1": "Will selection use center distance or pixel contribution as its criterion?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-15": {
+      "sourceHash": "ab01213fbb97b9f4471e85f931dc203e4b6dca3a52a3628b5ba15a9697425deb",
+      "values": {
+        "title": "Screen-Space Selection Approximation",
+        "prerequisites": "Continue using the output and records from Unit 14. Before the Screen-Space Selection Approximation experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Distance criterion",
+        "concepts.0.explanation": "Selecting the item nearest its projected center is simple to implement. It does not accurately reflect the visible boundary of a large splat or transparent occlusion.",
+        "concepts.1.title": "Ambiguous selection",
+        "concepts.1.explanation": "User intent may be ambiguous when Gaussians overlap. Displaying candidates and selection criteria makes the approximation's limits visible.",
+        "outcomes.0": "Implement a selection approximation.",
+        "outcomes.1": "Show selection ambiguity to users.",
+        "steps.0": "In pick.js, convert the pointer to canvas-local pixels.",
+        "steps.1": "Filter candidates by distance to the projected center and screen radius, and display their ids.",
+        "steps.2": "Record candidate lists while changing the threshold radius in a scene with two overlapping Gaussians.",
+        "variables.0.name": "Selection radius",
+        "variables.0.baseline": "8px",
+        "variables.0.change": "24px",
+        "variables.0.expected": "Expect more candidates and greater ambiguity.",
+        "criteria.0": "The selected id at the same CSS position is identical at DPR 1 and 2.",
+        "criteria.1": "Print the candidate count and the reason for the final selection for overlapping inputs.",
+        "questions.0": "Can a splat with a distant center but a large visible footprint be selected?",
+        "questions.1": "Can this result be called an actual surface intersection point?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
     }
   }
 }

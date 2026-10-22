@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 12 published in English
+Graphics · 4 stages · 28 units in the full series · 15 published in English
 
 ## Series goal
 
@@ -39,9 +39,12 @@ Only published English units are linked below. The full series has 28 units.
 - [10. Checking PLY Headers](units/10/README.md) — Editable example
 - [11. Value Decoding and Validation](units/11/README.md) — Editable example
 - [12. Spherical Harmonic Color](units/12/README.md) — Editable example
+- [13. Loader States and Cancellation](units/13/README.md) — Editable example
+- [14. Integrating Loading and Camera State](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Visibility and Quality Experiments
 
+- [15. Screen-Space Selection Approximation](units/15/README.md) — Editable example
 
 ### Stage 4 · A Measurable GS Exhibition Viewer
 

@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Value Decoding and Validation](../11/README.md)
+[Previous: Value Decoding and Validation](../11/README.md) · [Next: Loader States and Cancellation](../13/README.md)
 
 ## Experiment notes — write your own
 

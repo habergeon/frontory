@@ -71,7 +71,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Profiling and Quality Budgets](../26/README.md)
+[Previous: Profiling and Quality Budgets](../26/README.md) · [Next: Batching and Quality](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

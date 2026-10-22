@@ -3500,6 +3500,15 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "pixijs-03",
+      "day": 28,
+      "week": 4,
+      "title": "Batching and Quality",
+      "goal": "Test a bottleneck hypothesis by comparing before and after changing one variable. Separate measured values from estimates and unverified items.",
+      "docPath": "/docs/en/labs/graphics/pixijs/03-project/README.md",
+      "seriesId": "pixijs"
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

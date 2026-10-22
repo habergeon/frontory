@@ -734,6 +734,34 @@
         "references.1.title": "PixiJS 8 gc",
         "references.2.title": "PixiJS 8 events"
       }
+    },
+    "pixijs-03": {
+      "sourceHash": "9bfcbe6704e63d249f69dc7ec97f40a008d004a856ed244ddda15c5a0effd1ca",
+      "values": {
+        "title": "Batching and Quality",
+        "prerequisites": "Prerequisite concepts: Data and Display, Lifetime Regression Checks. Prepare the output files and observation records from Unit 27.",
+        "environment": "The existing built-in example provides only a starting point. It does not implement all the extended requirements. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Multiple Dimensions of Cost",
+        "concepts.0.explanation": "Filter area, texture changes, and object updates have different costs. Explaining a bottleneck only by Sprite count can miss the right improvement target.",
+        "concepts.1.title": "Measurement Limits",
+        "concepts.1.explanation": "Frame observations show the experienced result. Leave internal calls and GPU time unverified without direct measurement evidence.",
+        "outcomes.0": "Test a bottleneck hypothesis by comparing before and after changing one variable.",
+        "outcomes.1": "Separate measured values from estimates and unverified items.",
+        "steps.0": "Prepare day-28.js and index.html in the external practice project. Connect the existing pixijs-03 filter, texture, and DPR comparisons to the editor while retaining the same Sprite list.",
+        "steps.1": "Collect before-and-after records for one variable, quality images, and a resource ledger after reruns, then write optimization suggestions and their limitations.",
+        "steps.2": "Save the output with the input condition None, then run again with Parent BlurFilter. Expected: Quality and processing-area costs differ; frame changes must be measured for each environment. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-28-notes.md.",
+        "variables.0.name": "Filter",
+        "variables.0.baseline": "None",
+        "variables.0.change": "Parent BlurFilter",
+        "variables.0.expected": "Quality and processing-area costs differ; frame changes must be measured for each environment",
+        "criteria.0": "Test a bottleneck hypothesis by comparing before and after changing one variable.",
+        "criteria.1": "Separate measured values from estimates and unverified items.",
+        "questions.0": "Why might improved batching fail to resolve a filter bottleneck?",
+        "questions.1": "Which screen did you use to judge how far quality could be reduced?",
+        "references.0.title": "PixiJS 8 perf",
+        "references.1.title": "PixiJS 8 filters",
+        "references.2.title": "PixiJS 8 gc"
+      }
     }
   }
 }

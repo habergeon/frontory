@@ -18,7 +18,7 @@ export function PracticeGuide({ unit, onDocument }: { unit: Unit; onDocument: (p
         <div><h3>01 · 따라 할 순서</h3>{markdown(guide.steps || '학습 문서의 실습 과제를 확인하세요.')}</div>
         <div className="practice-guide-observe"><h3>02 · 비교하고 기록하기</h3>{markdown(guide.variables)}<p>한 번에 변수 하나만 바꾸세요. 변경 전 예상과 실행 후 실제 결과를 오른쪽 필기에 구분해 기록합니다.</p><h3>03 · 완료 전 확인</h3>{markdown(guide.criteria)}</div>
       </div>
-      <footer><p>{unit.source !== undefined ? '입력을 멈추면 약 600ms 후 코드 검사·반영됩니다. 구문·타입 오류가 나면 마지막 정상 화면을 유지하므로 오류를 먼저 고치세요.' : '문서 기반 실습입니다. 상세 문서의 준비 환경에서 직접 구현하고, 예상과 실제 결과를 필기에 남기세요. 내장 실행 예제는 제공하지 않습니다.'}</p><button onClick={() => onDocument(unit.docPath)}>개념·상세 문서 읽기</button></footer>
+      <footer><p>{unit.source !== undefined ? '입력을 멈추면 약 600ms 후 코드 검사·반영됩니다. 구문·타입 오류가 나면 마지막 정상 화면을 유지하므로 오류를 먼저 고치세요.' : '문서 기반 실습입니다. 상세 문서의 준비 환경에서 직접 구현하고 예상과 실제 결과를 필기에 남기세요. 내장 실행 예제는 제공하지 않습니다.'}</p><button onClick={() => onDocument(unit.docPath)}>개념·상세 문서 읽기</button></footer>
     </div>}
   </section>
 }

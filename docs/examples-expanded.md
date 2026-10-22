@@ -488,121 +488,121 @@
 
 | 학습 단위 | 실행 방식 | 원본과 지원 범위 |
 | --- | --- | --- |
-| [2. 시작값과 목표값](labs/animation/gsap/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-02/example.js) — Interactive 시작값과 목표값 experiment with resource cleanup. |
-| [3. Ease의 시간 곡선](labs/animation/gsap/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-03/example.js) — Interactive Ease의 시간 곡선 experiment with resource cleanup. |
-| [4. Transform과 배치](labs/animation/gsap/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-04/example.js) — Interactive Transform과 배치 experiment with resource cleanup. |
-| [5. Stagger 순서](labs/animation/gsap/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-05/example.js) — Interactive Stagger 순서 experiment with resource cleanup. |
-| [6. Label과 겹침](labs/animation/gsap/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-06/example.js) — Interactive Label과 겹침 experiment with resource cleanup. |
-| [7. 재생 제어판](labs/animation/gsap/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-07/example.js) — Interactive 재생 제어판 experiment with resource cleanup. |
-| [8. Context와 복원](labs/animation/gsap/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-08/example.js) — Interactive Context와 복원 experiment with resource cleanup. |
-| [9. 기본 스크롤 연결](labs/animation/gsap/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-09/example.js) — Interactive 기본 스크롤 연결 experiment with resource cleanup. |
-| [10. ScrollTrigger 등록](labs/animation/gsap/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-10/example.js) — Interactive ScrollTrigger 등록 experiment with resource cleanup. |
-| [11. Scrub 추종](labs/animation/gsap/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-11/example.js) — Interactive Scrub 추종 experiment with resource cleanup. |
-| [12. Pin과 문서 흐름](labs/animation/gsap/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-12/example.js) — Interactive Pin과 문서 흐름 experiment with resource cleanup. |
-| [13. Refresh와 측정 시점](labs/animation/gsap/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-13/example.js) — Interactive Refresh와 측정 시점 experiment with resource cleanup. |
-| [15. MatchMedia 분기](labs/animation/gsap/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-15/example.js) — Interactive MatchMedia 분기 experiment with resource cleanup. |
-| [16. 연속 입력과 Overwrite](labs/animation/gsap/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-16/example.js) — Interactive 연속 입력과 Overwrite experiment with resource cleanup. |
-| [17. Pointer와 QuickTo](labs/animation/gsap/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-17/example.js) — Interactive Pointer와 QuickTo experiment with resource cleanup. |
-| [18. 키보드 단계 이동](labs/animation/gsap/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-18/example.js) — Interactive 키보드 단계 이동 experiment with resource cleanup. |
-| [19. 모션 감소 대체](labs/animation/gsap/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-19/example.js) — Interactive 모션 감소 대체 experiment with resource cleanup. |
-| [20. 완료 콜백과 중단](labs/animation/gsap/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-20/example.js) — Interactive 완료 콜백과 중단 experiment with resource cleanup. |
-| [21. 중첩 타임라인](labs/animation/gsap/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-21/example.js) — Interactive 중첩 타임라인 experiment with resource cleanup. |
-| [22. SVG 속성 제어](labs/animation/gsap/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-22/example.js) — Interactive SVG 속성 제어 experiment with resource cleanup. |
-| [23. Canvas 객체 보간](labs/animation/gsap/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-23/example.js) — Interactive Canvas 객체 보간 experiment with resource cleanup. |
-| [24. 프레임 비용 측정](labs/animation/gsap/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-24/example.js) — Interactive 프레임 비용 측정 experiment with resource cleanup. |
-| [25. 숨김과 복귀](labs/animation/gsap/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-25/example.js) — Interactive 숨김과 복귀 experiment with resource cleanup. |
-| [26. 모션 토큰](labs/animation/gsap/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-26/example.js) — Interactive 모션 토큰 experiment with resource cleanup. |
-| [27. 실패 경로의 해제](labs/animation/gsap/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-27/example.js) — Interactive 실패 경로의 해제 experiment with resource cleanup. |
+| [2. 시작값과 목표값](labs/animation/gsap/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-02/example.js) — 시작값과 목표값 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [3. Ease의 시간 곡선](labs/animation/gsap/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-03/example.js) — Ease의 시간 곡선 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [4. Transform과 배치](labs/animation/gsap/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-04/example.js) — Transform과 배치 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [5. Stagger 순서](labs/animation/gsap/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-05/example.js) — Stagger 순서 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [6. Label과 겹침](labs/animation/gsap/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-06/example.js) — Label과 겹침 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [7. 재생 제어판](labs/animation/gsap/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-07/example.js) — 재생 제어판 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [8. Context와 복원](labs/animation/gsap/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-08/example.js) — Context와 복원 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [9. 기본 스크롤 연결](labs/animation/gsap/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-09/example.js) — 기본 스크롤 연결 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [10. ScrollTrigger 등록](labs/animation/gsap/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-10/example.js) — ScrollTrigger 등록 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [11. Scrub 추종](labs/animation/gsap/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-11/example.js) — Scrub 추종 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [12. Pin과 문서 흐름](labs/animation/gsap/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-12/example.js) — Pin과 문서 흐름 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [13. Refresh와 측정 시점](labs/animation/gsap/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-13/example.js) — Refresh와 측정 시점 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [15. MatchMedia 분기](labs/animation/gsap/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-15/example.js) — MatchMedia 분기 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [16. 연속 입력과 Overwrite](labs/animation/gsap/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-16/example.js) — 연속 입력과 Overwrite 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [17. Pointer와 QuickTo](labs/animation/gsap/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-17/example.js) — Pointer와 QuickTo 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [18. 키보드 단계 이동](labs/animation/gsap/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-18/example.js) — 키보드 단계 이동 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [19. 모션 감소 대체](labs/animation/gsap/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-19/example.js) — 모션 감소 대체 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [20. 완료 콜백과 중단](labs/animation/gsap/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-20/example.js) — 완료 콜백과 중단 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [21. 중첩 타임라인](labs/animation/gsap/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-21/example.js) — 중첩 타임라인 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [22. SVG 속성 제어](labs/animation/gsap/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-22/example.js) — SVG 속성 제어 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [23. Canvas 객체 보간](labs/animation/gsap/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-23/example.js) — Canvas 객체 보간 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [24. 프레임 비용 측정](labs/animation/gsap/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-24/example.js) — 프레임 비용 측정 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [25. 숨김과 복귀](labs/animation/gsap/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-25/example.js) — 숨김과 복귀 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [26. 모션 토큰](labs/animation/gsap/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-26/example.js) — 모션 토큰 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [27. 실패 경로의 해제](labs/animation/gsap/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/gsap-step-27/example.js) — 실패 경로의 해제 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 
 ## Motion
 
 | 학습 단위 | 실행 방식 | 원본과 지원 범위 |
 | --- | --- | --- |
-| [2. Initial과 Animate](labs/animation/motion/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-02/example.js) — Interactive Initial과 Animate experiment with resource cleanup. |
-| [3. Transition 구성](labs/animation/motion/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-03/example.js) — Interactive Transition 구성 experiment with resource cleanup. |
-| [4. Spring의 물리 변수](labs/animation/motion/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-04/example.js) — Interactive Spring의 물리 변수 experiment with resource cleanup. |
+| [2. Initial과 Animate](labs/animation/motion/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-02/example.js) — Initial과 Animate 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [3. Transition 구성](labs/animation/motion/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-03/example.js) — Transition 구성 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [4. Spring의 물리 변수](labs/animation/motion/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-04/example.js) — Spring의 물리 변수 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [5. Keyframes](labs/animation/motion/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-05/example.js) — Interactive Keyframes experiment with resource cleanup. |
 | [6. Variants](labs/animation/motion/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-06/example.js) — Interactive Variants experiment with resource cleanup. |
-| [7. 자식 등장 순서](labs/animation/motion/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-07/example.js) — Interactive 자식 등장 순서 experiment with resource cleanup. |
-| [8. Layout 측정](labs/animation/motion/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-08/example.js) — Interactive Layout 측정 experiment with resource cleanup. |
-| [9. 안정적인 Key](labs/animation/motion/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-09/example.js) — Interactive 안정적인 Key experiment with resource cleanup. |
-| [10. AnimatePresence 기초](labs/animation/motion/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-10/example.js) — Interactive AnimatePresence 기초 experiment with resource cleanup. |
-| [11. Presence 모드](labs/animation/motion/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-11/example.js) — Interactive Presence 모드 experiment with resource cleanup. |
-| [12. LayoutId 공유](labs/animation/motion/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-12/example.js) — Interactive LayoutId 공유 experiment with resource cleanup. |
-| [13. 삭제 중 포커스](labs/animation/motion/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-13/example.js) — Interactive 삭제 중 포커스 experiment with resource cleanup. |
-| [15. Hover와 Focus](labs/animation/motion/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-15/example.js) — Interactive Hover와 Focus experiment with resource cleanup. |
-| [16. Tap 피드백](labs/animation/motion/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-16/example.js) — Interactive Tap 피드백 experiment with resource cleanup. |
-| [17. Drag 좌표와 경계](labs/animation/motion/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-17/example.js) — Interactive Drag 좌표와 경계 experiment with resource cleanup. |
-| [18. 관성과 탄성](labs/animation/motion/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-18/example.js) — Interactive 관성과 탄성 experiment with resource cleanup. |
-| [19. 버튼으로 재배치](labs/animation/motion/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-19/example.js) — Interactive 버튼으로 재배치 experiment with resource cleanup. |
+| [7. 자식 등장 순서](labs/animation/motion/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-07/example.js) — 자식 등장 순서 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [8. Layout 측정](labs/animation/motion/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-08/example.js) — Layout 측정 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [9. 안정적인 Key](labs/animation/motion/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-09/example.js) — 안정적인 Key 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [10. AnimatePresence 기초](labs/animation/motion/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-10/example.js) — AnimatePresence 기초 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [11. Presence 모드](labs/animation/motion/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-11/example.js) — Presence 모드 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [12. LayoutId 공유](labs/animation/motion/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-12/example.js) — LayoutId 공유 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [13. 삭제 중 포커스](labs/animation/motion/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-13/example.js) — 삭제 중 포커스 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [15. Hover와 Focus](labs/animation/motion/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-15/example.js) — Hover와 Focus 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [16. Tap 피드백](labs/animation/motion/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-16/example.js) — Tap 피드백 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [17. Drag 좌표와 경계](labs/animation/motion/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-17/example.js) — Drag 좌표와 경계 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [18. 관성과 탄성](labs/animation/motion/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-18/example.js) — 관성과 탄성 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [19. 버튼으로 재배치](labs/animation/motion/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-19/example.js) — 버튼으로 재배치 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [20. MotionValue](labs/animation/motion/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-20/example.js) — Interactive MotionValue experiment with resource cleanup. |
-| [21. Transform과 Spring 연결](labs/animation/motion/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-21/example.js) — Interactive Transform과 Spring 연결 experiment with resource cleanup. |
-| [22. 스크롤 연동](labs/animation/motion/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-22/example.js) — Interactive 스크롤 연동 experiment with resource cleanup. |
-| [23. 화면 진입 애니메이션](labs/animation/motion/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-23/example.js) — Interactive 화면 진입 애니메이션 experiment with resource cleanup. |
-| [24. UseAnimate 정리](labs/animation/motion/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-24/example.js) — Interactive UseAnimate 정리 experiment with resource cleanup. |
-| [25. 모션 감소 정책](labs/animation/motion/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-25/example.js) — Interactive 모션 감소 정책 experiment with resource cleanup. |
-| [26. 렌더와 성능 관찰](labs/animation/motion/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-26/example.js) — Interactive 렌더와 성능 관찰 experiment with resource cleanup. |
-| [27. 재마운트와 상태 복구](labs/animation/motion/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-27/example.js) — Interactive 재마운트와 상태 복구 experiment with resource cleanup. |
+| [21. Transform과 Spring 연결](labs/animation/motion/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-21/example.js) — Transform과 Spring 연결 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [22. 스크롤 연동](labs/animation/motion/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-22/example.js) — 스크롤 연동 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [23. 화면 진입 애니메이션](labs/animation/motion/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-23/example.js) — 화면 진입 애니메이션 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [24. UseAnimate 정리](labs/animation/motion/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-24/example.js) — UseAnimate 정리 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [25. 모션 감소 정책](labs/animation/motion/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-25/example.js) — 모션 감소 정책 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [26. 렌더와 성능 관찰](labs/animation/motion/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-26/example.js) — 렌더와 성능 관찰 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [27. 재마운트와 상태 복구](labs/animation/motion/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-27/example.js) — 재마운트와 상태 복구 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 
 ## Web Workers
 
 | 학습 단위 | 실행 방식 | 원본과 지원 범위 |
 | --- | --- | --- |
-| [2. 모듈 Worker 로딩](labs/engineering/web-workers/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-02/example.js) — Interactive 모듈 Worker 로딩 experiment with resource cleanup. |
-| [3. 메시지 계약](labs/engineering/web-workers/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-03/example.js) — Interactive 메시지 계약 experiment with resource cleanup. |
+| [2. 모듈 Worker 로딩](labs/engineering/web-workers/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-02/example.js) — 모듈 Worker 로딩 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [3. 메시지 계약](labs/engineering/web-workers/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-03/example.js) — 메시지 계약 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [4. Structured Clone](labs/engineering/web-workers/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-04/example.js) — Interactive Structured Clone experiment with resource cleanup. |
-| [5. TypedArray와 Buffer](labs/engineering/web-workers/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-05/example.js) — Interactive TypedArray와 Buffer experiment with resource cleanup. |
-| [6. 오류 응답 계약](labs/engineering/web-workers/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-06/example.js) — Interactive 오류 응답 계약 experiment with resource cleanup. |
-| [7. 메인 응답성 관찰](labs/engineering/web-workers/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-07/example.js) — Interactive 메인 응답성 관찰 experiment with resource cleanup. |
-| [8. Transfer 소유권](labs/engineering/web-workers/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-08/example.js) — Interactive Transfer 소유권 experiment with resource cleanup. |
-| [9. 부분 View 전송](labs/engineering/web-workers/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-09/example.js) — Interactive 부분 View 전송 experiment with resource cleanup. |
-| [10. 버퍼 반환](labs/engineering/web-workers/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-10/example.js) — Interactive 버퍼 반환 experiment with resource cleanup. |
-| [11. 오래된 결과 거부](labs/engineering/web-workers/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-11/example.js) — Interactive 오래된 결과 거부 experiment with resource cleanup. |
-| [12. 협력적 취소](labs/engineering/web-workers/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-12/example.js) — Interactive 협력적 취소 experiment with resource cleanup. |
-| [13. 강제 종료와 재생성](labs/engineering/web-workers/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-13/example.js) — Interactive 강제 종료와 재생성 experiment with resource cleanup. |
-| [15. 진행도 보고](labs/engineering/web-workers/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-15/example.js) — Interactive 진행도 보고 experiment with resource cleanup. |
-| [16. 제한된 작업 큐](labs/engineering/web-workers/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-16/example.js) — Interactive 제한된 작업 큐 experiment with resource cleanup. |
+| [5. TypedArray와 Buffer](labs/engineering/web-workers/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-05/example.js) — TypedArray와 Buffer 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [6. 오류 응답 계약](labs/engineering/web-workers/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-06/example.js) — 오류 응답 계약 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [7. 메인 응답성 관찰](labs/engineering/web-workers/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-07/example.js) — 메인 응답성 관찰 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [8. Transfer 소유권](labs/engineering/web-workers/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-08/example.js) — Transfer 소유권 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [9. 부분 View 전송](labs/engineering/web-workers/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-09/example.js) — 부분 View 전송 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [10. 버퍼 반환](labs/engineering/web-workers/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-10/example.js) — 버퍼 반환 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [11. 오래된 결과 거부](labs/engineering/web-workers/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-11/example.js) — 오래된 결과 거부 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [12. 협력적 취소](labs/engineering/web-workers/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-12/example.js) — 협력적 취소 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [13. 강제 종료와 재생성](labs/engineering/web-workers/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-13/example.js) — 강제 종료와 재생성 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [15. 진행도 보고](labs/engineering/web-workers/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-15/example.js) — 진행도 보고 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [16. 제한된 작업 큐](labs/engineering/web-workers/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-16/example.js) — 제한된 작업 큐 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [17. Worker Pool](labs/engineering/web-workers/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-17/example.js) — Interactive Worker Pool experiment with resource cleanup. |
-| [18. 결과 순서 복원](labs/engineering/web-workers/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-18/example.js) — Interactive 결과 순서 복원 experiment with resource cleanup. |
-| [19. Timeout과 중복 응답](labs/engineering/web-workers/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-19/example.js) — Interactive Timeout과 중복 응답 experiment with resource cleanup. |
-| [20. 장애 복구](labs/engineering/web-workers/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-20/example.js) — Interactive 장애 복구 experiment with resource cleanup. |
-| [21. MessageChannel 분리](labs/engineering/web-workers/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-21/example.js) — Interactive MessageChannel 분리 experiment with resource cleanup. |
-| [22. 데이터 분할과 병합](labs/engineering/web-workers/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-22/example.js) — Interactive 데이터 분할과 병합 experiment with resource cleanup. |
-| [23. 공유 메모리 조건](labs/engineering/web-workers/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-23/example.js) — Interactive 공유 메모리 조건 experiment with resource cleanup. |
-| [24. Atomics와 동기화](labs/engineering/web-workers/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-24/example.js) — Interactive Atomics와 동기화 experiment with resource cleanup. |
-| [25. 전체 지연 측정](labs/engineering/web-workers/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-25/example.js) — Interactive 전체 지연 측정 experiment with resource cleanup. |
-| [26. 메모리와 풀 한도](labs/engineering/web-workers/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-26/example.js) — Interactive 메모리와 풀 한도 experiment with resource cleanup. |
-| [27. 해제와 다시 시작](labs/engineering/web-workers/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-27/example.js) — Interactive 해제와 다시 시작 experiment with resource cleanup. |
+| [18. 결과 순서 복원](labs/engineering/web-workers/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-18/example.js) — 결과 순서 복원 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [19. Timeout과 중복 응답](labs/engineering/web-workers/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-19/example.js) — Timeout과 중복 응답 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [20. 장애 복구](labs/engineering/web-workers/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-20/example.js) — 장애 복구 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [21. MessageChannel 분리](labs/engineering/web-workers/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-21/example.js) — MessageChannel 분리 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [22. 데이터 분할과 병합](labs/engineering/web-workers/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-22/example.js) — 데이터 분할과 병합 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [23. 공유 메모리 조건](labs/engineering/web-workers/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-23/example.js) — 공유 메모리 조건 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [24. Atomics와 동기화](labs/engineering/web-workers/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-24/example.js) — Atomics와 동기화 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [25. 전체 지연 측정](labs/engineering/web-workers/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-25/example.js) — 전체 지연 측정 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [26. 메모리와 풀 한도](labs/engineering/web-workers/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-26/example.js) — 메모리와 풀 한도 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [27. 해제와 다시 시작](labs/engineering/web-workers/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-27/example.js) — 해제와 다시 시작 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 
 ## OffscreenCanvas
 
 | 학습 단위 | 실행 방식 | 원본과 지원 범위 |
 | --- | --- | --- |
-| [2. 렌더러 계약](labs/engineering/offscreen-canvas/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-02/example.js) — Interactive 렌더러 계약 experiment with resource cleanup. |
-| [3. 초기화 핸드셰이크](labs/engineering/offscreen-canvas/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-03/example.js) — Interactive 초기화 핸드셰이크 experiment with resource cleanup. |
-| [4. Context 생성 실패](labs/engineering/offscreen-canvas/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-04/example.js) — Interactive Context 생성 실패 experiment with resource cleanup. |
-| [5. 좌표 단위의 기준](labs/engineering/offscreen-canvas/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-05/example.js) — Interactive 좌표 단위의 기준 experiment with resource cleanup. |
-| [6. 프레임 시간](labs/engineering/offscreen-canvas/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-06/example.js) — Interactive 프레임 시간 experiment with resource cleanup. |
-| [7. 기초 렌더 검증](labs/engineering/offscreen-canvas/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-07/example.js) — Interactive 기초 렌더 검증 experiment with resource cleanup. |
-| [8. Resize 메시지](labs/engineering/offscreen-canvas/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-08/example.js) — Interactive Resize 메시지 experiment with resource cleanup. |
-| [9. Resize 순서 번호](labs/engineering/offscreen-canvas/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-09/example.js) — Interactive Resize 순서 번호 experiment with resource cleanup. |
-| [10. DPR 변경 감지](labs/engineering/offscreen-canvas/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-10/example.js) — Interactive DPR 변경 감지 experiment with resource cleanup. |
-| [11. 포인터 좌표 변환](labs/engineering/offscreen-canvas/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-11/example.js) — Interactive 포인터 좌표 변환 experiment with resource cleanup. |
-| [12. 입력 병합](labs/engineering/offscreen-canvas/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-12/example.js) — Interactive 입력 병합 experiment with resource cleanup. |
-| [13. Pointer Capture와 취소](labs/engineering/offscreen-canvas/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-13/example.js) — Interactive Pointer Capture와 취소 experiment with resource cleanup. |
-| [15. 장면 상태 갱신](labs/engineering/offscreen-canvas/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-15/example.js) — Interactive 장면 상태 갱신 experiment with resource cleanup. |
-| [16. 입자 데이터 배치](labs/engineering/offscreen-canvas/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-16/example.js) — Interactive 입자 데이터 배치 experiment with resource cleanup. |
-| [17. 정지와 재개](labs/engineering/offscreen-canvas/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-17/example.js) — Interactive 정지와 재개 experiment with resource cleanup. |
-| [18. 페이지 숨김 정책](labs/engineering/offscreen-canvas/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-18/example.js) — Interactive 페이지 숨김 정책 experiment with resource cleanup. |
-| [19. 정리 프로토콜](labs/engineering/offscreen-canvas/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-19/example.js) — Interactive 정리 프로토콜 experiment with resource cleanup. |
-| [20. 재시작 Canvas](labs/engineering/offscreen-canvas/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-20/example.js) — Interactive 재시작 Canvas experiment with resource cleanup. |
-| [21. Worker 장애 복구](labs/engineering/offscreen-canvas/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-21/example.js) — Interactive Worker 장애 복구 experiment with resource cleanup. |
-| [22. ImageBitmap 전달](labs/engineering/offscreen-canvas/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-22/example.js) — Interactive ImageBitmap 전달 experiment with resource cleanup. |
-| [23. Canvas Context 손실](labs/engineering/offscreen-canvas/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-23/example.js) — Interactive Canvas Context 손실 experiment with resource cleanup. |
-| [24. 요청과 화면 지연](labs/engineering/offscreen-canvas/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-24/example.js) — Interactive 요청과 화면 지연 experiment with resource cleanup. |
-| [25. 해상도와 작업량](labs/engineering/offscreen-canvas/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-25/example.js) — Interactive 해상도와 작업량 experiment with resource cleanup. |
-| [26. 메인 스레드 경쟁 실험](labs/engineering/offscreen-canvas/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-26/example.js) — Interactive 메인 스레드 경쟁 실험 experiment with resource cleanup. |
-| [27. 실험 결과 정리](labs/engineering/offscreen-canvas/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-27/example.js) — Interactive 실험 결과 정리 experiment with resource cleanup. |
+| [2. 렌더러 계약](labs/engineering/offscreen-canvas/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-02/example.js) — 렌더러 계약 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [3. 초기화 핸드셰이크](labs/engineering/offscreen-canvas/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-03/example.js) — 초기화 핸드셰이크 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [4. Context 생성 실패](labs/engineering/offscreen-canvas/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-04/example.js) — Context 생성 실패 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [5. 좌표 단위의 기준](labs/engineering/offscreen-canvas/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-05/example.js) — 좌표 단위의 기준 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [6. 프레임 시간](labs/engineering/offscreen-canvas/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-06/example.js) — 프레임 시간 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [7. 기초 렌더 검증](labs/engineering/offscreen-canvas/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-07/example.js) — 기초 렌더 검증 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [8. Resize 메시지](labs/engineering/offscreen-canvas/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-08/example.js) — Resize 메시지 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [9. Resize 순서 번호](labs/engineering/offscreen-canvas/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-09/example.js) — Resize 순서 번호 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [10. DPR 변경 감지](labs/engineering/offscreen-canvas/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-10/example.js) — DPR 변경 감지 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [11. 포인터 좌표 변환](labs/engineering/offscreen-canvas/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-11/example.js) — 포인터 좌표 변환 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [12. 입력 병합](labs/engineering/offscreen-canvas/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-12/example.js) — 입력 병합 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [13. Pointer Capture와 취소](labs/engineering/offscreen-canvas/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-13/example.js) — Pointer Capture와 취소 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [15. 장면 상태 갱신](labs/engineering/offscreen-canvas/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-15/example.js) — 장면 상태 갱신 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [16. 입자 데이터 배치](labs/engineering/offscreen-canvas/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-16/example.js) — 입자 데이터 배치 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [17. 정지와 재개](labs/engineering/offscreen-canvas/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-17/example.js) — 정지와 재개 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [18. 페이지 숨김 정책](labs/engineering/offscreen-canvas/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-18/example.js) — 페이지 숨김 정책 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [19. 정리 프로토콜](labs/engineering/offscreen-canvas/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-19/example.js) — 정리 프로토콜 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [20. 재시작 Canvas](labs/engineering/offscreen-canvas/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-20/example.js) — 재시작 Canvas 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [21. Worker 장애 복구](labs/engineering/offscreen-canvas/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-21/example.js) — Worker 장애 복구 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [22. ImageBitmap 전달](labs/engineering/offscreen-canvas/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-22/example.js) — ImageBitmap 전달 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [23. Canvas Context 손실](labs/engineering/offscreen-canvas/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-23/example.js) — Canvas Context 손실 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [24. 요청과 화면 지연](labs/engineering/offscreen-canvas/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-24/example.js) — 요청과 화면 지연 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [25. 해상도와 작업량](labs/engineering/offscreen-canvas/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-25/example.js) — 해상도와 작업량 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [26. 메인 스레드 경쟁 실험](labs/engineering/offscreen-canvas/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-26/example.js) — 메인 스레드 경쟁 실험 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [27. 실험 결과 정리](labs/engineering/offscreen-canvas/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-27/example.js) — 실험 결과 정리 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 
 ## WebAssembly
 

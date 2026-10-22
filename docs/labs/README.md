@@ -1,6 +1,6 @@
 # Frontory 기술 지도
 
-Frontend + Story + Repository. 개념을 읽고, 변수를 실험하고, 결과와 실패를 기록하는 프론트엔드 학습 공간입니다.
+Frontend + Story + Repository. 개념을 읽고 변수를 실험하고 결과와 실패를 기록하는 프론트엔드 학습 공간입니다.
 
 ## 추천 진행 순서
 

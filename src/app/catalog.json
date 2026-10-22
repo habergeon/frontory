@@ -4613,7 +4613,7 @@
       "day": 1,
       "week": 1,
       "title": "Tween과 Timeline",
-      "goal": "학습 결과: Tween의 역할을 설명한다. 입력 사례: 카드 3개와 재생 버튼. 산출물: 진행도 0·0.5·1의 위치 표. 재생 헤드 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Tween의 역할을 설명한다. 입력 사례: 카드 3개와 재생 버튼. 산출물: 진행도 0·0.5·1의 위치 표. 재생 헤드 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/01-foundations/README.md",
       "seriesId": "gsap"
     },
@@ -4622,7 +4622,7 @@
       "day": 2,
       "week": 1,
       "title": "시작값과 목표값",
-      "goal": "학습 결과: from과 to의 역할을 설명한다. 입력 사례: 초기 x=40 카드. 산출물: 생성 직후와 종료 후 transform 표. 초기 적용 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: from과 to의 역할을 설명한다. 입력 사례: 초기 x=40 카드. 산출물: 생성 직후와 종료 후 transform 표. 초기 적용 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/02/README.md",
       "seriesId": "gsap"
     },
@@ -4631,7 +4631,7 @@
       "day": 3,
       "week": 1,
       "title": "Ease의 시간 곡선",
-      "goal": "학습 결과: 정규화 시간의 역할을 설명한다. 입력 사례: 0·0.25·0.5·0.75·1. 산출물: 진행도별 위치 표. 속도 분포 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 정규화 시간의 역할을 설명한다. 입력 사례: 0·0.25·0.5·0.75·1. 산출물: 진행도별 위치 표. 속도 분포 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/03/README.md",
       "seriesId": "gsap"
     },
@@ -4640,7 +4640,7 @@
       "day": 4,
       "week": 1,
       "title": "Transform과 배치",
-      "goal": "학습 결과: Transform의 역할을 설명한다. 입력 사례: 인접 카드 10개. 산출물: 이웃 위치와 layout 이벤트 기록. 측정 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Transform의 역할을 설명한다. 입력 사례: 인접 카드 10개. 산출물: 이웃 위치와 layout 이벤트 기록. 측정 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/04/README.md",
       "seriesId": "gsap"
     },
@@ -4649,7 +4649,7 @@
       "day": 5,
       "week": 1,
       "title": "Stagger 순서",
-      "goal": "학습 결과: 시작 간격의 역할을 설명한다. 입력 사례: ID 카드 5개. 산출물: 카드별 시작 순서 표. 순서 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 시작 간격의 역할을 설명한다. 입력 사례: ID 카드 5개. 산출물: 카드별 시작 순서 표. 순서 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/05/README.md",
       "seriesId": "gsap"
     },
@@ -4658,7 +4658,7 @@
       "day": 6,
       "week": 1,
       "title": "Label과 겹침",
-      "goal": "학습 결과: Label의 역할을 설명한다. 입력 사례: intro·ready label. 산출물: 동작별 시작·끝 시간표. 상대 위치 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Label의 역할을 설명한다. 입력 사례: intro·ready label. 산출물: 동작별 시작·끝 시간표. 상대 위치 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/06/README.md",
       "seriesId": "gsap"
     },
@@ -4667,7 +4667,7 @@
       "day": 7,
       "week": 1,
       "title": "재생 제어판",
-      "goal": "학습 결과: Progress의 역할을 설명한다. 입력 사례: 0·50·100% 탐색. 산출물: 위치 재방문 결과와 tween 수. 동기화 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Progress의 역할을 설명한다. 입력 사례: 0·50·100% 탐색. 산출물: 위치 재방문 결과와 tween 수. 동기화 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/07/README.md",
       "seriesId": "gsap"
     },
@@ -4676,7 +4676,7 @@
       "day": 8,
       "week": 2,
       "title": "Context와 복원",
-      "goal": "학습 결과: Context의 역할을 설명한다. 입력 사례: 기존 inline transform 카드. 산출물: 마운트 전후 스타일 표. Revert 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Context의 역할을 설명한다. 입력 사례: 기존 inline transform 카드. 산출물: 마운트 전후 스타일 표. Revert 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/08/README.md",
       "seriesId": "gsap"
     },
@@ -4685,7 +4685,7 @@
       "day": 9,
       "week": 2,
       "title": "기본 스크롤 연결",
-      "goal": "학습 결과: 진행도의 역할을 설명한다. 입력 사례: 긴 문서와 짧은 문서. 산출물: 상단·중간·하단 진행도와 NaN 개수. 수동 연결 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 진행도의 역할을 설명한다. 입력 사례: 긴 문서와 짧은 문서. 산출물: 상단·중간·하단 진행도와 NaN 개수. 수동 연결 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/09/README.md",
       "seriesId": "gsap"
     },
@@ -4694,7 +4694,7 @@
       "day": 10,
       "week": 2,
       "title": "ScrollTrigger 등록",
-      "goal": "학습 결과: 플러그인의 역할을 설명한다. 입력 사례: section 두 개. 산출물: start/end 픽셀 표. 경계 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 플러그인의 역할을 설명한다. 입력 사례: section 두 개. 산출물: start/end 픽셀 표. 경계 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/10/README.md",
       "seriesId": "gsap"
     },
@@ -4703,7 +4703,7 @@
       "day": 11,
       "week": 2,
       "title": "Scrub 추종",
-      "goal": "학습 결과: Scrub의 역할을 설명한다. 입력 사례: 짧은 스크롤 후 정지. 산출물: 입력 정지와 모션 정지 시각. 읽기 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Scrub의 역할을 설명한다. 입력 사례: 짧은 스크롤 후 정지. 산출물: 입력 정지와 모션 정지 시각. 읽기 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/11/README.md",
       "seriesId": "gsap"
     },
@@ -4712,7 +4712,7 @@
       "day": 12,
       "week": 2,
       "title": "Pin과 문서 흐름",
-      "goal": "학습 결과: Pin의 역할을 설명한다. 입력 사례: 스크롤과 Tab. 산출물: 후속 section 위치와 포커스 가림 표. 포커스 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Pin의 역할을 설명한다. 입력 사례: 스크롤과 Tab. 산출물: 후속 section 위치와 포커스 가림 표. 포커스 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/12/README.md",
       "seriesId": "gsap"
     },
@@ -4721,7 +4721,7 @@
       "day": 13,
       "week": 2,
       "title": "Refresh와 측정 시점",
-      "goal": "학습 결과: 레이아웃 변경의 역할을 설명한다. 입력 사례: 늦게 로드되는 이미지. 산출물: 로드 전후 경계 오차 표. Refresh 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 레이아웃 변경의 역할을 설명한다. 입력 사례: 늦게 로드되는 이미지. 산출물: 로드 전후 경계 오차 표. Refresh 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/13/README.md",
       "seriesId": "gsap"
     },
@@ -4730,7 +4730,7 @@
       "day": 14,
       "week": 2,
       "title": "Scroll과 수명주기",
-      "goal": "학습 결과: 기존 예제 범위의 역할을 설명한다. 입력 사례: 재마운트 5회와 resize. 산출물: 이벤트 횟수와 전체 설명 표시 기록. 정리 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 기존 예제 범위의 역할을 설명한다. 입력 사례: 재마운트 5회와 resize. 산출물: 이벤트 횟수와 전체 설명 표시 기록. 정리 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/02-experiments/README.md",
       "seriesId": "gsap"
     },
@@ -4739,7 +4739,7 @@
       "day": 15,
       "week": 3,
       "title": "MatchMedia 분기",
-      "goal": "학습 결과: 반응형 모션의 역할을 설명한다. 입력 사례: 폭 375·1024px. 산출물: 폭별 최종 위치와 정리 횟수. 거리 단위 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 반응형 모션의 역할을 설명한다. 입력 사례: 폭 375·1024px. 산출물: 폭별 최종 위치와 정리 횟수. 거리 단위 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/15/README.md",
       "seriesId": "gsap"
     },
@@ -4748,7 +4748,7 @@
       "day": 16,
       "week": 3,
       "title": "연속 입력과 Overwrite",
-      "goal": "학습 결과: 경합의 역할을 설명한다. 입력 사례: 교차 클릭 10회. 산출물: 마지막 목표와 최종 x 값. Overwrite 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 경합의 역할을 설명한다. 입력 사례: 교차 클릭 10회. 산출물: 마지막 목표와 최종 x 값. Overwrite 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/16/README.md",
       "seriesId": "gsap"
     },
@@ -4757,7 +4757,7 @@
       "day": 17,
       "week": 3,
       "title": "Pointer와 QuickTo",
-      "goal": "학습 결과: 입력 빈도의 역할을 설명한다. 입력 사례: 중앙과 모서리 입력. 산출물: 목표 좌표와 최종 좌표 표. QuickTo 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 입력 빈도의 역할을 설명한다. 입력 사례: 중앙과 모서리 입력. 산출물: 목표 좌표와 최종 좌표 표. QuickTo 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/17/README.md",
       "seriesId": "gsap"
     },
@@ -4766,7 +4766,7 @@
       "day": 18,
       "week": 3,
       "title": "키보드 단계 이동",
-      "goal": "학습 결과: 동등한 조작의 역할을 설명한다. 입력 사례: 마우스와 키보드 탐색. 산출물: 현재 단계와 activeElement 표. 포커스 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 동등한 조작의 역할을 설명한다. 입력 사례: 마우스와 키보드 탐색. 산출물: 현재 단계와 activeElement 표. 포커스 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/18/README.md",
       "seriesId": "gsap"
     },
@@ -4775,7 +4775,7 @@
       "day": 19,
       "week": 3,
       "title": "모션 감소 대체",
-      "goal": "학습 결과: 사용자 선호의 역할을 설명한다. 입력 사례: 세 단계 전환. 산출물: 단계 내용과 버튼 작동 표. 즉시 상태 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 사용자 선호의 역할을 설명한다. 입력 사례: 세 단계 전환. 산출물: 단계 내용과 버튼 작동 표. 즉시 상태 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/19/README.md",
       "seriesId": "gsap"
     },
@@ -4784,7 +4784,7 @@
       "day": 20,
       "week": 3,
       "title": "완료 콜백과 중단",
-      "goal": "학습 결과: 완료 의미의 역할을 설명한다. 입력 사례: A→B 도중 C 선택. 산출물: 콜백 ID와 최종 단계 로그. 요청 세대 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 완료 의미의 역할을 설명한다. 입력 사례: A→B 도중 C 선택. 산출물: 콜백 ID와 최종 단계 로그. 요청 세대 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/20/README.md",
       "seriesId": "gsap"
     },
@@ -4793,7 +4793,7 @@
       "day": 21,
       "week": 3,
       "title": "중첩 타임라인",
-      "goal": "학습 결과: 합성의 역할을 설명한다. 입력 사례: 카드 3개와 6개. 산출물: 자식 시작 시각과 전체 길이. Defaults 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 합성의 역할을 설명한다. 입력 사례: 카드 3개와 6개. 산출물: 자식 시작 시각과 전체 길이. Defaults 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/21/README.md",
       "seriesId": "gsap"
     },
@@ -4802,7 +4802,7 @@
       "day": 22,
       "week": 4,
       "title": "SVG 속성 제어",
-      "goal": "학습 결과: Attr의 역할을 설명한다. 입력 사례: viewBox 0 0 200 100. 산출물: 끝점 속성과 표시 위치 표. ViewBox 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Attr의 역할을 설명한다. 입력 사례: viewBox 0 0 200 100. 산출물: 끝점 속성과 표시 위치 표. ViewBox 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/22/README.md",
       "seriesId": "gsap"
     },
@@ -4811,7 +4811,7 @@
       "day": 23,
       "week": 4,
       "title": "Canvas 객체 보간",
-      "goal": "학습 결과: 객체 값의 역할을 설명한다. 입력 사례: 시작·정지·해제. 산출물: 그리기 호출 수와 최종 좌표. Ticker 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 객체 값의 역할을 설명한다. 입력 사례: 시작·정지·해제. 산출물: 그리기 호출 수와 최종 좌표. Ticker 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/23/README.md",
       "seriesId": "gsap"
     },
@@ -4820,7 +4820,7 @@
       "day": 24,
       "week": 4,
       "title": "프레임 비용 측정",
-      "goal": "학습 결과: 긴 프레임의 역할을 설명한다. 입력 사례: 카드 20개와 200개. 산출물: 프레임 분포와 입력 응답 기록. 조건 기록 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 긴 프레임의 역할을 설명한다. 입력 사례: 카드 20개와 200개. 산출물: 프레임 분포와 입력 응답 기록. 조건 기록 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/24/README.md",
       "seriesId": "gsap"
     },
@@ -4829,7 +4829,7 @@
       "day": 25,
       "week": 4,
       "title": "숨김과 복귀",
-      "goal": "학습 결과: 백그라운드의 역할을 설명한다. 입력 사례: 탭 숨김 후 복귀. 산출물: 복귀 전후 진행도 로그. 재개 정책 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 백그라운드의 역할을 설명한다. 입력 사례: 탭 숨김 후 복귀. 산출물: 복귀 전후 진행도 로그. 재개 정책 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/25/README.md",
       "seriesId": "gsap"
     },
@@ -4838,7 +4838,7 @@
       "day": 26,
       "week": 4,
       "title": "모션 토큰",
-      "goal": "학습 결과: 의미의 역할을 설명한다. 입력 사례: 세 단계의 같은 버튼 입력. 산출물: 토큰 사용처와 설정 표. 변경 영향 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 의미의 역할을 설명한다. 입력 사례: 세 단계의 같은 버튼 입력. 산출물: 토큰 사용처와 설정 표. 변경 영향 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/26/README.md",
       "seriesId": "gsap"
     },
@@ -4847,7 +4847,7 @@
       "day": 27,
       "week": 4,
       "title": "실패 경로의 해제",
-      "goal": "학습 결과: 자원 목록의 역할을 설명한다. 입력 사례: 정상·예외·중복 dispose. 산출물: 경로별 잔여 등록 수. 반복 해제 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 자원 목록의 역할을 설명한다. 입력 사례: 정상·예외·중복 dispose. 산출물: 경로별 잔여 등록 수. 반복 해제 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/27/README.md",
       "seriesId": "gsap"
     },
@@ -4856,7 +4856,7 @@
       "day": 28,
       "week": 4,
       "title": "모션 설계와 검증",
-      "goal": "학습 결과: 정보 계층의 역할을 설명한다. 입력 사례: 키보드·빠른 10회 입력·재마운트 5회. 산출물: 입력·접근성·정리·프레임 검증 보고서. 종합 검증 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 정보 계층의 역할을 설명한다. 입력 사례: 키보드·빠른 10회 입력·재마운트 5회. 산출물: 입력·접근성·정리·프레임 검증 보고서. 종합 검증 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/03-project/README.md",
       "seriesId": "gsap"
     },
@@ -4865,7 +4865,7 @@
       "day": 1,
       "week": 1,
       "title": "상태 기반 애니메이션",
-      "goal": "학습 결과: 목표 상태의 역할을 설명한다. 입력 사례: 선택·해제 카드. 산출물: 상태값과 최종 opacity·x 표. API 경계 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 목표 상태의 역할을 설명한다. 입력 사례: 선택·해제 카드. 산출물: 상태값과 최종 opacity·x 표. API 경계 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/01-foundations/README.md",
       "seriesId": "motion"
     },
@@ -4874,7 +4874,7 @@
       "day": 2,
       "week": 1,
       "title": "Initial과 Animate",
-      "goal": "학습 결과: Initial의 역할을 설명한다. 입력 사례: 첫 마운트와 상태 변경. 산출물: 최초·전환 후 스타일 표. 첫 표시 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Initial의 역할을 설명한다. 입력 사례: 첫 마운트와 상태 변경. 산출물: 최초·전환 후 스타일 표. 첫 표시 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/02/README.md",
       "seriesId": "motion"
     },
@@ -4883,7 +4883,7 @@
       "day": 3,
       "week": 1,
       "title": "Transition 구성",
-      "goal": "학습 결과: Tween의 역할을 설명한다. 입력 사례: 선택 버튼 한 번. 산출물: 두 속성의 중간·종료 관찰 표. 속성별 설정 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Tween의 역할을 설명한다. 입력 사례: 선택 버튼 한 번. 산출물: 두 속성의 중간·종료 관찰 표. 속성별 설정 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/03/README.md",
       "seriesId": "motion"
     },
@@ -4892,7 +4892,7 @@
       "day": 4,
       "week": 1,
       "title": "Spring의 물리 변수",
-      "goal": "학습 결과: Stiffness의 역할을 설명한다. 입력 사례: x=0과 x=160. 산출물: 초과 이동과 안정화 관찰 기록. Damping 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Stiffness의 역할을 설명한다. 입력 사례: x=0과 x=160. 산출물: 초과 이동과 안정화 관찰 기록. Damping 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/04/README.md",
       "seriesId": "motion"
     },
@@ -4901,7 +4901,7 @@
       "day": 5,
       "week": 1,
       "title": "Keyframes",
-      "goal": "학습 결과: 키프레임의 역할을 설명한다. 입력 사례: 0→100→60 위치. 산출물: 각 지정 시점의 위치 표. Times 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 키프레임의 역할을 설명한다. 입력 사례: 0→100→60 위치. 산출물: 각 지정 시점의 위치 표. Times 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/05/README.md",
       "seriesId": "motion"
     },
@@ -4910,7 +4910,7 @@
       "day": 6,
       "week": 1,
       "title": "Variants",
-      "goal": "학습 결과: 이름 있는 상태의 역할을 설명한다. 입력 사례: 두 카드 선택 변경. 산출물: 부모·자식 목표 상태 표. 전파 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 이름 있는 상태의 역할을 설명한다. 입력 사례: 두 카드 선택 변경. 산출물: 부모·자식 목표 상태 표. 전파 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/06/README.md",
       "seriesId": "motion"
     },
@@ -4919,7 +4919,7 @@
       "day": 7,
       "week": 1,
       "title": "자식 등장 순서",
-      "goal": "학습 결과: Orchestration의 역할을 설명한다. 입력 사례: 카드 4개와 12개. 산출물: 첫·마지막 카드 등장 시각. Stagger 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Orchestration의 역할을 설명한다. 입력 사례: 카드 4개와 12개. 산출물: 첫·마지막 카드 등장 시각. Stagger 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/07/README.md",
       "seriesId": "motion"
     },
@@ -4928,7 +4928,7 @@
       "day": 8,
       "week": 2,
       "title": "Layout 측정",
-      "goal": "학습 결과: Layout의 역할을 설명한다. 입력 사례: 1열·3열 토글. 산출물: 최종 배치와 전환 중 텍스트 관찰 기록. Transform 보간 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Layout의 역할을 설명한다. 입력 사례: 1열·3열 토글. 산출물: 최종 배치와 전환 중 텍스트 관찰 기록. Transform 보간 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/08/README.md",
       "seriesId": "motion"
     },
@@ -4937,7 +4937,7 @@
       "day": 9,
       "week": 2,
       "title": "안정적인 Key",
-      "goal": "학습 결과: 정체성의 역할을 설명한다. 입력 사례: 카드별 다른 메모. 산출물: 정렬 전후 ID·메모 대응 표. 로컬 상태 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 정체성의 역할을 설명한다. 입력 사례: 카드별 다른 메모. 산출물: 정렬 전후 ID·메모 대응 표. 로컬 상태 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/09/README.md",
       "seriesId": "motion"
     },
@@ -4946,7 +4946,7 @@
       "day": 10,
       "week": 2,
       "title": "AnimatePresence 기초",
-      "goal": "학습 결과: Presence의 역할을 설명한다. 입력 사례: 카드 표시·삭제. 산출물: 삭제 요청과 DOM 제거 시각. 경계 배치 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Presence의 역할을 설명한다. 입력 사례: 카드 표시·삭제. 산출물: 삭제 요청과 DOM 제거 시각. 경계 배치 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/10/README.md",
       "seriesId": "motion"
     },
@@ -4955,7 +4955,7 @@
       "day": 11,
       "week": 2,
       "title": "Presence 모드",
-      "goal": "학습 결과: 동시 전환의 역할을 설명한다. 입력 사례: A→B 선택. 산출물: 등장·퇴장 순서 로그. 순차 전환 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 동시 전환의 역할을 설명한다. 입력 사례: A→B 선택. 산출물: 등장·퇴장 순서 로그. 순차 전환 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/11/README.md",
       "seriesId": "motion"
     },
@@ -4964,7 +4964,7 @@
       "day": 12,
       "week": 2,
       "title": "LayoutId 공유",
-      "goal": "학습 결과: 시각적 연결의 역할을 설명한다. 입력 사례: 두 목록의 다른 카드 선택. 산출물: 목록별 표시선 위치 표. 영역 분리 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 시각적 연결의 역할을 설명한다. 입력 사례: 두 목록의 다른 카드 선택. 산출물: 목록별 표시선 위치 표. 영역 분리 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/12/README.md",
       "seriesId": "motion"
     },
@@ -4973,7 +4973,7 @@
       "day": 13,
       "week": 2,
       "title": "삭제 중 포커스",
-      "goal": "학습 결과: DOM 수명의 역할을 설명한다. 입력 사례: 첫·중간·마지막 카드 삭제. 산출물: 삭제 위치별 activeElement 기록. 포커스 복구 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: DOM 수명의 역할을 설명한다. 입력 사례: 첫·중간·마지막 카드 삭제. 산출물: 삭제 위치별 activeElement 기록. 포커스 복구 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/13/README.md",
       "seriesId": "motion"
     },
@@ -4982,7 +4982,7 @@
       "day": 14,
       "week": 2,
       "title": "Layout과 Exit",
-      "goal": "학습 결과: 정렬과 제거의 역할을 설명한다. 입력 사례: 다른 메모가 있는 카드 5개. 산출물: 정렬·연속 삭제 후 ID·메모·DOM 표. 정체성 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 정렬과 제거의 역할을 설명한다. 입력 사례: 다른 메모가 있는 카드 5개. 산출물: 정렬·연속 삭제 후 ID·메모·DOM 표. 정체성 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/02-experiments/README.md",
       "seriesId": "motion"
     },
@@ -4991,7 +4991,7 @@
       "day": 15,
       "week": 3,
       "title": "Hover와 Focus",
-      "goal": "학습 결과: 포인터 상태의 역할을 설명한다. 입력 사례: 마우스 진입과 Tab. 산출물: 두 입력의 강조와 선택 표시 표. Focus 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 포인터 상태의 역할을 설명한다. 입력 사례: 마우스 진입과 Tab. 산출물: 두 입력의 강조와 선택 표시 표. Focus 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/15/README.md",
       "seriesId": "motion"
     },
@@ -5000,7 +5000,7 @@
       "day": 16,
       "week": 3,
       "title": "Tap 피드백",
-      "goal": "학습 결과: 누름 상태의 역할을 설명한다. 입력 사례: 클릭·Enter·Space. 산출물: 입력별 증가 횟수. 기능 이벤트 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 누름 상태의 역할을 설명한다. 입력 사례: 클릭·Enter·Space. 산출물: 입력별 증가 횟수. 기능 이벤트 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/16/README.md",
       "seriesId": "motion"
     },
@@ -5009,7 +5009,7 @@
       "day": 17,
       "week": 3,
       "title": "Drag 좌표와 경계",
-      "goal": "학습 결과: Drag의 역할을 설명한다. 입력 사례: 왼쪽·오른쪽 경계 밖 이동. 산출물: 최종 x와 컨테이너 폭 표. Constraints 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Drag의 역할을 설명한다. 입력 사례: 왼쪽·오른쪽 경계 밖 이동. 산출물: 최종 x와 컨테이너 폭 표. Constraints 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/17/README.md",
       "seriesId": "motion"
     },
@@ -5018,7 +5018,7 @@
       "day": 18,
       "week": 3,
       "title": "관성과 탄성",
-      "goal": "학습 결과: Momentum의 역할을 설명한다. 입력 사례: 같은 방향의 짧은 드래그. 산출물: 포인터 해제·최종 위치 표. Elastic 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Momentum의 역할을 설명한다. 입력 사례: 같은 방향의 짧은 드래그. 산출물: 포인터 해제·최종 위치 표. Elastic 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/18/README.md",
       "seriesId": "motion"
     },
@@ -5027,7 +5027,7 @@
       "day": 19,
       "week": 3,
       "title": "버튼으로 재배치",
-      "goal": "학습 결과: 명시적 순서의 역할을 설명한다. 입력 사례: 가운데 카드를 한 칸 위로 이동. 산출물: 입력 방식별 ID 배열. 동등한 대안 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 명시적 순서의 역할을 설명한다. 입력 사례: 가운데 카드를 한 칸 위로 이동. 산출물: 입력 방식별 ID 배열. 동등한 대안 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/19/README.md",
       "seriesId": "motion"
     },
@@ -5036,7 +5036,7 @@
       "day": 20,
       "week": 3,
       "title": "MotionValue",
-      "goal": "학습 결과: 별도 값의 역할을 설명한다. 입력 사례: 드래그 1회. 산출물: 값 변경 수와 React 렌더 수. 구독 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 별도 값의 역할을 설명한다. 입력 사례: 드래그 1회. 산출물: 값 변경 수와 React 렌더 수. 구독 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/20/README.md",
       "seriesId": "motion"
     },
@@ -5045,7 +5045,7 @@
       "day": 21,
       "week": 3,
       "title": "Transform과 Spring 연결",
-      "goal": "학습 결과: 파생 값의 역할을 설명한다. 입력 사례: x=-100·0·100. 산출물: 원본·파생·추종 값 표. 추종 값 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 파생 값의 역할을 설명한다. 입력 사례: x=-100·0·100. 산출물: 원본·파생·추종 값 표. 추종 값 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/21/README.md",
       "seriesId": "motion"
     },
@@ -5054,7 +5054,7 @@
       "day": 22,
       "week": 4,
       "title": "스크롤 연동",
-      "goal": "학습 결과: UseScroll의 역할을 설명한다. 입력 사례: 상단·중간·하단 스크롤. 산출물: 진행도와 표시선 길이. Offset 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: UseScroll의 역할을 설명한다. 입력 사례: 상단·중간·하단 스크롤. 산출물: 진행도와 표시선 길이. Offset 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/22/README.md",
       "seriesId": "motion"
     },
@@ -5063,7 +5063,7 @@
       "day": 23,
       "week": 4,
       "title": "화면 진입 애니메이션",
-      "goal": "학습 결과: InView의 역할을 설명한다. 입력 사례: 스크롤로 진입·이탈 3회. 산출물: 회차별 실행 횟수. Once 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: InView의 역할을 설명한다. 입력 사례: 스크롤로 진입·이탈 3회. 산출물: 회차별 실행 횟수. Once 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/23/README.md",
       "seriesId": "motion"
     },
@@ -5072,7 +5072,7 @@
       "day": 24,
       "week": 4,
       "title": "UseAnimate 정리",
-      "goal": "학습 결과: 범위의 역할을 설명한다. 입력 사례: 실행·중간 제거. 산출물: 완료 로그와 제거 후 작업 기록. 비동기 순서 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 범위의 역할을 설명한다. 입력 사례: 실행·중간 제거. 산출물: 완료 로그와 제거 후 작업 기록. 비동기 순서 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/24/README.md",
       "seriesId": "motion"
     },
@@ -5081,7 +5081,7 @@
       "day": 25,
       "week": 4,
       "title": "모션 감소 정책",
-      "goal": "학습 결과: 선호 감지의 역할을 설명한다. 입력 사례: 선택·정렬·삭제. 산출물: 기본·감소 모드의 최종 데이터와 내용 표. 내용 보존 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 선호 감지의 역할을 설명한다. 입력 사례: 선택·정렬·삭제. 산출물: 기본·감소 모드의 최종 데이터와 내용 표. 내용 보존 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/25/README.md",
       "seriesId": "motion"
     },
@@ -5090,7 +5090,7 @@
       "day": 26,
       "week": 4,
       "title": "렌더와 성능 관찰",
-      "goal": "학습 결과: 렌더 비용의 역할을 설명한다. 입력 사례: 카드 20개와 100개. 산출물: 렌더 수·프레임 분포 기록. 실측 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 렌더 비용의 역할을 설명한다. 입력 사례: 카드 20개와 100개. 산출물: 렌더 수·프레임 분포 기록. 실측 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/26/README.md",
       "seriesId": "motion"
     },
@@ -5099,7 +5099,7 @@
       "day": 27,
       "week": 4,
       "title": "재마운트와 상태 복구",
-      "goal": "학습 결과: 수명의 역할을 설명한다. 입력 사례: 재정렬 후 숨김·표시. 산출물: 순서·구독·포커스 복구 표. 복구 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 수명의 역할을 설명한다. 입력 사례: 재정렬 후 숨김·표시. 산출물: 순서·구독·포커스 복구 표. 복구 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/27/README.md",
       "seriesId": "motion"
     },
@@ -5108,7 +5108,7 @@
       "day": 28,
       "week": 4,
       "title": "제스처와 접근성",
-      "goal": "학습 결과: 동등한 기능의 역할을 설명한다. 입력 사례: 포인터 없는 재정렬·연속 삭제·reduce. 산출물: 입력별 ID 배열과 포커스·내용 검증 보고서. 종합 검증 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 동등한 기능의 역할을 설명한다. 입력 사례: 포인터 없는 재정렬·연속 삭제·reduce. 산출물: 입력별 ID 배열과 포커스·내용 검증 보고서. 종합 검증 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/03-project/README.md",
       "seriesId": "motion"
     },
@@ -5117,7 +5117,7 @@
       "day": 1,
       "week": 1,
       "title": "메시지와 실행 경계",
-      "goal": "학습 결과: Worker 문맥의 역할을 설명한다. 입력 사례: ID와 정수 배열 3개. 산출물: 요청별 합계와 UI 입력 반응 기록. 요청 식별 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Worker 문맥의 역할을 설명한다. 입력 사례: ID와 정수 배열 3개. 산출물: 요청별 합계와 UI 입력 반응 기록. 요청 식별 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/01-foundations/README.md",
       "seriesId": "web-workers"
     },
@@ -5126,7 +5126,7 @@
       "day": 2,
       "week": 1,
       "title": "모듈 Worker 로딩",
-      "goal": "학습 결과: Module Worker의 역할을 설명한다. 입력 사례: 정상 경로와 없는 경로. 산출물: ready 또는 로딩 오류 상태. 로딩 실패 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Module Worker의 역할을 설명한다. 입력 사례: 정상 경로와 없는 경로. 산출물: ready 또는 로딩 오류 상태. 로딩 실패 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/02/README.md",
       "seriesId": "web-workers"
     },
@@ -5135,7 +5135,7 @@
       "day": 3,
       "week": 1,
       "title": "메시지 계약",
-      "goal": "학습 결과: 태그의 역할을 설명한다. 입력 사례: 정상·누락 ID·문자열 배열. 산출물: 입력별 수락·거부 표. 검증 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 태그의 역할을 설명한다. 입력 사례: 정상·누락 ID·문자열 배열. 산출물: 입력별 수락·거부 표. 검증 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/03/README.md",
       "seriesId": "web-workers"
     },
@@ -5144,7 +5144,7 @@
       "day": 4,
       "week": 1,
       "title": "Structured Clone",
-      "goal": "학습 결과: 복사의 역할을 설명한다. 입력 사례: 객체와 함수 필드. 산출물: 송수신 값 및 DataCloneError 기록. 복제 제한 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 복사의 역할을 설명한다. 입력 사례: 객체와 함수 필드. 산출물: 송수신 값 및 DataCloneError 기록. 복제 제한 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/04/README.md",
       "seriesId": "web-workers"
     },
@@ -5153,7 +5153,7 @@
       "day": 5,
       "week": 1,
       "title": "TypedArray와 Buffer",
-      "goal": "학습 결과: View의 역할을 설명한다. 입력 사례: [10,20,30,40]의 중간 두 값. 산출물: 송수신 범위와 합계 표. Offset 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: View의 역할을 설명한다. 입력 사례: [10,20,30,40]의 중간 두 값. 산출물: 송수신 범위와 합계 표. Offset 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/05/README.md",
       "seriesId": "web-workers"
     },
@@ -5162,7 +5162,7 @@
       "day": 6,
       "week": 1,
       "title": "오류 응답 계약",
-      "goal": "학습 결과: 작업 오류의 역할을 설명한다. 입력 사례: 0·음수·허용 초과 크기. 산출물: 요청별 상태와 pending 크기. 정리 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 작업 오류의 역할을 설명한다. 입력 사례: 0·음수·허용 초과 크기. 산출물: 요청별 상태와 pending 크기. 정리 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/06/README.md",
       "seriesId": "web-workers"
     },
@@ -5171,7 +5171,7 @@
       "day": 7,
       "week": 1,
       "title": "메인 응답성 관찰",
-      "goal": "학습 결과: 분리의 역할을 설명한다. 입력 사례: 같은 배열과 계산 중 클릭. 산출물: 두 모드의 합계·입력 지연. 기준 실험 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 분리의 역할을 설명한다. 입력 사례: 같은 배열과 계산 중 클릭. 산출물: 두 모드의 합계·입력 지연. 기준 실험 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/07/README.md",
       "seriesId": "web-workers"
     },
@@ -5180,7 +5180,7 @@
       "day": 8,
       "week": 2,
       "title": "Transfer 소유권",
-      "goal": "학습 결과: 이전의 역할을 설명한다. 입력 사례: 길이 16의 Int32Array. 산출물: 송신 전후 byteLength와 수신 합계. 접근 금지 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 이전의 역할을 설명한다. 입력 사례: 길이 16의 Int32Array. 산출물: 송신 전후 byteLength와 수신 합계. 접근 금지 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/08/README.md",
       "seriesId": "web-workers"
     },
@@ -5189,7 +5189,7 @@
       "day": 9,
       "week": 2,
       "title": "부분 View 전송",
-      "goal": "학습 결과: 저장소 단위의 역할을 설명한다. 입력 사례: 큰 배열의 중간 8개. 산출물: 전송 저장소 크기와 다른 view 상태. 경계 최소화 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 저장소 단위의 역할을 설명한다. 입력 사례: 큰 배열의 중간 8개. 산출물: 전송 저장소 크기와 다른 view 상태. 경계 최소화 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/09/README.md",
       "seriesId": "web-workers"
     },
@@ -5198,7 +5198,7 @@
       "day": 10,
       "week": 2,
       "title": "버퍼 반환",
-      "goal": "학습 결과: 왕복 소유권의 역할을 설명한다. 입력 사례: 버퍼 2개와 연속 요청. 산출물: 요청별 소유자와 값 변화 표. 풀 상태 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 왕복 소유권의 역할을 설명한다. 입력 사례: 버퍼 2개와 연속 요청. 산출물: 요청별 소유자와 값 변화 표. 풀 상태 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/10/README.md",
       "seriesId": "web-workers"
     },
@@ -5207,7 +5207,7 @@
       "day": 11,
       "week": 2,
       "title": "오래된 결과 거부",
-      "goal": "학습 결과: 최신 요청의 역할을 설명한다. 입력 사례: 큰 작업 뒤 작은 작업. 산출물: 응답 순서와 화면에 채택된 ID. 계산 취소 구별 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 최신 요청의 역할을 설명한다. 입력 사례: 큰 작업 뒤 작은 작업. 산출물: 응답 순서와 화면에 채택된 ID. 계산 취소 구별 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/11/README.md",
       "seriesId": "web-workers"
     },
@@ -5216,7 +5216,7 @@
       "day": 12,
       "week": 2,
       "title": "협력적 취소",
-      "goal": "학습 결과: 이벤트 루프의 역할을 설명한다. 입력 사례: 계산 중 cancel 요청. 산출물: 취소 확인 시점과 처리 원소 수. 취소 지점 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 이벤트 루프의 역할을 설명한다. 입력 사례: 계산 중 cancel 요청. 산출물: 취소 확인 시점과 처리 원소 수. 취소 지점 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/12/README.md",
       "seriesId": "web-workers"
     },
@@ -5225,7 +5225,7 @@
       "day": 13,
       "week": 2,
       "title": "강제 종료와 재생성",
-      "goal": "학습 결과: Terminate의 역할을 설명한다. 입력 사례: 긴 작업 중 중단 후 새 요청. 산출물: 종료 전후 pending과 새 결과. 복구 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Terminate의 역할을 설명한다. 입력 사례: 긴 작업 중 중단 후 새 요청. 산출물: 종료 전후 pending과 새 결과. 복구 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/13/README.md",
       "seriesId": "web-workers"
     },
@@ -5234,7 +5234,7 @@
       "day": 14,
       "week": 2,
       "title": "Transfer와 취소",
-      "goal": "학습 결과: 소유권 추적의 역할을 설명한다. 입력 사례: 겹친 요청과 취소. 산출물: 버퍼 상태·취소 응답·최종 UI 표. 취소 정책 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 소유권 추적의 역할을 설명한다. 입력 사례: 겹친 요청과 취소. 산출물: 버퍼 상태·취소 응답·최종 UI 표. 취소 정책 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/02-experiments/README.md",
       "seriesId": "web-workers"
     },
@@ -5243,7 +5243,7 @@
       "day": 15,
       "week": 3,
       "title": "진행도 보고",
-      "goal": "학습 결과: 보고 빈도의 역할을 설명한다. 입력 사례: 100개 chunk의 작업. 산출물: 메시지 수와 진행률 순서. 단조 증가 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 보고 빈도의 역할을 설명한다. 입력 사례: 100개 chunk의 작업. 산출물: 메시지 수와 진행률 순서. 단조 증가 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/15/README.md",
       "seriesId": "web-workers"
     },
@@ -5252,7 +5252,7 @@
       "day": 16,
       "week": 3,
       "title": "제한된 작업 큐",
-      "goal": "학습 결과: Backpressure의 역할을 설명한다. 입력 사례: 동시 요청 8개. 산출물: 수락·거부·완료 ID 표. 상태 전이 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Backpressure의 역할을 설명한다. 입력 사례: 동시 요청 8개. 산출물: 수락·거부·완료 ID 표. 상태 전이 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/16/README.md",
       "seriesId": "web-workers"
     },
@@ -5261,7 +5261,7 @@
       "day": 17,
       "week": 3,
       "title": "Worker Pool",
-      "goal": "학습 결과: 병렬성의 역할을 설명한다. 입력 사례: 서로 다른 크기 작업 6개. 산출물: worker별 작업 구간과 전체 완료 시간. 유휴 배정 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 병렬성의 역할을 설명한다. 입력 사례: 서로 다른 크기 작업 6개. 산출물: worker별 작업 구간과 전체 완료 시간. 유휴 배정 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/17/README.md",
       "seriesId": "web-workers"
     },
@@ -5270,7 +5270,7 @@
       "day": 18,
       "week": 3,
       "title": "결과 순서 복원",
-      "goal": "학습 결과: 완료 순서의 역할을 설명한다. 입력 사례: 크기가 다른 배열 4개. 산출물: 제출·완료·표시 순서 표. 인덱스 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 완료 순서의 역할을 설명한다. 입력 사례: 크기가 다른 배열 4개. 산출물: 제출·완료·표시 순서 표. 인덱스 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/18/README.md",
       "seriesId": "web-workers"
     },
@@ -5279,7 +5279,7 @@
       "day": 19,
       "week": 3,
       "title": "Timeout과 중복 응답",
-      "goal": "학습 결과: 시간 제한의 역할을 설명한다. 입력 사례: 정상·지연·중복 응답. 산출물: 요청별 완료 횟수와 pending 크기. 완료 단일화 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 시간 제한의 역할을 설명한다. 입력 사례: 정상·지연·중복 응답. 산출물: 요청별 완료 횟수와 pending 크기. 완료 단일화 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/19/README.md",
       "seriesId": "web-workers"
     },
@@ -5288,7 +5288,7 @@
       "day": 20,
       "week": 3,
       "title": "장애 복구",
-      "goal": "학습 결과: Worker 장애의 역할을 설명한다. 입력 사례: 정상 작업과 장애 작업. 산출물: 교체 횟수·최종 오류·완료 ID. 재시도 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Worker 장애의 역할을 설명한다. 입력 사례: 정상 작업과 장애 작업. 산출물: 교체 횟수·최종 오류·완료 ID. 재시도 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/20/README.md",
       "seriesId": "web-workers"
     },
@@ -5297,7 +5297,7 @@
       "day": 21,
       "week": 3,
       "title": "MessageChannel 분리",
-      "goal": "학습 결과: 포트의 역할을 설명한다. 입력 사례: 동시 작업 두 개. 산출물: 통로별 메시지와 close 기록. 해제 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 포트의 역할을 설명한다. 입력 사례: 동시 작업 두 개. 산출물: 통로별 메시지와 close 기록. 해제 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/21/README.md",
       "seriesId": "web-workers"
     },
@@ -5306,7 +5306,7 @@
       "day": 22,
       "week": 4,
       "title": "데이터 분할과 병합",
-      "goal": "학습 결과: 분할의 역할을 설명한다. 입력 사례: 길이 1003의 정수 배열. 산출물: chunk 범위와 CPU 기준 합계. 결합 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 분할의 역할을 설명한다. 입력 사례: 길이 1003의 정수 배열. 산출물: chunk 범위와 CPU 기준 합계. 결합 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/22/README.md",
       "seriesId": "web-workers"
     },
@@ -5315,7 +5315,7 @@
       "day": 23,
       "week": 4,
       "title": "공유 메모리 조건",
-      "goal": "학습 결과: 격리의 역할을 설명한다. 입력 사례: 격리·비격리 환경. 산출물: 헤더·crossOriginIsolated·선택 경로 표. 대체 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 격리의 역할을 설명한다. 입력 사례: 격리·비격리 환경. 산출물: 헤더·crossOriginIsolated·선택 경로 표. 대체 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/23/README.md",
       "seriesId": "web-workers"
     },
@@ -5324,7 +5324,7 @@
       "day": 24,
       "week": 4,
       "title": "Atomics와 동기화",
-      "goal": "학습 결과: 경쟁의 역할을 설명한다. 입력 사례: 각 Worker 10000회 증가. 산출물: 최종 카운터와 기대값 20000. Atomics 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 경쟁의 역할을 설명한다. 입력 사례: 각 Worker 10000회 증가. 산출물: 최종 카운터와 기대값 20000. Atomics 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/24/README.md",
       "seriesId": "web-workers"
     },
@@ -5333,7 +5333,7 @@
       "day": 25,
       "week": 4,
       "title": "전체 지연 측정",
-      "goal": "학습 결과: 왕복 비용의 역할을 설명한다. 입력 사례: 세 배열 크기. 산출물: 왕복·계산·잔여 구간 표. 시계 기준 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 왕복 비용의 역할을 설명한다. 입력 사례: 세 배열 크기. 산출물: 왕복·계산·잔여 구간 표. 시계 기준 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/25/README.md",
       "seriesId": "web-workers"
     },
@@ -5342,7 +5342,7 @@
       "day": 26,
       "week": 4,
       "title": "메모리와 풀 한도",
-      "goal": "학습 결과: 피크 사용량의 역할을 설명한다. 입력 사례: 같은 작업 20개. 산출물: 최대 동시 버퍼 바이트와 잔여 참조 수. 한도 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 피크 사용량의 역할을 설명한다. 입력 사례: 같은 작업 20개. 산출물: 최대 동시 버퍼 바이트와 잔여 참조 수. 한도 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/26/README.md",
       "seriesId": "web-workers"
     },
@@ -5351,7 +5351,7 @@
       "day": 27,
       "week": 4,
       "title": "해제와 다시 시작",
-      "goal": "학습 결과: 수명 관리의 역할을 설명한다. 입력 사례: 실행·해제·재시작 5회. 산출물: 세대별 완료 ID와 잔여 자원 수. 반복 실행 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 수명 관리의 역할을 설명한다. 입력 사례: 실행·해제·재시작 5회. 산출물: 세대별 완료 ID와 잔여 자원 수. 반복 실행 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/27/README.md",
       "seriesId": "web-workers"
     },
@@ -5360,7 +5360,7 @@
       "day": 28,
       "week": 4,
       "title": "작업 큐와 측정",
-      "goal": "학습 결과: 전체 비용의 역할을 설명한다. 입력 사례: 동일 작업의 메인·1 Worker·2 Worker 실행. 산출물: 정확도·전체 지연·입력 지연·피크 버퍼 보고서. 의사결정 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 전체 비용의 역할을 설명한다. 입력 사례: 동일 작업의 메인·1 Worker·2 Worker 실행. 산출물: 정확도·전체 지연·입력 지연·피크 버퍼 보고서. 의사결정 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/03-project/README.md",
       "seriesId": "web-workers"
     },
@@ -5369,7 +5369,7 @@
       "day": 1,
       "week": 1,
       "title": "Canvas 제어권 이전",
-      "goal": "학습 결과: 소유권의 역할을 설명한다. 입력 사례: 지원 경로와 강제 미지원 경로. 산출물: 선택 모드·첫 프레임·오류 안내 표. 대체 경로 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 소유권의 역할을 설명한다. 입력 사례: 지원 경로와 강제 미지원 경로. 산출물: 선택 모드·첫 프레임·오류 안내 표. 대체 경로 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/01-foundations/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5378,7 +5378,7 @@
       "day": 2,
       "week": 1,
       "title": "렌더러 계약",
-      "goal": "학습 결과: 순수 상태의 역할을 설명한다. 입력 사례: 같은 원 세 개. 산출물: 두 어댑터의 좌표·색상 표. 소유 범위 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 순수 상태의 역할을 설명한다. 입력 사례: 같은 원 세 개. 산출물: 두 어댑터의 좌표·색상 표. 소유 범위 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/02/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5387,7 +5387,7 @@
       "day": 3,
       "week": 1,
       "title": "초기화 핸드셰이크",
-      "goal": "학습 결과: Ready의 역할을 설명한다. 입력 사례: 초기화 직후 색 변경. 산출물: 메시지 순서와 첫 적용 색상. 대기 입력 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Ready의 역할을 설명한다. 입력 사례: 초기화 직후 색 변경. 산출물: 메시지 순서와 첫 적용 색상. 대기 입력 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/03/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5396,7 +5396,7 @@
       "day": 4,
       "week": 1,
       "title": "Context 생성 실패",
-      "goal": "학습 결과: Context의 역할을 설명한다. 입력 사례: 강제 context 실패. 산출물: 실패 안내와 대체 Canvas 렌더 결과. 복구 Canvas 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Context의 역할을 설명한다. 입력 사례: 강제 context 실패. 산출물: 실패 안내와 대체 Canvas 렌더 결과. 복구 Canvas 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/04/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5405,7 +5405,7 @@
       "day": 5,
       "week": 1,
       "title": "좌표 단위의 기준",
-      "goal": "학습 결과: CSS 크기의 역할을 설명한다. 입력 사례: 100 CSS px 정사각형. 산출물: CSS·buffer 크기와 도형 폭. DPR 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: CSS 크기의 역할을 설명한다. 입력 사례: 100 CSS px 정사각형. 산출물: CSS·buffer 크기와 도형 폭. DPR 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/05/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5414,7 +5414,7 @@
       "day": 6,
       "week": 1,
       "title": "프레임 시간",
-      "goal": "학습 결과: Delta의 역할을 설명한다. 입력 사례: 정상 프레임과 긴 간격 입력. 산출물: 동일 경과 시간의 위치 표. 큰 간격 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Delta의 역할을 설명한다. 입력 사례: 정상 프레임과 긴 간격 입력. 산출물: 동일 경과 시간의 위치 표. 큰 간격 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/06/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5423,7 +5423,7 @@
       "day": 7,
       "week": 1,
       "title": "기초 렌더 검증",
-      "goal": "학습 결과: 동등성의 역할을 설명한다. 입력 사례: 동일 seed와 입자 10개. 산출물: 좌표 배열과 정지 화면 기록. 검증 범위 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 동등성의 역할을 설명한다. 입력 사례: 동일 seed와 입자 10개. 산출물: 좌표 배열과 정지 화면 기록. 검증 범위 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/07/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5432,7 +5432,7 @@
       "day": 8,
       "week": 2,
       "title": "Resize 메시지",
-      "goal": "학습 결과: 측정의 역할을 설명한다. 입력 사례: 가로·세로 크기 변경. 산출물: 저장소 크기와 도형 스타일 표. 변경 비용 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 측정의 역할을 설명한다. 입력 사례: 가로·세로 크기 변경. 산출물: 저장소 크기와 도형 스타일 표. 변경 비용 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/08/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5441,7 +5441,7 @@
       "day": 9,
       "week": 2,
       "title": "Resize 순서 번호",
-      "goal": "학습 결과: 최신 크기의 역할을 설명한다. 입력 사례: seq 1·3·2 순서 입력. 산출물: 적용 seq와 최종 크기. 응답 확인 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 최신 크기의 역할을 설명한다. 입력 사례: seq 1·3·2 순서 입력. 산출물: 적용 seq와 최종 크기. 응답 확인 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/09/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5450,7 +5450,7 @@
       "day": 10,
       "week": 2,
       "title": "DPR 변경 감지",
-      "goal": "학습 결과: 환경 변화의 역할을 설명한다. 입력 사례: DPR 1·2·3 조건. 산출물: 실제·적용 DPR과 buffer 픽셀 수. 해상도 상한 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 환경 변화의 역할을 설명한다. 입력 사례: DPR 1·2·3 조건. 산출물: 실제·적용 DPR과 buffer 픽셀 수. 해상도 상한 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/10/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5459,7 +5459,7 @@
       "day": 11,
       "week": 2,
       "title": "포인터 좌표 변환",
-      "goal": "학습 결과: 로컬 좌표의 역할을 설명한다. 입력 사례: 중앙·네 모서리 클릭. 산출물: 입력 좌표와 선택 입자 ID. 스케일 일치 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 로컬 좌표의 역할을 설명한다. 입력 사례: 중앙·네 모서리 클릭. 산출물: 입력 좌표와 선택 입자 ID. 스케일 일치 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/11/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5468,7 +5468,7 @@
       "day": 12,
       "week": 2,
       "title": "입력 병합",
-      "goal": "학습 결과: 최신 값의 역할을 설명한다. 입력 사례: 빠른 이동과 클릭. 산출물: 메시지 수와 down/up 짝 기록. 이벤트 성격 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 최신 값의 역할을 설명한다. 입력 사례: 빠른 이동과 클릭. 산출물: 메시지 수와 down/up 짝 기록. 이벤트 성격 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/12/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5477,7 +5477,7 @@
       "day": 13,
       "week": 2,
       "title": "Pointer Capture와 취소",
-      "goal": "학습 결과: Capture의 역할을 설명한다. 입력 사례: 내부 드래그·외부 이동·취소. 산출물: 입력 종료 뒤 dragging 값. Cancel 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Capture의 역할을 설명한다. 입력 사례: 내부 드래그·외부 이동·취소. 산출물: 입력 종료 뒤 dragging 값. Cancel 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/13/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5486,7 +5486,7 @@
       "day": 14,
       "week": 2,
       "title": "Resize와 입력 프로토콜",
-      "goal": "학습 결과: 단위 계약의 역할을 설명한다. 입력 사례: 빠른 resize 중 중앙 선택. 산출물: 크기 seq·선택 ID·선명도 기록. 순서 보존 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 단위 계약의 역할을 설명한다. 입력 사례: 빠른 resize 중 중앙 선택. 산출물: 크기 seq·선택 ID·선명도 기록. 순서 보존 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/02-experiments/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5495,7 +5495,7 @@
       "day": 15,
       "week": 3,
       "title": "장면 상태 갱신",
-      "goal": "학습 결과: 패치의 역할을 설명한다. 입력 사례: 정상 패치와 오래된 패치. 산출물: 버전별 최종 장면 값. 버전 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 패치의 역할을 설명한다. 입력 사례: 정상 패치와 오래된 패치. 산출물: 버전별 최종 장면 값. 버전 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/15/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5504,7 +5504,7 @@
       "day": 16,
       "week": 3,
       "title": "입자 데이터 배치",
-      "goal": "학습 결과: TypedArray의 역할을 설명한다. 입력 사례: 입자 100개. 산출물: byteLength와 입자 좌표 범위. 소유권 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: TypedArray의 역할을 설명한다. 입력 사례: 입자 100개. 산출물: byteLength와 입자 좌표 범위. 소유권 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/16/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5513,7 +5513,7 @@
       "day": 17,
       "week": 3,
       "title": "정지와 재개",
-      "goal": "학습 결과: Pause의 역할을 설명한다. 입력 사례: 2초 정지 후 재개. 산출물: 정지 중 프레임 수와 재개 위치. 시간 기준 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Pause의 역할을 설명한다. 입력 사례: 2초 정지 후 재개. 산출물: 정지 중 프레임 수와 재개 위치. 시간 기준 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/17/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5522,7 +5522,7 @@
       "day": 18,
       "week": 3,
       "title": "페이지 숨김 정책",
-      "goal": "학습 결과: 가시성의 역할을 설명한다. 입력 사례: 탭 숨김과 복귀. 산출물: 숨김 동안 계산 수와 복귀 상태. 동기화 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 가시성의 역할을 설명한다. 입력 사례: 탭 숨김과 복귀. 산출물: 숨김 동안 계산 수와 복귀 상태. 동기화 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/18/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5531,7 +5531,7 @@
       "day": 19,
       "week": 3,
       "title": "정리 프로토콜",
-      "goal": "학습 결과: Dispose의 역할을 설명한다. 입력 사례: 렌더 중 dispose. 산출물: 프레임·메시지·observer 잔여 수. 확인과 종료 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Dispose의 역할을 설명한다. 입력 사례: 렌더 중 dispose. 산출물: 프레임·메시지·observer 잔여 수. 확인과 종료 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/19/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5540,7 +5540,7 @@
       "day": 20,
       "week": 3,
       "title": "재시작 Canvas",
-      "goal": "학습 결과: 재이전 제한의 역할을 설명한다. 입력 사례: 시작·종료 5회. 산출물: 회차별 Canvas·Worker 수와 첫 프레임. 재시작 상태 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 재이전 제한의 역할을 설명한다. 입력 사례: 시작·종료 5회. 산출물: 회차별 Canvas·Worker 수와 첫 프레임. 재시작 상태 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/20/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5549,7 +5549,7 @@
       "day": 21,
       "week": 3,
       "title": "Worker 장애 복구",
-      "goal": "학습 결과: 오류 구분의 역할을 설명한다. 입력 사례: 초기 오류와 렌더 중 오류. 산출물: 오류 안내·선택 모드·장면 보존 표. 대체 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 오류 구분의 역할을 설명한다. 입력 사례: 초기 오류와 렌더 중 오류. 산출물: 오류 안내·선택 모드·장면 보존 표. 대체 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/21/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5558,7 +5558,7 @@
       "day": 22,
       "week": 4,
       "title": "ImageBitmap 전달",
-      "goal": "학습 결과: 프레임 전달의 역할을 설명한다. 입력 사례: 연속 프레임 30개. 산출물: 표시·폐기·close 횟수. 자원 수명 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 프레임 전달의 역할을 설명한다. 입력 사례: 연속 프레임 30개. 산출물: 표시·폐기·close 횟수. 자원 수명 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/22/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5567,7 +5567,7 @@
       "day": 23,
       "week": 4,
       "title": "Canvas Context 손실",
-      "goal": "학습 결과: 손실의 역할을 설명한다. 입력 사례: 지원 환경의 손실 또는 명시적 실패 주입. 산출물: 중단 안내와 장면 재생성 기록. 복구 자료 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 손실의 역할을 설명한다. 입력 사례: 지원 환경의 손실 또는 명시적 실패 주입. 산출물: 중단 안내와 장면 재생성 기록. 복구 자료 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/23/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5576,7 +5576,7 @@
       "day": 24,
       "week": 4,
       "title": "요청과 화면 지연",
-      "goal": "학습 결과: 시각 반영의 역할을 설명한다. 입력 사례: 색 변경 요청 20회. 산출물: 왕복·처리·관찰 지연 기록. 측정 구분 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 시각 반영의 역할을 설명한다. 입력 사례: 색 변경 요청 20회. 산출물: 왕복·처리·관찰 지연 기록. 측정 구분 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/24/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5585,7 +5585,7 @@
       "day": 25,
       "week": 4,
       "title": "해상도와 작업량",
-      "goal": "학습 결과: 픽셀 비용의 역할을 설명한다. 입력 사례: 동일 장면과 두 DPR. 산출물: 픽셀 수·프레임 분포 표. 측정 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 픽셀 비용의 역할을 설명한다. 입력 사례: 동일 장면과 두 DPR. 산출물: 픽셀 수·프레임 분포 표. 측정 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/25/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5594,7 +5594,7 @@
       "day": 26,
       "week": 4,
       "title": "메인 스레드 경쟁 실험",
-      "goal": "학습 결과: 경쟁 작업의 역할을 설명한다. 입력 사례: 같은 장면과 클릭 카운터. 산출물: 모드별 입력 지연·프레임 분포. 공정한 비교 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 경쟁 작업의 역할을 설명한다. 입력 사례: 같은 장면과 클릭 카운터. 산출물: 모드별 입력 지연·프레임 분포. 공정한 비교 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/26/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5603,7 +5603,7 @@
       "day": 27,
       "week": 4,
       "title": "실험 결과 정리",
-      "goal": "학습 결과: 분포의 역할을 설명한다. 입력 사례: 반복 실행 3회. 산출물: 조건과 원시값을 포함한 비교 표. 한계 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 분포의 역할을 설명한다. 입력 사례: 반복 실행 3회. 산출물: 조건과 원시값을 포함한 비교 표. 한계 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/27/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5612,7 +5612,7 @@
       "day": 28,
       "week": 4,
       "title": "렌더링 분리 평가",
-      "goal": "학습 결과: 분리 효과의 역할을 설명한다. 입력 사례: resize·입력·종료·재실행·미지원. 산출물: 입력 지연·프레임·정리·fallback 보고서. 완료 조건 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 분리 효과의 역할을 설명한다. 입력 사례: resize·입력·종료·재실행·미지원. 산출물: 입력 지연·프레임·정리·fallback 보고서. 완료 조건 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/03-project/README.md",
       "seriesId": "offscreen-canvas"
     },
@@ -5621,7 +5621,7 @@
       "day": 1,
       "week": 1,
       "title": "모듈과 선형 메모리",
-      "goal": "학습 결과: 모듈 경계의 역할을 설명한다. 입력 사례: [1,2,3]과 잘못된 파일 경로. 산출물: JS·Wasm 합계 6 및 로딩 오류 기록. 미리보기 범위 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 모듈 경계의 역할을 설명한다. 입력 사례: [1,2,3]과 잘못된 파일 경로. 산출물: JS·Wasm 합계 6 및 로딩 오류 기록. 미리보기 범위 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/01-foundations/README.md",
       "seriesId": "webassembly"
     },
@@ -5630,7 +5630,7 @@
       "day": 2,
       "week": 1,
       "title": "WAT와 바이너리",
-      "goal": "학습 결과: 텍스트 형식의 역할을 설명한다. 입력 사례: 기존 sum 함수와 변경한 상수. 산출물: 빌드 로그와 export 호출 결과. 빌드 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 텍스트 형식의 역할을 설명한다. 입력 사례: 기존 sum 함수와 변경한 상수. 산출물: 빌드 로그와 export 호출 결과. 빌드 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/02/README.md",
       "seriesId": "webassembly"
     },
@@ -5639,7 +5639,7 @@
       "day": 3,
       "week": 1,
       "title": "Compile과 Instance",
-      "goal": "학습 결과: Module의 역할을 설명한다. 입력 사례: 같은 module과 다른 첫 원소. 산출물: 인스턴스별 첫 원소 값. Instance 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Module의 역할을 설명한다. 입력 사례: 같은 module과 다른 첫 원소. 산출물: 인스턴스별 첫 원소 값. Instance 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/03/README.md",
       "seriesId": "webassembly"
     },
@@ -5648,7 +5648,7 @@
       "day": 4,
       "week": 1,
       "title": "Export 검사",
-      "goal": "학습 결과: Export 표면의 역할을 설명한다. 입력 사례: 정상 모듈과 필수 이름 오타. 산출물: export 목록과 오류 안내. 계약 검사 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Export 표면의 역할을 설명한다. 입력 사례: 정상 모듈과 필수 이름 오타. 산출물: export 목록과 오류 안내. 계약 검사 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/04/README.md",
       "seriesId": "webassembly"
     },
@@ -5657,7 +5657,7 @@
       "day": 5,
       "week": 1,
       "title": "Import와 Host 함수",
-      "goal": "학습 결과: Import의 역할을 설명한다. 입력 사례: 보고 함수 있음·누락. 산출물: 호출 값과 연결 오류 기록. 경계 비용 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Import의 역할을 설명한다. 입력 사례: 보고 함수 있음·누락. 산출물: 호출 값과 연결 오류 기록. 경계 비용 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/05/README.md",
       "seriesId": "webassembly"
     },
@@ -5666,7 +5666,7 @@
       "day": 6,
       "week": 1,
       "title": "I32와 JS Number",
-      "goal": "학습 결과: 수치 표현의 역할을 설명한다. 입력 사례: 작은 수와 INT32_MAX 근처 값. 산출물: 수치 범위별 기대·실제 합계. 오버플로 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 수치 표현의 역할을 설명한다. 입력 사례: 작은 수와 INT32_MAX 근처 값. 산출물: 수치 범위별 기대·실제 합계. 오버플로 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/06/README.md",
       "seriesId": "webassembly"
     },
@@ -5675,7 +5675,7 @@
       "day": 7,
       "week": 1,
       "title": "Trap과 입력 검사",
-      "goal": "학습 결과: Trap의 역할을 설명한다. 입력 사례: 정상·음수 길이·범위 초과. 산출물: 거부 사유와 RuntimeError 기록. 사전 검사 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Trap의 역할을 설명한다. 입력 사례: 정상·음수 길이·범위 초과. 산출물: 거부 사유와 RuntimeError 기록. 사전 검사 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/07/README.md",
       "seriesId": "webassembly"
     },
@@ -5684,7 +5684,7 @@
       "day": 8,
       "week": 2,
       "title": "페이지와 Byte Offset",
-      "goal": "학습 결과: 페이지의 역할을 설명한다. 입력 사례: 서로 다른 네 정수. 산출물: index·offset·읽은 값 표. 포인터 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 페이지의 역할을 설명한다. 입력 사례: 서로 다른 네 정수. 산출물: index·offset·읽은 값 표. 포인터 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/08/README.md",
       "seriesId": "webassembly"
     },
@@ -5693,7 +5693,7 @@
       "day": 9,
       "week": 2,
       "title": "View와 엔디언",
-      "goal": "학습 결과: 동일 저장소의 역할을 설명한다. 입력 사례: 32비트 정수 하나. 산출물: 네 바이트와 복원된 수치. 바이트 순서 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 동일 저장소의 역할을 설명한다. 입력 사례: 32비트 정수 하나. 산출물: 네 바이트와 복원된 수치. 바이트 순서 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/09/README.md",
       "seriesId": "webassembly"
     },
@@ -5702,7 +5702,7 @@
       "day": 10,
       "week": 2,
       "title": "배열 복사와 범위",
-      "goal": "학습 결과: Set의 역할을 설명한다. 입력 사례: 길이 0·4·1003 배열. 산출물: 입력·메모리·결과 범위 표. 범위 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Set의 역할을 설명한다. 입력 사례: 길이 0·4·1003 배열. 산출물: 입력·메모리·결과 범위 표. 범위 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/10/README.md",
       "seriesId": "webassembly"
     },
@@ -5711,7 +5711,7 @@
       "day": 11,
       "week": 2,
       "title": "Memory Grow와 View 수명",
-      "goal": "학습 결과: Grow의 역할을 설명한다. 입력 사례: 비공유 memory 한 개. 산출물: 확장 전후 용량·old/new view 길이. 재생성 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Grow의 역할을 설명한다. 입력 사례: 비공유 memory 한 개. 산출물: 확장 전후 용량·old/new view 길이. 재생성 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/11/README.md",
       "seriesId": "webassembly"
     },
@@ -5720,7 +5720,7 @@
       "day": 12,
       "week": 2,
       "title": "용량 한도와 실패",
-      "goal": "학습 결과: Maximum의 역할을 설명한다. 입력 사례: 페이지 경계 전후 길이. 산출물: 필요·할당 페이지와 오류 표. 용량 계산 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Maximum의 역할을 설명한다. 입력 사례: 페이지 경계 전후 길이. 산출물: 필요·할당 페이지와 오류 표. 용량 계산 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/12/README.md",
       "seriesId": "webassembly"
     },
@@ -5729,7 +5729,7 @@
       "day": 13,
       "week": 2,
       "title": "스칼라와 배치 호출",
-      "goal": "학습 결과: 호출 횟수의 역할을 설명한다. 입력 사례: 100개와 100003개 정수. 산출물: 호출 수·합계·측정 시간. 공정한 비교 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 호출 횟수의 역할을 설명한다. 입력 사례: 100개와 100003개 정수. 산출물: 호출 수·합계·측정 시간. 공정한 비교 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/13/README.md",
       "seriesId": "webassembly"
     },
@@ -5738,7 +5738,7 @@
       "day": 14,
       "week": 2,
       "title": "배열과 경계 비용",
-      "goal": "학습 결과: 메모리 배치의 역할을 설명한다. 입력 사례: 기존 100003개 입력과 작은 배열. 산출물: 합계 일치·copyMs·batchMs·scalarMs·view 길이. View 수명 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 메모리 배치의 역할을 설명한다. 입력 사례: 기존 100003개 입력과 작은 배열. 산출물: 합계 일치·copyMs·batchMs·scalarMs·view 길이. View 수명 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/02-experiments/README.md",
       "seriesId": "webassembly"
     },
@@ -5747,7 +5747,7 @@
       "day": 15,
       "week": 3,
       "title": "In-place 변환",
-      "goal": "학습 결과: 덮어쓰기의 역할을 설명한다. 입력 사례: 음수·0·양수 배열. 산출물: 모든 원소의 기대·실제 값. 반복 조건 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 덮어쓰기의 역할을 설명한다. 입력 사례: 음수·0·양수 배열. 산출물: 모든 원소의 기대·실제 값. 반복 조건 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/15/README.md",
       "seriesId": "webassembly"
     },
@@ -5756,7 +5756,7 @@
       "day": 16,
       "week": 3,
       "title": "정렬과 비정렬 접근",
-      "goal": "학습 결과: 정렬의 역할을 설명한다. 입력 사례: 같은 네 바이트. 산출물: 생성 오류와 읽은 값. DataView 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 정렬의 역할을 설명한다. 입력 사례: 같은 네 바이트. 산출물: 생성 오류와 읽은 값. DataView 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/16/README.md",
       "seriesId": "webassembly"
     },
@@ -5765,7 +5765,7 @@
       "day": 17,
       "week": 3,
       "title": "복수 배열의 배치",
-      "goal": "학습 결과: 영역 분리의 역할을 설명한다. 입력 사례: 서로 다른 길이의 두 배열. 산출물: 영역 표와 sentinel 값. 소유권 규약 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 영역 분리의 역할을 설명한다. 입력 사례: 서로 다른 길이의 두 배열. 산출물: 영역 표와 sentinel 값. 소유권 규약 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/17/README.md",
       "seriesId": "webassembly"
     },
@@ -5774,7 +5774,7 @@
       "day": 18,
       "week": 3,
       "title": "문자열 바이트 계약",
-      "goal": "학습 결과: 인코딩의 역할을 설명한다. 입력 사례: 영문·한글·이모지. 산출물: 문자 수·바이트 수·왕복 문자열. 길이 전달 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 인코딩의 역할을 설명한다. 입력 사례: 영문·한글·이모지. 산출물: 문자 수·바이트 수·왕복 문자열. 길이 전달 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/18/README.md",
       "seriesId": "webassembly"
     },
@@ -5783,7 +5783,7 @@
       "day": 19,
       "week": 3,
       "title": "브라우저 로딩과 MIME",
-      "goal": "학습 결과: Streaming의 역할을 설명한다. 입력 사례: 정상·404·잘못된 MIME. 산출물: 응답 상태와 초기화 결과. 실패 분류 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Streaming의 역할을 설명한다. 입력 사례: 정상·404·잘못된 MIME. 산출물: 응답 상태와 초기화 결과. 실패 분류 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/19/README.md",
       "seriesId": "webassembly"
     },
@@ -5792,7 +5792,7 @@
       "day": 20,
       "week": 3,
       "title": "초기화 재사용",
-      "goal": "학습 결과: 초기화 비용의 역할을 설명한다. 입력 사례: 연속 요청 5개. 산출물: 초기화 횟수와 요청별 결과. 동시 요청 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 초기화 비용의 역할을 설명한다. 입력 사례: 연속 요청 5개. 산출물: 초기화 횟수와 요청별 결과. 동시 요청 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/20/README.md",
       "seriesId": "webassembly"
     },
@@ -5801,7 +5801,7 @@
       "day": 21,
       "week": 3,
       "title": "Worker와 Wasm",
-      "goal": "학습 결과: 실행 위치의 역할을 설명한다. 입력 사례: 같은 큰 배열과 UI 클릭. 산출물: 메인·Worker의 결과와 왕복 지연. 전송 비용 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 실행 위치의 역할을 설명한다. 입력 사례: 같은 큰 배열과 UI 클릭. 산출물: 메인·Worker의 결과와 왕복 지연. 전송 비용 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/21/README.md",
       "seriesId": "webassembly"
     },
@@ -5810,7 +5810,7 @@
       "day": 22,
       "week": 4,
       "title": "모듈 캐시와 버전",
-      "goal": "학습 결과: 캐시의 역할을 설명한다. 입력 사례: 정상 버전과 오래된 바이너리. 산출물: 소스 해시·바이너리 해시·검사 결과. 버전 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 캐시의 역할을 설명한다. 입력 사례: 정상 버전과 오래된 바이너리. 산출물: 소스 해시·바이너리 해시·검사 결과. 버전 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/22/README.md",
       "seriesId": "webassembly"
     },
@@ -5819,7 +5819,7 @@
       "day": 23,
       "week": 4,
       "title": "콜드 실행 분해",
-      "goal": "학습 결과: 콜드 비용의 역할을 설명한다. 입력 사례: 새 프로세스 첫 요청. 산출물: 단계별 duration과 포함 작업 표. 측정 경계 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 콜드 비용의 역할을 설명한다. 입력 사례: 새 프로세스 첫 요청. 산출물: 단계별 duration과 포함 작업 표. 측정 경계 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/23/README.md",
       "seriesId": "webassembly"
     },
@@ -5828,7 +5828,7 @@
       "day": 24,
       "week": 4,
       "title": "웜 반복과 워밍업",
-      "goal": "학습 결과: 워밍업의 역할을 설명한다. 입력 사례: 반복 5회와 20회. 산출물: 원시 duration·중앙값·오차 여부. 동등 조건 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 워밍업의 역할을 설명한다. 입력 사례: 반복 5회와 20회. 산출물: 원시 duration·중앙값·오차 여부. 동등 조건 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/24/README.md",
       "seriesId": "webassembly"
     },
@@ -5837,7 +5837,7 @@
       "day": 25,
       "week": 4,
       "title": "복사 포함 총비용",
-      "goal": "학습 결과: 커널 시간의 역할을 설명한다. 입력 사례: 세 데이터 크기. 산출물: JS·커널·복사 포함 시간 표. 총비용 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 커널 시간의 역할을 설명한다. 입력 사례: 세 데이터 크기. 산출물: JS·커널·복사 포함 시간 표. 총비용 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/25/README.md",
       "seriesId": "webassembly"
     },
@@ -5846,7 +5846,7 @@
       "day": 26,
       "week": 4,
       "title": "경계값 정확도",
-      "goal": "학습 결과: 정확도 우선의 역할을 설명한다. 입력 사례: 0·1·1003 길이 배열. 산출물: 사례별 PASS 또는 실패 차이. 오차 기준 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 정확도 우선의 역할을 설명한다. 입력 사례: 0·1·1003 길이 배열. 산출물: 사례별 PASS 또는 실패 차이. 오차 기준 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/26/README.md",
       "seriesId": "webassembly"
     },
@@ -5855,7 +5855,7 @@
       "day": 27,
       "week": 4,
       "title": "환경과 채택 기준",
-      "goal": "학습 결과: 재현성의 역할을 설명한다. 입력 사례: 작은·중간·큰 배열. 산출물: 조건별 정확도·총비용·유지보수 판단. 채택 기준 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 재현성의 역할을 설명한다. 입력 사례: 작은·중간·큰 배열. 산출물: 조건별 정확도·총비용·유지보수 판단. 채택 기준 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/27/README.md",
       "seriesId": "webassembly"
     },
@@ -5864,7 +5864,7 @@
       "day": 28,
       "week": 4,
       "title": "실제 병목 평가",
-      "goal": "학습 결과: 전체 지연의 역할을 설명한다. 입력 사례: 여러 크기와 반복 수. 산출물: 콜드·웜·복사·정확도·채택 근거 보고서. 근거 있는 결정 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 전체 지연의 역할을 설명한다. 입력 사례: 여러 크기와 반복 수. 산출물: 콜드·웜·복사·정확도·채택 근거 보고서. 근거 있는 결정 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/03-project/README.md",
       "seriesId": "webassembly"
     },
@@ -5873,7 +5873,7 @@
       "day": 1,
       "week": 1,
       "title": "사용자 관점의 테스트",
-      "goal": "학습 결과: 사용자 계약의 역할을 설명한다. 입력 사례: 목차 선택과 문서 열기 버튼. 산출물: 선택 제목·dialog 표시 assertion 결과. 자동 대기 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 사용자 계약의 역할을 설명한다. 입력 사례: 목차 선택과 문서 열기 버튼. 산출물: 선택 제목·dialog 표시 assertion 결과. 자동 대기 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/01-foundations/README.md",
       "seriesId": "playwright"
     },
@@ -5882,7 +5882,7 @@
       "day": 2,
       "week": 1,
       "title": "설정과 실행 범위",
-      "goal": "학습 결과: Runner의 역할을 설명한다. 입력 사례: 별도 로컬 테스트 origin. 산출물: 실행 명령·대상 URL·리포트. BaseURL 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Runner의 역할을 설명한다. 입력 사례: 별도 로컬 테스트 origin. 산출물: 실행 명령·대상 URL·리포트. BaseURL 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/02/README.md",
       "seriesId": "playwright"
     },
@@ -5891,7 +5891,7 @@
       "day": 3,
       "week": 1,
       "title": "Role과 접근 가능한 이름",
-      "goal": "학습 결과: Role의 역할을 설명한다. 입력 사례: 이름이 비슷한 버튼 두 개. 산출물: locator count와 클릭 후 상태. 이름 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Role의 역할을 설명한다. 입력 사례: 이름이 비슷한 버튼 두 개. 산출물: locator count와 클릭 후 상태. 이름 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/03/README.md",
       "seriesId": "playwright"
     },
@@ -5900,7 +5900,7 @@
       "day": 4,
       "week": 1,
       "title": "Label과 입력",
-      "goal": "학습 결과: Label의 역할을 설명한다. 입력 사례: 한글·줄바꿈 필기. 산출물: 입력값과 저장 상태 결과. 값 assertion 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Label의 역할을 설명한다. 입력 사례: 한글·줄바꿈 필기. 산출물: 입력값과 저장 상태 결과. 값 assertion 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/04/README.md",
       "seriesId": "playwright"
     },
@@ -5909,7 +5909,7 @@
       "day": 5,
       "week": 1,
       "title": "Locator 범위",
-      "goal": "학습 결과: 범위 좁히기의 역할을 설명한다. 입력 사례: 같은 버튼 이름의 카드 세 개. 산출물: 선택된 카드 ID와 제목. 엄격성 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 범위 좁히기의 역할을 설명한다. 입력 사례: 같은 버튼 이름의 카드 세 개. 산출물: 선택된 카드 ID와 제목. 엄격성 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/05/README.md",
       "seriesId": "playwright"
     },
@@ -5918,7 +5918,7 @@
       "day": 6,
       "week": 1,
       "title": "재시도 Assertion",
-      "goal": "학습 결과: 상태 대기의 역할을 설명한다. 입력 사례: 빠른 응답과 지연 응답. 산출물: assertion 성공·실패 메시지. 실패 설명 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 상태 대기의 역할을 설명한다. 입력 사례: 빠른 응답과 지연 응답. 산출물: assertion 성공·실패 메시지. 실패 설명 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/06/README.md",
       "seriesId": "playwright"
     },
@@ -5927,7 +5927,7 @@
       "day": 7,
       "week": 1,
       "title": "첫 흐름의 실패 진단",
-      "goal": "학습 결과: 실패 위치의 역할을 설명한다. 입력 사례: 정상 제목과 의도적 잘못된 기대. 산출물: 실패 단계가 보이는 리포트. 단계 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 실패 위치의 역할을 설명한다. 입력 사례: 정상 제목과 의도적 잘못된 기대. 산출물: 실패 단계가 보이는 리포트. 단계 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/07/README.md",
       "seriesId": "playwright"
     },
@@ -5936,7 +5936,7 @@
       "day": 8,
       "week": 2,
       "title": "BrowserContext 격리",
-      "goal": "학습 결과: 새 문맥의 역할을 설명한다. 입력 사례: A와 B의 다른 필기. 산출물: 테스트별 초기·종료 값. 테스트 데이터 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 새 문맥의 역할을 설명한다. 입력 사례: A와 B의 다른 필기. 산출물: 테스트별 초기·종료 값. 테스트 데이터 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/08/README.md",
       "seriesId": "playwright"
     },
@@ -5945,7 +5945,7 @@
       "day": 9,
       "week": 2,
       "title": "저장과 새로고침",
-      "goal": "학습 결과: 영속 상태의 역할을 설명한다. 입력 사례: 한글과 빈 필기. 산출물: 새로고침 전후 필기 값. 완료 신호 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 영속 상태의 역할을 설명한다. 입력 사례: 한글과 빈 필기. 산출물: 새로고침 전후 필기 값. 완료 신호 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/09/README.md",
       "seriesId": "playwright"
     },
@@ -5954,7 +5954,7 @@
       "day": 10,
       "week": 2,
       "title": "다운로드 이벤트",
-      "goal": "학습 결과: 이벤트 순서의 역할을 설명한다. 입력 사례: 필기 두 개를 담은 백업. 산출물: 파일명·JSON 구조·필기 값. 파일 검증 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 이벤트 순서의 역할을 설명한다. 입력 사례: 필기 두 개를 담은 백업. 산출물: 파일명·JSON 구조·필기 값. 파일 검증 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/10/README.md",
       "seriesId": "playwright"
     },
@@ -5972,7 +5972,7 @@
       "day": 12,
       "week": 2,
       "title": "잘못된 파일과 보존",
-      "goal": "학습 결과: 검증 실패의 역할을 설명한다. 입력 사례: 기존 필기와 두 오류 파일. 산출물: 오류 안내·기존 값·새로고침 후 값. 음성 경로 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 검증 실패의 역할을 설명한다. 입력 사례: 기존 필기와 두 오류 파일. 산출물: 오류 안내·기존 값·새로고침 후 값. 음성 경로 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/12/README.md",
       "seriesId": "playwright"
     },
@@ -5981,7 +5981,7 @@
       "day": 13,
       "week": 2,
       "title": "항목별 저장 격리",
-      "goal": "학습 결과: 식별자의 역할을 설명한다. 입력 사례: A 메모와 B 메모. 산출물: 항목별 입력·복원 대응 표. 왕복 이동 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 식별자의 역할을 설명한다. 입력 사례: A 메모와 B 메모. 산출물: 항목별 입력·복원 대응 표. 왕복 이동 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/13/README.md",
       "seriesId": "playwright"
     },
@@ -5990,7 +5990,7 @@
       "day": 14,
       "week": 2,
       "title": "저장·다운로드·복원",
-      "goal": "학습 결과: 왕복 계약의 역할을 설명한다. 입력 사례: 빈 메모·한글·오류 파일. 산출물: 왕복 후 필기와 오류 보존 결과. 격리 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 왕복 계약의 역할을 설명한다. 입력 사례: 빈 메모·한글·오류 파일. 산출물: 왕복 후 필기와 오류 보존 결과. 격리 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/02-experiments/README.md",
       "seriesId": "playwright"
     },
@@ -5999,7 +5999,7 @@
       "day": 15,
       "week": 3,
       "title": "Keyboard 탐색",
-      "goal": "학습 결과: 키보드 경로의 역할을 설명한다. 입력 사례: Tab·Enter·Escape. 산출물: 단계별 activeElement와 dialog 상태. 포커스 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 키보드 경로의 역할을 설명한다. 입력 사례: Tab·Enter·Escape. 산출물: 단계별 activeElement와 dialog 상태. 포커스 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/15/README.md",
       "seriesId": "playwright"
     },
@@ -6008,7 +6008,7 @@
       "day": 16,
       "week": 3,
       "title": "Viewport와 반응형",
-      "goal": "학습 결과: 조건 명시의 역할을 설명한다. 입력 사례: 390×844와 1280×800. 산출물: 버튼 가시성·필기 입력·가로 넘침 결과. 핵심 동작 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 조건 명시의 역할을 설명한다. 입력 사례: 390×844와 1280×800. 산출물: 버튼 가시성·필기 입력·가로 넘침 결과. 핵심 동작 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/16/README.md",
       "seriesId": "playwright"
     },
@@ -6044,7 +6044,7 @@
       "day": 20,
       "week": 3,
       "title": "Console과 PageError",
-      "goal": "학습 결과: 신호 수집의 역할을 설명한다. 입력 사례: 정상 탐색과 의도적 예외. 산출물: 오류 유형·메시지·발생 단계. 필터 근거 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 신호 수집의 역할을 설명한다. 입력 사례: 정상 탐색과 의도적 예외. 산출물: 오류 유형·메시지·발생 단계. 필터 근거 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/20/README.md",
       "seriesId": "playwright"
     },
@@ -6053,7 +6053,7 @@
       "day": 21,
       "week": 3,
       "title": "Trace 읽기",
-      "goal": "학습 결과: 실행 증거의 역할을 설명한다. 입력 사례: 의도적 잘못된 문서 기대. 산출물: 액션·DOM·요청을 연결한 진단 메모. 진단 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 실행 증거의 역할을 설명한다. 입력 사례: 의도적 잘못된 문서 기대. 산출물: 액션·DOM·요청을 연결한 진단 메모. 진단 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/21/README.md",
       "seriesId": "playwright"
     },
@@ -6062,7 +6062,7 @@
       "day": 22,
       "week": 4,
       "title": "Fixtures와 준비 책임",
-      "goal": "학습 결과: Fixture의 역할을 설명한다. 입력 사례: 정상 테스트와 중간 실패. 산출물: 준비·정리 로그와 잔여 파일. 해제 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Fixture의 역할을 설명한다. 입력 사례: 정상 테스트와 중간 실패. 산출물: 준비·정리 로그와 잔여 파일. 해제 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/22/README.md",
       "seriesId": "playwright"
     },
@@ -6071,7 +6071,7 @@
       "day": 23,
       "week": 4,
       "title": "병렬 실행과 충돌",
-      "goal": "학습 결과: 병렬성의 역할을 설명한다. 입력 사례: 같은 백업 흐름 두 테스트. 산출물: 파일 경로와 각 테스트 결과. 독립성 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 병렬성의 역할을 설명한다. 입력 사례: 같은 백업 흐름 두 테스트. 산출물: 파일 경로와 각 테스트 결과. 독립성 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/23/README.md",
       "seriesId": "playwright"
     },
@@ -6080,7 +6080,7 @@
       "day": 24,
       "week": 4,
       "title": "Retries와 흔들림",
-      "goal": "학습 결과: Retry의 역할을 설명한다. 입력 사례: 동일 테스트 반복 10회. 산출물: 첫 시도·재시도 결과와 수정 근거. 근본 원인 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: Retry의 역할을 설명한다. 입력 사례: 동일 테스트 반복 10회. 산출물: 첫 시도·재시도 결과와 수정 근거. 근본 원인 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/24/README.md",
       "seriesId": "playwright"
     },
@@ -6089,7 +6089,7 @@
       "day": 25,
       "week": 4,
       "title": "시각 기준 만들기",
-      "goal": "학습 결과: 결정성의 역할을 설명한다. 입력 사례: 고정 화면과 폰트 조건. 산출물: 기준 이미지·환경·변경 diff. 범위 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 결정성의 역할을 설명한다. 입력 사례: 고정 화면과 폰트 조건. 산출물: 기준 이미지·환경·변경 diff. 범위 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/25/README.md",
       "seriesId": "playwright"
     },
@@ -6098,7 +6098,7 @@
       "day": 26,
       "week": 4,
       "title": "허용 차이와 검토",
-      "goal": "학습 결과: 허용치의 역할을 설명한다. 입력 사례: 2px 간격 변경과 원본. 산출물: diff 위치와 기준 갱신 판단. 기준 갱신 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 허용치의 역할을 설명한다. 입력 사례: 2px 간격 변경과 원본. 산출물: diff 위치와 기준 갱신 판단. 기준 갱신 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/26/README.md",
       "seriesId": "playwright"
     },
@@ -6107,7 +6107,7 @@
       "day": 27,
       "week": 4,
       "title": "CI 실행과 산출물",
-      "goal": "학습 결과: 재현 환경의 역할을 설명한다. 입력 사례: 깨끗한 실행과 의도적 실패. 산출물: 설치 버전·종료 코드·리포트 경로. 실패 자료 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 재현 환경의 역할을 설명한다. 입력 사례: 깨끗한 실행과 의도적 실패. 산출물: 설치 버전·종료 코드·리포트 경로. 실패 자료 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/units/27/README.md",
       "seriesId": "playwright"
     },
@@ -6116,7 +6116,7 @@
       "day": 28,
       "week": 4,
       "title": "시각 회귀와 흔들림",
-      "goal": "학습 결과: 환경 차이의 역할을 설명한다. 입력 사례: 고정 viewport·정지 회전·폰트 준비. 산출물: 기준 이미지·기능 리포트·실패 trace·한계 문서. 검증 조합 처리 근거를 코드와 연결해 설명한다.",
+      "goal": "학습 결과: 환경 차이의 역할을 설명한다. 입력 사례: 고정 viewport·정지 회전·폰트 준비. 산출물: 기준 이미지·기능 리포트·실패 trace·한계 문서. 검증 조합 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/testing/playwright/03-project/README.md",
       "seriesId": "playwright"
     }

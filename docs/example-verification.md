@@ -16,7 +16,7 @@
 - GLSL 03: 의도한 구문 오류를 표시하면서 이전 program을 유지하고 Restore로 정상 compile/link 상태로 복구했습니다.
 - Worker 02: copy 후 송신 buffer 유지, transfer 후 byteLength 0, 합계 일치, 의도한 오류 후 새 요청 성공을 확인했습니다.
 - WebAssembly 02·03: 실제 작은 WASM 모듈을 Node에서 실행하여 scalar/batch/transform 결과와 JS 기준값 일치, Memory.grow 뒤 이전 view 분리 등을 검증했습니다. 화면의 Memory 실험과 별도 모듈 실행을 구분합니다.
-- Svelte 추가 컴포넌트 3개는 Svelte 컴파일러 검사에서 경고 없이 컴파일됐습니다. 별도 Svelte 앱에서의 상호작용 검증은 하지 않았습니다.
+- Svelte 추가 컴포넌트 3개는 Svelte 컴파일러 검사에서 경고 없이 컴파일됐습니다. 별도 Svelte 앱에서 상호작용을 검증하지 않았습니다.
 - GS 파서: 소형 binary splat, ASCII GS PLY 변환, 일반 PLY 거부, 잘못된 길이·개수·비유한 값 거부를 자동 테스트했습니다. 기본 생성 데이터의 CPU 투영 화면 초기화를 확인했습니다.
 - 검증 중 예상하지 않은 브라우저 콘솔 error는 수집되지 않았습니다. 백그라운드 탭의 rAF 중지로 초기화 표시가 지연되던 문제를 수정하고 회귀 테스트를 추가했습니다.
 

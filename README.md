@@ -1,13 +1,13 @@
 # Frontory
 
-**Learn · Experiment · Archive** — 프론트엔드 기술을 배우고, 코드를 실험하고, 경험을 기록하는 웹 학습 공간입니다. Frontend + Story + Repository라는 의미를 담았습니다.
+**Learn · Experiment · Archive** — 프론트엔드 기술을 배우고 코드를 실험하고 경험을 기록하는 웹 학습 공간입니다. Frontend + Story + Repository라는 의미를 담았습니다.
 
 [사용법](docs/learning-workspace.md) · [기술 지도](docs/labs/README.md) · [학습 로드맵](docs/roadmap.md) · [배포 가이드](docs/deployment.md) · [검색 등록 안내](docs/search-indexing.md) · [기여 안내](CONTRIBUTING.md)
 
 ## 무엇을 할 수 있나요?
 
 - 23개 기술 시리즈와 644개 학습 단위를 분야·단계별로 탐색합니다. 각 시리즈는 4단계, 28단위로 구성됩니다.
-- 학습 목표와 과제를 읽고, 진행 상태를 직접 표시하고, Markdown으로 필기합니다.
+- 학습 목표와 과제를 읽고 진행 상태를 직접 표시하고 Markdown으로 필기합니다.
 - WebGL 첫 장면에서 Monaco Editor로 JavaScript/TypeScript를 수정하고 실행 결과를 확인합니다.
 - 전체 학습 내용을 JSON 파일로 내보내고 다른 브라우저에서 가져옵니다.
 

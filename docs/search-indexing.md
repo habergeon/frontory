@@ -8,7 +8,7 @@ Frontory의 실습 화면은 기존 `/#학습ID` 주소를 유지합니다. `#` 
 - `/sitemap.xml`: 홈과 공개 학습 문서 669개 URL
 - `/robots.txt`: 공개 페이지 크롤링 허용과 사이트맵 위치
 
-공개 문서는 빌드 시 기존 Markdown에서 생성합니다. JavaScript 없이도 본문과 다음 학습 링크를 읽을 수 있으며, 각 페이지에 고유한 제목·설명·canonical을 넣습니다. 본문의 ‘코드 편집 · 실습 · 필기 열기’에서 기존 실습 화면으로 이동합니다. 개인 필기·편집 코드·학습 상태는 공개 문서에 포함하지 않습니다.
+공개 문서는 빌드 시 기존 Markdown에서 생성합니다. JavaScript 없이도 본문과 다음 학습 링크를 읽을 수 있으며 각 페이지에 고유한 제목·설명·canonical을 넣습니다. 본문의 ‘코드 편집 · 실습 · 필기 열기’에서 기존 실습 화면으로 이동합니다. 개인 필기·편집 코드·학습 상태는 공개 문서에 포함하지 않습니다.
 
 `pnpm build`는 Vite 빌드 후 정적 문서를 생성합니다. 별도의 서버나 데이터베이스는 필요하지 않습니다. `404.html`을 두어 존재하지 않는 URL이 홈으로 응답하는 soft 404를 피합니다. 원본 예제 다운로드 경로 `/examples/`에는 `X-Robots-Tag: noindex`를 적용합니다.
 
@@ -24,7 +24,7 @@ Frontory의 실습 화면은 기존 `/#학습ID` 주소를 유지합니다. `#` 
 | 구조화 데이터 | 홈에 `WebSite` 이름·주소·언어 명시 | `index.html` |
 | 검색 제외 | 404 문서 `noindex`, 예제 파일 응답 `X-Robots-Tag: noindex` | `scripts/search-pages.mjs`, `public/_headers` |
 
-공유 이미지는 `public/og/frontory.png`에 있습니다. 크기는 1200×630이며, 기존 로고와 색상을 사용합니다. Windows에서 `powershell -NoProfile -File scripts/build-og.ps1`로 다시 만들 수 있습니다. 배포 빌드에는 이미지 생성 도구가 필요하지 않습니다.
+공유 이미지는 `public/og/frontory.png`에 있습니다. 크기는 1200×630이며 기존 로고와 색상을 사용합니다. Windows에서 `powershell -NoProfile -File scripts/build-og.ps1`로 다시 만들 수 있습니다. 배포 빌드에는 이미지 생성 도구가 필요하지 않습니다.
 
 `pnpm build` 후 `dist/sitemap.xml`, `dist/robots.txt`, `dist/og/frontory.png`가 생성·복사됩니다. 공개 문서를 공유할 때는 `/learn/` 주소를 사용하세요. `/#학습ID`는 실습 이동용이므로 소셜 서비스에서 단위별 공유 정보로 구분되지 않습니다.
 

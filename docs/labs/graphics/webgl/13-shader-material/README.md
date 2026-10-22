@@ -16,7 +16,7 @@
 
 ShaderMaterial은 GPU 프로그램의 소스와 uniform을 장면 재질에 연결합니다. RawShaderMaterial과 달리 Three.js가 기본 선언을 제공합니다. 입력 선언을 중복하거나 기대하는 attribute가 geometry에 없으면 오류가 생길 수 있습니다.
 
-uniform 값 변화와 shader 소스/defines 변화는 다른 종류의 변경입니다. 필요 없는 material 재생성을 피하고, 더 이상 쓰지 않는 material은 dispose합니다. 오류 로그와 실제 사용 중인 소스 버전을 함께 기록합니다.
+uniform 값 변화와 shader 소스/defines 변화는 다른 종류의 변경입니다. 필요 없는 material 재생성을 피하고 더 이상 쓰지 않는 material은 dispose합니다. 오류 로그와 실제 사용 중인 소스 버전을 함께 기록합니다.
 
 ## 학습 후 얻을 역량
 

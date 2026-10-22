@@ -16,7 +16,7 @@
 
 clientX/clientY는 viewport 좌표입니다. canvas의 left/top을 빼고 width/height로 정규화해야 패널 안의 위치가 됩니다. NDC는 x=-1~1, y는 위쪽이 +1이므로 y 방향을 뒤집습니다.
 
-Raycaster.setFromCamera는 카메라와 화면 점으로 광선을 만들고 교차 결과를 거리순으로 제공합니다. OrbitControls는 카메라를 움직입니다. 드래그 종료와 클릭 선택을 구분하고, 빈 공간을 눌렀을 때 선택을 해제해야 합니다.
+Raycaster.setFromCamera는 카메라와 화면 점으로 광선을 만들고 교차 결과를 거리순으로 제공합니다. OrbitControls는 카메라를 움직입니다. 드래그 종료와 클릭 선택을 구분하고 빈 공간을 눌렀을 때 선택을 해제해야 합니다.
 
 ## 학습 후 얻을 역량
 

@@ -18,9 +18,9 @@ export function Home({ onSelect }: { onSelect: (id: string) => void }) {
     </section>
     <section className="home-method" aria-label="Frontory 학습 방식">
       {[
-        ['개념 읽기', '목표와 개념을 읽고, 이번 실습에서 확인할 질문을 정합니다.'],
-        ['코드 실험', '실제 실행 코드를 바꾸고, 예상과 화면의 차이를 관찰합니다.'],
-        ['경험 기록', '배운 내용을 Markdown으로 남기고, JSON으로 백업합니다.'],
+        ['개념 읽기', '목표와 개념을 읽고 이번 실습에서 확인할 질문을 정합니다.'],
+        ['코드 실험', '실제 실행 코드를 바꾸고 예상과 화면의 차이를 관찰합니다.'],
+        ['경험 기록', '배운 내용을 Markdown으로 남기고 JSON으로 백업합니다.'],
       ].map(([title, description], index) => <div key={title}><span>0{index + 1}</span><div><h2>{title}</h2><p>{description}</p></div></div>)}
     </section>
     <section className="home-catalog" id="series" aria-labelledby="catalog-title">

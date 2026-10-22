@@ -1,102 +1,102 @@
 {
   "gsap-step-02": {
     "mode": "browser",
-    "note": "Interactive 시작값과 목표값 experiment with resource cleanup."
+    "note": "시작값과 목표값 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-03": {
     "mode": "browser",
-    "note": "Interactive Ease의 시간 곡선 experiment with resource cleanup."
+    "note": "Ease의 시간 곡선 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-04": {
     "mode": "browser",
-    "note": "Interactive Transform과 배치 experiment with resource cleanup."
+    "note": "Transform과 배치 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-05": {
     "mode": "browser",
-    "note": "Interactive Stagger 순서 experiment with resource cleanup."
+    "note": "Stagger 순서 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-06": {
     "mode": "browser",
-    "note": "Interactive Label과 겹침 experiment with resource cleanup."
+    "note": "Label과 겹침 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-07": {
     "mode": "browser",
-    "note": "Interactive 재생 제어판 experiment with resource cleanup."
+    "note": "재생 제어판 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-08": {
     "mode": "browser",
-    "note": "Interactive Context와 복원 experiment with resource cleanup."
+    "note": "Context와 복원 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-09": {
     "mode": "browser",
-    "note": "Interactive 기본 스크롤 연결 experiment with resource cleanup."
+    "note": "기본 스크롤 연결 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-10": {
     "mode": "browser",
-    "note": "Interactive ScrollTrigger 등록 experiment with resource cleanup."
+    "note": "ScrollTrigger 등록 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-11": {
     "mode": "browser",
-    "note": "Interactive Scrub 추종 experiment with resource cleanup."
+    "note": "Scrub 추종 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-12": {
     "mode": "browser",
-    "note": "Interactive Pin과 문서 흐름 experiment with resource cleanup."
+    "note": "Pin과 문서 흐름 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-13": {
     "mode": "browser",
-    "note": "Interactive Refresh와 측정 시점 experiment with resource cleanup."
+    "note": "Refresh와 측정 시점 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-15": {
     "mode": "browser",
-    "note": "Interactive MatchMedia 분기 experiment with resource cleanup."
+    "note": "MatchMedia 분기 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-16": {
     "mode": "browser",
-    "note": "Interactive 연속 입력과 Overwrite experiment with resource cleanup."
+    "note": "연속 입력과 Overwrite 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-17": {
     "mode": "browser",
-    "note": "Interactive Pointer와 QuickTo experiment with resource cleanup."
+    "note": "Pointer와 QuickTo 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-18": {
     "mode": "browser",
-    "note": "Interactive 키보드 단계 이동 experiment with resource cleanup."
+    "note": "키보드 단계 이동 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-19": {
     "mode": "browser",
-    "note": "Interactive 모션 감소 대체 experiment with resource cleanup."
+    "note": "모션 감소 대체 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-20": {
     "mode": "browser",
-    "note": "Interactive 완료 콜백과 중단 experiment with resource cleanup."
+    "note": "완료 콜백과 중단 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-21": {
     "mode": "browser",
-    "note": "Interactive 중첩 타임라인 experiment with resource cleanup."
+    "note": "중첩 타임라인 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-22": {
     "mode": "browser",
-    "note": "Interactive SVG 속성 제어 experiment with resource cleanup."
+    "note": "SVG 속성 제어 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-23": {
     "mode": "browser",
-    "note": "Interactive Canvas 객체 보간 experiment with resource cleanup."
+    "note": "Canvas 객체 보간 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-24": {
     "mode": "browser",
-    "note": "Interactive 프레임 비용 측정 experiment with resource cleanup."
+    "note": "프레임 비용 측정 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-25": {
     "mode": "browser",
-    "note": "Interactive 숨김과 복귀 experiment with resource cleanup."
+    "note": "숨김과 복귀 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-26": {
     "mode": "browser",
-    "note": "Interactive 모션 토큰 experiment with resource cleanup."
+    "note": "모션 토큰 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-27": {
     "mode": "browser",
-    "note": "Interactive 실패 경로의 해제 experiment with resource cleanup."
+    "note": "실패 경로의 해제 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   }
 }

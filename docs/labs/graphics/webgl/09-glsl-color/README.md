@@ -14,7 +14,7 @@ GLSL 타입·벡터 연산으로 색을 만들고 컴파일 오류를 수정한�
 
 ## 핵심 개념과 설명
 
-GLSL의 float/vec2/vec3/vec4는 JavaScript 숫자·배열과 다른 정적 타입입니다. swizzle은 .xy나 .rgb처럼 성분을 선택하며, 벡터와 스칼라 연산은 각 성분에 적용할 수 있습니다.
+GLSL의 float/vec2/vec3/vec4는 JavaScript 숫자·배열과 다른 정적 타입입니다. swizzle은 .xy나 .rgb처럼 성분을 선택하며 벡터와 스칼라 연산은 각 성분에 적용할 수 있습니다.
 
 색상 계산에서 범위와 alpha를 구분합니다. GLSL 버전에 따라 attribute/varying 또는 in/out와 색상 출력 문법이 다릅니다. 이번에는 기본 ShaderMaterial 문법을 유지하고 버전 전환을 할 때 양쪽 shader를 같이 맞춥니다.
 

@@ -130,5 +130,23 @@
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "svg-step-25": {
+    "sourceHash": "ff495c4deb5bb5c61aa51e4e144bed76f158d8b3e96132c49ca2e06f102dcd3e",
+    "values": {
+      "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "svg-step-26": {
+    "sourceHash": "fa46e1ffad1549b384c00b36c58c4e836a76a081e8f57b09981786701d301396",
+    "values": {
+      "note": "An experiment with duplicate id validation, keyboard selection, movement, and serialization. You can combine free dragging from the Day 17 example."
+    }
+  },
+  "svg-step-27": {
+    "sourceHash": "6a9f318b8e6aee29b29c4cffd09e8042bcf65206fb6f7144c84c34ce7c4dd5b3",
+    "values": {
+      "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    }
   }
 }

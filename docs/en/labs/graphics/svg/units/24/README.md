@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Large Datasets and Update Cost](../23/README.md)
+[Previous: Large Datasets and Update Cost](../23/README.md) · [Next: Canvas Comparison Renderer](../25/README.md)
 
 ## Experiment notes — write your own
 

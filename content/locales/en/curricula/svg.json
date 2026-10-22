@@ -637,6 +637,87 @@
         "references.0.title": "MDN SVG from Scratch Tutorial",
         "references.1.title": "MDN SVG title Accessible Name"
       }
+    },
+    "svg-step-25": {
+      "sourceHash": "e2c88d66c9a77901801fc2ec18647117523b70b90d0131a22cb1ac948fae6831",
+      "values": {
+        "title": "Canvas Comparison Renderer",
+        "prerequisites": "Prerequisite concepts: Visible region, Level of detail. Prepare the result files and observation records from Unit 24.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Shared data",
+        "concepts.0.explanation": "Renderers must use the same data and coordinate transforms for a fair comparison. Different random distributions also change performance and selection conditions.",
+        "concepts.1.title": "Implementing selection",
+        "concepts.1.explanation": "SVG provides DOM targets, whereas Canvas needs separate hit testing. Match functionality to compare implementation costs.",
+        "outcomes.0": "Point coordinates and selected ids match on both displays.",
+        "outcomes.1": "Share an accessible HTML list between both renderers.",
+        "steps.0": "Prepare day-25.js and index.html in an external practice project. Draw the same point array with SVG circle and Canvas arc respectively.",
+        "steps.1": "Pass the same zoom and selection state to both renderers, and implement distance-based hit testing for Canvas.",
+        "steps.2": "Save the output under the input condition SVG, then run again with Canvas 2D. Compare the hypothesis, \"Responsibility for implementing selection and the DOM count differ,\" against the display and logs, and record the actual result and the causes of any differences in day-25-notes.md.",
+        "variables.0.name": "Renderer",
+        "variables.0.baseline": "SVG",
+        "variables.0.change": "Canvas 2D",
+        "variables.0.expected": "Responsibility for implementing selection and the DOM count differ",
+        "criteria.0": "Point coordinates and selected ids match on both displays.",
+        "criteria.1": "Share an accessible HTML list between both renderers.",
+        "questions.0": "What do you miss if you compare drawing alone?",
+        "questions.1": "In which coordinates do you define the selection tolerance radius for Canvas?",
+        "references.0.title": "MDN SVG from Scratch Tutorial",
+        "references.1.title": "MDN CanvasRenderingContext2D API"
+      }
+    },
+    "svg-step-26": {
+      "sourceHash": "1454eddebbc3728e3db7bb6a24731c387bd360e98e7e10481faaa2f64aedb102",
+      "values": {
+        "title": "Integrating the Map Editor",
+        "prerequisites": "Prerequisite concepts: Shared data, Implementing selection. Prepare the result files and observation records from Unit 25.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "State consistency",
+        "concepts.0.explanation": "Selection, scale, and node data affect one another. Collecting state changes into command functions can reduce differences between input paths.",
+        "concepts.1.title": "Recoverability",
+        "concepts.1.explanation": "An invalid import must not damage existing work. Applying validated new data all at once can help.",
+        "outcomes.0": "Incomplete data does not overwrite the existing scene.",
+        "outcomes.1": "You can recover from import errors using the keyboard.",
+        "steps.0": "Prepare day-26.js and index.html in an external practice project. Combine JSON import, node dragging, keyboard selection, and SVG export.",
+        "steps.1": "Enter missing edge ids and duplicate nodes, and check error messages and preservation of the existing scene.",
+        "steps.2": "Save the output under the input condition Valid graph, then run again with Duplicate id. Compare the hypothesis, \"Applying new data is rejected and the editing state is preserved,\" against the display and logs, and record the actual result and the causes of any differences in day-26-notes.md.",
+        "variables.0.name": "Imported data",
+        "variables.0.baseline": "Valid graph",
+        "variables.0.change": "Duplicate id",
+        "variables.0.expected": "Applying new data is rejected and the editing state is preserved",
+        "criteria.0": "Incomplete data does not overwrite the existing scene.",
+        "criteria.1": "You can recover from import errors using the keyboard.",
+        "questions.0": "At which stage before rendering do you validate input?",
+        "questions.1": "How do you avoid confusing scale with data coordinates when saving it?",
+        "references.0.title": "MDN SVG from Scratch Tutorial",
+        "references.1.title": "MDN SVG title Accessible Name"
+      }
+    },
+    "svg-step-27": {
+      "sourceHash": "e3b5d3358b88b1c2736595d430658c2a14687d446ce07a915865b9e86917adba",
+      "values": {
+        "title": "Reproducible Comparison Experiments",
+        "prerequisites": "Prerequisite concepts: State consistency, Recoverability. Prepare the result files and observation records from Unit 26.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Comparison contract",
+        "concepts.0.explanation": "Point count, size, color, and input features must match to interpret renderer differences. If only one renderer has labels or filters, record this as a separate condition.",
+        "concepts.1.title": "Recording distributions",
+        "concepts.1.explanation": "The distribution of multiple samples is more useful than a single timing value. Separate initial creation and continuous zooming into different scenarios.",
+        "outcomes.0": "Provide a comparison table with matching features and input conditions.",
+        "outcomes.1": "State the measurement scope and what you could not verify.",
+        "steps.0": "Prepare day-27.js and index.html in an external practice project. Replay initial creation and zoom/selection scenarios in an automated sequence with the same data.",
+        "steps.1": "Collect browser profiles and frame intervals, and tabulate medians, long frames, and DOM counts.",
+        "steps.2": "Save the output under the input condition 1000 points, then run again with 5000 points. Compare the hypothesis, \"Costs may grow differently for each renderer,\" against the display and logs, and record the actual result and the causes of any differences in day-27-notes.md.",
+        "variables.0.name": "Scene size",
+        "variables.0.baseline": "1000 points",
+        "variables.0.change": "5000 points",
+        "variables.0.expected": "Costs may grow differently for each renderer",
+        "criteria.0": "Provide a comparison table with matching features and input conditions.",
+        "criteria.1": "State the measurement scope and what you could not verify.",
+        "questions.0": "Does faster initial creation mean faster interaction too?",
+        "questions.1": "Why must you fix the position used for selection tests?",
+        "references.0.title": "MDN SVG from Scratch Tutorial",
+        "references.1.title": "MDN CanvasRenderingContext2D API"
+      }
     }
   }
 }

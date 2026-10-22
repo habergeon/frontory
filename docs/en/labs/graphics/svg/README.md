@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 24 published in English
+Graphics · 4 stages · 28 units in the full series · 27 published in English
 
 ## Series goal
 
@@ -57,6 +57,9 @@ Only published English units are linked below. The full series has 28 units.
 - [22. Exporting SVG Files](units/22/README.md) — Editable example
 - [23. Large Datasets and Update Cost](units/23/README.md) — Editable example
 - [24. Visible Regions and Level of Detail](units/24/README.md) — Editable example
+- [25. Canvas Comparison Renderer](units/25/README.md) — Editable example
+- [26. Integrating the Map Editor](units/26/README.md) — Editable example
+- [27. Reproducible Comparison Experiments](units/27/README.md) — Editable example
 
 ## Capstone project and deliverables
 
@@ -69,3 +72,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [MDN SVG from Scratch Tutorial](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch)
 - [MDN SVG title Accessible Name](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/title)
 - [MDN getScreenCTM Coordinate Transformation](https://developer.mozilla.org/en-US/docs/Web/API/SVGGraphicsElement/getScreenCTM)
+- [MDN CanvasRenderingContext2D API](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D)

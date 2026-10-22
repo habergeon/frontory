@@ -270,6 +270,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [22. Exporting SVG Files](labs/graphics/svg/units/22/README.md) | Editable example | [Source code](../../src/labs/svg-step-22/example.js) — Outputs standalone SVG source in a text area. To save a file, copy the source and save it as a .svg file. |
 | [23. Large Datasets and Update Cost](labs/graphics/svg/units/23/README.md) | Editable example | [Source code](../../src/labs/svg-step-23/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 | [24. Visible Regions and Level of Detail](labs/graphics/svg/units/24/README.md) | Editable example | [Source code](../../src/labs/svg-step-24/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [25. Canvas Comparison Renderer](labs/graphics/svg/units/25/README.md) | Editable example | [Source code](../../src/labs/svg-step-25/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
+| [26. Integrating the Map Editor](labs/graphics/svg/units/26/README.md) | Editable example | [Source code](../../src/labs/svg-step-26/example.js) — An experiment with duplicate id validation, keyboard selection, movement, and serialization. You can combine free dragging from the Day 17 example. |
+| [27. Reproducible Comparison Experiments](labs/graphics/svg/units/27/README.md) | Editable example | [Source code](../../src/labs/svg-step-27/example.js) — An editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

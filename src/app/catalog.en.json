@@ -2597,6 +2597,36 @@
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "svg-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Canvas Comparison Renderer",
+      "goal": "Point coordinates and selected ids match on both displays. Share an accessible HTML list between both renderers.",
+      "docPath": "/docs/en/labs/graphics/svg/units/25/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "svg-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Integrating the Map Editor",
+      "goal": "Incomplete data does not overwrite the existing scene. You can recover from import errors using the keyboard.",
+      "docPath": "/docs/en/labs/graphics/svg/units/26/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An experiment with duplicate id validation, keyboard selection, movement, and serialization. You can combine free dragging from the Day 17 example."
+    },
+    {
+      "id": "svg-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Reproducible Comparison Experiments",
+      "goal": "Provide a comparison table with matching features and input conditions. State the measurement scope and what you could not verify.",
+      "docPath": "/docs/en/labs/graphics/svg/units/27/README.md",
+      "seriesId": "svg",
+      "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

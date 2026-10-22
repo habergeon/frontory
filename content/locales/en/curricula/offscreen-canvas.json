@@ -577,6 +577,87 @@
         "references.0.title": "MDN OffscreenCanvas",
         "references.1.title": "MDN Using Web Workers"
       }
+    },
+    "offscreen-canvas-step-22": {
+      "sourceHash": "8036bb24244a2273016dff91dbc388480596627f44543991e17e8624ffdc1a85",
+      "values": {
+        "title": "Transferring ImageBitmap Frames",
+        "prerequisites": "Prepare the experiment results for Distinguishing errors and Fallback from Unit 21, “Recovering from Worker Failure”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Frame transfer",
+        "concepts.0.explanation": "OffscreenCanvas results can be passed as an ImageBitmap. This is a different output method from transferring control directly.",
+        "concepts.1.title": "Resource lifetime",
+        "concepts.1.explanation": "Close a bitmap after displaying it if it is no longer needed. Bound the queue if production outpaces display.",
+        "outcomes.0": "Learning outcome: explain the role of Frame transfer. Input cases: 30 consecutive frames.",
+        "outcomes.1": "Deliverable: Counts of displayed·discarded bitmaps and close calls. Explain the rationale for handling Resource lifetime, linking it to the code.",
+        "steps.0": "In src/day-22.js in a separate practice project, implement Worker transferToImageBitmap and a main-thread bitmap display path. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 30 consecutive frames. Baseline: Immediate. Run under the baseline conditions, then record observations and errors in notes/day-22.md.",
+        "steps.2": "Variable: Consumption speed; changed value: Slow. Run again through the same input path. Deliverable to save: Counts of displayed·discarded bitmaps and close calls. Hypothesis to check: The number of pending bitmaps stays bounded even with slow consumption. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Consumption speed",
+        "variables.0.baseline": "Immediate",
+        "variables.0.change": "Slow",
+        "variables.0.expected": "The number of pending bitmaps stays bounded even with slow consumption.",
+        "criteria.0": "Required deliverable: Counts of displayed·discarded bitmaps and close calls. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Frame transfer and Resource lifetime. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Frame transfer affect in this exercise? Input cases: 30 consecutive frames.",
+        "questions.1": "Variable: Consumption speed. Hypothesis to check: The number of pending bitmaps stays bounded even with slow consumption. Did the actual results agree with the hypothesis? Explain the evidence in terms of Resource lifetime.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-23": {
+      "sourceHash": "12a9ada81f6be66277c27ea2c314b40c75be4f3865f47d33487b8fcd0528737e",
+      "values": {
+        "title": "Canvas Context Loss",
+        "prerequisites": "Prepare the experiment results for Frame transfer and Resource lifetime from Unit 22, “Transferring ImageBitmap Frames”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Loss",
+        "concepts.0.explanation": "A rendering context can be lost depending on the environment. Distinguish event support from the actual loss path.",
+        "concepts.1.title": "Recovery data",
+        "concepts.1.explanation": "Retain scene state and resource-creation information to redraw. Canvas pixels alone make it difficult to recover the original state.",
+        "outcomes.0": "Learning outcome: explain the role of Loss. Input cases: Loss in a supported environment or explicit failure injection.",
+        "outcomes.1": "Deliverable: Interruption guidance and a record of scene recreation. Explain the rationale for handling Recovery data, linking it to the code.",
+        "steps.0": "In src/day-23.js in a separate practice project, write contextlost/contextrestored handlers and a path that calls the initialization function again. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: Loss in a supported environment or explicit failure injection. Baseline: No saved state. Run under the baseline conditions, then record observations and errors in notes/day-23.md.",
+        "steps.2": "Variable: Recovery state; changed value: Save state. Run again through the same input path. Deliverable to save: Interruption guidance and a record of scene recreation. Hypothesis to check: The same scene data can be drawn after recreation. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Recovery state",
+        "variables.0.baseline": "No saved state",
+        "variables.0.change": "Save state",
+        "variables.0.expected": "The same scene data can be drawn after recreation.",
+        "criteria.0": "Required deliverable: Interruption guidance and a record of scene recreation. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Loss and Recovery data. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Loss affect in this exercise? Input cases: Loss in a supported environment or explicit failure injection.",
+        "questions.1": "Variable: Recovery state. Hypothesis to check: The same scene data can be drawn after recreation. Did the actual results agree with the hypothesis? Explain the evidence in terms of Recovery data.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-24": {
+      "sourceHash": "9c47616f32985b6b078424a684c2ac4e0e55b3b558c3259306127fface9737a5",
+      "values": {
+        "title": "Request and Display Latency",
+        "prerequisites": "Prepare the experiment results for Loss and Recovery data from Unit 23, “Canvas Context Loss”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Visible updates",
+        "concepts.0.explanation": "Message arrival and an update appearing on screen do not happen at the same time. A processing ack alone does not establish total display latency.",
+        "concepts.1.title": "Separating measurements",
+        "concepts.1.explanation": "Record main-thread round-trip time separately from Worker processing duration. Describe how actual display updates are observed and the method's limits.",
+        "outcomes.0": "Learning outcome: explain the role of Visible updates. Input cases: 20 color-change requests.",
+        "outcomes.1": "Deliverable: Round-trip, processing, and observed latency records. Explain the rationale for handling Separating measurements, linking it to the code.",
+        "steps.0": "In src/day-24.js in a separate practice project, include input IDs in rendered-frame results and log observations of visible updates. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 20 color-change requests. Baseline: Every event. Run under the baseline conditions, then record observations and errors in notes/day-24.md.",
+        "steps.2": "Variable: Transmission frequency; changed value: Per frame. Run again through the same input path. Deliverable to save: Round-trip, processing, and observed latency records. Hypothesis to check: The tradeoff between input latency and message count becomes visible. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Transmission frequency",
+        "variables.0.baseline": "Every event",
+        "variables.0.change": "Per frame",
+        "variables.0.expected": "The tradeoff between input latency and message count becomes visible.",
+        "criteria.0": "Required deliverable: Round-trip, processing, and observed latency records. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Visible updates and Separating measurements. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Visible updates affect in this exercise? Input cases: 20 color-change requests.",
+        "questions.1": "Variable: Transmission frequency. Hypothesis to check: The tradeoff between input latency and message count becomes visible. Did the actual results agree with the hypothesis? Explain the evidence in terms of Separating measurements.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
     }
   }
 }

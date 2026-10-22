@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Restarting with a New Canvas](../20/README.md)
+[Previous: Restarting with a New Canvas](../20/README.md) · [Next: Transferring ImageBitmap Frames](../22/README.md)
 
 ## Experiment notes — write your own
 

@@ -5752,6 +5752,36 @@
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/21/README.md",
       "seriesId": "offscreen-canvas",
       "exampleNote": "An interactive Recovering from Worker Failure experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Transferring ImageBitmap Frames",
+      "goal": "Learning outcome: explain the role of Frame transfer. Input cases: 30 consecutive frames. Deliverable: Counts of displayed·discarded bitmaps and close calls. Explain the rationale for handling Resource lifetime, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/22/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Transferring ImageBitmap Frames experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Canvas Context Loss",
+      "goal": "Learning outcome: explain the role of Loss. Input cases: Loss in a supported environment or explicit failure injection. Deliverable: Interruption guidance and a record of scene recreation. Explain the rationale for handling Recovery data, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/23/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Canvas Context Loss experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Request and Display Latency",
+      "goal": "Learning outcome: explain the role of Visible updates. Input cases: 20 color-change requests. Deliverable: Round-trip, processing, and observed latency records. Explain the rationale for handling Separating measurements, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/24/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Request and Display Latency experiment with cleanup of the resources it uses."
     }
   ]
 }

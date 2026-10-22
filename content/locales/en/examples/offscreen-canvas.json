@@ -112,5 +112,23 @@
     "values": {
       "note": "An interactive Recovering from Worker Failure experiment with cleanup of the resources it uses."
     }
+  },
+  "offscreen-canvas-step-22": {
+    "sourceHash": "5fbf5514e6d29b39f495bfb49ce13ededdc9e220d19abfd26576f6a8a34adbec",
+    "values": {
+      "note": "An interactive Transferring ImageBitmap Frames experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-23": {
+    "sourceHash": "094083c0f752b0f1691be5fb80278d5960f801a2ce21f3d6efd53cce05c2c04e",
+    "values": {
+      "note": "An interactive Canvas Context Loss experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-24": {
+    "sourceHash": "eada49bc61372b36af42125a67cb5dce4af29afe98dafe48579c48b1a7d484ac",
+    "values": {
+      "note": "An interactive Request and Display Latency experiment with cleanup of the resources it uses."
+    }
   }
 }

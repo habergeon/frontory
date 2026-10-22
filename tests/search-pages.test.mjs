@@ -106,7 +106,7 @@ test('only actual English pages are published with reciprocal locale metadata', 
   const routes = ['/en/', '/en/learn/', '/en/about/', '/en/privacy/',
     ...translated.series.map(series => `/en/learn/${series.id}/`),
     ...translated.units.map(unit => `/en/learn/${unit.seriesId}/${unit.id}/`)]
-  const englishFiles = [...pages.keys()].filter(file => file.startsWith('en/') && file.endsWith('.html'))
+  const englishFiles = [...pages.keys()].filter(file => file.startsWith('en/') && file.endsWith('/index.html'))
   assert.deepEqual(englishFiles.sort(), routes.map(route => route.slice(1) + 'index.html').sort())
   assert.equal(englishFiles.length, 12)
   for (const route of routes) {
@@ -197,3 +197,81 @@ test('English worksheets use shared headings and preserve every written field', 
     assert.match(html, /My measured width is 244px/)
   }
 })
+
+test('built English app entry shares real Vite assets and localized head, with localized static errors', { timeout: 120000 }, async () => {
+  const { execFileSync } = await import('node:child_process')
+  execFileSync(process.execPath, ['node_modules/vite/bin/vite.js', 'build'], { encoding: 'utf8' })
+  execFileSync(process.execPath, ['scripts/build-search.mjs'], { encoding: 'utf8' })
+  const ko = fs.readFileSync('dist/index.html', 'utf8')
+  const en = fs.readFileSync('dist/en/index.html', 'utf8')
+  const assets = html => [...html.matchAll(/(?:src|href)="(\/assets\/[^"?]+\.(?:js|css))"/g)].map(match => match[1]).sort()
+  assert.ok(assets(en).some(file => file.endsWith('.js')), 'English app has a Vite JavaScript entry')
+  assert.ok(assets(en).some(file => file.endsWith('.css')), 'English app has Vite CSS')
+  assert.deepEqual(assets(en), assets(ko))
+  for (const file of assets(en)) assert.ok(fs.existsSync('dist' + file), file)
+  assert.match(en, /<html lang="en">/)
+  assert.match(en, /<title>Frontend learning and practice · Frontory<\/title>/)
+  assert.match(en, /name="description" content="4 series and 4 English learning units/)
+  assert.match(en, /rel="canonical" href="https:\/\/frontory.pages.dev\/en\/"/)
+  assert.doesNotMatch(en, /rel="canonical" href="https:\/\/frontory.pages.dev\/"/)
+  assert.doesNotMatch(en, /adsbygoogle|google-adsense-account|href="\/learn.css"/)
+  assert.match(en, /<div id="root"><main>/)
+  const schema = JSON.parse(en.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])
+  assert.equal(schema.inLanguage, 'en-US')
+  assert.equal(schema.url, 'https://frontory.pages.dev/en/')
+  for (const html of [en, ko]) {
+    assert.match(html, /hreflang="ko" href="https:\/\/frontory.pages.dev\/"/)
+    assert.match(html, /hreflang="en" href="https:\/\/frontory.pages.dev\/en\/"/)
+  }
+  assert.match(fs.readFileSync('dist/en/404.html', 'utf8'), /<h1>Page not found<\/h1>/)
+  const { preview } = await import('vite')
+  const previousNodeEnv = process.env.NODE_ENV
+  const server = await preview({ preview: { host: '127.0.0.1', port: 0 } })
+  try { await checkPublicHttp(server.httpServer.address().port) }
+  finally {
+    await new Promise(resolve => server.httpServer.close(resolve))
+    if (previousNodeEnv === undefined) delete process.env.NODE_ENV
+    else process.env.NODE_ENV = previousNodeEnv
+  }
+})
+
+test('development English routes load the app and missing translations return genuine 404s', { timeout: 120000 }, async () => {
+  const { createServer } = await import('vite')
+  const server = await createServer({ server: { host: '127.0.0.1', port: 0 } })
+  await server.listen()
+  try {
+    await checkPublicHttp(server.httpServer.address().port)
+    const en = await (await fetch(`http://127.0.0.1:${server.httpServer.address().port}/en/`)).text()
+    assert.match(en, /<div id="root"><main>/)
+    assert.match(en, /src="\/src\/main.tsx"/)
+    assert.match(en, /@react-refresh/)
+    assert.doesNotMatch(en, /google-adsense-account/)
+  } finally { await server.close() }
+})
+
+async function checkPublicHttp(port) {
+  const base = `http://127.0.0.1:${port}`
+  for (const route of ['/', '/en/', '/learn/', '/en/learn/', '/en/about/', '/en/learn/react/react-step-03/']) {
+    const response = await fetch(base + route)
+    assert.equal(response.status, 200, route)
+    assert.match(await response.text(), route.startsWith('/en/') ? /<html lang="en">/ : /<html lang="ko">/)
+  }
+  for (const route of ['/en', '/en/learn', '/en/about']) {
+    const response = await fetch(base + route + '?from=test', { redirect: 'manual' })
+    assert.equal(response.status, 301, route)
+    assert.equal(response.headers.get('location'), route + '/?from=test')
+  }
+  for (const route of ['/en/learn/missing/', '/en/not-found/', '/en/learn/vue/', '/learn/missing/']) {
+    const response = await fetch(base + route)
+    assert.equal(response.status, 404, route)
+    const html = await response.text()
+    assert.match(html, route.startsWith('/en/') ? /<h1>Page not found<\/h1>/ : /페이지를 찾을 수 없습니다/)
+    assert.match(html, /noindex/)
+  }
+  for (const route of ['/examples/react-step-03/example.js', '/examples-en/react-step-03/example.js']) {
+    const response = await fetch(base + route)
+    assert.equal(response.status, 200, route)
+    assert.equal(response.headers.get('x-robots-tag'), 'noindex')
+    assert.match(response.headers.get('content-disposition'), /^attachment/)
+  }
+}

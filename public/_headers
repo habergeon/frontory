@@ -5,3 +5,8 @@
 
 /examples/*
   X-Robots-Tag: noindex
+  Content-Disposition: attachment
+
+/examples-en/*
+  X-Robots-Tag: noindex
+  Content-Disposition: attachment

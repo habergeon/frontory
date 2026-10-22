@@ -135,6 +135,7 @@ export function generateSearchPages() {
   pages.set('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + routes.map(route => `  <url><loc>${origin + route}</loc></url>`).join('\n') + '\n</urlset>\n')
   pages.set('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`)
   pages.set('404.html', page('페이지를 찾을 수 없습니다', '요청한 학습 페이지가 없습니다.', '/404.html', '<h1>페이지를 찾을 수 없습니다</h1><p>주소를 확인하거나 <a href="/learn/">전체 커리큘럼</a>에서 학습을 찾아보세요.</p>', 'ko', true))
+  pages.set('en/404.html', page('Page not found', 'The requested learning page is not available.', '/en/404.html', '<h1>Page not found</h1><p>Check the address or find a lesson in the <a href="/en/learn/">English curriculum</a>.</p>', 'en', true))
   return pages
 }
 

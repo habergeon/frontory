@@ -34,6 +34,13 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [26. Computational Cost and Splitting Work](labs/fundamentals/javascript/units/26/README.md) | Editable example | [Source code](../../src/labs/javascript-step-26/example.js) — Times are observations on the current device and do not establish performance superiority. Compare count and batch under the same conditions. |
 | [27. Listener Cleanup and Repeated Mounting](labs/fundamentals/javascript/units/27/README.md) | Editable example | [Source code](../../src/labs/javascript-step-27/example.js) — Compare the editable inputs with actual browser execution results. |
 
+## TypeScript
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. strict Settings and Executable Code](labs/fundamentals/typescript/units/02/README.md) | Editable example | [Source code](../../src/labs/typescript-step-02/example.js) — The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM. |
+| [3. Inference and Literal Types](labs/fundamentals/typescript/units/03/README.md) | Editable example | [Source code](../../src/labs/typescript-step-03/example.js) — The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM. |
+
 ## HTML
 
 | Learning unit | Execution mode | Source and supported scope |

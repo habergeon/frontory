@@ -33,5 +33,12 @@
       "title": "HTML",
       "prerequisites": "Browsers and file paths"
     }
+  },
+  "typescript": {
+    "sourceHash": "cb8d57e1de3e2f4352fa5cf4c80b61f875a3223cff4ae699dfda8bcf8b4fda53",
+    "values": {
+      "title": "TypeScript",
+      "prerequisites": "JavaScript objects·functions·modules"
+    }
   }
 }

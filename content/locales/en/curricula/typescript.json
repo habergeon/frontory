@@ -1,0 +1,94 @@
+{
+  "series": {
+    "sourceHash": "16346ae1c9ea47592cd8edd8c0cfcf763e4998b3b6ff88650762279b326c50de",
+    "values": {
+      "stages.0": "Type Checking and Data Models",
+      "stages.1": "Unions and Generics",
+      "stages.2": "Validation and Type Transformations",
+      "stages.3": "Module Contracts and Plugins",
+      "goal": "Distinguish static type relationships from runtime data validation, and design contracts that can change.",
+      "capstone": "A mount/dispose plugin with interchangeable DOM and Canvas implementations, plus a collection of valid and rejected cases"
+    }
+  },
+  "units": {
+    "typescript-01": {
+      "sourceHash": "30adc82acd7ec4c00d1be36deeeca53bcad6b1697abdfe9335e4774b87fafeae",
+      "values": {
+        "title": "Types and Narrowing",
+        "prerequisites": "JavaScript objects·functions·modules",
+        "environment": "The existing Frontory preview is a limited starting example, not a complete implementation of the assignment. Implement additional files and features yourself in a separate local project. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Static Checking",
+        "concepts.0.explanation": "Types check relationships in code before execution. They do not automatically inspect the actual contents of external JSON.",
+        "concepts.1.title": "Discriminated Unions",
+        "concepts.1.explanation": "Branching on a shared tag with different values narrows objects to the fields you need. Accessing a state-specific field outside its branch causes an error.",
+        "outcomes.0": "Check the returned strings for all four states.",
+        "outcomes.1": "Record the compiler diagnostic for invalid access and a correction.",
+        "steps.0": "In state.ts, prepare conditions for access to success data and the same access in idle.",
+        "steps.1": "Create an idle·loading·success·error union and return display strings with switch.",
+        "steps.2": "Run with access to success data and the same access in idle. Results to check: Check the returned strings for all four states. Record the compiler diagnostic for invalid access and a correction. Record expected and actual results separately.",
+        "variables.0.name": "Access Location",
+        "variables.0.baseline": "success branch",
+        "variables.0.change": "outside the branch",
+        "variables.0.expected": "Pre-run hypothesis: the compiler will reject unsafe access. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Check the returned strings for all four states.",
+        "criteria.1": "Record the compiler diagnostic for invalid access and a correction.",
+        "questions.0": "Does passing type checking mean that input has been validated?",
+        "questions.1": "How does a union differ from an object with only optional fields?",
+        "references.0.title": "TypeScript Handbook",
+        "references.1.title": "TypeScript Narrowing"
+      }
+    },
+    "typescript-step-02": {
+      "sourceHash": "3091d2838d4d4bc635c1dece8847f26d6ee4d4027f9003d9da6abaa20861b71e",
+      "values": {
+        "title": "strict Settings and Executable Code",
+        "prerequisites": "Work and experiment records from Unit 1, “Types and Narrowing”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Compiler Options",
+        "concepts.0.explanation": "strict enables a group of strict checks. Record diagnostics before and after changing options together with the project version.",
+        "concepts.1.title": "Type Erasure",
+        "concepts.1.explanation": "Type annotations are removed from the emitted JavaScript. Check compilation success and runtime success separately.",
+        "outcomes.0": "Record the installed tsc version and diagnostics for both configurations.",
+        "outcomes.1": "After correction, tsc --noEmit reports 0 errors.",
+        "steps.0": "In tsconfig.json, prepare conditions for an untyped parameter and a null assignment.",
+        "steps.1": "Set strict and noEmit, fix the unannotated function parameter, and also compare the emitted code for execution.",
+        "steps.2": "Run with an untyped parameter and a null assignment. Results to check: Record the installed tsc version and diagnostics for both configurations. After correction, tsc --noEmit reports 0 errors. Record expected and actual results separately.",
+        "variables.0.name": "strict",
+        "variables.0.baseline": "false",
+        "variables.0.change": "true",
+        "variables.0.expected": "Pre-run hypothesis: diagnostics related to implicit any and null may increase. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record the installed tsc version and diagnostics for both configurations.",
+        "criteria.1": "After correction, tsc --noEmit reports 0 errors.",
+        "questions.0": "Does strict add runtime code?",
+        "questions.1": "Which outputs does noEmit prevent?",
+        "references.0.title": "TypeScript Handbook"
+      }
+    },
+    "typescript-step-03": {
+      "sourceHash": "a39c1ed2dbf58602da9af3aeb9405e50f62e1dbba207358f34b040a6b02a3b21",
+      "values": {
+        "title": "Inference and Literal Types",
+        "prerequisites": "Work and experiment records from Unit 2, “strict Settings and Executable Code”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Type Inference",
+        "concepts.0.explanation": "Variable types are inferred from initial values. let and const may preserve literals differently because of reassignment.",
+        "concepts.1.title": "Preserving Literals",
+        "concepts.1.explanation": "as const preserves narrow types for a value. It does not freeze runtime objects.",
+        "outcomes.0": "Record the inferred types of the three declarations.",
+        "outcomes.1": "A call with an invalid state string fails to compile.",
+        "steps.0": "In literal.ts, prepare conditions for a function accepting only ready and three declaration styles.",
+        "steps.1": "Declare a state string with let·const·an as const object, and pass it as an argument.",
+        "steps.2": "Run with a function accepting only ready and three declaration styles. Results to check: Record the inferred types of the three declarations. A call with an invalid state string fails to compile. Record expected and actual results separately.",
+        "variables.0.name": "Declaration",
+        "variables.0.baseline": "let mode",
+        "variables.0.change": "const mode",
+        "variables.0.expected": "Pre-run hypothesis: the literal argument will be accepted. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record the inferred types of the three declarations.",
+        "criteria.1": "A call with an invalid state string fails to compile.",
+        "questions.0": "Is as const the same as Object.freeze?",
+        "questions.1": "What information is lost when you declare a broad type?",
+        "references.0.title": "TypeScript Handbook"
+      }
+    }
+  }
+}

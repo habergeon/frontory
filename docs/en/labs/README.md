@@ -11,7 +11,7 @@ There are currently **23 series / 644 units**. Every series has 4 stages and 28 
 ## Languages and web fundamentals
 
 - [JavaScript](fundamentals/javascript/README.md) — ★★★★★ / 28 units / Prerequisites: HTML elements and events
-- [TypeScript (Korean)](../../labs/fundamentals/typescript/README.md) — ★★★★★ / 28 units / Prerequisites: JavaScript objects, functions, and modules
+- [TypeScript](fundamentals/typescript/README.md) — ★★★★★ / 28 units / Prerequisites: JavaScript objects, functions, and modules
 - [HTML](fundamentals/html/README.md) — ★★★★★ / 28 units / Prerequisites: browsers and file paths
 - [CSS](fundamentals/css/README.md) — ★★★★★ / 28 units / Prerequisites: HTML structure
 

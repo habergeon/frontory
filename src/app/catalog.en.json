@@ -15,6 +15,20 @@
       ]
     },
     {
+      "id": "typescript",
+      "title": "TypeScript",
+      "category": "fundamentals",
+      "priority": 5,
+      "prerequisites": "JavaScript objects·functions·modules",
+      "docPath": "/docs/en/labs/fundamentals/typescript/README.md",
+      "stages": [
+        "Type Checking and Data Models",
+        "Unions and Generics",
+        "Validation and Type Transformations",
+        "Module Contracts and Plugins"
+      ]
+    },
+    {
       "id": "html",
       "title": "HTML",
       "category": "fundamentals",
@@ -348,6 +362,35 @@
       "goal": "Record the four flows: add, filter, export, and restore. A single click adds only one item, and a failed import preserves existing state.",
       "docPath": "/docs/en/labs/fundamentals/javascript/03-project/README.md",
       "seriesId": "javascript"
+    },
+    {
+      "id": "typescript-01",
+      "day": 1,
+      "week": 1,
+      "title": "Types and Narrowing",
+      "goal": "Check the returned strings for all four states. Record the compiler diagnostic for invalid access and a correction.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/01-foundations/README.md",
+      "seriesId": "typescript"
+    },
+    {
+      "id": "typescript-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "strict Settings and Executable Code",
+      "goal": "Record the installed tsc version and diagnostics for both configurations. After correction, tsc --noEmit reports 0 errors.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/02/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Inference and Literal Types",
+      "goal": "Record the inferred types of the three declarations. A call with an invalid state string fails to compile.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/03/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
       "id": "html-01",

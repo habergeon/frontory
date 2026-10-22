@@ -1,0 +1,14 @@
+{
+  "typescript-step-02": {
+    "sourceHash": "6f3f927105c995e6c5773690b08b9d7d6c26ece733c583950f340dba9711e4e7",
+    "values": {
+      "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    }
+  },
+  "typescript-step-03": {
+    "sourceHash": "e688197be41b5e0b19e4fd5d1d67d00a8e697d1921ce172e182b4cfb2f050256",
+    "values": {
+      "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    }
+  }
+}

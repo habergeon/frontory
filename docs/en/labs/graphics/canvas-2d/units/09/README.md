@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: The Animation Clock](../08/README.md)
+[Previous: The Animation Clock](../08/README.md) · [Next: Boundary Collisions and Integration](../10/README.md)
 
 ## Experiment notes — write your own
 

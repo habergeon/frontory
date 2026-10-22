@@ -245,6 +245,85 @@
         "questions.1": "Which apps need to account for time spent in a hidden tab?",
         "references.0.title": "MDN Canvas Tutorial"
       }
+    },
+    "canvas-2d-step-10": {
+      "sourceHash": "28034684c3d5c7cb09f1809230100ef9015b66426d81a1c13bba80fda1860a1c",
+      "values": {
+        "title": "Boundary Collisions and Integration",
+        "prerequisites": "Prerequisite concepts: Loop Ownership, Long Time Gaps. Prepare the result files and observation records from Unit 9.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Radius-Aware Boundaries",
+        "concepts.0.explanation": "Checking only the ball's center lets it pass through a wall by its radius. Constrain the center between the radius and width minus radius.",
+        "concepts.1.title": "Overshoot",
+        "concepts.1.explanation": "A long dt can carry a ball far beyond a boundary. Correct its position as well as reversing velocity to avoid sticking to a wall.",
+        "outcomes.0": "The ball does not remain outside the walls.",
+        "outcomes.1": "Record remaining errors at high speed.",
+        "steps.0": "Prepare day-10.js and index.html in the external practice project. Update the ball's x,y and vx,vy, then reflect it at all four walls while accounting for its radius.",
+        "steps.1": "Create a single-step button that takes dt as input to inspect collisions with large time intervals.",
+        "steps.2": "Save the output with the input condition 0.016 seconds, then run again with 0.2 seconds. Expected: Larger overshoot in discrete collisions reveals the need for correction. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-10-notes.md.",
+        "variables.0.name": "dt",
+        "variables.0.baseline": "0.016 seconds",
+        "variables.0.change": "0.2 seconds",
+        "variables.0.expected": "Larger overshoot in discrete collisions reveals the need for correction",
+        "criteria.0": "The ball does not remain outside the walls.",
+        "criteria.1": "Record remaining errors at high speed.",
+        "questions.0": "Why does simply reversing velocity cause jitter?",
+        "questions.1": "How would you handle crossing several walls in one step?",
+        "references.0.title": "MDN Canvas Tutorial"
+      }
+    },
+    "canvas-2d-step-11": {
+      "sourceHash": "d791e19569404beafc90d2de667b79764d424f7f58d7671be6da34b88182363b",
+      "values": {
+        "title": "Converting Pointer Coordinates",
+        "prerequisites": "Prerequisite concepts: Radius-Aware Boundaries, Overshoot. Prepare the result files and observation records from Unit 10.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Separating Coordinate Systems",
+        "concepts.0.explanation": "clientX is relative to the viewport. Subtract the canvas bounding rectangle and apply the logical size ratio to obtain drawing coordinates.",
+        "concepts.1.title": "Buffer and Input",
+        "concepts.1.explanation": "DPR affects output resolution. When drawing in CSS logical coordinates, multiplying pointer coordinates by DPR again misaligns selection.",
+        "outcomes.0": "Click markers remain accurate after scrolling the page.",
+        "outcomes.1": "Apply DPR in only one place.",
+        "steps.0": "Prepare day-11.js and index.html in the external practice project. Calculate logical x,y with getBoundingClientRect in pointerdown.",
+        "steps.1": "Add space around the canvas, halve its CSS dimensions, and draw a crosshair at the click position.",
+        "steps.2": "Save the output with the input condition 400px, then run again with 200px. Expected: Clicking the same position in the drawing preserves the logical coordinates. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-11-notes.md.",
+        "variables.0.name": "CSS Display Width",
+        "variables.0.baseline": "400px",
+        "variables.0.change": "200px",
+        "variables.0.expected": "Clicking the same position in the drawing preserves the logical coordinates",
+        "criteria.0": "Click markers remain accurate after scrolling the page.",
+        "criteria.1": "Apply DPR in only one place.",
+        "questions.0": "When is offsetX alone insufficient?",
+        "questions.1": "How does the calculation change with borders or CSS rotation?",
+        "references.0.title": "MDN devicePixelRatio",
+        "references.1.title": "MDN CanvasRenderingContext2D API"
+      }
+    },
+    "canvas-2d-step-12": {
+      "sourceHash": "8565b9da1c1682da2107607c7d9da03488805c0308d91dfb68269fe12e544462",
+      "values": {
+        "title": "Shape Selection and Hit Testing",
+        "prerequisites": "Prerequisite concepts: Separating Coordinate Systems, Buffer and Input. Prepare the result files and observation records from Unit 11.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Reusing Paths",
+        "concepts.0.explanation": "Path2D stores shape paths. You can test selection with the same path without reading screen pixel colors.",
+        "concepts.1.title": "Selection Order",
+        "concepts.1.explanation": "Overlapping shapes obscure one another according to drawing order. Testing from back to front lets you select the topmost visible item first.",
+        "outcomes.0": "Clicking an empty area clears selection.",
+        "outcomes.1": "Drawing and selection use the same path.",
+        "steps.0": "Prepare day-12.js and index.html in the external practice project. Store a Path2D and id for each shape, and test clicks with isPointInPath.",
+        "steps.1": "Iterate over overlapping circles and rectangles in reverse order, and output the selected id and outline.",
+        "steps.2": "Save the output with the input condition front to back, then run again with back to front. Expected: The topmost shape is selected in an overlapping area. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-12-notes.md.",
+        "variables.0.name": "Test Order",
+        "variables.0.baseline": "front to back",
+        "variables.0.change": "back to front",
+        "variables.0.expected": "The topmost shape is selected in an overlapping area",
+        "criteria.0": "Clicking an empty area clears selection.",
+        "criteria.1": "Drawing and selection use the same path.",
+        "questions.0": "Which coordinate space should transformed paths and input coordinates share?",
+        "questions.1": "Which API is needed for shapes with strokes only?",
+        "references.0.title": "MDN CanvasRenderingContext2D API"
+      }
     }
   }
 }

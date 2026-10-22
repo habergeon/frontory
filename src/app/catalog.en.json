@@ -2157,6 +2157,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "canvas-2d-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Boundary Collisions and Integration",
+      "goal": "The ball does not remain outside the walls. Record remaining errors at high speed.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/10/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "canvas-2d-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Converting Pointer Coordinates",
+      "goal": "Click markers remain accurate after scrolling the page. Apply DPR in only one place.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/11/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "canvas-2d-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Shape Selection and Hit Testing",
+      "goal": "Clicking an empty area clears selection. Drawing and selection use the same path.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/12/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

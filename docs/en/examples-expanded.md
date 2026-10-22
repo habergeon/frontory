@@ -226,6 +226,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [7. Text and Badge Composition](labs/graphics/canvas-2d/units/07/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-07/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [8. The Animation Clock](labs/graphics/canvas-2d/units/08/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-08/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [9. Stopping and Resuming](labs/graphics/canvas-2d/units/09/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-09/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [10. Boundary Collisions and Integration](labs/graphics/canvas-2d/units/10/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-10/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [11. Converting Pointer Coordinates](labs/graphics/canvas-2d/units/11/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-11/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [12. Shape Selection and Hit Testing](labs/graphics/canvas-2d/units/12/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-12/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 9 published in English
+Graphics · 4 stages · 28 units in the full series · 12 published in English
 
 ## Series goal
 
@@ -36,6 +36,9 @@ Only published English units are linked below. The full series has 28 units.
 
 - [08. The Animation Clock](units/08/README.md) — Editable example
 - [09. Stopping and Resuming](units/09/README.md) — Editable example
+- [10. Boundary Collisions and Integration](units/10/README.md) — Editable example
+- [11. Converting Pointer Coordinates](units/11/README.md) — Editable example
+- [12. Shape Selection and Hit Testing](units/12/README.md) — Editable example
 
 ### Stage 3 · Scene Editing and Compositing
 

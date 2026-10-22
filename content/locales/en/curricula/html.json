@@ -244,6 +244,85 @@
         "variables.0.expected": "Pre-run hypothesis: The relationship between cells and headers will be conveyed more clearly. Keep other conditions fixed and record the actual result separately after running.",
         "references.0.title": "MDN HTML"
       }
+    },
+    "html-step-10": {
+      "sourceHash": "9950b0599c77f5dba8f201222162c0d976ca1f24516005536e4e77cf74b409bf",
+      "values": {
+        "title": "Quotations and Machine-readable Dates",
+        "prerequisites": "The work and experiment records from Unit 9, “Table Row and Column Relationships”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Marking Quotations",
+        "concepts.0.explanation": "blockquote and q indicate the extent of a quotation. Use the cite element for a work’s title, and do not confuse it with naming a person.",
+        "concepts.1.title": "Representing Dates",
+        "concepts.1.explanation": "The datetime attribute of time provides a machine-readable value. The visible local format can differ from the standard value.",
+        "outcomes.0": "Distinguish the quotation’s extent from the source link.",
+        "outcomes.1": "The displayed date and datetime refer to the same date.",
+        "criteria.0": "Distinguish the quotation’s extent from the source link.",
+        "criteria.1": "The displayed date and datetime refer to the same date.",
+        "steps.0": "In quotes.html, prepare 1 quotation and the date 2026-10-21.",
+        "steps.1": "Add a short quotation and source link, and display the learning date with time.",
+        "steps.2": "Run with 1 quotation and the date 2026-10-21. Results to check: Distinguish the quotation’s extent from the source link. The displayed date and datetime refer to the same date. Record expected and actual results separately.",
+        "questions.0": "Do the cite attribute and cite element serve the same role?",
+        "questions.1": "Can you put a natural-language date directly in datetime?",
+        "variables.0.name": "datetime",
+        "variables.0.baseline": "Valid date",
+        "variables.0.change": "Natural-language sentence",
+        "variables.0.expected": "Pre-run hypothesis: The value will become unsuitable for machine reading. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
+    },
+    "html-step-11": {
+      "sourceHash": "63c55ec2cf03465893596f01e291379cd9f2ec5708a4492efe16da3a9fa2cdbe",
+      "values": {
+        "title": "The Form Submission Contract",
+        "prerequisites": "The work and experiment records from Unit 10, “Quotations and Machine-readable Dates”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Form Ownership",
+        "concepts.0.explanation": "form groups inputs and submission actions. A button without a type may become a submit button inside a form.",
+        "concepts.1.title": "Submission Names",
+        "concepts.1.explanation": "name becomes a key in the submitted data. id is used for associations such as labels and does not replace name.",
+        "outcomes.0": "The q value appears in the URL after a search.",
+        "outcomes.1": "The auxiliary button does not submit the form unintentionally.",
+        "criteria.0": "The q value appears in the URL after a search.",
+        "criteria.1": "The auxiliary button does not submit the form unintentionally.",
+        "steps.0": "In form-basics.html, prepare a q input and search/reset actions.",
+        "steps.1": "Build a GET search form with a labeled, named input and submit·button buttons.",
+        "steps.2": "Run with a q input and search/reset actions. Results to check: The q value appears in the URL after a search. The auxiliary button does not submit the form unintentionally. Record expected and actual results separately.",
+        "questions.0": "Is an input with only id submitted?",
+        "questions.1": "How do the purposes of GET and POST differ?",
+        "variables.0.name": "Button type",
+        "variables.0.baseline": "button",
+        "variables.0.change": "submit",
+        "variables.0.expected": "Pre-run hypothesis: Clicking will submit the form. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
+    },
+    "html-step-12": {
+      "sourceHash": "88ff4b2cbdf106857f1bd5885a962dc7762c18ed8fa02241c4b9053609b87a2a",
+      "values": {
+        "title": "Input Types and Autocomplete",
+        "prerequisites": "The work and experiment records from Unit 11, “The Form Submission Contract”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Input Semantics",
+        "concepts.0.explanation": "type affects native UI and validation rules. Do not make a phone number a number input merely because it looks numeric.",
+        "concepts.1.title": "Autocomplete",
+        "concepts.1.explanation": "autocomplete tokens convey an input’s purpose. They should reduce typing effort while matching the field’s actual meaning.",
+        "outcomes.0": "Each of the three fields has the corresponding label association and name.",
+        "outcomes.1": "Compare the validity of valid and invalid email addresses.",
+        "criteria.0": "Each of the three fields has the corresponding label association and name.",
+        "criteria.1": "Compare the validity of valid and invalid email addresses.",
+        "steps.0": "In input-types.html, prepare inputs for email, phone number, and study minutes.",
+        "steps.1": "Create email·tel·number inputs with appropriate autocomplete·inputmode attributes.",
+        "steps.2": "Run with inputs for email, phone number, and study minutes. Results to check: Each of the three fields has the corresponding label association and name. Compare the validity of valid and invalid email addresses. Record expected and actual results separately.",
+        "questions.0": "Does inputmode perform input validation?",
+        "questions.1": "Is the leading 0 of a phone number preserved?",
+        "variables.0.name": "Email type",
+        "variables.0.baseline": "text",
+        "variables.0.change": "email",
+        "variables.0.expected": "Pre-run hypothesis: An invalid email format will produce a constraint error. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML",
+        "references.1.title": "MDN input"
+      }
     }
   }
 }

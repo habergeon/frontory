@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: figure and Combined Descriptions](../08/README.md)
+[Previous: figure and Combined Descriptions](../08/README.md) · [Next: Quotations and Machine-readable Dates](../10/README.md)
 
 ## Experiment notes — write your own
 

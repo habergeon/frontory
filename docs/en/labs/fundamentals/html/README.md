@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 9 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 12 published in English
 
 ## Series goal
 
@@ -36,6 +36,9 @@ Only published English units are linked below. The full series has 28 units.
 
 - [08. figure and Combined Descriptions](units/08/README.md) — Editable example
 - [09. Table Row and Column Relationships](units/09/README.md) — Editable example
+- [10. Quotations and Machine-readable Dates](units/10/README.md) — Editable example
+- [11. The Form Submission Contract](units/11/README.md) — Editable example
+- [12. Input Types and Autocomplete](units/12/README.md) — Editable example
 
 ### Stage 3 · Native UI and Media
 
@@ -52,3 +55,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 ## Official references
 
 - [MDN HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [MDN input](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input)

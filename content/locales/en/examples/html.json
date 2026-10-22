@@ -46,5 +46,23 @@
     "values": {
       "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     }
+  },
+  "html-step-10": {
+    "sourceHash": "d6f663f13d467b1a25a8cb5a77478b6c3c128a325a4039098785f7b1ba0125bf",
+    "values": {
+      "note": "Change datetime to a natural-language value, then compare the inspection result with an HTML validator. The quotation is an example sentence. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "html-step-11": {
+    "sourceHash": "840cd08d5939e80dedfa3cfd1e1ef937d85b1aa55d88ddefe62cdf5f3d07c5ee",
+    "values": {
+      "note": "Submitting navigates inside the iframe. The inspect button displays FormData from the current source before submission. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "html-step-12": {
+    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "values": {
+      "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
   }
 }

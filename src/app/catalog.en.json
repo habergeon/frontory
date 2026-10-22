@@ -439,6 +439,36 @@
       "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "html-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Quotations and Machine-readable Dates",
+      "goal": "Distinguish the quotation’s extent from the source link. The displayed date and datetime refer to the same date.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/10/README.md",
+      "seriesId": "html",
+      "exampleNote": "Change datetime to a natural-language value, then compare the inspection result with an HTML validator. The quotation is an example sentence. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "The Form Submission Contract",
+      "goal": "The q value appears in the URL after a search. The auxiliary button does not submit the form unintentionally.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/11/README.md",
+      "seriesId": "html",
+      "exampleNote": "Submitting navigates inside the iframe. The inspect button displays FormData from the current source before submission. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Input Types and Autocomplete",
+      "goal": "Each of the three fields has the corresponding label association and name. Compare the validity of valid and invalid email addresses.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/12/README.md",
+      "seriesId": "html",
+      "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
       "id": "css-01",
       "day": 1,
       "week": 1,

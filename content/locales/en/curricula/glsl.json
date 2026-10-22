@@ -244,6 +244,84 @@
         "questions.1": "What jitter appears when a step boundary moves?",
         "references.0.title": "GLSL ES 3.00 Specification"
       }
+    },
+    "glsl-step-10": {
+      "sourceHash": "2291b45d10164702927315bf7d5ef349b3c37649fe9cacf707745b5624e63f72",
+      "values": {
+        "title": "Tiling and Repeating Coordinates",
+        "prerequisites": "Continue using the output and records from Unit 9. Before experimenting with Tiling and Repeating Coordinates, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Repetition",
+        "concepts.0.explanation": "fract creates repeating tiles from the fractional part of coordinates. Changing the tile count also changes the coordinate rate of change and boundary frequency.",
+        "concepts.1.title": "Identification",
+        "concepts.1.explanation": "Cell numbers obtained with floor can determine different values for each tile. Separating local cell coordinates from cell ids makes patterns easier to combine.",
+        "outcomes.0": "Build repeating coordinates.",
+        "outcomes.1": "Separate per-cell information from local patterns.",
+        "steps.0": "Separate floor(uv*count) and fract(uv*count) in tiles.glsl.",
+        "steps.1": "Output a circle inside each cell and alternating colors based on the cell id.",
+        "steps.2": "Record boundary continuity and flickering when the display shrinks at count=4 and 16.",
+        "variables.0.name": "Tile count",
+        "variables.0.baseline": "4",
+        "variables.0.change": "16",
+        "variables.0.expected": "Expect denser repetition that may increase aliasing on a small screen.",
+        "criteria.0": "Output cell ids and local coordinates in separate debug modes.",
+        "criteria.1": "Compare both tile counts at the same screen size.",
+        "questions.0": "Are fract and integer truncation equivalent for negative coordinates?",
+        "questions.1": "How should distortion connect across tile boundaries?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-11": {
+      "sourceHash": "b5049f8f58e15ad0416ffcaf2a8247b94ab9409361d0998e4e65bd6d4f148c44",
+      "values": {
+        "title": "Texture Sampling",
+        "prerequisites": "Continue using the output and records from Unit 10. Before experimenting with Texture Sampling, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Sampling Coordinates",
+        "concepts.0.explanation": "texture reads stored colors at UV positions. Use the texture function in WebGL2 GLSL ES 3.00.",
+        "concepts.1.title": "Boundaries and Filtering",
+        "concepts.1.explanation": "wrap and filter are texture object state. Even a change only to shader UV calculations combines with existing sampler settings to produce different results.",
+        "outcomes.0": "Connect a texture to a shader.",
+        "outcomes.1": "Compare the effects of sampling state.",
+        "steps.0": "Upload a self-generated 4×4 checker pattern in texture.js.",
+        "steps.1": "Connect a texture unit to a sampler2D uniform and call texture in the fragment shader.",
+        "steps.2": "Expand UVs to 0..2 and compare CLAMP_TO_EDGE with REPEAT and NEAREST with LINEAR.",
+        "variables.0.name": "wrap",
+        "variables.0.baseline": "CLAMP_TO_EDGE",
+        "variables.0.change": "REPEAT",
+        "variables.0.expected": "Expect pattern repetition instead of edge extension at out-of-range UVs.",
+        "criteria.0": "Record the texture-unit and sampler-uniform connection values.",
+        "criteria.1": "Save results for both wrap modes and both filters separately.",
+        "questions.0": "Can you pass a texture object to uniform1i?",
+        "questions.1": "When a pattern is flipped, what should you check in the shader and the upload?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
+    },
+    "glsl-step-12": {
+      "sourceHash": "ddf6fa8f2922879a507fdd622c7eb4d120111575c77999e1336780cfa07e9a66",
+      "values": {
+        "title": "Derivatives and Edge Smoothing",
+        "prerequisites": "Continue using the output and records from Unit 11. Before experimenting with Derivatives and Edge Smoothing, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation using WebGL2 and GLSL ES 3.00 in a separate localhost project. First check the GLSL version of existing examples and avoid mixing in 1.00 syntax.",
+        "concepts.0.title": "Screen-Space Rate of Change",
+        "concepts.0.explanation": "dFdx, dFdy, and fwidth estimate rates of change around a fragment. They help choose an appropriate transition width for a given distance function at different resolutions.",
+        "concepts.1.title": "Control Flow",
+        "concepts.1.explanation": "Using derivatives inside nonuniform branches can yield undefined results. Compute the necessary values first in consistent control flow.",
+        "outcomes.0": "Use screen-space rates of change.",
+        "outcomes.1": "Respect the execution conditions for derivatives.",
+        "steps.0": "Compute fwidth for the circle distance d in aa.glsl.",
+        "steps.1": "Display a fixed-width mask alongside a mask using max(fwidth(d),a small positive value).",
+        "steps.2": "Compare edges at two resolutions and while moving, and comment on where derivatives are computed.",
+        "variables.0.name": "Transition width",
+        "variables.0.baseline": "fixed 0.01",
+        "variables.0.change": "based on fwidth(d)",
+        "variables.0.expected": "Expect boundaries to remain roughly matched to pixel size as resolution changes.",
+        "criteria.0": "Derivative functions are outside nonuniform conditionals.",
+        "criteria.1": "Keep edge-comparison images at both resolutions.",
+        "questions.0": "Is fwidth an exact geometric pixel area?",
+        "questions.1": "Can derivatives be used in the same way in a vertex shader?",
+        "references.0.title": "GLSL ES 3.00 Specification"
+      }
     }
   }
 }

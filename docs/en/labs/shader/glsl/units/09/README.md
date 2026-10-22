@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: UVs and Aspect Ratio](../08/README.md)
+[Previous: UVs and Aspect Ratio](../08/README.md) · [Next: Tiling and Repeating Coordinates](../10/README.md)
 
 ## Experiment notes — write your own
 

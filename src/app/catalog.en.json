@@ -3917,6 +3917,36 @@
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
+      "id": "glsl-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Tiling and Repeating Coordinates",
+      "goal": "Build repeating coordinates. Separate per-cell information from local patterns.",
+      "docPath": "/docs/en/labs/shader/glsl/units/10/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
+      "id": "glsl-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Texture Sampling",
+      "goal": "Connect a texture to a shader. Compare the effects of sampling state.",
+      "docPath": "/docs/en/labs/shader/glsl/units/11/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
+      "id": "glsl-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Derivatives and Edge Smoothing",
+      "goal": "Use screen-space rates of change. Respect the execution conditions for derivatives.",
+      "docPath": "/docs/en/labs/shader/glsl/units/12/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
       "id": "wgsl-01",
       "day": 1,
       "week": 1,

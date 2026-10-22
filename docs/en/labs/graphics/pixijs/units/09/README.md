@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Ticker and Time Units](../08/README.md)
+[Previous: Ticker and Time Units](../08/README.md) · [Next: Asynchronous Asset Loading](../10/README.md)
 
 ## Experiment notes — write your own
 

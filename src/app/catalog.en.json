@@ -3321,6 +3321,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "pixijs-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Asynchronous Asset Loading",
+      "goal": "Define a policy for duplicate requests during loading. Recover to a valid path after failure.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/10/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "Loads a local data URL with Assets. Reproduce the error state with a corrupted image; check external servers/CORS in a separate environment."
+    },
+    {
+      "id": "pixijs-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Atlases and Frames",
+      "goal": "Match frame names to the images on screen. Find frames that extend beyond the source dimensions.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/11/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "pixijs-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Event Modes and Hit Areas",
+      "goal": "Distinguish noninteractive decoration from buttons. Show the hit area as a debug overlay.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/12/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

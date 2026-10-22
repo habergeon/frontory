@@ -46,5 +46,23 @@
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "pixijs-step-10": {
+    "sourceHash": "b0895e5d68ff3bd315cd9818303596ef09a4ae3eff42665c76e34dfc8a9d3220",
+    "values": {
+      "note": "Loads a local data URL with Assets. Reproduce the error state with a corrupted image; check external servers/CORS in a separate environment."
+    }
+  },
+  "pixijs-step-11": {
+    "sourceHash": "b08e216bdb400bf94f9edbc2d7cbd2a84296bf4e5965b4d5c3f9d7c53034ff7f",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "pixijs-step-12": {
+    "sourceHash": "c43d08420ce9dfc5cde0c6ec78430758ccdc9de9ea40bcf3e5b240408193c14d",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
   }
 }

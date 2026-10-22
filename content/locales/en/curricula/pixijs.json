@@ -248,6 +248,86 @@
         "references.0.title": "PixiJS 8 ticker",
         "references.1.title": "PixiJS 8 app"
       }
+    },
+    "pixijs-step-10": {
+      "sourceHash": "ec4144d5270986bf8f94b539e1432b5058d8b7075dea04a47186f6ebbe38d98e",
+      "values": {
+        "title": "Asynchronous Asset Loading",
+        "prerequisites": "Prerequisite concepts: Ticker Ownership, Function References. Prepare the output files and observation records from Unit 9.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Cached Resources",
+        "concepts.0.explanation": "Assets.load manages asynchronous loading and caching. Do not assume that requesting the same path again creates an independent texture every time.",
+        "concepts.1.title": "Error States",
+        "concepts.1.explanation": "Loading failure is a normal UI state. An error message and retry path are needed to recover from an empty screen.",
+        "outcomes.0": "Define a policy for duplicate requests during loading.",
+        "outcomes.1": "Recover to a valid path after failure.",
+        "steps.0": "Prepare day-10.js and index.html in the external practice project. Wrap Assets.load('/assets/hero.png') in try/catch and display loading, success, and error states.",
+        "steps.1": "Switch between an invalid URL and a valid URL, adding a Sprite to the stage only on success.",
+        "steps.2": "Save the output with the input condition Valid local path, then run again with Missing image. Expected: The error state appears and the retry button remains available. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-10-notes.md.",
+        "variables.0.name": "URL",
+        "variables.0.baseline": "Valid local path",
+        "variables.0.change": "Missing image",
+        "variables.0.expected": "The error state appears and the retry button remains available",
+        "criteria.0": "Define a policy for duplicate requests during loading.",
+        "criteria.1": "Recover to a valid path after failure.",
+        "questions.0": "Does Sprite.from always wait for network loading?",
+        "questions.1": "Where does responsibility for unloading cached resources belong?",
+        "references.0.title": "PixiJS 8 assets",
+        "references.1.title": "PixiJS 8 gc"
+      }
+    },
+    "pixijs-step-11": {
+      "sourceHash": "3ebd592789a97ca8240c2375717d1381d25199d785eb256d79a6146a90258a20",
+      "values": {
+        "title": "Atlases and Frames",
+        "prerequisites": "Prerequisite concepts: Cached Resources, Error States. Prepare the output files and observation records from Unit 10.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Shared Sources",
+        "concepts.0.explanation": "Multiple Textures in an atlas can refer to parts of the same TextureSource. Frame count and GPU source count are different concepts.",
+        "concepts.1.title": "Frame Rectangles",
+        "concepts.1.explanation": "frame is a region in the source image. Incorrect bounds can show another image or an empty region.",
+        "outcomes.0": "Match frame names to the images on screen.",
+        "outcomes.1": "Find frames that extend beyond the source dimensions.",
+        "steps.0": "Prepare day-11.js and index.html in the external practice project. Load a local atlas PNG and JSON with Assets.load and print the frame names.",
+        "steps.1": "Create Sprites from two frames and compare references to check whether they share one source.",
+        "steps.2": "Save the output with the input condition First region, then run again with Second region. Expected: Only the displayed region changes while the source remains shared. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-11-notes.md.",
+        "variables.0.name": "Frame",
+        "variables.0.baseline": "First region",
+        "variables.0.change": "Second region",
+        "variables.0.expected": "Only the displayed region changes while the source remains shared",
+        "criteria.0": "Match frame names to the images on screen.",
+        "criteria.1": "Find frames that extend beyond the source dimensions.",
+        "questions.0": "Does an atlas always guarantee one draw call?",
+        "questions.1": "Why is the original size information of a trimmed frame needed?",
+        "references.0.title": "PixiJS 8 assets",
+        "references.1.title": "PixiJS 8 sprite"
+      }
+    },
+    "pixijs-step-12": {
+      "sourceHash": "96235478ee5ef67e25ce954f4d47606f7e3854f47fc86308076b00bb1b3c5988",
+      "values": {
+        "title": "Event Modes and Hit Areas",
+        "prerequisites": "Prerequisite concepts: Shared Sources, Frame Rectangles. Prepare the output files and observation records from Unit 11.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Event Modes",
+        "concepts.0.explanation": "eventMode determines how an object handles interaction. Use static for clickable static objects to make the intent clear.",
+        "concepts.1.title": "Hit Areas",
+        "concepts.1.explanation": "hitArea can define an input region different from the visual bounds. Even a small icon can have a sufficiently large selection area.",
+        "outcomes.0": "Distinguish noninteractive decoration from buttons.",
+        "outcomes.1": "Show the hit area as a debug overlay.",
+        "steps.0": "Prepare day-12.js and index.html in the external practice project. Connect eventMode='static' and pointertap to a Sprite.",
+        "steps.1": "Add a Rectangle hitArea and compare selection logs for clicks outside and inside the boundary.",
+        "steps.2": "Save the output with the input condition Image size, then run again with Expand 10px in each direction. Expected: The selection region grows without changing the visible size. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-12-notes.md.",
+        "variables.0.name": "hitArea",
+        "variables.0.baseline": "Image size",
+        "variables.0.change": "Expand 10px in each direction",
+        "variables.0.expected": "The selection region grows without changing the visible size",
+        "criteria.0": "Distinguish noninteractive decoration from buttons.",
+        "criteria.1": "Show the hit area as a debug overlay.",
+        "questions.0": "When should static and dynamic be used differently?",
+        "questions.1": "Does the parent's eventMode affect traversal of its children?",
+        "references.0.title": "PixiJS 8 events"
+      }
     }
   }
 }

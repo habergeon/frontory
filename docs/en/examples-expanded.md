@@ -346,6 +346,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [7. Responsive Screens and Resolution](labs/graphics/pixijs/units/07/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-07/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [8. Ticker and Time Units](labs/graphics/pixijs/units/08/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-08/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [9. Starting, Stopping, and Callback Cleanup](labs/graphics/pixijs/units/09/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-09/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [10. Asynchronous Asset Loading](labs/graphics/pixijs/units/10/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-10/example.js) — Loads a local data URL with Assets. Reproduce the error state with a corrupted image; check external servers/CORS in a separate environment. |
+| [11. Atlases and Frames](labs/graphics/pixijs/units/11/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-11/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [12. Event Modes and Hit Areas](labs/graphics/pixijs/units/12/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-12/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

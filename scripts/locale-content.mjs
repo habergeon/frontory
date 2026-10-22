@@ -84,8 +84,41 @@ export function mergeTranslation(source, record) {
   return result
 }
 
-export function readEnglishContent({ complete = false, root = defaultRoot } = {}) {
+// Extraction is review evidence, not a semantic correctness verdict.
+function collectReview(source, translated, location, review) {
+  for (const [kind, pattern] of [
+    ['numbers', /(?<![\p{L}\p{N}_])[-+]?\d+(?:\.\d+)?/gu],
+    ['code', /```[\s\S]*?```|`[^`\n]+`/g],
+  ]) {
+    const original = source.replaceAll('\r\n', '\n').match(pattern) ?? []
+    const english = translated.replaceAll('\r\n', '\n').match(pattern) ?? []
+    if (original.length || english.length) review.push({
+      location, kind, source: original, translated: english,
+      matches: JSON.stringify(original) === JSON.stringify(english),
+    })
+  }
+}
+
+function hasLegacyGuidance(text, documentPath, unit) {
+  return text.split('\n').some(line => {
+    if (!line.startsWith('|') || !/ — \S.*\|\s*$/.test(line)) return false
+    const links = [...line.matchAll(/\]\(([^)]+)\)/g)].map(match =>
+      path.posix.resolve(path.posix.dirname(documentPath), match[1]))
+    return links.includes(`/src/labs/${unit.id}/example.js`) &&
+      links.some(link => link === unit.docPath || link === '/docs/en/' + unit.docPath.slice(6))
+  })
+}
+
+export function readEnglishContent({ complete = false, root = defaultRoot, review } = {}) {
   const read = file => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'))
+  const merge = (source, record, location) => {
+    const translated = mergeTranslation(source, record)
+    if (review) for (const field of prosePaths(source)) {
+      const get = value => field.split('.').reduce((entry, key) => entry[key], value)
+      collectReview(get(source), get(translated), location + '.' + field, review)
+    }
+    return translated
+  }
   const catalog = read('src/app/catalog.json')
   const baseline = read('content/catalog-v2.json')
   const manifest = read('content/locales/en/manifest.json')
@@ -97,7 +130,10 @@ export function readEnglishContent({ complete = false, root = defaultRoot } = {}
   if (new Set(ids).size !== ids.length) fail('Duplicate published unit ID')
   for (const id of ids) if (typeof id !== 'string' || !unitMap.has(id)) fail(`Unknown unit ID: ${id}`)
   if (complete && (catalog.series.length !== 23 || unitMap.size !== 644 || ids.length !== 644)) {
-    fail('Complete content requires 23 series and 644 approved units')
+    const missing = catalog.units.filter(unit => !ids.includes(unit.id)).map(unit => unit.id)
+    fail('Complete content requires 23 series and 644 approved units' +
+      ` (found ${catalog.series.length} series, ${unitMap.size} units, ${ids.length} approved).` +
+      (missing.length ? ` Missing approved unit IDs: ${missing.join(', ')}` : ''))
   }
   const selected = new Set(ids)
   const seriesIds = [...new Set(ids.map(id => unitMap.get(id).seriesId))]
@@ -113,7 +149,7 @@ export function readEnglishContent({ complete = false, root = defaultRoot } = {}
   for (const sourceSeries of baseline.series.filter(series => seriesIds.includes(series.id))) {
     const metadata = { title: sourceSeries.title, prerequisites: sourceSeries.prerequisites }
     if (sourceSeries.id === 'webgl') metadata.stages = sourceSeries.stages
-    const series = { ...structuredClone(sourceSeries), ...mergeTranslation(metadata, seriesRecords[sourceSeries.id]) }
+    const series = { ...structuredClone(sourceSeries), ...merge(metadata, seriesRecords[sourceSeries.id], `series:${sourceSeries.id}`) }
     const requiredIds = catalog.units.filter(unit => unit.seriesId === series.id && selected.has(unit.id)).map(unit => unit.id)
     if (series.id === 'webgl') {
       const records = read('content/locales/en/webgl.json')
@@ -122,7 +158,7 @@ export function readEnglishContent({ complete = false, root = defaultRoot } = {}
       for (const id of requiredIds) {
         const source = baseline.units.find(unit => unit.id === id && unit.seriesId === 'webgl')
         if (!source) fail(`Unknown WebGL unit ID: ${id}`)
-        result.catalog.units.push(mergeTranslation(source, records.units[id]))
+        result.catalog.units.push(merge(source, records.units[id], `unit:${id}`))
       }
       result.catalog.series.push(series)
       continue
@@ -136,7 +172,7 @@ export function readEnglishContent({ complete = false, root = defaultRoot } = {}
     const records = read(`content/locales/en/curricula/${series.id}.json`)
     keys(records, ['series', 'units'], `curricula.${series.id}`)
     keys(records.units, requiredIds, `units.${series.id}`)
-    const translated = mergeTranslation(seriesSource, records.series)
+    const translated = merge(seriesSource, records.series, `curriculum:${series.id}`)
     series.stages = translated.stages
     result.catalog.series.push(series)
     translated.units = []
@@ -144,7 +180,7 @@ export function readEnglishContent({ complete = false, root = defaultRoot } = {}
       const original = sourceUnits.get(id)
       const entry = unitMap.get(id)
       if (!original || original.day !== entry.day) fail(`Invalid source unit ID or day: ${id}`)
-      const unit = mergeTranslation(original, records.units[id])
+      const unit = merge(original, records.units[id], `unit:${id}`)
       translated.units.push(unit)
       result.catalog.units.push({ ...entry, title: unit.title, goal: unit.outcomes.join(' ') })
     }
@@ -175,7 +211,16 @@ export function readEnglishContent({ complete = false, root = defaultRoot } = {}
       if (record.sourceHash !== sourceHash(sources[id])) fail(`Stale example source hash: ${id}`)
       keys(record.values, ['note'], `examples.${id}.values`)
       if (typeof record.values.note !== 'string' || !record.values.note.trim()) fail(`Expected nonempty note string: ${id}`)
-      if (own(presentations, id)) result.examplePresentations[id] = validateExamplePresentation(presentations[id], record.presentation)
+      if (typeof sources[id].note !== 'string' || !sources[id].note.trim()) fail(`Expected nonempty source note: ${id}`)
+      if (review) collectReview(sources[id].note, record.values.note, `example:${id}.note`, review)
+      if (own(presentations, id)) {
+        result.examplePresentations[id] = validateExamplePresentation(presentations[id], record.presentation)
+        if (review) for (const group of ['messages', 'comments']) {
+          for (const key of Object.keys(presentations[id][group])) collectReview(
+            presentations[id][group][key], result.examplePresentations[id][group][key],
+            `presentation:${id}.${group}.${key}`, review)
+        }
+      }
       if (own(sources[id], 'readingSource')) {
         const expected = `/examples-en/${id}/example.js`
         if (sources[id].readingSource !== expected || !fs.existsSync(path.join(root, 'public', expected))) fail(`Invalid or missing reading source: ${id}`)
@@ -195,6 +240,7 @@ export function readEnglishContent({ complete = false, root = defaultRoot } = {}
     if (record.sourceHash !== sourceHash(source)) fail(`Stale document source hash: ${docPath}`)
     const text = fs.readFileSync(path.join(root, record.translatedPath.slice(1)), 'utf8')
     if (!text.trim()) fail(`Empty translated document: ${docPath}`)
+    if (review) collectReview(source, text, `document:${docPath}`, review)
     result.documents.set(docPath, { translatedPath: record.translatedPath, text })
   }
   if (complete) {
@@ -203,6 +249,18 @@ export function readEnglishContent({ complete = false, root = defaultRoot } = {}
       ...catalog.series.filter(series => series.id === 'webgl').map(series => series.docPath),
       ...catalog.units.filter(unit => unit.seriesId === 'webgl').map(unit => unit.docPath)]
     for (const docPath of requiredDocs) if (!result.documents.has(docPath)) fail(`Missing complete document: ${docPath}`)
+    const guidePath = '/docs/examples.md'
+    const sourceGuide = fs.readFileSync(path.join(root, guidePath.slice(1)), 'utf8')
+    const englishGuide = result.documents.get(guidePath)
+    const legacyIds = new Set(baseline.units.map(unit => unit.id))
+    for (const unit of catalog.units) {
+      if (!fs.existsSync(path.join(root, 'src/labs', unit.id, 'example.js'))) fail(`Missing complete example source: ${unit.id}`)
+      if (own(exampleSources.get(unit.seriesId), unit.id)) continue
+      if (!legacyIds.has(unit.id) || !hasLegacyGuidance(sourceGuide, guidePath, unit) ||
+        !hasLegacyGuidance(englishGuide.text, englishGuide.translatedPath, unit)) {
+        fail(`Missing complete example guidance: ${unit.id}`)
+      }
+    }
   }
   return result
 }

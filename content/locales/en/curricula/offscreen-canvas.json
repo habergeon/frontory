@@ -496,6 +496,87 @@
         "references.0.title": "MDN OffscreenCanvas",
         "references.1.title": "MDN Using Web Workers"
       }
+    },
+    "offscreen-canvas-step-19": {
+      "sourceHash": "99d93536a22920837079ce2cd37d3bfda076a6b56991f60a63b782cb5a148fca",
+      "values": {
+        "title": "Cleanup Protocol",
+        "prerequisites": "Prepare the experiment results for Visibility and Synchronization from Unit 18, “Page Visibility Policy”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Dispose",
+        "concepts.0.explanation": "Frames, events, observers, and the Worker must each be stopped or cleaned up. Removing the DOM alone does not clean up every task.",
+        "concepts.1.title": "Acknowledgment and termination",
+        "concepts.1.explanation": "Wait for the cleanup acknowledgment, but avoid waiting indefinitely. Terminate from the main thread with terminate if needed.",
+        "outcomes.0": "Learning outcome: explain the role of Dispose. Input cases: dispose during rendering.",
+        "outcomes.1": "Deliverable: Counts of remaining frames, messages, and observers. Explain the rationale for handling Acknowledgment and termination, linking it to the code.",
+        "steps.0": "In src/day-19.js in a separate practice project, implement dispose messages·ack, observer.disconnect, and a terminate path. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: dispose during rendering. Baseline: Remove only the DOM. Run under the baseline conditions, then record observations and errors in notes/day-19.md.",
+        "steps.2": "Variable: Shutdown; changed value: Full dispose. Run again through the same input path. Deliverable to save: Counts of remaining frames, messages, and observers. Hypothesis to check: No recurring tasks remain after removal. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Shutdown",
+        "variables.0.baseline": "Remove only the DOM",
+        "variables.0.change": "Full dispose",
+        "variables.0.expected": "No recurring tasks remain after removal.",
+        "criteria.0": "Required deliverable: Counts of remaining frames, messages, and observers. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Dispose and Acknowledgment and termination. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Dispose affect in this exercise? Input cases: dispose during rendering.",
+        "questions.1": "Variable: Shutdown. Hypothesis to check: No recurring tasks remain after removal. Did the actual results agree with the hypothesis? Explain the evidence in terms of Acknowledgment and termination.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-20": {
+      "sourceHash": "35341f9d1e51d854616fb746081bfb99c543adf2cd2ec3245cb405bc11d57b65",
+      "values": {
+        "title": "Restarting with a New Canvas",
+        "prerequisites": "Prepare the experiment results for Dispose and Acknowledgment and termination from Unit 19, “Cleanup Protocol”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Retransfer limits",
+        "concepts.0.explanation": "Trying to transfer an already transferred HTML Canvas again may fail. Begin the lifecycle with a new DOM element.",
+        "concepts.1.title": "Restart state",
+        "concepts.1.explanation": "A new renderer must receive scene data again. Attach pointer and size listeners to the new element as well.",
+        "outcomes.0": "Learning outcome: explain the role of Retransfer limits. Input cases: 5 start·stop cycles.",
+        "outcomes.1": "Deliverable: Canvas·Worker counts and first frame for each cycle. Explain the rationale for handling Restart state, linking it to the code.",
+        "steps.0": "In src/day-20.js in a separate practice project, create a new canvas after stop and resend the init state. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 5 start·stop cycles. Baseline: Reuse the existing Canvas. Run under the baseline conditions, then record observations and errors in notes/day-20.md.",
+        "steps.2": "Variable: Restart; changed value: New Canvas. Run again through the same input path. Deliverable to save: Canvas·Worker counts and first frame for each cycle. Hypothesis to check: Rendering restarts without duplicate-transfer errors. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Restart",
+        "variables.0.baseline": "Reuse the existing Canvas",
+        "variables.0.change": "New Canvas",
+        "variables.0.expected": "Rendering restarts without duplicate-transfer errors.",
+        "criteria.0": "Required deliverable: Canvas·Worker counts and first frame for each cycle. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Retransfer limits and Restart state. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Retransfer limits affect in this exercise? Input cases: 5 start·stop cycles.",
+        "questions.1": "Variable: Restart. Hypothesis to check: Rendering restarts without duplicate-transfer errors. Did the actual results agree with the hypothesis? Explain the evidence in terms of Restart state.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-21": {
+      "sourceHash": "e8091f45b758e24a0175e27f2cb1706d1df78ad4125f882b04f4f0abeacc4cca",
+      "values": {
+        "title": "Recovering from Worker Failure",
+        "prerequisites": "Prepare the experiment results for Retransfer limits and Restart state from Unit 20, “Restarting with a New Canvas”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Distinguishing errors",
+        "concepts.0.explanation": "Rendering computation errors and Worker loading errors have different causes. The main thread is responsible for restoring state.",
+        "concepts.1.title": "Fallback",
+        "concepts.1.explanation": "After an error, you can switch to a main-thread renderer on a new Canvas. This does not reclaim the already transferred context.",
+        "outcomes.0": "Learning outcome: explain the role of Distinguishing errors. Input cases: Errors during initialization and rendering.",
+        "outcomes.1": "Deliverable: A table of error guidance, selected mode, and scene preservation. Explain the rationale for handling Fallback, linking it to the code.",
+        "steps.0": "In src/day-21.js in a separate practice project, reinitialize the fallback from worker.onerror and error messages. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: Errors during initialization and rendering. Baseline: Initialization. Run under the baseline conditions, then record observations and errors in notes/day-21.md.",
+        "steps.2": "Variable: Failure timing; changed value: During rendering. Run again through the same input path. Deliverable to save: A table of error guidance, selected mode, and scene preservation. Hypothesis to check: Both paths restore guidance and interaction. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Failure timing",
+        "variables.0.baseline": "Initialization",
+        "variables.0.change": "During rendering",
+        "variables.0.expected": "Both paths restore guidance and interaction.",
+        "criteria.0": "Required deliverable: A table of error guidance, selected mode, and scene preservation. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Distinguishing errors and Fallback. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Distinguishing errors affect in this exercise? Input cases: Errors during initialization and rendering.",
+        "questions.1": "Variable: Failure timing. Hypothesis to check: Both paths restore guidance and interaction. Did the actual results agree with the hypothesis? Explain the evidence in terms of Fallback.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
     }
   }
 }

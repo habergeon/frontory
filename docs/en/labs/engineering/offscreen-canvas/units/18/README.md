@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Pausing and Resuming](../17/README.md)
+[Previous: Pausing and Resuming](../17/README.md) · [Next: Cleanup Protocol](../19/README.md)
 
 ## Experiment notes — write your own
 

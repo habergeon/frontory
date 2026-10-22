@@ -94,5 +94,23 @@
     "values": {
       "note": "An interactive Page Visibility Policy experiment with cleanup of the resources it uses."
     }
+  },
+  "offscreen-canvas-step-19": {
+    "sourceHash": "cdb5740f5e25339fbbad1fc81a4b59fe43f83bae47a9f4fe5bfbb6d2377f7749",
+    "values": {
+      "note": "An interactive Cleanup Protocol experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-20": {
+    "sourceHash": "4b3b8bf2f3d9fbbe7361353e94077ff34593e100d73e7cd4209310db226d9e70",
+    "values": {
+      "note": "An interactive Restarting with a New Canvas experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-21": {
+    "sourceHash": "7ac563b8a3f89fa8c2add6e8df3561e4559e405109b37b44ebbf11998df2d453",
+    "values": {
+      "note": "An interactive Recovering from Worker Failure experiment with cleanup of the resources it uses."
+    }
   }
 }

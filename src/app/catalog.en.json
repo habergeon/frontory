@@ -5722,6 +5722,36 @@
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/18/README.md",
       "seriesId": "offscreen-canvas",
       "exampleNote": "An interactive Page Visibility Policy experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Cleanup Protocol",
+      "goal": "Learning outcome: explain the role of Dispose. Input cases: dispose during rendering. Deliverable: Counts of remaining frames, messages, and observers. Explain the rationale for handling Acknowledgment and termination, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/19/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Cleanup Protocol experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Restarting with a New Canvas",
+      "goal": "Learning outcome: explain the role of Retransfer limits. Input cases: 5 start·stop cycles. Deliverable: Canvas·Worker counts and first frame for each cycle. Explain the rationale for handling Restart state, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/20/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Restarting with a New Canvas experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Recovering from Worker Failure",
+      "goal": "Learning outcome: explain the role of Distinguishing errors. Input cases: Errors during initialization and rendering. Deliverable: A table of error guidance, selected mode, and scene preservation. Explain the rationale for handling Fallback, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/21/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Recovering from Worker Failure experiment with cleanup of the resources it uses."
     }
   ]
 }

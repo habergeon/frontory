@@ -3159,6 +3159,36 @@
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
+      "id": "gaussian-splatting-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Visibility Bounds and Conservative Culling",
+      "goal": "Cull safely using screen bounds. Compare both workload and omissions.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/16/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Sorting Update Intervals",
+      "goal": "Reuse sorting results. Visually evaluate update delay.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/17/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Resolution and Pixel Workload",
+      "goal": "Isolate the cost of resolution. Compare quality loss at identical viewpoints.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/18/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
       "id": "webgpu-01",
       "day": 1,
       "week": 1,

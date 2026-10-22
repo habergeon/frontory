@@ -415,6 +415,87 @@
         "references.0.title": "Spark Official Documentation",
         "references.1.title": "3D Gaussian Splatting Research Project"
       }
+    },
+    "gaussian-splatting-step-16": {
+      "sourceHash": "4fcf8ee4bb8a49019e20d68f43cff782bbb40e039ddabd020658c8fe2de3909b",
+      "values": {
+        "title": "Visibility Bounds and Conservative Culling",
+        "prerequisites": "Continue using the output and records from Unit 15. Before the Visibility Bounds and Conservative Culling experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Using bounds",
+        "concepts.0.explanation": "Culling off-screen items by center alone makes splats crossing an edge disappear. Cull conservatively using the bounds of the screen ellipse.",
+        "concepts.1.title": "Numerical safety",
+        "concepts.1.explanation": "A Gaussian that is too close can have a large screen radius. Separate clipping from workload limits to avoid iterating over an unbounded area.",
+        "outcomes.0": "Cull safely using screen bounds.",
+        "outcomes.1": "Compare both workload and omissions.",
+        "steps.0": "In cull.js, add an intersection test between the screen bounding box and viewport.",
+        "steps.1": "Create a fixture whose center is off screen while part of its ellipse remains visible.",
+        "steps.2": "Log culled counts and pixel evaluation counts, and compare output images.",
+        "variables.0.name": "Culling criterion",
+        "variables.0.baseline": "Center only",
+        "variables.0.change": "Ellipse bounding box",
+        "variables.0.expected": "Expect fewer omissions at the edges and more processed items.",
+        "criteria.0": "The edge fixture survives the conservative test.",
+        "criteria.1": "A completely off-screen fixture is culled before pixel evaluation.",
+        "questions.0": "Why does a conservative test allow over-inclusion?",
+        "questions.1": "What problems arise if near-plane handling and screen-boundary handling are combined?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-17": {
+      "sourceHash": "c401ae7d8332d70f0c79194d64ce436d86db721e3f12465a6ab646806eb7f6a8",
+      "values": {
+        "title": "Sorting Update Intervals",
+        "prerequisites": "Continue using the output and records from Unit 16. Before the Sorting Update Intervals experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Reuse",
+        "concepts.0.explanation": "Depth order can be reused when the camera is stationary. Using stale order while the camera moves can increase compositing errors.",
+        "concepts.1.title": "Observing delay",
+        "concepts.1.explanation": "Sorting less frequently reduces CPU work but can delay the visual response. Average time alone does not reveal these changes.",
+        "outcomes.0": "Reuse sorting results.",
+        "outcomes.1": "Visually evaluate update delay.",
+        "steps.0": "In scheduler.js, create sorting modes for every frame and every 4 frames.",
+        "steps.1": "Play the same camera-path.json in both modes.",
+        "steps.2": "Record sort counts, CPU time, and image differences at order-update moments.",
+        "variables.0.name": "Sorting interval",
+        "variables.0.baseline": "1 frame",
+        "variables.0.change": "4 frames",
+        "variables.0.expected": "Expect fewer sorting calls and more traces of stale order during fast rotation.",
+        "criteria.0": "Compare sorting call counts over playback of the same duration.",
+        "criteria.1": "Keep images from two intervals where order changes.",
+        "questions.0": "What does an update policy based on camera movement improve?",
+        "questions.1": "Can reduced sorting time be treated directly as an improvement to the whole frame?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-18": {
+      "sourceHash": "79b39e52353a64288d669b1dca0f76ad6430c9fd14a244aa5dc31a57c7153329",
+      "values": {
+        "title": "Resolution and Pixel Workload",
+        "prerequisites": "Continue using the output and records from Unit 17. Before the Resolution and Pixel Workload experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Pixel cost",
+        "concepts.0.explanation": "Reducing screen resolution lowers the number of pixels evaluated even with the same Gaussian count. It also changes silhouettes and thin structures.",
+        "concepts.1.title": "Comparison conditions",
+        "concepts.1.explanation": "Record CSS dimensions separately from actual drawing buffer dimensions. Mixing cameras or DPR values makes it hard to judge the effect of resolution.",
+        "outcomes.0": "Isolate the cost of resolution.",
+        "outcomes.1": "Compare quality loss at identical viewpoints.",
+        "steps.0": "In quality.js, add fixed CSS dimensions and a render scale input.",
+        "steps.1": "Fix camera-path.json and the data id, and play at scales 1.0 and 0.5.",
+        "steps.2": "Save actual buffer dimensions, median frame interval, and images of thin structures.",
+        "variables.0.name": "render scale",
+        "variables.0.baseline": "1.0",
+        "variables.0.change": "0.5",
+        "variables.0.expected": "Expect approximately 1/4 as many pixels but less detail.",
+        "criteria.0": "Record width×height for both modes.",
+        "criteria.1": "Annotate detail loss in three images from identical times.",
+        "questions.0": "Why is frame time not directly proportional to pixel count?",
+        "questions.1": "How do DPR and render scale combine?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
     }
   }
 }

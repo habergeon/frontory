@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 15 published in English
+Graphics · 4 stages · 28 units in the full series · 18 published in English
 
 ## Series goal
 
@@ -45,6 +45,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 3 · Animation, Instancing, and Render Passes
 
 - [15. Model Size and Camera Fitting](units/15/README.md) — Editable example
+- [16. Orbit Controls and On-Demand Rendering](units/16/README.md) — Editable example
+- [17. Clip Animation](units/17/README.md) — Editable example
+- [18. Transparency and Depth](units/18/README.md) — Editable example
 
 ### Stage 4 · Resource Lifetimes, Accessibility, and Measurement
 
@@ -67,3 +70,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [Three.js Raycaster](https://threejs.org/docs/pages/Raycaster.html)
 - [Three.js GLTFLoader](https://threejs.org/docs/pages/GLTFLoader.html)
 - [Three.js OrbitControls](https://threejs.org/docs/pages/OrbitControls.html)
+- [Three.js AnimationMixer](https://threejs.org/docs/pages/AnimationMixer.html)

@@ -2798,6 +2798,36 @@
       "exampleNote": "Reproduces Box3 framing with basic shapes. An arbitrary glTF loader is not injected into the preview runtime."
     },
     {
+      "id": "threejs-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Orbit Controls and On-Demand Rendering",
+      "goal": "Update the screen after input and resizing. Keep frames running during damping.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/16/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "threejs-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Clip Animation",
+      "goal": "Keep the UI available for models without clips. Distinguish time in seconds from playback speed.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/17/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "Runs a procedurally created AnimationClip and AnimationMixer. Extend glTF clip-list loading in an external project with GLTFLoader."
+    },
+    {
+      "id": "threejs-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Transparency and Depth",
+      "goal": "Distinguish opaque depth handling from transparent compositing. Explain remaining sorting limitations with screenshots.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/18/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

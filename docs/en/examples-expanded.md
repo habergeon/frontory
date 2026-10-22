@@ -291,6 +291,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [12. Shadow Maps](labs/graphics/threejs/units/12/README.md) | Editable example | [Source code](../../src/labs/threejs-step-12/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [13. Normalized Coordinates and Selection](labs/graphics/threejs/units/13/README.md) | Editable example | [Source code](../../src/labs/threejs-step-13/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [15. Model Size and Camera Fitting](labs/graphics/threejs/units/15/README.md) | Editable example | [Source code](../../src/labs/threejs-step-15/example.js) — Reproduces Box3 framing with basic shapes. An arbitrary glTF loader is not injected into the preview runtime. |
+| [16. Orbit Controls and On-Demand Rendering](labs/graphics/threejs/units/16/README.md) | Editable example | [Source code](../../src/labs/threejs-step-16/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [17. Clip Animation](labs/graphics/threejs/units/17/README.md) | Editable example | [Source code](../../src/labs/threejs-step-17/example.js) — Runs a procedurally created AnimationClip and AnimationMixer. Extend glTF clip-list loading in an external project with GLTFLoader. |
+| [18. Transparency and Depth](labs/graphics/threejs/units/18/README.md) | Editable example | [Source code](../../src/labs/threejs-step-18/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

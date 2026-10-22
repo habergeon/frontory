@@ -409,6 +409,87 @@
         "references.0.title": "Three.js GLTFLoader",
         "references.1.title": "Three.js OrbitControls"
       }
+    },
+    "threejs-step-16": {
+      "sourceHash": "4c3103c85ff25e3521d1819c824e81962b1deb2bed3a10776dfd7ca8aabd0839",
+      "values": {
+        "title": "Orbit Controls and On-Demand Rendering",
+        "prerequisites": "Prerequisite concepts: Bounding Boxes, Camera Framing. Prepare the result files and observation notes from unit 15.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Control State",
+        "concepts.0.explanation": "OrbitControls updates the camera and target together. Synchronize them with update after changing the camera manually.",
+        "concepts.1.title": "Static Scenes",
+        "concepts.1.explanation": "A scene without motion does not always need rendering. With damping or animation, frames are needed until it settles.",
+        "outcomes.0": "Update the screen after input and resizing.",
+        "outcomes.1": "Keep frames running during damping.",
+        "steps.0": "Prepare day-16.js and index.html in the external exercise project. Write a function that requests render on the OrbitControls change event.",
+        "steps.1": "Switch between a static mode with damping off and continuous updates with damping on, and display the render count.",
+        "steps.2": "Save the output under the Continuous loop input condition, then run again under the Request on change condition. Expected: Unnecessary render calls decrease in a static scene. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-16-notes.md.",
+        "variables.0.name": "Rendering policy",
+        "variables.0.baseline": "Continuous loop",
+        "variables.0.change": "Request on change",
+        "variables.0.expected": "Unnecessary render calls decrease in a static scene.",
+        "criteria.0": "Update the screen after input and resizing.",
+        "criteria.1": "Keep frames running during damping.",
+        "questions.0": "How do you coalesce multiple render requests for one event?",
+        "questions.1": "Why is controls.dispose necessary?",
+        "references.0.title": "Three.js OrbitControls",
+        "references.1.title": "Three.js WebGLRenderer"
+      }
+    },
+    "threejs-step-17": {
+      "sourceHash": "0f99c7dc5f594271932c8e13a340a89032dd391eb39dcba119f3a79d4ee1ddaa",
+      "values": {
+        "title": "Clip Animation",
+        "prerequisites": "Prerequisite concepts: Control State, Static Scenes. Prepare the result files and observation notes from unit 16.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Mixer Time",
+        "concepts.0.explanation": "AnimationMixer.update accepts delta in seconds. Passing milliseconds unchanged makes animation run too fast.",
+        "concepts.1.title": "Clips and Actions",
+        "concepts.1.explanation": "AnimationClip holds keyframe data, while an action holds playback state. Multiple actions may affect the same model.",
+        "outcomes.0": "Keep the UI available for models without clips.",
+        "outcomes.1": "Distinguish time in seconds from playback speed.",
+        "steps.0": "Prepare day-17.js and index.html in the external exercise project. Display the clip list from a local glb containing animation in an HTML select.",
+        "steps.1": "Play it with mixer.clipAction, and connect timeScale and a stop button.",
+        "steps.2": "Save the output under the 1 input condition, then run again under the 0.5 condition. Expected: The same clip plays at half speed. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-17-notes.md.",
+        "variables.0.name": "timeScale",
+        "variables.0.baseline": "1",
+        "variables.0.change": "0.5",
+        "variables.0.expected": "The same clip plays at half speed.",
+        "criteria.0": "Keep the UI available for models without clips.",
+        "criteria.1": "Distinguish time in seconds from playback speed.",
+        "questions.0": "Can clip data and actions each be reused?",
+        "questions.1": "What needs cleanup besides stopAllAction when replacing a scene?",
+        "references.0.title": "Three.js AnimationMixer",
+        "references.1.title": "Three.js GLTFLoader"
+      }
+    },
+    "threejs-step-18": {
+      "sourceHash": "acbb526d0992a8a22b1823c1296e969a8d0ba462224cac815285b01af61c0d8e",
+      "values": {
+        "title": "Transparency and Depth",
+        "prerequisites": "Prerequisite concepts: Mixer Time, Clips and Actions. Prepare the result files and observation notes from unit 17.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Depth Writes",
+        "concepts.0.explanation": "depthWrite controls whether the depth buffer is written. A translucent object may incorrectly hide objects behind it.",
+        "concepts.1.title": "Sorting Limits",
+        "concepts.1.explanation": "Transparent objects are sensitive to order. Sorting whole objects alone cannot easily handle every intersecting surface perfectly.",
+        "outcomes.0": "Distinguish opaque depth handling from transparent compositing.",
+        "outcomes.1": "Explain remaining sorting limitations with screenshots.",
+        "steps.0": "Prepare day-18.js and index.html in the external exercise project. Arrange two translucent planes and an opaque cube so they intersect.",
+        "steps.1": "Change transparent,opacity,depthWrite and orbit the camera fully around them to record errors.",
+        "steps.2": "Save the output under the true input condition, then run again under the false condition. Expected: Occlusion changes, but not every transparency-sorting problem is solved. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-18-notes.md.",
+        "variables.0.name": "depthWrite",
+        "variables.0.baseline": "true",
+        "variables.0.change": "false",
+        "variables.0.expected": "Occlusion changes, but not every transparency-sorting problem is solved.",
+        "criteria.0": "Distinguish opaque depth handling from transparent compositing.",
+        "criteria.1": "Explain remaining sorting limitations with screenshots.",
+        "questions.0": "Can renderOrder alone solve every intersection?",
+        "questions.1": "Why might alphaTest be useful for a cutout leaf image?",
+        "references.0.title": "Three.js MeshStandardMaterial",
+        "references.1.title": "Three.js WebGLRenderer"
+      }
     }
   }
 }

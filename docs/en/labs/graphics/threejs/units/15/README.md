@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Materials, Loading, and Selection](../../02-experiments/README.md)
+[Previous: Materials, Loading, and Selection](../../02-experiments/README.md) · [Next: Orbit Controls and On-Demand Rendering](../16/README.md)
 
 ## Experiment notes — write your own
 

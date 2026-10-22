@@ -76,5 +76,23 @@
     "values": {
       "note": "Reproduces Box3 framing with basic shapes. An arbitrary glTF loader is not injected into the preview runtime."
     }
+  },
+  "threejs-step-16": {
+    "sourceHash": "b09a79f3c595866a79f5bb5c193865855794374b891ba4e24a30a8fe32d5b1bb",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "threejs-step-17": {
+    "sourceHash": "7561570990640725af132852016283ea02fce07bd5ae94fe1678736478eef24c",
+    "values": {
+      "note": "Runs a procedurally created AnimationClip and AnimationMixer. Extend glTF clip-list loading in an external project with GLTFLoader."
+    }
+  },
+  "threejs-step-18": {
+    "sourceHash": "051f1e5fa9f76c2b9674689fbc8086ae05b0182c57ffa27abff1504afa174333",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
   }
 }

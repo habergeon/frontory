@@ -528,6 +528,36 @@
       "exampleNote": "External HTTP example: provides a 6-second synthetic MP4, Korean VTT, a transcript, and switching between success/failure cases. This is a silent synthetic fixture; evaluate accessibility for actual speech with a separate video."
     },
     {
+      "id": "html-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Responsive Image Selection",
+      "goal": "Record currentSrc and the actual display width on two screens. Keep alt text with the same meaning for every candidate.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/19/README.md",
+      "seriesId": "html",
+      "exampleNote": "300/600/1200w SVG candidates are selected through actual srcset behavior. sizes, DPR, and the preview viewport affect selection. The data URLs are not for comparing network transfer sizes. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "picture and Format Fallbacks",
+      "goal": "Record the selected image and composition at two widths. img is displayed even when the source conditions do not match.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/20/README.md",
+      "seriesId": "html",
+      "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "iframe and Embedded Content Boundaries",
+      "goal": "Check the frame’s purpose through its accessible name. Record whether the button runs under the two policies.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/21/README.md",
+      "seriesId": "html",
+      "exampleNote": "External HTTP example: switches between sandbox=\"\" and allow-scripts on the same guide.html and observes button·postMessage behavior."
+    },
+    {
       "id": "css-01",
       "day": 1,
       "week": 1,

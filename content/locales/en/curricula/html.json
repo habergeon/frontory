@@ -482,6 +482,84 @@
         "variables.0.expected": "Pre-run hypothesis: The video will play but captions will not appear. Keep other conditions fixed and record the actual result separately after running.",
         "references.0.title": "MDN HTML"
       }
+    },
+    "html-step-19": {
+      "sourceHash": "5d3ea8830f97a0bb929d4d7e6f5fc47feed78fa0707003a2d2802d036146808f",
+      "values": {
+        "title": "Responsive Image Selection",
+        "prerequisites": "The work and experiment records from Unit 18, “Media Captions and Alternatives”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Source Candidates",
+        "concepts.0.explanation": "srcset provides image candidates by resolution or width. The browser considers both screen conditions and candidate information.",
+        "concepts.1.title": "Display Size",
+        "concepts.1.explanation": "sizes specifies the expected display width when selecting width-descriptor candidates. A mismatch with the actual CSS display size can cause unnecessary downloads.",
+        "outcomes.0": "Record currentSrc and the actual display width on two screens.",
+        "outcomes.1": "Keep alt text with the same meaning for every candidate.",
+        "criteria.0": "Record currentSrc and the actual display width on two screens.",
+        "criteria.1": "Keep alt text with the same meaning for every candidate.",
+        "steps.0": "In responsive-images.html, prepare narrow and wide screens, and requests with the cache cleared.",
+        "steps.1": "Create 3 images of different widths and srcset·sizes, then check currentSrc and request sizes.",
+        "steps.2": "Run with narrow and wide screens, and requests with the cache cleared. Results to check: Record currentSrc and the actual display width on two screens. Keep alt text with the same meaning for every candidate. Record expected and actual results separately.",
+        "questions.0": "Does the browser always choose the smallest candidate?",
+        "questions.1": "How do sizes and the width attribute differ?",
+        "variables.0.name": "Viewport",
+        "variables.0.baseline": "360px",
+        "variables.0.change": "1200px",
+        "variables.0.expected": "Pre-run hypothesis: The selected candidate may change. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
+    },
+    "html-step-20": {
+      "sourceHash": "904b20da61542965c749a2c20fe1115d9a61baa0735c1dde590f07b22b2d5aa3",
+      "values": {
+        "title": "picture and Format Fallbacks",
+        "prerequisites": "The work and experiment records from Unit 19, “Responsive Image Selection”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Art Direction",
+        "concepts.0.explanation": "The media conditions in picture let you select images with different compositions. This serves a different purpose from simple resolution selection.",
+        "concepts.1.title": "Fallback Images",
+        "concepts.1.explanation": "img provides the default display and fallback in picture. The type attribute on source helps the browser determine format support.",
+        "outcomes.0": "Record the selected image and composition at two widths.",
+        "outcomes.1": "img is displayed even when the source conditions do not match.",
+        "criteria.0": "Record the selected image and composition at two widths.",
+        "criteria.1": "img is displayed even when the source conditions do not match.",
+        "steps.0": "In picture.html, prepare two images with narrow and wide compositions.",
+        "steps.1": "Use source elements for a mobile crop and a wide composition, and provide an img default.",
+        "steps.2": "Run with two images with narrow and wide compositions. Results to check: Record the selected image and composition at two widths. img is displayed even when the source conditions do not match. Record expected and actual results separately.",
+        "questions.0": "Is picture essential if only the resolution differs?",
+        "questions.1": "Does the alt text remain valid when the composition changes?",
+        "variables.0.name": "media Condition",
+        "variables.0.baseline": "Below 600px",
+        "variables.0.change": "600px or above",
+        "variables.0.expected": "Pre-run hypothesis: A different composition that preserves the information will be selected. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
+    },
+    "html-step-21": {
+      "sourceHash": "4bb1c941f914ddaa3dab51c781bdee5122952c85f5d1afabbef834b8d573033e",
+      "values": {
+        "title": "iframe and Embedded Content Boundaries",
+        "prerequisites": "The work and experiment records from Unit 20, “picture and Format Fallbacks”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Frame Names",
+        "concepts.0.explanation": "An iframe’s title identifies the purpose of the embedded region. Its role differs from the title of the internal page.",
+        "concepts.1.title": "Restriction Policies",
+        "concepts.1.explanation": "sandbox restricts features available to the embedded document. Select only necessary permissions and check their actual effects.",
+        "outcomes.0": "Check the frame’s purpose through its accessible name.",
+        "outcomes.1": "Record whether the button runs under the two policies.",
+        "criteria.0": "Check the frame’s purpose through its accessible name.",
+        "criteria.1": "Record whether the button runs under the two policies.",
+        "steps.0": "In embed.html, prepare a document without scripts and a document with a button script.",
+        "steps.1": "Embed a local guide document in an iframe and set title and sandbox.",
+        "steps.2": "Run with a document without scripts and a document with a button script. Results to check: Check the frame’s purpose through its accessible name. Record whether the button runs under the two policies. Record expected and actual results separately.",
+        "questions.0": "What remains if all sandbox tokens are allowed?",
+        "questions.1": "Where do you specify the parent document’s language and the frame’s language?",
+        "variables.0.name": "sandbox",
+        "variables.0.baseline": "Empty value",
+        "variables.0.change": "allow-scripts",
+        "variables.0.expected": "Pre-run hypothesis: Whether the internal script runs will differ. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
     }
   }
 }

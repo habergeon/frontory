@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 18 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 21 published in English
 
 ## Series goal
 
@@ -48,6 +48,9 @@ Only published English units are linked below. The full series has 28 units.
 - [16. A Collapsible Table of Contents with details](units/16/README.md) — Editable example
 - [17. dialog and Modal Flow](units/17/README.md) — Editable example
 - [18. Media Captions and Alternatives](units/18/README.md) — External example · preview instructions
+- [19. Responsive Image Selection](units/19/README.md) — Editable example
+- [20. picture and Format Fallbacks](units/20/README.md) — Editable example
+- [21. iframe and Embedded Content Boundaries](units/21/README.md) — External example · preview instructions
 
 ### Stage 4 · Accessibility Review and Card Integration
 

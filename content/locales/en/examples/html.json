@@ -94,5 +94,23 @@
     "values": {
       "note": "External HTTP example: provides a 6-second synthetic MP4, Korean VTT, a transcript, and switching between success/failure cases. This is a silent synthetic fixture; evaluate accessibility for actual speech with a separate video."
     }
+  },
+  "html-step-19": {
+    "sourceHash": "e42f8bd9cb311c01b0236a520591c8f473e86c57754afe89db62539cd2076ebf",
+    "values": {
+      "note": "300/600/1200w SVG candidates are selected through actual srcset behavior. sizes, DPR, and the preview viewport affect selection. The data URLs are not for comparing network transfer sizes. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "html-step-20": {
+    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "values": {
+      "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "html-step-21": {
+    "sourceHash": "9098feac7b37df30cc8f971fea1fb38a8191cda5d0411a40611697ec6cd7e3a9",
+    "values": {
+      "note": "External HTTP example: switches between sandbox=\"\" and allow-scripts on the same guide.html and observes button·postMessage behavior."
+    }
   }
 }

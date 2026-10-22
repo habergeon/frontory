@@ -73,7 +73,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: dialog and Modal Flow](../17/README.md)
+[Previous: dialog and Modal Flow](../17/README.md) · [Next: Responsive Image Selection](../19/README.md)
 
 ## Experiment notes — write your own
 

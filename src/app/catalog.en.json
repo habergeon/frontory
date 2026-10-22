@@ -3219,6 +3219,36 @@
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
+      "id": "gaussian-splatting-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Separating Profiling Intervals",
+      "goal": "Measure costs by processing stage. Distinguish CPU and GPU timing claims.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/22/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Resource Lifetimes and Repeated Loading",
+      "goal": "Manage resource ownership. Verify cleanup after repeated replacement.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/23/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Keyboard Controls and Camera Recovery",
+      "goal": "Provide multiple input methods. Save the complete camera recovery state.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/24/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
       "id": "webgpu-01",
       "day": 1,
       "week": 1,

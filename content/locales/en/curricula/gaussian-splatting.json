@@ -577,6 +577,87 @@
         "references.0.title": "Spark Official Documentation",
         "references.1.title": "3D Gaussian Splatting Research Project"
       }
+    },
+    "gaussian-splatting-step-22": {
+      "sourceHash": "9e4f3ab5c3544a7f379d2eb58db41e7777263965a4482e5567de46ff32eddb2b",
+      "values": {
+        "title": "Separating Profiling Intervals",
+        "prerequisites": "Continue using the output and records from Unit 21. Before the Separating Profiling Intervals experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Stage costs",
+        "concepts.0.explanation": "Reading, parsing, sorting, projection, and compositing can have different bottlenecks. Total loading time alone makes it hard to identify what needs improvement.",
+        "concepts.1.title": "Measurement range",
+        "concepts.1.explanation": "performance.now measures elapsed time for CPU intervals. When using a GPU renderer, do not call this value GPU execution time.",
+        "outcomes.0": "Measure costs by processing stage.",
+        "outcomes.1": "Distinguish CPU and GPU timing claims.",
+        "steps.0": "In metrics.js, add start and end markers for each stage.",
+        "steps.1": "After warm-up, process the same fixture five times and create a table by stage.",
+        "steps.2": "Keep CPU teaching viewer results and separate Spark experiment results in different files.",
+        "variables.0.name": "Data count",
+        "variables.0.baseline": "64",
+        "variables.0.change": "512",
+        "variables.0.expected": "Expect sorting and projection intervals to increase, while compositing is also affected by screen area.",
+        "criteria.0": "Save stage times and environment information for the five runs.",
+        "criteria.1": "Label unmeasured GPU execution time as unmeasured.",
+        "questions.0": "Why can total time differ from the sum of stage times?",
+        "questions.1": "Can a CPU viewer bottleneck be applied directly to Spark?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-23": {
+      "sourceHash": "81e0bcf29c4f5dc7fec5724f2ef952d4198a7a2c2d67a7622d55018dfc756539",
+      "values": {
+        "title": "Resource Lifetimes and Repeated Loading",
+        "prerequisites": "Continue using the output and records from Unit 22. Before the Resource Lifetimes and Repeated Loading experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Ownership",
+        "concepts.0.explanation": "Removing scene objects and releasing their associated resources are separate operations. Keep a list of who created each buffer, texture, and listener.",
+        "concepts.1.title": "Repeated use",
+        "concepts.1.explanation": "A viewer that works once may reveal leaks after repeated replacement and shutdown. Check renderer-specific cleanup APIs in the documentation for that version.",
+        "outcomes.0": "Manage resource ownership.",
+        "outcomes.1": "Verify cleanup after repeated replacement.",
+        "steps.0": "In lifecycle.js, register created resources and their cleanup functions.",
+        "steps.1": "Replace small fixtures A/B ten times, then call dispose twice.",
+        "steps.2": "Record active listener, animation loop, and object counts, and clear references.",
+        "variables.0.name": "Replacement count",
+        "variables.0.baseline": "1 time",
+        "variables.0.change": "10 times",
+        "variables.0.expected": "Expect active loops and current data references not to accumulate when cleanup is correct.",
+        "criteria.0": "There is at most one active render loop after replacement.",
+        "criteria.1": "Repeated dispose completes without exceptions and leaves a cleanup list.",
+        "questions.0": "Why is scene.remove alone insufficient?",
+        "questions.1": "How do library caches differ from actual leaks?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-24": {
+      "sourceHash": "3f20410149d7611ecf35ed7a42aec9d90c055aff3bba470ac37ad3b2ff409ec2",
+      "values": {
+        "title": "Keyboard Controls and Camera Recovery",
+        "prerequisites": "Continue using the output and records from Unit 23. Before the Keyboard Controls and Camera Recovery experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Control paths",
+        "concepts.0.explanation": "Camera controls tied only to the pointer make scene exploration difficult for some users. Provide keyboard movement and an explicit reset button.",
+        "concepts.1.title": "Range limits",
+        "concepts.1.explanation": "Moving the camera too far inside the data makes the scene difficult to understand. Define movement limits together with data bounds.",
+        "outcomes.0": "Provide multiple input methods.",
+        "outcomes.1": "Save the complete camera recovery state.",
+        "steps.0": "In controls.js, define arrow-key movement, zoom, and reset actions.",
+        "steps.1": "Prevent camera shortcuts from running while a form is being edited.",
+        "steps.2": "Using only the keyboard, move to three viewpoints, reset, and compare camera.json.",
+        "variables.0.name": "Movement speed",
+        "variables.0.baseline": "1% of the bounds size",
+        "variables.0.change": "10%",
+        "variables.0.expected": "Expect faster exploration but a greater chance of passing small features.",
+        "criteria.0": "Perform movement, zoom, and reset without a mouse.",
+        "criteria.1": "Pressing arrow keys in an input field does not change camera values.",
+        "questions.0": "How does a fixed numeric movement unit affect different datasets?",
+        "questions.1": "Which values besides position does reset need?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
     }
   }
 }

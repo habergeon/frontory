@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 21 published in English
+Graphics · 4 stages · 28 units in the full series · 24 published in English
 
 ## Series goal
 
@@ -54,6 +54,9 @@ Only published English units are linked below. The full series has 28 units.
 
 ### Stage 4 · A Measurable GS Exhibition Viewer
 
+- [22. Separating Profiling Intervals](units/22/README.md) — Editable example
+- [23. Resource Lifetimes and Repeated Loading](units/23/README.md) — Editable example
+- [24. Keyboard Controls and Camera Recovery](units/24/README.md) — Editable example
 
 ## Capstone project and deliverables
 

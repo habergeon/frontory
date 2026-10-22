@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Color Space and Background](../20/README.md)
+[Previous: Color Space and Background](../20/README.md) · [Next: Separating Profiling Intervals](../22/README.md)
 
 ## Experiment notes — write your own
 

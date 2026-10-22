@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Shaders · 4 stages · 28 units in the full series · 15 published in English
+Shaders · 4 stages · 28 units in the full series · 18 published in English
 
 ## Series goal
 
@@ -45,6 +45,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 3 · Parallel Computation and Synchronization
 
 - [15. Compute IDs and Indices](units/15/README.md) — Editable example
+- [16. Bounds Checks and Empty Input](units/16/README.md) — Editable example
+- [17. Workgroup Memory and Cooperation](units/17/README.md) — Editable example
+- [18. Barriers and Uniform Control Flow](units/18/README.md) — Editable example
 
 ### Stage 4 · Numeric Verification and Kernel Design
 

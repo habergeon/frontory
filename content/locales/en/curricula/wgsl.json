@@ -415,6 +415,87 @@
         "references.0.title": "WGSL Specification",
         "references.1.title": "WebGPU API"
       }
+    },
+    "wgsl-step-16": {
+      "sourceHash": "81fbdd767036583f0b57ac05c01dafa2ab0c8a18dd992ba2a962c16046447596",
+      "values": {
+        "title": "Bounds Checks and Empty Input",
+        "prerequisites": "Continue using the output and records from Unit 15. Before experimenting with Bounds Checks and Empty Input, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Extra Lanes",
+        "concepts.0.explanation": "Dispatch works in workgroups, so the invocation count may exceed the input length. Kernels that process independent elements check bounds before access.",
+        "concepts.1.title": "Empty Work",
+        "concepts.1.explanation": "The CPU path can skip submission for input of length 0. Handle minimum physical buffer size separately from the logical element count.",
+        "outcomes.0": "Handle bounds in independent kernels.",
+        "outcomes.1": "Define empty input explicitly.",
+        "steps.0": "In bounds.wgsl, write an independent computation kernel that returns when id.x>=count.",
+        "steps.1": "On the host, add a branch that skips dispatch when count=0.",
+        "steps.2": "Run lengths 0, 1, 63, 64, and 65, and check the final element and canary region.",
+        "variables.0.name": "Length",
+        "variables.0.baseline": "64",
+        "variables.0.change": "65",
+        "variables.0.expected": "An additional workgroup with one valid lane is expected to be needed.",
+        "criteria.0": "All five lengths match the CPU reference.",
+        "criteria.1": "Empty input is marked as submission skipped, and canary values are preserved.",
+        "questions.0": "Can this return be copied unchanged into a kernel with barriers?",
+        "questions.1": "Why is an algorithm fragile if it depends on out-of-bounds read results?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-17": {
+      "sourceHash": "4888461c3b7f71bdc02c41f4b7de2f486d6fb5d7e9f80c805841c065bceaf965",
+      "values": {
+        "title": "Workgroup Memory and Cooperation",
+        "prerequisites": "Continue using the output and records from Unit 16. Before experimenting with Workgroup Memory and Cooperation, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Shared Data",
+        "concepts.0.explanation": "A workgroup array is used for cooperation among invocations in that group. It can reduce repeated reads from global storage.",
+        "concepts.1.title": "Initialization and Use",
+        "concepts.1.explanation": "Each lane's value must be ready before another lane reads it. Inactive lanes in partial groups also write neutral values and participate in synchronization.",
+        "outcomes.0": "Initialize shared memory.",
+        "outcomes.1": "Implement cooperation within a group.",
+        "steps.0": "In shared.wgsl, declare var<workgroup> tile:array<f32,64>.",
+        "steps.1": "Write input values for valid lanes and 0 for the others, then read neighboring values after workgroupBarrier.",
+        "steps.2": "For length 65, compare outputs at group boundaries with the CPU reference.",
+        "variables.0.name": "Extra lane value",
+        "variables.0.baseline": "Initialize to 0",
+        "variables.0.change": "Use non-neutral 1",
+        "variables.0.expected": "Incorrect values are expected to enter partial-group sums or averages.",
+        "criteria.0": "Every lane reaches the shared array write and barrier.",
+        "criteria.1": "Padding values are not incorrectly included in partial-group outputs.",
+        "questions.0": "Is the neighbor at the end of a group the same as the first element of the next group?",
+        "questions.1": "Which device limit constrains shared memory usage?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-18": {
+      "sourceHash": "530fc96b15e53dbab19df130ed9e6f04c085ef773325a205798a8313c4a17288",
+      "values": {
+        "title": "Barriers and Uniform Control Flow",
+        "prerequisites": "Continue using the output and records from Unit 17. Before experimenting with Barriers and Uniform Control Flow, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Reachability",
+        "concepts.0.explanation": "workgroupBarrier must be reached collectively by the workgroup's invocations. Placing it inside a condition entered by only some lanes can violate uniformity rules.",
+        "concepts.1.title": "Scope Limits",
+        "concepts.1.explanation": "storageBarrier is not a global execution barrier for an entire dispatch either. Split algorithms that wait for other workgroups' results into separate dispatch stages.",
+        "outcomes.0": "Write uniform barrier paths.",
+        "outcomes.1": "Distinguish synchronization scopes.",
+        "steps.0": "In barrier.wgsl, diagnose an incorrect case with a barrier inside if(valid).",
+        "steps.1": "Wrap only memory accesses in if, and move the barrier so every lane passes through it.",
+        "steps.2": "In host.js, write two passes so the next dispatch reads each group's partial results.",
+        "variables.0.name": "Barrier position",
+        "variables.0.baseline": "Inside a nonuniform if",
+        "variables.0.change": "A common path for all lanes",
+        "variables.0.expected": "The change is expected to resolve uniformity diagnostics and synchronize partial groups correctly.",
+        "criteria.0": "Use a diagram to explain the erroneous and corrected control flow.",
+        "criteria.1": "Work with dependencies between groups does not rely on wait loops in the same dispatch.",
+        "questions.0": "Why is an early return before a barrier dangerous?",
+        "questions.1": "Why does storageBarrier not mean global synchronization?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
     }
   }
 }

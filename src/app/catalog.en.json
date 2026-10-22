@@ -3962,6 +3962,36 @@
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
+      "id": "wgsl-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Bounds Checks and Empty Input",
+      "goal": "Handle bounds in independent kernels. Define empty input explicitly.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/16/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Workgroup Memory and Cooperation",
+      "goal": "Initialize shared memory. Implement cooperation within a group.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/17/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Barriers and Uniform Control Flow",
+      "goal": "Write uniform barrier paths. Distinguish synchronization scopes.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/18/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

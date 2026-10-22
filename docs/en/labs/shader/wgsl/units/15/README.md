@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Bindings and Memory Layout](../../02-experiments/README.md)
+[Previous: Bindings and Memory Layout](../../02-experiments/README.md) · [Next: Bounds Checks and Empty Input](../16/README.md)
 
 ## Experiment notes — write your own
 

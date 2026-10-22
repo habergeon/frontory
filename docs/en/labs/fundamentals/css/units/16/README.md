@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Container Queries and Reuse](../15/README.md)
+[Previous: Container Queries and Reuse](../15/README.md) · [Next: Typography and Line Length](../17/README.md)
 
 ## Experiment notes — write your own
 

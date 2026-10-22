@@ -446,6 +446,84 @@
         "questions.1": "What happens to the axes if you also change writing-mode?",
         "references.0.title": "MDN CSS"
       }
+    },
+    "css-step-17": {
+      "sourceHash": "8a96b1a1a284b7f5f18c3398e2c1e79ebc072f51151e63a700d74185712a2f08",
+      "values": {
+        "title": "Typography and Line Length",
+        "prerequisites": "The work and experiment records from Unit 16, “Logical Properties and Writing Direction”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Line Height",
+        "concepts.0.explanation": "A unitless line-height is computed in proportion to font size. It makes it easier to retain the ratio even when a child's font size differs.",
+        "concepts.1.title": "Reading Width",
+        "concepts.1.explanation": "Line length is determined by the combination of font size and container width. Long body text may need a different maximum width from card titles.",
+        "outcomes.0": "Record the computed line heights for both settings and the total body text height.",
+        "outcomes.1": "Text lines and controls do not overlap at 200% zoom.",
+        "steps.0": "In index.html, prepare content with long Korean text and long English words, and connect type.css.",
+        "steps.1": "Apply max-width and unitless line-height to body text, and compare headings, body text, and supporting text.",
+        "steps.2": "Run with long Korean text and long English words. Results to check: Record the computed line heights for both settings and the total body text height. Text lines and controls do not overlap at 200% zoom. Record expected and actual results separately.",
+        "variables.0.name": "line-height",
+        "variables.0.baseline": "1.2",
+        "variables.0.change": "1.7",
+        "variables.0.expected": "Hypothesis before running: The space between lines of body text will increase. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record the computed line heights for both settings and the total body text height.",
+        "criteria.1": "Text lines and controls do not overlap at 200% zoom.",
+        "questions.0": "What problems arise when inheriting a line-height in px?",
+        "questions.1": "Should Korean and English use the same line-breaking policy?",
+        "references.0.title": "MDN CSS"
+      }
+    },
+    "css-step-18": {
+      "sourceHash": "b430e63c0976af99e03f9c30dc159983b2bad5ed290e4eb5218289610cfbb26d",
+      "values": {
+        "title": "Color and Contrast",
+        "prerequisites": "The work and experiment records from Unit 17, “Typography and Line Length”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Contrast Relationships",
+        "concepts.0.explanation": "Text color must be evaluated together with its background color. The same color can be difficult to read on a different background.",
+        "concepts.1.title": "Communicating State",
+        "concepts.1.explanation": "Color alone may not convey enough information about errors or selection. Also provide indicators such as text, icons, or borders.",
+        "outcomes.0": "Verify a contrast target of at least 4.5:1 for normal body text.",
+        "outcomes.1": "Indicators distinguish errors and selection without relying on color.",
+        "steps.0": "In index.html, prepare content with light and dark backgrounds, and connect colors.css.",
+        "steps.1": "Choose colors for default, selected, and error cards, and check text contrast in developer tools.",
+        "steps.2": "Run with light and dark backgrounds. Results to check: Verify a contrast target of at least 4.5:1 for normal body text. Indicators distinguish errors and selection without relying on color. Record expected and actual results separately.",
+        "variables.0.name": "Background",
+        "variables.0.baseline": "White",
+        "variables.0.change": "Dark gray",
+        "variables.0.expected": "Hypothesis before running: The contrast of the same text color will change. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Verify a contrast target of at least 4.5:1 for normal body text.",
+        "criteria.1": "Indicators distinguish errors and selection without relying on color.",
+        "questions.0": "Against which background should a translucent color be measured?",
+        "questions.1": "Are the criteria for large text and normal body text the same?",
+        "references.0.title": "MDN CSS"
+      }
+    },
+    "css-step-19": {
+      "sourceHash": "f821a385634e3410fbd7997a49193ed1643ef4e7a3975549a508d6e722d3770f",
+      "values": {
+        "title": "Focus and Input States",
+        "prerequisites": "The work and experiment records from Unit 18, “Color and Contrast”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Focus Indicators",
+        "concepts.0.explanation": ":focus-visible adjusts focus indication based on factors such as the input method. Removing outline without a replacement indicator makes it hard to locate focus.",
+        "concepts.1.title": "State Selectors",
+        "concepts.1.explanation": "disabled·checked·invalid represent different states. Check that error indications are not excessive before input begins.",
+        "outcomes.0": "Focus is visible and unclipped on every control.",
+        "outcomes.1": "Record the 3 checked·disabled·invalid states.",
+        "steps.0": "In index.html, prepare content with keyboard navigation, checkbox toggling, and invalid input, and connect states.css.",
+        "steps.1": "Write focus-visible and state styles for buttons, links, and inputs, and navigate with Tab.",
+        "steps.2": "Run with keyboard navigation, checkbox toggling, and invalid input. Results to check: Focus is visible and unclipped on every control. Record the 3 checked·disabled·invalid states. Record expected and actual results separately.",
+        "variables.0.name": "outline",
+        "variables.0.baseline": "None",
+        "variables.0.change": "2px solid line with offset",
+        "variables.0.expected": "Hypothesis before running: The keyboard position will be easier to identify. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Focus is visible and unclipped on every control.",
+        "criteria.1": "Record the 3 checked·disabled·invalid states.",
+        "questions.0": "Can you recognize the state without hover?",
+        "questions.1": "Does the parent's overflow clip the outline?",
+        "references.0.title": "MDN CSS"
+      }
     }
   }
 }

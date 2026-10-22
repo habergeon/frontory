@@ -494,6 +494,36 @@
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "css-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Typography and Line Length",
+      "goal": "Record the computed line heights for both settings and the total body text height. Text lines and controls do not overlap at 200% zoom.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/17/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Color and Contrast",
+      "goal": "Verify a contrast target of at least 4.5:1 for normal body text. Indicators distinguish errors and selection without relying on color.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/18/README.md",
+      "seriesId": "css",
+      "exampleNote": "Inspect actual text contrast in developer tools. Check marks and error text are provided in addition to color. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Focus and Input States",
+      "goal": "Focus is visible and unclipped on every control. Record the 3 checked·disabled·invalid states.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/19/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
       "id": "react-step-03",
       "day": 3,
       "week": 1,

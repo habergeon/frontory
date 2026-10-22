@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Octaves and Band Limiting](../17/README.md)
+[Previous: Octaves and Band Limiting](../17/README.md) · [Next: Specular Lighting and View Vectors](../19/README.md)
 
 ## Experiment notes — write your own
 

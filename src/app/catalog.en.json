@@ -4006,6 +4006,36 @@
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
+      "id": "glsl-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Specular Lighting and View Vectors",
+      "goal": "Implement view-dependent specular lighting. Explain the limits of an educational lighting model.",
+      "docPath": "/docs/en/labs/shader/glsl/units/19/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
+      "id": "glsl-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Normals on Deformed Surfaces",
+      "goal": "Calculate normals that match deformation. Validate derivatives against a numeric reference.",
+      "docPath": "/docs/en/labs/shader/glsl/units/20/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
+      "id": "glsl-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Alpha and Compositing State",
+      "goal": "Match alpha output to compositing state. Diagnose transparent occlusion problems.",
+      "docPath": "/docs/en/labs/shader/glsl/units/21/README.md",
+      "seriesId": "glsl",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    {
       "id": "wgsl-01",
       "day": 1,
       "week": 1,

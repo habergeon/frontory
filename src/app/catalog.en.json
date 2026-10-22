@@ -5342,6 +5342,36 @@
       "docPath": "/docs/en/labs/engineering/web-workers/units/09/README.md",
       "seriesId": "web-workers",
       "exampleNote": "An interactive Transferring a Partial View experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Returning Buffers",
+      "goal": "Learning outcome: explain the role of Round-trip ownership. Input cases: 2 buffers and consecutive requests. Deliverable: a table of owners and value changes for each request. Explain the rationale for handling Pool states, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/10/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Returning Buffers experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Rejecting Stale Results",
+      "goal": "Learning outcome: explain the role of Latest request. Input cases: a large task followed by a small task. Deliverable: response order and the ID accepted for display. Explain the rationale for handling Distinguishing computation cancellation, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/11/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Rejecting Stale Results experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Cooperative Cancellation",
+      "goal": "Learning outcome: explain the role of Event loop. Input cases: a cancel request during computation. Deliverable: the point when cancellation is acknowledged and the number of elements processed. Explain the rationale for handling Cancellation points, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/12/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Cooperative Cancellation experiment with cleanup of the resources it uses."
     }
   ]
 }

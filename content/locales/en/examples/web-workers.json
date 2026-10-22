@@ -46,5 +46,23 @@
     "values": {
       "note": "An interactive Transferring a Partial View experiment with cleanup of the resources it uses."
     }
+  },
+  "web-workers-step-10": {
+    "sourceHash": "353968c5d57fa51d939078c8cc941fb200fb30837e714e3e2dfc8355e5d2053f",
+    "values": {
+      "note": "An interactive Returning Buffers experiment with cleanup of the resources it uses."
+    }
+  },
+  "web-workers-step-11": {
+    "sourceHash": "faba40cf7e57ae6720a6f8e9f35750e9954582759b97725f48b5a6d42820b89e",
+    "values": {
+      "note": "An interactive Rejecting Stale Results experiment with cleanup of the resources it uses."
+    }
+  },
+  "web-workers-step-12": {
+    "sourceHash": "58e92def8b49b9437288e1be014030f032d41daa9cf55b5ff5b6936ce52fd581",
+    "values": {
+      "note": "An interactive Cooperative Cancellation experiment with cleanup of the resources it uses."
+    }
   }
 }

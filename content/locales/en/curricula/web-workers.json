@@ -253,6 +253,87 @@
         "references.0.title": "MDN Using Web Workers",
         "references.1.title": "MDN Transferable objects"
       }
+    },
+    "web-workers-step-10": {
+      "sourceHash": "b90934b89c4ccd83b6a969378072c917990ee9a0a0ef988802d2d635d223e5f4",
+      "values": {
+        "title": "Returning Buffers",
+        "prerequisites": "Prepare the experiment results for Storage granularity and Minimizing the boundary from Unit 9, “Transferring a Partial View”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Round-trip ownership",
+        "concepts.0.explanation": "A Worker can transfer a received buffer back. Make explicit who owns it at each point.",
+        "concepts.1.title": "Pool states",
+        "concepts.1.explanation": "Distinguishing available and inFlight prevents duplicate use. The UI must not read the original view before the buffer returns.",
+        "outcomes.0": "Learning outcome: explain the role of Round-trip ownership. Input cases: 2 buffers and consecutive requests.",
+        "outcomes.1": "Deliverable: a table of owners and value changes for each request. Explain the rationale for handling Pool states, linking it to the code.",
+        "steps.0": "In src/day-10.js in a separate practice project, have the Worker update the array and return the buffer using transfer. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 2 buffers and consecutive requests. Baseline: 1 buffer. Run under the baseline conditions, then record observations and errors in notes/day-10.md.",
+        "steps.2": "Variable: Buffer count; changed value: 2 buffers. Run again through the same input path. Deliverable to save: a table of owners and value changes for each request. Hypothesis to check: The number of buffers available for simultaneous use is limited. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Buffer count",
+        "variables.0.baseline": "1 buffer",
+        "variables.0.change": "2 buffers",
+        "variables.0.expected": "The number of buffers available for simultaneous use is limited.",
+        "criteria.0": "Required deliverable: a table of owners and value changes for each request. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Round-trip ownership and Pool states. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Round-trip ownership affect in this exercise? Input cases: 2 buffers and consecutive requests.",
+        "questions.1": "Variable: Buffer count. Hypothesis to check: The number of buffers available for simultaneous use is limited. Did the actual results agree with the hypothesis? Explain the evidence in terms of Pool states.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-11": {
+      "sourceHash": "b3f60677e3fe61c02547defcfed76945d38071ce8b43419b43e2f1652dad4837",
+      "values": {
+        "title": "Rejecting Stale Results",
+        "prerequisites": "Prepare the experiment results for Round-trip ownership and Pool states from Unit 10, “Returning Buffers”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Latest request",
+        "concepts.0.explanation": "A UI such as search only needs the result for the latest input. A task started earlier may finish later.",
+        "concepts.1.title": "Distinguishing computation cancellation",
+        "concepts.1.explanation": "Ignoring a stale result may leave its computation running. Distinguish reducing cost from keeping the screen consistent.",
+        "outcomes.0": "Learning outcome: explain the role of Latest request. Input cases: a large task followed by a small task.",
+        "outcomes.1": "Deliverable: response order and the ID accepted for display. Explain the rationale for handling Distinguishing computation cancellation, linking it to the code.",
+        "steps.0": "In src/day-11.js in a separate practice project, compare latestRequestId with response IDs and count discarded responses. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: a large task followed by a small task. Baseline: After completion. Run under the baseline conditions, then record observations and errors in notes/day-11.md.",
+        "steps.2": "Variable: Request interval; changed value: Rapid succession. Run again through the same input path. Deliverable to save: response order and the ID accepted for display. Hypothesis to check: A stale result does not overwrite the latest screen state. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Request interval",
+        "variables.0.baseline": "After completion",
+        "variables.0.change": "Rapid succession",
+        "variables.0.expected": "A stale result does not overwrite the latest screen state.",
+        "criteria.0": "Required deliverable: response order and the ID accepted for display. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Latest request and Distinguishing computation cancellation. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Latest request affect in this exercise? Input cases: a large task followed by a small task.",
+        "questions.1": "Variable: Request interval. Hypothesis to check: A stale result does not overwrite the latest screen state. Did the actual results agree with the hypothesis? Explain the evidence in terms of Distinguishing computation cancellation.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-12": {
+      "sourceHash": "95d6fefd9ed8b549f985c86b681b78f5b75d83234c5565d6b6d8148f0407aa60",
+      "values": {
+        "title": "Cooperative Cancellation",
+        "prerequisites": "Prepare the experiment results for Latest request and Distinguishing computation cancellation from Unit 11, “Rejecting Stale Results”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Event loop",
+        "concepts.0.explanation": "A long synchronous loop cannot process cancel messages. Split the work and yield control to the event loop.",
+        "concepts.1.title": "Cancellation points",
+        "concepts.1.explanation": "Check the cancellation flag between chunks. Repeated Promise microtasks alone do not guarantee message processing.",
+        "outcomes.0": "Learning outcome: explain the role of Event loop. Input cases: a cancel request during computation.",
+        "outcomes.1": "Deliverable: the point when cancellation is acknowledged and the number of elements processed. Explain the rationale for handling Cancellation points, linking it to the code.",
+        "steps.0": "In src/day-12.js in a separate practice project, compute the array in chunks, schedule the next chunk with setTimeout, and handle cancel. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: a cancel request during computation. Baseline: 1000 elements. Run under the baseline conditions, then record observations and errors in notes/day-12.md.",
+        "steps.2": "Variable: Chunk size; changed value: 100000 elements. Run again through the same input path. Deliverable to save: the point when cancellation is acknowledged and the number of elements processed. Hypothesis to check: Larger chunks may delay the response to cancellation. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Chunk size",
+        "variables.0.baseline": "1000 elements",
+        "variables.0.change": "100000 elements",
+        "variables.0.expected": "Larger chunks may delay the response to cancellation.",
+        "criteria.0": "Required deliverable: the point when cancellation is acknowledged and the number of elements processed. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Event loop and Cancellation points. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Event loop affect in this exercise? Input cases: a cancel request during computation.",
+        "questions.1": "Variable: Chunk size. Hypothesis to check: Larger chunks may delay the response to cancellation. Did the actual results agree with the hypothesis? Explain the evidence in terms of Cancellation points.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
     }
   }
 }

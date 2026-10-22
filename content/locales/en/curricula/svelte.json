@@ -256,6 +256,88 @@
         "references.0.title": "Svelte Official Documentation and Runes Index",
         "references.1.title": "Svelte $effect and Cleanup"
       }
+    },
+    "svelte-step-10": {
+      "sourceHash": "661652ca804c280158d4a4214416373ebed7306f522319e77adf0bf7efbc8a4d",
+      "values": {
+        "title": "Changing Row Presentation with Snippets",
+        "prerequisites": "Unit 10 continues with the work and experiment records from Unit 9.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "snippet",
+        "concepts.0.explanation": "A snippet defines a reusable markup fragment. It receives data through parameters and is displayed with {@render}.",
+        "outcomes.0": "The card id order is the same in both presentations.",
+        "criteria.0": "The card id order is the same in both presentations.",
+        "questions.0": "How do the values returned by a snippet and an ordinary function differ?",
+        "concepts.1.title": "Composition Boundary",
+        "concepts.1.explanation": "Separating list calculations from row presentation lets you show the same data in different forms. Keep presentation fragments from changing the original data.",
+        "outcomes.1": "Only the detailed presentation adds a completion description.",
+        "criteria.1": "Only the detailed presentation adds a completion description.",
+        "questions.1": "Why pass responsibility for row presentation to the parent?",
+        "steps.0": "In src/CardList.svelte, create a structure that accepts a row snippet prop.",
+        "steps.1": "Define compact and detailed snippets in the parent.",
+        "steps.2": "Apply both snippets to the same filter results, and check that ids and counts agree.",
+        "variables.0.name": "Row Presentation",
+        "variables.0.baseline": "compact",
+        "variables.0.change": "detailed",
+        "variables.0.expected": "The card count and order stay the same; only the displayed information changes.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup"
+      }
+    },
+    "svelte-step-11": {
+      "sourceHash": "0af9f44eedbf703871a4657b5b381f4addd002e1bf4d92f371e2895b50b241c3",
+      "values": {
+        "title": "DOM References and tick",
+        "prerequisites": "Unit 11 continues with the work and experiment records from Unit 10.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "DOM Connection",
+        "concepts.0.explanation": "bind:this provides a reference to the created DOM element. Since the element may be removed, check when you use it and whether it exists.",
+        "outcomes.0": "The active element is textarea after opening.",
+        "criteria.0": "The active element is textarea after opening.",
+        "questions.0": "What might you measure if you read DOM dimensions before tick?",
+        "concepts.1.title": "Waiting for Updates",
+        "concepts.1.explanation": "tick continues execution after pending state changes have been applied to the DOM. It does not wait for external requests to finish.",
+        "outcomes.1": "There are no errors from accessing a hidden element.",
+        "criteria.1": "There are no errors from accessing a hidden element.",
+        "questions.1": "Can you handle bind:this in the same way as screen state?",
+        "steps.0": "In src/EditorPanel.svelte, connect a conditional textarea and bind:this.",
+        "steps.1": "In the open function, set visible=true, then call await tick() and focus.",
+        "steps.2": "Repeat opening and closing 5 times, and record the active element and any errors.",
+        "variables.0.name": "focus Timing",
+        "variables.0.baseline": "Immediately after changing visibility",
+        "variables.0.change": "After tick",
+        "variables.0.expected": "The created textarea receives focus reliably.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup",
+        "references.2.title": "Svelte onMount and tick"
+      }
+    },
+    "svelte-step-12": {
+      "sourceHash": "1961a5e561088b0c0c91eeab016991464e8ff1a7f47de2864ae835142a135ed2",
+      "values": {
+        "title": "$effect Dependencies and Cleanup",
+        "prerequisites": "Unit 12 continues with the work and experiment records from Unit 11.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "External Synchronization",
+        "concepts.0.explanation": "Use $effect to synchronize state with Canvas or external subscriptions. Calculate derived text with $derived to reduce unnecessary writes.",
+        "outcomes.0": "There is 1 active timer after changing period.",
+        "criteria.0": "There is 1 active timer after changing period.",
+        "questions.0": "Are values read after await automatic dependencies too?",
+        "concepts.1.title": "Synchronous Tracking",
+        "concepts.1.explanation": "Reactive values read synchronously by an Effect become dependencies. A returned cleanup function releases previous work before reruns and on teardown.",
+        "outcomes.1": "Ticks stop after the component is removed.",
+        "criteria.1": "Ticks stop after the component is removed.",
+        "questions.1": "What loop can occur if an Effect keeps writing state that it also reads?",
+        "steps.0": "In src/Clock.svelte, create an $effect that reads period and a setInterval.",
+        "steps.1": "Return a function that calls clearInterval from the Effect.",
+        "steps.2": "Change period through 100→500→100 and record the active timer count and tick interval.",
+        "variables.0.name": "period",
+        "variables.0.baseline": "100ms",
+        "variables.0.change": "500ms",
+        "variables.0.expected": "After cleaning up the old timer, only one slower timer remains.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup"
+      }
     }
   }
 }

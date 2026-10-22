@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 9 published in English
+UI frameworks · 4 stages · 28 units in the full series · 12 published in English
 
 ## Series goal
 
@@ -36,6 +36,9 @@ Only published English units are linked below. The full series has 28 units.
 
 - [08. $props and Change Callbacks](units/08/README.md) — External example · preview instructions
 - [09. $bindable and the Editor Contract](units/09/README.md) — External example · preview instructions
+- [10. Changing Row Presentation with Snippets](units/10/README.md) — External example · preview instructions
+- [11. DOM References and tick](units/11/README.md) — External example · preview instructions
+- [12. $effect Dependencies and Cleanup](units/12/README.md) — External example · preview instructions
 
 ### Stage 3 · Stores and Workspace State
 
@@ -54,3 +57,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [Svelte Official Documentation and Runes Index](https://svelte.dev/docs/svelte/overview)
 - [Svelte $effect and Cleanup](https://svelte.dev/docs/svelte/$effect)
 - [Svelte state rune](https://svelte.dev/docs/svelte/$state)
+- [Svelte onMount and tick](https://svelte.dev/docs/svelte/lifecycle-hooks)

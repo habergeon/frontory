@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: $props and Change Callbacks](../08/README.md)
+[Previous: $props and Change Callbacks](../08/README.md) · [Next: Changing Row Presentation with Snippets](../10/README.md)
 
 ## Experiment notes — write your own
 

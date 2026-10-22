@@ -1866,6 +1866,36 @@
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
+      "id": "svelte-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Changing Row Presentation with Snippets",
+      "goal": "The card id order is the same in both presentations. Only the detailed presentation adds a completion description.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/10/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
+      "id": "svelte-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "DOM References and tick",
+      "goal": "The active element is textarea after opening. There are no errors from accessing a hidden element.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/11/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
+      "id": "svelte-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "$effect Dependencies and Cleanup",
+      "goal": "There is 1 active timer after changing period. Ticks stop after the component is removed.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/12/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

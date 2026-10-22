@@ -658,6 +658,87 @@
         "references.0.title": "Spark Official Documentation",
         "references.1.title": "3D Gaussian Splatting Research Project"
       }
+    },
+    "gaussian-splatting-step-25": {
+      "sourceHash": "4a6ebd2be74ce82c37eb8d9f29c047b6af66dfcaa1d5960d8cffd35d27db6cd3",
+      "values": {
+        "title": "Integrated Failure-State Tests",
+        "prerequisites": "Continue using the output and records from Unit 24. Before the Integrated Failure-State Tests experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Error classification",
+        "concepts.0.explanation": "Format, value, capacity, and environment-support errors require different responses. Combining them into one failure message prevents users from correcting the issue.",
+        "concepts.1.title": "Recovery paths",
+        "concepts.1.explanation": "It must be possible to open a valid file again after a failure. Design failure states so they do not permanently block the render loop or input handling.",
+        "outcomes.0": "Classify failure causes.",
+        "outcomes.1": "Verify recovery after errors.",
+        "steps.0": "In cases.json, list empty files, missing attributes, abnormal values, excessive sizes, and valid inputs.",
+        "steps.1": "Inject each case into loader.js in order and save states and error codes.",
+        "steps.2": "After each error, open a valid fixture and check camera and selection functions.",
+        "variables.0.name": "Input order",
+        "variables.0.baseline": "Valid inputs only",
+        "variables.0.change": "Valid input after an error",
+        "variables.0.expected": "Expect the error to be shown and a new request to restore ready.",
+        "criteria.0": "The four errors are classified with their assigned codes.",
+        "criteria.1": "All four recovery paths output a valid data id and the ready state.",
+        "questions.0": "What indication is needed when the previous scene is retained in an error state?",
+        "questions.1": "Which errors cannot be resolved by retrying?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-26": {
+      "sourceHash": "125871b7af87714d69d3a3adfc7893e73cc7954660282ded41ea90e9412e22f7",
+      "values": {
+        "title": "Reproducible Camera Benchmarks",
+        "prerequisites": "Continue using the output and records from Unit 25. Before the Reproducible Camera Benchmarks experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Fixed path",
+        "concepts.0.explanation": "Different input paths produce different costs even at the same quality settings. Fix camera transforms over time and the data id for comparisons.",
+        "concepts.1.title": "Frame distribution",
+        "concepts.1.explanation": "Recording only an average hides occasional long frames. Also retain the median and the high-latency tail.",
+        "outcomes.0": "Build a benchmark with a fixed path.",
+        "outcomes.1": "Interpret frame distributions.",
+        "steps.0": "In benchmark.js, write a function that plays camera-path.json based on time.",
+        "steps.1": "Run the baseline and reduced-resolution settings three times each for the same duration.",
+        "steps.2": "Save the median and 95th percentile of frame intervals and images at times of interest in the result JSON.",
+        "variables.0.name": "Setting",
+        "variables.0.baseline": "Resolution 1.0",
+        "variables.0.change": "Resolution 0.5",
+        "variables.0.expected": "Expect shorter frame intervals for a pixel bottleneck and little change for a CPU sorting bottleneck.",
+        "criteria.0": "Both settings record the same path hash and data id.",
+        "criteria.1": "Keep distributions and quality images for the three repetitions.",
+        "questions.0": "Can requestAnimationFrame intervals be called GPU time?",
+        "questions.1": "What distortion occurs if results from background tabs are mixed in?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-27": {
+      "sourceHash": "d616a22373311ee14826590994497bb2d7bcf5991251701e04a6120bab88bae2",
+      "values": {
+        "title": "Describing the Deliverable and Acceptance Conditions",
+        "prerequisites": "Continue using the output and records from Unit 26. Before the Describing the Deliverable and Acceptance Conditions experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Delivered scope",
+        "concepts.0.explanation": "Distinguish implemented features from candidates reviewed only in documentation so the deliverable can be reproduced. Do not present CPU principle experiments as a large-scale GPU product.",
+        "concepts.1.title": "Distribution basis",
+        "concepts.1.explanation": "Link source-data permissions and conversion history in the results report. You can provide small reproducible fixtures instead of large data.",
+        "outcomes.0": "Document the actual delivered scope.",
+        "outcomes.1": "Create a reproducible acceptance procedure.",
+        "steps.0": "In README.md, record the runtime environment, CPU or Spark path, supported formats, and limitations.",
+        "steps.1": "Link the manifest and fixtures generation procedure, and check that large original files are outside the repository's tracked scope.",
+        "steps.2": "In a fresh execution session, record acceptance checks in this order: loading, reset, error recovery, selection, and benchmarking.",
+        "variables.0.name": "Initial verification state",
+        "variables.0.baseline": "Current session",
+        "variables.0.change": "A fresh reset session",
+        "variables.0.expected": "Expect hidden state dependencies to reveal differences in a fresh session.",
+        "criteria.0": "All five acceptance items have either an actual observation or a not-run label.",
+        "criteria.1": "The deliverable includes provenance, permission, conversion, and size information.",
+        "questions.0": "Which environment details does another person need to reproduce the results?",
+        "questions.1": "How should features that were only reviewed be labeled?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
     }
   }
 }

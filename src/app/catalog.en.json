@@ -3249,6 +3249,36 @@
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
+      "id": "gaussian-splatting-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Integrated Failure-State Tests",
+      "goal": "Classify failure causes. Verify recovery after errors.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/25/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Reproducible Camera Benchmarks",
+      "goal": "Build a benchmark with a fixed path. Interpret frame distributions.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/26/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Describing the Deliverable and Acceptance Conditions",
+      "goal": "Document the actual delivered scope. Create a reproducible acceptance procedure.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/27/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
       "id": "webgpu-01",
       "day": 1,
       "week": 1,

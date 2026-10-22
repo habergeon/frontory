@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 24 published in English
+Graphics · 4 stages · 28 units in the full series · 27 published in English
 
 ## Series goal
 
@@ -57,6 +57,9 @@ Only published English units are linked below. The full series has 28 units.
 - [22. Separating Profiling Intervals](units/22/README.md) — Editable example
 - [23. Resource Lifetimes and Repeated Loading](units/23/README.md) — Editable example
 - [24. Keyboard Controls and Camera Recovery](units/24/README.md) — Editable example
+- [25. Integrated Failure-State Tests](units/25/README.md) — Editable example
+- [26. Reproducible Camera Benchmarks](units/26/README.md) — Editable example
+- [27. Describing the Deliverable and Acceptance Conditions](units/27/README.md) — Editable example
 
 ## Capstone project and deliverables
 

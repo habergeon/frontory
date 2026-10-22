@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 19 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 22 published in English
 
 ## Series goal
 
@@ -49,9 +49,12 @@ Only published English units are linked below. The full series has 28 units.
 - [17. Typography and Line Length](units/17/README.md) — Editable example
 - [18. Color and Contrast](units/18/README.md) — Editable example
 - [19. Focus and Input States](units/19/README.md) — Editable example
+- [20. Positioning and Containing Blocks](units/20/README.md) — Editable example
+- [21. Stacking Contexts and Overlap](units/21/README.md) — Editable example
 
 ### Stage 4 · Motion, tokens, and rendering verification
 
+- [22. Transitions and Intermediate States](units/22/README.md) — Editable example
 
 ## Capstone project and deliverables
 

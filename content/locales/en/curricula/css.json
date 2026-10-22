@@ -524,6 +524,84 @@
         "questions.1": "Does the parent's overflow clip the outline?",
         "references.0.title": "MDN CSS"
       }
+    },
+    "css-step-20": {
+      "sourceHash": "dacec75597ee78cbbb6ede68bfa812c39ac4a57e761806c160e8c9c9d8f61dce",
+      "values": {
+        "title": "Positioning and Containing Blocks",
+        "prerequisites": "The work and experiment records from Unit 19, “Focus and Input States”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Positioning Reference",
+        "concepts.0.explanation": "absolute positions an element relative to its containing block. The nearest positioned ancestor is a common reference, but other properties can also affect it.",
+        "concepts.1.title": "Fixed and Sticky Positioning",
+        "concepts.1.explanation": "fixed and sticky behave differently during scrolling. Threshold positions and the scrolling context are important for sticky.",
+        "outcomes.0": "Record the badge's reference element and computed position.",
+        "outcomes.1": "Compare sticky behavior during document scrolling and parent scrolling.",
+        "steps.0": "In index.html, prepare content with a long document and a parent with a constrained height, and connect position.css.",
+        "steps.1": "Create a card badge and a sticky table of contents, and change the parent's position and overflow.",
+        "steps.2": "Run with a long document and a parent with a constrained height. Results to check: Record the badge's reference element and computed position. Compare sticky behavior during document scrolling and parent scrolling. Record expected and actual results separately.",
+        "variables.0.name": "Parent overflow",
+        "variables.0.baseline": "visible",
+        "variables.0.change": "auto",
+        "variables.0.expected": "Hypothesis before running: The scrolling area that sticky responds to may change. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record the badge's reference element and computed position.",
+        "criteria.1": "Compare sticky behavior during document scrolling and parent scrolling.",
+        "questions.0": "What happens to sticky without top?",
+        "questions.1": "Can the reference for fixed also change?",
+        "references.0.title": "MDN CSS"
+      }
+    },
+    "css-step-21": {
+      "sourceHash": "2a8bb839bedd900f5187cb2ab3c23d403fdff5f0e2d3e089f254da63d725acb7",
+      "values": {
+        "title": "Stacking Contexts and Overlap",
+        "prerequisites": "The work and experiment records from Unit 20, “Positioning and Containing Blocks”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Stacking Contexts",
+        "concepts.0.explanation": "z-index is interpreted within the ordering of the same context. Even a large child value cannot freely escape the parent's context.",
+        "concepts.1.title": "Creating Contexts",
+        "concepts.1.explanation": "Properties such as transform or opacity can create a new context. Check ancestors first when investigating unintended overlap.",
+        "outcomes.0": "Diagram the overlap order, including ancestor contexts.",
+        "outcomes.1": "The final badge appears above the intended card.",
+        "steps.0": "In index.html, prepare content with 2 cards and a badge with z-index 999, and connect stacking.css.",
+        "steps.1": "Create overlapping cards and a badge, and compare the effect of z-index with and without a transform on the parent.",
+        "steps.2": "Run with 2 cards and a badge with z-index 999. Results to check: Diagram the overlap order, including ancestor contexts. The final badge appears above the intended card. Record expected and actual results separately.",
+        "variables.0.name": "Parent transform",
+        "variables.0.baseline": "none",
+        "variables.0.change": "translateZ(0)",
+        "variables.0.expected": "Hypothesis before running: The badge may be confined to a separate stacking context. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Diagram the overlap order, including ancestor contexts.",
+        "criteria.1": "The final badge appears above the intended card.",
+        "questions.0": "Why can z-index 9999 fail to solve this?",
+        "questions.1": "What boundary can isolation create?",
+        "references.0.title": "MDN CSS"
+      }
+    },
+    "css-step-22": {
+      "sourceHash": "751f73a2ff941af0e87ffbde0a79144ff90ebdeb3bce344b62a04c11585eacf7",
+      "values": {
+        "title": "Transitions and Intermediate States",
+        "prerequisites": "The work and experiment records from Unit 21, “Stacking Contexts and Overlap”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Transition Properties",
+        "concepts.0.explanation": "transition displays intermediate states as values change. Specifying the needed properties instead of all reduces unintended transitions.",
+        "concepts.1.title": "Handling Interruptions",
+        "concepts.1.explanation": "A user can reverse an action during a transition. Checking only the end state can miss jumps during rapid input.",
+        "outcomes.0": "The final selected state is correct after rapid clicks.",
+        "outcomes.1": "Record intermediate states for both durations and the reduce alternative.",
+        "steps.0": "In index.html, prepare content with 5 consecutive clicks and two durations, and connect transition.css.",
+        "steps.1": "Transition only transform and opacity on the selected card, and operate the button repeatedly and rapidly.",
+        "steps.2": "Run with 5 consecutive clicks and two durations. Results to check: The final selected state is correct after rapid clicks. Record intermediate states for both durations and the reduce alternative. Record expected and actual results separately.",
+        "variables.0.name": "duration",
+        "variables.0.baseline": "150ms",
+        "variables.0.change": "800ms",
+        "variables.0.expected": "Hypothesis before running: The portion that reverses during an intermediate state will be easier to see. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "The final selected state is correct after rapid clicks.",
+        "criteria.1": "Record intermediate states for both durations and the reduce alternative.",
+        "questions.0": "Which properties can transition:all change?",
+        "questions.1": "Is it safe for functionality to depend on a transition completion event?",
+        "references.0.title": "MDN CSS"
+      }
     }
   }
 }

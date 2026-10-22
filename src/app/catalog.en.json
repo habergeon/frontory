@@ -524,6 +524,36 @@
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "css-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Positioning and Containing Blocks",
+      "goal": "Record the badge's reference element and computed position. Compare sticky behavior during document scrolling and parent scrolling.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/20/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Stacking Contexts and Overlap",
+      "goal": "Diagram the overlap order, including ancestor contexts. The final badge appears above the intended card.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/21/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Transitions and Intermediate States",
+      "goal": "The final selected state is correct after rapid clicks. Record intermediate states for both durations and the reduce alternative.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/22/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
       "id": "react-step-03",
       "day": 3,
       "week": 1,

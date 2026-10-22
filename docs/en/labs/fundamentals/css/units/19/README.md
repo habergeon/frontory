@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Color and Contrast](../18/README.md)
+[Previous: Color and Contrast](../18/README.md) · [Next: Positioning and Containing Blocks](../20/README.md)
 
 ## Experiment notes — write your own
 

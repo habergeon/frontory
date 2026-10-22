@@ -1724,6 +1724,36 @@
       "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
     },
     {
+      "id": "vue-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Observing Vue Performance",
+      "goal": "There are records of 10 identical inputs for each approach. Exactly 1 selection indicator remains after optimization.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/25/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Checking Behavior Regressions and Save Races",
+      "goal": "The A string does not enter B's saved value. All four add, toggle, search, and switch flows pass.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/26/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Composition API Integration Review",
+      "goal": "Owners of state, derived values, and external work are documented separately. After 5 switches, there is 1 active Canvas.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/27/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

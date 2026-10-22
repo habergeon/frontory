@@ -180,6 +180,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [22. Creating and Releasing Canvas Resources](labs/frameworks/vue/units/22/README.md) | Editable example | [Source code](../../src/labs/vue-step-22/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 | [23. Separating Frame Values from UI Values](labs/frameworks/vue/units/23/README.md) | Editable example | [Source code](../../src/labs/vue-step-23/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 | [24. Shallow Reactivity and External Objects](labs/frameworks/vue/units/24/README.md) | Editable example | [Source code](../../src/labs/vue-step-24/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [25. Observing Vue Performance](labs/frameworks/vue/units/25/README.md) | Editable example | [Source code](../../src/labs/vue-step-25/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [26. Checking Behavior Regressions and Save Races](labs/frameworks/vue/units/26/README.md) | Editable example | [Source code](../../src/labs/vue-step-26/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [27. Composition API Integration Review](labs/frameworks/vue/units/27/README.md) | Editable example | [Source code](../../src/labs/vue-step-27/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
 
 ## GSAP
 

@@ -666,6 +666,88 @@
         "references.1.title": "Vue Watchers and cleanup",
         "references.2.title": "Vue Composables and Lifetime Management"
       }
+    },
+    "vue-step-25": {
+      "sourceHash": "30775cd18635f56f345c0093c9b3625b2ebb8ac89f97e034d5af022c7c06dffa",
+      "values": {
+        "title": "Observing Vue Performance",
+        "prerequisites": "Unit 25 builds on the work and experiment records from Unit 24.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Update scope",
+        "concepts.0.explanation": "Prop stability and computed dependencies affect update scope. Identify which components change before optimizing.",
+        "concepts.1.title": "Measurement conditions",
+        "concepts.1.explanation": "Developer tool logs themselves add execution cost. Compare under the same data, input, and build conditions, and record measurement limitations.",
+        "outcomes.0": "There are records of 10 identical inputs for each approach.",
+        "outcomes.1": "Exactly 1 selection indicator remains after optimization.",
+        "steps.0": "Supply 1000 cards to src/CardList.vue and instrument update counts.",
+        "steps.1": "Create a comparison passing a per-row selected boolean instead of the full selected id.",
+        "steps.2": "Record update counts and times for 10 selections in notes/performance.md.",
+        "variables.0.name": "props",
+        "variables.0.baseline": "selectedId passed to all rows",
+        "variables.0.change": "Per-row selected",
+        "variables.0.expected": "Update scope may shrink to the rows whose selection changed.",
+        "criteria.0": "There are records of 10 identical inputs for each approach.",
+        "criteria.1": "Exactly 1 selection indicator remains after optimization.",
+        "questions.0": "Are fewer reactive dependencies always faster?",
+        "questions.1": "Why record whether measurements use development mode?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup"
+      }
+    },
+    "vue-step-26": {
+      "sourceHash": "9421b63b460f749a6432161509f2a4eeea66d16b3e07315747a548984110b67a",
+      "values": {
+        "title": "Checking Behavior Regressions and Save Races",
+        "prerequisites": "Unit 26 builds on the work and experiment records from Unit 25.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "User flows",
+        "concepts.0.explanation": "Check component contracts through inputs and observable outputs. Depending on internal ref names makes checks fragile when implementations change.",
+        "concepts.1.title": "Time control",
+        "concepts.1.explanation": "Delayed saves must not overwrite another unit during rapid switching. Use save-completion conditions or controlled timers rather than fixed waits.",
+        "outcomes.0": "The A string does not enter B's saved value.",
+        "outcomes.1": "All four add, toggle, search, and switch flows pass.",
+        "steps.0": "Write add, toggle, search, and A/B draft-switching checks in tests/workspace.spec.js.",
+        "steps.1": "Reproduce entering A then switching to B with a 1000ms save delay.",
+        "steps.2": "Also check 0 active loops after Canvas removal and 1 after showing it again.",
+        "variables.0.name": "Input interval",
+        "variables.0.baseline": "Longer than the save delay",
+        "variables.0.change": "Shorter than the save delay",
+        "variables.0.expected": "The draft's unit id remains correct even with short intervals.",
+        "criteria.0": "The A string does not enter B's saved value.",
+        "criteria.1": "All four add, toggle, search, and switch flows pass.",
+        "questions.0": "How do fake timers differ from actual browser RAF checks?",
+        "questions.1": "What changes if storage is not reset before a test?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup"
+      }
+    },
+    "vue-step-27": {
+      "sourceHash": "d113527a9285411d63adcaa44ccdcfac3d0356950bad3aaaca236ebf08e66e12",
+      "values": {
+        "title": "Composition API Integration Review",
+        "prerequisites": "Unit 27 builds on the work and experiment records from Unit 26.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Separating responsibilities",
+        "concepts.0.explanation": "Composables separate responsibilities with different lifetimes, such as search, saving, and rendering. Excessive splitting can hide data flow, so document the actual owner.",
+        "concepts.1.title": "Comparable contracts",
+        "concepts.1.explanation": "Use the same inputs, results, and lifetime requirements when comparing with React. Do not judge structure or performance by line count alone.",
+        "outcomes.0": "Owners of state, derived values, and external work are documented separately.",
+        "outcomes.1": "After 5 switches, there is 1 active Canvas.",
+        "steps.0": "Integrate cards, notes, and Canvas in src/Workspace.vue.",
+        "steps.1": "Document what ref, computed, watch, and onUnmounted own in notes/ownership.md.",
+        "steps.2": "Use the same 5-switch scenario to tabulate React Effect and Vue Hook counterparts.",
+        "variables.0.name": "Switching method",
+        "variables.0.baseline": "Stay on one unit",
+        "variables.0.change": "Switch A/B 5 times",
+        "variables.0.expected": "Drafts remain and external loop counts do not accumulate.",
+        "criteria.0": "Owners of state, derived values, and external work are documented separately.",
+        "criteria.1": "After 5 switches, there is 1 active Canvas.",
+        "questions.0": "Which watch-calculated values should become computed?",
+        "questions.1": "Do React cleanup and Vue onUnmounted occur at exactly the same time?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup",
+        "references.2.title": "Vue Composables and Lifetime Management"
+      }
     }
   }
 }

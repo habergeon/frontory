@@ -64,5 +64,17 @@
     "values": {
       "note": "An interactive Cooperative Cancellation experiment with cleanup of the resources it uses."
     }
+  },
+  "web-workers-step-13": {
+    "sourceHash": "ca3d185405cbe8110ad2b1cfef453bdb69bbe056c80cb71b2e396dcc1ffe6951",
+    "values": {
+      "note": "An interactive Termination and Recreation experiment with cleanup of the resources it uses."
+    }
+  },
+  "web-workers-step-15": {
+    "sourceHash": "8b9697f21dd419c68c867ad00087168f602e91a97d3126e39a54257e8979b63e",
+    "values": {
+      "note": "An interactive Progress Reporting experiment with cleanup of the resources it uses."
+    }
   }
 }

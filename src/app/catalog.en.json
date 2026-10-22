@@ -5372,6 +5372,35 @@
       "docPath": "/docs/en/labs/engineering/web-workers/units/12/README.md",
       "seriesId": "web-workers",
       "exampleNote": "An interactive Cooperative Cancellation experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Termination and Recreation",
+      "goal": "Learning outcome: explain the role of Terminate. Input cases: stopping a long task and then submitting a new request. Deliverable: pending entries before and after termination, and the new result. Explain the rationale for handling Recovery, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/13/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Termination and Recreation experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-02",
+      "day": 14,
+      "week": 2,
+      "title": "Transfer and Cancellation",
+      "goal": "Learning outcome: explain the role of Ownership tracking. Input cases: overlapping requests and cancellation. Deliverable: a table of buffer states, cancellation responses, and the final UI. Explain the rationale for handling Cancellation policy, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/02-experiments/README.md",
+      "seriesId": "web-workers"
+    },
+    {
+      "id": "web-workers-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Progress Reporting",
+      "goal": "Learning outcome: explain the role of Reporting frequency. Input cases: a task with 100 chunks. Deliverable: message count and progress sequence. Explain the rationale for handling Monotonic progress, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/15/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Progress Reporting experiment with cleanup of the resources it uses."
     }
   ]
 }

@@ -334,6 +334,87 @@
         "references.0.title": "MDN Using Web Workers",
         "references.1.title": "MDN Transferable objects"
       }
+    },
+    "web-workers-step-13": {
+      "sourceHash": "231d1c062c78d558b217b299ca070259c855d18fc8778bf51aea805e74078514",
+      "values": {
+        "title": "Termination and Recreation",
+        "prerequisites": "Prepare the experiment results for Event loop and Cancellation points from Unit 12, “Cooperative Cancellation”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Terminate",
+        "concepts.0.explanation": "terminate ends Worker execution immediately. A completion message may never arrive.",
+        "concepts.1.title": "Recovery",
+        "concepts.1.explanation": "The main side must explicitly fail pending requests. Start the next task with a new Worker.",
+        "outcomes.0": "Learning outcome: explain the role of Terminate. Input cases: stopping a long task and then submitting a new request.",
+        "outcomes.1": "Deliverable: pending entries before and after termination, and the new result. Explain the rationale for handling Recovery, linking it to the code.",
+        "steps.0": "In src/day-13.js in a separate practice project, implement a stop-button path that calls terminate, cleans up pending requests, and recreates the Worker. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: stopping a long task and then submitting a new request. Baseline: Ignore responses. Run under the baseline conditions, then record observations and errors in notes/day-13.md.",
+        "steps.2": "Variable: Stopping method; changed value: terminate. Run again through the same input path. Deliverable to save: pending entries before and after termination, and the new result. Hypothesis to check: The old computation ends and a new Worker handles the next request. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Stopping method",
+        "variables.0.baseline": "Ignore responses",
+        "variables.0.change": "terminate",
+        "variables.0.expected": "The old computation ends and a new Worker handles the next request.",
+        "criteria.0": "Required deliverable: pending entries before and after termination, and the new result. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Terminate and Recovery. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Terminate affect in this exercise? Input cases: stopping a long task and then submitting a new request.",
+        "questions.1": "Variable: Stopping method. Hypothesis to check: The old computation ends and a new Worker handles the next request. Did the actual results agree with the hypothesis? Explain the evidence in terms of Recovery.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-02": {
+      "sourceHash": "dfd5cb6f97a6e89f543a102a7c803d876667ef1a693bf3654c5c1b8ec3d3e1da",
+      "values": {
+        "title": "Transfer and Cancellation",
+        "prerequisites": "Prepare the experiment results for Terminate and Recovery from Unit 13, “Termination and Recreation”.",
+        "environment": "The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Ownership tracking",
+        "concepts.0.explanation": "Copy and transfer leave the sender's buffer in different states. Cancellation cannot revive a detached buffer.",
+        "concepts.1.title": "Cancellation policy",
+        "concepts.1.explanation": "Cooperative cancellation and forced termination have different recovery costs. Distinguish errors, ignored results, and cancellation in the UI.",
+        "outcomes.0": "Learning outcome: explain the role of Ownership tracking. Input cases: overlapping requests and cancellation.",
+        "outcomes.1": "Deliverable: a table of buffer states, cancellation responses, and the final UI. Explain the rationale for handling Cancellation policy, linking it to the code.",
+        "steps.0": "In src/day-14.js in a separate practice project, read the existing web-workers-02 and integrate copying, transfer, latest-result checks, and cancellation paths. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: overlapping requests and cancellation. Baseline: Copy. Run under the baseline conditions, then record observations and errors in notes/day-14.md.",
+        "steps.2": "Variable: Sending policy; changed value: transfer. Run again through the same input path. Deliverable to save: a table of buffer states, cancellation responses, and the final UI. Hypothesis to check: Recovery respects ownership, and stale results are excluded. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Sending policy",
+        "variables.0.baseline": "Copy",
+        "variables.0.change": "transfer",
+        "variables.0.expected": "Recovery respects ownership, and stale results are excluded.",
+        "criteria.0": "Required deliverable: a table of buffer states, cancellation responses, and the final UI. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Ownership tracking and Cancellation policy. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Ownership tracking affect in this exercise? Input cases: overlapping requests and cancellation.",
+        "questions.1": "Variable: Sending policy. Hypothesis to check: Recovery respects ownership, and stale results are excluded. Did the actual results agree with the hypothesis? Explain the evidence in terms of Cancellation policy.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-15": {
+      "sourceHash": "116136084a6e49c1da8ef7ffe69c795d1e1ac110cd9a2582842731f28b9b427f",
+      "values": {
+        "title": "Progress Reporting",
+        "prerequisites": "Prepare the experiment results for Ownership tracking and Cancellation policy from Unit 14, “Transfer and Cancellation”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Reporting frequency",
+        "concepts.0.explanation": "Sending a message for every element increases communication volume. Limit progress reports to points such as chunk boundaries.",
+        "concepts.1.title": "Monotonic progress",
+        "concepts.1.explanation": "Progress for one request must not decrease before completion. Reset to new progress when the request ID changes.",
+        "outcomes.0": "Learning outcome: explain the role of Reporting frequency. Input cases: a task with 100 chunks.",
+        "outcomes.1": "Deliverable: message count and progress sequence. Explain the rationale for handling Monotonic progress, linking it to the code.",
+        "steps.0": "In src/day-15.js in a separate practice project, send completed-element counts in progress messages and display only the latest ID. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: a task with 100 chunks. Baseline: Every chunk. Run under the baseline conditions, then record observations and errors in notes/day-15.md.",
+        "steps.2": "Variable: Reporting interval; changed value: Every 10 chunks. Run again through the same input path. Deliverable to save: message count and progress sequence. Hypothesis to check: Fewer messages are sent while the final 100% is retained. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Reporting interval",
+        "variables.0.baseline": "Every chunk",
+        "variables.0.change": "Every 10 chunks",
+        "variables.0.expected": "Fewer messages are sent while the final 100% is retained.",
+        "criteria.0": "Required deliverable: message count and progress sequence. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Reporting frequency and Monotonic progress. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Reporting frequency affect in this exercise? Input cases: a task with 100 chunks.",
+        "questions.1": "Variable: Reporting interval. Hypothesis to check: Fewer messages are sent while the final 100% is retained. Did the actual results agree with the hypothesis? Explain the evidence in terms of Monotonic progress.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
     }
   }
 }

@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 12 published in English
+Engineering · 4 stages · 28 units in the full series · 15 published in English
 
 ## Series goal
 
@@ -39,9 +39,12 @@ Only published English units are linked below. The full series has 28 units.
 - [10. Returning Buffers](units/10/README.md) — Editable example
 - [11. Rejecting Stale Results](units/11/README.md) — Editable example
 - [12. Cooperative Cancellation](units/12/README.md) — Editable example
+- [13. Termination and Recreation](units/13/README.md) — Editable example
+- [14. Transfer and Cancellation](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Queues and Error Recovery
 
+- [15. Progress Reporting](units/15/README.md) — Editable example
 
 ### Stage 4 · Validating Throughput and Responsiveness
 

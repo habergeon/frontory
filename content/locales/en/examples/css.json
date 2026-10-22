@@ -1,0 +1,8 @@
+{
+  "css-step-04": {
+    "sourceHash": "6bb8ced0564d868f0c42a0ed52daadc10392e4f9bcb7aff477bd3abd74e9a432",
+    "values": {
+      "note": "Change box-sizing to border-box and compare the measured widths of 244px and 200px. Document body/html selectors are scoped inside the Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  }
+}

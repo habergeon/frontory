@@ -304,6 +304,13 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [26. Render Statistics and Profiling](labs/graphics/threejs/units/26/README.md) | Editable example | [Source code](../../src/labs/threejs-step-26/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [27. Integrating the Scene Inspector](labs/graphics/threejs/units/27/README.md) | Editable example | [Source code](../../src/labs/threejs-step-27/example.js) — Runs selection, rebuilding, JSON, and rotation lifetimes in a basic-shape inspector. glTF loading and minimap integration are external capstone extensions. |
 
+## Gaussian Splatting
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Provenance and File Contracts](labs/graphics/gaussian-splatting/units/02/README.md) | Editable example | [Source code](../../src/labs/gaussian-splatting-step-02/example.js) — CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance. |
+| [3. Coordinate Systems and Units](labs/graphics/gaussian-splatting/units/03/README.md) | Editable example | [Source code](../../src/labs/gaussian-splatting-step-03/example.js) — CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance. |
+
 ## WebGPU
 
 | Learning unit | Execution mode | Source and supported scope |

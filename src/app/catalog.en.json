@@ -141,6 +141,20 @@
       ]
     },
     {
+      "id": "gaussian-splatting",
+      "title": "Gaussian Splatting",
+      "category": "graphics",
+      "priority": 5,
+      "prerequisites": "Three.js cameras and projection, alpha blending",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/README.md",
+      "stages": [
+        "Foundations of Representation and Projection",
+        "File Validation and Viewer Integration",
+        "Visibility and Quality Experiments",
+        "A Measurable GS Exhibition Viewer"
+      ]
+    },
+    {
       "id": "webgpu",
       "title": "WebGPU",
       "category": "graphics",
@@ -2995,6 +3009,35 @@
       "goal": "Record metrics under identical conditions and the resource cleanup process. Explain performance changes together with whether quality and selection features are preserved.",
       "docPath": "/docs/en/labs/graphics/threejs/03-project/README.md",
       "seriesId": "threejs"
+    },
+    {
+      "id": "gaussian-splatting-01",
+      "day": 1,
+      "week": 1,
+      "title": "3DGS Representations and Data",
+      "goal": "Explain the differences between the three scene representations. Classify the roles of Gaussian attributes.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/01-foundations/README.md",
+      "seriesId": "gaussian-splatting"
+    },
+    {
+      "id": "gaussian-splatting-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Provenance and File Contracts",
+      "goal": "Record the basis for using the data. Verify the input size contract.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/02/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Coordinate Systems and Units",
+      "goal": "Specify the data coordinate system. Verify axis conversion numerically.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/03/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
       "id": "webgpu-01",

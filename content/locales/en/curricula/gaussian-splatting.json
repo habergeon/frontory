@@ -1,0 +1,96 @@
+{
+  "series": {
+    "sourceHash": "9d3170a28e97270bc5cbf02e1aaf5df2a433e98e53155ef956bb0b01eaff9b08",
+    "values": {
+      "stages.0": "Foundations of Representation and Projection",
+      "stages.1": "File Validation and Viewer Integration",
+      "stages.2": "Visibility and Quality Experiments",
+      "stages.3": "A Measurable GS Exhibition Viewer",
+      "goal": "Understand 3D Gaussian data and the projection and compositing paths, and design a fault-tolerant viewer using small data with verified provenance.",
+      "capstone": "A local GS viewer with a fixed camera path, loading states, a selection policy, and a quality comparison report"
+    }
+  },
+  "units": {
+    "gaussian-splatting-01": {
+      "sourceHash": "6cd4f25d1e35768559ec5bee75e41b6261da087f8d83713082a05f9f8c532d72",
+      "values": {
+        "title": "3DGS Representations and Data",
+        "prerequisites": "Three.js cameras and projection, and alpha blending",
+        "environment": "The existing gaussian-splatting-01 preview is a starting point. It does not replace implementation or verification of the full subsequent assignment. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Representation primitives",
+        "concepts.0.explanation": "A mesh stores surface connectivity, while a Gaussian stores a distribution in space. Their storage and rendering paths also differ from NeRF neural network queries.",
+        "concepts.1.title": "Parameters",
+        "concepts.1.explanation": "Position alone cannot reconstruct a Gaussian's shape and color. Examine the meaning of scale, rotation, opacity, and the color representation together.",
+        "outcomes.0": "Explain the differences between the three scene representations.",
+        "outcomes.1": "Classify the roles of Gaussian attributes.",
+        "steps.0": "In representation.md, tabulate the inputs and rendered outputs of mesh, NeRF, and 3DGS.",
+        "steps.1": "In data.js, define two Gaussians with position, scale, quaternion, opacity, and color.",
+        "steps.2": "Trace how scale and opacity in the existing gaussian-splatting-01 CPU example produce the 2D radial gradient output. Examine the 3D projection implementation separately in the gaussian-splatting-02 viewer.",
+        "variables.0.name": "scale",
+        "variables.0.baseline": "0.1 on both axes",
+        "variables.0.change": "0.3 on just one axis",
+        "variables.0.expected": "Expect only the width along the ellipse's axis to increase, with the center unchanged.",
+        "criteria.0": "Write at least one line each describing the storage primitives and rendering paths of the three representations.",
+        "criteria.1": "List all required attributes and units for the two Gaussians.",
+        "questions.0": "Which attributes are missing from an ordinary point cloud?",
+        "questions.1": "Which inputs must be recalculated when the camera moves?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-02": {
+      "sourceHash": "8d063611047cc324b71a9d89346393a4e6074cf400288c85734b23de43e344a2",
+      "values": {
+        "title": "Provenance and File Contracts",
+        "prerequisites": "Continue using the output and records from Unit 1. Before the Provenance and File Contracts experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Data provenance",
+        "concepts.0.explanation": "Being able to open a file does not imply permission to redistribute it. Record the original URL, author, license, and conversion history separately.",
+        "concepts.1.title": "Scope limits",
+        "concepts.1.explanation": "Small synthetic data can verify parsing and compositing. Do not interpret the teaching viewer's capacity limits as production processing capacity.",
+        "outcomes.0": "Record the basis for using the data.",
+        "outcomes.1": "Verify the input size contract.",
+        "steps.0": "In assets-manifest.json, record the provenance and permitted uses of your own fixture.",
+        "steps.1": "In validateFile.js, write a function that checks the file.size limit of 1 MiB and the limit of 512 Gaussians.",
+        "steps.2": "Supply an empty file and metadata exceeding the limits, and display rejection messages before loading.",
+        "variables.0.name": "File size",
+        "variables.0.baseline": "1 KiB",
+        "variables.0.change": "Over 1 MiB",
+        "variables.0.expected": "Expect a size error before the contents are interpreted.",
+        "criteria.0": "The manifest contains three fields: provenance, license, and whether conversion occurred.",
+        "criteria.1": "Empty files and inputs exceeding the limits are rejected for different reasons.",
+        "questions.0": "What information can you share in the repository instead of the data?",
+        "questions.1": "What problems remain if you limit only the compressed size?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-03": {
+      "sourceHash": "ea9fd4ea7df9420b98e2a9b307b49e51ee157dd0bfc0ee2ff3717e731f3b2f03",
+      "values": {
+        "title": "Coordinate Systems and Units",
+        "prerequisites": "Continue using the output and records from Unit 2. Before the Coordinate Systems and Units experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Reference axes",
+        "concepts.0.explanation": "If the camera and data use different up axes, the scene appears tilted. Specify the axis conversion as a data transformation matrix rather than hiding it through camera manipulation.",
+        "concepts.1.title": "Scale reference",
+        "concepts.1.explanation": "The length units of a reconstruction may not correspond to actual meters. Use a reference object or explicitly defined virtual units.",
+        "outcomes.0": "Specify the data coordinate system.",
+        "outcomes.1": "Verify axis conversion numerically.",
+        "steps.0": "In coordinates.js, create an origin and three X/Y/Z markers.",
+        "steps.1": "Apply an axis-swapping matrix to the input points and tabulate their coordinates before and after transformation.",
+        "steps.2": "Store eye, target, and up in camera.json and reproject the same markers.",
+        "variables.0.name": "up axis",
+        "variables.0.baseline": "Y-up",
+        "variables.0.change": "Supply Z-up data without conversion",
+        "variables.0.expected": "Expect the vertical marker to point in the wrong direction.",
+        "criteria.0": "Record the transformed coordinates of the origin and the three axis markers.",
+        "criteria.1": "After the inverse transformation, the maximum error relative to the original points is at most 1e-6.",
+        "questions.0": "How does swapping axes differ from reflection?",
+        "questions.1": "Why does camera reset need unit information?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    }
+  }
+}

@@ -447,6 +447,9 @@
     "glsl-step-25",
     "glsl-step-26",
     "glsl-step-27",
-    "glsl-03"
+    "glsl-03",
+    "gaussian-splatting-01",
+    "gaussian-splatting-step-02",
+    "gaussian-splatting-step-03"
   ]
 }

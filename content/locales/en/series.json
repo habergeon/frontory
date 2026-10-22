@@ -110,5 +110,12 @@
       "title": "GLSL",
       "prerequisites": "WebGL pipeline and vectors"
     }
+  },
+  "gaussian-splatting": {
+    "sourceHash": "ef8cf58834b9a58bf24b2a067f200c309fa82d8c2b8041f2107b2ac72d375409",
+    "values": {
+      "title": "Gaussian Splatting",
+      "prerequisites": "Three.js cameras and projection, alpha blending"
+    }
   }
 }

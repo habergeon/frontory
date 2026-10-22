@@ -496,6 +496,87 @@
         "references.0.title": "WGSL Specification",
         "references.1.title": "WebGPU API"
       }
+    },
+    "wgsl-step-19": {
+      "sourceHash": "8fc1a643c726ff82032e2c2b879a6472eaad99dfbb1ae795bc043a73a7a2abf0",
+      "values": {
+        "title": "Atomics and Counters",
+        "prerequisites": "Continue using the output and records from Unit 18. Before experimenting with Atomics and Counters, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Atomic Operations",
+        "concepts.0.explanation": "atomicAdd handles conflicting updates to the same location atomically. This alone does not establish consistent state across multiple fields or create a global barrier.",
+        "concepts.1.title": "Integer Constraints",
+        "concepts.1.explanation": "Ordinary WGSL atomics use specified integer types and address spaces. Do not simply replace a floating-point sum with atomic<f32>.",
+        "outcomes.0": "Implement an atomic counter.",
+        "outcomes.1": "Explain the scope of atomic guarantees.",
+        "steps.0": "In atomic.wgsl, declare a storage atomic<u32> counter.",
+        "steps.1": "Use atomicAdd to count only positive elements, and initialize the counter to 0 before each run.",
+        "steps.2": "Run the same input five times and compare with the CPU count.",
+        "variables.0.name": "Positive fraction",
+        "variables.0.baseline": "Half",
+        "variables.0.change": "All positive",
+        "variables.0.expected": "The counter value and contention for updates to the same address are expected to increase.",
+        "criteria.0": "All five runs exactly match the CPU count.",
+        "criteria.1": "The previous run's counter value does not accumulate into the next result.",
+        "questions.0": "How can the return value of atomicAdd be used to allocate IDs?",
+        "questions.1": "Does atomic counter ordering guarantee the original input order?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-20": {
+      "sourceHash": "54c7cf7ab934b5264015ff3bb86967a1f00bd465e3869255222ef8a5bca7f856",
+      "values": {
+        "title": "Partial-Sum Reduction",
+        "prerequisites": "Continue using the output and records from Unit 19. Before experimenting with Partial-Sum Reduction, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Tree Computation",
+        "concepts.0.explanation": "Reduction combines multiple elements in stages. Each stage has read and write dependencies, so align shared memory use with barrier placement.",
+        "concepts.1.title": "Multiple Stages",
+        "concepts.1.explanation": "After obtaining partial sums for each workgroup, finish with an additional dispatch or a CPU sum. Do not wait for other groups to finish within the same dispatch.",
+        "outcomes.0": "Write cooperative reductions.",
+        "outcomes.1": "Separate computation stages across groups.",
+        "steps.0": "In reduce.wgsl, write a 64-lane shared array and reduction stages 32, 16, 8, 4, 2, and 1.",
+        "steps.1": "Place a common barrier after the conditional addition in each stage.",
+        "steps.2": "Read back partial sums for 1003 inputs and compare with the CPU sum.",
+        "variables.0.name": "Input count",
+        "variables.0.baseline": "64",
+        "variables.0.change": "1003",
+        "variables.0.expected": "Multiple partial sums and the final incomplete group are expected to need handling.",
+        "criteria.0": "The final group uses 0 padding.",
+        "criteria.1": "The total result meets the predefined abs/relative error criteria.",
+        "questions.0": "Why can changing the order of addition slightly change f32 results?",
+        "questions.1": "What breaks if the final group uses early return?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
+    },
+    "wgsl-step-21": {
+      "sourceHash": "8c8ccf1a4537cfb1b401894ca0ad62cf7edf8af65008fe93d4d6004f64aee650",
+      "values": {
+        "title": "Ping-pong and Data Races",
+        "prerequisites": "Continue using the output and records from Unit 20. Before experimenting with Ping-pong and Data Races, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This document-guided exercise requires your own implementation in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Retain device.lost handling and resource cleanup.",
+        "concepts.0.title": "Neighbor Reads",
+        "concepts.0.explanation": "Computation that reads each element's neighbors from the previous state can conflict with in-place updates. Separate input and output arrays to avoid depending on execution order.",
+        "concepts.1.title": "Time Steps",
+        "concepts.1.explanation": "One dispatch transforms the state at one time into the next state. Swap the roles of the two buffers for the next dispatch.",
+        "outcomes.0": "Avoid data races.",
+        "outcomes.1": "Separate state for each time step.",
+        "steps.0": "In stencil.wgsl, write a function that stores the average of previous left and right neighbors in a new array.",
+        "steps.1": "Alternate A→B and B→A bindings on the host.",
+        "steps.2": "Compare three steps with a CPU implementation that copies state, and specify the endpoint policy.",
+        "variables.0.name": "Endpoint handling",
+        "variables.0.baseline": "Fixed boundaries",
+        "variables.0.change": "Periodic boundaries",
+        "variables.0.expected": "Propagation at the two ends of the array is expected to differ.",
+        "criteria.0": "All elements in the three steps stay within the CPU reference error tolerance.",
+        "criteria.1": "Verify that the input and output bindings refer to different resources.",
+        "questions.0": "Do atomics preserve the neighbors' previous state?",
+        "questions.1": "How does independent x*=2 differ from averaging neighbors?",
+        "references.0.title": "WGSL Specification",
+        "references.1.title": "WebGPU API"
+      }
     }
   }
 }

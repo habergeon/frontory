@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Workgroup Memory and Cooperation](../17/README.md)
+[Previous: Workgroup Memory and Cooperation](../17/README.md) · [Next: Atomics and Counters](../19/README.md)
 
 ## Experiment notes — write your own
 

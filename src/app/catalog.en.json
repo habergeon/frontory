@@ -3992,6 +3992,36 @@
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
+      "id": "wgsl-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Atomics and Counters",
+      "goal": "Implement an atomic counter. Explain the scope of atomic guarantees.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/19/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Partial-Sum Reduction",
+      "goal": "Write cooperative reductions. Separate computation stages across groups.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/20/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
+      "id": "wgsl-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Ping-pong and Data Races",
+      "goal": "Avoid data races. Separate state for each time step.",
+      "docPath": "/docs/en/labs/shader/wgsl/units/21/README.md",
+      "seriesId": "wgsl",
+      "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

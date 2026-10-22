@@ -861,6 +861,35 @@
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
+      "id": "react-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Creating Regression Scenarios",
+      "goal": "Inputs and expected outputs are specified for at least 4 core flows. Previous drafts do not mix in when scenarios run in different orders.",
+      "docPath": "/docs/en/labs/frameworks/react/units/26/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Integrated Editor and Resource Audit",
+      "goal": "A and B drafts remain unchanged after 10 switches. There are 0 active render loops in the final hidden state.",
+      "docPath": "/docs/en/labs/frameworks/react/units/27/README.md",
+      "seriesId": "react",
+      "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    {
+      "id": "react-03",
+      "day": 28,
+      "week": 4,
+      "title": "State Preservation and Performance",
+      "goal": "The exact note string is restored after A→B→A. There are 10 before/after measurements under identical conditions and reasons for adoption or rejection.",
+      "docPath": "/docs/en/labs/frameworks/react/03-project/README.md",
+      "seriesId": "react"
+    },
+    {
       "id": "gsap-step-02",
       "day": 2,
       "week": 1,

@@ -712,6 +712,89 @@
         "references.1.title": "React API Reference",
         "references.2.title": "React useEffect: External Systems and Cleanup"
       }
+    },
+    "react-step-26": {
+      "sourceHash": "6f359ddf22949a41318509ed93041d22050611246ecddc5abffe889624a9260c",
+      "values": {
+        "title": "Creating Regression Scenarios",
+        "prerequisites": "Unit 26 continues using the work and experiment records from Unit 25.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "User Contracts",
+        "concepts.0.explanation": "Tests check what users enter and see rather than internal Hook names. If the contract stays the same after an implementation change, verification can remain valid.",
+        "concepts.1.title": "Isolation",
+        "concepts.1.explanation": "Reset storage and input data for each test to keep results independent. Judge completion by screen conditions instead of waiting for a duration.",
+        "outcomes.0": "Inputs and expected outputs are specified for at least 4 core flows.",
+        "outcomes.1": "Previous drafts do not mix in when scenarios run in different orders.",
+        "steps.0": "Write card addition, toggling, and unit switching flows in tests/notes.spec.js in the external project.",
+        "steps.1": "Also verify expected outputs for A and B drafts, empty searches, and reversed request responses.",
+        "steps.2": "Rerun each scenario in a new context with storage cleared.",
+        "variables.0.name": "Initial Storage",
+        "variables.0.baseline": "Empty storage",
+        "variables.0.change": "A draft exists",
+        "variables.0.expected": "Only the initial expectations differ; the subsequent editing contract stays the same.",
+        "criteria.0": "Inputs and expected outputs are specified for at least 4 core flows.",
+        "criteria.1": "Previous drafts do not mix in when scenarios run in different orders.",
+        "questions.0": "Why use labels rather than selectors tied to implementation details?",
+        "questions.1": "What failures can a fixed sleep hide?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference"
+      }
+    },
+    "react-step-27": {
+      "sourceHash": "9ec1b265440bdbddeb3376ebed75302a24fba53d550a580f489b1e49ed7c65e6",
+      "values": {
+        "title": "Integrated Editor and Resource Audit",
+        "prerequisites": "Unit 27 continues using the work and experiment records from Unit 26.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler.",
+        "concepts.0.title": "Integration Boundaries",
+        "concepts.0.explanation": "Notes, search, and Canvas have different update rates and lifetimes. Assigning ownership to each area makes data and resources easier to track during switches.",
+        "concepts.1.title": "Audit Records",
+        "concepts.1.explanation": "Matching creation and disposal counts alone can miss resources that are still active. Check final active counts and restored functionality together.",
+        "outcomes.0": "A and B drafts remain unchanged after 10 switches.",
+        "outcomes.1": "There are 0 active render loops in the final hidden state.",
+        "steps.0": "Combine the list, notes, and ThreeScene in src/StudyWorkspace.jsx.",
+        "steps.1": "During 10 unit switches, interleave input and hiding Canvas.",
+        "steps.2": "In notes/audit.md, record draft ids, active loops, listeners, and results of handling save errors.",
+        "variables.0.name": "Switch Count",
+        "variables.0.baseline": "1 time",
+        "variables.0.change": "10 times",
+        "variables.0.expected": "Drafts remain separated by id, and resource counts do not accumulate.",
+        "criteria.0": "A and B drafts remain unchanged after 10 switches.",
+        "criteria.1": "There are 0 active render loops in the final hidden state.",
+        "questions.0": "Which state should be preserved during switching, and which should reset?",
+        "questions.1": "Can creation/disposal logs alone guarantee GPU resource disposal?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference",
+        "references.2.title": "React useEffect: External Systems and Cleanup"
+      }
+    },
+    "react-03": {
+      "sourceHash": "da6f6da5abc50690568c66eaa681a1017d1c7770da868eb5b6e50f07749c6d52",
+      "values": {
+        "title": "State Preservation and Performance",
+        "prerequisites": "Unit 28 continues using the work and experiment records from Unit 27.",
+        "environment": "This is a JSX exercise in a separate React Vite project. Record Node and package versions and the lockfile, and run it on the project development server. The built-in editor is not a general-purpose JSX compiler. The existing react-03 preview is a starting point. Implement the expanded deliverable described here in a separate project.",
+        "concepts.0.title": "Preservation Policy",
+        "concepts.0.explanation": "key determines an editor's identity. Store note data by unit id, and define separate reset rules for temporary UI state.",
+        "concepts.1.title": "Evidence-Based Improvements",
+        "concepts.1.explanation": "Compare performance changes using the same data and inputs. Record measurements and remaining bottlenecks instead of merely claiming speed.",
+        "outcomes.0": "The exact note string is restored after A→B→A.",
+        "outcomes.1": "There are 10 before/after measurements under identical conditions and reasons for adoption or rejection.",
+        "steps.0": "In src/StudyWorkspace.jsx, perform a final check of A·B switching and draft restoration.",
+        "steps.1": "Use the measurement procedure from Unit 21 to record input with 1000 cards, and change only one policy: memo or pagination.",
+        "steps.2": "Submit notes/final.md combining state ownership, a resource disposal table, before/after Profiler records, and failure cases.",
+        "variables.0.name": "Optimization Policy",
+        "variables.0.baseline": "Existing list",
+        "variables.0.change": "One measured improvement",
+        "variables.0.expected": "Verify whether only the chosen cost changes while the draft preservation contract is retained.",
+        "criteria.0": "The exact note string is restored after A→B→A.",
+        "criteria.1": "There are 10 before/after measurements under identical conditions and reasons for adoption or rejection.",
+        "questions.0": "What criteria justify removing an optimization with no improvement?",
+        "questions.1": "How do you explain the boundary between React state and external renderer state?",
+        "references.0.title": "React Learning Guide",
+        "references.1.title": "React API Reference",
+        "references.2.title": "React: Preserving and Resetting State"
+      }
     }
   }
 }

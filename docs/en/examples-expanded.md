@@ -91,6 +91,8 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [23. Display Ranges for Long Lists](labs/frameworks/react/units/23/README.md) | Editable example | [Source code](../../src/labs/react-step-23/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [24. Event Boundaries and Accessible Selection](labs/frameworks/react/units/24/README.md) | Editable example | [Source code](../../src/labs/react-step-24/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [25. Subscription Stores and Snapshots](labs/frameworks/react/units/25/README.md) | Editable example | [Source code](../../src/labs/react-step-25/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [26. Creating Regression Scenarios](labs/frameworks/react/units/26/README.md) | Editable example | [Source code](../../src/labs/react-step-26/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
+| [27. Integrated Editor and Resource Audit](labs/frameworks/react/units/27/README.md) | Editable example | [Source code](../../src/labs/react-step-27/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 
 ## GSAP
 

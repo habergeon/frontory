@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Event Boundaries and Accessible Selection](../24/README.md)
+[Previous: Event Boundaries and Accessible Selection](../24/README.md) · [Next: Creating Regression Scenarios](../26/README.md)
 
 ## Experiment notes — write your own
 

@@ -1,0 +1,14 @@
+{
+  "web-workers-step-02": {
+    "sourceHash": "bfd588c173e521525c897a6cfa366667952abd1c9ba42c380abd3ad8d6f05968",
+    "values": {
+      "note": "An interactive Module Worker Loading experiment with cleanup of the resources it uses."
+    }
+  },
+  "web-workers-step-03": {
+    "sourceHash": "0825f76922f1a11f67ddc4122b255cf4620cc0770221797b118940e2770f957a",
+    "values": {
+      "note": "An interactive Message Contracts experiment with cleanup of the resources it uses."
+    }
+  }
+}

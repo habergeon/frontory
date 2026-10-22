@@ -124,5 +124,12 @@
       "title": "Motion",
       "prerequisites": "React state, CSS transform"
     }
+  },
+  "web-workers": {
+    "sourceHash": "96f4c1c5bd4bfba8a08908ed87319763fa100796fb5f4a0e14436c23e37bc8ba",
+    "values": {
+      "title": "Web Workers",
+      "prerequisites": "JavaScript asynchronous behavior and TypedArray"
+    }
   }
 }

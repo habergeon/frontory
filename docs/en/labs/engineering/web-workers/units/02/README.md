@@ -1,0 +1,86 @@
+# Web Workers · 02 Module Worker Loading
+
+[Series contents](../../README.md) · [Technology map](../../../../README.md)
+
+Stage: Messages and Execution Contexts · Editable example · Storage ID: `web-workers-step-02`
+
+## Goals and learning outcomes
+
+- Learning outcome: explain the role of Module Worker. Input cases: a valid path and a missing path.
+- Deliverable: a ready state or loading error state. Explain the rationale for handling Loading failure, linking it to the code.
+
+## Prerequisites
+
+Prepare the experiment results for Worker context and Request identification from Unit 1, “Messages and Execution Boundaries”.
+
+## Key concepts and explanations
+
+### Module Worker
+
+type:module uses module syntax. Local HTTP and a correct URL are required.
+
+### Loading failure
+
+A script path failure differs from a computation error. Show initialization failures as a distinct UI state.
+
+## Practice setup
+
+First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.
+
+The linked example is a starting point. It does not implement every task below. Complete work beyond its supported scope in a separate project.
+
+## Practice tasks
+
+1. In src/day-2.js in a separate practice project, configure new Worker(new URL('./worker.js',import.meta.url),{type:'module'}) and error handling. Refer to the existing Unit 1·14·28 examples only as starting points.
+2. Input conditions: a valid path and a missing path. Baseline: Valid. Run under the baseline conditions, then record observations and errors in notes/day-2.md.
+3. Variable: File path; changed value: Nonexistent. Run again through the same input path. Deliverable to save: a ready state or loading error state. Hypothesis to check: An error is displayed instead of leaving the UI waiting for a result. Compare it with the actual results, and record whether they agree and why they differ.
+
+## Variables to observe
+
+| Variable | Baseline | Change | Expected change / hypothesis |
+| --- | --- | --- | --- |
+| File path | Valid | Nonexistent | An error is displayed instead of leaving the UI waiting for a result. |
+
+Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
+
+## Completion criteria
+
+- [ ] Required deliverable: a ready state or loading error state. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.
+- [ ] The explanation of differences between the two conditions connects both concepts: Module Worker and Loading failure. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.
+
+## Self-check
+
+1. Which processing stage does Module Worker affect in this exercise? Input cases: a valid path and a missing path.
+2. Variable: File path. Hypothesis to check: An error is displayed instead of leaving the UI waiting for a result. Did the actual results agree with the hypothesis? Explain the evidence in terms of Loading failure.
+
+## Official references
+
+- [MDN Using Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [MDN Transferable objects](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Transferable_objects)
+
+## Linked example and execution scope
+
+[Example source](../../../../../../../src/labs/web-workers-step-02/example.js) · [Runtime environments and limits](../../../../../examples.md)
+
+An interactive Module Worker Loading experiment with cleanup of the resources it uses.
+
+
+Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
+
+## Next learning
+
+[Previous: Messages and Execution Boundaries](../../01-foundations/README.md) · [Next: Message Contracts](../03/README.md)
+
+## Experiment notes — write your own
+
+### Goal
+
+### Key concepts
+
+### Changed variables and predictions
+
+### Actual results
+
+### What I learned
+
+### Remaining questions

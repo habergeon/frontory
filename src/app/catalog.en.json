@@ -251,6 +251,20 @@
         "Gestures and Equivalent Interaction",
         "Validating a Motion System"
       ]
+    },
+    {
+      "id": "web-workers",
+      "title": "Web Workers",
+      "category": "engineering",
+      "priority": 5,
+      "prerequisites": "JavaScript asynchronous behavior and TypedArray",
+      "docPath": "/docs/en/labs/engineering/web-workers/README.md",
+      "stages": [
+        "Messages and Execution Contexts",
+        "Ownership and Cancellation",
+        "Queues and Error Recovery",
+        "Validating Throughput and Responsiveness"
+      ]
     }
   ],
   "units": [
@@ -5239,6 +5253,35 @@
       "goal": "Learning outcome: Explain the role of Equivalent functionality. Input case: Reordering without a pointer, consecutive deletions, and reduce. Deliverable: A validation report of ID arrays, focus, and content for each input. Connect your rationale for handling Comprehensive validation to the code.",
       "docPath": "/docs/en/labs/animation/motion/03-project/README.md",
       "seriesId": "motion"
+    },
+    {
+      "id": "web-workers-01",
+      "day": 1,
+      "week": 1,
+      "title": "Messages and Execution Boundaries",
+      "goal": "Learning outcome: explain the role of Worker context. Input cases: IDs and 3 integer arrays. Deliverable: per-request sums and a record of UI input responsiveness. Explain the rationale for handling Request identification, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/01-foundations/README.md",
+      "seriesId": "web-workers"
+    },
+    {
+      "id": "web-workers-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Module Worker Loading",
+      "goal": "Learning outcome: explain the role of Module Worker. Input cases: a valid path and a missing path. Deliverable: a ready state or loading error state. Explain the rationale for handling Loading failure, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/02/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Module Worker Loading experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "web-workers-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Message Contracts",
+      "goal": "Learning outcome: explain the role of Tags. Input cases: valid input, a missing ID, and an array of strings. Deliverable: an acceptance/rejection table for each input. Explain the rationale for handling Validation, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/web-workers/units/03/README.md",
+      "seriesId": "web-workers",
+      "exampleNote": "An interactive Message Contracts experiment with cleanup of the resources it uses."
     }
   ]
 }

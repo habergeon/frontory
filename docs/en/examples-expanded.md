@@ -543,3 +543,10 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [25. Reduced Motion Policy](labs/animation/motion/units/25/README.md) | Editable example | [Source code](../../src/labs/motion-step-25/example.js) — Interactive Reduced Motion Policy experiment with cleanup of the resources used. |
 | [26. Observing Renders and Performance](labs/animation/motion/units/26/README.md) | Editable example | [Source code](../../src/labs/motion-step-26/example.js) — Interactive Observing Renders and Performance experiment with cleanup of the resources used. |
 | [27. Remounting and State Restoration](labs/animation/motion/units/27/README.md) | Editable example | [Source code](../../src/labs/motion-step-27/example.js) — Interactive Remounting and State Restoration experiment with cleanup of the resources used. |
+
+## Web Workers
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Module Worker Loading](labs/engineering/web-workers/units/02/README.md) | Editable example | [Source code](../../src/labs/web-workers-step-02/example.js) — An interactive Module Worker Loading experiment with cleanup of the resources it uses. |
+| [3. Message Contracts](labs/engineering/web-workers/units/03/README.md) | Editable example | [Source code](../../src/labs/web-workers-step-03/example.js) — An interactive Message Contracts experiment with cleanup of the resources it uses. |

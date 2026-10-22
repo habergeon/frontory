@@ -1,0 +1,96 @@
+{
+  "series": {
+    "sourceHash": "d42b171be86605388465dacb8e44a93c9eebb69b8421c5a6ed93fd11e42509ac",
+    "values": {
+      "stages.0": "Messages and Execution Contexts",
+      "stages.1": "Ownership and Cancellation",
+      "stages.2": "Queues and Error Recovery",
+      "stages.3": "Validating Throughput and Responsiveness",
+      "goal": "Design Worker communication contracts and buffer ownership, and measure the costs of cancellation, queues, and recovery.",
+      "capstone": "Build a cancellable array-processing queue and compare correctness, end-to-end latency, and input responsiveness on the main thread and Workers."
+    }
+  },
+  "units": {
+    "web-workers-01": {
+      "sourceHash": "84f35c2d4d8985d5a9ae234684b40f1080493073e219d0d5bcab13a66b8e6990",
+      "values": {
+        "title": "Messages and Execution Boundaries",
+        "prerequisites": "Understand JavaScript asynchronous behavior and TypedArray, and be able to read the inputs and outputs of the existing starting examples.",
+        "environment": "The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Worker context",
+        "concepts.0.explanation": "A Worker runs in a context separate from the main thread. The main side updates the DOM after receiving messages.",
+        "concepts.1.title": "Request identification",
+        "concepts.1.explanation": "Completion order may differ from request order. Keep requestId in inputs, results, and errors.",
+        "outcomes.0": "Learning outcome: explain the role of Worker context. Input cases: IDs and 3 integer arrays.",
+        "outcomes.1": "Deliverable: per-request sums and a record of UI input responsiveness. Explain the rationale for handling Request identification, linking it to the code.",
+        "steps.0": "In src/day-1.js in a separate practice project, create main.js and worker.js and request sums using new Worker and postMessage. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: IDs and 3 integer arrays. Baseline: 100 elements. Run under the baseline conditions, then record observations and errors in notes/day-1.md.",
+        "steps.2": "Variable: Array length; changed value: 100000 elements. Run again through the same input path. Deliverable to save: per-request sums and a record of UI input responsiveness. Hypothesis to check: Main-thread input handling should remain possible during computation. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Array length",
+        "variables.0.baseline": "100 elements",
+        "variables.0.change": "100000 elements",
+        "variables.0.expected": "Main-thread input handling should remain possible during computation.",
+        "criteria.0": "Required deliverable: per-request sums and a record of UI input responsiveness. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Worker context and Request identification. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Worker context affect in this exercise? Input cases: IDs and 3 integer arrays.",
+        "questions.1": "Variable: Array length. Hypothesis to check: Main-thread input handling should remain possible during computation. Did the actual results agree with the hypothesis? Explain the evidence in terms of Request identification.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-02": {
+      "sourceHash": "50f6f7b0a234c8254a07810a92b7524d637837094b64f0d993428f0324a8d62e",
+      "values": {
+        "title": "Module Worker Loading",
+        "prerequisites": "Prepare the experiment results for Worker context and Request identification from Unit 1, “Messages and Execution Boundaries”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Module Worker",
+        "concepts.0.explanation": "type:module uses module syntax. Local HTTP and a correct URL are required.",
+        "concepts.1.title": "Loading failure",
+        "concepts.1.explanation": "A script path failure differs from a computation error. Show initialization failures as a distinct UI state.",
+        "outcomes.0": "Learning outcome: explain the role of Module Worker. Input cases: a valid path and a missing path.",
+        "outcomes.1": "Deliverable: a ready state or loading error state. Explain the rationale for handling Loading failure, linking it to the code.",
+        "steps.0": "In src/day-2.js in a separate practice project, configure new Worker(new URL('./worker.js',import.meta.url),{type:'module'}) and error handling. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: a valid path and a missing path. Baseline: Valid. Run under the baseline conditions, then record observations and errors in notes/day-2.md.",
+        "steps.2": "Variable: File path; changed value: Nonexistent. Run again through the same input path. Deliverable to save: a ready state or loading error state. Hypothesis to check: An error is displayed instead of leaving the UI waiting for a result. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "File path",
+        "variables.0.baseline": "Valid",
+        "variables.0.change": "Nonexistent",
+        "variables.0.expected": "An error is displayed instead of leaving the UI waiting for a result.",
+        "criteria.0": "Required deliverable: a ready state or loading error state. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Module Worker and Loading failure. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Module Worker affect in this exercise? Input cases: a valid path and a missing path.",
+        "questions.1": "Variable: File path. Hypothesis to check: An error is displayed instead of leaving the UI waiting for a result. Did the actual results agree with the hypothesis? Explain the evidence in terms of Loading failure.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    },
+    "web-workers-step-03": {
+      "sourceHash": "2a2561823165c1195d3ba94f0038c76b87045b3e231f467a275075c749318b04",
+      "values": {
+        "title": "Message Contracts",
+        "prerequisites": "Prepare the experiment results for Module Worker and Loading failure from Unit 2, “Module Worker Loading”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing web-workers-01·02·03 are starting examples. Implement the new assignments in main.js and worker.js in a separate local HTTP project. Preserve CSP and iframe isolation. For SharedArrayBuffer, check COOP and COEP requirements on an external server you control; use the transfer path if they are not met. Measure performance yourself.",
+        "concepts.0.title": "Tags",
+        "concepts.0.explanation": "type distinguishes message meanings. Interpreting every message as the same data shape causes errors.",
+        "concepts.1.title": "Validation",
+        "concepts.1.explanation": "Values received by a Worker also require validation. Check requestId and the array type before computing.",
+        "outcomes.0": "Learning outcome: explain the role of Tags. Input cases: valid input, a missing ID, and an array of strings.",
+        "outcomes.1": "Deliverable: an acceptance/rejection table for each input. Explain the rationale for handling Validation, linking it to the code.",
+        "steps.0": "In src/day-3.js in a separate practice project, create run, result, and error message structures and an incoming-message validation function. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: valid input, a missing ID, and an array of strings. Baseline: Integer array. Run under the baseline conditions, then record observations and errors in notes/day-3.md.",
+        "steps.2": "Variable: Input; changed value: Invalid object. Run again through the same input path. Deliverable to save: an acceptance/rejection table for each input. Hypothesis to check: Only the invalid request is rejected, and the next request is processed. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Input",
+        "variables.0.baseline": "Integer array",
+        "variables.0.change": "Invalid object",
+        "variables.0.expected": "Only the invalid request is rejected, and the next request is processed.",
+        "criteria.0": "Required deliverable: an acceptance/rejection table for each input. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Tags and Validation. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Tags affect in this exercise? Input cases: valid input, a missing ID, and an array of strings.",
+        "questions.1": "Variable: Input. Hypothesis to check: Only the invalid request is rejected, and the next request is processed. Did the actual results agree with the hypothesis? Explain the evidence in terms of Validation.",
+        "references.0.title": "MDN Using Web Workers",
+        "references.1.title": "MDN Transferable objects"
+      }
+    }
+  }
+}

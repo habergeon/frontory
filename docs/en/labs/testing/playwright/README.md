@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Testing · 4 stages · 28 units in the full series · 15 published in English
+Testing · 4 stages · 28 units in the full series · 18 published in English
 
 ## Series goal
 
@@ -45,6 +45,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 3 · Asynchrony, Isolation, and Diagnosis
 
 - [15. Keyboard Navigation](units/15/README.md) — External example · preview instructions
+- [16. Viewport and Responsive Layout](units/16/README.md) — External example · preview instructions
+- [17. Network Route](units/17/README.md) — External example · preview instructions
+- [18. Delays and Races](units/18/README.md) — External example · preview instructions
 
 ### Stage 4 · Visual Regression and Execution Strategy
 
@@ -62,3 +65,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [Playwright Assertions](https://playwright.dev/docs/test-assertions)
 - [Playwright Downloads](https://playwright.dev/docs/downloads)
 - [Playwright Visual comparisons](https://playwright.dev/docs/test-snapshots)
+- [Playwright Network interception](https://playwright.dev/docs/network)

@@ -6274,6 +6274,36 @@
       "docPath": "/docs/en/labs/testing/playwright/units/15/README.md",
       "seriesId": "playwright",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Viewport and Responsive Layout",
+      "goal": "Learning outcome: explain the role of Explicit conditions. Input cases: 390×844 and 1280×800. Deliverable: button visibility, note input, and horizontal overflow results. Explain the rationale for handling Core actions, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/16/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Network Route",
+      "goal": "Prepare a fetch-based document-loading fixture app and a separate origin. Return 200 and 500 responses for the same /docs/a request and verify loading, completion, and error states.",
+      "docPath": "/docs/en/labs/testing/playwright/units/17/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Delays and Races",
+      "goal": "Implement a latestRequestId guard in the Unit 17 fixture app to discard stale responses. Verify that the final selected ID, title, and body all correspond to B for both A→B and B→A completion orders.",
+      "docPath": "/docs/en/labs/testing/playwright/units/18/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     }
   ]
 }

@@ -1,3 +1,6 @@
+import type { Locale } from '../i18n/locale.ts'
+import { notesTemplateFor } from '../i18n/notes.ts'
+
 export type CodeLanguage = 'javascript' | 'typescript'
 export type LearningProgress = 'not-started' | 'in-progress' | 'completed'
 export interface Draft {
@@ -15,7 +18,7 @@ interface StorageAccess {
 export interface DraftResult { draft: Draft; warning: string | null }
 
 export const draftKey = (id: string) => 'web-gl-study:unit:v1:' + id
-export const notesTemplate = '# 실험 기록\n\n## 목표\n\n## 핵심 개념\n\n## 바꾼 변수와 예상\n\n## 실제 결과\n\n## 배운 점\n\n## 남은 질문\n'
+export const notesTemplate = notesTemplateFor('ko')
 
 export function isDraft(value: unknown): value is Draft {
   if (typeof value !== 'object' || value === null) return false
@@ -33,6 +36,7 @@ export function restoreCode(draft: Draft, original: string): Draft {
 /** Memory survives unit navigation, including when the browser denies storage. */
 export function createDraftStore(getStorage: () => StorageAccess) {
   const memory = new Map<string, DraftResult>()
+  const unstarted = new Set<string>()
   const snapshotKey = 'web-gl-study:all:v1'
   let snapshotCache: Record<string, Draft> | null | undefined
   const readSnapshot = (fresh = false): Record<string, Draft> | null => {
@@ -51,6 +55,7 @@ export function createDraftStore(getStorage: () => StorageAccess) {
       getStorage().setItem(snapshotKey, JSON.stringify(drafts))
       snapshotCache = undefined
       memory.clear()
+      unstarted.clear()
     },
     load(id: string, original: string): DraftResult {
       const cached = memory.get(id)
@@ -59,6 +64,7 @@ export function createDraftStore(getStorage: () => StorageAccess) {
         draft: { version: 1, code: original, notes: notesTemplate, updatedAt: '' },
         warning: null,
       }
+      unstarted.add(id)
       try {
         const snapshot = readSnapshot()
         const raw = snapshot && Object.hasOwn(snapshot, id) ? JSON.stringify(snapshot[id]) : getStorage().getItem(draftKey(id))
@@ -66,6 +72,7 @@ export function createDraftStore(getStorage: () => StorageAccess) {
           const parsed: unknown = JSON.parse(raw)
           if (!isDraft(parsed)) throw new Error('Invalid saved draft')
           result = { draft: parsed, warning: null }
+          unstarted.delete(id)
         }
       } catch {
         result.warning = '저장된 내용을 읽을 수 없습니다. 손상된 데이터 또는 브라우저 저장 제한을 확인하세요. 기존 저장값은 삭제하지 않았습니다. 편집하면 해당 단위의 저장값을 새 내용으로 덮어씁니다.'
@@ -73,7 +80,15 @@ export function createDraftStore(getStorage: () => StorageAccess) {
       memory.set(id, result)
       return result
     },
+    begin(id: string, original: string, locale: Locale): DraftResult {
+      const result = this.load(id, original)
+      if (!unstarted.delete(id)) return result
+      const started = { ...result, draft: { ...result.draft, notes: notesTemplateFor(locale) } }
+      memory.set(id, started)
+      return started
+    },
     save(id: string, draft: Draft): DraftResult {
+      unstarted.delete(id)
       const result: DraftResult = {
         draft: { ...draft, updatedAt: new Date().toISOString() },
         warning: null,

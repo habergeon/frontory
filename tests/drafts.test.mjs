@@ -75,3 +75,91 @@ test('language selection persists while legacy drafts remain readable', () => {
   assert.equal(reset.language, 'javascript')
   assert.equal(reset.notes, 'keep')
 })
+
+const englishNotes = '# Experiment notes\n\n## Goal\n\n## Key concepts\n\n## Changed variables and predictions\n\n## Actual results\n\n## What I learned\n\n## Remaining questions\n'
+
+test('begin selects a first-use template once without saving or changing timestamps', () => {
+  const storage = fixture()
+  const store = createDraftStore(() => storage)
+  const english = store.begin('a', 'original', 'en')
+  assert.equal(english.draft.notes, englishNotes)
+  assert.equal(english.draft.code, 'original')
+  assert.equal(english.draft.updatedAt, '')
+  assert.deepEqual([...storage.data], [])
+  assert.strictEqual(store.begin('a', 'original', 'ko'), english)
+  assert.equal(store.begin('b', '', 'ko').draft.notes, '# 실험 기록\n\n## 목표\n\n## 핵심 개념\n\n## 바꾼 변수와 예상\n\n## 실제 결과\n\n## 배운 점\n\n## 남은 질문\n')
+})
+
+test('begin preserves saved blank and Korean notes and storage bytes across locales', () => {
+  for (const notes of ['', '한국어로 쓴 기록']) {
+    const storage = fixture()
+    const saved = { version: 1, code: '', notes, updatedAt: '2026-10-21T12:34:56.000Z', language: 'typescript', progress: 'completed' }
+    const raw = JSON.stringify(saved, null, 2)
+    storage.setItem(draftKey('a'), raw)
+    const store = createDraftStore(() => storage)
+    store.load('a', 'original')
+    assert.deepEqual(store.begin('a', 'original', 'en').draft, saved)
+    assert.deepEqual(store.begin('a', 'original', 'ko').draft, saved)
+    assert.deepEqual([...storage.data], [[draftKey('a'), raw]])
+  }
+})
+
+test('begin preserves edits saved before first start even when storage rejects the save', () => {
+  for (const blockedRead of [false, true]) {
+    const storage = fixture()
+    const store = createDraftStore(() => {
+      if (blockedRead) throw new Error('SecurityError')
+      return { ...storage, setItem() { throw new Error('quota') } }
+    })
+    const loaded = store.load('a', 'original')
+    const saved = store.save('a', { ...loaded.draft, code: '', notes: '', progress: 'in-progress' })
+    assert.ok(saved.warning)
+    assert.strictEqual(store.begin('a', 'original', 'en'), saved)
+    assert.strictEqual(store.begin('a', 'original', 'ko'), saved)
+    assert.equal(saved.draft.notes, '')
+    assert.equal(saved.draft.code, '')
+    assert.ok(saved.draft.updatedAt)
+    assert.deepEqual([...storage.data], [])
+  }
+})
+
+test('begin preserves corrupt storage bytes and its read warning', () => {
+  for (const key of [draftKey('a'), 'web-gl-study:all:v1']) {
+    const storage = fixture()
+    storage.setItem(key, '{broken')
+    const store = createDraftStore(() => storage)
+    const loaded = store.load('a', 'original')
+    assert.ok(loaded.warning)
+    const started = store.begin('a', 'original', 'en')
+    assert.equal(started.draft.notes, englishNotes)
+    assert.equal(started.warning, loaded.warning)
+    assert.strictEqual(store.begin('a', 'original', 'ko'), started)
+    assert.deepEqual([...storage.data], [[key, '{broken']])
+    assert.equal(loaded.draft.updatedAt, '')
+  }
+})
+
+test('save persists only existing draft fields and replaceAll resets cached first-use choices', () => {
+  const storage = fixture()
+  const store = createDraftStore(() => storage)
+  const saved = store.save('a', store.begin('a', 'original', 'en').draft)
+  assert.deepEqual(Object.keys(JSON.parse(storage.getItem(draftKey('a')))).sort(), ['code', 'notes', 'updatedAt', 'version'])
+  assert.equal(saved.draft.notes, englishNotes)
+  store.begin('b', 'original', 'ko')
+  store.replaceAll({ a: { version: 1, code: '', notes: '', updatedAt: '' } })
+  assert.equal(store.begin('a', 'original', 'en').draft.notes, '')
+  assert.equal(store.begin('b', 'original', 'en').draft.notes, englishNotes)
+  assert.deepEqual(Object.keys(JSON.parse(storage.getItem('web-gl-study:all:v1')).a).sort(), ['code', 'notes', 'updatedAt', 'version'])
+})
+
+
+test('blocked storage still allows an English first-use template without losing its warning', () => {
+  const store = createDraftStore(() => { throw new Error('SecurityError') })
+  const loaded = store.load('a', 'original')
+  const started = store.begin('a', 'original', 'en')
+  assert.equal(started.draft.notes, englishNotes)
+  assert.equal(started.draft.updatedAt, '')
+  assert.ok(started.warning)
+  assert.equal(started.warning, loaded.warning)
+  assert.strictEqual(store.begin('a', 'original', 'ko'), started)
+})

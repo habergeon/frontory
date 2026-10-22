@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 9 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 12 published in English
 
 ## Series goal
 
@@ -36,6 +36,9 @@ Only published English units are linked below. The full series has 28 units.
 
 - [08. Modeling Async State with Discriminated Unions](units/08/README.md) — Editable example
 - [09. Finding Missing Branches with never](units/09/README.md) — Editable example
+- [10. readonly and the Scope of Mutation](units/10/README.md) — Editable example
+- [11. keyof and Property Lookup Functions](units/11/README.md) — Editable example
+- [12. Generic Functions and Inference](units/12/README.md) — Editable example
 
 ### Stage 3 · Validation and Type Transformations
 
@@ -54,3 +57,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
 - [TypeScript Narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html)
 - [TypeScript Object Types](https://www.typescriptlang.org/docs/handbook/2/objects.html)
+- [TypeScript Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)

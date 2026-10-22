@@ -71,7 +71,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Modeling Async State with Discriminated Unions](../08/README.md)
+[Previous: Modeling Async State with Discriminated Unions](../08/README.md) · [Next: readonly and the Scope of Mutation](../10/README.md)
 
 ## Experiment notes — write your own
 

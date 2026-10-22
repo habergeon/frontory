@@ -248,6 +248,85 @@
         "references.0.title": "TypeScript Handbook",
         "references.1.title": "TypeScript Narrowing"
       }
+    },
+    "typescript-step-10": {
+      "sourceHash": "f7e95731e173993ba443c7583f129145caf15ba44e73873beb421cdc53b94b68",
+      "values": {
+        "title": "readonly and the Scope of Mutation",
+        "prerequisites": "Work and experiment records from Unit 9, “Finding Missing Branches with never”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Read Only",
+        "concepts.0.explanation": "readonly restricts assignment through that reference. It does not prevent mutation through other mutable references or runtime code.",
+        "concepts.1.title": "Copying Updates",
+        "concepts.1.explanation": "Returning new arrays and objects lets you check that previous state is preserved. Define nested readonly behavior with separate types.",
+        "outcomes.0": "Record the diagnostic for direct assignment.",
+        "outcomes.1": "After the update, the original completion value and length remain the same.",
+        "steps.0": "In readonly.ts, prepare conditions for two notes and a nested meta field.",
+        "steps.1": "Write a toggle function accepting a readonly Note array that returns new objects.",
+        "steps.2": "Run with two notes and a nested meta field. Results to check: Record the diagnostic for direct assignment. After the update, the original completion value and length remain the same. Record expected and actual results separately.",
+        "variables.0.name": "Update",
+        "variables.0.baseline": "assign to an original property",
+        "variables.0.change": "return a new object",
+        "variables.0.expected": "Pre-run hypothesis: the type contract will be respected and previous values preserved. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record the diagnostic for direct assignment.",
+        "criteria.1": "After the update, the original completion value and length remain the same.",
+        "questions.0": "Does readonly guarantee deep immutability?",
+        "questions.1": "Can another alias mutate the same object?",
+        "references.0.title": "TypeScript Handbook"
+      }
+    },
+    "typescript-step-11": {
+      "sourceHash": "14876864c397b1711b4fafe73c536e03ee2c1ca9583b01fb789fab8da256c0b9",
+      "values": {
+        "title": "keyof and Property Lookup Functions",
+        "prerequisites": "Work and experiment records from Unit 10, “readonly and the Scope of Mutation”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Key Unions",
+        "concepts.0.explanation": "keyof obtains the keys of an object type as a type. It catches invalid names as type errors rather than leaving them as strings.",
+        "concepts.1.title": "Indexed Access",
+        "concepts.1.explanation": "T[K] is the value type for the selected key. It preserves the relationship between the key and return value.",
+        "outcomes.0": "title is inferred as string and done as boolean.",
+        "outcomes.1": "Record the compiler error for the missing key.",
+        "steps.0": "In property.ts, prepare conditions for title, done, and the nonexistent missing key.",
+        "steps.1": "Define getProperty with T and K extends keyof T, and read the title and completion fields.",
+        "steps.2": "Run with title, done, and the nonexistent missing key. Results to check: title is inferred as string and done as boolean. Record the compiler error for the missing key. Record expected and actual results separately.",
+        "variables.0.name": "Lookup Key",
+        "variables.0.baseline": "title",
+        "variables.0.change": "missing",
+        "variables.0.expected": "Pre-run hypothesis: a call with a nonexistent key will be rejected. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "title is inferred as string and done as boolean.",
+        "criteria.1": "Record the compiler error for the missing key.",
+        "questions.0": "What is lost if you use unknown as the return type?",
+        "questions.1": "Does keyof create a runtime list of keys?",
+        "references.0.title": "TypeScript Handbook"
+      }
+    },
+    "typescript-step-12": {
+      "sourceHash": "c528a86d548eea6f80181d60da42aa9bc6636654abc8a35abccca75821ecc024",
+      "values": {
+        "title": "Generic Functions and Inference",
+        "prerequisites": "Work and experiment records from Unit 11, “keyof and Property Lookup Functions”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Type Relationships",
+        "concepts.0.explanation": "Generics express input-output relationships for each call. This differs from replacing every value with any.",
+        "concepts.1.title": "Empty Input",
+        "concepts.1.explanation": "Include undefined in the return contract when there may be no first element. A type parameter alone cannot guarantee array length.",
+        "outcomes.0": "Preserve the returned element types of both arrays.",
+        "outcomes.1": "Check for undefined where the empty array result is used.",
+        "steps.0": "In generic.ts, prepare conditions for string arrays, number arrays, and an empty array.",
+        "steps.1": "Write first and mapValues, and call them with string and number arrays.",
+        "steps.2": "Run with string arrays, number arrays, and an empty array. Results to check: Preserve the returned element types of both arrays. Check for undefined where the empty array result is used. Record expected and actual results separately.",
+        "variables.0.name": "Input Length",
+        "variables.0.baseline": "2",
+        "variables.0.change": "0",
+        "variables.0.expected": "Pre-run hypothesis: first will need to handle the undefined path. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Preserve the returned element types of both arrays.",
+        "criteria.1": "Check for undefined where the empty array result is used.",
+        "questions.0": "How do generics differ from union parameters?",
+        "questions.1": "When are explicit type arguments needed?",
+        "references.0.title": "TypeScript Handbook",
+        "references.1.title": "TypeScript Generics"
+      }
     }
   }
 }

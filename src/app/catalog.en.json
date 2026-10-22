@@ -453,6 +453,36 @@
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
+      "id": "typescript-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "readonly and the Scope of Mutation",
+      "goal": "Record the diagnostic for direct assignment. After the update, the original completion value and length remain the same.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/10/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "keyof and Property Lookup Functions",
+      "goal": "title is inferred as string and done as boolean. Record the compiler error for the missing key.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/11/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Generic Functions and Inference",
+      "goal": "Preserve the returned element types of both arrays. Check for undefined where the empty array result is used.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/12/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
       "id": "html-01",
       "day": 1,
       "week": 1,

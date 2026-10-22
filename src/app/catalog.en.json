@@ -158,6 +158,36 @@
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
+      "id": "javascript-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Creating DOM Nodes and Inserting Text",
+      "goal": "There are 3 li elements corresponding to 3 notes. The tag input does not create a strong element.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/11/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
+      "id": "javascript-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Event Propagation and Delegation",
+      "goal": "Newly added items can also be deleted without individual listeners. A single click on a span leaves one processing log line.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/12/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
+      "id": "javascript-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Promises and Execution Order",
+      "goal": "Record the actual order of the three types of logs. A reject is handled once in the final catch.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/13/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
       "id": "css-step-04",
       "day": 4,
       "week": 1,

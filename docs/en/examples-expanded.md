@@ -17,6 +17,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [8. Object Destructuring and Optional Access](labs/fundamentals/javascript/units/08/README.md) | Editable example | [Source code](../../src/labs/javascript-step-08/example.js) — Compare the editable inputs with actual browser execution results. |
 | [9. Map and Set Indexes](labs/fundamentals/javascript/units/09/README.md) | Editable example | [Source code](../../src/labs/javascript-step-09/example.js) — Compare the editable inputs with actual browser execution results. |
 | [10. Exceptions and Recovery Paths](labs/fundamentals/javascript/units/10/README.md) | Editable example | [Source code](../../src/labs/javascript-step-10/example.js) — Compare the editable inputs with actual browser execution results. |
+| [11. Creating DOM Nodes and Inserting Text](labs/fundamentals/javascript/units/11/README.md) | Editable example | [Source code](../../src/labs/javascript-step-11/example.js) — Compare the editable inputs with actual browser execution results. |
+| [12. Event Propagation and Delegation](labs/fundamentals/javascript/units/12/README.md) | Editable example | [Source code](../../src/labs/javascript-step-12/example.js) — Compare the editable inputs with actual browser execution results. |
+| [13. Promises and Execution Order](labs/fundamentals/javascript/units/13/README.md) | Editable example | [Source code](../../src/labs/javascript-step-13/example.js) — Compare the editable inputs with actual browser execution results. |
 
 ## CSS
 

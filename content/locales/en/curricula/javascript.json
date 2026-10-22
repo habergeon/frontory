@@ -291,6 +291,84 @@
         "questions.1": "Why must you be careful with return in finally?",
         "references.0.title": "MDN JavaScript Guide"
       }
+    },
+    "javascript-step-11": {
+      "sourceHash": "3fdeb5faad82aef07e41b2182c0579448bf12b8114562cd9297d75e5ed805ec4",
+      "values": {
+        "title": "Creating DOM Nodes and Inserting Text",
+        "prerequisites": "The work and experiment records from Unit 10, “Exceptions and Recovery Paths”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Creating Nodes",
+        "concepts.0.explanation": "The result of createElement becomes visible when it is attached to the document. DocumentFragment lets you group multiple nodes for insertion.",
+        "concepts.1.title": "Handling Text",
+        "concepts.1.explanation": "textContent treats a string as text. Inserting user input with innerHTML can cause it to be interpreted as markup.",
+        "outcomes.0": "There are 3 li elements corresponding to 3 notes.",
+        "criteria.0": "There are 3 li elements corresponding to 3 notes.",
+        "outcomes.1": "The tag input does not create a strong element.",
+        "criteria.1": "The tag input does not create a strong element.",
+        "steps.0": "In render.js, prepare 3 notes and the title <strong>실험</strong>.",
+        "steps.1": "Create li elements, set their titles with textContent, and attach the fragment to the ul.",
+        "steps.2": "Run with 3 notes and the title <strong>실험</strong>. Results to check: There are 3 li elements corresponding to 3 notes. The tag input does not create a strong element. Record expected and actual results separately.",
+        "variables.0.name": "Title",
+        "variables.0.baseline": "Plain text",
+        "variables.0.change": "A string shaped like a tag",
+        "variables.0.expected": "Hypothesis before running: The tag itself will appear as text. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "What separate contract is needed when formatting is required?",
+        "questions.1": "How should existing nodes be handled when rendering again?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-step-12": {
+      "sourceHash": "f25cb3069cb55f423c153369f29b7ea477696fe1c45e0dbe9eb613442a38dfed",
+      "values": {
+        "title": "Event Propagation and Delegation",
+        "prerequisites": "The work and experiment records from Unit 11, “Creating DOM Nodes and Inserting Text”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Bubbling",
+        "concepts.0.explanation": "Many events propagate from the target to its ancestors. target and currentTarget can be different elements.",
+        "concepts.1.title": "Delegated Handling",
+        "concepts.1.explanation": "A parent listener handles actions on its children. Check that the result of closest is inside that parent.",
+        "outcomes.0": "Newly added items can also be deleted without individual listeners.",
+        "criteria.0": "Newly added items can also be deleted without individual listeners.",
+        "outcomes.1": "A single click on a span leaves one processing log line.",
+        "criteria.1": "A single click on a span leaves one processing log line.",
+        "steps.0": "In events.js, prepare clicks on a span inside a button and on a dynamically added item.",
+        "steps.1": "Attach a click listener to the ul, find the data-action button with closest, and delete the item.",
+        "steps.2": "Run with clicks on a span inside a button and on a dynamically added item. Results to check: Newly added items can also be deleted without individual listeners. A single click on a span leaves one processing log line. Record expected and actual results separately.",
+        "variables.0.name": "Click location",
+        "variables.0.baseline": "Button",
+        "variables.0.change": "Inner span",
+        "variables.0.expected": "Hypothesis before running: The same id will be processed once. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "When are target and currentTarget the same?",
+        "questions.1": "How do you filter out results outside the delegation region?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-step-13": {
+      "sourceHash": "0e7ce3406177ed4d8c10fdce2fc554f51d5e534a388006450d328ba82c57f534",
+      "values": {
+        "title": "Promises and Execution Order",
+        "prerequisites": "The work and experiment records from Unit 12, “Event Propagation and Delegation”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Microtasks",
+        "concepts.0.explanation": "Promise reaction callbacks are processed after synchronous code finishes. Their execution order is determined in a different queue from timer callbacks.",
+        "concepts.1.title": "Returning from a Chain",
+        "concepts.1.explanation": "If you return a Promise from then, the next step waits for its result. Omitting the return separates the inner work from the following step.",
+        "outcomes.0": "Record the actual order of the three types of logs.",
+        "criteria.0": "Record the actual order of the three types of logs.",
+        "outcomes.1": "A reject is handled once in the final catch.",
+        "criteria.1": "A reject is handled once in the final catch.",
+        "steps.0": "In order.js, prepare two delayed operations and one reject.",
+        "steps.1": "Place synchronous, then, and setTimeout logs, and compare returning versus omitting a return and how reject propagates.",
+        "steps.2": "Run with two delayed operations and one reject. Results to check: Record the actual order of the three types of logs. A reject is handled once in the final catch. Record expected and actual results separately.",
+        "variables.0.name": "Return from then",
+        "variables.0.baseline": "Return a Promise",
+        "variables.0.change": "Omit the return",
+        "variables.0.expected": "Hypothesis before running: The following step may proceed before the inner work. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "Does await stop the thread?",
+        "questions.1": "Where does a failure go if the Promise was not returned?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
     }
   }
 }

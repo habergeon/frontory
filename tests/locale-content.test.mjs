@@ -355,7 +355,14 @@ test('actual English content publishes exactly the approved lessons with complet
       assert.ok(documentLinks.includes(legacy.docPath) || documentLinks.includes('/docs/en/' + legacy.docPath.slice(6)), id + ': legacy lesson link')
       assert.match(row, / — \S/)
     }
-    const proseWithoutCode = JSON.stringify(translated).replace(/\x60\x60\x60[\s\S]*?\x60\x60\x60/g, '')
+    let proseWithoutCode = JSON.stringify(translated).replace(/\x60\x60\x60[\s\S]*?\x60\x60\x60/g, '')
+    if (id === 'javascript-step-11') {
+      const fixture = '<strong>실험</strong>'
+      const originalCount = JSON.stringify(original).split(fixture).length - 1
+      assert.equal(originalCount, 2)
+      assert.equal(proseWithoutCode.split(fixture).length - 1, originalCount)
+      proseWithoutCode = proseWithoutCode.replaceAll(fixture, '')
+    }
     assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
     assert.equal(result.curricula[seriesId].stages.length, source.stages.length)
   }

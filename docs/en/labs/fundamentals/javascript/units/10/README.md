@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Map and Set Indexes](../09/README.md)
+[Previous: Map and Set Indexes](../09/README.md) · [Next: Creating DOM Nodes and Inserting Text](../11/README.md)
 
 ## Experiment notes — write your own
 

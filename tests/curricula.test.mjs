@@ -67,7 +67,13 @@ test('English generated catalog and lessons match approved content without unpub
     const note = read('content/locales/en/examples/' + unit.seriesId + '.json')[unit.id]
     assert.equal(unit.exampleNote, note?.values.note)
     const markdown = fs.readFileSync('.' + unit.docPath, 'utf8')
-    assert.doesNotMatch(markdown.replace(/```[\s\S]*?```/g, ''), /[가-힣]/)
+    let proseWithoutCode = markdown.replace(/```[\s\S]*?```/g, '')
+    if (unit.id === 'javascript-step-11') {
+      const fixture = '<strong>실험</strong>'
+      assert.equal(proseWithoutCode.split(fixture).length - 1, 2)
+      proseWithoutCode = proseWithoutCode.replaceAll(fixture, '')
+    }
+    assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
     for (const name of ['tasks', 'variables', 'criteria', 'notes']) assert.ok(markdown.includes('## ' + headings.en[name]), name)
     for (const step of translated.steps) assert.ok(markdown.includes(step), unit.id)
     if (note) assert.ok(markdown.includes(unit.exampleNote))

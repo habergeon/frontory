@@ -168,6 +168,86 @@
         "references.0.title": "R3F Objects and Resource Disposal",
         "references.1.title": "R3F Hooks"
       }
+    },
+    "react-three-fiber-step-07": {
+      "sourceHash": "c9402a6e891898fb510cbc77497c7e60f138e587dbcd51fd9592296fe8fcd27c",
+      "values": {
+        "title": "useFrame and Time-based Rotation",
+        "prerequisites": "Unit 7 continues using the deliverables and experiment records from Unit 6.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Frame Callback",
+        "concepts.0.explanation": "useFrame participates in the Canvas render loop. Its subscription is removed when the component is removed, so avoid adding a separate overlapping RAF loop.",
+        "concepts.1.title": "delta",
+        "concepts.1.explanation": "delta is the time since the previous frame. Multiplying speed by delta reduces differences in rotation speed caused by frame count.",
+        "outcomes.0": "Rotation matches speed × accumulated delta within the allowed tolerance.",
+        "outcomes.1": "There is no React setState in the frame callback.",
+        "steps.0": "Update the ref rotation with useFrame((_state,delta) => ...) in src/RotatingBox.jsx.",
+        "steps.1": "Pass speed prop values of 0, 1, and 2, and do not use React setState inside the frame.",
+        "steps.2": "Record accumulated delta and rotation over 5-second intervals.",
+        "variables.0.name": "speed",
+        "variables.0.baseline": "1 rad/s",
+        "variables.0.change": "2 rad/s",
+        "variables.0.expected": "Rotation doubles for the same accumulated delta.",
+        "criteria.0": "Rotation matches speed × accumulated delta within the allowed tolerance.",
+        "criteria.1": "There is no React setState in the frame callback.",
+        "questions.0": "What device differences arise if you add 0.01 every frame?",
+        "questions.1": "How does limiting a large delta after returning to a tab change its meaning?",
+        "references.0.title": "R3F Hooks",
+        "references.1.title": "R3F Performance Pitfalls"
+      }
+    },
+    "react-three-fiber-step-08": {
+      "sourceHash": "681a596aeda110410bc3e8b8ea01470b918268d8489e6deef4623550e102ced3",
+      "values": {
+        "title": "useThree Scope and Selection",
+        "prerequisites": "Unit 8 continues using the deliverables and experiment records from Unit 7.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Canvas Context",
+        "concepts.0.explanation": "useThree is available only in components inside Canvas. A parent returning Canvas does not yet have that Context.",
+        "concepts.1.title": "Selective Subscription",
+        "concepts.1.explanation": "A selector makes dependencies clear by reading only the required state. Do not assume every imperative change to camera internals is automatically subscribed to.",
+        "outcomes.0": "The useThree call is inside a Canvas child.",
+        "outcomes.1": "Record size and viewport in their different units.",
+        "steps.0": "Create src/SceneInfo.jsx as a Canvas child, and read size and viewport.",
+        "steps.1": "Display measurements in a DOM panel through a low-frequency reporting callback.",
+        "steps.2": "Change the parent width from 400 to 800, and compare pixel size with the world viewport.",
+        "variables.0.name": "Parent Width",
+        "variables.0.baseline": "400px",
+        "variables.0.change": "800px",
+        "variables.0.expected": "Pixel size and the camera-based world extent each update.",
+        "criteria.0": "The useThree call is inside a Canvas child.",
+        "criteria.1": "Record size and viewport in their different units.",
+        "questions.0": "Are size.width and viewport.width the same value?",
+        "questions.1": "Does a selector automatically track changes to camera.position.x?",
+        "references.0.title": "R3F Hooks"
+      }
+    },
+    "react-three-fiber-step-09": {
+      "sourceHash": "efd9a8e7b337d63c39a5346bb3bd73fc5741db4ad88572958eb95e5dafb66a93",
+      "values": {
+        "title": "Camera Control and projection Updates",
+        "prerequisites": "Unit 9 continues using the deliverables and experiment records from Unit 8.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Projection Settings",
+        "concepts.0.explanation": "Camera fov, near, and far affect the projection matrix. Imperative changes may require an updateProjectionMatrix call.",
+        "concepts.1.title": "Observation Conditions",
+        "concepts.1.explanation": "Moving the camera changes the screen positions of all objects. Record this separately from object movement to interpret coordinate changes.",
+        "outcomes.0": "The input fov matches camera.fov.",
+        "outcomes.1": "Record the results before and after updating the matrix separately.",
+        "steps.0": "Read camera with useThree in src/CameraRig.jsx.",
+        "steps.1": "Assign fov and call updateProjectionMatrix in an Effect responding to the UI fov value.",
+        "steps.2": "Change fov between 40 and 70 and camera z between 5 and 8 one at a time, and record the screen.",
+        "variables.0.name": "fov",
+        "variables.0.baseline": "40",
+        "variables.0.change": "70",
+        "variables.0.expected": "After the projection update, the same cube appears smaller.",
+        "criteria.0": "The input fov matches camera.fov.",
+        "criteria.1": "Record the results before and after updating the matrix separately.",
+        "questions.0": "How do the update paths differ between changing the camera prop and assigning directly?",
+        "questions.1": "What gets clipped if near is too large?",
+        "references.0.title": "R3F Hooks",
+        "references.1.title": "R3F Canvas Configuration"
+      }
     }
   }
 }

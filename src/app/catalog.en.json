@@ -3000,6 +3000,36 @@
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
+      "id": "react-three-fiber-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "useFrame and Time-based Rotation",
+      "goal": "Rotation matches speed × accumulated delta within the allowed tolerance. There is no React setState in the frame callback.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/07/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "useThree Scope and Selection",
+      "goal": "The useThree call is inside a Canvas child. Record size and viewport in their different units.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/08/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Camera Control and projection Updates",
+      "goal": "The input fov matches camera.fov. Record the results before and after updating the matrix separately.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/09/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

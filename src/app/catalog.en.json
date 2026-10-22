@@ -1634,6 +1634,36 @@
       "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
     },
     {
+      "id": "vue-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Composable Lifetimes",
+      "goal": "The remaining panel's size continues to update. After all panels are removed, the active listener count is 0.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/16/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "provide and inject",
+      "goal": "Selections in the two Workspaces do not mix. Consumers change selection with the select function, without direct assignment.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/17/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Shared Store Scope",
+      "goal": "The two workspaces preserve different strings. reset clears only the specified workspace.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/18/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

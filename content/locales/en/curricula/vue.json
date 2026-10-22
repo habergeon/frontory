@@ -416,6 +416,90 @@
         "references.1.title": "Vue Watchers and cleanup",
         "references.2.title": "Vue Composables and Lifetime Management"
       }
+    },
+    "vue-step-16": {
+      "sourceHash": "5236ff1f8ce3d537bc2cea44cf22096637e2979171e78c2dbcf1cec214ca0240",
+      "values": {
+        "title": "Composable Lifetimes",
+        "prerequisites": "Unit 16 builds on the work and experiment records from Unit 15.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Grouping logic",
+        "concepts.0.explanation": "A Composable is a reusable function that uses the Composition API. Specify whether each call creates independent state or shares it.",
+        "concepts.1.title": "Cleanup responsibility",
+        "concepts.1.explanation": "Lifecycle Hooks registered inside a component are tied to that instance. Remove external listeners at the same termination point.",
+        "outcomes.0": "The remaining panel's size continues to update.",
+        "outcomes.1": "After all panels are removed, the active listener count is 0.",
+        "steps.0": "Group a ref, resize listener, and onUnmounted in src/composables/useWindowSize.js.",
+        "steps.1": "Call it in two panels and display the size.",
+        "steps.2": "Remove panels one by one and check the listener count and remaining display.",
+        "variables.0.name": "Consumer count",
+        "variables.0.baseline": "1 consumer",
+        "variables.0.change": "2 consumers",
+        "variables.0.expected": "An independent Composable has two listeners, which are removed one by one.",
+        "criteria.0": "The remaining panel's size continues to update.",
+        "criteria.1": "After all panels are removed, the active listener count is 0.",
+        "questions.0": "Is state independent for each call when using a module-scope ref?",
+        "questions.1": "Why is registering onMounted inside setTimeout a problem?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup",
+        "references.2.title": "Vue Composables and Lifetime Management"
+      }
+    },
+    "vue-step-17": {
+      "sourceHash": "35457c16c9c779a8615ae259733e6f3e28d27d1a54aba90ef78df0ddfaa6a3df",
+      "values": {
+        "title": "provide and inject",
+        "prerequisites": "Unit 17 builds on the work and experiment records from Unit 16.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Passing dependencies",
+        "concepts.0.explanation": "provide passes a value to a descendant tree. inject reads from the nearest provider, reducing intermediate prop passing.",
+        "concepts.1.title": "Mutation location",
+        "concepts.1.explanation": "Passing a reactive value still requires a separate decision about mutation responsibility. Providing a readonly value with a mutation function exposes the boundary.",
+        "outcomes.0": "Selections in the two Workspaces do not mix.",
+        "outcomes.1": "Consumers change selection with the select function, without direct assignment.",
+        "steps.0": "In src/Workspace.vue, provide a readonly selection ref and select function with a Symbol key.",
+        "steps.1": "Use inject in Detail.vue three levels down to display the title.",
+        "steps.2": "Add a nested Workspace and check that each tree's selection is independent.",
+        "variables.0.name": "Provider placement",
+        "variables.0.baseline": "One shared provider",
+        "variables.0.change": "Two nested providers",
+        "variables.0.expected": "Inner consumers read the selection from the nearest provider.",
+        "criteria.0": "Selections in the two Workspaces do not mix.",
+        "criteria.1": "Consumers change selection with the select function, without direct assignment.",
+        "questions.0": "How do you handle an injection with neither a default nor a provider?",
+        "questions.1": "Why use a Symbol instead of a string key?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup",
+        "references.2.title": "Vue Composables and Lifetime Management"
+      }
+    },
+    "vue-step-18": {
+      "sourceHash": "c0bb52cde0a1a52cc06d56d9d3a5f3309bdc92cbb127674bbefb6b805efa7a24",
+      "values": {
+        "title": "Shared Store Scope",
+        "prerequisites": "Unit 18 builds on the work and experiment records from Unit 17.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "Shared reactivity",
+        "concepts.0.explanation": "A module-scope reactive lets multiple components read the same object. Its lifetime differs from a per-component initialization function.",
+        "concepts.1.title": "Initialization boundary",
+        "concepts.1.explanation": "Tests or multiple app instances sharing the same module state can mix data. A store factory can make the scope explicit.",
+        "outcomes.0": "The two workspaces preserve different strings.",
+        "outcomes.1": "reset clears only the specified workspace.",
+        "steps.0": "In src/createNotesStore.js, write a function returning drafts, update, and reset.",
+        "steps.1": "Create and provide a store for each Workspace.",
+        "steps.2": "Enter different strings for the same unit id in two different Workspaces.",
+        "variables.0.name": "Store creation",
+        "variables.0.baseline": "One module instance",
+        "variables.0.change": "Factory per Workspace",
+        "variables.0.expected": "Drafts remain separate between the two workspaces even for the same id.",
+        "criteria.0": "The two workspaces preserve different strings.",
+        "criteria.1": "reset clears only the specified workspace.",
+        "questions.0": "Why does moving all state to globals make testing difficult?",
+        "questions.1": "How do you separate shared values from per-instance values?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup",
+        "references.2.title": "Vue Composables and Lifetime Management"
+      }
     }
   }
 }

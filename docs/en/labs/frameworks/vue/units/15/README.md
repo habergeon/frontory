@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Component Contracts and Watching](../../02-experiments/README.md)
+[Previous: Component Contracts and Watching](../../02-experiments/README.md) · [Next: Composable Lifetimes](../16/README.md)
 
 ## Experiment notes — write your own
 

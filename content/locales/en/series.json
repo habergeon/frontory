@@ -40,5 +40,12 @@
       "title": "TypeScript",
       "prerequisites": "JavaScript objects·functions·modules"
     }
+  },
+  "vue": {
+    "sourceHash": "dc28b0a6f38030ad2f8093f5be7e9a728132eb57109e1f9ffbfa6b124d5541a0",
+    "values": {
+      "title": "Vue",
+      "prerequisites": "JavaScript and HTML; state concepts for comparison with React"
+    }
   }
 }

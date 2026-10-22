@@ -71,6 +71,20 @@
       ]
     },
     {
+      "id": "vue",
+      "title": "Vue",
+      "category": "frameworks",
+      "priority": 4,
+      "prerequisites": "JavaScript and HTML; state concepts for comparison with React",
+      "docPath": "/docs/en/labs/frameworks/vue/README.md",
+      "stages": [
+        "Reactive Data and Templates",
+        "Component Contracts and Watching",
+        "Composables and Store Lifetimes",
+        "Canvas Integration and Update Verification"
+      ]
+    },
+    {
       "id": "gsap",
       "title": "GSAP",
       "category": "animation",
@@ -1470,6 +1484,35 @@
       "goal": "The exact note string is restored after A→B→A. There are 10 before/after measurements under identical conditions and reasons for adoption or rejection.",
       "docPath": "/docs/en/labs/frameworks/react/03-project/README.md",
       "seriesId": "react"
+    },
+    {
+      "id": "vue-01",
+      "day": 1,
+      "week": 1,
+      "title": "Reactivity and Templates",
+      "goal": "The completed count increases by 1 per toggle. The original 3 cards remain after removing the filter.",
+      "docPath": "/docs/en/labs/frameworks/vue/01-foundations/README.md",
+      "seriesId": "vue"
+    },
+    {
+      "id": "vue-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "SFCs and Template Binding",
+      "goal": "The button can be clicked with a false binding. The button is disabled with a true binding.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/02/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    {
+      "id": "vue-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "reactive and Preserving References",
+      "goal": "The linked query matches the original input. Reproduce how ordinary destructuring retains the initial value.",
+      "docPath": "/docs/en/labs/frameworks/vue/units/03/README.md",
+      "seriesId": "vue",
+      "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
     },
     {
       "id": "gsap-01",

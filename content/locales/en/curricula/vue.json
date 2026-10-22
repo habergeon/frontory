@@ -1,0 +1,96 @@
+{
+  "series": {
+    "sourceHash": "5ee6c254cbdb495eec2049af90d07a34342dcc739c8a4a8fb74e70f6ce67f112",
+    "values": {
+      "stages.0": "Reactive Data and Templates",
+      "stages.1": "Component Contracts and Watching",
+      "stages.2": "Composables and Store Lifetimes",
+      "stages.3": "Canvas Integration and Update Verification",
+      "goal": "Use the Composition API to distinguish state, derived values, and side effects, and manage the lifetimes of notes and Canvas.",
+      "capstone": "A Vue workspace with per-unit notes and Canvas, a props/emits contract table, a React lifetime comparison, and resource audit records."
+    }
+  },
+  "units": {
+    "vue-01": {
+      "sourceHash": "9efc75d7d583ea10d5eddceba75726f297e6a16287d376ae43c420054b4ba410",
+      "values": {
+        "title": "Reactivity and Templates",
+        "prerequisites": "JavaScript objects, arrays, and functions; HTML forms; running an npm project.",
+        "environment": "Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler. The existing vue-01 preview is a starting point. Implement the extended deliverables described here in a separate project.",
+        "concepts.0.title": "ref",
+        "concepts.0.explanation": "ref wraps a reactive value, which you read and write with .value in scripts. Templates automatically unwrap top-level refs for display.",
+        "concepts.1.title": "computed",
+        "concepts.1.explanation": "computed calculates a result from the reactive values it reads. Do not copy values derivable from the source, such as the completed count, into another ref.",
+        "outcomes.0": "The completed count increases by 1 per toggle.",
+        "outcomes.1": "The original 3 cards remain after removing the filter.",
+        "steps.0": "In script setup in src/App.vue of an external Vue Vite project, create a ref containing 3 cards.",
+        "steps.1": "Use computed to derive the completed count and incomplete list, and display them in the template.",
+        "steps.2": "Connect the completion button and record how the list and total change together in notes/day01.md.",
+        "variables.0.name": "Completed cards",
+        "variables.0.baseline": "0 cards",
+        "variables.0.change": "1 card",
+        "variables.0.expected": "The completed count is 1 and the incomplete list contains 2 cards.",
+        "criteria.0": "The completed count increases by 1 per toggle.",
+        "criteria.1": "The original 3 cards remain after removing the filter.",
+        "questions.0": "Why does ref access differ between scripts and templates?",
+        "questions.1": "What cost does copying the completed count with watch introduce?",
+        "references.0.title": "Vue Reactivity Fundamentals",
+        "references.1.title": "Vue Composition API Guide"
+      }
+    },
+    "vue-step-02": {
+      "sourceHash": "557b8c50adbc388dc5d533df76f561b9699b77c865263750f5a9a372cd9364d5",
+      "values": {
+        "title": "SFCs and Template Binding",
+        "prerequisites": "Unit 2 builds on the work and experiment records from Unit 1.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "SFC",
+        "concepts.0.explanation": "A .vue file compiles its template, logic, and styles into one component. Distinguish runtime h function examples from SFCs that require a build.",
+        "concepts.1.title": "Binding",
+        "concepts.1.explanation": "v-bind passes an expression result to an attribute. String attributes and dynamic boolean attributes have different meanings in the browser.",
+        "outcomes.0": "The button can be clicked with a false binding.",
+        "outcomes.1": "The button is disabled with a true binding.",
+        "steps.0": "Write script setup and template in src/Card.vue.",
+        "steps.1": "Bind :disabled and :aria-pressed to the completion state.",
+        "steps.2": "Compare a fixed disabled string with a boolean binding and record the DOM attributes.",
+        "variables.0.name": "disabled value",
+        "variables.0.baseline": "false",
+        "variables.0.change": "true",
+        "variables.0.expected": "Whether the button can actually be operated changes.",
+        "criteria.0": "The button can be clicked with a false binding.",
+        "criteria.1": "The button is disabled with a true binding.",
+        "questions.0": "Why can disabled='false' disable a button?",
+        "questions.1": "Why does an SFC file fail to run in a general JS runner?",
+        "references.0.title": "Vue Reactivity Fundamentals",
+        "references.1.title": "Vue Composition API Guide"
+      }
+    },
+    "vue-step-03": {
+      "sourceHash": "75c0a6ad3b85b1d40bd11e2ec5100093f8fe7d8a36dab0d4eb48a95164163c61",
+      "values": {
+        "title": "reactive and Preserving References",
+        "prerequisites": "Unit 3 builds on the work and experiment records from Unit 2.",
+        "environment": "First check the execution scope guidance on the example screen. The following is the preparation environment for extending the assignment in a separate project. Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler.",
+        "concepts.0.title": "reactive",
+        "concepts.0.explanation": "reactive creates a Proxy that tracks object property access. Destructuring a reactive object into plain values can break the connection.",
+        "concepts.1.title": "Choosing ref",
+        "concepts.1.explanation": "ref suits a single value, including replacement of an object. If you need to pass object properties separately, consider a connection mechanism such as toRefs.",
+        "outcomes.0": "The linked query matches the original input.",
+        "outcomes.1": "Reproduce how ordinary destructuring retains the initial value.",
+        "steps.0": "Create reactive({query:'',onlyOpen:false}) in src/Filters.vue.",
+        "steps.1": "Display the destructured query and the query obtained through toRefs separately.",
+        "steps.2": "Change the original query through the input and record the difference between the two displays.",
+        "variables.0.name": "Property extraction",
+        "variables.0.baseline": "Ordinary destructuring",
+        "variables.0.change": "toRefs",
+        "variables.0.expected": "Only the display linked through toRefs follows changes to the source.",
+        "criteria.0": "The linked query matches the original input.",
+        "criteria.1": "Reproduce how ordinary destructuring retains the initial value.",
+        "questions.0": "Which is more convenient, reactive or ref, when you must replace the entire object?",
+        "questions.1": "Are nested properties tracked in the same way?",
+        "references.0.title": "Vue Reactivity Fundamentals",
+        "references.1.title": "Vue Composition API Guide"
+      }
+    }
+  }
+}

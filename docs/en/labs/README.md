@@ -18,7 +18,7 @@ There are currently **23 series / 644 units**. Every series has 4 stages and 28 
 ## UI frameworks
 
 - [React](frameworks/react/README.md) — ★★★★★ / 28 units / Prerequisites: JavaScript, TypeScript, DOM events
-- [Vue (Korean)](../../labs/frameworks/vue/README.md) — ★★★★ / 28 units / Prerequisites: JavaScript, HTML, state concepts to compare with React
+- [Vue](frameworks/vue/README.md) — ★★★★ / 28 units / Prerequisites: JavaScript, HTML, state concepts to compare with React
 - [Svelte (Korean)](../../labs/frameworks/svelte/README.md) — ★★★ / 28 units / Prerequisites: JavaScript, HTML, CSS
 
 ## Graphics

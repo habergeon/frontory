@@ -154,6 +154,13 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [26. Creating Regression Scenarios](labs/frameworks/react/units/26/README.md) | Editable example | [Source code](../../src/labs/react-step-26/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 | [27. Integrated Editor and Resource Audit](labs/frameworks/react/units/27/README.md) | Editable example | [Source code](../../src/labs/react-step-27/example.js) — This is an experiment using actual React APIs. It uses createElement instead of JSX. |
 
+## Vue
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. SFCs and Template Binding](labs/frameworks/vue/units/02/README.md) | Editable example | [Source code](../../src/labs/vue-step-02/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+| [3. reactive and Preserving References](labs/frameworks/vue/units/03/README.md) | Editable example | [Source code](../../src/labs/vue-step-03/example.js) — This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment. |
+
 ## GSAP
 
 | Learning unit | Execution mode | Source and supported scope |

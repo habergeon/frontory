@@ -189,17 +189,17 @@ test('English document links and home fallback use only published localized rout
 
 [Korean Vue](../../../../labs/frameworks/vue/README.md)
 
-[Unpublished](../vue/README.md)`, '/docs/en/labs/frameworks/test/README.md', 'en')
+[Unpublished](../missing-series/README.md)`, '/docs/en/labs/frameworks/test/README.md', 'en')
   assert.match(html, /href="\/en\/learn\/react\/#goals"/)
   assert.match(html, /href="\/examples\/react-step-03\/example.js"/)
   assert.match(html, /href="\/learn\/vue\/"/)
-  assert.doesNotMatch(html, /href="\/en\/learn\/vue\/"/)
-  assert.match(html, /https:\/\/github.com\/habergeon\/frontory\/blob\/main\/docs\/en\/labs\/frameworks\/vue\/README.md/)
+  assert.doesNotMatch(html, /href="\/en\/learn\/missing-series\/"/)
+  assert.match(html, /https:\/\/github.com\/habergeon\/frontory\/blob\/main\/docs\/en\/labs\/frameworks\/missing-series\/README.md/)
   const fallback = homeFallback('en')
   assert.match(fallback, /href="\/en\/learn\/"/)
   assert.match(fallback, /href="\/en\/about\/"/)
   assert.match(fallback, /href="\/en\/privacy\/"/)
-  assert.doesNotMatch(fallback, /href="\/en\/learn\/vue\/"/)
+  assert.doesNotMatch(fallback, /href="\/en\/learn\/missing-series\/"/)
   const manifest = JSON.parse(fs.readFileSync('content/locales/en/manifest.json', 'utf8'))
   assert.ok(fallback.includes(`${manifest.publishedUnitIds.length} English`))
 })
@@ -283,7 +283,7 @@ async function checkPublicHttp(port) {
     assert.equal(response.status, 301, route)
     assert.equal(response.headers.get('location'), route + '/?from=test')
   }
-  for (const route of ['/en/learn/missing/', '/en/not-found/', '/en/learn/vue/', '/learn/missing/']) {
+  for (const route of ['/en/learn/missing/', '/en/not-found/', '/en/learn/missing-series/', '/learn/missing/']) {
     const response = await fetch(base + route)
     assert.equal(response.status, 404, route)
     const html = await response.text()

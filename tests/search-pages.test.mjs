@@ -7,7 +7,7 @@ test('home and learning pages provide complete social metadata and site identity
   const pages = [fs.readFileSync('index.html', 'utf8'), ...[...generateSearchPages()].filter(([name]) => name.endsWith('.html')).map(([, html]) => html)]
   for (const html of pages) {
     assert.match(html, /property="og:site_name" content="Frontory"/)
-    assert.match(html, /property="og:locale" content="ko_KR"/)
+    assert.match(html, new RegExp(`property="og:locale" content="${html.includes('<html lang="en"') ? 'en_US' : 'ko_KR'}"`))
     assert.match(html, /property="og:image" content="https:\/\/frontory.pages.dev\/og\/frontory.png"/)
     assert.match(html, /name="twitter:card" content="summary_large_image"/)
     assert.match(html, /property="og:image:alt"/)
@@ -39,8 +39,11 @@ test('search documents expose all curriculum pages without executing JavaScript'
     assert.ok(!html.includes('href="/docs/'), unit.id)
   }
   const locations = [...pages.get('sitemap.xml').matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1])
-  assert.equal(locations.length, 671)
-  assert.equal(new Set(locations).size, 671)
+  const koreanLocations = locations.filter(url => !url.startsWith('https://frontory.pages.dev/en/'))
+  const expectedKorean = ['/', '/learn/', '/privacy/', '/about/', ...catalog.series.map(series => `/learn/${series.id}/`), ...catalog.units.map(unit => `/learn/${unit.seriesId}/${unit.id}/`)].map(route => 'https://frontory.pages.dev' + route)
+  assert.equal(koreanLocations.length, 671)
+  assert.deepEqual(koreanLocations.sort(), expectedKorean.sort())
+  assert.equal(new Set(locations).size, locations.length)
   assert.ok(locations.every(url => url.startsWith('https://frontory.pages.dev/') && !url.includes('#')))
   assert.match(pages.get('robots.txt'), /Sitemap: https:\/\/frontory.pages.dev\/sitemap.xml/)
   assert.match(pages.get('404.html'), /noindex/)
@@ -65,7 +68,7 @@ test('privacy is public and linked while the practice workspace stays free of Ad
   assert.doesNotMatch(privacy, /광고는 제공하지 않습니다/)
   assert.match(privacy, /rel="canonical" href="https:\/\/frontory.pages.dev\/privacy\/"/)
   for (const [file, html] of pages) {
-    if (file.endsWith('.html')) assert.match(html, /href="\/privacy\/"/, file)
+    if (file.endsWith('.html')) assert.match(html, file.startsWith('en/') ? /href="\/en\/privacy\/"/ : /href="\/privacy\/"/, file)
   }
   assert.match(homeFallback(), /href="\/privacy\/"/)
   assert.match(homeFallback(), /href="\/about\/"/)
@@ -94,4 +97,103 @@ test('public reading pages omit empty worksheets but preserve written experiment
   const written = renderDocument(content + worksheet.replace('### 실제 결과', '### 실제 결과\n\n실측 너비는 244px입니다.'), '/docs/test.md')
   assert.match(written, /실험 기록 — 직접 작성/)
   assert.match(written, /실측 너비는 244px입니다/)
+})
+
+test('only actual English pages are published with reciprocal locale metadata', async () => {
+  const { generateSearchPages, origin } = await import('../scripts/search-pages.mjs')
+  const pages = generateSearchPages()
+  const translated = JSON.parse(fs.readFileSync('src/app/catalog.en.json', 'utf8'))
+  const routes = ['/en/', '/en/learn/', '/en/about/', '/en/privacy/',
+    ...translated.series.map(series => `/en/learn/${series.id}/`),
+    ...translated.units.map(unit => `/en/learn/${unit.seriesId}/${unit.id}/`)]
+  const englishFiles = [...pages.keys()].filter(file => file.startsWith('en/') && file.endsWith('.html'))
+  assert.deepEqual(englishFiles.sort(), routes.map(route => route.slice(1) + 'index.html').sort())
+  assert.equal(englishFiles.length, 12)
+  for (const route of routes) {
+    const html = pages.get(route.slice(1) + 'index.html')
+    assert.match(html, /<html lang="en">/)
+    assert.ok(html.includes(`<link rel="canonical" href="${origin + route}">`))
+    assert.ok(html.includes(`<meta property="og:url" content="${origin + route}">`))
+    assert.match(html, /property="og:locale" content="en_US"/)
+    const koreanRoute = route.slice(3)
+    const koreanHtml = koreanRoute === '/' ? null : pages.get(koreanRoute.slice(1) + 'index.html')
+    if (koreanRoute !== '/') assert.ok(koreanHtml, koreanRoute)
+    for (const candidate of [html, koreanHtml].filter(Boolean)) {
+      assert.ok(candidate.includes(`hreflang="en" href="${origin + route}"`))
+      assert.ok(candidate.includes(`hreflang="ko" href="${origin + koreanRoute}"`))
+    }
+    const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])
+    assert.equal(schema.url, origin + route)
+    assert.equal(schema.inLanguage, 'en-US')
+    assert.equal(schema['@type'], route === '/en/' ? 'WebSite' : 'WebPage')
+    assert.doesNotMatch(html, /adsbygoogle|google-adsense-account/)
+    assert.match(html, /href="\/en\/learn\/"/)
+    assert.match(html, /href="\/en\/about\/"/)
+    assert.match(html, /href="\/en\/privacy\/"/)
+  }
+  const sitemap = [...pages.get('sitemap.xml').matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1])
+  assert.equal(sitemap.length, 683)
+  assert.deepEqual(sitemap.filter(url => url.startsWith(origin + '/en/')).sort(), routes.map(route => origin + route).sort())
+  const canonicalFiles = [...pages].filter(([file]) => file.endsWith('/index.html'))
+  assert.deepEqual(sitemap.toSorted(), [origin + '/', ...canonicalFiles.map(([file]) => origin + '/' + file.slice(0, -'index.html'.length))].sort())
+  for (const [file, html] of canonicalFiles) {
+    const locale = file.startsWith('en/') ? 'en' : 'ko'
+    const url = origin + '/' + file.slice(0, -'index.html'.length)
+    assert.ok(html.includes(`<html lang="${locale}">`), file)
+    assert.ok(html.includes(`<link rel="canonical" href="${url}">`), file)
+    assert.ok(html.includes(`<meta property="og:url" content="${url}">`), file)
+    const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])
+    assert.equal(schema.url, url, file)
+    assert.equal(schema.inLanguage, locale === 'en' ? 'en-US' : 'ko-KR', file)
+    if (locale === 'ko' && !routes.includes('/en' + url.slice(origin.length))) assert.doesNotMatch(html, /hreflang="en"/, file)
+  }
+  for (const route of ['/en/learn/vue/', '/en/learn/javascript/javascript-01/']) assert.equal(pages.has(route.slice(1) + 'index.html'), false)
+  assert.doesNotMatch(pages.get('learn/javascript/javascript-01/index.html'), /hreflang="en"/)
+  for (const unit of translated.units) {
+    const html = pages.get(`en/learn/${unit.seriesId}/${unit.id}/index.html`)
+    assert.ok(html.includes(unit.title))
+    assert.ok(html.includes(`href="/en/#${unit.id}"`))
+    assert.doesNotMatch(html, /Previous lesson|Next lesson|Experiment notes — write your own/)
+    assert.ok(html.includes(`href="/examples-en/${unit.id}/example.js" download`))
+    assert.ok(fs.existsSync(`public/examples-en/${unit.id}/example.js`))
+    assert.match(html, /Download source with English comments · for reading/)
+  }
+  assert.ok(sitemap.every(url => !url.includes('/examples/') && !url.includes('/examples-en/')))
+})
+
+test('English document links and home fallback use only published localized routes', async () => {
+  const { renderDocument, homeFallback } = await import('../scripts/search-pages.mjs')
+  const html = renderDocument(`[React](../react/README.md#goals)
+
+[Source](../../../../../src/labs/react-step-03/example.js)
+
+[Korean Vue](../../../../labs/frameworks/vue/README.md)
+
+[Unpublished](../vue/README.md)`, '/docs/en/labs/frameworks/test/README.md', 'en')
+  assert.match(html, /href="\/en\/learn\/react\/#goals"/)
+  assert.match(html, /href="\/examples\/react-step-03\/example.js"/)
+  assert.match(html, /href="\/learn\/vue\/"/)
+  assert.doesNotMatch(html, /href="\/en\/learn\/vue\/"/)
+  assert.match(html, /https:\/\/github.com\/habergeon\/frontory\/blob\/main\/docs\/en\/labs\/frameworks\/vue\/README.md/)
+  const fallback = homeFallback('en')
+  assert.match(fallback, /href="\/en\/learn\/"/)
+  assert.match(fallback, /href="\/en\/about\/"/)
+  assert.match(fallback, /href="\/en\/privacy\/"/)
+  assert.doesNotMatch(fallback, /href="\/en\/learn\/vue\/"/)
+  assert.match(fallback, /4 English/)
+})
+
+test('English worksheets use shared headings and preserve every written field', async () => {
+  const { headings } = await import('../src/i18n/messages.ts')
+  const { renderDocument } = await import('../scripts/search-pages.mjs')
+  const h = headings.en
+  const fields = ['goal', 'concepts', 'prediction', 'result', 'learning', 'questions']
+  const worksheet = `\n## ${h.notes} — write your own\n\n${fields.map(key => `### ${h[key]}\n\n`).join('')}`
+  assert.doesNotMatch(renderDocument('# Lesson\n' + worksheet, '/docs/en/test.md', 'en'), /Experiment notes/)
+  for (const field of fields) {
+    const written = worksheet.replace(`### ${h[field]}\n`, `### ${h[field]}\n\nMy measured width is 244px.\n`)
+    const html = renderDocument('# Lesson\n' + written, '/docs/en/test.md', 'en')
+    assert.match(html, /Experiment notes/)
+    assert.match(html, /My measured width is 244px/)
+  }
 })

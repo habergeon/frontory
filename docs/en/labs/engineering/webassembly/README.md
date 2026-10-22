@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 27 published in English
+Engineering · 4 stages · 28 units in the full series · 28 published in English
 
 ## Series goal
 
@@ -60,6 +60,7 @@ Only published English units are linked below. The full series has 28 units.
 - [25. Total Cost Including Copies](units/25/README.md) — External example · preview instructions
 - [26. Boundary-value Correctness](units/26/README.md) — External example · preview instructions
 - [27. Environment and Adoption Criteria](units/27/README.md) — External example · preview instructions
+- [28. Evaluating Actual Bottlenecks](03-project/README.md) — Editable example
 
 ## Capstone project and deliverables
 

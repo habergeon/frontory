@@ -72,7 +72,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Boundary-value Correctness](../26/README.md)
+[Previous: Boundary-value Correctness](../26/README.md) · [Next: Evaluating Actual Bottlenecks](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

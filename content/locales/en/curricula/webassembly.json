@@ -766,6 +766,34 @@
         "references.1.title": "MDN WebAssembly JavaScript API",
         "references.2.title": "MDN WebAssembly.Memory"
       }
+    },
+    "webassembly-03": {
+      "sourceHash": "369aa6a6e8f9cc18d4d4e46ac16637b46658c847c0a5df48d22f14565a58ee2f",
+      "values": {
+        "title": "Evaluating Actual Bottlenecks",
+        "prerequisites": "Prepare the experiment results for Reproducibility and Adoption criteria from Unit 27, “Environment and Adoption Criteria”.",
+        "environment": "The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "End-to-end latency",
+        "concepts.0.explanation": "Excluding compilation and transfer may misrepresent the actual user experience. Read cold and warm results separately.",
+        "concepts.1.title": "Evidence-based decisions",
+        "concepts.1.explanation": "Wasm does not automatically accelerate every task. Decide whether to adopt it based on correctness and actual bottlenecks.",
+        "outcomes.0": "Learning outcome: explain the role of End-to-end latency. Input cases: multiple sizes and repeat counts.",
+        "outcomes.1": "Deliverable: a report on cold·warm·copies·correctness·adoption rationale. Explain the rationale for handling Evidence-based decisions, linking it to the code.",
+        "steps.0": "In day-28.mjs in a separate practice project, run node src/labs/webassembly-03/benchmark.mjs and complete a report on array transformations in JS·actual Wasm. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: multiple sizes and repeat counts. Baseline: function only. Run under the baseline conditions, then record observations and errors in notes/day-28.md.",
+        "steps.2": "Variable: comparison scope; changed value: entire request. Run again through the same input path. Deliverable to save: a report on cold·warm·copies·correctness·adoption rationale. Hypothesis to check: Considering the total cost may change the decision. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "comparison scope",
+        "variables.0.baseline": "function only",
+        "variables.0.change": "entire request",
+        "variables.0.expected": "Considering the total cost may change the decision.",
+        "criteria.0": "Required deliverable: a report on cold·warm·copies·correctness·adoption rationale. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: End-to-end latency and Evidence-based decisions. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does End-to-end latency affect in this exercise? Input cases: multiple sizes and repeat counts.",
+        "questions.1": "Variable: comparison scope. Hypothesis to check: Considering the total cost may change the decision. Did the actual results agree with the hypothesis? Explain the evidence in terms of Evidence-based decisions.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
     }
   }
 }

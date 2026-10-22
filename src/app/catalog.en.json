@@ -6103,6 +6103,15 @@
       "docPath": "/docs/en/labs/engineering/webassembly/units/27/README.md",
       "seriesId": "webassembly",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-03",
+      "day": 28,
+      "week": 4,
+      "title": "Evaluating Actual Bottlenecks",
+      "goal": "Learning outcome: explain the role of End-to-end latency. Input cases: multiple sizes and repeat counts. Deliverable: a report on cold·warm·copies·correctness·adoption rationale. Explain the rationale for handling Evidence-based decisions, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/03-project/README.md",
+      "seriesId": "webassembly"
     }
   ]
 }

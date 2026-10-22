@@ -94,6 +94,90 @@
         "references.1.title": "MDN WebAssembly JavaScript API",
         "references.2.title": "MDN WebAssembly.Memory"
       }
+    },
+    "webassembly-step-04": {
+      "sourceHash": "923efa807f67ec9b59d67c435de0ac1973f9da859618eae2d2a1d7056f811568",
+      "values": {
+        "title": "Inspecting Exports",
+        "prerequisites": "Prepare the experiment results for Module and Instance from Unit 3, “Compile and Instance”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Export surface",
+        "concepts.0.explanation": "JS accesses functions and memory by their public names. Guessing names and types causes runtime failures.",
+        "concepts.1.title": "Contract checks",
+        "concepts.1.explanation": "Module.exports lets you inspect public entries. Treat a missing required export as an initialization error.",
+        "outcomes.0": "Learning outcome: explain the role of Export surface. Input cases: a valid module and a typo in a required name.",
+        "outcomes.1": "Deliverable: the export list and error guidance. Explain the rationale for handling Contract checks, linking it to the code.",
+        "steps.0": "In day-4.mjs in a separate practice project, print Module.exports and check for memory·sum·at·transform. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: a valid module and a typo in a required name. Baseline: sum. Run under the baseline conditions, then record observations and errors in notes/day-4.md.",
+        "steps.2": "Variable: requested name; changed value: sumMissing. Run again through the same input path. Deliverable to save: the export list and error guidance. Hypothesis to check: The missing entry is clearly reported, and computation does not start. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "requested name",
+        "variables.0.baseline": "sum",
+        "variables.0.change": "sumMissing",
+        "variables.0.expected": "The missing entry is clearly reported, and computation does not start.",
+        "criteria.0": "Required deliverable: the export list and error guidance. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Export surface and Contract checks. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Export surface affect in this exercise? Input cases: a valid module and a typo in a required name.",
+        "questions.1": "Variable: requested name. Hypothesis to check: The missing entry is clearly reported, and computation does not start. Did the actual results agree with the hypothesis? Explain the evidence in terms of Contract checks.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-05": {
+      "sourceHash": "a36218cf53c9e84ef5f2252d1a2815743d73afe3df8210f8acefb04a9b9d9bf1",
+      "values": {
+        "title": "Imports and Host Functions",
+        "prerequisites": "Prepare the experiment results for Export surface and Contract checks from Unit 4, “Inspecting Exports”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Import",
+        "concepts.0.explanation": "A module can require external functions or memory. The namespace and name must match for linking.",
+        "concepts.1.title": "Boundary cost",
+        "concepts.1.explanation": "Calling a host function also crosses the JS·Wasm boundary. Logging every element can cost more than computation.",
+        "outcomes.0": "Learning outcome: explain the role of Import. Input cases: a reporting function present·missing.",
+        "outcomes.1": "Deliverable: call values and linking error records. Explain the rationale for handling Boundary cost, linking it to the code.",
+        "steps.0": "In day-5.mjs in a separate practice project, add an env.report import in separate WAT and receive its call values with a JS function. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: a reporting function present·missing. Baseline: valid. Run under the baseline conditions, then record observations and errors in notes/day-5.md.",
+        "steps.2": "Variable: import object; changed value: missing. Run again through the same input path. Deliverable to save: call values and linking error records. Hypothesis to check: A missing contract is exposed during instance creation. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "import object",
+        "variables.0.baseline": "valid",
+        "variables.0.change": "missing",
+        "variables.0.expected": "A missing contract is exposed during instance creation.",
+        "criteria.0": "Required deliverable: call values and linking error records. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Import and Boundary cost. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Import affect in this exercise? Input cases: a reporting function present·missing.",
+        "questions.1": "Variable: import object. Hypothesis to check: A missing contract is exposed during instance creation. Did the actual results agree with the hypothesis? Explain the evidence in terms of Boundary cost.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-06": {
+      "sourceHash": "468c349466a2ee69cea85d04f746c23306935c95cc08cb18892426b1c5b481a4",
+      "values": {
+        "title": "I32 and JS Number",
+        "prerequisites": "Prepare the experiment results for Import and Boundary cost from Unit 5, “Imports and Host Functions”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Numeric representation",
+        "concepts.0.explanation": "i32 performs 32-bit integer arithmetic. Its range differs from arithmetic on large integers with JS Number.",
+        "concepts.1.title": "Overflow",
+        "concepts.1.explanation": "i32 addition wraps at the defined bit width. The JS reference must use the same contract for a valid comparison.",
+        "outcomes.0": "Learning outcome: explain the role of Numeric representation. Input cases: small numbers and values near INT32_MAX.",
+        "outcomes.1": "Deliverable: expected·actual sums for each numeric range. Explain the rationale for handling Overflow, linking it to the code.",
+        "steps.0": "In day-6.mjs in a separate practice project, pass large integers to sum and apply explicit 32-bit conversion in the JS reference. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: small numbers and values near INT32_MAX. Baseline: small positive integers. Run under the baseline conditions, then record observations and errors in notes/day-6.md.",
+        "steps.2": "Variable: input range; changed value: overflow boundary. Run again through the same input path. Deliverable to save: expected·actual sums for each numeric range. Hypothesis to check: The difference between a regular JS sum and an i32 sum is exposed. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "input range",
+        "variables.0.baseline": "small positive integers",
+        "variables.0.change": "overflow boundary",
+        "variables.0.expected": "The difference between a regular JS sum and an i32 sum is exposed.",
+        "criteria.0": "Required deliverable: expected·actual sums for each numeric range. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Numeric representation and Overflow. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Numeric representation affect in this exercise? Input cases: small numbers and values near INT32_MAX.",
+        "questions.1": "Variable: input range. Hypothesis to check: The difference between a regular JS sum and an i32 sum is exposed. Did the actual results agree with the hypothesis? Explain the evidence in terms of Overflow.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
     }
   }
 }

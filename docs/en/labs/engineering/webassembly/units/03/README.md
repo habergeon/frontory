@@ -72,7 +72,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: WAT and Binary](../02/README.md)
+[Previous: WAT and Binary](../02/README.md) · [Next: Inspecting Exports](../04/README.md)
 
 ## Experiment notes — write your own
 

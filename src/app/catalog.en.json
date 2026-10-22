@@ -5864,6 +5864,36 @@
       "docPath": "/docs/en/labs/engineering/webassembly/units/03/README.md",
       "seriesId": "webassembly",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "Inspecting Exports",
+      "goal": "Learning outcome: explain the role of Export surface. Input cases: a valid module and a typo in a required name. Deliverable: the export list and error guidance. Explain the rationale for handling Contract checks, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/04/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Imports and Host Functions",
+      "goal": "Learning outcome: explain the role of Import. Input cases: a reporting function present·missing. Deliverable: call values and linking error records. Explain the rationale for handling Boundary cost, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/05/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "I32 and JS Number",
+      "goal": "Learning outcome: explain the role of Numeric representation. Input cases: small numbers and values near INT32_MAX. Deliverable: expected·actual sums for each numeric range. Explain the rationale for handling Overflow, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/06/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     }
   ]
 }

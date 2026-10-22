@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 3 published in English
+Engineering · 4 stages · 28 units in the full series · 6 published in English
 
 ## Series goal
 
@@ -27,6 +27,9 @@ Only published English units are linked below. The full series has 28 units.
 - [01. Modules and Linear Memory](01-foundations/README.md) — Editable example
 - [02. WAT and Binary](units/02/README.md) — External example · preview instructions
 - [03. Compile and Instance](units/03/README.md) — External example · preview instructions
+- [04. Inspecting Exports](units/04/README.md) — External example · preview instructions
+- [05. Imports and Host Functions](units/05/README.md) — External example · preview instructions
+- [06. I32 and JS Number](units/06/README.md) — External example · preview instructions
 
 ### Stage 2 · Memory and Array Boundaries
 

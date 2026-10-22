@@ -562,6 +562,9 @@
     "offscreen-canvas-03",
     "webassembly-01",
     "webassembly-step-02",
-    "webassembly-step-03"
+    "webassembly-step-03",
+    "webassembly-step-04",
+    "webassembly-step-05",
+    "webassembly-step-06"
   ]
 }

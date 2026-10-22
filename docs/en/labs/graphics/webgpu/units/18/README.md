@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Mapping and Staging Buffers](../17/README.md)
+[Previous: Mapping and Staging Buffers](../17/README.md) · [Next: Workgroup Shared Memory](../19/README.md)
 
 ## Experiment notes — write your own
 

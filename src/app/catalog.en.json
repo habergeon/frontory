@@ -3147,6 +3147,36 @@
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
+      "id": "webgpu-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Workgroup Shared Memory",
+      "goal": "Create a shared-memory reduction. Maintain barrier reachability conditions.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/19/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Rendering Compute Results",
+      "goal": "Connect compute and render passes. Reduce unnecessary data round trips.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/20/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Instancing and Data Structures",
+      "goal": "Build instanced rendering. Distinguish call count from processing volume.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/21/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
       "id": "react-three-fiber-01",
       "day": 1,
       "week": 1,

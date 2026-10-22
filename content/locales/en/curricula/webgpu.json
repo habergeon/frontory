@@ -496,6 +496,87 @@
         "references.0.title": "WebGPU API and Error Handling",
         "references.1.title": "WGSL Specification"
       }
+    },
+    "webgpu-step-19": {
+      "sourceHash": "3253601934b9568b403ac95ffa15f29f8fb7cc305003d9803aa9bd1640c10c8b",
+      "values": {
+        "title": "Workgroup Shared Memory",
+        "concepts.0.title": "Sharing Scope",
+        "concepts.0.explanation": "var<workgroup> is shared by invocations in the same workgroup. Different workgroups cannot communicate through this memory.",
+        "concepts.1.title": "Synchronization",
+        "concepts.1.explanation": "Use workgroupBarrier to synchronize writes at that stage before reading shared values. The entire workgroup must reach the barrier in uniform control flow.",
+        "outcomes.0": "Create a shared-memory reduction.",
+        "outcomes.1": "Maintain barrier reachability conditions.",
+        "steps.0": "In reduce.wgsl, write a partial-sum kernel that places 64 values in a workgroup array.",
+        "steps.1": "Have out-of-range lanes write 0 and participate in the barrier too.",
+        "steps.2": "For N=65, sum the two partial sums on the CPU and compare with the full sum.",
+        "variables.0.name": "Length",
+        "variables.0.baseline": "64",
+        "variables.0.change": "65",
+        "variables.0.expected": "Empty lanes in the second group are expected to participate with 0, producing the correct sum.",
+        "criteria.0": "The CPU sum of 65 elements and the sum of GPU partial sums agree within tolerance.",
+        "criteria.1": "There is no path where only some lanes return before the barrier.",
+        "questions.0": "Does a barrier synchronize the entire dispatch?",
+        "questions.1": "Why fill out-of-range lanes with 0?",
+        "prerequisites": "Continue using the output and notes from unit 18. Preserve the previous inputs and reference outputs before the Workgroup Shared Memory experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-20": {
+      "sourceHash": "53cd3130ae9d14f5f26b76e3713aefe353f5e9a0fe421bc31b95446b1274d19e",
+      "values": {
+        "title": "Rendering Compute Results",
+        "concepts.0.title": "Connections Within the GPU",
+        "concepts.0.explanation": "Compute results can be rendered directly as vertex or storage input. A later pass in the same submission can consume results without CPU readback.",
+        "concepts.1.title": "Usage Declarations",
+        "concepts.1.explanation": "Declare the usages needed for both compute writes and render reads on the buffer. State roles between passes to avoid conflicts.",
+        "outcomes.0": "Connect compute and render passes.",
+        "outcomes.1": "Reduce unnecessary data round trips.",
+        "steps.0": "In particles.js, create a position STORAGE|VERTEX|COPY_SRC|COPY_DST buffer and a velocity STORAGE|COPY_DST buffer, and write initial data with writeBuffer.",
+        "steps.1": "Update positions in the compute pass, then use them as vertex positions in the following render pass.",
+        "steps.2": "Connect readback only to a validation button and display calls per frame.",
+        "variables.0.name": "Readback policy",
+        "variables.0.baseline": "Every frame",
+        "variables.0.change": "Only on the validation button",
+        "variables.0.expected": "The visual result is expected to remain unchanged, while CPU waiting cost may decrease.",
+        "criteria.0": "Ordinary frames make 0 mapAsync calls.",
+        "criteria.1": "The validation button's position values agree with the CPU reference within tolerance.",
+        "questions.0": "Why does overlapping reads and writes within one pass need review?",
+        "questions.1": "Does adding a usage automatically copy data?",
+        "prerequisites": "Continue using the output and notes from unit 19. Preserve the previous inputs and reference outputs before the Rendering Compute Results experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-21": {
+      "sourceHash": "e800fa7aec6a28dfd096c3d5c3452affa69784a2ca042cb6ca5d542473d8307a",
+      "values": {
+        "title": "Instancing and Data Structures",
+        "concepts.0.title": "Instances",
+        "concepts.0.explanation": "When drawing the same base shape repeatedly, instance indices can retrieve individual data. Draw-call count and screen fragment count are different costs.",
+        "concepts.1.title": "Array Structure",
+        "concepts.1.explanation": "AoS and SoA differ in management and access patterns depending on data access. Measure structural benefits in the actual kernel.",
+        "outcomes.0": "Build instanced rendering.",
+        "outcomes.1": "Distinguish call count from processing volume.",
+        "steps.0": "In instance.wgsl, read position and color storage arrays using instance_index.",
+        "steps.1": "Draw a small quad as 256 instances in one draw.",
+        "steps.2": "Record draw counts and frame intervals for 64·256·512 particles.",
+        "variables.0.name": "Instance count",
+        "variables.0.baseline": "64",
+        "variables.0.change": "512",
+        "variables.0.expected": "The draw count is expected to stay the same while vertex and fragment processing increases.",
+        "criteria.0": "There is one draw call at all three counts.",
+        "criteria.1": "Check four markers to confirm each instance reads its own position and color.",
+        "questions.0": "Does one draw call imply constant rendering cost?",
+        "questions.1": "Which is always faster, AoS or SoA?",
+        "prerequisites": "Continue using the output and notes from unit 20. Preserve the previous inputs and reference outputs before the Instancing and Data Structures experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
     }
   }
 }

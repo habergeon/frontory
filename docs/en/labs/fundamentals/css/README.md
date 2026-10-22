@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 10 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 13 published in English
 
 ## Series goal
 
@@ -37,6 +37,9 @@ Only published English units are linked below. The full series has 28 units.
 - [08. Flex Axes and Alignment](units/08/README.md) — Editable example
 - [09. Flex Growth and Shrinkage](units/09/README.md) — Editable example
 - [10. Grid Tracks and Gaps](units/10/README.md) — Editable example
+- [11. Automatic Repetition and Card Counts](units/11/README.md) — Editable example
+- [12. Layout Areas and Source Order](units/12/README.md) — Editable example
+- [13. Media Queries and Breakpoints](units/13/README.md) — Editable example
 
 ### Stage 3 · State, positioning, and accessibility
 

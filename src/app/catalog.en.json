@@ -435,6 +435,36 @@
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "css-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Automatic Repetition and Card Counts",
+      "goal": "Record column counts and card widths for each card count. There is no horizontal scrolling even in a 320px container.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/11/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Layout Areas and Source Order",
+      "goal": "Compare visual order and Tab order on both screens. The final layout preserves the logical order of the main content.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/12/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Media Queries and Breakpoints",
+      "goal": "Record computed styles and column counts before and after the breakpoint. Controls do not overlap at the four test widths.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/13/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
       "id": "react-step-03",
       "day": 3,
       "week": 1,

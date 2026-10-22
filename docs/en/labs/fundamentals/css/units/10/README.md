@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Flex Growth and Shrinkage](../09/README.md)
+[Previous: Flex Growth and Shrinkage](../09/README.md) · [Next: Automatic Repetition and Card Counts](../11/README.md)
 
 ## Experiment notes — write your own
 

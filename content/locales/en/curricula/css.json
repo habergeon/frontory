@@ -288,6 +288,84 @@
         "questions.1": "Which constraint does a minimum value of 0 in minmax remove?",
         "references.0.title": "MDN CSS"
       }
+    },
+    "css-step-11": {
+      "sourceHash": "645483d8b5f5d98643931bea336246c5fb4accf0ab204a7958fbeb1f19ac9f60",
+      "values": {
+        "title": "Automatic Repetition and Card Counts",
+        "prerequisites": "The work and experiment records from Unit 10, “Grid Tracks and Gaps”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Automatic Columns",
+        "concepts.0.explanation": "auto-fit and auto-fill calculate how many tracks fit. They differ in how they collapse empty tracks, so the difference appears with fewer cards.",
+        "concepts.1.title": "Minimum Card Width",
+        "concepts.1.explanation": "Use minmax to set the minimum and maximum card size range. If the minimum width exceeds the viewport, you need an overflow strategy.",
+        "outcomes.0": "Record column counts and card widths for each card count.",
+        "outcomes.1": "There is no horizontal scrolling even in a 320px container.",
+        "steps.0": "In index.html, prepare content with 2 and 8 cards in a 1000px container, and connect auto-grid.css.",
+        "steps.1": "Build a card list with repeat and minmax, and compare auto-fit·auto-fill.",
+        "steps.2": "Run with 2 and 8 cards in a 1000px container. Results to check: Record column counts and card widths for each card count. There is no horizontal scrolling even in a 320px container. Record expected and actual results separately.",
+        "variables.0.name": "Repetition",
+        "variables.0.baseline": "auto-fill",
+        "variables.0.change": "auto-fit",
+        "variables.0.expected": "Hypothesis before running: A small number of cards may use more of the remaining space. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record column counts and card widths for each card count.",
+        "criteria.1": "There is no horizontal scrolling even in a 320px container.",
+        "questions.0": "What UI benefits from keeping empty tracks?",
+        "questions.1": "On which screens does a fixed minimum card width break the layout?",
+        "references.0.title": "MDN CSS"
+      }
+    },
+    "css-step-12": {
+      "sourceHash": "fc6b921a04c28d24701219073534951bdf19980c439083db704c238289be93a5",
+      "values": {
+        "title": "Layout Areas and Source Order",
+        "prerequisites": "The work and experiment records from Unit 11, “Automatic Repetition and Card Counts”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Explicit Placement",
+        "concepts.0.explanation": "Use grid-area to assign visual areas. Changing visual order does not change DOM reading order.",
+        "concepts.1.title": "Consistent Order",
+        "concepts.1.explanation": "Also check the order used by keyboard navigation and assistive technology. Avoid reversing the logical flow with order or area placement.",
+        "outcomes.0": "Compare visual order and Tab order on both screens.",
+        "outcomes.1": "The final layout preserves the logical order of the main content.",
+        "steps.0": "In index.html, prepare content with navigation, main, and supporting areas with 6 links, and connect grid-areas.css.",
+        "steps.1": "Place header·nav·main·aside into areas, and write a single-column layout for narrow screens.",
+        "steps.2": "Run with navigation, main, and supporting areas with 6 links. Results to check: Compare visual order and Tab order on both screens. The final layout preserves the logical order of the main content. Record expected and actual results separately.",
+        "variables.0.name": "Placement",
+        "variables.0.baseline": "aside after main content",
+        "variables.0.change": "aside visually before main content",
+        "variables.0.expected": "Hypothesis before running: Keyboard order and visual order may diverge. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Compare visual order and Tab order on both screens.",
+        "criteria.1": "The final layout preserves the logical order of the main content.",
+        "questions.0": "Does CSS placement change the order of the accessibility tree?",
+        "questions.1": "Which information should appear first on mobile?",
+        "references.0.title": "MDN CSS"
+      }
+    },
+    "css-step-13": {
+      "sourceHash": "9aca03e7f7357be0be8beea6b451c35a31883dfe6853f5461c8060b3d50d8f1d",
+      "values": {
+        "title": "Media Queries and Breakpoints",
+        "prerequisites": "The work and experiment records from Unit 12, “Layout Areas and Source Order”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Conditional Rules",
+        "concepts.0.explanation": "Media queries apply declarations based on environmental conditions such as the viewport. Find breakpoints where content breaks, rather than by device names.",
+        "concepts.1.title": "Continuous Ranges",
+        "concepts.1.explanation": "Check immediately before and after each breakpoint too. A layout can jump at the boundary even if it works at the chosen representative widths.",
+        "outcomes.0": "Record computed styles and column counts before and after the breakpoint.",
+        "outcomes.1": "Controls do not overlap at the four test widths.",
+        "steps.0": "In index.html, prepare content with 1px before and after the breakpoint and 360px·1200px widths, and connect media.css.",
+        "steps.1": "Find the width where cards and navigation collide, and write a rule that switches from one column to three columns.",
+        "steps.2": "Run with 1px before and after the breakpoint and 360px·1200px widths. Results to check: Record computed styles and column counts before and after the breakpoint. Controls do not overlap at the four test widths. Record expected and actual results separately.",
+        "variables.0.name": "Viewport",
+        "variables.0.baseline": "699px",
+        "variables.0.change": "700px",
+        "variables.0.expected": "Hypothesis before running: Whether the configured media condition applies will change. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record computed styles and column counts before and after the breakpoint.",
+        "criteria.1": "Controls do not overlap at the four test widths.",
+        "questions.0": "What content-based evidence determined the breakpoint?",
+        "questions.1": "How does zooming change the CSS viewport width?",
+        "references.0.title": "MDN CSS"
+      }
     }
   }
 }

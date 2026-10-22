@@ -71,7 +71,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Animation Frame Sequences](../17/README.md)
+[Previous: Animation Frame Sequences](../17/README.md) · [Next: Filters and Their Scope](../19/README.md)
 
 ## Experiment notes — write your own
 

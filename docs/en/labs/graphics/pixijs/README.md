@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 18 published in English
+Graphics · 4 stages · 28 units in the full series · 21 published in English
 
 ## Series goal
 
@@ -48,6 +48,9 @@ Only published English units are linked below. The full series has 28 units.
 - [16. Scene Transitions and State Preservation](units/16/README.md) — Editable example
 - [17. Animation Frame Sequences](units/17/README.md) — Editable example
 - [18. Masks and Scroll Regions](units/18/README.md) — Editable example
+- [19. Filters and Their Scope](units/19/README.md) — Editable example
+- [20. Blend Modes and Order](units/20/README.md) — Editable example
+- [21. Caching Static UI](units/21/README.md) — Editable example
 
 ### Stage 4 · Resource Ownership, Large-Scale Rendering, and Measurement
 
@@ -71,3 +74,5 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [PixiJS 8 gc](https://pixijs.com/8.x/guides/concepts/garbage-collection)
 - [PixiJS 8 events](https://pixijs.com/8.x/guides/components/events)
 - [PixiJS 8 a11y](https://pixijs.com/8.x/guides/components/accessibility)
+- [PixiJS 8 filters](https://pixijs.com/8.x/guides/components/filters)
+- [PixiJS 8 cache](https://pixijs.com/8.x/guides/components/scene-objects/container/cache-as-texture)

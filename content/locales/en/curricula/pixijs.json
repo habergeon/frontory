@@ -493,6 +493,86 @@
         "references.1.title": "PixiJS 8 container",
         "references.2.title": "PixiJS 8 events"
       }
+    },
+    "pixijs-step-19": {
+      "sourceHash": "923431fae8cb33137c37522c8e8768c2c57700195b377989bf2def69132dc19f",
+      "values": {
+        "title": "Filters and Their Scope",
+        "prerequisites": "Prerequisite concepts: Restricting Display, Input Policy. Prepare the output files and observation records from Unit 18.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Filter Passes",
+        "concepts.0.explanation": "Filters such as blur may require intermediate rendering work. Processing area and quality settings affect cost as well as object count.",
+        "concepts.1.title": "Group Effects",
+        "concepts.1.explanation": "A filter on a parent acts on the combined result. Edges and overlaps can differ from applying a filter to each child.",
+        "outcomes.0": "Record quality differences between the two scopes.",
+        "outcomes.1": "Distinguish detaching a filter from destroying it.",
+        "steps.0": "Prepare day-19.js and index.html in the external practice project. Create BlurFilter({strength:3,quality:4}) and attach it to a Container.",
+        "steps.1": "Alternate between individual filters and a parent filter on the same Sprite list, recording the screen and frame intervals.",
+        "steps.2": "Save the output with the input condition One parent, then run again with Each Sprite. Expected: Effect boundaries and intermediate processing costs may differ. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-19-notes.md.",
+        "variables.0.name": "Filter scope",
+        "variables.0.baseline": "One parent",
+        "variables.0.change": "Each Sprite",
+        "variables.0.expected": "Effect boundaries and intermediate processing costs may differ",
+        "criteria.0": "Record quality differences between the two scopes.",
+        "criteria.1": "Distinguish detaching a filter from destroying it.",
+        "questions.0": "Do blur strength and quality serve the same role?",
+        "questions.1": "When does a parent filter's processing area grow?",
+        "references.0.title": "PixiJS 8 filters",
+        "references.1.title": "PixiJS 8 perf"
+      }
+    },
+    "pixijs-step-20": {
+      "sourceHash": "e11f619050beda842ea4128b9fe1ae987be0d15360d2f9d1a0a7b4a98160ee18",
+      "values": {
+        "title": "Blend Modes and Order",
+        "prerequisites": "Prerequisite concepts: Filter Passes, Group Effects. Prepare the output files and observation records from Unit 19.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Compositing Order",
+        "concepts.0.explanation": "The result of translucent graphics depends on front-to-back order. Reordering them arbitrarily for batching can change the meaning of the image.",
+        "concepts.1.title": "Blending Rules",
+        "concepts.1.explanation": "blendMode determines how colors combine with the background. add and multiply produce different brightness effects.",
+        "outcomes.0": "Identify transparent objects whose order must be preserved.",
+        "outcomes.1": "Explain blending results for different backgrounds.",
+        "steps.0": "Prepare day-20.js and index.html in the external practice project. Build a comparison showing normal,add,multiply on overlapping Sprites.",
+        "steps.1": "Change the background color and child order, and capture the overlapping regions.",
+        "steps.2": "Save the output with the input condition normal, then run again with add. Expected: Overlapping regions may become brighter. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-20-notes.md.",
+        "variables.0.name": "blendMode",
+        "variables.0.baseline": "normal",
+        "variables.0.change": "add",
+        "variables.0.expected": "Overlapping regions may become brighter",
+        "criteria.0": "Identify transparent objects whose order must be preserved.",
+        "criteria.1": "Explain blending results for different backgrounds.",
+        "questions.0": "Why does add look different on black and white backgrounds?",
+        "questions.1": "Under what conditions can you reorder objects for batching?",
+        "references.0.title": "PixiJS 8 filters",
+        "references.1.title": "PixiJS 8 container"
+      }
+    },
+    "pixijs-step-21": {
+      "sourceHash": "299ca2b184ab9a5838120e3fbf4d6b8afe0dbd812261d0c141c0613dc67049ff",
+      "values": {
+        "title": "Caching Static UI",
+        "prerequisites": "Prerequisite concepts: Compositing Order, Blending Rules. Prepare the output files and observation records from Unit 20.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Texture Caching",
+        "concepts.0.explanation": "cacheAsTexture turns a container's graphics into a reusable texture. It can help with static decoration but needs additional memory.",
+        "concepts.1.title": "Explicit Updates",
+        "concepts.1.explanation": "When child content changes, refresh the cache with updateCacheTexture. Do not assume that enabling caching automatically reflects every change.",
+        "outcomes.0": "Reproduce a stale cache.",
+        "outcomes.1": "Separate dynamic text and static decoration appropriately.",
+        "steps.0": "Prepare day-21.js and index.html in the external practice project. Apply cacheAsTexture() to a Container with a complex card background.",
+        "steps.1": "Edit a label, compare before and after refreshing, and connect updateCacheTexture to the change event.",
+        "steps.2": "Save the output with the input condition No refresh call, then run again with Call when content changes. Expected: New content appears instead of the stale label. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-21-notes.md.",
+        "variables.0.name": "Cache refresh",
+        "variables.0.baseline": "No refresh call",
+        "variables.0.change": "Call when content changes",
+        "variables.0.expected": "New content appears instead of the stale label",
+        "criteria.0": "Reproduce a stale cache.",
+        "criteria.1": "Separate dynamic text and static decoration appropriately.",
+        "questions.0": "What benefit remains if the cache is refreshed every frame?",
+        "questions.1": "What determines the sharpness of an enlarged cache?",
+        "references.0.title": "PixiJS 8 cache"
+      }
     }
   }
 }

@@ -3410,6 +3410,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "pixijs-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Filters and Their Scope",
+      "goal": "Record quality differences between the two scopes. Distinguish detaching a filter from destroying it.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/19/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "pixijs-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Blend Modes and Order",
+      "goal": "Identify transparent objects whose order must be preserved. Explain blending results for different backgrounds.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/20/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "pixijs-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Caching Static UI",
+      "goal": "Reproduce a stale cache. Separate dynamic text and static decoration appropriately.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/21/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

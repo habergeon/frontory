@@ -1,0 +1,94 @@
+{
+  "series": {
+    "sourceHash": "cdfaf713ee19c98397b84a5efb66261573ad8c9a12a7bc5c61210290541f5c4d",
+    "values": {
+      "stages.0": "Pixels and Drawing State",
+      "stages.1": "Time, Coordinates, and Input",
+      "stages.2": "Scene Editing and Compositing",
+      "stages.3": "Accessibility, Particles, and Performance Verification",
+      "goal": "Distinguish logical coordinates from pixels and build a time-based Canvas editor yourself.",
+      "capstone": "A canvas lab with shape editing, undo, particle previews, PNG/JSON saving, and a comparison report"
+    }
+  },
+  "units": {
+    "canvas-2d-01": {
+      "sourceHash": "4708420c612a57df6e6ab571e2398e80d858666859951f2d08eb18a16db8ca77",
+      "values": {
+        "title": "Coordinates and Pixels",
+        "prerequisites": "You should be able to work with JavaScript functions and arrays, DOM events, and coordinates.",
+        "environment": "The existing built-in example provides only a starting point. It does not implement all extended requirements. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "CSS and the Buffer",
+        "concepts.0.explanation": "CSS dimensions control layout, while width and height specify the pixel buffer dimensions. Increase the buffer by DPR and transform logical coordinates to draw at the same size with greater sharpness.",
+        "concepts.1.title": "Resetting State",
+        "concepts.1.explanation": "Assigning canvas.width resets the image and drawing state. Setting the scale again with setTransform on resize avoids repeated scaling.",
+        "outcomes.0": "Output the CSS dimensions and buffer dimensions separately.",
+        "outcomes.1": "The circle's center and radius remain unchanged after resizing.",
+        "steps.0": "Prepare day-01.js and index.html in the external practice project. Set the canvas CSS size to 400×240 and draw a grid and circle with getContext('2d').",
+        "steps.1": "Set the buffer to CSS size×DPR, apply setTransform(DPR,0,0,DPR,0,0), and show the actual buffer dimensions in output.",
+        "steps.2": "Save the output with the input condition 1, then run again with 2. Expected: Logical shape sizes stay the same, and the number of buffer pixels becomes four times larger. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-01-notes.md.",
+        "variables.0.name": "DPR",
+        "variables.0.baseline": "1",
+        "variables.0.change": "2",
+        "variables.0.expected": "Logical shape sizes stay the same, and the number of buffer pixels becomes four times larger",
+        "criteria.0": "Output the CSS dimensions and buffer dimensions separately.",
+        "criteria.1": "The circle's center and radius remain unchanged after resizing.",
+        "questions.0": "Why do shapes become smaller if you only double the buffer dimensions?",
+        "questions.1": "What goes wrong if scale accumulates on every resize?",
+        "references.0.title": "MDN devicePixelRatio",
+        "references.1.title": "MDN CanvasRenderingContext2D API"
+      }
+    },
+    "canvas-2d-step-02": {
+      "sourceHash": "406502cbf6259e25fb5d10440ef5ae544b20e9f8ad41d2e74c90a283682d3943",
+      "values": {
+        "title": "Paths and Line State",
+        "prerequisites": "Prerequisite concepts: CSS and the Buffer, Resetting State. Prepare the result files and observation records from Unit 1.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Path Lifetime",
+        "concepts.0.explanation": "beginPath clears the current path. If an earlier path remains, stroke for a new shape redraws the earlier lines too.",
+        "concepts.1.title": "Line Boundaries",
+        "concepts.1.explanation": "lineCap and lineJoin determine the shapes of endpoints and joins. Lines of equal thickness can occupy different areas at corners.",
+        "outcomes.0": "Colors do not spill between separate lines.",
+        "outcomes.1": "Explain the effect of resetting the path with drawings.",
+        "steps.0": "Prepare day-02.js and index.html in the external practice project. Draw three bent lines with beginPath,moveTo,lineTo.",
+        "steps.1": "Connect lineCap and lineJoin to input select controls and show a comparison drawing without path resets alongside them.",
+        "steps.2": "Save the output with the input condition miter, then run again with round. Expected: Sharp outer corners become rounded. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-02-notes.md.",
+        "variables.0.name": "lineJoin",
+        "variables.0.baseline": "miter",
+        "variables.0.change": "round",
+        "variables.0.expected": "Sharp outer corners become rounded",
+        "criteria.0": "Colors do not spill between separate lines.",
+        "criteria.1": "Explain the effect of resetting the path with drawings.",
+        "questions.0": "How does closePath differ from beginPath?",
+        "questions.1": "Which corners need miterLimit?",
+        "references.0.title": "MDN CanvasRenderingContext2D API"
+      }
+    },
+    "canvas-2d-step-03": {
+      "sourceHash": "dbc8a19bf2fd535bd9ca6a9c30e8daa535aadd47ea62b643f69e39f3b919d8d9",
+      "values": {
+        "title": "Shape Functions and State Isolation",
+        "prerequisites": "Prerequisite concepts: Path Lifetime, Line Boundaries. Prepare the result files and observation records from Unit 2.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "State Stack",
+        "concepts.0.explanation": "save stores style and transform state. restore returns to the saved state but does not erase pixels already drawn.",
+        "concepts.1.title": "Function Contract",
+        "concepts.1.explanation": "A shape function should produce the same result from its input coordinates and size. Silently changing a caller's color setting affects subsequent drawings too.",
+        "outcomes.0": "Styles are preserved after a shape function call.",
+        "outcomes.1": "Keep logs that reproduce a missing restore.",
+        "steps.0": "Prepare day-03.js and index.html in the external practice project. Create drawBadge(ctx,x,y,color) and draw a circle and text between save and restore.",
+        "steps.1": "Output getTransform and fillStyle before and after the function, and call it for three badges at different positions.",
+        "steps.2": "Save the output with the input condition restore present, then run again with restore removed. Expected: The last badge's color or transform remains in subsequent drawings. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-03-notes.md.",
+        "variables.0.name": "State Restoration",
+        "variables.0.baseline": "restore present",
+        "variables.0.change": "restore removed",
+        "variables.0.expected": "The last badge's color or transform remains in subsequent drawings",
+        "criteria.0": "Styles are preserved after a shape function call.",
+        "criteria.1": "Keep logs that reproduce a missing restore.",
+        "questions.0": "How can you check that save does not store pixels?",
+        "questions.1": "How can you ensure restore runs even after an early return?",
+        "references.0.title": "MDN CanvasRenderingContext2D API"
+      }
+    }
+  }
+}

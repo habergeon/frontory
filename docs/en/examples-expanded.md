@@ -214,6 +214,13 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [26. Regression Scenarios for the Same Contract](labs/frameworks/svelte/units/26/README.md) | External example · preview instructions | [Source code](../../src/labs/svelte-step-26/example.js) — The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project. |
 | [27. Preparing a Three-Framework Comparison](labs/frameworks/svelte/units/27/README.md) | External example · preview instructions | [Source code](../../src/labs/svelte-step-27/example.js) — The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project. |
 
+## Canvas 2D
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Paths and Line State](labs/graphics/canvas-2d/units/02/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-02/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [3. Shape Functions and State Isolation](labs/graphics/canvas-2d/units/03/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-03/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+
 ## GSAP
 
 | Learning unit | Execution mode | Source and supported scope |

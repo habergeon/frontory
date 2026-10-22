@@ -99,6 +99,20 @@
       ]
     },
     {
+      "id": "canvas-2d",
+      "title": "Canvas 2D",
+      "category": "graphics",
+      "priority": 5,
+      "prerequisites": "JavaScript; coordinates and functions",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/README.md",
+      "stages": [
+        "Pixels and Drawing State",
+        "Time, Coordinates, and Input",
+        "Scene Editing and Compositing",
+        "Accessibility, Particles, and Performance Verification"
+      ]
+    },
+    {
       "id": "gsap",
       "title": "GSAP",
       "category": "animation",
@@ -2052,6 +2066,35 @@
       "goal": "Toggle, filter, and draft results from all three implementations are recorded against the same contract. Store adapter results are not confused with compiled Svelte results.",
       "docPath": "/docs/en/labs/frameworks/svelte/03-project/README.md",
       "seriesId": "svelte"
+    },
+    {
+      "id": "canvas-2d-01",
+      "day": 1,
+      "week": 1,
+      "title": "Coordinates and Pixels",
+      "goal": "Output the CSS dimensions and buffer dimensions separately. The circle's center and radius remain unchanged after resizing.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/01-foundations/README.md",
+      "seriesId": "canvas-2d"
+    },
+    {
+      "id": "canvas-2d-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Paths and Line State",
+      "goal": "Colors do not spill between separate lines. Explain the effect of resetting the path with drawings.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/02/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "canvas-2d-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Shape Functions and State Isolation",
+      "goal": "Styles are preserved after a shape function call. Keep logs that reproduce a missing restore.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/03/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
       "id": "gsap-01",

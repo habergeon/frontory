@@ -54,5 +54,12 @@
       "title": "Svelte",
       "prerequisites": "JavaScript·HTML·CSS"
     }
+  },
+  "canvas-2d": {
+    "sourceHash": "44bfaa1da8caff775f1ad8e237545556803a7821f95d560c38c3ab4762badf90",
+    "values": {
+      "title": "Canvas 2D",
+      "prerequisites": "JavaScript; coordinates and functions"
+    }
   }
 }

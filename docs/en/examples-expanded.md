@@ -310,6 +310,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | --- | --- | --- |
 | [2. Canvas Size and Camera](labs/graphics/react-three-fiber/units/02/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-02/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 | [3. args and Object Recreation](labs/graphics/react-three-fiber/units/03/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-03/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [4. group and Local Coordinates](labs/graphics/react-three-fiber/units/04/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-04/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [5. Materials and Lighting](labs/graphics/react-three-fiber/units/05/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-05/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
+| [6. Reading Three.js Objects through ref](labs/graphics/react-three-fiber/units/06/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-06/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 
 ## GSAP
 

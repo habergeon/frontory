@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 3 published in English
+Graphics · 4 stages · 28 units in the full series · 6 published in English
 
 ## Series goal
 
@@ -27,6 +27,9 @@ Only published English units are linked below. The full series has 28 units.
 - [01. Declarative Scenes](01-foundations/README.md) — Editable example
 - [02. Canvas Size and Camera](units/02/README.md) — Editable example
 - [03. args and Object Recreation](units/03/README.md) — Editable example
+- [04. group and Local Coordinates](units/04/README.md) — Editable example
+- [05. Materials and Lighting](units/05/README.md) — Editable example
+- [06. Reading Three.js Objects through ref](units/06/README.md) — Editable example
 
 ### Stage 2 · 3D Input and UI State
 
@@ -48,3 +51,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [R3F Getting Started and React Version Compatibility](https://r3f.docs.pmnd.rs/getting-started/introduction)
 - [R3F Objects and Resource Disposal](https://r3f.docs.pmnd.rs/api/objects)
 - [R3F Canvas Configuration](https://r3f.docs.pmnd.rs/api/canvas)
+- [R3F Hooks](https://r3f.docs.pmnd.rs/api/hooks)

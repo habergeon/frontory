@@ -89,6 +89,85 @@
         "questions.1": "Which geometry changes should not be represented with scale?",
         "references.0.title": "R3F Objects and Resource Disposal"
       }
+    },
+    "react-three-fiber-step-04": {
+      "sourceHash": "77c81076614b990dcda42ddb384b2d4c18a3f63340d845bdee47349c5d1a7d32",
+      "values": {
+        "title": "group and Local Coordinates",
+        "prerequisites": "Unit 4 continues using the deliverables and experiment records from Unit 3.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Scene Hierarchy",
+        "concepts.0.explanation": "A group creates a reference coordinate system for its children's transforms. A child's position is local to its parent.",
+        "concepts.1.title": "Transform Order",
+        "concepts.1.explanation": "Parent rotation affects both a child's position and orientation. World coordinates reveal the difference between assigned numbers and the actual position.",
+        "outcomes.0": "The child's position.x remains 2.",
+        "outcomes.1": "Record how the world position corresponds to the direction of movement on screen.",
+        "steps.0": "Create a group and a child cube at x=2 in src/OrbitGroup.jsx.",
+        "steps.1": "Change the group's rotation-y from 0 to Math.PI/2.",
+        "steps.2": "Log the getWorldPosition result and compare it with movement on screen.",
+        "variables.0.name": "Parent Rotation",
+        "variables.0.baseline": "0",
+        "variables.0.change": "Math.PI/2",
+        "variables.0.expected": "The child's local x stays unchanged, but its world position moves.",
+        "criteria.0": "The child's position.x remains 2.",
+        "criteria.1": "Record how the world position corresponds to the direction of movement on screen.",
+        "questions.0": "When should you distinguish parent movement from child movement?",
+        "questions.1": "How does changing the rotation axis change the orbit?",
+        "references.0.title": "R3F Objects and Resource Disposal"
+      }
+    },
+    "react-three-fiber-step-05": {
+      "sourceHash": "c7cd2fbaf1a64e3e65fd61d55e9d1a1cf90bf6a1d8a4eb545b4704df9fd93d13",
+      "values": {
+        "title": "Materials and Lighting",
+        "prerequisites": "Unit 5 continues using the deliverables and experiment records from Unit 4.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Lighting Dependence",
+        "concepts.0.explanation": "MeshStandardMaterial responds to lighting. MeshBasicMaterial displays its base color even without lighting.",
+        "concepts.1.title": "Surface Inputs",
+        "concepts.1.explanation": "roughness and metalness change the surface response. Keep lighting and the camera fixed to compare material variables.",
+        "outcomes.0": "Record how the two materials respond differently to lighting.",
+        "outcomes.1": "Also distinguish two roughness settings with the same camera.",
+        "steps.0": "Place two mesh objects with the same geometry in src/MaterialStudy.jsx.",
+        "steps.1": "Use a basic material on one and a standard material on the other.",
+        "steps.2": "Change directionalLight intensity between 0 and 3, and compare the two surfaces.",
+        "variables.0.name": "Light intensity",
+        "variables.0.baseline": "0",
+        "variables.0.change": "3",
+        "variables.0.expected": "The standard surface changes, while the basic color does not directly depend on lighting.",
+        "criteria.0": "Record how the two materials respond differently to lighting.",
+        "criteria.1": "Also distinguish two roughness settings with the same camera.",
+        "questions.0": "If standard appears black, should you only change the material color?",
+        "questions.1": "What should you check if increasing metalness does not reveal reflections?",
+        "references.0.title": "R3F Objects and Resource Disposal"
+      }
+    },
+    "react-three-fiber-step-06": {
+      "sourceHash": "50b5baa305d63ca1279a3af648c890dc294e1ab27956b5ef853c5f67cbe53489",
+      "values": {
+        "title": "Reading Three.js Objects through ref",
+        "prerequisites": "Unit 6 continues using the deliverables and experiment records from Unit 5.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Use JSX in a separate React Vite project. Record compatible major versions of React and @react-three/fiber, the Three.js version, and the lockfile. This course uses stable WebGL-based APIs and does not mix in alpha WebGPU APIs. Handle frame updates with useFrame and ref.",
+        "concepts.0.title": "Object ref",
+        "concepts.0.explanation": "A mesh ref points to a Three.js Mesh rather than a DOM node. After commit, you can read the current object's position, rotation, and uuid.",
+        "concepts.1.title": "Consistent Ownership",
+        "concepts.1.explanation": "If props and imperative code write the same property, their updates may conflict. Decide which path owns that property.",
+        "outcomes.0": "Record the object type and uuid of ref.current.",
+        "outcomes.1": "The final implementation updates rotation through only one path.",
+        "steps.0": "Attach useRef to the mesh in src/InspectableBox.jsx.",
+        "steps.1": "In an Effect triggered by button input, change rotation.y and record the uuid.",
+        "steps.2": "Compare the result with a control that also passes the same rotation through props.",
+        "variables.0.name": "Rotation Owner",
+        "variables.0.baseline": "One ref path",
+        "variables.0.change": "Both ref and props paths",
+        "variables.0.expected": "The two paths may overwrite the value during a rerender.",
+        "criteria.0": "Record the object type and uuid of ref.current.",
+        "criteria.1": "The final implementation updates rotation through only one path.",
+        "questions.0": "When can ref be null?",
+        "questions.1": "Do you need to store both React state and Three.js object properties?",
+        "references.0.title": "R3F Objects and Resource Disposal",
+        "references.1.title": "R3F Hooks"
+      }
     }
   }
 }

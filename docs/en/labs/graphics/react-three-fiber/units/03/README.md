@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Canvas Size and Camera](../02/README.md)
+[Previous: Canvas Size and Camera](../02/README.md) · [Next: group and Local Coordinates](../04/README.md)
 
 ## Experiment notes — write your own
 

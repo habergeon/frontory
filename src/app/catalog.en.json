@@ -2970,6 +2970,36 @@
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
+      "id": "react-three-fiber-step-04",
+      "day": 4,
+      "week": 1,
+      "title": "group and Local Coordinates",
+      "goal": "The child's position.x remains 2. Record how the world position corresponds to the direction of movement on screen.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/04/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Materials and Lighting",
+      "goal": "Record how the two materials respond differently to lighting. Also distinguish two roughness settings with the same camera.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/05/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
+      "id": "react-three-fiber-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Reading Three.js Objects through ref",
+      "goal": "Record the object type and uuid of ref.current. The final implementation updates rotation through only one path.",
+      "docPath": "/docs/en/labs/graphics/react-three-fiber/units/06/README.md",
+      "seriesId": "react-three-fiber",
+      "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

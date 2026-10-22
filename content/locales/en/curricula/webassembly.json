@@ -682,6 +682,90 @@
         "references.1.title": "MDN WebAssembly JavaScript API",
         "references.2.title": "MDN WebAssembly.Memory"
       }
+    },
+    "webassembly-step-25": {
+      "sourceHash": "f0808d20943ab83cca76eeba756047c8674c7ecb0cf10d790fd6d44e5b696a10",
+      "values": {
+        "title": "Total Cost Including Copies",
+        "prerequisites": "Prepare the experiment results for Warm-up and Equivalent conditions from Unit 24, “Warm Repeats and Warm-up”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Kernel time",
+        "concepts.0.explanation": "Input/output copies can dominate the whole path even with a fast function. Comparing kernels alone misses user-facing costs.",
+        "concepts.1.title": "Total cost",
+        "concepts.1.explanation": "Include input set and output slice in measurements. Include result-array creation costs in the JS path as well.",
+        "outcomes.0": "Learning outcome: explain the role of Kernel time. Input cases: three data sizes.",
+        "outcomes.1": "Deliverable: a table of JS·kernel·copy-inclusive times. Explain the rationale for handling Total cost, linking it to the code.",
+        "steps.0": "In day-25.mjs in a separate practice project, read the existing wasmKernelMeanMs and wasmWarmWithCopiesMeanMs separately. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: three data sizes. Baseline: kernel only. Run under the baseline conditions, then record observations and errors in notes/day-25.md.",
+        "steps.2": "Variable: scope; changed value: including copies. Run again through the same input path. Deliverable to save: a table of JS·kernel·copy-inclusive times. Hypothesis to check: Wasm's comparative advantage may change. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "scope",
+        "variables.0.baseline": "kernel only",
+        "variables.0.change": "including copies",
+        "variables.0.expected": "Wasm's comparative advantage may change.",
+        "criteria.0": "Required deliverable: a table of JS·kernel·copy-inclusive times. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Kernel time and Total cost. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Kernel time affect in this exercise? Input cases: three data sizes.",
+        "questions.1": "Variable: scope. Hypothesis to check: Wasm's comparative advantage may change. Did the actual results agree with the hypothesis? Explain the evidence in terms of Total cost.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-26": {
+      "sourceHash": "b68f60ed8ee87633636f0b9e2e13a84306cd7b9a6170d8bbbd19e0220d90b5bf",
+      "values": {
+        "title": "Boundary-value Correctness",
+        "prerequisites": "Prepare the experiment results for Kernel time and Total cost from Unit 25, “Total Cost Including Copies”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Correctness first",
+        "concepts.0.explanation": "Output contracts must match before comparing performance. Decide whether empty arrays and negative values are within the supported range.",
+        "concepts.1.title": "Error tolerance",
+        "concepts.1.explanation": "Match bit widths for integers and define tolerance for floating-point values. Do not hide bugs with arbitrary tolerances.",
+        "outcomes.0": "Learning outcome: explain the role of Correctness first. Input cases: arrays of length 0·1·1003.",
+        "outcomes.1": "Deliverable: PASS or failure differences for each case. Explain the rationale for handling Error tolerance, linking it to the code.",
+        "steps.0": "In day-26.mjs in a separate practice project, use node:assert to compare empty·single-element·boundary-length·negative inputs against the JS reference. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: arrays of length 0·1·1003. Baseline: small integers. Run under the baseline conditions, then record observations and errors in notes/day-26.md.",
+        "steps.2": "Variable: data; changed value: boundary integers. Run again through the same input path. Deliverable to save: PASS or failure differences for each case. Hypothesis to check: Cases where numeric contracts disagree are exposed. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "data",
+        "variables.0.baseline": "small integers",
+        "variables.0.change": "boundary integers",
+        "variables.0.expected": "Cases where numeric contracts disagree are exposed.",
+        "criteria.0": "Required deliverable: PASS or failure differences for each case. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Correctness first and Error tolerance. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Correctness first affect in this exercise? Input cases: arrays of length 0·1·1003.",
+        "questions.1": "Variable: data. Hypothesis to check: Cases where numeric contracts disagree are exposed. Did the actual results agree with the hypothesis? Explain the evidence in terms of Error tolerance.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-27": {
+      "sourceHash": "ef0ec5c18f6b540c9ce196e796e0b78177d20bf204eec12f87868f9c2437d7c7",
+      "values": {
+        "title": "Environment and Adoption Criteria",
+        "prerequisites": "Prepare the experiment results for Correctness first and Error tolerance from Unit 26, “Boundary-value Correctness”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Reproducibility",
+        "concepts.0.explanation": "Runtime·device·input size change the results. Attach environment information to measured values.",
+        "concepts.1.title": "Adoption criteria",
+        "concepts.1.explanation": "Consider build·deployment·recovery costs as well as speed. Small inputs may show no benefit.",
+        "outcomes.0": "Learning outcome: explain the role of Reproducibility. Input cases: small·medium·large arrays.",
+        "outcomes.1": "Deliverable: correctness·total cost·maintenance judgments for each condition. Explain the rationale for handling Adoption criteria, linking it to the code.",
+        "steps.0": "In day-27.mjs in a separate practice project, collect raw result JSON and environment information into a table of reasons for the choice. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: small·medium·large arrays. Baseline: small. Run under the baseline conditions, then record observations and errors in notes/day-27.md.",
+        "steps.2": "Variable: input size; changed value: large. Run again through the same input path. Deliverable to save: correctness·total cost·maintenance judgments for each condition. Hypothesis to check: Conditions with and without benefits are distinguished. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "input size",
+        "variables.0.baseline": "small",
+        "variables.0.change": "large",
+        "variables.0.expected": "Conditions with and without benefits are distinguished.",
+        "criteria.0": "Required deliverable: correctness·total cost·maintenance judgments for each condition. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Reproducibility and Adoption criteria. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Reproducibility affect in this exercise? Input cases: small·medium·large arrays.",
+        "questions.1": "Variable: input size. Hypothesis to check: Conditions with and without benefits are distinguished. Did the actual results agree with the hypothesis? Explain the evidence in terms of Adoption criteria.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
     }
   }
 }

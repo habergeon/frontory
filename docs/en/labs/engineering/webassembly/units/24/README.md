@@ -72,7 +72,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Breaking Down Cold Execution](../23/README.md)
+[Previous: Breaking Down Cold Execution](../23/README.md) · [Next: Total Cost Including Copies](../25/README.md)
 
 ## Experiment notes — write your own
 

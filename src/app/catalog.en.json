@@ -6073,6 +6073,36 @@
       "docPath": "/docs/en/labs/engineering/webassembly/units/24/README.md",
       "seriesId": "webassembly",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Total Cost Including Copies",
+      "goal": "Learning outcome: explain the role of Kernel time. Input cases: three data sizes. Deliverable: a table of JS·kernel·copy-inclusive times. Explain the rationale for handling Total cost, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/25/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Boundary-value Correctness",
+      "goal": "Learning outcome: explain the role of Correctness first. Input cases: arrays of length 0·1·1003. Deliverable: PASS or failure differences for each case. Explain the rationale for handling Error tolerance, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/26/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Environment and Adoption Criteria",
+      "goal": "Learning outcome: explain the role of Reproducibility. Input cases: small·medium·large arrays. Deliverable: correctness·total cost·maintenance judgments for each condition. Explain the rationale for handling Adoption criteria, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/27/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     }
   ]
 }

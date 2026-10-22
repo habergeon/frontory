@@ -85,6 +85,13 @@ test('English generated catalog and lessons match approved content without unpub
       assert.equal(proseWithoutCode.split(fixture).length - 1, 1)
       proseWithoutCode = proseWithoutCode.replace(fixture, '')
     }
+    if (unit.id === 'svelte-step-07') {
+      const fixture = '새 카드'
+      assert.equal(translated.variables[0].change, fixture)
+      assert.equal(translated.variables[0].expected, 'Reject whitespace and add 새 카드 once.')
+      assert.equal(proseWithoutCode.split(fixture).length - 1, 2)
+      proseWithoutCode = proseWithoutCode.replaceAll(fixture, '')
+    }
     assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
     for (const name of ['tasks', 'variables', 'criteria', 'notes']) assert.ok(markdown.includes('## ' + headings.en[name]), name)
     for (const step of translated.steps) assert.ok(markdown.includes(step), unit.id)

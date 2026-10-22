@@ -175,6 +175,87 @@
         "references.0.title": "Svelte Official Documentation and Runes Index",
         "references.1.title": "Svelte $effect and Cleanup"
       }
+    },
+    "svelte-step-07": {
+      "sourceHash": "feff9e3e6e64dc40bf7604da178727931732a15671021f51595744bdc44015d7",
+      "values": {
+        "title": "Form Bindings and Validation",
+        "prerequisites": "Unit 7 continues with the work and experiment records from Unit 6.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "bind:value",
+        "concepts.0.explanation": "bind:value connects input to state. Check the actual values and types of numeric and empty inputs to define validation rules.",
+        "outcomes.0": "The card count stays unchanged after submitting whitespace.",
+        "criteria.0": "The card count stays unchanged after submitting whitespace.",
+        "questions.0": "Where do you call preventDefault with Svelte 5 event attributes?",
+        "concepts.1.title": "Submission Path",
+        "concepts.1.explanation": "Form submission handles keyboard and button input through the same path. Keep invalid input so the user can correct it.",
+        "outcomes.1": "Submitting with Enter adds 1 card with the same title.",
+        "criteria.1": "Submitting with Enter adds 1 card with the same title.",
+        "questions.1": "Why keep the input when validation fails?",
+        "steps.0": "In src/AddCard.svelte, write label·bind:value·onsubmit.",
+        "steps.1": "Call preventDefault in submit and reject whitespace-only titles.",
+        "steps.2": "Try an empty title, a Korean title, and submission with Enter separately, and record the card count.",
+        "variables.0.name": "Title",
+        "variables.0.baseline": "Whitespace",
+        "variables.0.change": "새 카드",
+        "variables.0.expected": "Reject whitespace and add 새 카드 once.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup"
+      }
+    },
+    "svelte-step-08": {
+      "sourceHash": "d177e8023f33268c9c1b11b1394ef3fdbe4b61eb95f1c86ea2fcc46a68157306",
+      "values": {
+        "title": "$props and Change Callbacks",
+        "prerequisites": "Unit 8 continues with the work and experiment records from Unit 7.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Props Contract",
+        "concepts.0.explanation": "Read inputs provided by the parent with $props. Communicate intent through a callback rather than arbitrarily changing values the child does not own.",
+        "outcomes.0": "Only done for the clicked id changes.",
+        "criteria.0": "Only done for the clicked id changes.",
+        "questions.0": "Why does directly modifying the inside of a prop object cause an ownership warning?",
+        "concepts.1.title": "Callback Input",
+        "concepts.1.explanation": "A function prop can explicitly pass the change target and new value. Define domain inputs as the contract rather than passing the entire DOM event object.",
+        "outcomes.1": "One click produces 1 parent change log.",
+        "criteria.1": "One click produces 1 parent change log.",
+        "questions.1": "How do you choose between a callback and a global store?",
+        "steps.0": "In src/Card.svelte, receive id·title·done·ontoggle through $props.",
+        "steps.1": "Connect the button click to ontoggle(id).",
+        "steps.2": "Have the parent perform the toggle and check that only the clicked id changes after sorting.",
+        "variables.0.name": "Callback Argument",
+        "variables.0.baseline": "Index",
+        "variables.0.change": "id",
+        "variables.0.expected": "Only the intended card changes even after reordering.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup"
+      }
+    },
+    "svelte-step-09": {
+      "sourceHash": "9d03342e51863b1ace76f9b0f4be0b2036965b92de0cd88d77d92ab5c81b6f30",
+      "values": {
+        "title": "$bindable and the Editor Contract",
+        "prerequisites": "Unit 9 continues with the work and experiment records from Unit 8.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Two-Way Connection",
+        "concepts.0.explanation": "$bindable explicitly marks a prop the parent can bind. Making every prop two-way obscures update paths.",
+        "outcomes.0": "The textarea and parent output strings agree.",
+        "criteria.0": "The textarea and parent output strings agree.",
+        "questions.0": "Which props should allow a two-way connection?",
+        "concepts.1.title": "Editing Data",
+        "concepts.1.explanation": "Per-unit drafts must be retainable beyond the editor lifetime. Have the parent own the string and the editor communicate changes.",
+        "outcomes.1": "The draft remains after removing and showing the editor again.",
+        "criteria.1": "The draft remains after removing and showing the editor again.",
+        "questions.1": "How do you define defaults and the contract when the parent passes undefined?",
+        "steps.0": "In src/NoteEditor.svelte, declare value = $bindable('').",
+        "steps.1": "Connect textarea bind:value with bind:value={draft} in the parent.",
+        "steps.2": "Create an output panel reading the same draft, and check results after input, removal, and showing it again.",
+        "variables.0.name": "Value Passing",
+        "variables.0.baseline": "Ordinary prop",
+        "variables.0.change": "bindable binding",
+        "variables.0.expected": "Editor input is reflected in the parent draft.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup"
+      }
     }
   }
 }

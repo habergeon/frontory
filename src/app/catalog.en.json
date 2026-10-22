@@ -1836,6 +1836,36 @@
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
+      "id": "svelte-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Form Bindings and Validation",
+      "goal": "The card count stays unchanged after submitting whitespace. Submitting with Enter adds 1 card with the same title.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/07/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
+      "id": "svelte-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "$props and Change Callbacks",
+      "goal": "Only done for the clicked id changes. One click produces 1 parent change log.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/08/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
+      "id": "svelte-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "$bindable and the Editor Contract",
+      "goal": "The textarea and parent output strings agree. The draft remains after removing and showing the editor again.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/09/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

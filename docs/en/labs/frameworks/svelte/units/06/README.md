@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Conditional Blocks and Empty States](../05/README.md)
+[Previous: Conditional Blocks and Empty States](../05/README.md) · [Next: Form Bindings and Validation](../07/README.md)
 
 ## Experiment notes — write your own
 

@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 6 published in English
+UI frameworks · 4 stages · 28 units in the full series · 9 published in English
 
 ## Series goal
 
@@ -30,9 +30,12 @@ Only published English units are linked below. The full series has 28 units.
 - [04. Calculating Filters with $derived](units/04/README.md) — External example · preview instructions
 - [05. Conditional Blocks and Empty States](units/05/README.md) — External example · preview instructions
 - [06. Keyed Each and Card Identity](units/06/README.md) — External example · preview instructions
+- [07. Form Bindings and Validation](units/07/README.md) — External example · preview instructions
 
 ### Stage 2 · Component Contracts and Effects
 
+- [08. $props and Change Callbacks](units/08/README.md) — External example · preview instructions
+- [09. $bindable and the Editor Contract](units/09/README.md) — External example · preview instructions
 
 ### Stage 3 · Stores and Workspace State
 

@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Uniforms and Bind Groups](../08/README.md)
+[Previous: Uniforms and Bind Groups](../08/README.md) · [Next: Matrices and Cameras](../10/README.md)
 
 ## Experiment notes — write your own
 

@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 9 published in English
+Graphics · 4 stages · 28 units in the full series · 12 published in English
 
 ## Series goal
 
@@ -36,6 +36,9 @@ Only published English units are linked below. The full series has 28 units.
 
 - [08. Uniforms and Bind Groups](units/08/README.md) — Editable example
 - [09. Uniform Struct Alignment](units/09/README.md) — Editable example
+- [10. Matrices and Cameras](units/10/README.md) — Editable example
+- [11. Textures and Samplers](units/11/README.md) — Editable example
+- [12. Depth Attachments](units/12/README.md) — Editable example
 
 ### Stage 3 · Compute and Data Movement
 

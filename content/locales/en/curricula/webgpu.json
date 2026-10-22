@@ -253,6 +253,87 @@
         "references.0.title": "WebGPU API and Error Handling",
         "references.1.title": "WGSL Specification"
       }
+    },
+    "webgpu-step-10": {
+      "sourceHash": "dd34d76706e9d6089549cd77fc7839b9f93cc6b02e9e06349ff300e9c9a1ac45",
+      "values": {
+        "title": "Matrices and Cameras",
+        "concepts.0.title": "Transform Order",
+        "concepts.0.explanation": "The multiplication order of world, view, and projection matrices determines how positions are interpreted. Reordering the same matrices changes translation and the center of rotation.",
+        "concepts.1.title": "Depth Range",
+        "concepts.1.explanation": "WebGPU's clip depth range differs from WebGL's. Check that the projection function follows the target API's depth convention.",
+        "outcomes.0": "Build camera transforms.",
+        "outcomes.1": "Validate the depth-coordinate convention.",
+        "steps.0": "Separate model, view, and projection matrices in camera.js.",
+        "steps.1": "Upload a 64-byte mat4x4f uniform and return the multiplied position from the vertex shader.",
+        "steps.2": "Print clip z/w for markers on the near and far planes and check the 0..1 range.",
+        "variables.0.name": "Matrix order",
+        "variables.0.baseline": "Product intended to produce translation followed by rotation",
+        "variables.0.change": "Swap the two matrices",
+        "variables.0.expected": "The object center and orbital motion are expected to change.",
+        "criteria.0": "Record normalized depths for near-plane and far-plane markers.",
+        "criteria.1": "Compare the center positions of both matrix orders numerically.",
+        "questions.0": "Which range changes if you use a WebGL projection matrix unchanged?",
+        "questions.1": "How do you match CPU matrix storage order to shader operations?",
+        "prerequisites": "Continue using the output and notes from unit 9. Preserve the previous inputs and reference outputs before the Matrices and Cameras experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-11": {
+      "sourceHash": "77a38d9da00c8e773e50231127a52335fa2ba2a5686d1f183aabc90adf859550",
+      "values": {
+        "title": "Textures and Samplers",
+        "concepts.0.title": "Separate Roles",
+        "concepts.0.explanation": "A texture stores texel data, while a sampler determines interpolation and boundary handling. Connect them through separate bindings.",
+        "concepts.1.title": "Input Color",
+        "concepts.1.explanation": "The image color representation and texture format affect the displayed result. First check orientation and channels with a small pattern you create yourself.",
+        "outcomes.0": "Connect texture input.",
+        "outcomes.1": "Compare the effects of sampler settings.",
+        "steps.0": "In texture.js, create a 2×2 RGBA pattern and upload it with queue.writeTexture.",
+        "steps.1": "Connect texture_2d and sampler bindings to the fragment shader.",
+        "steps.2": "Compare UV orientation and nearest and linear sampling, and record the four corner colors.",
+        "variables.0.name": "filter",
+        "variables.0.baseline": "nearest",
+        "variables.0.change": "linear",
+        "variables.0.expected": "Colors are expected to blend smoothly at boundaries.",
+        "criteria.0": "Check the positions of all four corner colors in the 2×2 pattern.",
+        "criteria.1": "Save the difference in boundary output between the two filters.",
+        "questions.0": "Why treat a texture and sampler as separate resources?",
+        "questions.1": "How do you distinguish a UV Y-direction error from an image row-order error?",
+        "prerequisites": "Continue using the output and notes from unit 10. Preserve the previous inputs and reference outputs before the Textures and Samplers experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
+    },
+    "webgpu-step-12": {
+      "sourceHash": "5632b5c4161f754a84614f0955800928b1dbf019f4853f1220803068ae2fe162",
+      "values": {
+        "title": "Depth Attachments",
+        "concepts.0.title": "Depth Testing",
+        "concepts.0.explanation": "A depth texture stores the front-to-back relationship of fragments. A color attachment alone cannot provide occlusion independent of drawing order.",
+        "concepts.1.title": "Lifetime",
+        "concepts.1.explanation": "When the size changes, recreate the depth texture at the same size. Release the replaced texture when it is no longer used.",
+        "outcomes.0": "Configure depth testing.",
+        "outcomes.1": "Manage attachment sizes and lifetimes.",
+        "steps.0": "Add a depth24plus texture and depthStencil settings in depth.js.",
+        "steps.1": "Place two overlapping triangles at different depths and reverse their draw order.",
+        "steps.2": "Record depthClearValue, depthCompare, and depthWriteEnabled while comparing results.",
+        "variables.0.name": "Depth testing",
+        "variables.0.baseline": "Disabled",
+        "variables.0.change": "less with writes enabled",
+        "variables.0.expected": "Opaque-shape occlusion is expected to be independent of draw order.",
+        "criteria.0": "The same shape is in front in both draw orders.",
+        "criteria.1": "The depth attachment size matches the color output size.",
+        "questions.0": "Is the same depth-write policy suitable for transparent objects?",
+        "questions.1": "Why must the depth clear value and comparison be chosen together?",
+        "prerequisites": "Continue using the output and notes from unit 11. Preserve the previous inputs and reference outputs before the Depth Attachments experiment.",
+        "environment": "First read the execution-scope guidance on the example screen. The following preparation is for extending the assignment in a separate project. This is a document-guided exercise to implement yourself in a separate localhost or HTTPS project. Check the secure context, navigator.gpu, and adapter request result, and provide an unsupported-environment message. Preserve device.lost handling and resource release.",
+        "references.0.title": "WebGPU API and Error Handling",
+        "references.1.title": "WGSL Specification"
+      }
     }
   }
 }

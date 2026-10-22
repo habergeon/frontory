@@ -3058,6 +3058,36 @@
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
+      "id": "webgpu-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "Matrices and Cameras",
+      "goal": "Build camera transforms. Validate the depth-coordinate convention.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/10/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Textures and Samplers",
+      "goal": "Connect texture input. Compare the effects of sampler settings.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/11/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
+      "id": "webgpu-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Depth Attachments",
+      "goal": "Configure depth testing. Manage attachment sizes and lifetimes.",
+      "docPath": "/docs/en/labs/graphics/webgpu/units/12/README.md",
+      "seriesId": "webgpu",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    {
       "id": "react-three-fiber-01",
       "day": 1,
       "week": 1,

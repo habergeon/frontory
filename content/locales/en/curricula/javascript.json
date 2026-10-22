@@ -526,6 +526,84 @@
         "questions.1": "What is lost when a storage failure is ignored?",
         "references.0.title": "MDN JavaScript Guide"
       }
+    },
+    "javascript-step-20": {
+      "sourceHash": "739fb659187d0ff3045a58880eaab012bd07962ce84066c88feace1cfe55ef9a",
+      "values": {
+        "title": "URL Filters and Back Navigation",
+        "prerequisites": "The work and experiment records from Unit 19, “Storage and Restore Failures”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Search Parameters",
+        "concepts.0.explanation": "URLSearchParams handles query encoding. get and getAll read repeated keys differently.",
+        "concepts.1.title": "History",
+        "concepts.1.explanation": "pushState adds a new history entry. Handle popstate on back navigation to synchronize the screen as well.",
+        "outcomes.0": "The address and selected filter match after a refresh.",
+        "criteria.0": "The address and selected filter match after a refresh.",
+        "outcomes.1": "Restore the previous list after navigating back.",
+        "criteria.1": "Restore the previous list after navigating back.",
+        "steps.0": "In route.js, prepare changing the topic twice, then navigating back and refreshing.",
+        "steps.1": "Read topic to apply the filter, update the URL when it changes, and handle popstate.",
+        "steps.2": "Run by changing the topic twice, then navigating back and refreshing. Results to check: The address and selected filter match after a refresh. Restore the previous list after navigating back. Record expected and actual results separately.",
+        "variables.0.name": "Topic",
+        "variables.0.baseline": "css",
+        "variables.0.change": "Korean characters and spaces",
+        "variables.0.expected": "Hypothesis before running: The restored string will match the original value. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "Does pushState immediately trigger popstate?",
+        "questions.1": "How should an unknown filter be handled?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-step-21": {
+      "sourceHash": "152ff6e3bdb79748ef0f4f9c64d0b2657aa45ba497cd3769e69ce922d88d8325",
+      "values": {
+        "title": "FormData and Domain Validation",
+        "prerequisites": "The work and experiment records from Unit 20, “URL Filters and Back Navigation”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Collecting Form Values",
+        "concepts.0.explanation": "FormData collects values from successful controls with a name. Unchecked items and disabled inputs may be omitted.",
+        "concepts.1.title": "Product Rules",
+        "concepts.1.explanation": "Native constraints differ from the product's input rules. A whitespace-only title needs separate normalization and validation.",
+        "outcomes.0": "A whitespace-only title is not added to the list.",
+        "criteria.0": "A whitespace-only title is not added to the list.",
+        "outcomes.1": "Record 2 pairs of collected entries for checked and unchecked states.",
+        "criteria.1": "Record 2 pairs of collected entries for checked and unchecked states.",
+        "steps.0": "In form.js, prepare a whitespace-only title, an unchecked checkbox, and a disabled field.",
+        "steps.1": "Read FormData on submit, validate the title and minutes, then add the note.",
+        "steps.2": "Run with a whitespace-only title, an unchecked checkbox, and a disabled field. Results to check: A whitespace-only title is not added to the list. Record 2 pairs of collected entries for checked and unchecked states. Record expected and actual results separately.",
+        "variables.0.name": "Checkbox",
+        "variables.0.baseline": "Checked",
+        "variables.0.change": "Unchecked",
+        "variables.0.expected": "Hypothesis before running: The corresponding key will be absent from FormData. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "What is omitted when name is missing?",
+        "questions.1": "Does client-side validation replace server-side validation?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
+    },
+    "javascript-step-22": {
+      "sourceHash": "e211ded01470b9f7f0f77b8eff4c1e4655e9aa30b885c94e1749109337604165",
+      "values": {
+        "title": "Exporting JSON with Blob",
+        "prerequisites": "The work and experiment records from Unit 21, “FormData and Domain Validation”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, connect your practice JS from index.html using script type=\"module\" and open it through a local HTTP server. Use the Console, Network, and Elements panels.",
+        "concepts.0.title": "Serialization",
+        "concepts.0.explanation": "JSON.stringify converts data into a string. Functions and undefined are not preserved in the way you might expect.",
+        "concepts.1.title": "Object URLs",
+        "concepts.1.explanation": "A Blob URL refers to the generated file data. Release it with revokeObjectURL when you have finished using it.",
+        "outcomes.0": "The exported file contains 3 notes and a version value.",
+        "criteria.0": "The exported file contains 3 notes and a version value.",
+        "outcomes.1": "Every generated object URL has a cleanup path.",
+        "criteria.1": "Every generated object URL has a cleanup path.",
+        "steps.0": "In export.js, prepare 3 notes and titles containing Korean characters and line breaks.",
+        "steps.1": "Create a Blob containing the notes and schemaVersion, and save notes.json using a download link.",
+        "steps.2": "Run with 3 notes and titles containing Korean characters and line breaks. Results to check: The exported file contains 3 notes and a version value. Every generated object URL has a cleanup path. Record expected and actual results separately.",
+        "variables.0.name": "Title",
+        "variables.0.baseline": "English text",
+        "variables.0.change": "Korean characters and line breaks",
+        "variables.0.expected": "Hypothesis before running: The restored string will match the original. Keep the other conditions fixed and record the actual result separately after running.",
+        "questions.0": "Which values disappear during serialization?",
+        "questions.1": "What happens if the URL is released too early?",
+        "references.0.title": "MDN JavaScript Guide"
+      }
     }
   }
 }

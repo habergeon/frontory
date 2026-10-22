@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 19 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 22 published in English
 
 ## Series goal
 
@@ -49,9 +49,12 @@ Only published English units are linked below. The full series has 28 units.
 - [17. Debouncing and Timer Cleanup](units/17/README.md) — Editable example
 - [18. Public Interfaces of ES Modules](units/18/README.md) — Editable example
 - [19. Storage and Restore Failures](units/19/README.md) — Editable example
+- [20. URL Filters and Back Navigation](units/20/README.md) — Editable example
+- [21. FormData and Domain Validation](units/21/README.md) — Editable example
 
 ### Stage 4 · Integrating and verifying the experiment log
 
+- [22. Exporting JSON with Blob](units/22/README.md) — Editable example
 
 ## Capstone project and deliverables
 

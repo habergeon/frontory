@@ -111,5 +111,23 @@
     "values": {
       "note": "The practice-only key is removed after execution. SecurityError caused by the iframe storage policy is also displayed."
     }
+  },
+  "javascript-step-20": {
+    "sourceHash": "5a8d7cfcd1393383d12eca295132c81c4c935efa7f71b6007179ef6bef89d48c",
+    "values": {
+      "note": "This example runs a URLSearchParams encoding round trip. Test the actual address bar and back navigation with popstate on a separate HTTP page."
+    }
+  },
+  "javascript-step-21": {
+    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "values": {
+      "note": "Compare the editable inputs with actual browser execution results."
+    }
+  },
+  "javascript-step-22": {
+    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "values": {
+      "note": "Compare the editable inputs with actual browser execution results."
+    }
   }
 }

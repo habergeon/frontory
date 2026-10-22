@@ -247,6 +247,36 @@
       "exampleNote": "The practice-only key is removed after execution. SecurityError caused by the iframe storage policy is also displayed."
     },
     {
+      "id": "javascript-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "URL Filters and Back Navigation",
+      "goal": "The address and selected filter match after a refresh. Restore the previous list after navigating back.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/20/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "This example runs a URLSearchParams encoding round trip. Test the actual address bar and back navigation with popstate on a separate HTTP page."
+    },
+    {
+      "id": "javascript-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "FormData and Domain Validation",
+      "goal": "A whitespace-only title is not added to the list. Record 2 pairs of collected entries for checked and unchecked states.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/21/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
+      "id": "javascript-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Exporting JSON with Blob",
+      "goal": "The exported file contains 3 notes and a version value. Every generated object URL has a cleanup path.",
+      "docPath": "/docs/en/labs/fundamentals/javascript/units/22/README.md",
+      "seriesId": "javascript",
+      "exampleNote": "Compare the editable inputs with actual browser execution results."
+    },
+    {
       "id": "css-step-04",
       "day": 4,
       "week": 1,

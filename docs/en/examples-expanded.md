@@ -25,6 +25,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [17. Debouncing and Timer Cleanup](labs/fundamentals/javascript/units/17/README.md) | Editable example | [Source code](../../src/labs/javascript-step-17/example.js) — Compare the editable inputs with actual browser execution results. |
 | [18. Public Interfaces of ES Modules](labs/fundamentals/javascript/units/18/README.md) | Editable example | [Source code](../../src/labs/javascript-step-18/example.js) — This example runs the public interface of a Blob ES module. Test actual separation into relative files and Network paths in an HTTP project. |
 | [19. Storage and Restore Failures](labs/fundamentals/javascript/units/19/README.md) | Editable example | [Source code](../../src/labs/javascript-step-19/example.js) — The practice-only key is removed after execution. SecurityError caused by the iframe storage policy is also displayed. |
+| [20. URL Filters and Back Navigation](labs/fundamentals/javascript/units/20/README.md) | Editable example | [Source code](../../src/labs/javascript-step-20/example.js) — This example runs a URLSearchParams encoding round trip. Test the actual address bar and back navigation with popstate on a separate HTTP page. |
+| [21. FormData and Domain Validation](labs/fundamentals/javascript/units/21/README.md) | Editable example | [Source code](../../src/labs/javascript-step-21/example.js) — Compare the editable inputs with actual browser execution results. |
+| [22. Exporting JSON with Blob](labs/fundamentals/javascript/units/22/README.md) | Editable example | [Source code](../../src/labs/javascript-step-22/example.js) — Compare the editable inputs with actual browser execution results. |
 
 ## CSS
 

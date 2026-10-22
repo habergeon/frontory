@@ -33,8 +33,8 @@ export function PracticeGuide({ unit, onDocument, locale = 'ko' }: { unit: Unit;
     {expanded && <div id="practice-guide-body" aria-busy={!current}>
       {!current ? <p role="status">{locale === 'en' ? 'Loading practice guide…' : '실습 안내 불러오는 중…'}</p>
         : current.error ? <p role={current.error === 'failed' ? 'alert' : 'status'}>{locale === 'en'
-          ? current.error === 'missing' ? 'This practice guide is not available in English yet.' : 'Could not load the practice guide. Select the unit again to retry.'
-          : current.error === 'missing' ? '실습 안내가 없습니다.' : '실습 안내를 불러오지 못했습니다. 단위를 다시 선택해 주세요.'}{current.error === 'missing' && locale === 'en' && <> <button className="text-link" onClick={() => onDocument(koDocPath)}>Read the Korean document</button></>}</p>
+          ? current.error === 'missing' ? 'This practice guide is not available in English yet.' : 'Could not load the practice guide. Select another unit, then return to retry.'
+          : current.error === 'missing' ? '실습 안내가 없습니다.' : '실습 안내를 불러오지 못했습니다. 다른 단위를 선택한 뒤 돌아와 주세요.'}{current.error === 'missing' && locale === 'en' && <> <button className="text-link" onClick={() => onDocument(koDocPath)}>Read the Korean document</button></>}</p>
         : <div className="practice-guide-grid">
           <div><h3>{copy.guideSteps}</h3>{markdown(guide.steps || copy.guideFallback)}</div>
           <div className="practice-guide-observe"><h3>{copy.guideObserve}</h3>{markdown(guide.variables)}<p>{copy.observeHint}</p><h3>{copy.guideComplete}</h3>{markdown(guide.criteria)}</div>

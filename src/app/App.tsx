@@ -1,15 +1,26 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
-import { units } from './curriculum'
+import { getLocalizedUnit, units } from './curriculum'
 import { Home } from './Home'
 import { DocumentDialog } from './DocumentDialog'
 import { BackupControls } from './BackupControls'
 import { LearningNavigator } from './LearningNavigator'
 import { PracticeGuide } from './PracticeGuide'
+import { useLocale } from '../i18n/LocaleProvider'
+import { messages } from '../i18n/messages'
+import { localizePath, practicePath } from '../i18n/locale'
+import { localizedDocPath } from './documents'
 
 const Workspace = lazy(() => import('./Workspace').then(module => ({ default: module.Workspace })))
 const fromHash = () => units.find(unit => unit.id === window.location.hash.slice(1)) ?? null
 export function App() {
+  const { locale, setLocale } = useLocale()
+  const copy = messages[locale]
   const [selected, setSelected] = useState(fromHash)
+  const localizedUnit = selected && getLocalizedUnit(locale, selected.id)
+  useEffect(() => {
+    document.documentElement.lang = locale
+    document.title = localizedUnit ? localizedUnit.title + ' · Frontory' : 'Frontory'
+  }, [locale, localizedUnit])
   const [documentPath, setDocumentPath] = useState<string | null>(null)
   const [restoreRevision, setRestoreRevision] = useState(0)
   const [, refreshProgress] = useState(0)
@@ -28,17 +39,17 @@ export function App() {
   }
   return <main className={'app-shell' + (!selected ? ' home-shell' : '')}>
     <header className="app-header">
-      <a className="brand home-brand" href="#" aria-label="Frontory 홈"><span className="brand-mark" aria-hidden="true">F<span>↗</span></span><div><strong>Frontory</strong>{selected && <p>배우고, 실험하고, 나의 경험으로 남기다.</p>}</div></a>
-      <nav aria-label="학습 안내">{selected ? <a href="#">홈으로</a> : <a href="#series">시리즈 탐색</a>}<button onClick={() => setDocumentPath('/docs/learning-workspace.md')}>사용법</button>{!selected && <a className="home-github" href="https://github.com/habergeon/frontory" target="_blank" rel="noreferrer">GitHub ↗</a>}</nav>
+      <a className="brand home-brand" href="#" aria-label={copy.brandHome}><span className="brand-mark" aria-hidden="true">F<span>↗</span></span><div><strong>Frontory</strong>{selected && <p>{copy.tagline}</p>}</div></a>
+      <nav aria-label={copy.learningNavigation}>{selected ? <a href="#">{copy.home}</a> : <a href="#series">{copy.exploreSeries}</a>}<button onClick={() => setDocumentPath(localizedDocPath(locale, '/docs/learning-workspace.md'))}>{copy.usage}</button>{!selected && <a className="home-github" href="https://github.com/habergeon/frontory" target="_blank" rel="noreferrer">GitHub ↗</a>}<span className="interface-language" role="group" aria-label={copy.interfaceLanguage}><button onClick={() => setLocale(locale === 'ko' ? 'en' : 'ko')} lang={locale === 'ko' ? 'en' : 'ko'}>{locale === 'ko' ? 'English' : '한국어'}</button></span></nav>
     </header>
     {!selected ? <Home onSelect={select} /> : <>
     <LearningNavigator selected={selected} onSelect={select} onDocument={setDocumentPath} />
-    <PracticeGuide key={selected.id} unit={selected} onDocument={setDocumentPath} />
-    <p><a href={'/learn/' + selected.seriesId + '/' + selected.id + '/'}>이 학습의 공개 문서 · 공유 주소</a></p>
-    <details className="backup-disclosure"><summary>학습 아카이브 · 전체 JSON 내보내기 / 가져오기</summary><BackupControls selectedId={selected.id} onRestore={id => { select(id); setRestoreRevision(value => value + 1) }} /></details>
-    <Suspense fallback={<p role="status">실습 환경을 준비하고 있습니다…</p>}><Workspace key={selected.id + ':' + restoreRevision} unit={selected} onProgressChange={() => refreshProgress(value => value + 1)} /></Suspense>
+    {localizedUnit && <PracticeGuide key={selected.id} unit={localizedUnit} locale={locale} onDocument={setDocumentPath} />}
+    {localizedUnit ? <p><a href={localizePath(locale, '/learn/' + selected.seriesId + '/' + selected.id + '/')}>{copy.publicDocument}</a></p> : <p role="status">This lesson is not available in English yet. <a href={practicePath('ko', selected.id)} onClick={event => { event.preventDefault(); setLocale('ko') }}>Read the Korean lesson</a></p>}
+    <details className="backup-disclosure"><summary>{copy.archive}</summary><BackupControls selectedId={selected.id} onRestore={id => { select(id); setRestoreRevision(value => value + 1) }} /></details>
+    <Suspense fallback={<p role="status">{copy.preparingWorkspace}</p>}><Workspace key={selected.id + ':' + restoreRevision} unit={selected} onProgressChange={() => refreshProgress(value => value + 1)} /></Suspense>
     </>}
-    {documentPath && <DocumentDialog initialPath={documentPath} unitPath={selected?.docPath ?? '/docs/labs/README.md'} onClose={() => setDocumentPath(null)} />}
-    <footer className="app-footer"><span>Frontory · 기록은 이 브라우저에 저장됩니다. 정기적으로 JSON 백업을 내려받으세요.</span><nav aria-label="서비스 안내"><a href="/about/">소개와 문의</a><a href="/privacy/">저장 및 개인정보</a><a href="https://github.com/habergeon/frontory" target="_blank" rel="noreferrer">GitHub</a></nav></footer>
+    {documentPath && <DocumentDialog locale={locale} initialPath={documentPath} unitPath={selected?.docPath ?? '/docs/labs/README.md'} onClose={() => setDocumentPath(null)} />}
+    <footer className="app-footer"><span>{copy.footer}</span><nav aria-label={copy.serviceNavigation}><a href={localizePath(locale, '/about/')}>{copy.about}</a><a href={localizePath(locale, '/privacy/')}>{copy.privacy}</a><a href="https://github.com/habergeon/frontory" target="_blank" rel="noreferrer">GitHub</a></nav></footer>
   </main>
 }

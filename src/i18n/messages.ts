@@ -4,6 +4,7 @@ const ko = {
   brandHome: 'Frontory 홈',
   tagline: '배우고, 실험하고, 나의 경험으로 남기다.',
   learningNavigation: '학습 안내',
+  interfaceLanguage: '화면 언어',
   home: '홈으로',
   exploreSeries: '시리즈 탐색',
   usage: '사용법',
@@ -195,6 +196,7 @@ const en = {
   brandHome: 'Frontory home',
   tagline: 'Learn, experiment, and make it part of your experience.',
   learningNavigation: 'Learning navigation',
+  interfaceLanguage: 'Interface language',
   home: 'Home',
   exploreSeries: 'Explore series',
   usage: 'How to use',
@@ -208,7 +210,7 @@ const en = {
   heroTitle: 'Turn what you learn into things you build.',
   heroDescription: 'Read the docs, change the code, and write it in your own words.',
   browseSeries: 'Browse series',
-  catalogCount: '{seriesCount} series · {unitCount} learning units',
+  catalogCount: { one: '{seriesCount} series · {unitCount} learning unit', other: '{seriesCount} series · {unitCount} learning units' },
   learningMethod: 'How to learn with Frontory',
   readConcepts: 'Read concepts',
   readConceptsDescription: 'Read the goals and concepts, then choose a question to explore in this practice.',
@@ -242,8 +244,8 @@ const en = {
   close: 'Close · Esc',
   searchPlaceholder: 'React, Canvas, WebGPU…',
   categoryFilter: 'Category filter',
-  seriesSummary: '{count} series · 4 stages and 28 units per series · linked examples and document-based implementation tasks are marked separately.',
-  seriesCompletion: '{total} units · {completed} completed',
+  seriesSummary: '{count} series · currently published English units · linked examples and document-based implementation tasks are marked separately.',
+  seriesCompletion: { one: '{total} unit · {completed} completed', other: '{total} units · {completed} completed' },
   completionLabel: '{title} completion',
   prerequisiteShort: 'Prerequisites: {text}',
   externalTestSource: 'Test source for a separate environment',
@@ -251,7 +253,7 @@ const en = {
   noSeriesSuggestion: 'No matching series. Try a different search term or category.',
   learningJourney: 'Learning journey',
   webglJourney: 'A 28-step learning journey from scenes to an integrated viewer',
-  seriesJourney: 'Prerequisites: {text} · 4 stages, 28 units',
+  seriesJourney: 'Prerequisites: {text} · available English units',
   browseSeriesCount: 'Browse series · {count}',
   seriesPlan: 'Series learning plan',
   currentCompletion: 'Current series completion',
@@ -394,7 +396,7 @@ export type MessageParams = {
 export function message<Key extends keyof MessageParams>(locale: Locale, key: Key, params: MessageParams[Key]): string {
   const template: Template = messages[locale][key]
   const values = params as Record<string, string | number>
-  const text = typeof template === 'string' ? template : values.count === 1 ? template.one : template.other
+  const text = typeof template === 'string' ? template : (values.count ?? values.unitCount ?? values.total) === 1 ? template.one : template.other
   return text.replace(/\{(\w+)\}/g, (_, name: string) => String(values[name]))
 }
 
@@ -410,3 +412,10 @@ export const headings = {
     result: 'Actual results', learning: 'What I learned', questions: 'Remaining questions',
   },
 } as const
+
+const categoriesFor = (locale: Locale): Record<string, string> => ({
+  fundamentals: messages[locale].categoryFundamentals, frameworks: messages[locale].categoryFrameworks,
+  graphics: messages[locale].categoryGraphics, shader: messages[locale].categoryShader,
+  animation: messages[locale].categoryAnimation, engineering: messages[locale].categoryEngineering, testing: messages[locale].categoryTesting,
+})
+export const categoryLabels = { ko: categoriesFor('ko'), en: categoriesFor('en') }

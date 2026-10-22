@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Checking Behavior Regressions and Save Races](../26/README.md)
+[Previous: Checking Behavior Regressions and Save Races](../26/README.md) · [Next: Canvas Lifecycle](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

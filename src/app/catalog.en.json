@@ -1754,6 +1754,15 @@
       "exampleNote": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
     },
     {
+      "id": "vue-03",
+      "day": 28,
+      "week": 4,
+      "title": "Canvas Lifecycle",
+      "goal": "Active RAF, observer, and listener counts are 0 after final removal. Draft and Canvas controls work after speed changes and 10 remounts.",
+      "docPath": "/docs/en/labs/frameworks/vue/03-project/README.md",
+      "seriesId": "vue"
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 27 published in English
+UI frameworks · 4 stages · 28 units in the full series · 28 published in English
 
 ## Series goal
 
@@ -60,6 +60,7 @@ Only published English units are linked below. The full series has 28 units.
 - [25. Observing Vue Performance](units/25/README.md) — Editable example
 - [26. Checking Behavior Regressions and Save Races](units/26/README.md) — Editable example
 - [27. Composition API Integration Review](units/27/README.md) — Editable example
+- [28. Canvas Lifecycle](03-project/README.md) — Editable example
 
 ## Capstone project and deliverables
 

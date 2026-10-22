@@ -748,6 +748,34 @@
         "references.1.title": "Vue Watchers and cleanup",
         "references.2.title": "Vue Composables and Lifetime Management"
       }
+    },
+    "vue-03": {
+      "sourceHash": "bb37138e400c1bea7dc41094b0bc20e99a2458714fc4762f0b6900e389432202",
+      "values": {
+        "title": "Canvas Lifecycle",
+        "prerequisites": "Unit 28 builds on the work and experiment records from Unit 27.",
+        "environment": "Use .vue SFCs and script setup in a separate Vue Vite project. Record package versions and the lockfile, and run on the development server. The built-in Vue examples use the h function and are not a general-purpose SFC compiler. The existing vue-03 preview is a starting point. Implement the extended deliverables described here in a separate project.",
+        "concepts.0.title": "Render loop boundary",
+        "concepts.0.explanation": "onMounted and onUnmounted connect creation and termination of an external Canvas. Keep frame coordinates local and accept only user settings as reactive inputs.",
+        "concepts.1.title": "Comparing lifetimes",
+        "concepts.1.explanation": "React Effects also clean up and reset on dependency changes. In Vue, check mount lifetimes separately from watch rerun lifetimes.",
+        "outcomes.0": "Active RAF, observer, and listener counts are 0 after final removal.",
+        "outcomes.1": "Draft and Canvas controls work after speed changes and 10 remounts.",
+        "steps.0": "Integrate Canvas in src/Workspace.vue with speed controls, resizing, and unit switching.",
+        "steps.1": "Record RAF, observer, and listener counts across 10 remounts and return after hiding.",
+        "steps.2": "Submit the React comparison table, draft preservation results, performance measurements, and failure recovery together in notes/final.md.",
+        "variables.0.name": "Frame storage",
+        "variables.0.baseline": "Reactive angle",
+        "variables.0.change": "Local angle",
+        "variables.0.expected": "UI update frequency differs while preserving the same movement.",
+        "criteria.0": "Active RAF, observer, and listener counts are 0 after final removal.",
+        "criteria.1": "Draft and Canvas controls work after speed changes and 10 remounts.",
+        "questions.0": "Which resources belong in watch cleanup and which in onUnmounted?",
+        "questions.1": "What supports separating local frame values from reactive settings?",
+        "references.0.title": "Vue Composition API Guide",
+        "references.1.title": "Vue Watchers and cleanup",
+        "references.2.title": "Vue Composables and Lifetime Management"
+      }
     }
   }
 }

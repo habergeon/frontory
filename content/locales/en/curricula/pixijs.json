@@ -1,0 +1,95 @@
+{
+  "series": {
+    "sourceHash": "2ca2a2b43948722b4559b3c9424fc02c4dd7eca79be016c7afc05389682f22ef",
+    "values": {
+      "stages.0": "Application, Coordinates, and Display Objects",
+      "stages.1": "Ticker, Assets, and Pointer Input",
+      "stages.2": "Accessibility, Scene Composition, and Effects",
+      "stages.3": "Resource Ownership, Large-Scale Rendering, and Measurement",
+      "goal": "Understand PixiJS 8 scene graphs and asynchronous resource lifetimes, and build an interactive 2D editor.",
+      "capstone": "An atlas-based 2D scene editor, keyboard controls and failure recovery, and a comparison report on batching, filters, and resolution"
+    }
+  },
+  "units": {
+    "pixijs-01": {
+      "sourceHash": "464c6c40e9461d6a15b8ec67a1d893aba7f319a3caae3f92e167e59d3dc8def9",
+      "values": {
+        "title": "Application and Scene Graph",
+        "prerequisites": "You should understand JavaScript asynchronous functions and DOM events, and Canvas 2D coordinates and time-based loops.",
+        "environment": "The existing built-in example provides only a starting point. It does not implement all the extended requirements. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Asynchronous Initialization",
+        "concepts.0.explanation": "PixiJS 8 waits for init after creating an Application. Using canvas or renderer before initialization may access resources that are not ready.",
+        "concepts.1.title": "Parent Containers",
+        "concepts.1.explanation": "A Container's transform combines with its children's displayed positions. You can move a group without moving each child's coordinates directly.",
+        "outcomes.0": "Use screen resources only after initialization completes.",
+        "outcomes.1": "Compare manual Canvas drawing with scene graph updates.",
+        "steps.0": "Prepare day-01.js and index.html in the external practice project. Read the existing pixijs-01 and attach app.canvas after new Application and await app.init.",
+        "steps.1": "Add two Sprites with local textures to a Container and accept input for the parent's position and rotation.",
+        "steps.2": "Save the output with the input condition 0, then run again with PI/4. Expected: The entire group rotates while the children's local coordinates stay unchanged. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-01-notes.md.",
+        "variables.0.name": "Parent rotation",
+        "variables.0.baseline": "0",
+        "variables.0.change": "PI/4",
+        "variables.0.expected": "The entire group rotates while the children's local coordinates stay unchanged",
+        "criteria.0": "Use screen resources only after initialization completes.",
+        "criteria.1": "Compare manual Canvas drawing with scene graph updates.",
+        "questions.0": "What ordering problem occurs if you do not await init?",
+        "questions.1": "Do you also need to change each child's position when moving the parent?",
+        "references.0.title": "PixiJS 8 app",
+        "references.1.title": "PixiJS 8 container"
+      }
+    },
+    "pixijs-step-02": {
+      "sourceHash": "d79594e12e08308bd2967c9e2f74e874a28754f6546b8cc3e06f1957fe6f907a",
+      "values": {
+        "title": "Sprites and Anchors",
+        "prerequisites": "Prerequisite concepts: Asynchronous Initialization, Parent Containers. Prepare the output files and observation records from Unit 1.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Texture Representation",
+        "concepts.0.explanation": "A Sprite is a display object combining a Texture and a transform. Multiple Sprites can use the same Texture.",
+        "concepts.1.title": "Anchors",
+        "concepts.1.explanation": "anchor is a normalized reference point relative to the texture size. Do not confuse it with pivot, which uses local pixels.",
+        "outcomes.0": "Distinguish anchors from positions.",
+        "outcomes.1": "Move Sprites sharing a texture independently.",
+        "steps.0": "Prepare day-02.js and index.html in the external practice project. Load a local image with Assets.load and create three Sprites.",
+        "steps.1": "Set anchor to 0,0.5,1, rotate at the same position, and mark the reference point.",
+        "steps.2": "Save the output with the input condition 0,0, then run again with 0.5,0.5. Expected: position points to the center of the image instead of its upper-left corner. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-02-notes.md.",
+        "variables.0.name": "anchor",
+        "variables.0.baseline": "0,0",
+        "variables.0.change": "0.5,0.5",
+        "variables.0.expected": "position points to the center of the image instead of its upper-left corner",
+        "criteria.0": "Distinguish anchors from positions.",
+        "criteria.1": "Move Sprites sharing a texture independently.",
+        "questions.0": "Does changing anchor also change the position value?",
+        "questions.1": "How do pivot and anchor differ when the size changes?",
+        "references.0.title": "PixiJS 8 sprite",
+        "references.1.title": "PixiJS 8 assets"
+      }
+    },
+    "pixijs-step-03": {
+      "sourceHash": "5c371e73a9342f06d820fe8d2a501688e9c5229cb0af8e59c0cbbfc803cb66a2",
+      "values": {
+        "title": "Containers and Local Coordinates",
+        "prerequisites": "Prerequisite concepts: Texture Representation, Anchors. Prepare the output files and observation records from Unit 2.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Nested Transforms",
+        "concepts.0.explanation": "A parent's scale and rotation affect a child's global position. Printing local and global coordinates separately lets you trace the transform path.",
+        "concepts.1.title": "Inverse Coordinate Transforms",
+        "concepts.1.explanation": "toLocal converts a global point into the container's coordinates. This is useful when converting screen input into data positions.",
+        "outcomes.0": "Check errors in coordinate round trips.",
+        "outcomes.1": "Adjust parent and child transforms independently.",
+        "steps.0": "Prepare day-03.js and index.html in the external practice project. Put a Sprite inside two nested Containers and show each axis with Graphics.",
+        "steps.1": "Record getGlobalPosition and toLocal results side by side in an HTML output.",
+        "steps.2": "Save the output with the input condition 1, then run again with 2. Expected: The same local movement of the child appears twice as large on screen. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-03-notes.md.",
+        "variables.0.name": "Parent scale",
+        "variables.0.baseline": "1",
+        "variables.0.change": "2",
+        "variables.0.expected": "The same local movement of the child appears twice as large on screen",
+        "criteria.0": "Check errors in coordinate round trips.",
+        "criteria.1": "Adjust parent and child transforms independently.",
+        "questions.0": "What goes wrong if you convert a global point to local twice?",
+        "questions.1": "Is movement along the x axis still horizontal on screen when the parent rotates?",
+        "references.0.title": "PixiJS 8 container"
+      }
+    }
+  }
+}

@@ -82,5 +82,12 @@
       "title": "React Three Fiber",
       "prerequisites": "React effect and ref; Three.js"
     }
+  },
+  "pixijs": {
+    "sourceHash": "90411d95ce5f122a1ce37c2eab215c3531c61008b252fc0514d49735516db39f",
+    "values": {
+      "title": "PixiJS",
+      "prerequisites": "Canvas 2D loops and textures"
+    }
   }
 }

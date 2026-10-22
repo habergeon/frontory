@@ -155,6 +155,20 @@
       ]
     },
     {
+      "id": "pixijs",
+      "title": "PixiJS",
+      "category": "graphics",
+      "priority": 4,
+      "prerequisites": "Canvas 2D loops and textures",
+      "docPath": "/docs/en/labs/graphics/pixijs/README.md",
+      "stages": [
+        "Application, Coordinates, and Display Objects",
+        "Ticker, Assets, and Pointer Input",
+        "Accessibility, Scene Composition, and Effects",
+        "Resource Ownership, Large-Scale Rendering, and Measurement"
+      ]
+    },
+    {
       "id": "gsap",
       "title": "GSAP",
       "category": "animation",
@@ -3216,6 +3230,35 @@
       "goal": "Stationary display, clicks, and animation completion all work in demand mode. Explain the final policy with draw call, frame, and disposal records under the same conditions.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/03-project/README.md",
       "seriesId": "react-three-fiber"
+    },
+    {
+      "id": "pixijs-01",
+      "day": 1,
+      "week": 1,
+      "title": "Application and Scene Graph",
+      "goal": "Use screen resources only after initialization completes. Compare manual Canvas drawing with scene graph updates.",
+      "docPath": "/docs/en/labs/graphics/pixijs/01-foundations/README.md",
+      "seriesId": "pixijs"
+    },
+    {
+      "id": "pixijs-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Sprites and Anchors",
+      "goal": "Distinguish anchors from positions. Move Sprites sharing a texture independently.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/02/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "pixijs-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Containers and Local Coordinates",
+      "goal": "Check errors in coordinate round trips. Adjust parent and child transforms independently.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/03/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
       "id": "gsap-01",

@@ -30,7 +30,7 @@ There are currently **23 series / 644 units**. Every series has 4 stages and 28 
 - [Gaussian Splatting (Korean)](../../labs/graphics/gaussian-splatting/README.md) — ★★★★★ / 28 units / Prerequisites: Three.js cameras and projection, alpha blending
 - [WebGPU (Korean)](../../labs/graphics/webgpu/README.md) — ★★★★★ / 28 units / Prerequisites: WebGL pipeline, TypedArray, asynchronous work
 - [React Three Fiber](graphics/react-three-fiber/README.md) — ★★★★★ / 28 units / Prerequisites: React effect and ref, Three.js
-- [PixiJS (Korean)](../../labs/graphics/pixijs/README.md) — ★★★★ / 28 units / Prerequisites: Canvas 2D loops and textures
+- [PixiJS](graphics/pixijs/README.md) — ★★★★ / 28 units / Prerequisites: Canvas 2D loops and textures
 
 ## Shaders
 

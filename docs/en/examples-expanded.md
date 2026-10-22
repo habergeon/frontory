@@ -334,6 +334,13 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [26. Alternative Controls and Errors in 3D UI](labs/graphics/react-three-fiber/units/26/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-26/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 | [27. Performance Experiments for the Integrated Scene](labs/graphics/react-three-fiber/units/27/README.md) | Editable example | [Source code](../../src/labs/react-three-fiber-step-27/example.js) — This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required. |
 
+## PixiJS
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Sprites and Anchors](labs/graphics/pixijs/units/02/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-02/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [3. Containers and Local Coordinates](labs/graphics/pixijs/units/03/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-03/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+
 ## GSAP
 
 | Learning unit | Execution mode | Source and supported scope |

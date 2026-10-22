@@ -1,0 +1,14 @@
+{
+  "pixijs-step-02": {
+    "sourceHash": "8a97de2b6647b31f63db11136d2a47805eb2ade5b687e20dd6af8f89faa81510",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "pixijs-step-03": {
+    "sourceHash": "c4a42e52f05d52e814e5ca939b0fbff12eb3571828bf7f591a7482ecb6b4910b",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  }
+}

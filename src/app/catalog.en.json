@@ -2709,6 +2709,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "threejs-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Shared Geometry and Cloning",
+      "goal": "Reproduce the difference between shared and independent materials. Record the material owner.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/07/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "threejs-step-08",
+      "day": 8,
+      "week": 2,
+      "title": "Light Types and Placement",
+      "goal": "Distinguish the light position from its target. Explain the material response when lights are off.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/08/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "threejs-step-09",
+      "day": 9,
+      "week": 2,
+      "title": "Roughness and Metalness",
+      "goal": "Compare the two material variables independently. Record the lighting conditions.",
+      "docPath": "/docs/en/labs/graphics/threejs/units/09/README.md",
+      "seriesId": "threejs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

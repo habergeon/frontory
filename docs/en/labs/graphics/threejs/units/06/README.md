@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Buffer Geometry](../05/README.md)
+[Previous: Buffer Geometry](../05/README.md) · [Next: Shared Geometry and Cloning](../07/README.md)
 
 ## Experiment notes — write your own
 

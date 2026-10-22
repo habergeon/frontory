@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 6 published in English
+Graphics · 4 stages · 28 units in the full series · 9 published in English
 
 ## Series goal
 
@@ -30,9 +30,12 @@ Only published English units are linked below. The full series has 28 units.
 - [04. Rotation and Pivots](units/04/README.md) — Editable example
 - [05. Buffer Geometry](units/05/README.md) — Editable example
 - [06. Normals and Surface Orientation](units/06/README.md) — Editable example
+- [07. Shared Geometry and Cloning](units/07/README.md) — Editable example
 
 ### Stage 2 · Lighting, Materials, and Model Selection
 
+- [08. Light Types and Placement](units/08/README.md) — Editable example
+- [09. Roughness and Metalness](units/09/README.md) — Editable example
 
 ### Stage 3 · Animation, Instancing, and Render Passes
 
@@ -52,3 +55,5 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [Three.js WebGLRenderer](https://threejs.org/docs/pages/WebGLRenderer.html)
 - [Three.js BufferGeometry](https://threejs.org/docs/pages/BufferGeometry.html)
 - [Three.js MeshStandardMaterial](https://threejs.org/docs/pages/MeshStandardMaterial.html)
+- [Three.js Cleanup](https://threejs.org/manual/pages/cleanup.html)
+- [Three.js Shadows](https://threejs.org/manual/pages/shadows.html)

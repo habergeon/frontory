@@ -283,6 +283,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [4. Rotation and Pivots](labs/graphics/threejs/units/04/README.md) | Editable example | [Source code](../../src/labs/threejs-step-04/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [5. Buffer Geometry](labs/graphics/threejs/units/05/README.md) | Editable example | [Source code](../../src/labs/threejs-step-05/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [6. Normals and Surface Orientation](labs/graphics/threejs/units/06/README.md) | Editable example | [Source code](../../src/labs/threejs-step-06/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [7. Shared Geometry and Cloning](labs/graphics/threejs/units/07/README.md) | Editable example | [Source code](../../src/labs/threejs-step-07/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [8. Light Types and Placement](labs/graphics/threejs/units/08/README.md) | Editable example | [Source code](../../src/labs/threejs-step-08/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [9. Roughness and Metalness](labs/graphics/threejs/units/09/README.md) | Editable example | [Source code](../../src/labs/threejs-step-09/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

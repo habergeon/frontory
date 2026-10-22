@@ -168,6 +168,86 @@
         "references.0.title": "Three.js BufferGeometry",
         "references.1.title": "Three.js MeshStandardMaterial"
       }
+    },
+    "threejs-step-07": {
+      "sourceHash": "b91c144812cb23d9c68ac773bcd35f9930b2c6268a392007a1cefea890a10acd",
+      "values": {
+        "title": "Shared Geometry and Cloning",
+        "prerequisites": "Prerequisite concepts: The Role of Normals, Smoothing. Prepare the result files and observation notes from unit 6.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Shared References",
+        "concepts.0.explanation": "Multiple Mesh objects can reference one geometry or material. Changing a shared resource affects every object that references it.",
+        "concepts.1.title": "Ownership",
+        "concepts.1.explanation": "Cloning an object does not mean independently copying every GPU resource. Check the scope of sharing before modifying or releasing resources.",
+        "outcomes.0": "Reproduce the difference between shared and independent materials.",
+        "outcomes.1": "Record the material owner.",
+        "steps.0": "Prepare day-07.js and index.html in the external exercise project. Place three cubes that use the same geometry and material.",
+        "steps.1": "Change the material color of one cube, then compare a version separated with material.clone.",
+        "steps.2": "Save the output under the Shared reference input condition, then run again under the Individual cloned materials condition. Expected: Changing one cube’s color does not propagate to the other cubes. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-07-notes.md.",
+        "variables.0.name": "Material",
+        "variables.0.baseline": "Shared reference",
+        "variables.0.change": "Individual cloned materials",
+        "variables.0.expected": "Changing one cube’s color does not propagate to the other cubes.",
+        "criteria.0": "Reproduce the difference between shared and independent materials.",
+        "criteria.1": "Record the material owner.",
+        "questions.0": "Does clone also deeply copy geometry?",
+        "questions.1": "When can shared resources be disposed of?",
+        "references.0.title": "Three.js Fundamentals",
+        "references.1.title": "Three.js Cleanup"
+      }
+    },
+    "threejs-step-08": {
+      "sourceHash": "64e868d337ac0a5b67da44e8201308005ff02a251d78d86d5ea46eb03d253f5c",
+      "values": {
+        "title": "Light Types and Placement",
+        "prerequisites": "Prerequisite concepts: Shared References, Ownership. Prepare the result files and observation notes from unit 7.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Directional Light",
+        "concepts.0.explanation": "DirectionalLight represents light coming from a constant direction. Its target affects the light direction as well as its position.",
+        "concepts.1.title": "Point Light",
+        "concepts.1.explanation": "PointLight emits light in multiple directions from one point. Observe changes with distance from objects too.",
+        "outcomes.0": "Distinguish the light position from its target.",
+        "outcomes.1": "Explain the material response when lights are off.",
+        "steps.0": "Prepare day-08.js and index.html in the external exercise project. Create a floor and a sphere, and switch between directional and point lights.",
+        "steps.1": "Move the light with sliders and record changes in highlights and brightness.",
+        "steps.2": "Save the output under the DirectionalLight input condition, then run again under the PointLight condition. Expected: The surface response to distance and position changes differs. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-08-notes.md.",
+        "variables.0.name": "Light type",
+        "variables.0.baseline": "DirectionalLight",
+        "variables.0.change": "PointLight",
+        "variables.0.expected": "The surface response to distance and position changes differs.",
+        "criteria.0": "Distinguish the light position from its target.",
+        "criteria.1": "Explain the material response when lights are off.",
+        "questions.0": "Why is MeshBasicMaterial visible even with the lights off?",
+        "questions.1": "Why does ambient light alone make forms look flat?",
+        "references.0.title": "Three.js MeshStandardMaterial",
+        "references.1.title": "Three.js Shadows"
+      }
+    },
+    "threejs-step-09": {
+      "sourceHash": "a2283f5646c92a32fe84979fe7d0fe71d9c1fc9256f7d83be1c5d418f7329c19",
+      "values": {
+        "title": "Roughness and Metalness",
+        "prerequisites": "Prerequisite concepts: Directional Light, Point Light. Prepare the result files and observation notes from unit 8.",
+        "environment": "First read the execution-scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in an HTML and ES module project served by a separate local HTTP development server. Pin three and addons to the same installed version and record it.",
+        "concepts.0.title": "Roughness",
+        "concepts.0.explanation": "roughness controls the spread of reflections caused by microscopic surface detail. Low values tend to produce sharp highlights.",
+        "concepts.1.title": "Metalness",
+        "concepts.1.explanation": "metalness distinguishes the responses of metals and nonmetals. With insufficient environment reflections, metal may appear darker than expected.",
+        "outcomes.0": "Compare the two material variables independently.",
+        "outcomes.1": "Record the lighting conditions.",
+        "steps.0": "Prepare day-09.js and index.html in the external exercise project. Arrange MeshStandardMaterial spheres in a grid of roughness and metalness values.",
+        "steps.1": "Fix the light and camera, change only one of the two values, and take screenshots.",
+        "steps.2": "Save the output under the 0.1 input condition, then run again under the 0.8 condition. Expected: Reflected highlights become wider and blurrier. Compare with the actual screen and logs, and record the actual result and reasons for any differences in day-09-notes.md.",
+        "variables.0.name": "roughness",
+        "variables.0.baseline": "0.1",
+        "variables.0.change": "0.8",
+        "variables.0.expected": "Reflected highlights become wider and blurrier.",
+        "criteria.0": "Compare the two material variables independently.",
+        "criteria.1": "Record the lighting conditions.",
+        "questions.0": "Does metalness 1 simply mean shinier?",
+        "questions.1": "How should you interpret a metal without an environment map?",
+        "references.0.title": "Three.js MeshStandardMaterial"
+      }
     }
   }
 }

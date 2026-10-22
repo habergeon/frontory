@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: DOM References and tick](../11/README.md)
+[Previous: DOM References and tick](../11/README.md) · [Next: onMount and Initial Resources](../13/README.md)
 
 ## Experiment notes — write your own
 

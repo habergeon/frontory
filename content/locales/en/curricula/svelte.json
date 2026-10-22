@@ -338,6 +338,90 @@
         "references.0.title": "Svelte Official Documentation and Runes Index",
         "references.1.title": "Svelte $effect and Cleanup"
       }
+    },
+    "svelte-step-13": {
+      "sourceHash": "408d73db82a2d379eacde855d56e21380ed78c207ac144bd36e76f33a2be1c30",
+      "values": {
+        "title": "onMount and Initial Resources",
+        "prerequisites": "Unit 13 continues with the work and experiment records from Unit 12.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "Mount Timing",
+        "concepts.0.explanation": "onMount runs after the component is connected to the DOM. Do not use it as a place to create DOM resources during server rendering.",
+        "outcomes.0": "While visible, 1 pointer input is handled 1 time.",
+        "criteria.0": "While visible, 1 pointer input is handled 1 time.",
+        "questions.0": "Why does returning cleanup from async onMount behave differently?",
+        "concepts.1.title": "Synchronous Return",
+        "concepts.1.explanation": "A function returned synchronously by onMount runs as cleanup on removal. An async callback returns a Promise, so do not mistake it for the same cleanup contract.",
+        "outcomes.1": "There are no pointer handling logs while hidden.",
+        "criteria.1": "There are no pointer handling logs while hidden.",
+        "questions.1": "Between onMount and $effect, which value changes require a rerun?",
+        "steps.0": "In src/PointerCanvas.svelte, register a pointer listener with onMount.",
+        "steps.1": "Return cleanup that calls removeEventListener with the same function reference.",
+        "steps.2": "Toggle visibility 5 times and count how many times one pointer input is handled.",
+        "variables.0.name": "Mount Count",
+        "variables.0.baseline": "1 time",
+        "variables.0.change": "5 times",
+        "variables.0.expected": "Repeated mounting does not increase the number of calls per pointer input.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup",
+        "references.2.title": "Svelte onMount and tick"
+      }
+    },
+    "svelte-02": {
+      "sourceHash": "e88c53f313bdad9155fe01f6c24ca43f136da8b738344fb43fa775d7ddb9c1b4",
+      "values": {
+        "title": "Events and Resource Cleanup",
+        "prerequisites": "Unit 14 continues with the work and experiment records from Unit 13.",
+        "environment": "Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner. The existing svelte-02 preview is a starting point. Implement the expanded work described here in a separate project.",
+        "concepts.0.title": "Pointer Coordinates",
+        "concepts.0.explanation": "Client coordinates are screen coordinates, which differ from Canvas buffer coordinates. Apply the getBoundingClientRect ratio to convert them to drawing positions.",
+        "outcomes.0": "After showing it again, one circle is drawn at the pointer position.",
+        "criteria.0": "After showing it again, one circle is drawn at the pointer position.",
+        "questions.0": "How does unsubscribe in the built-in store adapter correspond to component cleanup?",
+        "concepts.1.title": "Resource Group",
+        "concepts.1.explanation": "Clean up listeners, timers, and subscriptions created by the component together. Check that input handling and frames do not duplicate after showing it again.",
+        "outcomes.1": "Timer and listener handling stop after hiding.",
+        "criteria.1": "Timer and listener handling stop after hiding.",
+        "questions.1": "What ratio does coordinate calculation need when you reduce only the CSS size?",
+        "steps.0": "Copy App.svelte and PointerCanvas.svelte from the existing src/labs/svelte-02 into src of the external project.",
+        "steps.1": "Check Canvas pointer coordinate conversion and timer/listener cleanup in onMount.",
+        "steps.2": "Show it 5 times, change the period from 100→500, and record active resource counts.",
+        "variables.0.name": "Show Count",
+        "variables.0.baseline": "1 time",
+        "variables.0.change": "5 times",
+        "variables.0.expected": "Maintain 1 timer while visible and 0 while hidden.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup",
+        "references.2.title": "Svelte onMount and tick"
+      }
+    },
+    "svelte-step-15": {
+      "sourceHash": "93b129283c5068e3e4083e047da882c60a1ae31445abd386364752ed8f64fd64",
+      "values": {
+        "title": "writable and the Subscription Contract",
+        "prerequisites": "Unit 15 continues with the work and experiment records from Unit 14.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Compile and run .svelte files in a separate Svelte 5 Vite project. Record package versions and the lockfile. Frontory’s Svelte preview uses actual writable stores and an explicit DOM adapter; it is not a .svelte compiler or a runes runner.",
+        "concepts.0.title": "store",
+        "concepts.0.explanation": "writable delivers values through its subscribe·set·update contract. Independently of runes, it can connect to external subscribers or existing code.",
+        "outcomes.0": "Both consumers read the latest id.",
+        "criteria.0": "Both consumers read the latest id.",
+        "questions.0": "Is either store or $state always better?",
+        "concepts.1.title": "Automatic Subscription",
+        "concepts.1.explanation": "The $store syntax in a component handles subscription lifetime. If you subscribe directly in an ordinary JS adapter, you must call the unsubscribe function yourself.",
+        "outcomes.1": "The corresponding log stops after manually unsubscribing.",
+        "criteria.1": "The corresponding log stops after manually unsubscribing.",
+        "questions.1": "Why does the DOM adapter in the built-in preview return unsubscribe?",
+        "steps.0": "Declare a writable selected id in src/stores.js.",
+        "steps.1": "Display $selection in Selection.svelte and add a separate JS subscription log.",
+        "steps.2": "After removing the component, also unsubscribe the JS subscription and compare handling counts.",
+        "variables.0.name": "Subscription Method",
+        "variables.0.baseline": "Direct subscribe",
+        "variables.0.change": "Component $store",
+        "variables.0.expected": "The location responsible for cleanup changes.",
+        "references.0.title": "Svelte Official Documentation and Runes Index",
+        "references.1.title": "Svelte $effect and Cleanup",
+        "references.2.title": "Svelte onMount and tick"
+      }
     }
   }
 }

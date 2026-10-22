@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-UI frameworks · 4 stages · 28 units in the full series · 12 published in English
+UI frameworks · 4 stages · 28 units in the full series · 15 published in English
 
 ## Series goal
 
@@ -39,9 +39,12 @@ Only published English units are linked below. The full series has 28 units.
 - [10. Changing Row Presentation with Snippets](units/10/README.md) — External example · preview instructions
 - [11. DOM References and tick](units/11/README.md) — External example · preview instructions
 - [12. $effect Dependencies and Cleanup](units/12/README.md) — External example · preview instructions
+- [13. onMount and Initial Resources](units/13/README.md) — External example · preview instructions
+- [14. Events and Resource Cleanup](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Stores and Workspace State
 
+- [15. writable and the Subscription Contract](units/15/README.md) — External example · preview instructions
 
 ### Stage 4 · Canvas Verification and Framework Comparison
 

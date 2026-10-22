@@ -1896,6 +1896,35 @@
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
+      "id": "svelte-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "onMount and Initial Resources",
+      "goal": "While visible, 1 pointer input is handled 1 time. There are no pointer handling logs while hidden.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/13/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
+      "id": "svelte-02",
+      "day": 14,
+      "week": 2,
+      "title": "Events and Resource Cleanup",
+      "goal": "After showing it again, one circle is drawn at the pointer position. Timer and listener handling stop after hiding.",
+      "docPath": "/docs/en/labs/frameworks/svelte/02-experiments/README.md",
+      "seriesId": "svelte"
+    },
+    {
+      "id": "svelte-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "writable and the Subscription Contract",
+      "goal": "Both consumers read the latest id. The corresponding log stops after manually unsubscribing.",
+      "docPath": "/docs/en/labs/frameworks/svelte/units/15/README.md",
+      "seriesId": "svelte",
+      "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

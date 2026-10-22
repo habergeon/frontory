@@ -71,7 +71,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: picture and Format Fallbacks](../20/README.md)
+[Previous: picture and Format Fallbacks](../20/README.md) · [Next: template and Repeated Content](../22/README.md)
 
 ## Experiment notes — write your own
 

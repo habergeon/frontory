@@ -112,5 +112,23 @@
     "values": {
       "note": "External HTTP example: switches between sandbox=\"\" and allow-scripts on the same guide.html and observes button·postMessage behavior."
     }
+  },
+  "html-step-22": {
+    "sourceHash": "3a4364a95f88593a66ff7acd72c66aea3fb640893391c5d8ef278fd220556efa",
+    "values": {
+      "note": "Helper code clones the template 3 times and associates for/id with unique suffixes. Try changing the template content in the source. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "html-step-23": {
+    "sourceHash": "0fb9d8695ca59345a3099bfac3dadfb2519485f1613b2ecf5d366869135a1ffc",
+    "values": {
+      "note": "External HTTP example: actually loads first.js/second.js and records parsing/execution order for classic/defer/async scripts."
+    }
+  },
+  "html-step-24": {
+    "sourceHash": "2f80b12060f5140e4a17d9f2b7e20a3174f3f01958a932903937d88156bbc23d",
+    "values": {
+      "note": "Change aria-label to differ from the visible text, and inspect the actual computed name in the browser accessibility panel. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
   }
 }

@@ -560,6 +560,84 @@
         "variables.0.expected": "Pre-run hypothesis: Whether the internal script runs will differ. Keep other conditions fixed and record the actual result separately after running.",
         "references.0.title": "MDN HTML"
       }
+    },
+    "html-step-22": {
+      "sourceHash": "eb80b5214a4db106449e4e411d671140de2080c355eb288ba8a2e5dbdd1b04ff",
+      "values": {
+        "title": "template and Repeated Content",
+        "prerequisites": "The work and experiment records from Unit 21, “iframe and Embedded Content Boundaries”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Inert Templates",
+        "concepts.0.explanation": "Content inside template is not displayed immediately. You can clone its content and insert it into the document.",
+        "concepts.1.title": "Duplicate Identifiers",
+        "concepts.1.explanation": "Leaving the same id on cloned nodes makes associations ambiguous. Update label and description ids together as well.",
+        "outcomes.0": "3 cards are displayed with no duplicate ids.",
+        "outcomes.1": "Clicking each label focuses the input in the corresponding card.",
+        "criteria.0": "3 cards are displayed with no duplicate ids.",
+        "criteria.1": "Clicking each label focuses the input in the corresponding card.",
+        "steps.0": "In template.html, prepare 3 cards and an input label for each card.",
+        "steps.1": "Create a learning-card template, clone it 3 times with minimal JS, and update ids and association attributes.",
+        "steps.2": "Run with 3 cards and an input label for each card. Results to check: 3 cards are displayed with no duplicate ids. Clicking each label focuses the input in the corresponding card. Record expected and actual results separately.",
+        "questions.0": "Is template content initially in the accessibility tree?",
+        "questions.1": "Which reference attributes also need updating when cloning?",
+        "variables.0.name": "Cloned id",
+        "variables.0.baseline": "Keep the same id",
+        "variables.0.change": "Unique suffix",
+        "variables.0.expected": "Pre-run hypothesis: Each label will refer to its own input. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
+    },
+    "html-step-23": {
+      "sourceHash": "5689a604e2395e65215f77058b2077f304b22193ba7c9aac2a0356c9948a632a",
+      "values": {
+        "title": "Script Loading and Document Parsing",
+        "prerequisites": "The work and experiment records from Unit 22, “template and Repeated Content”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Loading Time",
+        "concepts.0.explanation": "A classic script may block parsing depending on its position. defer makes scripts execute in order after document parsing.",
+        "concepts.1.title": "Independent Execution",
+        "concepts.1.explanation": "async executes when ready and does not guarantee document order. Also distinguish the default deferred behavior of module scripts.",
+        "outcomes.0": "Record execution logs and whether the element exists for the three loading methods.",
+        "outcomes.1": "Choose a configuration that reliably executes dependent scripts in order.",
+        "criteria.0": "Record execution logs and whether the element exists for the three loading methods.",
+        "criteria.1": "Choose a configuration that reliably executes dependent scripts in order.",
+        "steps.0": "In scripts.html, prepare scripts in head and a target element below in body.",
+        "steps.1": "Compare two DOM-reading scripts with classic·defer·async loading.",
+        "steps.2": "Run with scripts in head and a target element below in body. Results to check: Record execution logs and whether the element exists for the three loading methods. Choose a configuration that reliably executes dependent scripts in order. Record expected and actual results separately.",
+        "questions.0": "Does async always make a page faster?",
+        "questions.1": "What is the relationship between type=module and defer?",
+        "variables.0.name": "Attribute",
+        "variables.0.baseline": "defer",
+        "variables.0.change": "async",
+        "variables.0.expected": "Pre-run hypothesis: Code that assumes DOM readiness or script ordering may behave differently. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
+    },
+    "html-step-24": {
+      "sourceHash": "af2ed518719313a140ed6301638efab569050d91a2c37d9fb572142dcefbb02c",
+      "values": {
+        "title": "Accessible Names and Descriptions",
+        "prerequisites": "The work and experiment records from Unit 23, “Script Loading and Document Parsing”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Name Computation",
+        "concepts.0.explanation": "An accessible name identifies a control. A mismatch between a visible label and aria-label can confuse users.",
+        "concepts.1.title": "Description Associations",
+        "concepts.1.explanation": "aria-describedby associates additional descriptions. Do not use it to replace a name.",
+        "outcomes.0": "Record the names and descriptions of the three controls in a table.",
+        "outcomes.1": "The button’s visible text and accessible name match.",
+        "criteria.0": "Record the names and descriptions of the three controls in a table.",
+        "criteria.1": "The button’s visible text and accessible name match.",
+        "steps.0": "In names.html, prepare visible save text and a different aria-label.",
+        "steps.1": "Check names and descriptions for three types of controls—a text button, an icon button, and an input—in the accessibility panel.",
+        "steps.2": "Run with visible save text and a different aria-label. Results to check: Record the names and descriptions of the three controls in a table. The button’s visible text and accessible name match. Record expected and actual results separately.",
+        "questions.0": "Is aria-label always necessary?",
+        "questions.1": "What burden can an overly long description place on users?",
+        "variables.0.name": "Naming Attribute",
+        "variables.0.baseline": "Use visible text",
+        "variables.0.change": "Different aria-label",
+        "variables.0.expected": "Pre-run hypothesis: The accessible name may differ from the visible text. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
     }
   }
 }

@@ -558,6 +558,36 @@
       "exampleNote": "External HTTP example: switches between sandbox=\"\" and allow-scripts on the same guide.html and observes button·postMessage behavior."
     },
     {
+      "id": "html-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "template and Repeated Content",
+      "goal": "3 cards are displayed with no duplicate ids. Clicking each label focuses the input in the corresponding card.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/22/README.md",
+      "seriesId": "html",
+      "exampleNote": "Helper code clones the template 3 times and associates for/id with unique suffixes. Try changing the template content in the source. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "html-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Script Loading and Document Parsing",
+      "goal": "Record execution logs and whether the element exists for the three loading methods. Choose a configuration that reliably executes dependent scripts in order.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/23/README.md",
+      "seriesId": "html",
+      "exampleNote": "External HTTP example: actually loads first.js/second.js and records parsing/execution order for classic/defer/async scripts."
+    },
+    {
+      "id": "html-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Accessible Names and Descriptions",
+      "goal": "Record the names and descriptions of the three controls in a table. The button’s visible text and accessible name match.",
+      "docPath": "/docs/en/labs/fundamentals/html/units/24/README.md",
+      "seriesId": "html",
+      "exampleNote": "Change aria-label to differ from the visible text, and inspect the actual computed name in the browser accessibility panel. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
       "id": "css-01",
       "day": 1,
       "week": 1,

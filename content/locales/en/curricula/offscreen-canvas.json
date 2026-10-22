@@ -415,6 +415,87 @@
         "references.0.title": "MDN OffscreenCanvas",
         "references.1.title": "MDN Using Web Workers"
       }
+    },
+    "offscreen-canvas-step-16": {
+      "sourceHash": "a87afe360ba4e029a561a31743487d68ea1170d02415dbc5f0f4df62720078c0",
+      "values": {
+        "title": "Batching Particle Data",
+        "prerequisites": "Prepare the experiment results for Patches and Versions from Unit 15, “Updating Scene State”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "TypedArray",
+        "concepts.0.explanation": "Particle attributes can be stored in contiguous arrays. Define the stride and offset for each attribute clearly.",
+        "concepts.1.title": "Ownership",
+        "concepts.1.explanation": "Do not reuse a transferred array on the main thread. Receive summaries needed by the UI in separate messages.",
+        "outcomes.0": "Learning outcome: explain the role of TypedArray. Input cases: 100 particles.",
+        "outcomes.1": "Deliverable: byteLength and the range of particle coordinates. Explain the rationale for handling Ownership, linking it to the code.",
+        "steps.0": "In src/day-16.js in a separate practice project, transfer Float32Array positions and draw the particles in the Worker. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 100 particles. Baseline: Copy. Run under the baseline conditions, then record observations and errors in notes/day-16.md.",
+        "steps.2": "Variable: Transmission; changed value: transfer. Run again through the same input path. Deliverable to save: byteLength and the range of particle coordinates. Hypothesis to check: The main-thread buffer is detached after transfer. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Transmission",
+        "variables.0.baseline": "Copy",
+        "variables.0.change": "transfer",
+        "variables.0.expected": "The main-thread buffer is detached after transfer.",
+        "criteria.0": "Required deliverable: byteLength and the range of particle coordinates. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: TypedArray and Ownership. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does TypedArray affect in this exercise? Input cases: 100 particles.",
+        "questions.1": "Variable: Transmission. Hypothesis to check: The main-thread buffer is detached after transfer. Did the actual results agree with the hypothesis? Explain the evidence in terms of Ownership.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-17": {
+      "sourceHash": "04542c713583164f83a5c6a685cf62f2f2cb598a25937d1204fc2d3c9de270f7",
+      "values": {
+        "title": "Pausing and Resuming",
+        "prerequisites": "Prepare the experiment results for TypedArray and Ownership from Unit 16, “Batching Particle Data”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Pause",
+        "concepts.0.explanation": "Pausing stops frame scheduling while preserving state. Canvas ownership is retained, unlike termination.",
+        "concepts.1.title": "Time baseline",
+        "concepts.1.explanation": "Reset the previous timestamp when resuming. Including paused time in movement time causes a jump.",
+        "outcomes.0": "Learning outcome: explain the role of Pause. Input cases: Resume after pausing for 2 seconds.",
+        "outcomes.1": "Deliverable: Frame count during the pause and position on resume. Explain the rationale for handling Time baseline, linking it to the code.",
+        "steps.0": "In src/day-17.js in a separate practice project, implement pause/resume messages and reset the last timestamp. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: Resume after pausing for 2 seconds. Baseline: Retain the previous value. Run under the baseline conditions, then record observations and errors in notes/day-17.md.",
+        "steps.2": "Variable: Resume timestamp; changed value: Reset. Run again through the same input path. Deliverable to save: Frame count during the pause and position on resume. Hypothesis to check: The large jump on the first resumed frame is reduced. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Resume timestamp",
+        "variables.0.baseline": "Retain the previous value",
+        "variables.0.change": "Reset",
+        "variables.0.expected": "The large jump on the first resumed frame is reduced.",
+        "criteria.0": "Required deliverable: Frame count during the pause and position on resume. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Pause and Time baseline. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Pause affect in this exercise? Input cases: Resume after pausing for 2 seconds.",
+        "questions.1": "Variable: Resume timestamp. Hypothesis to check: The large jump on the first resumed frame is reduced. Did the actual results agree with the hypothesis? Explain the evidence in terms of Time baseline.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-18": {
+      "sourceHash": "fabdda6da0bd64fee9e512a4d29459c7cc57568f4d01fc5d234d9bbd405d6555",
+      "values": {
+        "title": "Page Visibility Policy",
+        "prerequisites": "Prepare the experiment results for Pause and Time baseline from Unit 17, “Pausing and Resuming”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Visibility",
+        "concepts.0.explanation": "A Worker can receive the document visibility policy from the main thread. Continuing to compute an invisible scene still has a cost.",
+        "concepts.1.title": "Synchronization",
+        "concepts.1.explanation": "Choose whether to preserve state or catch up with elapsed time on return. Document the policy according to the simulation's purpose.",
+        "outcomes.0": "Learning outcome: explain the role of Visibility. Input cases: Hide the tab and return.",
+        "outcomes.1": "Deliverable: Computation count while hidden and state on return. Explain the rationale for handling Synchronization, linking it to the code.",
+        "steps.0": "In src/day-18.js in a separate practice project, translate visibilitychange into pause/resume. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: Hide the tab and return. Baseline: Keep computing. Run under the baseline conditions, then record observations and errors in notes/day-18.md.",
+        "steps.2": "Variable: Policy; changed value: pause while hidden. Run again through the same input path. Deliverable to save: Computation count while hidden and state on return. Hypothesis to check: Computation stops while hidden and continues according to the return policy. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Policy",
+        "variables.0.baseline": "Keep computing",
+        "variables.0.change": "pause while hidden",
+        "variables.0.expected": "Computation stops while hidden and continues according to the return policy.",
+        "criteria.0": "Required deliverable: Computation count while hidden and state on return. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Visibility and Synchronization. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Visibility affect in this exercise? Input cases: Hide the tab and return.",
+        "questions.1": "Variable: Policy. Hypothesis to check: Computation stops while hidden and continues according to the return policy. Did the actual results agree with the hypothesis? Explain the evidence in terms of Synchronization.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
     }
   }
 }

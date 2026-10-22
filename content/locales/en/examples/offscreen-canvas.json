@@ -76,5 +76,23 @@
     "values": {
       "note": "An interactive Updating Scene State experiment with cleanup of the resources it uses."
     }
+  },
+  "offscreen-canvas-step-16": {
+    "sourceHash": "75ab721ba6c50ae0b25c659a728e21c5a297310baf10f4b245c673de775224e9",
+    "values": {
+      "note": "An interactive Batching Particle Data experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-17": {
+    "sourceHash": "b1dc372e5887731f91ff41d0c3044700c7e499f3ab377be62b23466dacda8e5e",
+    "values": {
+      "note": "An interactive Pausing and Resuming experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-18": {
+    "sourceHash": "93ed27dd08e8f56b1f20ab3a05e36686416d31bfbc7e4b5b6f723c63d7f062b0",
+    "values": {
+      "note": "An interactive Page Visibility Policy experiment with cleanup of the resources it uses."
+    }
   }
 }

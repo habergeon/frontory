@@ -5692,6 +5692,36 @@
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/15/README.md",
       "seriesId": "offscreen-canvas",
       "exampleNote": "An interactive Updating Scene State experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Batching Particle Data",
+      "goal": "Learning outcome: explain the role of TypedArray. Input cases: 100 particles. Deliverable: byteLength and the range of particle coordinates. Explain the rationale for handling Ownership, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/16/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Batching Particle Data experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Pausing and Resuming",
+      "goal": "Learning outcome: explain the role of Pause. Input cases: Resume after pausing for 2 seconds. Deliverable: Frame count during the pause and position on resume. Explain the rationale for handling Time baseline, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/17/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Pausing and Resuming experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Page Visibility Policy",
+      "goal": "Learning outcome: explain the role of Visibility. Input cases: Hide the tab and return. Deliverable: Computation count while hidden and state on return. Explain the rationale for handling Synchronization, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/18/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Page Visibility Policy experiment with cleanup of the resources it uses."
     }
   ]
 }

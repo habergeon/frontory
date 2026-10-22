@@ -268,6 +268,39 @@ test('complete mode accepts 23 translated series and 644 units only with all req
   }
 })
 
+test('actual English content publishes exactly four representative lessons with complete prose and unchanged fixtures', () => {
+  const ids = ['javascript-step-02', 'css-step-04', 'react-step-03', 'gsap-step-02']
+  const result = readEnglishContent()
+  assert.deepEqual(result.publishedUnitIds, ids)
+  assert.equal(result.catalog.units.length, 4)
+  for (const [index, seriesId] of ['javascript', 'css', 'react', 'gsap'].entries()) {
+    const source = JSON.parse(fs.readFileSync(new URL(`../content/curricula/${seriesId}.json`, import.meta.url)))
+    const original = source.units.find(unit => unit.id === ids[index])
+    const translated = result.curricula[seriesId].units[0]
+    assert.equal(translated.id, original.id)
+    assert.equal(translated.day, original.day)
+    assert.deepEqual(translated.references.map(ref => ref.url), original.references.map(ref => ref.url))
+    const codeBlocks = lesson => lesson.concepts.flatMap(concept =>
+      [...concept.explanation.matchAll(/\x60\x60\x60[\s\S]*?\x60\x60\x60/g)].map(match => match[0]))
+    assert.deepEqual(codeBlocks(translated), codeBlocks(original))
+    const noteSource = JSON.parse(fs.readFileSync(new URL(`../content/examples/${seriesId}.json`, import.meta.url)))[original.id]
+    const note = JSON.parse(fs.readFileSync(new URL(`../content/locales/en/examples/${seriesId}.json`, import.meta.url)))[original.id]
+    assert.equal(note.sourceHash, sourceHash(noteSource))
+    assert.deepEqual(Object.keys(note.values), ['note'])
+    assert.ok(note.values.note.trim())
+    assert.doesNotMatch(note.values.note, /[가-힣]/)
+    const proseWithoutCode = JSON.stringify(translated).replace(/\x60\x60\x60[\s\S]*?\x60\x60\x60/g, '')
+    assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
+    assert.equal(result.curricula[seriesId].stages.length, source.stages.length)
+  }
+  assert.match(result.curricula.javascript.units[0].concepts[1].explanation, /Number\.isFinite\(value\)/)
+  assert.match(result.curricula.css.units[0].concepts[0].explanation, /244px/)
+  assert.match(result.curricula.css.units[0].concepts[1].explanation, /156px/)
+  assert.match(result.curricula.react.units[0].concepts[2].explanation, /setCount\(1\)/)
+  assert.match(result.curricula.react.units[0].concepts[3].explanation, /0.*1.*2.*3/)
+  assert.match(result.curricula.gsap.units[0].concepts[4].explanation, /to=140, from=-20, fromTo=80/)
+})
+
 test('reader rejects malformed curriculum stages without depending on legacy stage count', t => {
   const { root, write } = fixture(t)
   const original = JSON.parse(fs.readFileSync(path.join(root, 'content/curricula/javascript.json')))

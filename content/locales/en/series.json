@@ -1,0 +1,30 @@
+{
+  "javascript": {
+    "sourceHash": "e9644d19f15b6bb667cf61d808abceca52b96a843dca593fd32213615f5db0ae",
+    "values": {
+      "title": "JavaScript",
+      "prerequisites": "HTML elements and events"
+    }
+  },
+  "css": {
+    "sourceHash": "cf2c86afd832b3ce8c4ae145a7d3a16ad9e820bea37ea69c2155bf1451cd920d",
+    "values": {
+      "title": "CSS",
+      "prerequisites": "HTML structure"
+    }
+  },
+  "react": {
+    "sourceHash": "6180290336884d370ee5611a59e50ee853fae3a848b846803cebd097b92f5728",
+    "values": {
+      "title": "React",
+      "prerequisites": "JavaScript, TypeScript, and DOM events"
+    }
+  },
+  "gsap": {
+    "sourceHash": "50e2f96b7d4e56935062a8a1f995497adb31f43928a4b2358c8d9ea7f35e6983",
+    "values": {
+      "title": "GSAP",
+      "prerequisites": "DOM, CSS transform, and time"
+    }
+  }
+}

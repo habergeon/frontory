@@ -2306,6 +2306,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "canvas-2d-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Particle Reuse and Allocation",
+      "goal": "The policy for exceeding pool capacity is clear. Keep comparison records under the same input conditions.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/25/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "canvas-2d-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Frame Measurement and Bottlenecks",
+      "goal": "Record measurement conditions and sample counts. Do not treat CPU measurements as GPU time.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/26/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "canvas-2d-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Integrated Editor and Regression Checks",
+      "goal": "After replay, shape ids and coordinates match the expected state. No duplicate loops or events remain after reinitialization.",
+      "docPath": "/docs/en/labs/graphics/canvas-2d/units/27/README.md",
+      "seriesId": "canvas-2d",
+      "exampleNote": "This is a reduced editor for checking command replay, undo, and JSON state. It does not replace every tool in the full capstone."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

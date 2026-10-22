@@ -240,6 +240,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [22. Accessible Canvas Controls](labs/graphics/canvas-2d/units/22/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-22/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [23. Exporting and Source Data](labs/graphics/canvas-2d/units/23/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-23/example.js) — PNG output is generated as a preview, and JSON is imported through an input field. File downloads may require an external environment depending on iframe policy. |
 | [24. Particle State and Emission](labs/graphics/canvas-2d/units/24/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-24/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [25. Particle Reuse and Allocation](labs/graphics/canvas-2d/units/25/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-25/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [26. Frame Measurement and Bottlenecks](labs/graphics/canvas-2d/units/26/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-26/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [27. Integrated Editor and Regression Checks](labs/graphics/canvas-2d/units/27/README.md) | Editable example | [Source code](../../src/labs/canvas-2d-step-27/example.js) — This is a reduced editor for checking command replay, undo, and JSON state. It does not replace every tool in the full capstone. |
 
 ## GSAP
 

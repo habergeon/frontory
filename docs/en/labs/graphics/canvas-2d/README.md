@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 24 published in English
+Graphics · 4 stages · 28 units in the full series · 27 published in English
 
 ## Series goal
 
@@ -57,6 +57,9 @@ Only published English units are linked below. The full series has 28 units.
 - [22. Accessible Canvas Controls](units/22/README.md) — Editable example
 - [23. Exporting and Source Data](units/23/README.md) — Editable example
 - [24. Particle State and Emission](units/24/README.md) — Editable example
+- [25. Particle Reuse and Allocation](units/25/README.md) — Editable example
+- [26. Frame Measurement and Bottlenecks](units/26/README.md) — Editable example
+- [27. Integrated Editor and Regression Checks](units/27/README.md) — Editable example
 
 ## Capstone project and deliverables
 

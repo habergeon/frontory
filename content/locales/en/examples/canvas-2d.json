@@ -130,5 +130,23 @@
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "canvas-2d-step-25": {
+    "sourceHash": "671980759fcb980041777c5085270db9aeb92f2bfe9752fdad9ca0e896a53c3d",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "canvas-2d-step-26": {
+    "sourceHash": "0216dcc116cd24503996bf7b0f69c08595b698447142f7f157509805bf3cc530",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "canvas-2d-step-27": {
+    "sourceHash": "cc9f12d6dd8aa886d1ae9457852b6990637e16e55b52db376918aed0a1695087",
+    "values": {
+      "note": "This is a reduced editor for checking command replay, undo, and JSON state. It does not replace every tool in the full capstone."
+    }
   }
 }

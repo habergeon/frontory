@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Exporting and Source Data](../23/README.md)
+[Previous: Exporting and Source Data](../23/README.md) · [Next: Particle Reuse and Allocation](../25/README.md)
 
 ## Experiment notes — write your own
 

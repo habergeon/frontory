@@ -638,6 +638,84 @@
         "questions.1": "Why does iteration direction matter when deleting particles?",
         "references.0.title": "MDN Canvas Tutorial"
       }
+    },
+    "canvas-2d-step-25": {
+      "sourceHash": "e77181b9c28e2e7955a44852bf57dfcb0d7ab22ac13d5c35d56f3a941ac2d8d1",
+      "values": {
+        "title": "Particle Reuse and Allocation",
+        "prerequisites": "Prerequisite concepts: Particle Lifetime, Emission Rate. Prepare the result files and observation records from Unit 24.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Object Reuse",
+        "concepts.0.explanation": "Creating new objects every frame may increase garbage collection work. A pool reuses slots from dead particles.",
+        "concepts.1.title": "Separating Measurements",
+        "concepts.1.explanation": "Fewer allocations do not guarantee better frame times. If drawing dominates the cost, total time may change little.",
+        "outcomes.0": "The policy for exceeding pool capacity is clear.",
+        "outcomes.1": "Keep comparison records under the same input conditions.",
+        "steps.0": "Prepare day-25.js and index.html in the external practice project. Implement particle creation and return with a fixed-size pool and active flags.",
+        "steps.1": "Compare frame records for array allocation and pooling with the same seed and emission rate.",
+        "steps.2": "Save the output with the input condition new object for every emission, then run again with reuse inactive slots. Expected: Allocations decrease, but the degree of frame improvement must be measured. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-25-notes.md.",
+        "variables.0.name": "Allocation Policy",
+        "variables.0.baseline": "new object for every emission",
+        "variables.0.change": "reuse inactive slots",
+        "variables.0.expected": "Allocations decrease, but the degree of frame improvement must be measured",
+        "criteria.0": "The policy for exceeding pool capacity is clear.",
+        "criteria.1": "Keep comparison records under the same input conditions.",
+        "questions.0": "What changes if you grow the pool indefinitely?",
+        "questions.1": "How do you compare the costs of compacting arrays and iterating inactive slots?",
+        "references.0.title": "MDN Canvas Tutorial"
+      }
+    },
+    "canvas-2d-step-26": {
+      "sourceHash": "5da2acf3e36b218bd2abcf4e9c53f82c7ec4228f18debe95f57b6841abf1ead7",
+      "values": {
+        "title": "Frame Measurement and Bottlenecks",
+        "prerequisites": "Prerequisite concepts: Object Reuse, Separating Measurements. Prepare the result files and observation records from Unit 25.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Time Distribution",
+        "concepts.0.explanation": "Averages alone miss occasional long frames. Considering the median and frequency of long frames together makes stuttering easier to explain.",
+        "concepts.1.title": "Measuring Sections",
+        "concepts.1.explanation": "JavaScript time measured with performance.now does not represent total GPU time. Separate update and draw call sections and compare them with browser profiles.",
+        "outcomes.0": "Record measurement conditions and sample counts.",
+        "outcomes.1": "Do not treat CPU measurements as GPU time.",
+        "steps.0": "Prepare day-26.js and index.html in the external practice project. Collect frame intervals and update and draw call times in arrays.",
+        "steps.1": "After warming up, save samples of the same length and calculate the median and 95th percentile.",
+        "steps.2": "Save the output with the input condition 500, then run again with 2000. Expected: You can distinguish whether the update or drawing section increases. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-26-notes.md.",
+        "variables.0.name": "Particle Count",
+        "variables.0.baseline": "500",
+        "variables.0.change": "2000",
+        "variables.0.expected": "You can distinguish whether the update or drawing section increases",
+        "criteria.0": "Record measurement conditions and sample counts.",
+        "criteria.1": "Do not treat CPU measurements as GPU time.",
+        "questions.0": "Why might you exclude the first frame?",
+        "questions.1": "When do percentiles and averages give different impressions?",
+        "references.0.title": "MDN Canvas Tutorial"
+      }
+    },
+    "canvas-2d-step-27": {
+      "sourceHash": "260c58c944f0e7493fb9432a47fd950b9e44bb69cd4c9ef36979232935f68b26",
+      "values": {
+        "title": "Integrated Editor and Regression Checks",
+        "prerequisites": "Prerequisite concepts: Time Distribution, Measuring Sections. Prepare the result files and observation records from Unit 26.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement this yourself in an HTML and ES module project on a separate local HTTP development server. Record the browser version, viewport, and DPR.",
+        "concepts.0.title": "Reproducing Input",
+        "concepts.0.explanation": "Reapplying the same command list makes feature regressions easier to find. Checking data state before comparing screens helps narrow down causes.",
+        "concepts.1.title": "Lifetime Cleanup",
+        "concepts.1.explanation": "Observers, events, and animation requests are resources outside the scene. Clean them up before reinitializing to prevent duplicate behavior.",
+        "outcomes.0": "After replay, shape ids and coordinates match the expected state.",
+        "outcomes.1": "No duplicate loops or events remain after reinitialization.",
+        "steps.0": "Prepare day-27.js and index.html in the external practice project. Combine the grid, shape editing, and particle preview into one state model.",
+        "steps.1": "Replay create→drag→undo→resize→JSON restore commands, and release the observer, events, and loop in dispose.",
+        "steps.2": "Save the output with the input condition 1 time, then run again with 5 times. Expected: With correct cleanup, the command count per input does not increase. Compare this with the actual screen and logs, and record the actual results and reasons for differences in day-27-notes.md.",
+        "variables.0.name": "Reinitialization Count",
+        "variables.0.baseline": "1 time",
+        "variables.0.change": "5 times",
+        "variables.0.expected": "With correct cleanup, the command count per input does not increase",
+        "criteria.0": "After replay, shape ids and coordinates match the expected state.",
+        "criteria.1": "No duplicate loops or events remain after reinitialization.",
+        "questions.0": "How do user data and render resources differ?",
+        "questions.1": "What does regression testing with screenshots alone miss?",
+        "references.0.title": "MDN Canvas Tutorial"
+      }
     }
   }
 }

@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Keyboard Step Navigation](../18/README.md)
+[Previous: Keyboard Step Navigation](../18/README.md) · [Next: Completion Callbacks and Interruption](../20/README.md)
 
 ## Experiment notes — write your own
 

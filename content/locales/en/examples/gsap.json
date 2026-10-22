@@ -108,5 +108,23 @@
     "values": {
       "note": "This is an experiment on Reduced-Motion Alternatives. It supports direct interaction and cleans up the resources it uses."
     }
+  },
+  "gsap-step-20": {
+    "sourceHash": "ddf2b0c56e070e7bf0232ede991677e901176b59cc652c9cd19d9b4c76761489",
+    "values": {
+      "note": "This is an experiment on Completion Callbacks and Interruption. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-21": {
+    "sourceHash": "ed41c3b5469ccb98c9fc21a535d07fa4b1b49d2fe433f363d204010f20a0d1e1",
+    "values": {
+      "note": "This is an experiment on Nested Timelines. It supports direct interaction and cleans up the resources it uses."
+    }
+  },
+  "gsap-step-22": {
+    "sourceHash": "349ae511bf71e96432fa75e0b3c1bc1d0a91aab881f6ecbcb92ead3e2d051c84",
+    "values": {
+      "note": "This is an experiment on Controlling SVG Attributes. It supports direct interaction and cleans up the resources it uses."
+    }
   }
 }

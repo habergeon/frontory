@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Animation · 4 stages · 28 units in the full series · 19 published in English
+Animation · 4 stages · 28 units in the full series · 22 published in English
 
 ## Series goal
 
@@ -49,9 +49,12 @@ Only published English units are linked below. The full series has 28 units.
 - [17. Pointer and QuickTo](units/17/README.md) — Editable example
 - [18. Keyboard Step Navigation](units/18/README.md) — Editable example
 - [19. Reduced-Motion Alternatives](units/19/README.md) — Editable example
+- [20. Completion Callbacks and Interruption](units/20/README.md) — Editable example
+- [21. Nested Timelines](units/21/README.md) — Editable example
 
 ### Stage 4 · Motion system verification
 
+- [22. Controlling SVG Attributes](units/22/README.md) — Editable example
 
 ## Capstone project and deliverables
 

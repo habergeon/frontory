@@ -1076,6 +1076,36 @@
       "docPath": "/docs/en/labs/animation/gsap/units/19/README.md",
       "seriesId": "gsap",
       "exampleNote": "This is an experiment on Reduced-Motion Alternatives. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Completion Callbacks and Interruption",
+      "goal": "Learning outcome: explain the role of Meaning of Completion. Input case: selecting C during A→B. Deliverable: a log of callback IDs and the final step. Explain the rationale for handling Request Generation, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/20/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Completion Callbacks and Interruption. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Nested Timelines",
+      "goal": "Learning outcome: explain the role of Composition. Input case: 3 cards and 6 cards. Deliverable: child start times and the total length. Explain the rationale for handling Defaults, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/21/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Nested Timelines. It supports direct interaction and cleans up the resources it uses."
+    },
+    {
+      "id": "gsap-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "Controlling SVG Attributes",
+      "goal": "Learning outcome: explain the role of Attr. Input case: viewBox 0 0 200 100. Deliverable: a table of endpoint attributes and displayed positions. Explain the rationale for handling ViewBox, connecting it to the code.",
+      "docPath": "/docs/en/labs/animation/gsap/units/22/README.md",
+      "seriesId": "gsap",
+      "exampleNote": "This is an experiment on Controlling SVG Attributes. It supports direct interaction and cleans up the resources it uses."
     }
   ]
 }

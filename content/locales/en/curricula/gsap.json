@@ -539,6 +539,87 @@
         "references.0.title": "GSAP Official Documentation",
         "references.1.title": "ScrollTrigger Official Documentation"
       }
+    },
+    "gsap-step-20": {
+      "sourceHash": "54d47be5d984669a117b77d598f783dc1cdf47c765de8c6cf08e519a813058f9",
+      "values": {
+        "title": "Completion Callbacks and Interruption",
+        "prerequisites": "Prepare the exercise results on User Preference and Immediate State from Unit 19, “Reduced-Motion Alternatives”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Meaning of Completion",
+        "concepts.0.explanation": "onComplete signals completion of that motion. An interrupted action differs from successful completion.",
+        "concepts.1.title": "Request Generation",
+        "concepts.1.explanation": "Reject stale callbacks using a transition ID. Distinguish visual state from domain state.",
+        "outcomes.0": "Learning outcome: explain the role of Meaning of Completion. Input case: selecting C during A→B.",
+        "outcomes.1": "Deliverable: a log of callback IDs and the final step. Explain the rationale for handling Request Generation, connecting it to the code.",
+        "steps.0": "In src/day-20.js of a separate practice project, store a transition ID and check in onComplete whether it is the latest ID. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: selecting C during A→B. Baseline: none. Run under baseline conditions, then record observations and errors in notes/day-20.md.",
+        "steps.2": "Variable: Interruption; changed value: select C midway. Run again using the same input path. Deliverable to save: a log of callback IDs and the final step. Hypothesis to check: The B callback does not overwrite the C state. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Interruption",
+        "variables.0.baseline": "none",
+        "variables.0.change": "select C midway",
+        "variables.0.expected": "The B callback does not overwrite the C state.",
+        "criteria.0": "Required deliverable: a log of callback IDs and the final step. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Meaning of Completion, Request Generation. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Meaning of Completion affect in this exercise? Input case: selecting C during A→B.",
+        "questions.1": "Variable: Interruption. Hypothesis to check: The B callback does not overwrite the C state. Did the actual results match the hypothesis? Explain the evidence in terms of Request Generation.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-21": {
+      "sourceHash": "909c4aa2689c7c309dfac7184cb4401ec18276fb9d5eca634575964acecc1559",
+      "values": {
+        "title": "Nested Timelines",
+        "prerequisites": "Prepare the exercise results on Meaning of Completion and Request Generation from Unit 20, “Completion Callbacks and Interruption”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Composition",
+        "concepts.0.explanation": "A child timeline is responsible for a small action. The parent determines their relative order.",
+        "concepts.1.title": "Defaults",
+        "concepts.1.explanation": "defaults reduces repeated settings. Override special actions at the relevant location.",
+        "outcomes.0": "Learning outcome: explain the role of Composition. Input case: 3 cards and 6 cards.",
+        "outcomes.1": "Deliverable: child start times and the total length. Explain the rationale for handling Defaults, connecting it to the code.",
+        "steps.0": "In src/day-21.js of a separate practice project, add timeline functions for the heading, cards, and guidance to the parent. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: 3 cards and 6 cards. Baseline: 3 cards. Run under baseline conditions, then record observations and errors in notes/day-21.md.",
+        "steps.2": "Variable: Card Count; changed value: 6 cards. Run again using the same input path. Deliverable to save: child start times and the total length. Hypothesis to check: Changes to a child’s length are reflected in the parent’s length. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Card Count",
+        "variables.0.baseline": "3 cards",
+        "variables.0.change": "6 cards",
+        "variables.0.expected": "Changes to a child’s length are reflected in the parent’s length.",
+        "criteria.0": "Required deliverable: child start times and the total length. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Composition, Defaults. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Composition affect in this exercise? Input case: 3 cards and 6 cards.",
+        "questions.1": "Variable: Card Count. Hypothesis to check: Changes to a child’s length are reflected in the parent’s length. Did the actual results match the hypothesis? Explain the evidence in terms of Defaults.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
+    },
+    "gsap-step-22": {
+      "sourceHash": "96152f383c4977a86befa579e855f2770a3b37fc35c9ec7ec2b296dc2aaecc91",
+      "values": {
+        "title": "Controlling SVG Attributes",
+        "prerequisites": "Prepare the exercise results on Composition and Defaults from Unit 21, “Nested Timelines”.",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. The existing gsap-01·02·03 are starting examples. Write new units in a separate local GSAP project. The gsap-02 preview uses native scroll events; install and register ScrollTrigger in an external project. Preserve CSP and iframe isolation.",
+        "concepts.0.title": "Attr",
+        "concepts.0.explanation": "Numeric SVG attributes differ from CSS styles. Use attr to specify the target of a change.",
+        "concepts.1.title": "ViewBox",
+        "concepts.1.explanation": "viewBox creates a user coordinate system. Display size and coordinate values are not identical.",
+        "outcomes.0": "Learning outcome: explain the role of Attr. Input case: viewBox 0 0 200 100.",
+        "outcomes.1": "Deliverable: a table of endpoint attributes and displayed positions. Explain the rationale for handling ViewBox, connecting it to the code.",
+        "steps.0": "In src/day-22.js of a separate practice project, tween the circle’s attr cx·r and opacity separately. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: viewBox 0 0 200 100. Baseline: 200px. Run under baseline conditions, then record observations and errors in notes/day-22.md.",
+        "steps.2": "Variable: Display Width; changed value: 400px. Run again using the same input path. Deliverable to save: a table of endpoint attributes and displayed positions. Hypothesis to check: Attributes stay the same, and only the displayed size changes. Compare with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "Display Width",
+        "variables.0.baseline": "200px",
+        "variables.0.change": "400px",
+        "variables.0.expected": "Attributes stay the same, and only the displayed size changes.",
+        "criteria.0": "Required deliverable: a table of endpoint attributes and displayed positions. Include results for both baseline and changed conditions so that a total of 2 conditions can be compared, and record the inputs and execution environment together.",
+        "criteria.1": "Connect all of these concepts in the explanation of the difference between the two conditions: Attr, ViewBox. For items that differ from expectations, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Attr affect in this exercise? Input case: viewBox 0 0 200 100.",
+        "questions.1": "Variable: Display Width. Hypothesis to check: Attributes stay the same, and only the displayed size changes. Did the actual results match the hypothesis? Explain the evidence in terms of ViewBox.",
+        "references.0.title": "GSAP Official Documentation",
+        "references.1.title": "ScrollTrigger Official Documentation"
+      }
     }
   }
 }

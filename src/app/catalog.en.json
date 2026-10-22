@@ -375,6 +375,36 @@
       "exampleNote": "Change box-sizing to border-box and compare the measured widths of 244px and 200px. Document body/html selectors are scoped inside the Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "css-step-05",
+      "day": 5,
+      "week": 1,
+      "title": "Units and Fluid Font Sizes",
+      "goal": "The title size stays within the specified range on both screens. Record computed font sizes and spacing before and after changing the root size.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/05/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-06",
+      "day": 6,
+      "week": 1,
+      "title": "Normal Flow and Margin Collapsing",
+      "goal": "Measure the spacing between siblings and the position of the parent boundary separately. Explain a case where margins are not added together.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/06/README.md",
+      "seriesId": "css",
+      "exampleNote": "Setting flow-root on the parent prevents parent/child margin collapsing, but collapsing between sibling paragraphs remains unchanged. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-07",
+      "day": 7,
+      "week": 1,
+      "title": "Size Constraints and overflow",
+      "goal": "The full URL can be inspected, and the page has no horizontal overflow. Record the difference between clipping and internal scrolling in two screenshots.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/07/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
       "id": "react-step-03",
       "day": 3,
       "week": 1,

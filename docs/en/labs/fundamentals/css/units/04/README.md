@@ -107,7 +107,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Inheritance and Resetting](../03/README.md)
+[Previous: Inheritance and Resetting](../03/README.md) · [Next: Units and Fluid Font Sizes](../05/README.md)
 
 ## Experiment notes — write your own
 

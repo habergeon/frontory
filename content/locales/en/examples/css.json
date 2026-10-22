@@ -30,5 +30,23 @@
     "values": {
       "note": "Change initial, inherit, and unset in turn and check the computed color·border. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     }
+  },
+  "css-step-05": {
+    "sourceHash": "bbd7fb64e74f404b25ce7a89330321938b044db41bcaca37e47a0a381d3dec0c",
+    "values": {
+      "note": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "css-step-06": {
+    "sourceHash": "54f3bc7e1cb228a6024c293193bff1d6650ff5904ecca66de186eb3784a1336c",
+    "values": {
+      "note": "Setting flow-root on the parent prevents parent/child margin collapsing, but collapsing between sibling paragraphs remains unchanged. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "css-step-07": {
+    "sourceHash": "bbd7fb64e74f404b25ce7a89330321938b044db41bcaca37e47a0a381d3dec0c",
+    "values": {
+      "note": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
   }
 }

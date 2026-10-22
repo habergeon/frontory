@@ -132,6 +132,84 @@
         "questions.1": "What problems arise if every property is inherited?",
         "references.0.title": "MDN CSS"
       }
+    },
+    "css-step-05": {
+      "sourceHash": "8b7a90650ccdef780243c4edfb00c6b40689b1dde4ea772ac4c898a8c58cff18",
+      "values": {
+        "title": "Units and Fluid Font Sizes",
+        "prerequisites": "The work and experiment records from Unit 4, “Box Model and Measured Dimensions”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Relative Units",
+        "concepts.0.explanation": "rem is based on the root font size. For em, check the relationship between the property using it and the element's font size.",
+        "concepts.1.title": "Range Limits",
+        "concepts.1.explanation": "clamp sets minimum, preferred, and maximum sizes. Set a minimum so text does not become too small by following viewport width alone.",
+        "outcomes.0": "The title size stays within the specified range on both screens.",
+        "outcomes.1": "Record computed font sizes and spacing before and after changing the root size.",
+        "steps.0": "In index.html, prepare content with 360px·1200px screens and a 16px root font size, and connect units.css.",
+        "steps.1": "Use clamp for the title and rem for spacing, then change the root size and viewport.",
+        "steps.2": "Run with 360px·1200px screens and a 16px root font size. Results to check: The title size stays within the specified range on both screens. Record computed font sizes and spacing before and after changing the root size. Record expected and actual results separately.",
+        "variables.0.name": "Root Size",
+        "variables.0.baseline": "16px",
+        "variables.0.change": "20px",
+        "variables.0.expected": "Hypothesis before running: rem-based text and spacing will grow. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "The title size stays within the specified range on both screens.",
+        "criteria.1": "Record computed font sizes and spacing before and after changing the root size.",
+        "questions.0": "What problems can using only vw cause when zooming or on small screens?",
+        "questions.1": "How does nesting em change sizes?",
+        "references.0.title": "MDN CSS"
+      }
+    },
+    "css-step-06": {
+      "sourceHash": "1ce1c990a75b190132828337c22e88b0239341a777cf1056393aef2d16d56275",
+      "values": {
+        "title": "Normal Flow and Margin Collapsing",
+        "prerequisites": "The work and experiment records from Unit 5, “Units and Fluid Font Sizes”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Normal Flow",
+        "concepts.0.explanation": "Block elements stack in document flow. Following elements move according to content height even without positioning.",
+        "concepts.1.title": "Margin Collapsing",
+        "concepts.1.explanation": "The vertical margins of some blocks can collapse. Whether they collapse also changes with the layout context.",
+        "outcomes.0": "Measure the spacing between siblings and the position of the parent boundary separately.",
+        "outcomes.1": "Explain a case where margins are not added together.",
+        "steps.0": "In index.html, prepare content with 2 paragraphs and a parent with a background, and connect flow.css.",
+        "steps.1": "Set consecutive paragraph margins to 20px and 30px, and compare the parent before and after applying flow-root.",
+        "steps.2": "Run with 2 paragraphs and a parent with a background. Results to check: Measure the spacing between siblings and the position of the parent boundary separately. Explain a case where margins are not added together. Record expected and actual results separately.",
+        "variables.0.name": "Parent Display",
+        "variables.0.baseline": "block",
+        "variables.0.change": "flow-root",
+        "variables.0.expected": "Hypothesis before running: Margin collapsing between the parent and child may change. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Measure the spacing between siblings and the position of the parent boundary separately.",
+        "criteria.1": "Explain a case where margins are not added together.",
+        "questions.0": "Do sibling and parent-child margin collapsing have the same conditions?",
+        "questions.1": "How do the margins of an empty element appear?",
+        "references.0.title": "MDN CSS"
+      }
+    },
+    "css-step-07": {
+      "sourceHash": "ea23e3bca7c74b1f5684c9a7b16b5c2b425ff21c6ccd7d1c1531ba007d07e9dc",
+      "values": {
+        "title": "Size Constraints and overflow",
+        "prerequisites": "The work and experiment records from Unit 6, “Normal Flow and Margin Collapsing”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Minimum Sizes",
+        "concepts.0.explanation": "min-content and max-content express content-based sizes. Long words can create a larger minimum width than expected.",
+        "concepts.1.title": "Overflow Policy",
+        "concepts.1.explanation": "overflow determines whether overflowing content is visible, clipped, or scrollable. Applying only hidden can remove essential content.",
+        "outcomes.0": "The full URL can be inspected, and the page has no horizontal overflow.",
+        "outcomes.1": "Record the difference between clipping and internal scrolling in two screenshots.",
+        "steps.0": "In index.html, prepare content with an 80-character URL and a 280px card, and connect overflow.css.",
+        "steps.1": "Combine overflow-wrap and min-width on a card with a long URL, and create a separate scroll area.",
+        "steps.2": "Run with an 80-character URL and a 280px card. Results to check: The full URL can be inspected, and the page has no horizontal overflow. Record the difference between clipping and internal scrolling in two screenshots. Record expected and actual results separately.",
+        "variables.0.name": "Line Breaking",
+        "variables.0.baseline": "normal",
+        "variables.0.change": "anywhere",
+        "variables.0.expected": "Hypothesis before running: The long string will wrap inside the card. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "The full URL can be inspected, and the page has no horizontal overflow.",
+        "criteria.1": "Record the difference between clipping and internal scrolling in two screenshots.",
+        "questions.0": "If you use only ellipsis, where can the full value be inspected?",
+        "questions.1": "Did you find the cause before hiding overflow?",
+        "references.0.title": "MDN CSS"
+      }
     }
   }
 }

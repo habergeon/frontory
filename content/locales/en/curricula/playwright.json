@@ -1,0 +1,105 @@
+{
+  "series": {
+    "sourceHash": "55fa97f9db69286c58034edb2c38b459c2394e0443f7a1dd73ff97ca8a4a6859",
+    "values": {
+      "stages.0": "User Flows and Locators",
+      "stages.1": "Persistent Data and File Round Trips",
+      "stages.2": "Asynchrony, Isolation, and Diagnosis",
+      "stages.3": "Visual Regression and Execution Strategy",
+      "goal": "Verify user flows in a separate Node test environment and design data isolation, asynchronous waiting, and diagnostic evidence.",
+      "capstone": "Build a test suite that verifies Frontory navigation, documents, note backup and restoration, preservation on errors, and visual regression on an independent origin."
+    }
+  },
+  "units": {
+    "playwright-01": {
+      "sourceHash": "4dfd37655827d4d48298067fcda480a2940f2419e8c4d6bd02c99ff7572d92a9",
+      "values": {
+        "title": "Testing from the User’s Perspective",
+        "prerequisites": "Understand DOM roles, asynchronous behavior, and testing basics, and be able to read the inputs and outputs of the existing starting examples.",
+        "environment": "Write and run all tests in a separate Node project using @playwright/test and a dedicated local test origin. The existing playwright-01·02·03 previews only display test source; they do not run Playwright in the iframe. Write new test files yourself for the assignments and judge whether they pass only from actual runner output. Do not use a user profile or storage used for everyday work; preserve CSP and isolation.",
+        "concepts.0.title": "User contract",
+        "concepts.0.explanation": "role and label follow UI meanings that users understand. They express the purpose of an action more clearly than internal class names.",
+        "concepts.1.title": "Auto-waiting",
+        "concepts.1.explanation": "Locator actions and retrying assertions wait for state. Do not guess when the UI is ready with a fixed sleep.",
+        "outcomes.0": "Learning outcome: explain the role of User contract. Input cases: table of contents selection and the open-document button.",
+        "outcomes.1": "Deliverable: assertion results for the selected title and dialog visibility. Explain the rationale for handling Auto-waiting, linking it to the code.",
+        "steps.0": "In tests/day-1.spec.ts in a separate practice project, install @playwright/test in a separate Node project and write tests for Frontory’s table of contents and document opening. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: table of contents selection and the open-document button. Baseline: 1280×800. Run under the baseline conditions, then record observations and errors in notes/day-1.md.",
+        "steps.2": "Variable: viewport; changed value: 390×844. Run again through the same input path. Deliverable to save: assertion results for the selected title and dialog visibility. Hypothesis to check: Verify the same user flow at both sizes. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "viewport",
+        "variables.0.baseline": "1280×800",
+        "variables.0.change": "390×844",
+        "variables.0.expected": "Verify the same user flow at both sizes.",
+        "criteria.0": "Required deliverable: assertion results for the selected title and dialog visibility. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: User contract and Auto-waiting. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does User contract affect in this exercise? Input cases: table of contents selection and the open-document button.",
+        "questions.1": "Variable: viewport. Hypothesis to check: Verify the same user flow at both sizes. Did the actual results agree with the hypothesis? Explain the evidence in terms of Auto-waiting.",
+        "references.0.title": "Playwright Installation and Execution",
+        "references.1.title": "Playwright Locators",
+        "references.2.title": "Playwright Assertions",
+        "references.3.title": "Playwright Downloads",
+        "references.4.title": "Playwright Visual comparisons"
+      }
+    },
+    "playwright-step-02": {
+      "sourceHash": "6953a79686095897f24f8603260204bb568d6e3c25de6aea1e35b6b8b560ed9c",
+      "values": {
+        "title": "Configuration and Execution Scope",
+        "prerequisites": "Prepare the experiment results for User contract and Auto-waiting from Unit 1, “Testing from the User’s Perspective”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. Write and run all tests in a separate Node project using @playwright/test and a dedicated local test origin. The existing playwright-01·02·03 previews only display test source; they do not run Playwright in the iframe. Write new test files yourself for the assignments and judge whether they pass only from actual runner output. Do not use a user profile or storage used for everyday work; preserve CSP and isolation.",
+        "concepts.0.title": "Runner",
+        "concepts.0.explanation": "Playwright Test controls a browser from Node. Displaying an example in an iframe does not mean that tests are running.",
+        "concepts.1.title": "BaseURL",
+        "concepts.1.explanation": "Specifying a test origin makes it easier to separate tests from real user data. The app server and test runner have different roles.",
+        "outcomes.0": "Learning outcome: explain the role of Runner. Input cases: a separate local test origin.",
+        "outcomes.1": "Deliverable: execution command, target URL, and report. Explain the rationale for handling BaseURL, linking it to the code.",
+        "steps.0": "In tests/day-2.spec.ts in a separate practice project, set baseURL·testDir in playwright.config.ts and run npx playwright test. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: a separate local test origin. Baseline: running server. Run under the baseline conditions, then record observations and errors in notes/day-2.md.",
+        "steps.2": "Variable: URL; changed value: stopped server. Run again through the same input path. Deliverable to save: execution command, target URL, and report. Hypothesis to check: Distinguish server failure as a cause of test failure. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "URL",
+        "variables.0.baseline": "running server",
+        "variables.0.change": "stopped server",
+        "variables.0.expected": "Distinguish server failure as a cause of test failure.",
+        "criteria.0": "Required deliverable: execution command, target URL, and report. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Runner and BaseURL. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Runner affect in this exercise? Input cases: a separate local test origin.",
+        "questions.1": "Variable: URL. Hypothesis to check: Distinguish server failure as a cause of test failure. Did the actual results agree with the hypothesis? Explain the evidence in terms of BaseURL.",
+        "references.0.title": "Playwright Installation and Execution",
+        "references.1.title": "Playwright Locators",
+        "references.2.title": "Playwright Assertions",
+        "references.3.title": "Playwright Downloads",
+        "references.4.title": "Playwright Visual comparisons"
+      }
+    },
+    "playwright-step-03": {
+      "sourceHash": "022dd4df395bc4871f5e7026ed91241db1974c0407d61f283092280a64a9c7ad",
+      "values": {
+        "title": "Role and Accessible Name",
+        "prerequisites": "Prepare the experiment results for Runner and BaseURL from Unit 2, “Configuration and Execution Scope”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. Write and run all tests in a separate Node project using @playwright/test and a dedicated local test origin. The existing playwright-01·02·03 previews only display test source; they do not run Playwright in the iframe. Write new test files yourself for the assignments and judge whether they pass only from actual runner output. Do not use a user profile or storage used for everyday work; preserve CSP and isolation.",
+        "concepts.0.title": "Role",
+        "concepts.0.explanation": "getByRole finds elements by meaningful roles. Distinguish multiple elements with the same role by name.",
+        "concepts.1.title": "Name",
+        "concepts.1.explanation": "An accessible name may differ from visible text. Check the actual label and aria attributes.",
+        "outcomes.0": "Learning outcome: explain the role of Role. Input cases: two buttons with similar names.",
+        "outcomes.1": "Deliverable: locator count and state after clicking. Explain the rationale for handling Name, linking it to the code.",
+        "steps.0": "In tests/day-3.spec.ts in a separate practice project, add name and exact to getByRole and check the number of matches. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: two buttons with similar names. Baseline: partial match. Run under the baseline conditions, then record observations and errors in notes/day-3.md.",
+        "steps.2": "Variable: name condition; changed value: exact true. Run again through the same input path. Deliverable to save: locator count and state after clicking. Hypothesis to check: Select only the intended button. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "name condition",
+        "variables.0.baseline": "partial match",
+        "variables.0.change": "exact true",
+        "variables.0.expected": "Select only the intended button.",
+        "criteria.0": "Required deliverable: locator count and state after clicking. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Role and Name. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Role affect in this exercise? Input cases: two buttons with similar names.",
+        "questions.1": "Variable: name condition. Hypothesis to check: Select only the intended button. Did the actual results agree with the hypothesis? Explain the evidence in terms of Name.",
+        "references.0.title": "Playwright Installation and Execution",
+        "references.1.title": "Playwright Locators",
+        "references.2.title": "Playwright Assertions",
+        "references.3.title": "Playwright Downloads",
+        "references.4.title": "Playwright Visual comparisons"
+      }
+    }
+  }
+}

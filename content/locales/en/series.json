@@ -145,5 +145,12 @@
       "title": "WebAssembly",
       "prerequisites": "JavaScript·TypedArray, basics of the chosen compiled language"
     }
+  },
+  "playwright": {
+    "sourceHash": "f12ce66413a27c843a1e19b54d94d39e8bf0564693511099f49333f3bec7496a",
+    "values": {
+      "title": "Playwright",
+      "prerequisites": "DOM roles and asynchronous behavior, testing basics"
+    }
   }
 }

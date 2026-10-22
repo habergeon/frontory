@@ -293,6 +293,20 @@
         "Deployment and Execution Structure",
         "Correctness and Bottleneck Evaluation"
       ]
+    },
+    {
+      "id": "playwright",
+      "title": "Playwright",
+      "category": "testing",
+      "priority": 4,
+      "prerequisites": "DOM roles and asynchronous behavior, testing basics",
+      "docPath": "/docs/en/labs/testing/playwright/README.md",
+      "stages": [
+        "User Flows and Locators",
+        "Persistent Data and File Round Trips",
+        "Asynchrony, Isolation, and Diagnosis",
+        "Visual Regression and Execution Strategy"
+      ]
     }
   ],
   "units": [
@@ -6112,6 +6126,35 @@
       "goal": "Learning outcome: explain the role of End-to-end latency. Input cases: multiple sizes and repeat counts. Deliverable: a report on cold·warm·copies·correctness·adoption rationale. Explain the rationale for handling Evidence-based decisions, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/03-project/README.md",
       "seriesId": "webassembly"
+    },
+    {
+      "id": "playwright-01",
+      "day": 1,
+      "week": 1,
+      "title": "Testing from the User’s Perspective",
+      "goal": "Learning outcome: explain the role of User contract. Input cases: table of contents selection and the open-document button. Deliverable: assertion results for the selected title and dialog visibility. Explain the rationale for handling Auto-waiting, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/01-foundations/README.md",
+      "seriesId": "playwright"
+    },
+    {
+      "id": "playwright-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Configuration and Execution Scope",
+      "goal": "Learning outcome: explain the role of Runner. Input cases: a separate local test origin. Deliverable: execution command, target URL, and report. Explain the rationale for handling BaseURL, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/02/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    {
+      "id": "playwright-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Role and Accessible Name",
+      "goal": "Learning outcome: explain the role of Role. Input cases: two buttons with similar names. Deliverable: locator count and state after clicking. Explain the rationale for handling Name, linking it to the code.",
+      "docPath": "/docs/en/labs/testing/playwright/units/03/README.md",
+      "seriesId": "playwright",
+      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     }
   ]
 }

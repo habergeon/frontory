@@ -633,3 +633,10 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [25. Total Cost Including Copies](labs/engineering/webassembly/units/25/README.md) | External example · preview instructions | [Source code](../../src/labs/webassembly-step-25/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
 | [26. Boundary-value Correctness](labs/engineering/webassembly/units/26/README.md) | External example · preview instructions | [Source code](../../src/labs/webassembly-step-26/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
 | [27. Environment and Adoption Criteria](labs/engineering/webassembly/units/27/README.md) | External example · preview instructions | [Source code](../../src/labs/webassembly-step-27/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+
+## Playwright
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. Configuration and Execution Scope](labs/testing/playwright/units/02/README.md) | External example · preview instructions | [Source code](../../src/labs/playwright-step-02/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |
+| [3. Role and Accessible Name](labs/testing/playwright/units/03/README.md) | External example · preview instructions | [Source code](../../src/labs/playwright-step-03/example.js) — Runnable standalone Playwright spec and HTTP fixture; preview does not run tests. |

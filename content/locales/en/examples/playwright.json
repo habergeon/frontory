@@ -1,0 +1,14 @@
+{
+  "playwright-step-02": {
+    "sourceHash": "c57c57bf7f5e63b039f1e026736969f5ef226c75a8fd31e64e681a7031bc26d0",
+    "values": {
+      "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    }
+  },
+  "playwright-step-03": {
+    "sourceHash": "c1fed536b60461efca01dc357cb91eed530680a71d9d147a9a7b4712bc41a112",
+    "values": {
+      "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    }
+  }
+}

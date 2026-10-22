@@ -50,7 +50,7 @@ There are currently **23 series / 644 units**. Every series has 4 stages and 28 
 
 ## Testing
 
-- [Playwright (Korean)](../../labs/testing/playwright/README.md) — ★★★★ / 28 units / Prerequisites: DOM roles, asynchronous work, testing basics
+- [Playwright](testing/playwright/README.md) — ★★★★ / 28 units / Prerequisites: DOM roles, asynchronous work, testing basics
 
 ## Shared experiment notes
 

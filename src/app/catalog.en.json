@@ -602,6 +602,36 @@
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
+      "id": "typescript-step-25",
+      "day": 25,
+      "week": 4,
+      "title": "Declaration Files and External Boundaries",
+      "goal": "Record the diagnostic for a call with an invalid argument. Keep logs comparing the declared and actual return types.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/25/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-26",
+      "day": 26,
+      "week": 4,
+      "title": "Cases That Verify Compilation Failures",
+      "goal": "The 3 valid cases compile. Document reasons for the 3 rejected cases in comments and verify them with expected errors.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/26/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-27",
+      "day": 27,
+      "week": 4,
+      "title": "Plugin Ownership and Cleanup Contracts",
+      "goal": "The event handler runs 0 times after cleanup. The remounted button handles a click 1 time.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/27/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
       "id": "html-01",
       "day": 1,
       "week": 1,

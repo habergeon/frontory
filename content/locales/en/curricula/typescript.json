@@ -643,6 +643,84 @@
         "questions.1": "Why might module loading fail after successful compilation?",
         "references.0.title": "TypeScript Handbook"
       }
+    },
+    "typescript-step-25": {
+      "sourceHash": "44a70c165400144b2e973fe3624e3a2255f1419b74235e19335f2f04fcb49b33",
+      "values": {
+        "title": "Declaration Files and External Boundaries",
+        "prerequisites": "Work and experiment records from Unit 24, “Modules and type-only import”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Declaration Contracts",
+        "concepts.0.explanation": "d.ts describes an implementation's type contract. It does not create actual JavaScript behavior.",
+        "concepts.1.title": "Contract Mismatches",
+        "concepts.1.explanation": "Incorrect declarations can still let consumer checks pass. Check implementation and declarations with the same call cases.",
+        "outcomes.0": "Record the diagnostic for a call with an invalid argument.",
+        "outcomes.1": "Keep logs comparing the declared and actual return types.",
+        "steps.0": "In legacy.d.ts, prepare conditions for string-key and number-key calls.",
+        "steps.1": "Declare a small legacy.js storage function and call it from a TS consumer with valid and invalid arguments.",
+        "steps.2": "Run with string-key and number-key calls. Results to check: Record the diagnostic for a call with an invalid argument. Keep logs comparing the declared and actual return types. Record expected and actual results separately.",
+        "variables.0.name": "Declared Return",
+        "variables.0.baseline": "actual string",
+        "variables.0.change": "incorrect number declaration",
+        "variables.0.expected": "Pre-run hypothesis: successful compilation and runtime behavior may disagree. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record the diagnostic for a call with an invalid argument.",
+        "criteria.1": "Keep logs comparing the declared and actual return types.",
+        "questions.0": "Does shipping only d.ts also create the implementation?",
+        "questions.1": "How do you trace responsibility for an inaccurate declaration?",
+        "references.0.title": "TypeScript Handbook"
+      }
+    },
+    "typescript-step-26": {
+      "sourceHash": "10fef2d5edcf32e29feb2e16a60df3917001816ad02529830697349c1d96cf05",
+      "values": {
+        "title": "Cases That Verify Compilation Failures",
+        "prerequisites": "Work and experiment records from Unit 25, “Declaration Files and External Boundaries”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Expected Failures",
+        "concepts.0.explanation": "@ts-expect-error expects an error on the next line. If the error disappears, an unused-directive diagnostic signals a contract change.",
+        "concepts.1.title": "Checking Both Directions",
+        "concepts.1.explanation": "Check valid and rejected cases together. Ignoring all errors can hide a weakened contract.",
+        "outcomes.0": "The 3 valid cases compile.",
+        "outcomes.1": "Document reasons for the 3 rejected cases in comments and verify them with expected errors.",
+        "steps.0": "In contracts.test.ts, prepare conditions for 3 valid cases and 3 rejected cases.",
+        "steps.1": "Add expected errors for invalid states·payloads·plugins and write valid calls alongside them.",
+        "steps.2": "Run with 3 valid cases and 3 rejected cases. Results to check: The 3 valid cases compile. Document reasons for the 3 rejected cases in comments and verify them with expected errors. Record expected and actual results separately.",
+        "variables.0.name": "Contract",
+        "variables.0.baseline": "strict types",
+        "variables.0.change": "weaken to any",
+        "variables.0.expected": "Pre-run hypothesis: expected errors will disappear and the check will fail. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "The 3 valid cases compile.",
+        "criteria.1": "Document reasons for the 3 rejected cases in comments and verify them with expected errors.",
+        "questions.0": "How do ts-ignore and expect-error differ?",
+        "questions.1": "Do type tests alone guarantee actual behavior?",
+        "references.0.title": "TypeScript Handbook"
+      }
+    },
+    "typescript-step-27": {
+      "sourceHash": "4879644974c058c0ffef2d4ee72587c5b8274c433447fb7be99f6d04b96c74b7",
+      "values": {
+        "title": "Plugin Ownership and Cleanup Contracts",
+        "prerequisites": "Work and experiment records from Unit 26, “Cases That Verify Compilation Failures”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Common Interfaces",
+        "concepts.0.explanation": "Define implementation boundaries with mount and dispose contracts. Pass only the DOM and configuration needed in the context.",
+        "concepts.1.title": "Lifecycle",
+        "concepts.1.explanation": "Event leaks can occur even with matching types. Check repeated mounting and duplicate disposal at runtime.",
+        "outcomes.0": "The event handler runs 0 times after cleanup.",
+        "outcomes.1": "The remounted button handles a click 1 time.",
+        "steps.0": "In plugin.ts, prepare conditions for 5 mounts and 2 consecutive dispose calls.",
+        "steps.1": "Define Plugin and Context, and write a resource cleanup list in one DOM implementation.",
+        "steps.2": "Run with 5 mounts and 2 consecutive dispose calls. Results to check: The event handler runs 0 times after cleanup. The remounted button handles a click 1 time. Record expected and actual results separately.",
+        "variables.0.name": "Disposal Count",
+        "variables.0.baseline": "1 call",
+        "variables.0.change": "2 calls",
+        "variables.0.expected": "Pre-run hypothesis: the second call will also cause no exception. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "The event handler runs 0 times after cleanup.",
+        "criteria.1": "The remounted button handles a click 1 time.",
+        "questions.0": "Does an interface enforce resource cleanup?",
+        "questions.1": "May a plugin delete resources it does not own?",
+        "references.0.title": "TypeScript Handbook"
+      }
     }
   }
 }

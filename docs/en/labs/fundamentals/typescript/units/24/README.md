@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Async Functions and Error Types](../23/README.md)
+[Previous: Async Functions and Error Types](../23/README.md) · [Next: Declaration Files and External Boundaries](../25/README.md)
 
 ## Experiment notes — write your own
 

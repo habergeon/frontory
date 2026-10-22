@@ -1,8 +1,19 @@
 {
   "javascript-step-02": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "eca07f4e81d6befd6ccc452dea49cfb0f88196a52cc70e7f0bd9b3c48c1763e7",
     "values": {
       "note": "Compare editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "f9f1e185c567307b14c8c80445981db93b8eb984d588dd0ca5eea4d770a210ab",
+      "values": {
+        "messages.title": "String input and number conversion",
+        "messages.help": "Change the input from 15 to an empty string and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment",
+        "comments.title": "String input and number conversion",
+        "comments.help": "Editable experiment input and algorithm."
+      }
     }
   }
 }

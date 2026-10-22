@@ -603,3 +603,10 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [25. Resolution and Workload](labs/engineering/offscreen-canvas/units/25/README.md) | Editable example | [Source code](../../src/labs/offscreen-canvas-step-25/example.js) — An interactive Resolution and Workload experiment with cleanup of the resources it uses. |
 | [26. Main-Thread Contention Experiment](labs/engineering/offscreen-canvas/units/26/README.md) | Editable example | [Source code](../../src/labs/offscreen-canvas-step-26/example.js) — An interactive Main-Thread Contention Experiment with cleanup of the resources it uses. |
 | [27. Summarizing Experiment Results](labs/engineering/offscreen-canvas/units/27/README.md) | Editable example | [Source code](../../src/labs/offscreen-canvas-step-27/example.js) — An interactive Summarizing Experiment Results experiment with cleanup of the resources it uses. |
+
+## WebAssembly
+
+| Learning unit | Execution mode | Source and supported scope |
+| --- | --- | --- |
+| [2. WAT and Binary](labs/engineering/webassembly/units/02/README.md) | External example · preview instructions | [Source code](../../src/labs/webassembly-step-02/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |
+| [3. Compile and Instance](labs/engineering/webassembly/units/03/README.md) | External example · preview instructions | [Source code](../../src/labs/webassembly-step-03/example.js) — Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation. |

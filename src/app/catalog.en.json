@@ -279,6 +279,20 @@
         "Rendering Lifecycle and Recovery",
         "Responsiveness Comparison Project"
       ]
+    },
+    {
+      "id": "webassembly",
+      "title": "WebAssembly",
+      "category": "engineering",
+      "priority": 4,
+      "prerequisites": "JavaScript·TypedArray, basics of the chosen compiled language",
+      "docPath": "/docs/en/labs/engineering/webassembly/README.md",
+      "stages": [
+        "Modules and Numeric Contracts",
+        "Memory and Array Boundaries",
+        "Deployment and Execution Structure",
+        "Correctness and Bottleneck Evaluation"
+      ]
     }
   ],
   "units": [
@@ -5821,6 +5835,35 @@
       "goal": "Learning outcome: explain the role of Effects of separation. Input cases: resize·input·stop·rerun·unsupported. Deliverable: An input-latency·frame·cleanup·fallback report. Explain the rationale for handling Completion criteria, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/03-project/README.md",
       "seriesId": "offscreen-canvas"
+    },
+    {
+      "id": "webassembly-01",
+      "day": 1,
+      "week": 1,
+      "title": "Modules and Linear Memory",
+      "goal": "Learning outcome: explain the role of Module boundary. Input cases: [1,2,3] and an invalid file path. Deliverable: JS·Wasm sum 6 and a record of loading errors. Explain the rationale for handling Preview scope, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/01-foundations/README.md",
+      "seriesId": "webassembly"
+    },
+    {
+      "id": "webassembly-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "WAT and Binary",
+      "goal": "Learning outcome: explain the role of Text format. Input cases: the existing sum function and a modified constant. Deliverable: build logs and export call results. Explain the rationale for handling Build, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/02/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    {
+      "id": "webassembly-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Compile and Instance",
+      "goal": "Learning outcome: explain the role of Module. Input cases: the same module and different first elements. Deliverable: the first element value for each instance. Explain the rationale for handling Instance, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/webassembly/units/03/README.md",
+      "seriesId": "webassembly",
+      "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     }
   ]
 }

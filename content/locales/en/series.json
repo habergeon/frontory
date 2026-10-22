@@ -138,5 +138,12 @@
       "title": "OffscreenCanvas",
       "prerequisites": "Canvas 2D·Web Workers"
     }
+  },
+  "webassembly": {
+    "sourceHash": "286a8986daad1437a46a524f1a7d5d9e43127d04ec85e6e692ad3698a4d4bce5",
+    "values": {
+      "title": "WebAssembly",
+      "prerequisites": "JavaScript·TypedArray, basics of the chosen compiled language"
+    }
   }
 }

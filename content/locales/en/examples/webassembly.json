@@ -1,0 +1,14 @@
+{
+  "webassembly-step-02": {
+    "sourceHash": "36594da5ab3f8445c5fac4194159c4f01a20a022907212901c05623f8a0dc4ed",
+    "values": {
+      "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    }
+  },
+  "webassembly-step-03": {
+    "sourceHash": "363dd230b3a8838c4ec3919bf370ac7616fd16da4c6937719a6d120eec2826e2",
+    "values": {
+      "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    }
+  }
+}

@@ -559,6 +559,9 @@
     "offscreen-canvas-step-25",
     "offscreen-canvas-step-26",
     "offscreen-canvas-step-27",
-    "offscreen-canvas-03"
+    "offscreen-canvas-03",
+    "webassembly-01",
+    "webassembly-step-02",
+    "webassembly-step-03"
   ]
 }

@@ -1,0 +1,99 @@
+{
+  "series": {
+    "sourceHash": "d2e30ab275911cff85c523b029f3a3b61e422ae9ae34d3daed28b872e09d1415",
+    "values": {
+      "stages.0": "Modules and Numeric Contracts",
+      "stages.1": "Memory and Array Boundaries",
+      "stages.2": "Deployment and Execution Structure",
+      "stages.3": "Correctness and Bottleneck Evaluation",
+      "goal": "Call actual Wasm modules and distinguish linear memory·copying·numeric representation·initialization costs.",
+      "capstone": "Validate array transformations in JS and actual Wasm, then decide whether to adopt Wasm using cold·warm·copy-inclusive end-to-end latency."
+    }
+  },
+  "units": {
+    "webassembly-01": {
+      "sourceHash": "295e464e7278a3c18a722e94c7ff7984c558f43a6ecce308229cac514474f43b",
+      "values": {
+        "title": "Modules and Linear Memory",
+        "prerequisites": "Understand JavaScript·TypedArray and the basics of the chosen compiled language, and be able to read the inputs and outputs of the existing starting examples.",
+        "environment": "The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Module boundary",
+        "concepts.0.explanation": "Wasm calls exports of a compiled module. JS generally handles DOM manipulation.",
+        "concepts.1.title": "Preview scope",
+        "concepts.1.explanation": "The existing first example observes WebAssembly.Memory. It does not compile a module or accelerate computation.",
+        "outcomes.0": "Learning outcome: explain the role of Module boundary. Input cases: [1,2,3] and an invalid file path.",
+        "outcomes.1": "Deliverable: JS·Wasm sum 6 and a record of loading errors. Explain the rationale for handling Preview scope, linking it to the code.",
+        "steps.0": "In day-1.mjs in a separate practice project, read the existing Memory example, then instantiate webassembly-02's kernel.wasm in a separate Node environment and call sum. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: [1,2,3] and an invalid file path. Baseline: valid wasm. Run under the baseline conditions, then record observations and errors in notes/day-1.md.",
+        "steps.2": "Variable: file path; changed value: missing file. Run again through the same input path. Deliverable to save: JS·Wasm sum 6 and a record of loading errors. Hypothesis to check: Normal results and loading failures are distinguished. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "file path",
+        "variables.0.baseline": "valid wasm",
+        "variables.0.change": "missing file",
+        "variables.0.expected": "Normal results and loading failures are distinguished.",
+        "criteria.0": "Required deliverable: JS·Wasm sum 6 and a record of loading errors. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Module boundary and Preview scope. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Module boundary affect in this exercise? Input cases: [1,2,3] and an invalid file path.",
+        "questions.1": "Variable: file path. Hypothesis to check: Normal results and loading failures are distinguished. Did the actual results agree with the hypothesis? Explain the evidence in terms of Preview scope.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-02": {
+      "sourceHash": "68728770b7cd520ee356407887cde40ad81fbb4082a4c5c2d891c4fab7853488",
+      "values": {
+        "title": "WAT and Binary",
+        "prerequisites": "Prepare the experiment results for Module boundary and Preview scope from Unit 1, “Modules and Linear Memory”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Text format",
+        "concepts.0.explanation": "WAT is a readable representation of module structure. Browsers do not directly execute a WAT string as a Wasm binary.",
+        "concepts.1.title": "Build",
+        "concepts.1.explanation": "wat2wasm converts text into binary. Check build results separately from execution results.",
+        "outcomes.0": "Learning outcome: explain the role of Text format. Input cases: the existing sum function and a modified constant.",
+        "outcomes.1": "Deliverable: build logs and export call results. Explain the rationale for handling Build, linking it to the code.",
+        "steps.0": "In day-2.mjs in a separate practice project, copy kernel.wat into a separate folder and run the official tool: wat2wasm kernel.wat -o kernel.wasm. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: the existing sum function and a modified constant. Baseline: valid WAT. Run under the baseline conditions, then record observations and errors in notes/day-2.md.",
+        "steps.2": "Variable: source; changed value: WAT with a syntax error. Run again through the same input path. Deliverable to save: build logs and export call results. Hypothesis to check: Syntax errors are exposed during the build. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "source",
+        "variables.0.baseline": "valid WAT",
+        "variables.0.change": "WAT with a syntax error",
+        "variables.0.expected": "Syntax errors are exposed during the build.",
+        "criteria.0": "Required deliverable: build logs and export call results. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Text format and Build. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Text format affect in this exercise? Input cases: the existing sum function and a modified constant.",
+        "questions.1": "Variable: source. Hypothesis to check: Syntax errors are exposed during the build. Did the actual results agree with the hypothesis? Explain the evidence in terms of Build.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    },
+    "webassembly-step-03": {
+      "sourceHash": "a08f279257f712e6a96342d53014dd370c156a886c5cf1dfb3e75175186ce5e7",
+      "values": {
+        "title": "Compile and Instance",
+        "prerequisites": "Prepare the experiment results for Text format and Build from Unit 2, “WAT and Binary”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The iframe preview is an experiment with WebAssembly.Memory and JS reference computations; do not present it as execution of an actual Wasm module. Practice with actual modules in a separate Node 22+ environment or a controlled local web project. Use kernel.wat·kernel.wasm·benchmark.mjs in the existing src/labs/webassembly-02·03 folders, and rebuild with the official wat2wasm tool when modifying WAT. Preserve CSP·isolation, and record measurements yourself.",
+        "concepts.0.title": "Module",
+        "concepts.0.explanation": "The result of compile is compiled code. Distinguish it from an instance with execution state.",
+        "concepts.1.title": "Instance",
+        "concepts.1.explanation": "Multiple instances can be created from the same module. Whether their memories are shared depends on the definitions.",
+        "outcomes.0": "Learning outcome: explain the role of Module. Input cases: the same module and different first elements.",
+        "outcomes.1": "Deliverable: the first element value for each instance. Explain the rationale for handling Instance, linking it to the code.",
+        "steps.0": "In day-3.mjs in a separate practice project, create two instances after WebAssembly.compile and modify each memory. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: the same module and different first elements. Baseline: one. Run under the baseline conditions, then record observations and errors in notes/day-3.md.",
+        "steps.2": "Variable: instances; changed value: two. Run again through the same input path. Deliverable to save: the first element value for each instance. Hypothesis to check: Internally defined memory remains independent in each instance. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "instances",
+        "variables.0.baseline": "one",
+        "variables.0.change": "two",
+        "variables.0.expected": "Internally defined memory remains independent in each instance.",
+        "criteria.0": "Required deliverable: the first element value for each instance. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Module and Instance. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Module affect in this exercise? Input cases: the same module and different first elements.",
+        "questions.1": "Variable: instances. Hypothesis to check: Internally defined memory remains independent in each instance. Did the actual results agree with the hypothesis? Explain the evidence in terms of Instance.",
+        "references.0.title": "WebAssembly Developer’s Guide",
+        "references.1.title": "MDN WebAssembly JavaScript API",
+        "references.2.title": "MDN WebAssembly.Memory"
+      }
+    }
+  }
+}

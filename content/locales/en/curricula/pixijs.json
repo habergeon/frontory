@@ -410,6 +410,89 @@
         "references.0.title": "PixiJS 8 a11y",
         "references.1.title": "PixiJS 8 events"
       }
+    },
+    "pixijs-step-16": {
+      "sourceHash": "d0881dfa4de9fc4565c98a17c1a70e850199cdef3edaf9b71c55ef1e26354aa6",
+      "values": {
+        "title": "Scene Transitions and State Preservation",
+        "prerequisites": "Prerequisite concepts: Meaning Beyond Pixels, Shared Commands. Prepare the output files and observation records from Unit 15.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Scene Boundaries",
+        "concepts.0.explanation": "Grouping each screen in a Container makes transition boundaries clear. Separating data and display objects lets you restore user state even after recreating resources.",
+        "concepts.1.title": "Invalidating Asynchronous Work",
+        "concepts.1.explanation": "Loading for a screen may finish after you leave it. Check a generation token to avoid attaching stale results.",
+        "outcomes.0": "Preserve data positions when returning to a screen.",
+        "outcomes.1": "Remove events and ticker callbacks from the screen you leave.",
+        "steps.0": "Prepare day-16.js and index.html in the external practice project. Build menu and editor screens with separate Containers and a data model.",
+        "steps.1": "Switch screens quickly, check requestId, and apply loading results only to the current screen.",
+        "steps.2": "Save the output with the input condition Current request first, then run again with Previous request finishes later. Expected: An older result does not add a Sprite to the new screen. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-16-notes.md.",
+        "variables.0.name": "Completion order",
+        "variables.0.baseline": "Current request first",
+        "variables.0.change": "Previous request finishes later",
+        "variables.0.expected": "An older result does not add a Sprite to the new screen",
+        "criteria.0": "Preserve data positions when returning to a screen.",
+        "criteria.1": "Remove events and ticker callbacks from the screen you leave.",
+        "questions.0": "Does removing a Container also mean its resources are released?",
+        "questions.1": "Is it safe to destroy an already cached resource because its result is stale?",
+        "references.0.title": "PixiJS 8 container",
+        "references.1.title": "PixiJS 8 assets",
+        "references.2.title": "PixiJS 8 gc"
+      }
+    },
+    "pixijs-step-17": {
+      "sourceHash": "c701f48a1d47b19ee400dbb9be179e9af79593831b6808e02505058a37c41bd5",
+      "values": {
+        "title": "Animation Frame Sequences",
+        "prerequisites": "Prerequisite concepts: Scene Boundaries, Invalidating Asynchronous Work. Prepare the output files and observation records from Unit 16.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Frame Order",
+        "concepts.0.explanation": "Sorting atlas frame names does not guarantee playback order. Manage the order with an explicit array.",
+        "concepts.1.title": "Time-Based Indices",
+        "concepts.1.explanation": "Accumulated time and fps can determine the frame index. Incrementing it by rendered frame count makes playback speed depend on the environment.",
+        "outcomes.0": "Specify frame order explicitly.",
+        "outcomes.1": "Resume at the same frame after pausing.",
+        "steps.0": "Prepare day-17.js and index.html in the external practice project. Create an atlas frame array and accumulated seconds, and replace Sprite.texture using floor(time*fps).",
+        "steps.1": "Add play, pause, and loop inputs, and implement a mode that stops at the last frame.",
+        "steps.2": "Save the output with the input condition 6, then run again with 12. Expected: The same frame array cycles twice as fast. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-17-notes.md.",
+        "variables.0.name": "fps",
+        "variables.0.baseline": "6",
+        "variables.0.change": "12",
+        "variables.0.expected": "The same frame array cycles twice as fast",
+        "criteria.0": "Specify frame order explicitly.",
+        "criteria.1": "Resume at the same frame after pausing.",
+        "questions.0": "Where does number 10 appear when filenames are sorted as strings?",
+        "questions.1": "What policy is needed when a long dt skips multiple frames?",
+        "references.0.title": "PixiJS 8 ticker",
+        "references.1.title": "PixiJS 8 sprite"
+      }
+    },
+    "pixijs-step-18": {
+      "sourceHash": "c4867ba8088bb45dea1e438e6e2617e20055ecaf7a2170b80548a2608a18449a",
+      "values": {
+        "title": "Masks and Scroll Regions",
+        "prerequisites": "Prerequisite concepts: Frame Order, Time-Based Indices. Prepare the output files and observation records from Unit 17.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes preparation for extending the assignment in a separate project. Implement the work yourself in an HTML and ES module project served by a separate local HTTP development server. Pin and record the installed pixi.js 8.x version.",
+        "concepts.0.title": "Restricting Display",
+        "concepts.0.explanation": "A mask restricts where an object is visible. It can show only part of the content without deleting data or child positions.",
+        "concepts.1.title": "Input Policy",
+        "concepts.1.explanation": "Check input handling for hidden content too. Selecting offscreen objects can confuse users.",
+        "outcomes.0": "Keep graphics within the mask.",
+        "outcomes.1": "Define a clear selection policy for invisible cards.",
+        "steps.0": "Prepare day-18.js and index.html in the external practice project. Create a card-list Container with a Graphics rectangle as its mask.",
+        "steps.1": "Change the content y with a scroll input and inspect selection logs for hidden cards.",
+        "steps.2": "Save the output with the input condition 0, then run again with Halfway through the list. Expected: A different section of the same card data appears inside the mask. Compare this with the actual screen and logs, and record the actual result and causes of any differences in day-18-notes.md.",
+        "variables.0.name": "Scroll position",
+        "variables.0.baseline": "0",
+        "variables.0.change": "Halfway through the list",
+        "variables.0.expected": "A different section of the same card data appears inside the mask",
+        "criteria.0": "Keep graphics within the mask.",
+        "criteria.1": "Define a clear selection policy for invisible cards.",
+        "questions.0": "What coordinate relationship should the mask and content have?",
+        "questions.1": "Does the mask shape need to appear as an ordinary graphic?",
+        "references.0.title": "PixiJS 8 graphics",
+        "references.1.title": "PixiJS 8 container",
+        "references.2.title": "PixiJS 8 events"
+      }
     }
   }
 }

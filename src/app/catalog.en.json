@@ -3380,6 +3380,36 @@
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
+      "id": "pixijs-step-16",
+      "day": 16,
+      "week": 3,
+      "title": "Scene Transitions and State Preservation",
+      "goal": "Preserve data positions when returning to a screen. Remove events and ticker callbacks from the screen you leave.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/16/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "Timers reproduce the completion order of asynchronous scenes. You can observe generation tokens without actual server loading."
+    },
+    {
+      "id": "pixijs-step-17",
+      "day": 17,
+      "week": 3,
+      "title": "Animation Frame Sequences",
+      "goal": "Specify frame order explicitly. Resume at the same frame after pausing.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/17/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
+      "id": "pixijs-step-18",
+      "day": 18,
+      "week": 3,
+      "title": "Masks and Scroll Regions",
+      "goal": "Keep graphics within the mask. Define a clear selection policy for invisible cards.",
+      "docPath": "/docs/en/labs/graphics/pixijs/units/18/README.md",
+      "seriesId": "pixijs",
+      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    {
       "id": "gsap-01",
       "day": 1,
       "week": 1,

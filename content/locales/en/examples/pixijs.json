@@ -76,5 +76,23 @@
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
     }
+  },
+  "pixijs-step-16": {
+    "sourceHash": "624f91ebee41aace3d815d620a15ddca61e46afa0c478a881e71abf586b542c0",
+    "values": {
+      "note": "Timers reproduce the completion order of asynchronous scenes. You can observe generation tokens without actual server loading."
+    }
+  },
+  "pixijs-step-17": {
+    "sourceHash": "3a6824bfbf8b78ee9bd3b357ac9dfe652c257dfef0d6a08e41aa950e4f0a7944",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
+  },
+  "pixijs-step-18": {
+    "sourceHash": "e7418aab262d1b778ab986a8535e572bee022f95c5b7a0db4246c5d8e7286053",
+    "values": {
+      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    }
   }
 }

@@ -351,6 +351,9 @@ Check the scope of each example. Browser previews and files run in a separate en
 | [12. Event Modes and Hit Areas](labs/graphics/pixijs/units/12/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-12/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [13. Dragging and Global Pointers](labs/graphics/pixijs/units/13/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-13/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 | [15. Keyboard Input and Accessibility](labs/graphics/pixijs/units/15/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-15/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [16. Scene Transitions and State Preservation](labs/graphics/pixijs/units/16/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-16/example.js) — Timers reproduce the completion order of asynchronous scenes. You can observe generation tokens without actual server loading. |
+| [17. Animation Frame Sequences](labs/graphics/pixijs/units/17/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-17/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
+| [18. Masks and Scroll Regions](labs/graphics/pixijs/units/18/README.md) | Editable example | [Source code](../../src/labs/pixijs-step-18/example.js) — This is an editable browser experiment. Measurements vary with the current device and browser. |
 
 ## GSAP
 

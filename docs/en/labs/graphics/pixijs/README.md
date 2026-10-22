@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 15 published in English
+Graphics · 4 stages · 28 units in the full series · 18 published in English
 
 ## Series goal
 
@@ -45,6 +45,9 @@ Only published English units are linked below. The full series has 28 units.
 ### Stage 3 · Accessibility, Scene Composition, and Effects
 
 - [15. Keyboard Input and Accessibility](units/15/README.md) — Editable example
+- [16. Scene Transitions and State Preservation](units/16/README.md) — Editable example
+- [17. Animation Frame Sequences](units/17/README.md) — Editable example
+- [18. Masks and Scroll Regions](units/18/README.md) — Editable example
 
 ### Stage 4 · Resource Ownership, Large-Scale Rendering, and Measurement
 

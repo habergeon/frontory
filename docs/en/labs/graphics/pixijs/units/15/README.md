@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Assets and Events](../../02-experiments/README.md)
+[Previous: Assets and Events](../../02-experiments/README.md) · [Next: Scene Transitions and State Preservation](../16/README.md)
 
 ## Experiment notes — write your own
 

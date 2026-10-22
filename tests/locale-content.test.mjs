@@ -367,8 +367,8 @@ test('actual English content publishes exactly the approved lessons with complet
     assert.equal(result.curricula[seriesId].stages.length, source.stages.length)
   }
   assert.match(result.curricula.javascript.units.find(unit => unit.id === 'javascript-step-02').concepts[1].explanation, /Number\.isFinite\(value\)/)
-  assert.match(result.curricula.css.units[0].concepts[0].explanation, /244px/)
-  assert.match(result.curricula.css.units[0].concepts[1].explanation, /156px/)
+  assert.match(result.curricula.css.units.find(unit => unit.id === 'css-step-04').concepts[0].explanation, /244px/)
+  assert.match(result.curricula.css.units.find(unit => unit.id === 'css-step-04').concepts[1].explanation, /156px/)
   assert.match(result.curricula.react.units[0].concepts[2].explanation, /setCount\(1\)/)
   assert.match(result.curricula.react.units[0].concepts[3].explanation, /0.*1.*2.*3/)
   assert.match(result.curricula.gsap.units[0].concepts[4].explanation, /to=140, from=-20, fromTo=80/)

@@ -336,6 +336,35 @@
       "seriesId": "javascript"
     },
     {
+      "id": "css-01",
+      "day": 1,
+      "week": 1,
+      "title": "Cascade and Layout",
+      "goal": "Explain the causes of overflow in both layout methods using computed values. Card titles and controls are not clipped at 360px.",
+      "docPath": "/docs/en/labs/fundamentals/css/01-foundations/README.md",
+      "seriesId": "css"
+    },
+    {
+      "id": "css-step-02",
+      "day": 2,
+      "week": 1,
+      "title": "Selectors and Specificity",
+      "goal": "Record the number of matches for each selector. Explain why one of two conflicting declarations wins using specificity.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/02/README.md",
+      "seriesId": "css",
+      "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
+      "id": "css-step-03",
+      "day": 3,
+      "week": 1,
+      "title": "Inheritance and Resetting",
+      "goal": "Record 6 computed values for color and border. Confirm that unset behaves differently for inherited and non-inherited properties.",
+      "docPath": "/docs/en/labs/fundamentals/css/units/03/README.md",
+      "seriesId": "css",
+      "exampleNote": "Change initial, inherit, and unset in turn and check the computed color·border. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    {
       "id": "css-step-04",
       "day": 4,
       "week": 1,

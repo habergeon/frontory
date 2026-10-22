@@ -18,5 +18,17 @@
         "comments.title": "Box model and measured dimensions: a real HTML/CSS experiment"
       }
     }
+  },
+  "css-step-02": {
+    "sourceHash": "bbd7fb64e74f404b25ce7a89330321938b044db41bcaca37e47a0a381d3dec0c",
+    "values": {
+      "note": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
+  },
+  "css-step-03": {
+    "sourceHash": "a0d462725fe2725b6a3c4990bce1f724e4a2cb27f50f7ffccac215306185eb13",
+    "values": {
+      "note": "Change initial, inherit, and unset in turn and check the computed color·border. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    }
   }
 }

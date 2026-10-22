@@ -54,6 +54,84 @@
         "references.3.title": "MDN using media queries",
         "environment": "The starter example applies HTML source and CSS source for a preview inside a Shadow DOM. Click Apply to update the source, then Inspect current DOM / styles to read the border width. The width slider changes the container width; it does not change the preview iframe document’s viewport. In a separate local project, create both cards in index.html and connect box.css with link rel=\"stylesheet\". Check the box model in Elements and Computed in developer tools."
       }
+    },
+    "css-01": {
+      "sourceHash": "d703852f9315639b14fc229526cf0150f3e5c9e2492ac642f00bbf33152a0b27",
+      "values": {
+        "title": "Cascade and Layout",
+        "prerequisites": "HTML structure",
+        "environment": "Frontory's existing preview is a limited starter example, not a complete solution to the assignment. Implement additional files and features yourself in a separate local project. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Declaration Selection",
+        "concepts.0.explanation": "The cascade selects declarations using rules such as origin, importance, layers, and specificity. Use computed values in developer tools to check why a declaration actually applies.",
+        "concepts.1.title": "Layout Models",
+        "concepts.1.explanation": "Grid handles relationships between rows and columns, while Flex handles item placement along one axis. An item's minimum size can cause long text to overflow.",
+        "outcomes.0": "Explain the causes of overflow in both layout methods using computed values.",
+        "outcomes.1": "Card titles and controls are not clipped at 360px.",
+        "steps.0": "In index.html, prepare content with cards with long titles and 360px·1000px containers, and connect layout.css.",
+        "steps.1": "Arrange the same 6 cards using Grid and Flex, and check the results before and after min-width:0 and the winning declarations.",
+        "steps.2": "Run with cards with long titles and 360px·1000px containers. Results to check: Explain the causes of overflow in both layout methods using computed values. Card titles and controls are not clipped at 360px. Record expected and actual results separately.",
+        "variables.0.name": "Minimum Width",
+        "variables.0.baseline": "auto",
+        "variables.0.change": "0",
+        "variables.0.expected": "Hypothesis before running: Items may shrink and reduce horizontal overflow. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Explain the causes of overflow in both layout methods using computed values.",
+        "criteria.1": "Card titles and controls are not clipped at 360px.",
+        "questions.0": "Can min-width constrain layout more than width?",
+        "questions.1": "Why was the winning declaration selected?",
+        "references.0.title": "MDN CSS"
+      }
+    },
+    "css-step-02": {
+      "sourceHash": "a489a1d7bc17b64e19885bcaec8f3d13e77fa89be1cbfffdd83e9f83fafb7e25",
+      "values": {
+        "title": "Selectors and Specificity",
+        "prerequisites": "The work and experiment records from Unit 1, “Cascade and Layout”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Selector Scope",
+        "concepts.0.explanation": "Selectors find the elements to style. Descendant and child combinators select different scopes.",
+        "concepts.1.title": "Specificity",
+        "concepts.1.explanation": "Under the same cascade conditions, specificity contributes to declaration selection. Repeated use of !important can make later adjustments difficult.",
+        "outcomes.0": "Record the number of matches for each selector.",
+        "outcomes.1": "Explain why one of two conflicting declarations wins using specificity.",
+        "steps.0": "In index.html, prepare content with 2 nested buttons and 1 outside button, and connect selectors.css.",
+        "steps.1": "Apply descendant, child, and class selectors to buttons inside and outside a card, and compare their matches.",
+        "steps.2": "Run with 2 nested buttons and 1 outside button. Results to check: Record the number of matches for each selector. Explain why one of two conflicting declarations wins using specificity. Record expected and actual results separately.",
+        "variables.0.name": "Combinator",
+        "variables.0.baseline": "Whitespace",
+        "variables.0.change": "Direct-child symbol",
+        "variables.0.expected": "Hypothesis before running: Some nested buttons will no longer be selected. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record the number of matches for each selector.",
+        "criteria.1": "Explain why one of two conflicting declarations wins using specificity.",
+        "questions.0": "Is an id selector needed here?",
+        "questions.1": "Under what cascade conditions can a declaration lose despite higher specificity?",
+        "references.0.title": "MDN CSS"
+      }
+    },
+    "css-step-03": {
+      "sourceHash": "3f03080983e8e26ece8491f59b365f7c264fa0adf2dee4d9be14e81cc91de7d3",
+      "values": {
+        "title": "Inheritance and Resetting",
+        "prerequisites": "The work and experiment records from Unit 2, “Selectors and Specificity”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools. In a separate folder, create the content in index.html and connect the practice CSS using link rel=\"stylesheet\". Check the viewport, computed styles, and performance recordings in developer tools.",
+        "concepts.0.title": "Inherited Properties",
+        "concepts.0.explanation": "Properties such as text color can be inherited from a parent. Properties such as margin are generally not inherited automatically.",
+        "concepts.1.title": "Reset Keywords",
+        "concepts.1.explanation": "inherit·initial·unset follow different reset rules. The result of unset depends on whether the property is inherited.",
+        "outcomes.0": "Record 6 computed values for color and border.",
+        "outcomes.1": "Confirm that unset behaves differently for inherited and non-inherited properties.",
+        "steps.0": "In index.html, prepare content with 1 parent and 3 children, and connect inheritance.css.",
+        "steps.1": "Set color and border on the parent, and apply the three reset keywords to the children in turn.",
+        "steps.2": "Run with 1 parent and 3 children. Results to check: Record 6 computed values for color and border. Confirm that unset behaves differently for inherited and non-inherited properties. Record expected and actual results separately.",
+        "variables.0.name": "Reset",
+        "variables.0.baseline": "initial",
+        "variables.0.change": "inherit",
+        "variables.0.expected": "Hypothesis before running: The parent's computed value will be used. Keep the other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record 6 computed values for color and border.",
+        "criteria.1": "Confirm that unset behaves differently for inherited and non-inherited properties.",
+        "questions.0": "Are initial values the same as browser default styles?",
+        "questions.1": "What problems arise if every property is inherited?",
+        "references.0.title": "MDN CSS"
+      }
     }
   }
 }

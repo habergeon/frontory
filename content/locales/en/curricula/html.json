@@ -716,6 +716,32 @@
         "variables.0.expected": "Pre-run hypothesis: More line wrapping and scrolling will be needed. Keep other conditions fixed and record the actual result separately after running.",
         "references.0.title": "MDN HTML"
       }
+    },
+    "html-03": {
+      "sourceHash": "fb0eafcd640f20bb2e36dde22f4e38e6aea79938397397a9bc7d22b9bcb9acbc",
+      "values": {
+        "title": "Accessible Learning Cards",
+        "prerequisites": "The work and experiment records from Unit 27, “Checking Image Failure and Zoom”.",
+        "environment": "Frontory’s existing preview is a limited starting example, not a completed version of the whole assignment. Implement additional files and features yourself in a separate local project. Prepare HTML and any necessary image/media files in a separate folder and open them through a local HTTP server. Check with the Elements and accessibility panels and actual keyboard operation.",
+        "concepts.0.title": "Integrating Structure",
+        "concepts.0.explanation": "Arrange card titles, descriptions, and links in reading order. Document meaning must remain intact even when the visual layout differs.",
+        "concepts.1.title": "Verifying Controls",
+        "concepts.1.explanation": "Combine native details, buttons, and links according to their purposes. Check image failure and keyboard use as separate scenarios.",
+        "outcomes.0": "Identify the topics and navigation purposes of 6 cards without images.",
+        "outcomes.1": "Use the keyboard to open the table of contents and navigate all cards, and record the order.",
+        "criteria.0": "Identify the topics and navigation purposes of 6 cards without images.",
+        "criteria.1": "Use the keyboard to open the table of contents and navigate all cards, and record the order.",
+        "steps.0": "In cards.html, prepare successful/failed images and 100%·400% zoom.",
+        "steps.1": "Create 6 learning cards and a details table of contents, and integrate image alt text, a heading hierarchy, and purposeful links.",
+        "steps.2": "Run with successful/failed images and 100%·400% zoom. Results to check: Identify the topics and navigation purposes of 6 cards without images. Use the keyboard to open the table of contents and navigate all cards, and record the order. Record expected and actual results separately.",
+        "questions.0": "Does the meaning remain with CSS removed?",
+        "questions.1": "Which aspects of the user experience could automated checks not verify?",
+        "variables.0.name": "Images",
+        "variables.0.baseline": "Successful loading",
+        "variables.0.change": "All fail",
+        "variables.0.expected": "Pre-run hypothesis: The topics and control purposes will remain understandable. Keep other conditions fixed and record the actual result separately after running.",
+        "references.0.title": "MDN HTML"
+      }
     }
   }
 }

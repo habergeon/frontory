@@ -68,7 +68,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: HTML Errors and Browser Recovery](../26/README.md)
+[Previous: HTML Errors and Browser Recovery](../26/README.md) · [Next: Accessible Learning Cards](../../03-project/README.md)
 
 ## Experiment notes — write your own
 

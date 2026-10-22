@@ -618,6 +618,15 @@
       "exampleNote": "Reduce preview width to check reflow, and separately test actual browser zoom at 200%·400%. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
+      "id": "html-03",
+      "day": 28,
+      "week": 4,
+      "title": "Accessible Learning Cards",
+      "goal": "Identify the topics and navigation purposes of 6 cards without images. Use the keyboard to open the table of contents and navigate all cards, and record the order.",
+      "docPath": "/docs/en/labs/fundamentals/html/03-project/README.md",
+      "seriesId": "html"
+    },
+    {
       "id": "css-01",
       "day": 1,
       "week": 1,

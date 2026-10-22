@@ -309,3 +309,60 @@ test('reader rejects malformed curriculum stages without depending on legacy sta
     assert.throws(() => readEnglishContent({ root }), /Invalid source series/)
   }
 })
+
+for (const file of ['about.md', 'privacy.md', 'learning-workspace.md', 'roadmap.md', 'examples.md', 'labs/README.md']) {
+  test(`actual English guide ${file} exists, is fresh and preserves link destinations`, () => {
+    const originalPath = `/docs/${file}`
+    const result = readEnglishContent()
+    const entry = result.documents.get(originalPath)
+    assert.ok(entry, `Missing English guide: ${originalPath}`)
+    assert.equal(entry.translatedPath, `/docs/en/${file}`)
+    const original = fs.readFileSync(new URL(`../docs/${file}`, import.meta.url), 'utf8')
+    const records = JSON.parse(fs.readFileSync(new URL('../content/locales/en/documents.json', import.meta.url)))
+    assert.equal(records[originalPath].sourceHash, sourceHash(original))
+    assert.doesNotMatch(entry.text, /[가-힣]/)
+    const links = text => [...text.matchAll(/\]\(([^)]+)\)/g)].map(match => match[1])
+    const sourceLinks = links(original).map(link => {
+      if (/^(https?:|mailto:)/.test(link)) return link
+      const resolved = path.posix.normalize(path.posix.join(path.posix.dirname(originalPath), link))
+      const englishPath = `/docs/en/${resolved.slice(6)}`
+      return resolved.startsWith('/docs/') && fs.existsSync(new URL(`..${englishPath}`, import.meta.url))
+        ? englishPath : resolved
+    })
+    const translatedLinks = links(entry.text).map(link => /^(https?:|mailto:)/.test(link) ? link
+      : path.posix.normalize(path.posix.join(path.posix.dirname(entry.translatedPath), link)))
+    assert.deepEqual(translatedLinks, sourceLinks)
+    for (const match of entry.text.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g)) {
+      if (/^(https?:|mailto:)/.test(match[2])) continue
+      const target = path.posix.normalize(path.posix.join(path.posix.dirname(entry.translatedPath), match[2]))
+      assert.ok(fs.existsSync(new URL(`..${target}`, import.meta.url)), `Missing link: ${target}`)
+      if (target.startsWith('/docs/') && !target.startsWith('/docs/en/')) assert.match(match[1], /\(Korean\)$/)
+    }
+    if (['about.md', 'privacy.md'].includes(file)) {
+      assert.match(entry.text, /hefa91@gmail\.com/)
+      assert.match(entry.text, /after (?:the )?site approval/)
+    }
+    if (file === 'examples.md') assert.equal(entry.text.split('\n').filter(line => /^\| [a-z]/.test(line)).length, 94)
+  })
+}
+
+test('English service and workspace guides retain contact, approval status and backup limits', () => {
+  const documents = readEnglishContent().documents
+  const privacy = documents.get('/docs/privacy.md').text
+  assert.match(privacy, /Last updated: 2026-10-22/)
+  assert.match(privacy, /preparing to request a Google AdSense review/)
+  assert.match(privacy, /AdSense execution scripts are not included/)
+  assert.match(privacy, /no feature that sends edited code, Markdown notes, or JSON backup contents in analytics events/)
+  const workspace = documents.get('/docs/learning-workspace.md').text
+  for (const value of ['600ms', '1100px', '644', '550', '94', '28', '10 MiB',
+    'format: "frontory"', 'version: 3', 'version: 2', 'format: "web-gl-study"', 'version: 1',
+    'web-gl-study:all:v1', 'web-gl-study:unit:v1:', ': StudyContext', 'sandbox=allow-scripts']) {
+    assert.ok(workspace.includes(value), `Missing workspace contract: ${value}`)
+  }
+  const examples = documents.get('/docs/examples.md').text
+  for (const command of ['node src/labs/webassembly-03/benchmark.mjs', 'npm init -y',
+    'npm install -D @playwright/test', 'npx playwright install chromium', 'FRONTORY_TEST_ORIGIN',
+    'npx playwright test lesson.spec.mjs', '--update-snapshots']) assert.ok(examples.includes(command), command)
+  assert.match(examples, /1 MiB and 512 splats/)
+  assert.match(examples, /does not mean E2E tests have passed/)
+})

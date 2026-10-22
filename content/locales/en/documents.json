@@ -1,0 +1,26 @@
+{
+  "/docs/about.md": {
+    "sourceHash": "076935e6393e2f3fa206a4917266175cbdf033aecd788a6689553b5d2c10c04b",
+    "translatedPath": "/docs/en/about.md"
+  },
+  "/docs/privacy.md": {
+    "sourceHash": "7abca23ce4ee02ec4484b36d0a3136d805d9ad785c435439b8ad5df281caf974",
+    "translatedPath": "/docs/en/privacy.md"
+  },
+  "/docs/learning-workspace.md": {
+    "sourceHash": "bb3099a096fc69f33ca012dd6f92729216c9e7eec242645ec1d5e83a20768793",
+    "translatedPath": "/docs/en/learning-workspace.md"
+  },
+  "/docs/roadmap.md": {
+    "sourceHash": "f16887852a7dba3df478b4eb717dda768b9453a5154d81cd2e76f50371504272",
+    "translatedPath": "/docs/en/roadmap.md"
+  },
+  "/docs/examples.md": {
+    "sourceHash": "38279b82b13d7edb490b62d8e1ae8f35174e66e219e44cd5840157121b8efd48",
+    "translatedPath": "/docs/en/examples.md"
+  },
+  "/docs/labs/README.md": {
+    "sourceHash": "a739003bc60112198d687015cd6bbc3c84f0f902b572b9a6c02e29d3954d65dd",
+    "translatedPath": "/docs/en/labs/README.md"
+  }
+}

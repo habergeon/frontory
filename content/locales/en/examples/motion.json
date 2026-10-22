@@ -46,5 +46,23 @@
     "values": {
       "note": "Interactive Stable Keys experiment with cleanup of the resources used."
     }
+  },
+  "motion-step-10": {
+    "sourceHash": "2872038eef38d705132b6a8de433135d365289e70703a71fdc23266b14e160f5",
+    "values": {
+      "note": "Interactive AnimatePresence Basics experiment with cleanup of the resources used."
+    }
+  },
+  "motion-step-11": {
+    "sourceHash": "393d7fb340a4f3a1d827a74b900509c5d6b74ec0f3c6b735bb46c0edf359bd63",
+    "values": {
+      "note": "Interactive Presence Modes experiment with cleanup of the resources used."
+    }
+  },
+  "motion-step-12": {
+    "sourceHash": "fbc9d13c1d7b9b2ca46aec3926e41a7d6eb3746e704e4d1fd2636cb63c926476",
+    "values": {
+      "note": "Interactive Sharing LayoutId experiment with cleanup of the resources used."
+    }
   }
 }

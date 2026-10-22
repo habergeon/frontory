@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Measuring Layout](../08/README.md)
+[Previous: Measuring Layout](../08/README.md) · [Next: AnimatePresence Basics](../10/README.md)
 
 ## Experiment notes — write your own
 

@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Animation · 4 stages · 28 units in the full series · 9 published in English
+Animation · 4 stages · 28 units in the full series · 12 published in English
 
 ## Series goal
 
@@ -36,6 +36,9 @@ Only published English units are linked below. The full series has 28 units.
 
 - [08. Measuring Layout](units/08/README.md) — Editable example
 - [09. Stable Keys](units/09/README.md) — Editable example
+- [10. AnimatePresence Basics](units/10/README.md) — Editable example
+- [11. Presence Modes](units/11/README.md) — Editable example
+- [12. Sharing LayoutId](units/12/README.md) — Editable example
 
 ### Stage 3 · Gestures and Equivalent Interaction
 
@@ -53,3 +56,4 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 
 - [Motion React animation](https://motion.dev/docs/react-animation)
 - [Motion AnimatePresence](https://motion.dev/docs/react-animate-presence)
+- [Motion LayoutGroup: namespace layoutId](https://motion.dev/docs/react-layout-group#namespace-layoutid)

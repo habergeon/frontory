@@ -253,6 +253,88 @@
         "references.0.title": "Motion React animation",
         "references.1.title": "Motion AnimatePresence"
       }
+    },
+    "motion-step-10": {
+      "sourceHash": "a8a204f503f0a6915b38aa5a99ec1db85fd9ff2efd80f2e097b9b1293673d607",
+      "values": {
+        "title": "AnimatePresence Basics",
+        "prerequisites": "Prepare the results of the Identity and Local state exercises from Unit 9, “Stable Keys”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Presence",
+        "concepts.0.explanation": "Conditional removal and the moment an element disappears from the screen are different. AnimatePresence keeps the element present during exit.",
+        "concepts.1.title": "Boundary placement",
+        "concepts.1.explanation": "If Presence itself is removed at the same time, it is difficult to manage child exit. Place the boundary outside the removal condition.",
+        "outcomes.0": "Learning outcome: Explain the role of Presence. Input case: Showing and deleting a card.",
+        "outcomes.1": "Deliverable: The times of the deletion request and DOM removal. Connect your rationale for handling Boundary placement to the code.",
+        "steps.0": "In src/day-10.tsx of a separate exercise project, conditionally render a motion card with a key inside AnimatePresence. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Showing and deleting a card. Baseline: 0 seconds. Run under the baseline condition, then record observations and errors in notes/day-10.md.",
+        "steps.2": "Variable to change: exit duration; new value: 0.5 seconds. Run again with the same input path. Deliverable to save: The times of the deletion request and DOM removal. Hypothesis to test: The DOM remains briefly after removal from the data. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "exit duration",
+        "variables.0.baseline": "0 seconds",
+        "variables.0.change": "0.5 seconds",
+        "variables.0.expected": "The DOM remains briefly after removal from the data.",
+        "criteria.0": "Required deliverable: The times of the deletion request and DOM removal. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Presence and Boundary placement. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Presence affect in this exercise? Input case: Showing and deleting a card.",
+        "questions.1": "Variable to change: exit duration. Hypothesis to test: The DOM remains briefly after removal from the data. Did the actual results agree with the hypothesis? Explain your evidence in terms of Boundary placement.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    },
+    "motion-step-11": {
+      "sourceHash": "50571ef91a7b1ea6b4551fcf9be07a4a1da50db36a3dcfa36b53b8547a148db7",
+      "values": {
+        "title": "Presence Modes",
+        "prerequisites": "Prepare the results of the Presence and Boundary placement exercises from Unit 10, “AnimatePresence Basics”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Concurrent transitions",
+        "concepts.0.explanation": "sync mode allows entrance and exit together. The two views can overlap.",
+        "concepts.1.title": "Sequential transitions",
+        "concepts.1.explanation": "wait coordinates the transition order for one child. Do not use it as a general sorting solution for multiple list items.",
+        "outcomes.0": "Learning outcome: Explain the role of Concurrent transitions. Input case: Selection A→B.",
+        "outcomes.1": "Deliverable: A log of entrance and exit order. Connect your rationale for handling Sequential transitions to the code.",
+        "steps.0": "In src/day-11.tsx of a separate exercise project, compare mode sync and wait when switching a single detail card. Use the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input condition: Selection A→B. Baseline: sync. Run under the baseline condition, then record observations and errors in notes/day-11.md.",
+        "steps.2": "Variable to change: mode; new value: wait. Run again with the same input path. Deliverable to save: A log of entrance and exit order. Hypothesis to test: B's entrance moves to after A's exit. Compare it with the actual results and record whether they agree and the causes of any differences.",
+        "variables.0.name": "mode",
+        "variables.0.baseline": "sync",
+        "variables.0.change": "wait",
+        "variables.0.expected": "B's entrance moves to after A's exit.",
+        "criteria.0": "Required deliverable: A log of entrance and exit order. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Your explanation of the differences between the two conditions connects both concepts: Concurrent transitions and Sequential transitions. For unexpected items, give at least 1 cause or reason they remain unresolved.",
+        "questions.0": "Which processing stage does Concurrent transitions affect in this exercise? Input case: Selection A→B.",
+        "questions.1": "Variable to change: mode. Hypothesis to test: B's entrance moves to after A's exit. Did the actual results agree with the hypothesis? Explain your evidence in terms of Sequential transitions.",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence"
+      }
+    },
+    "motion-step-12": {
+      "sourceHash": "6786d5e5dabfd92b6321b73d0843fb3327833816b1d08a9800e1b6bc68843a0e",
+      "values": {
+        "title": "Sharing LayoutId",
+        "prerequisites": "Prepare the results of the Concurrent transitions and Sequential transitions exercises from Unit 11, “Presence Modes”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing motion-01·02·03 examples are limited examples based on Motion JS animate. For React layout, AnimatePresence, and hooks exercises, install motion in a separate local React project and import from motion/react. Do not assume JSX runs directly in the editor; preserve CSP and isolation.",
+        "concepts.0.title": "Visual connection",
+        "concepts.0.explanation": "layoutId connects transitions between corresponding elements. Reusing the same ID for unrelated targets makes the relationship unclear.",
+        "concepts.1.title": "Separating regions",
+        "concepts.1.explanation": "Matching layoutId values in independent lists can cause transition targets to collide. Separate their namespaces using distinct LayoutGroup id values or globally unique layoutId values.",
+        "outcomes.0": "Learning outcome: Explain the role of Visual connection. Input case: Selecting different cards in two lists.",
+        "outcomes.1": "Deliverable: A table of indicator positions for each list. Connect your rationale for handling Separating regions to the code.",
+        "steps.0": "In src/day-12.tsx of a separate React project, use the same layoutId for the selection indicators in two lists. Wrap each list in a LayoutGroup and give them distinct id values, list-a and list-b. Distinguish this from merely creating two LayoutGroup instances.",
+        "steps.1": "Select different cards in the two lists. With LayoutGroup id omitted, record the origin and destination lists of the indicator in notes/day-12.md.",
+        "steps.2": "Set the LayoutGroup id values to list-a and list-b, then repeat the same selection sequence. Save the indicator positions for each list and check whether transition targets remain within their own namespaces. Also explain the alternative of using globally unique layoutId values.",
+        "variables.0.name": "LayoutGroup id namespace",
+        "variables.0.baseline": "Two LayoutGroup instances with id omitted",
+        "variables.0.change": "Distinct id values: list-a and list-b",
+        "variables.0.expected": "Even with the same layoutId, indicator transitions connect only within each list.",
+        "criteria.0": "Required deliverable: A table of indicator positions for each list. You have results for both the baseline and changed conditions, allowing a comparison of 2 conditions, and have recorded the input values and execution environment.",
+        "criteria.1": "Record both selection paths, with LayoutGroup id omitted and with distinct id values, and verify that the namespaced condition produces 0 transitions incorrectly linked to the other list.",
+        "questions.0": "Which processing stage does Visual connection affect in this exercise? Input case: Selecting different cards in two lists.",
+        "questions.1": "How does merely creating two LayoutGroup instances differ from assigning distinct id values? What alternative do globally unique layoutId values provide?",
+        "references.0.title": "Motion React animation",
+        "references.1.title": "Motion AnimatePresence",
+        "references.2.title": "Motion LayoutGroup: namespace layoutId"
+      }
     }
   }
 }

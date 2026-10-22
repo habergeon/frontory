@@ -5051,6 +5051,36 @@
       "docPath": "/docs/en/labs/animation/motion/units/09/README.md",
       "seriesId": "motion",
       "exampleNote": "Interactive Stable Keys experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-10",
+      "day": 10,
+      "week": 2,
+      "title": "AnimatePresence Basics",
+      "goal": "Learning outcome: Explain the role of Presence. Input case: Showing and deleting a card. Deliverable: The times of the deletion request and DOM removal. Connect your rationale for handling Boundary placement to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/10/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive AnimatePresence Basics experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-11",
+      "day": 11,
+      "week": 2,
+      "title": "Presence Modes",
+      "goal": "Learning outcome: Explain the role of Concurrent transitions. Input case: Selection A→B. Deliverable: A log of entrance and exit order. Connect your rationale for handling Sequential transitions to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/11/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Presence Modes experiment with cleanup of the resources used."
+    },
+    {
+      "id": "motion-step-12",
+      "day": 12,
+      "week": 2,
+      "title": "Sharing LayoutId",
+      "goal": "Learning outcome: Explain the role of Visual connection. Input case: Selecting different cards in two lists. Deliverable: A table of indicator positions for each list. Connect your rationale for handling Separating regions to the code.",
+      "docPath": "/docs/en/labs/animation/motion/units/12/README.md",
+      "seriesId": "motion",
+      "exampleNote": "Interactive Sharing LayoutId experiment with cleanup of the resources used."
     }
   ]
 }

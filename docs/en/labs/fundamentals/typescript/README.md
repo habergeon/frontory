@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 21 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 24 published in English
 
 ## Series goal
 
@@ -54,6 +54,9 @@ Only published English units are linked below. The full series has 28 units.
 
 ### Stage 4 · Module Contracts and Plugins
 
+- [22. DOM Types and null Checks](units/22/README.md) — Editable example
+- [23. Async Functions and Error Types](units/23/README.md) — Editable example
+- [24. Modules and type-only import](units/24/README.md) — Editable example
 
 ## Capstone project and deliverables
 

@@ -565,6 +565,84 @@
         "questions.1": "Where do you preserve the relationship between name and payload?",
         "references.0.title": "TypeScript Handbook"
       }
+    },
+    "typescript-step-22": {
+      "sourceHash": "b2b72fff0a8bad683b84afe4d3fb30881925141d1fc82d21d4f24c5756e150ca",
+      "values": {
+        "title": "DOM Types and null Checks",
+        "prerequisites": "Work and experiment records from Unit 21, “Template Literal Event Names”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "DOM Queries",
+        "concepts.0.explanation": "A querySelector result may be absent. Specifying a type argument alone does not validate the actual element kind.",
+        "concepts.1.title": "Runtime Narrowing",
+        "concepts.1.explanation": "Use instanceof HTMLInputElement to identify an input element. EventTarget may need the same check.",
+        "outcomes.0": "Record handling results for all three targets.",
+        "outcomes.1": "Pass tsc checking without non-null assertions.",
+        "steps.0": "In dom.ts, prepare conditions for an existing input, a selector with no match, and a div target.",
+        "steps.1": "Query the title input, narrow it with instanceof, then read value and create an error message.",
+        "steps.2": "Run with an existing input, a selector with no match, and a div target. Results to check: Record handling results for all three targets. Pass tsc checking without non-null assertions. Record expected and actual results separately.",
+        "variables.0.name": "Target",
+        "variables.0.baseline": "input",
+        "variables.0.change": "div",
+        "variables.0.expected": "Pre-run hypothesis: an incorrect element will be rejected before reading value. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record handling results for all three targets.",
+        "criteria.1": "Pass tsc checking without non-null assertions.",
+        "questions.0": "Does the querySelector generic check the DOM?",
+        "questions.1": "Is it safe to immediately assert event.target as an input?",
+        "references.0.title": "TypeScript Handbook"
+      }
+    },
+    "typescript-step-23": {
+      "sourceHash": "293c9a4170d09f79bca1c6ab1ecd56e0d742b060ab396db7024faa167b0ad3af",
+      "values": {
+        "title": "Async Functions and Error Types",
+        "prerequisites": "Work and experiment records from Unit 22, “DOM Types and null Checks”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Promise Contracts",
+        "concepts.0.explanation": "An async function wraps its result in a Promise. External data still needs structural validation after await.",
+        "concepts.1.title": "catch Values",
+        "concepts.1.explanation": "A thrown value is not guaranteed to be an Error. Narrow unknown by checking for Error to create a message.",
+        "outcomes.0": "Use a valid Note without assertions.",
+        "outcomes.1": "Neither exception form leaves an unhandled failure.",
+        "steps.0": "In async.ts, prepare conditions for a valid response, an Error throw, and a string throw.",
+        "steps.1": "Create a loader returning Promise<Result<Note, string>> and handle Error and string throws.",
+        "steps.2": "Run with a valid response, an Error throw, and a string throw. Results to check: Use a valid Note without assertions. Neither exception form leaves an unhandled failure. Record expected and actual results separately.",
+        "variables.0.name": "Thrown Value",
+        "variables.0.baseline": "Error",
+        "variables.0.change": "string",
+        "variables.0.expected": "Pre-run hypothesis: both cases will be converted into safe messages. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Use a valid Note without assertions.",
+        "criteria.1": "Neither exception form leaves an unhandled failure.",
+        "questions.0": "Does a return type validate response JSON?",
+        "questions.1": "Why is reading message directly in catch risky?",
+        "references.0.title": "TypeScript Handbook"
+      }
+    },
+    "typescript-step-24": {
+      "sourceHash": "85de0988c863ad8e17ec7c7b88f4a176fcba3494958d378605ea8de203592ec2",
+      "values": {
+        "title": "Modules and type-only import",
+        "prerequisites": "Work and experiment records from Unit 23, “Async Functions and Error Types”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Importing Types",
+        "concepts.0.explanation": "import type explicitly marks a type-only use. This distinguishes it from runtime dependencies.",
+        "concepts.1.title": "Execution Environment",
+        "concepts.1.explanation": "module and moduleResolution must match the execution and bundling environment. Changing options alone does not automatically resolve path issues.",
+        "outcomes.0": "Record differences in emitted code for type-only import.",
+        "outcomes.1": "Load the modules in the actual environment and check for errors.",
+        "steps.0": "In contracts.ts, prepare conditions for two modules in a browser bundling environment.",
+        "steps.1": "Export a type and read it with import type in main.ts, then compare emitted output with an actual function import.",
+        "steps.2": "Run with two modules in a browser bundling environment. Results to check: Record differences in emitted code for type-only import. Load the modules in the actual environment and check for errors. Record expected and actual results separately.",
+        "variables.0.name": "Import Kind",
+        "variables.0.baseline": "ordinary value import",
+        "variables.0.change": "import type",
+        "variables.0.expected": "Pre-run hypothesis: the type-only dependency will be removed from executable code. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record differences in emitted code for type-only import.",
+        "criteria.1": "Load the modules in the actual environment and check for errors.",
+        "questions.0": "Can a type-only import be used as a value?",
+        "questions.1": "Why might module loading fail after successful compilation?",
+        "references.0.title": "TypeScript Handbook"
+      }
     }
   }
 }

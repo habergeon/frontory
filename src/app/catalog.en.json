@@ -572,6 +572,36 @@
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
+      "id": "typescript-step-22",
+      "day": 22,
+      "week": 4,
+      "title": "DOM Types and null Checks",
+      "goal": "Record handling results for all three targets. Pass tsc checking without non-null assertions.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/22/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-23",
+      "day": 23,
+      "week": 4,
+      "title": "Async Functions and Error Types",
+      "goal": "Use a valid Note without assertions. Neither exception form leaves an unhandled failure.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/23/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-step-24",
+      "day": 24,
+      "week": 4,
+      "title": "Modules and type-only import",
+      "goal": "Record differences in emitted code for type-only import. Load the modules in the actual environment and check for errors.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/24/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
       "id": "html-01",
       "day": 1,
       "week": 1,

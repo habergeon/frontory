@@ -70,7 +70,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Conditional Types and Distribution](../20/README.md)
+[Previous: Conditional Types and Distribution](../20/README.md) · [Next: DOM Types and null Checks](../22/README.md)
 
 ## Experiment notes — write your own
 

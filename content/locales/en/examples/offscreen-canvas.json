@@ -64,5 +64,17 @@
     "values": {
       "note": "An interactive Coalescing Input experiment with cleanup of the resources it uses."
     }
+  },
+  "offscreen-canvas-step-13": {
+    "sourceHash": "95754f52f687c8dccd42090441cd07e5918db54edf990343c0eab0350e1ed956",
+    "values": {
+      "note": "An interactive Pointer Capture and Cancellation experiment with cleanup of the resources it uses."
+    }
+  },
+  "offscreen-canvas-step-15": {
+    "sourceHash": "52804db0c2bc8affa11c772cd0a953e03e32a0b0264ca6d22652eb9657e436bf",
+    "values": {
+      "note": "An interactive Updating Scene State experiment with cleanup of the resources it uses."
+    }
   }
 }

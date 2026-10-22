@@ -5663,6 +5663,35 @@
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/12/README.md",
       "seriesId": "offscreen-canvas",
       "exampleNote": "An interactive Coalescing Input experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Pointer Capture and Cancellation",
+      "goal": "Learning outcome: explain the role of Capture. Input cases: Dragging inside, moving outside, and cancellation. Deliverable: The dragging value after input ends. Explain the rationale for handling Cancel, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/13/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Pointer Capture and Cancellation experiment with cleanup of the resources it uses."
+    },
+    {
+      "id": "offscreen-canvas-02",
+      "day": 14,
+      "week": 2,
+      "title": "Resize and Input Protocol",
+      "goal": "Learning outcome: explain the role of Unit contract. Input cases: Selecting the center during rapid resize. Deliverable: Records of size seq, selected ID, and sharpness. Explain the rationale for handling Preserving order, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/02-experiments/README.md",
+      "seriesId": "offscreen-canvas"
+    },
+    {
+      "id": "offscreen-canvas-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Updating Scene State",
+      "goal": "Learning outcome: explain the role of Patches. Input cases: Valid and stale patches. Deliverable: Final scene values for each version. Explain the rationale for handling Versions, linking it to the code.",
+      "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/15/README.md",
+      "seriesId": "offscreen-canvas",
+      "exampleNote": "An interactive Updating Scene State experiment with cleanup of the resources it uses."
     }
   ]
 }

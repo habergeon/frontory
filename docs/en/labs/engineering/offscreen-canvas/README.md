@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Engineering · 4 stages · 28 units in the full series · 12 published in English
+Engineering · 4 stages · 28 units in the full series · 15 published in English
 
 ## Series goal
 
@@ -39,9 +39,12 @@ Only published English units are linked below. The full series has 28 units.
 - [10. Detecting DPR Changes](units/10/README.md) — Editable example
 - [11. Transforming Pointer Coordinates](units/11/README.md) — Editable example
 - [12. Coalescing Input](units/12/README.md) — Editable example
+- [13. Pointer Capture and Cancellation](units/13/README.md) — Editable example
+- [14. Resize and Input Protocol](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Rendering Lifecycle and Recovery
 
+- [15. Updating Scene State](units/15/README.md) — Editable example
 
 ### Stage 4 · Responsiveness Comparison Project
 

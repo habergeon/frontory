@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Transforming Pointer Coordinates](../11/README.md)
+[Previous: Transforming Pointer Coordinates](../11/README.md) · [Next: Pointer Capture and Cancellation](../13/README.md)
 
 ## Experiment notes — write your own
 

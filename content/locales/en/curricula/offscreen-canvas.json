@@ -334,6 +334,87 @@
         "references.0.title": "MDN OffscreenCanvas",
         "references.1.title": "MDN Using Web Workers"
       }
+    },
+    "offscreen-canvas-step-13": {
+      "sourceHash": "82d618a932ac4e8ee2149b288d7f686b333cee1d81b0cde1e94fdad1354bd0c9",
+      "values": {
+        "title": "Pointer Capture and Cancellation",
+        "prerequisites": "Prepare the experiment results for Latest value and Event semantics from Unit 12, “Coalescing Input”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Capture",
+        "concepts.0.explanation": "A pointer can leave the Canvas during a drag. Use capture to maintain the input lifecycle.",
+        "concepts.1.title": "Cancel",
+        "concepts.1.explanation": "pointercancel differs from a normal up. The Worker's dragging state must also end.",
+        "outcomes.0": "Learning outcome: explain the role of Capture. Input cases: Dragging inside, moving outside, and cancellation.",
+        "outcomes.1": "Deliverable: The dragging value after input ends. Explain the rationale for handling Cancel, linking it to the code.",
+        "steps.0": "In src/day-13.js in a separate practice project, connect main-thread setPointerCapture with pointercancel messages. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: Dragging inside, moving outside, and cancellation. Baseline: pointerup. Run under the baseline conditions, then record observations and errors in notes/day-13.md.",
+        "steps.2": "Variable: End event; changed value: pointercancel. Run again through the same input path. Deliverable to save: The dragging value after input ends. Hypothesis to check: Both paths clear the drag state. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "End event",
+        "variables.0.baseline": "pointerup",
+        "variables.0.change": "pointercancel",
+        "variables.0.expected": "Both paths clear the drag state.",
+        "criteria.0": "Required deliverable: The dragging value after input ends. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Capture and Cancel. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Capture affect in this exercise? Input cases: Dragging inside, moving outside, and cancellation.",
+        "questions.1": "Variable: End event. Hypothesis to check: Both paths clear the drag state. Did the actual results agree with the hypothesis? Explain the evidence in terms of Cancel.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-02": {
+      "sourceHash": "a3ccb0ea7ad9c1d480ceb7537a219f7794e3b6410b58d82bf33b9925275b8fc8",
+      "values": {
+        "title": "Resize and Input Protocol",
+        "prerequisites": "Prepare the experiment results for Capture and Cancel from Unit 13, “Pointer Capture and Cancellation”.",
+        "environment": "The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Unit contract",
+        "concepts.0.explanation": "Size, DPR, and pointer input must use the same coordinate basis. The Worker does not infer DOM layout.",
+        "concepts.1.title": "Preserving order",
+        "concepts.1.explanation": "Record the latest resize seq together with input timing. An old size must not overwrite the latest selection.",
+        "outcomes.0": "Learning outcome: explain the role of Unit contract. Input cases: Selecting the center during rapid resize.",
+        "outcomes.1": "Deliverable: Records of size seq, selected ID, and sharpness. Explain the rationale for handling Preserving order, linking it to the code.",
+        "steps.0": "In src/day-14.js in a separate practice project, extend the existing offscreen-canvas-02 with integrated ResizeObserver·seq·local input handling. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: Selecting the center during rapid resize. Baseline: 1. Run under the baseline conditions, then record observations and errors in notes/day-14.md.",
+        "steps.2": "Variable: DPR; changed value: 2. Run again through the same input path. Deliverable to save: Records of size seq, selected ID, and sharpness. Hypothesis to check: Sharpness and the selection position are preserved. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "DPR",
+        "variables.0.baseline": "1",
+        "variables.0.change": "2",
+        "variables.0.expected": "Sharpness and the selection position are preserved.",
+        "criteria.0": "Required deliverable: Records of size seq, selected ID, and sharpness. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Unit contract and Preserving order. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Unit contract affect in this exercise? Input cases: Selecting the center during rapid resize.",
+        "questions.1": "Variable: DPR. Hypothesis to check: Sharpness and the selection position are preserved. Did the actual results agree with the hypothesis? Explain the evidence in terms of Preserving order.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
+    },
+    "offscreen-canvas-step-15": {
+      "sourceHash": "311111b3073869ba5b76ab6c30345379eedb0297351de74556e8094b70f1a53f",
+      "values": {
+        "title": "Updating Scene State",
+        "prerequisites": "Prepare the experiment results for Unit contract and Preserving order from Unit 14, “Resize and Input Protocol”.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. The existing offscreen-canvas-01·02·03 are starting examples for supported browsers. Implement the new units in main-thread and Worker files in a separate local HTTP project. Check API and context support, and provide a main-thread fallback on a new Canvas if transfer fails. Preserve CSP and isolation, and record performance measurements yourself.",
+        "concepts.0.title": "Patches",
+        "concepts.0.explanation": "Sending the entire state each time increases data volume. You can define a patch contract that sends only changed fields.",
+        "concepts.1.title": "Versions",
+        "concepts.1.explanation": "A patch needs a baseline state to apply to. Provide a full-state resynchronization path when versions disagree.",
+        "outcomes.0": "Learning outcome: explain the role of Patches. Input cases: Valid and stale patches.",
+        "outcomes.1": "Deliverable: Final scene values for each version. Explain the rationale for handling Versions, linking it to the code.",
+        "steps.0": "In src/day-15.js in a separate practice project, implement color·speed patches and stateVersion checks. Refer to the existing Unit 1·14·28 examples only as starting points.",
+        "steps.1": "Input conditions: Valid and stale patches. Baseline: Current. Run under the baseline conditions, then record observations and errors in notes/day-15.md.",
+        "steps.2": "Variable: Patch version; changed value: Stale version. Run again through the same input path. Deliverable to save: Final scene values for each version. Hypothesis to check: Stale patches are rejected and the current state is retained. Compare it with the actual results, and record whether they agree and why they differ.",
+        "variables.0.name": "Patch version",
+        "variables.0.baseline": "Current",
+        "variables.0.change": "Stale version",
+        "variables.0.expected": "Stale patches are rejected and the current state is retained.",
+        "criteria.0": "Required deliverable: Final scene values for each version. Results are available for both the baseline and changed conditions, allowing comparison of 2 conditions; input values and the execution environment are recorded together.",
+        "criteria.1": "The explanation of differences between the two conditions connects both concepts: Patches and Versions. For unexpected items, at least 1 cause or reason they remain unresolved is recorded.",
+        "questions.0": "Which processing stage does Patches affect in this exercise? Input cases: Valid and stale patches.",
+        "questions.1": "Variable: Patch version. Hypothesis to check: Stale patches are rejected and the current state is retained. Did the actual results agree with the hypothesis? Explain the evidence in terms of Versions.",
+        "references.0.title": "MDN OffscreenCanvas",
+        "references.1.title": "MDN Using Web Workers"
+      }
     }
   }
 }

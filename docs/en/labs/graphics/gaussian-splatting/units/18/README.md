@@ -69,7 +69,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: Sorting Update Intervals](../17/README.md)
+[Previous: Sorting Update Intervals](../17/README.md) · [Next: Reducing Gaussian Count](../19/README.md)
 
 ## Experiment notes — write your own
 

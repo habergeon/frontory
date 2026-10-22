@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Graphics · 4 stages · 28 units in the full series · 18 published in English
+Graphics · 4 stages · 28 units in the full series · 21 published in English
 
 ## Series goal
 
@@ -48,6 +48,9 @@ Only published English units are linked below. The full series has 28 units.
 - [16. Visibility Bounds and Conservative Culling](units/16/README.md) — Editable example
 - [17. Sorting Update Intervals](units/17/README.md) — Editable example
 - [18. Resolution and Pixel Workload](units/18/README.md) — Editable example
+- [19. Reducing Gaussian Count](units/19/README.md) — Editable example
+- [20. Color Space and Background](units/20/README.md) — Editable example
+- [21. Defining Quality Evaluation Criteria](units/21/README.md) — Editable example
 
 ### Stage 4 · A Measurable GS Exhibition Viewer
 

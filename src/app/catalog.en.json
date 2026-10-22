@@ -3189,6 +3189,36 @@
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
+      "id": "gaussian-splatting-step-19",
+      "day": 19,
+      "week": 3,
+      "title": "Reducing Gaussian Count",
+      "goal": "Create a reproducible subset. Evaluate the visual impact of reduction strategies.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/19/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-20",
+      "day": 20,
+      "week": 3,
+      "title": "Color Space and Background",
+      "goal": "Distinguish compositing space from display space. Control background conditions.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/20/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
+      "id": "gaussian-splatting-step-21",
+      "day": 21,
+      "week": 3,
+      "title": "Defining Quality Evaluation Criteria",
+      "goal": "Fix the comparison reference. Interpret numerical and visual evidence together.",
+      "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/21/README.md",
+      "seriesId": "gaussian-splatting",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    {
       "id": "webgpu-01",
       "day": 1,
       "week": 1,

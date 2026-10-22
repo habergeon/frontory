@@ -496,6 +496,87 @@
         "references.0.title": "Spark Official Documentation",
         "references.1.title": "3D Gaussian Splatting Research Project"
       }
+    },
+    "gaussian-splatting-step-19": {
+      "sourceHash": "f4b8e8b132e64edbc3b963b806fa68b4e899643a153d3aa31cf9f09bc227cb34",
+      "values": {
+        "title": "Reducing Gaussian Count",
+        "prerequisites": "Continue using the output and records from Unit 18. Before the Reducing Gaussian Count experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Subset selection",
+        "concepts.0.explanation": "Reducing item count lowers storage and sorting work. Random removal may disproportionately damage thin structures or low-opacity regions.",
+        "concepts.1.title": "Reproducibility",
+        "concepts.1.explanation": "Using different random values each time makes reduction strategies hard to compare. Save the seed and selected ids to use the same subset.",
+        "outcomes.0": "Create a reproducible subset.",
+        "outcomes.1": "Evaluate the visual impact of reduction strategies.",
+        "steps.0": "In subset.js, implement seeded selection and selection ordered by opacity.",
+        "steps.1": "From a synthetic fixture of 256 items, select 128 and save the id list.",
+        "steps.2": "Compare empty regions, sorting time, and file bytes at the same three viewpoints.",
+        "variables.0.name": "Retained count",
+        "variables.0.baseline": "256",
+        "variables.0.change": "128",
+        "variables.0.expected": "Expect less sorting work but more holes in some regions.",
+        "criteria.0": "Using the same seed twice produces identical id lists.",
+        "criteria.1": "Compare images at three viewpoints for both selection strategies.",
+        "questions.0": "Are low-opacity items always less important?",
+        "questions.1": "How does pruning during training differ from simply reducing a file?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-20": {
+      "sourceHash": "468f31070dfabfc244649309413a4f83d5b05af250097a38c70916255bad2d87",
+      "values": {
+        "title": "Color Space and Background",
+        "prerequisites": "Continue using the output and records from Unit 19. Before the Color Space and Background experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Color calculations",
+        "concepts.0.explanation": "Compositing in linear space and converting colors for display are different operations. Applying color conversion twice distorts brightness comparisons.",
+        "concepts.1.title": "Background dependence",
+        "concepts.1.explanation": "Transparent regions look different depending on background color. Fix the background and alpha display policy for quality comparisons too.",
+        "outcomes.0": "Distinguish compositing space from display space.",
+        "outcomes.1": "Control background conditions.",
+        "steps.0": "In color.js, add comments specifying the compositing space and the location of the final display conversion.",
+        "steps.1": "Composite a gray translucent fixture over black and white backgrounds.",
+        "steps.2": "Save a table of input RGB, composited RGB, and display RGB at each stage.",
+        "variables.0.name": "Background",
+        "variables.0.baseline": "Black",
+        "variables.0.change": "White",
+        "variables.0.expected": "Expect the brightness of transmitted regions to differ even for the same splat.",
+        "criteria.0": "Record values at the three color stages and the number of conversions.",
+        "criteria.1": "Confirm that the same opacity is used on both backgrounds.",
+        "questions.0": "Which test values can reveal duplicate color conversion?",
+        "questions.1": "Can two screenshots with different backgrounds be used to compare quality?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
+    },
+    "gaussian-splatting-step-21": {
+      "sourceHash": "3d04364591680c17db85396dbe5b217b1dabaee79678ff83c803059cd046d0a3",
+      "values": {
+        "title": "Defining Quality Evaluation Criteria",
+        "prerequisites": "Continue using the output and records from Unit 20. Before the Defining Quality Evaluation Criteria experiment, preserve the previous inputs and reference outputs.",
+        "environment": "First check the execution scope guidance on the example screen. The following describes the environment needed to extend the assignment in a separate project. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "concepts.0.title": "Reference image",
+        "concepts.0.explanation": "Interpretation depends on whether the reference is synthetic or an actual observed photograph. Do not call image differences calculated without ground-truth photographs reconstruction accuracy.",
+        "concepts.1.title": "Multiple observations",
+        "concepts.1.explanation": "A single average error can hide thin structures or flicker. Evaluate specified regions together with a camera path.",
+        "outcomes.0": "Fix the comparison reference.",
+        "outcomes.1": "Interpret numerical and visual evidence together.",
+        "steps.0": "In evaluation.json, define three viewpoints, two regions of interest, and a background.",
+        "steps.1": "Save identically sized ImageData for baseline and reduction modes.",
+        "steps.2": "In report.md, write the mean absolute channel difference and describe losses in the regions of interest.",
+        "variables.0.name": "Evaluation region",
+        "variables.0.baseline": "Full screen",
+        "variables.0.change": "Thin-structure ROI",
+        "variables.0.expected": "Expect local losses to stand out more than in the overall average.",
+        "criteria.0": "Use the same ROI coordinates at the three viewpoints.",
+        "criteria.1": "Write at least two items each for numerical differences and visual descriptions.",
+        "questions.0": "What does a difference metric mean if the reference image is wrong?",
+        "questions.1": "Which errors does still-image evaluation miss?",
+        "references.0.title": "Spark Official Documentation",
+        "references.1.title": "3D Gaussian Splatting Research Project"
+      }
     }
   }
 }

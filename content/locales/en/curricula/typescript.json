@@ -327,6 +327,86 @@
         "references.0.title": "TypeScript Handbook",
         "references.1.title": "TypeScript Generics"
       }
+    },
+    "typescript-step-13": {
+      "sourceHash": "94f090571f4016f32ef83809443d907c2f711b873c4a3f4b89c2946d7fcc8f04",
+      "values": {
+        "title": "Constraints and Minimal Contracts",
+        "prerequisites": "Work and experiment records from Unit 12, “Generic Functions and Inference”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Generic Constraints",
+        "concepts.0.explanation": "Use extends to constrain the structure a function needs. The return type can preserve a call's more specific type beyond the constraint.",
+        "concepts.1.title": "Excessive Contracts",
+        "concepts.1.explanation": "Requiring unused fields limits reuse. Constrain only the minimum properties the implementation needs.",
+        "outcomes.0": "Additional field types are preserved for two kinds of objects.",
+        "outcomes.1": "Record the diagnostic for input without id.",
+        "steps.0": "In constraints.ts, prepare conditions for a note object, a user object, and an object without id.",
+        "steps.1": "Write a function that indexes objects with id while preserving additional field types.",
+        "steps.2": "Run with a note object, a user object, and an object without id. Results to check: Additional field types are preserved for two kinds of objects. Record the diagnostic for input without id. Record expected and actual results separately.",
+        "variables.0.name": "Input Structure",
+        "variables.0.baseline": "has id",
+        "variables.0.change": "no id",
+        "variables.0.expected": "Pre-run hypothesis: the call will be rejected for violating the constraint. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Additional field types are preserved for two kinds of objects.",
+        "criteria.1": "Record the diagnostic for input without id.",
+        "questions.0": "What is restricted if the constraint is the entire Note type?",
+        "questions.1": "Does returning the constraint type itself preserve specific information?",
+        "references.0.title": "TypeScript Handbook",
+        "references.1.title": "TypeScript Generics"
+      }
+    },
+    "typescript-02": {
+      "sourceHash": "df57e753efd70ae533b46c396f5306bd6782464099b0c45c5242cb1698219b07",
+      "values": {
+        "title": "Generics and Boundary Validation",
+        "prerequisites": "Work and experiment records from Unit 13, “Constraints and Minimal Contracts”",
+        "environment": "The existing Frontory preview is a limited starting example, not a complete implementation of the assignment. Implement additional files and features yourself in a separate local project. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "Storage Relationships",
+        "concepts.0.explanation": "Type parameters express the type relationship between saving and loading. Stored strings must be validated again when loaded.",
+        "concepts.1.title": "Structural Checks",
+        "concepts.1.explanation": "Receive JSON.parse results as unknown and check them with a guard. Check null and fields inside arrays before trusting them.",
+        "outcomes.0": "Record acceptance or rejection for all four inputs.",
+        "outcomes.1": "Use Note fields on a valid return value without assertions.",
+        "steps.0": "In storage-boundary.ts, prepare conditions for a valid array, an empty array, null, and a numeric title.",
+        "steps.1": "Create save<T> and load<T> that accepts a validation function, then connect a Note array guard.",
+        "steps.2": "Run with a valid array, an empty array, null, and a numeric title. Results to check: Record acceptance or rejection for all four inputs. Use Note fields on a valid return value without assertions. Record expected and actual results separately.",
+        "variables.0.name": "JSON Field",
+        "variables.0.baseline": "string title",
+        "variables.0.change": "numeric title",
+        "variables.0.expected": "Pre-run hypothesis: the restored result will be classified as an error. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Record acceptance or rejection for all four inputs.",
+        "criteria.1": "Use Note fields on a valid return value without assertions.",
+        "questions.0": "Does generic T check JSON structure?",
+        "questions.1": "Is an empty array valid under the contract?",
+        "references.0.title": "TypeScript Handbook",
+        "references.1.title": "TypeScript Generics"
+      }
+    },
+    "typescript-step-15": {
+      "sourceHash": "9e010429b571293ac383a3057bab3328ce26f367bf6a07a7f96735fa1ab0087a",
+      "values": {
+        "title": "Type Guards and False Guarantees",
+        "prerequisites": "Work and experiment records from Unit 14, “Generics and Boundary Validation”",
+        "environment": "First check the execution scope guidance on the example screen. The following environment is for extending the assignment in a separate project. Implement it yourself in a separate local project and check it with browser developer tools and tsc --noEmit. Record the installed tsc version in a separate TypeScript project. Enable strict in tsconfig.json and check with tsc --noEmit, then open the runtime exercise using compiled output or a local development server. Do not assume the browser executes TS type annotations directly.",
+        "concepts.0.title": "User-Defined Guards",
+        "concepts.0.explanation": "The is syntax narrows a type after a check succeeds. The compiler does not prove that the guard implementation is sufficient.",
+        "concepts.1.title": "Validation Evidence",
+        "concepts.1.explanation": "Check a guard's contract with failing inputs for each field. Do not judge safety from a single valid case.",
+        "outcomes.0": "Create a results table in which only the 1 valid input passes.",
+        "outcomes.1": "Compare the runtime failure of a false guard with the corrected result.",
+        "steps.0": "In guards.ts, prepare conditions for 1 valid input and 4 counterexamples.",
+        "steps.1": "Implement isNote and test an array of counterexamples such as a missing id, a numeric title, and null.",
+        "steps.2": "Run with 1 valid input and 4 counterexamples. Results to check: Create a results table in which only the 1 valid input passes. Compare the runtime failure of a false guard with the corrected result. Record expected and actual results separately.",
+        "variables.0.name": "Guard",
+        "variables.0.baseline": "always true",
+        "variables.0.change": "field checks",
+        "variables.0.expected": "Pre-run hypothesis: counterexamples will be rejected. Keep other conditions fixed and record the actual result separately after running.",
+        "criteria.0": "Create a results table in which only the 1 valid input passes.",
+        "criteria.1": "Compare the runtime failure of a false guard with the corrected result.",
+        "questions.0": "Is a type predicate a proof?",
+        "questions.1": "How do you decide whether inherited properties are allowed?",
+        "references.0.title": "TypeScript Handbook"
+      }
     }
   }
 }

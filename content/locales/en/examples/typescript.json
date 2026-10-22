@@ -64,5 +64,17 @@
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     }
+  },
+  "typescript-step-13": {
+    "sourceHash": "5f0ff0b3c0771b2448a157c0e9a131cee8e0e372ee5e8a65e2c16c6d6334ab85",
+    "values": {
+      "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    }
+  },
+  "typescript-step-15": {
+    "sourceHash": "da469d92fa0bf878e73ec2b8c7e96723ce19a7d59567981d72da2fdeeb883e0a",
+    "values": {
+      "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    }
   }
 }

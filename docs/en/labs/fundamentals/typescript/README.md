@@ -2,7 +2,7 @@
 
 [Frontory technology map](../../README.md)
 
-Languages and web fundamentals · 4 stages · 28 units in the full series · 12 published in English
+Languages and web fundamentals · 4 stages · 28 units in the full series · 15 published in English
 
 ## Series goal
 
@@ -39,9 +39,12 @@ Only published English units are linked below. The full series has 28 units.
 - [10. readonly and the Scope of Mutation](units/10/README.md) — Editable example
 - [11. keyof and Property Lookup Functions](units/11/README.md) — Editable example
 - [12. Generic Functions and Inference](units/12/README.md) — Editable example
+- [13. Constraints and Minimal Contracts](units/13/README.md) — Editable example
+- [14. Generics and Boundary Validation](02-experiments/README.md) — Editable example
 
 ### Stage 3 · Validation and Type Transformations
 
+- [15. Type Guards and False Guarantees](units/15/README.md) — Editable example
 
 ### Stage 4 · Module Contracts and Plugins
 

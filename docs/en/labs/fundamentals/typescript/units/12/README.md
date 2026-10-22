@@ -71,7 +71,7 @@ Source code and records are not overwritten automatically. Resetting an existing
 
 ## Next learning
 
-[Previous: keyof and Property Lookup Functions](../11/README.md)
+[Previous: keyof and Property Lookup Functions](../11/README.md) · [Next: Constraints and Minimal Contracts](../13/README.md)
 
 ## Experiment notes — write your own
 

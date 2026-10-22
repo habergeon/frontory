@@ -483,6 +483,35 @@
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
+      "id": "typescript-step-13",
+      "day": 13,
+      "week": 2,
+      "title": "Constraints and Minimal Contracts",
+      "goal": "Additional field types are preserved for two kinds of objects. Record the diagnostic for input without id.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/13/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
+      "id": "typescript-02",
+      "day": 14,
+      "week": 2,
+      "title": "Generics and Boundary Validation",
+      "goal": "Record acceptance or rejection for all four inputs. Use Note fields on a valid return value without assertions.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/02-experiments/README.md",
+      "seriesId": "typescript"
+    },
+    {
+      "id": "typescript-step-15",
+      "day": 15,
+      "week": 3,
+      "title": "Type Guards and False Guarantees",
+      "goal": "Create a results table in which only the 1 valid input passes. Compare the runtime failure of a false guard with the corrected result.",
+      "docPath": "/docs/en/labs/fundamentals/typescript/units/15/README.md",
+      "seriesId": "typescript",
+      "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    {
       "id": "html-01",
       "day": 1,
       "week": 1,

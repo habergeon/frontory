@@ -76,6 +76,6 @@ Depth order, alpha, distance, resolution. Cost changes are hypotheses until meas
 
 [Runnable source code](../../../../../../src/labs/18-gs-projection/example.js) · Workspace unit ID: `18-gs-projection`
 
-An educational CPU visualization of Gaussian projection and compositing. SH uses synthetic coefficients of order 1; this does not measure the quality of a trained GS model.
+Reverses the alpha compositing order of two red/blue rectangle layers in Canvas 2D, displays their overlap RGB, and calculates the projected 1σ radius f×scale/z. Gaussian covariance projection and SH color synthesis are not implemented; this does not measure the quality of a trained GS model.
 
 Any previously saved code is preserved. To use the new original source, first back up everything as a full JSON file, then select **Restore original code**. Your notes are not erased.

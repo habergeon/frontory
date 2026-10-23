@@ -76,6 +76,6 @@ Representation, viewpoint, resolution. Do not compare FPS from different papers 
 
 [Runnable source code](../../../../../../src/labs/15-nerf-gs/example.js) · Workspace unit ID: `15-nerf-gs`
 
-Compares ray integration of an analytic density field with splat compositing. It does not run NeRF training or an inference model.
+Computes alpha, transmittance, and accumulated brightness by ray integration through an analytic 1D Gaussian density field. The 3DGS pipeline appears only as explanatory text; splat compositing is not executed. NeRF training and neural network inference are not performed.
 
 Any previously saved code is preserved. To use the new original source, first back up everything as a full JSON file, then select **Restore original code**. Your notes are not erased.

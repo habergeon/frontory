@@ -16,7 +16,7 @@
     "translatedPath": "/docs/en/roadmap.md"
   },
   "/docs/examples.md": {
-    "sourceHash": "0d842bd8288bda69f3225b0e836187a83f3351f81e9a3851ca9055ecde56db30",
+    "sourceHash": "7a2f111ec865c88d04aab218d4535cd3298760a441bda327e6f1a03a2106661b",
     "translatedPath": "/docs/en/examples.md"
   },
   "/docs/labs/README.md": {
@@ -84,7 +84,7 @@
     "translatedPath": "/docs/en/labs/graphics/webgl/14-shader-review/README.md"
   },
   "/docs/labs/graphics/webgl/15-nerf-gs/README.md": {
-    "sourceHash": "8198f453518a16fe2ccc2b67ce832149298d4048c5cf1765b76e61ce524280a9",
+    "sourceHash": "e6c0a751e0970c0874e2662041d05eadbd678e4978b63a7cad25d2085837a701",
     "translatedPath": "/docs/en/labs/graphics/webgl/15-nerf-gs/README.md"
   },
   "/docs/labs/graphics/webgl/16-gaussian/README.md": {
@@ -96,7 +96,7 @@
     "translatedPath": "/docs/en/labs/graphics/webgl/17-sh/README.md"
   },
   "/docs/labs/graphics/webgl/18-gs-projection/README.md": {
-    "sourceHash": "115d7fa7a8b0147ed6f973a3b44b644a294a6f6405879a2253157b598a042c5e",
+    "sourceHash": "c4ec294f2ffa3a140996f0fe9432928a3a8b64ab3d1ec8106250ff17e73293f8",
     "translatedPath": "/docs/en/labs/graphics/webgl/18-gs-projection/README.md"
   },
   "/docs/labs/graphics/webgl/19-gs-loading/README.md": {

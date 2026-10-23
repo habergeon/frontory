@@ -1,3 +1,4 @@
+import { writeCompanionGuidance } from './companion-guidance.mjs'
 import { localizeExampleSource, writeGeneratedFile } from './example-presentation.mjs'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -336,4 +337,5 @@ for(const [series,examples] of Object.entries(all)){
  fs.mkdirSync(path.join(base,'content/examples'),{recursive:true})
  writeGeneratedFile(path.join(base,'content/examples',series+'.json'),JSON.stringify(manifest,null,2)+'\n')
  console.log(series+': '+Object.keys(manifest).length+' new examples')
+ writeCompanionGuidance('scripts/generate-framework-examples.mjs',series)
 }

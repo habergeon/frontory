@@ -66,7 +66,7 @@ export function SceneLab() {
         </p>
         <p>
           <code>(0, 0, 5)</code>, <code>(5, 0, 0)</code>, <code>(3, 5, 3)</code>을 하나씩 비교하고
-          실제 결과를 <code>docs/labs/01-scene.md</code>에 기록하세요.
+          실제 결과를 <code>docs/labs/graphics/webgl/01-scene/README.md</code>에 기록하세요.
         </p>
       </section>
     </section>

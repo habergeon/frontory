@@ -1,0 +1,899 @@
+{
+  "provenance": {
+    "approvedArtifactSha256": "c446ffedb1324da6359bdead4bf57b36a121a15b8d77a0544884cece5f737604",
+    "approvedPairsSha256": "543a077f2716cad9d77d8d0e4fcae55910f17c4e9d295f1a653450fc6224e3e9",
+    "approvedPairCount": 2770,
+    "preservedPairCount": 2646,
+    "translatedPairCount": 124,
+    "policy": "Reviewed prose and execution guidance only. Original executable sources remain the sole algorithm owners."
+  },
+  "guidance": {
+    "svelte": "Use an isolated Svelte 5 project. Copy all supplied companion files together; the built-in DOM/store preview does not compile App.svelte. Compile .svelte components and workspace.svelte.js with the appropriate Svelte compiler entry points, then verify interactions and cleanup in a browser.",
+    "typescript": "Run tsc against the supplied lesson.ts with strict checking, no emit, and ES2023/DOM libraries. Preserve @ts-expect-error directives; an unused directive is a failed fixture check. Typechecking does not execute DOM interactions.",
+    "html": "Serve the complete lesson folder over local HTTP. Keep original lang and srclang fixture values, asset URLs and script ordering inputs unchanged. Verify playback/captions, sandbox behavior, or parsing order in the browser as directed by README.en.md.",
+    "wat": "Compile kernel.wat in an isolated copy with WABT, then run the real Node assertion harness. Existing legacy kernel.wasm can run directly with Node. The iframe preview does not execute Wasm or certify these checks.",
+    "playwright": "Run the supplied spec and fixture in an isolated Playwright project. The generated config starts its own HTTP fixture server. Run lessons sequentially on port 4179, pin the browser and environment, and review visual baselines before treating screenshot checks as verified.",
+    "scene": "Use the existing React/Three host and scene-container dimensions. Preserve SceneLab.tsx and createScene.ts relative imports. Verify rotation pause/resume, camera reset, resizing, unmount and resource disposal in a WebGL-capable browser. Typechecking does not certify GPU rendering.",
+    "r3f": "Use an isolated React/Vite host with React, @react-three/fiber and three. Copy App.jsx and provide your own valid public/model.glb; this repository does not supply that model. Test loading, Suspense, ErrorBoundary, and the missing.glb path in a WebGL-capable browser. A bundle check does not certify model loading or GPU correctness."
+  },
+  "translations": [
+    {
+      "id": "c00003",
+      "path": "src/labs/01-scene/createScene.ts",
+      "line": 22,
+      "source": "React 밖에서 장면을 만들고, 소유한 자원의 정리 함수를 React에 돌려줍니다.",
+      "english": "Create the scene outside React and return a cleanup function for its resources to React."
+    },
+    {
+      "id": "c00005",
+      "path": "src/labs/01-scene/createScene.ts",
+      "line": 29,
+      "source": "첫 과제: 이 위치만 바꾼 뒤 어느 면이 보이는지 비교해 보세요.",
+      "english": "First assignment: change only this position and compare which faces are visible."
+    },
+    {
+      "id": "c00015",
+      "path": "src/labs/01-scene/createScene.ts",
+      "line": 49,
+      "source": "회전하는 파란 큐브와 X, Y, Z 좌표축",
+      "english": "A rotating blue cube and the X, Y, Z axes"
+    },
+    {
+      "id": "c00016",
+      "path": "src/labs/01-scene/createScene.ts",
+      "line": 64,
+      "source": "CSS 크기와 실제 렌더링 픽셀 수는 다릅니다. 고해상도 비용은 4주 차에 측정합니다.",
+      "english": "CSS dimensions differ from the actual rendering pixel count. Measure the cost of high resolution in week 4."
+    },
+    {
+      "id": "c00018",
+      "path": "src/labs/01-scene/createScene.ts",
+      "line": 79,
+      "source": "탭 복귀 때 과도하게 회전하지 않도록 시간 간격을 제한합니다.",
+      "english": "Clamp the time interval to prevent excessive rotation when returning to the tab."
+    },
+    {
+      "id": "c00019",
+      "path": "src/labs/01-scene/createScene.ts",
+      "line": 95,
+      "source": "남은 damping을 먼저 소진해야 reset 이후에도 시작 시점이 유지됩니다.",
+      "english": "Clear the remaining damping first so the initial view remains stable after reset."
+    },
+    {
+      "id": "c00021",
+      "path": "src/labs/01-scene/createScene.ts",
+      "line": 118,
+      "source": "실습 전환 시 사용하지 않는 WebGL context도 반납합니다.",
+      "english": "Release the unused WebGL context when switching labs."
+    },
+    {
+      "id": "c00025",
+      "path": "src/labs/01-scene/SceneLab.tsx",
+      "line": 20,
+      "source": "첫 장면을 만들지 못했습니다.",
+      "english": "Could not create the first scene."
+    },
+    {
+      "id": "c00026",
+      "path": "src/labs/01-scene/SceneLab.tsx",
+      "line": 21,
+      "source": "WebGL 장면을 만들지 못했습니다. WebGL 2 지원 브라우저와 하드웨어 가속 설정을 확인하세요.",
+      "english": "Could not create the WebGL scene. Check WebGL 2 browser support and hardware acceleration settings."
+    },
+    {
+      "id": "c00027",
+      "path": "src/labs/01-scene/SceneLab.tsx",
+      "line": 25,
+      "source": "StrictMode의 setup → cleanup → setup, 실습 전환, HMR에서 같은 정리가 실행됩니다.",
+      "english": "The same cleanup runs during StrictMode setup → cleanup → setup, lab changes, and HMR."
+    },
+    {
+      "id": "c00032",
+      "path": "src/labs/01-scene/SceneLab.tsx",
+      "line": 45,
+      "source": "회전 재개",
+      "english": "Resume rotation"
+    },
+    {
+      "id": "c00033",
+      "path": "src/labs/01-scene/SceneLab.tsx",
+      "line": 45,
+      "source": "회전 일시정지",
+      "english": "Pause rotation"
+    },
+    {
+      "id": "c00041",
+      "path": "src/labs/01-scene/SceneLab.tsx",
+      "line": 40,
+      "source": "01 · 첫 장면",
+      "english": "01 · First scene"
+    },
+    {
+      "id": "c00042",
+      "path": "src/labs/01-scene/SceneLab.tsx",
+      "line": 41,
+      "source": "회전하는 큐브로 카메라와 좌표계를 관찰합니다.",
+      "english": "Observe the camera and coordinate system using a rotating cube."
+    },
+    {
+      "id": "c00043",
+      "path": "src/labs/01-scene/SceneLab.tsx",
+      "line": 48,
+      "source": "카메라 초기화",
+      "english": "Reset camera"
+    },
+    {
+      "id": "c00044",
+      "path": "src/labs/01-scene/SceneLab.tsx",
+      "line": 57,
+      "source": "드래그: 시점 회전 · 휠: 확대/축소 · 오른쪽 드래그: 이동",
+      "english": "Drag: orbit · Wheel: zoom · Right drag: pan"
+    },
+    {
+      "id": "c00045",
+      "path": "src/labs/01-scene/SceneLab.tsx",
+      "line": 58,
+      "source": "터치: 한 손가락 회전, 두 손가락 확대/이동 · 축: X 빨강 / Y 초록 / Z 파랑",
+      "english": "Touch: one finger to orbit, two fingers to zoom/pan · Axes: X red / Y green / Z blue"
+    },
+    {
+      "id": "c00046",
+      "path": "src/labs/01-scene/SceneLab.tsx",
+      "line": 62,
+      "source": "첫 과제 · 카메라 위치 바꾸기",
+      "english": "First assignment · Change the camera position"
+    },
+    {
+      "id": "c00047",
+      "path": "src/labs/01-scene/SceneLab.tsx",
+      "line": 64,
+      "source": "<code>createScene.ts</code>의 <code>camera.position.set(3, 2, 5)</code>를 바꾸기 전에\r\n          큐브의 어느 면이 보일지 예상해 보세요.\r\n        ",
+      "english": "Before changing <code>camera.position.set(3, 2, 5)</code> in <code>createScene.ts</code>, predict which faces of the cube will be visible."
+    },
+    {
+      "id": "c00048",
+      "path": "src/labs/01-scene/SceneLab.tsx",
+      "line": 68,
+      "source": "<code>(0, 0, 5)</code>, <code>(5, 0, 0)</code>, <code>(3, 5, 3)</code>을 하나씩 비교하고\r\n          실제 결과를 <code>docs/labs/01-scene.md</code>에 기록하세요.\r\n        ",
+      "english": "Compare <code>(0, 0, 5)</code>, <code>(5, 0, 0)</code>, and <code>(3, 5, 3)</code> one at a time, then record the actual results in <code>docs/labs/graphics/webgl/01-scene/README.md</code>.",
+      "approvedEnglish": "Compare <code>(0, 0, 5)</code>, <code>(5, 0, 0)</code>, and <code>(3, 5, 3)</code> one at a time, then record the actual results in <code>docs/labs/01-scene.md</code>.",
+      "correction": "manual-scene-assignment-document-path"
+    },
+    {
+      "id": "c00069",
+      "path": "src/labs/typescript-step-09/lesson.ts",
+      "line": 3,
+      "source": "대기",
+      "english": "Idle"
+    },
+    {
+      "id": "c00071",
+      "path": "src/labs/typescript-step-09/lesson.ts",
+      "line": 3,
+      "source": "진행",
+      "english": "Loading"
+    },
+    {
+      "id": "c00073",
+      "path": "src/labs/typescript-step-09/lesson.ts",
+      "line": 3,
+      "source": "완료",
+      "english": "Done"
+    },
+    {
+      "id": "c00123",
+      "path": "src/labs/html-step-18/captions.vtt",
+      "line": 4,
+      "source": "파란색: 기준 조건입니다.",
+      "english": "Blue: the baseline condition."
+    },
+    {
+      "id": "c00125",
+      "path": "src/labs/html-step-18/captions.vtt",
+      "line": 7,
+      "source": "주황색: 배경색만 변경했습니다.",
+      "english": "Orange: only the background color has changed."
+    },
+    {
+      "id": "c00126",
+      "path": "src/labs/html-step-18/index.html",
+      "line": 1,
+      "source": "자막과 대본 실험",
+      "english": "Captions and transcript experiment"
+    },
+    {
+      "id": "c00127",
+      "path": "src/labs/html-step-18/index.html",
+      "line": 1,
+      "source": "미디어 자막과 대체 경로",
+      "english": "Media captions and fallback paths"
+    },
+    {
+      "id": "c00128",
+      "path": "src/labs/html-step-18/index.html",
+      "line": 1,
+      "source": "한국어",
+      "english": "Korean"
+    },
+    {
+      "id": "c00129",
+      "path": "src/labs/html-step-18/index.html",
+      "line": 1,
+      "source": "영상 재생을 지원하지 않습니다.",
+      "english": "Video playback is not supported."
+    },
+    {
+      "id": "c00130",
+      "path": "src/labs/html-step-18/index.html",
+      "line": 1,
+      "source": "없는 파일로 전환",
+      "english": "Switch to a missing file"
+    },
+    {
+      "id": "c00131",
+      "path": "src/labs/html-step-18/index.html",
+      "line": 1,
+      "source": "정상 파일 복원",
+      "english": "Restore the valid file"
+    },
+    {
+      "id": "c00132",
+      "path": "src/labs/html-step-18/index.html",
+      "line": 1,
+      "source": "재생 버튼을 누르세요.",
+      "english": "Press the play button."
+    },
+    {
+      "id": "c00133",
+      "path": "src/labs/html-step-18/index.html",
+      "line": 1,
+      "source": "대본 읽기",
+      "english": "Read the transcript"
+    },
+    {
+      "id": "c00139",
+      "path": "src/labs/html-step-18/index.html",
+      "line": 1,
+      "source": "실패 경로 요청: 대본 링크를 사용하세요.",
+      "english": "Failure path requested: use the transcript link."
+    },
+    {
+      "id": "c00143",
+      "path": "src/labs/html-step-18/index.html",
+      "line": 1,
+      "source": "영상 파일을 불러오지 못했습니다. 대본을 읽을 수 있습니다.",
+      "english": "Could not load the video file. You can read the transcript."
+    },
+    {
+      "id": "c00145",
+      "path": "src/labs/html-step-18/index.html",
+      "line": 1,
+      "source": "정상 영상: ",
+      "english": "Valid video: "
+    },
+    {
+      "id": "c00146",
+      "path": "src/labs/html-step-18/index.html",
+      "line": 1,
+      "source": "초 / 자막 메뉴에서 한국어를 선택하세요.",
+      "english": " seconds / Select Korean in the captions menu."
+    },
+    {
+      "id": "c00147",
+      "path": "src/labs/html-step-18/README.md",
+      "line": 1,
+      "source": "# 미디어·자막·실패 경로",
+      "english": "# Media, captions, and failure paths"
+    },
+    {
+      "id": "c00148",
+      "path": "src/labs/html-step-18/README.md",
+      "line": 3,
+      "source": "이 폴더에서 `python -m http.server 8000` 실행 후 http://localhost:8000/index.html 을 여세요. file:// 로 열면 자막이 제한될 수 있습니다.",
+      "english": "Run `python -m http.server 8000` in this folder, then open http://localhost:8000/index.html . Captions may be restricted when opened with file:// ."
+    },
+    {
+      "id": "c00149",
+      "path": "src/labs/html-step-18/README.md",
+      "line": 5,
+      "source": "1. 6초 무음 sample.mp4를 재생하고 한국어 자막 메뉴를 선택합니다. 3초에서 파랑이 주황으로 바뀝니다.",
+      "english": "1. Play the 6-second silent sample.mp4 and select Korean in the captions menu. Blue changes to orange at 3 seconds."
+    },
+    {
+      "id": "c00150",
+      "path": "src/labs/html-step-18/README.md",
+      "line": 6,
+      "source": "2. 없는 파일 전환 버튼으로 404와 대본 대체 경로를 확인합니다. 정상 복원도 검사합니다.",
+      "english": "2. Use the missing-file button to check the 404 and transcript fallback. Also test restoring the valid file."
+    },
+    {
+      "id": "c00151",
+      "path": "src/labs/html-step-18/README.md",
+      "line": 7,
+      "source": "3. captions.vtt의 시간·텍스트를 바꾸고 새로고침해 비교합니다.",
+      "english": "3. Change the timing and text in captions.vtt, reload, and compare."
+    },
+    {
+      "id": "c00152",
+      "path": "src/labs/html-step-18/README.md",
+      "line": 9,
+      "source": "무음 합성 영상은 실제 발화의 자막 품질 평가용이 아닙니다. 사용자가 소유한 발화 영상으로 바꿀 때 자막과 대본도 함께 고치세요.",
+      "english": "This silent synthetic video is not intended to assess caption quality for actual speech. When replacing it with a speech video you own, update both captions and transcript."
+    },
+    {
+      "id": "c00153",
+      "path": "src/labs/html-step-18/README.md",
+      "line": 11,
+      "source": "재생 자원은 FFmpeg의 color 소스로 생성했습니다. 외부 영상·음원은 사용하지 않았습니다. 생성 명령은 저장소의 generate-foundations-examples.mjs 설명을 참고하세요.",
+      "english": "The playback asset was generated with the FFmpeg color source. No external video or audio was used. See the generate-foundations-examples.mjs comments in the repository for the generation command."
+    },
+    {
+      "id": "c00154",
+      "path": "src/labs/html-step-18/transcript.html",
+      "line": 1,
+      "source": "실험 영상 대본",
+      "english": "Experiment video transcript"
+    },
+    {
+      "id": "c00155",
+      "path": "src/labs/html-step-18/transcript.html",
+      "line": 1,
+      "source": "실험 대본",
+      "english": "Experiment transcript"
+    },
+    {
+      "id": "c00157",
+      "path": "src/labs/html-step-18/transcript.html",
+      "line": 1,
+      "source": "파란색 화면. 기준 조건입니다.",
+      "english": "Blue screen. The baseline condition."
+    },
+    {
+      "id": "c00159",
+      "path": "src/labs/html-step-18/transcript.html",
+      "line": 1,
+      "source": "주황색 화면. 배경색만 변경했습니다.",
+      "english": "Orange screen. Only the background color has changed."
+    },
+    {
+      "id": "c00160",
+      "path": "src/labs/html-step-18/transcript.html",
+      "line": 1,
+      "source": "이 영상은 무음 합성 fixture이며 자막은 시각적인 변화를 설명합니다.",
+      "english": "This video is a silent synthetic fixture; its captions describe visual changes."
+    },
+    {
+      "id": "c00161",
+      "path": "src/labs/html-step-18/transcript.html",
+      "line": 1,
+      "source": "영상으로 돌아가기",
+      "english": "Back to the video"
+    },
+    {
+      "id": "c00162",
+      "path": "src/labs/html-step-21/guide.html",
+      "line": 1,
+      "source": "포함 안내",
+      "english": "Embedded guide"
+    },
+    {
+      "id": "c00163",
+      "path": "src/labs/html-step-21/guide.html",
+      "line": 1,
+      "source": "학습 안내",
+      "english": "Learning guide"
+    },
+    {
+      "id": "c00164",
+      "path": "src/labs/html-step-21/guide.html",
+      "line": 1,
+      "source": "정적 HTML 표시: 스크립트 실행 전",
+      "english": "Static HTML display: before script execution"
+    },
+    {
+      "id": "c00165",
+      "path": "src/labs/html-step-21/guide.html",
+      "line": 1,
+      "source": "카운터 0",
+      "english": "Counter 0"
+    },
+    {
+      "id": "c00167",
+      "path": "src/labs/html-step-21/guide.html",
+      "line": 1,
+      "source": "스크립트 실행됨",
+      "english": "Script executed"
+    },
+    {
+      "id": "c00169",
+      "path": "src/labs/html-step-21/guide.html",
+      "line": 1,
+      "source": "카운터 ",
+      "english": "Counter "
+    },
+    {
+      "id": "c00172",
+      "path": "src/labs/html-step-21/index.html",
+      "line": 1,
+      "source": "iframe sandbox 경계",
+      "english": "iframe sandbox boundary"
+    },
+    {
+      "id": "c00173",
+      "path": "src/labs/html-step-21/index.html",
+      "line": 1,
+      "source": "스크립트 권한 비교",
+      "english": "Compare script permissions"
+    },
+    {
+      "id": "c00174",
+      "path": "src/labs/html-step-21/index.html",
+      "line": 1,
+      "source": "allow-scripts 허용",
+      "english": "Allow allow-scripts"
+    },
+    {
+      "id": "c00175",
+      "path": "src/labs/html-step-21/index.html",
+      "line": 1,
+      "source": "동일 guide.html을 불러오고 sandbox 권한만 바꿉니다.",
+      "english": "Load the same guide.html and change only sandbox permissions."
+    },
+    {
+      "id": "c00176",
+      "path": "src/labs/html-step-21/index.html",
+      "line": 1,
+      "source": "실험 안내 문서",
+      "english": "Experiment guide document"
+    },
+    {
+      "id": "c00177",
+      "path": "src/labs/html-step-21/index.html",
+      "line": 1,
+      "source": "메시지 없음",
+      "english": "No messages"
+    },
+    {
+      "id": "c00183",
+      "path": "src/labs/html-step-21/index.html",
+      "line": 1,
+      "source": "프레임을 다시 불러옵니다.",
+      "english": "Reloading the frame."
+    },
+    {
+      "id": "c00187",
+      "path": "src/labs/html-step-21/README.md",
+      "line": 1,
+      "source": "# iframe의 sandbox 경계",
+      "english": "# iframe sandbox boundary"
+    },
+    {
+      "id": "c00188",
+      "path": "src/labs/html-step-21/README.md",
+      "line": 3,
+      "source": "이 폴더에서 `python -m http.server 8000` 실행 후 http://localhost:8000/index.html 을 엽니다.",
+      "english": "Run `python -m http.server 8000` in this folder, then open http://localhost:8000/index.html ."
+    },
+    {
+      "id": "c00189",
+      "path": "src/labs/html-step-21/README.md",
+      "line": 5,
+      "source": "- 체크 해제: sandbox=\"\". 안내 HTML은 보이지만 script, 버튼 핸들러, postMessage는 실행되지 않습니다.",
+      "english": "- Unchecked: sandbox=\"\". The guide HTML is visible, but script, button handlers, and postMessage do not run."
+    },
+    {
+      "id": "c00190",
+      "path": "src/labs/html-step-21/README.md",
+      "line": 6,
+      "source": "- 체크: sandbox=\"allow-scripts\". 동일 문서를 다시 로드하고 카운터와 메시지가 작동합니다. origin은 allow-same-origin이 없으므로 \"null\"입니다.",
+      "english": "- Checked: sandbox=\"allow-scripts\". The same document reloads, and the counter and messaging work. The origin is \"null\" because allow-same-origin is absent."
+    },
+    {
+      "id": "c00191",
+      "path": "src/labs/html-step-21/README.md",
+      "line": 7,
+      "source": "- 부모 페이지는 event.source와 메시지 type을 검사합니다. 이 예제는 기밀 데이터를 전송하지 않습니다.",
+      "english": "- The parent page checks event.source and the message type. This example does not send confidential data."
+    },
+    {
+      "id": "c00192",
+      "path": "src/labs/html-step-21/README.md",
+      "line": 9,
+      "source": "Frontory 내부에는 상위 CSP 제한도 있으므로 이 비교는 반드시 독립 로컬 서버에서 수행합니다. allow-same-origin은 추가하지 마세요. 네트워크 응답·콘솔의 차단 기록과 실제 버튼 동작을 함께 기록하세요.",
+      "english": "Frontory also applies a parent CSP restriction, so perform this comparison on a standalone local server. Do not add allow-same-origin. Record blocked requests and console messages alongside actual button behavior."
+    },
+    {
+      "id": "c00194",
+      "path": "src/labs/html-step-23/index.html",
+      "line": 1,
+      "source": "script 로딩 순서",
+      "english": "script loading order"
+    },
+    {
+      "id": "c00199",
+      "path": "src/labs/html-step-23/index.html",
+      "line": 1,
+      "source": "두 script의 defer를 제거하거나 async로 바꿔 비교하세요.",
+      "english": "Remove defer from both scripts or change both to async and compare."
+    },
+    {
+      "id": "c00200",
+      "path": "src/labs/html-step-23/index.html",
+      "line": 1,
+      "source": "DOM 파싱 대상",
+      "english": "DOM parsing target"
+    },
+    {
+      "id": "c00201",
+      "path": "src/labs/html-step-23/index.html",
+      "line": 1,
+      "source": "두 외부 스크립트 속성을 같은 방식으로 바꾼 후 새로고침하세요.",
+      "english": "Change both external script attributes in the same way, then reload."
+    },
+    {
+      "id": "c00203",
+      "path": "src/labs/html-step-23/README.md",
+      "line": 1,
+      "source": "# 일반 · defer · async 로딩",
+      "english": "# Classic, defer, and async loading"
+    },
+    {
+      "id": "c00204",
+      "path": "src/labs/html-step-23/README.md",
+      "line": 3,
+      "source": "이 폴더에서 `python -m http.server 8000` 실행 후 http://localhost:8000/index.html 을 엽니다. 두 외부 script는 의도적으로 head에서 target보다 앞에 있습니다.",
+      "english": "Run `python -m http.server 8000` in this folder, then open http://localhost:8000/index.html . The two external scripts are intentionally placed in head before target."
+    },
+    {
+      "id": "c00205",
+      "path": "src/labs/html-step-23/README.md",
+      "line": 5,
+      "source": "1. 기본 defer: body inline → first.js → second.js → DOMContentLoaded. 외부 두 스크립트는 targetExists:true입니다.",
+      "english": "1. Default defer: body inline → first.js → second.js → DOMContentLoaded. Both external scripts report targetExists:true."
+    },
+    {
+      "id": "c00206",
+      "path": "src/labs/html-step-23/README.md",
+      "line": 6,
+      "source": "2. 두 defer를 제거: first.js → second.js → body inline. 외부 두 스크립트는 파싱을 멈추므로 targetExists:false입니다.",
+      "english": "2. Remove both defer attributes: first.js → second.js → body inline. Both external scripts block parsing, so targetExists:false."
+    },
+    {
+      "id": "c00207",
+      "path": "src/labs/html-step-23/README.md",
+      "line": 7,
+      "source": "3. 두 defer를 async로 변경: 다운로드가 끝난 순서로 실행됩니다. DOM 존재와 순서를 매번 기록하세요. async가 항상 순서를 바꾸거나 항상 DOM보다 먼저 실행된다고 가정하지 마세요.",
+      "english": "3. Change both defer attributes to async: scripts run in download-completion order. Record DOM availability and execution order each time. Do not assume async always changes the order or always executes before the DOM exists."
+    },
+    {
+      "id": "c00208",
+      "path": "src/labs/html-step-23/README.md",
+      "line": 8,
+      "source": "4. DevTools Network의 Disable cache와 느린 네트워크 조건을 적용하고 재시도하세요. 작은 로컬 파일에서 차이가 안 보이면 해당 관찰 자체를 기록하세요.",
+      "english": "4. Enable Disable cache and slow network conditions in DevTools Network, then retry. If the small local files show no difference, record that observation."
+    },
+    {
+      "id": "c00209",
+      "path": "src/labs/html-step-23/README.md",
+      "line": 10,
+      "source": "시간은 performance.now의 관찰값입니다. console과 화면은 같은 loadingLog를 표시합니다. 실제 fetch·파싱을 실행하므로 Frontory 내부의 정적 소스 검사와 구분하세요.",
+      "english": "Times are observations from performance.now. The console and page display the same loadingLog. This performs actual fetch and parsing; distinguish it from the static source checks inside Frontory."
+    },
+    {
+      "id": "c00253",
+      "path": "src/labs/svelte-02/App.svelte",
+      "line": 6,
+      "source": "이벤트와 자원 정리",
+      "english": "Events and resource cleanup"
+    },
+    {
+      "id": "c00254",
+      "path": "src/labs/svelte-02/App.svelte",
+      "line": 7,
+      "source": "숨기기",
+      "english": "Hide"
+    },
+    {
+      "id": "c00255",
+      "path": "src/labs/svelte-02/App.svelte",
+      "line": 7,
+      "source": "표시",
+      "english": "Show"
+    },
+    {
+      "id": "c00256",
+      "path": "src/labs/svelte-02/App.svelte",
+      "line": 8,
+      "source": "주기 ms",
+      "english": "Period ms"
+    },
+    {
+      "id": "c00262",
+      "path": "src/labs/svelte-02/PointerCanvas.svelte",
+      "line": 23,
+      "source": "포인터 위치의 원",
+      "english": "A circle at the pointer position"
+    },
+    {
+      "id": "c00263",
+      "path": "src/labs/svelte-02/PointerCanvas.svelte",
+      "line": 24,
+      "source": "현재 컴포넌트의 tick:",
+      "english": "Ticks in the current component:"
+    },
+    {
+      "id": "c00264",
+      "path": "src/labs/svelte-02/README.md",
+      "line": 1,
+      "source": "# Svelte 컴포넌트 실습",
+      "english": "# Svelte component lab"
+    },
+    {
+      "id": "c00265",
+      "path": "src/labs/svelte-02/README.md",
+      "line": 3,
+      "source": "`example.js`는 내장 실행기의 실제 Svelte writable 저장소와 DOM 어댑터 예제입니다. Svelte 컴포넌트로 오해하지 마세요.",
+      "english": "`example.js` demonstrates an actual Svelte writable store and DOM adapter in the built-in runner. It is not a Svelte component."
+    },
+    {
+      "id": "c00266",
+      "path": "src/labs/svelte-02/README.md",
+      "line": 5,
+      "source": "Svelte 5 Vite 프로젝트의 `src/App.svelte`를 이 폴더의 `App.svelte`로 교체하고 `PointerCanvas.svelte`를 같은 경로에 복사하세요. 프로젝트의 개발 서버에서 실행합니다. 외부 프로젝트의 패키지·lockfile은 별도로 관리합니다.",
+      "english": "In a Svelte 5 Vite project, replace `src/App.svelte` with this folder’s `App.svelte` and copy `PointerCanvas.svelte` to the same location. Run the project’s development server. Manage the external project’s packages and lockfile separately."
+    },
+    {
+      "id": "c00267",
+      "path": "src/labs/svelte-02/README.md",
+      "line": 7,
+      "source": "숨기기/표시를 반복하고 주기를 변경하세요. `onMount`가 반환한 정리 함수는 타이머와 pointer 리스너를 해제합니다. `#key period`는 주기가 바뀔 때 새 컴포넌트를 생성합니다. 숨긴 동안에는 Canvas의 타이머가 없어야 합니다.",
+      "english": "Repeatedly hide/show the component and change the period. The cleanup returned by `onMount` removes the timer and pointer listener. `#key period` creates a new component when the period changes. No Canvas timer should remain while it is hidden."
+    },
+    {
+      "id": "c00339",
+      "path": "src/labs/svelte-03/App.svelte",
+      "line": 2,
+      "source": "상태",
+      "english": "State"
+    },
+    {
+      "id": "c00340",
+      "path": "src/labs/svelte-03/App.svelte",
+      "line": 2,
+      "source": "파생 값",
+      "english": "Derived values"
+    },
+    {
+      "id": "c00341",
+      "path": "src/labs/svelte-03/App.svelte",
+      "line": 2,
+      "source": "정리",
+      "english": "Cleanup"
+    },
+    {
+      "id": "c00342",
+      "path": "src/labs/svelte-03/App.svelte",
+      "line": 7,
+      "source": "Svelte 학습 카드",
+      "english": "Svelte learning cards"
+    },
+    {
+      "id": "c00343",
+      "path": "src/labs/svelte-03/App.svelte",
+      "line": 8,
+      "source": "미완료만",
+      "english": "Incomplete only"
+    },
+    {
+      "id": "c00344",
+      "path": "src/labs/svelte-03/App.svelte",
+      "line": 9,
+      "source": "완료",
+      "english": "Done"
+    },
+    {
+      "id": "c00348",
+      "path": "src/labs/svelte-03/README.md",
+      "line": 1,
+      "source": "# 동일 요구사항 비교",
+      "english": "# Compare identical requirements"
+    },
+    {
+      "id": "c00349",
+      "path": "src/labs/svelte-03/README.md",
+      "line": 3,
+      "source": "내장 예제는 실제 React, Vue, Svelte store를 사용하지만 Svelte 열의 DOM은 직접 작성한 어댑터입니다. 따라서 이 열의 DOM 코드 양을 Svelte 컴포넌트 코드 양으로 비교하면 안 됩니다.",
+      "english": "The built-in examples use actual React, Vue, and Svelte stores, but the Svelte column uses a handwritten DOM adapter. Do not compare that column’s DOM code size with Svelte component code size."
+    },
+    {
+      "id": "c00350",
+      "path": "src/labs/svelte-03/README.md",
+      "line": 5,
+      "source": "Svelte 5 Vite 프로젝트의 `src/App.svelte`를 동봉 파일로 교체하여 실제 컴포넌트를 실행하세요. 동일한 세 카드에서 1번 완료 → 미완료 필터 켜기 → 필터 끄기를 반복합니다. 세 구현에서 완료 개수와 카드 표시가 일치하는지 기록하세요.",
+      "english": "Replace `src/App.svelte` in a Svelte 5 Vite project with the supplied file to run the actual component. On the same three cards, repeat: complete card 1 → enable the incomplete filter → disable the filter. Record whether completed counts and visible cards agree across the three implementations."
+    },
+    {
+      "id": "c00351",
+      "path": "src/labs/svelte-03/README.md",
+      "line": 7,
+      "source": "비교 표에는 상태 선언, 파생 값, 이벤트, 명시적 구독 정리 유무를 기록하세요. 선호도와 관찰 사실은 따로 적습니다. 이 예제는 속도 우열을 측정하지 않습니다.",
+      "english": "Record state declarations, derived values, events, and the presence of explicit subscription cleanup in the comparison table. Separate preferences from observations. This example does not measure relative performance."
+    },
+    {
+      "id": "c00762",
+      "path": "src/labs/playwright-step-02/lesson.spec.mjs",
+      "line": 3,
+      "source": "설정과 실행 범위",
+      "english": "Setup and execution scope"
+    },
+    {
+      "id": "c00836",
+      "path": "src/labs/playwright-step-03/lesson.spec.mjs",
+      "line": 3,
+      "source": "Role과 접근 가능한 이름",
+      "english": "Role and accessible name"
+    },
+    {
+      "id": "c00912",
+      "path": "src/labs/playwright-step-04/lesson.spec.mjs",
+      "line": 3,
+      "source": "Label과 입력",
+      "english": "Label and input"
+    },
+    {
+      "id": "c00988",
+      "path": "src/labs/playwright-step-05/lesson.spec.mjs",
+      "line": 3,
+      "source": "Locator 범위",
+      "english": "Locator scope"
+    },
+    {
+      "id": "c01066",
+      "path": "src/labs/playwright-step-06/lesson.spec.mjs",
+      "line": 3,
+      "source": "재시도 Assertion",
+      "english": "Retrying assertions"
+    },
+    {
+      "id": "c01142",
+      "path": "src/labs/playwright-step-07/lesson.spec.mjs",
+      "line": 3,
+      "source": "첫 흐름의 실패 진단",
+      "english": "Diagnose failures in the first flow"
+    },
+    {
+      "id": "c01223",
+      "path": "src/labs/playwright-step-08/lesson.spec.mjs",
+      "line": 3,
+      "source": "BrowserContext 격리",
+      "english": "BrowserContext isolation"
+    },
+    {
+      "id": "c01301",
+      "path": "src/labs/playwright-step-09/lesson.spec.mjs",
+      "line": 3,
+      "source": "저장과 새로고침",
+      "english": "Save and reload"
+    },
+    {
+      "id": "c01381",
+      "path": "src/labs/playwright-step-10/lesson.spec.mjs",
+      "line": 3,
+      "source": "다운로드 이벤트",
+      "english": "Download events"
+    },
+    {
+      "id": "c01461",
+      "path": "src/labs/playwright-step-11/lesson.spec.mjs",
+      "line": 3,
+      "source": "파일 업로드",
+      "english": "File upload"
+    },
+    {
+      "id": "c01541",
+      "path": "src/labs/playwright-step-12/lesson.spec.mjs",
+      "line": 3,
+      "source": "잘못된 파일과 보존",
+      "english": "Invalid files and preservation"
+    },
+    {
+      "id": "c01625",
+      "path": "src/labs/playwright-step-13/lesson.spec.mjs",
+      "line": 3,
+      "source": "항목별 저장 격리",
+      "english": "Storage isolation by item"
+    },
+    {
+      "id": "c01746",
+      "path": "src/labs/playwright-step-15/lesson.spec.mjs",
+      "line": 3,
+      "source": "Keyboard 탐색",
+      "english": "Keyboard navigation"
+    },
+    {
+      "id": "c01825",
+      "path": "src/labs/playwright-step-16/lesson.spec.mjs",
+      "line": 3,
+      "source": "Viewport와 반응형",
+      "english": "Viewport and responsive behavior"
+    },
+    {
+      "id": "c01984",
+      "path": "src/labs/playwright-step-18/lesson.spec.mjs",
+      "line": 3,
+      "source": "지연과 경합",
+      "english": "Delays and races"
+    },
+    {
+      "id": "c02076",
+      "path": "src/labs/playwright-step-19/lesson.spec.mjs",
+      "line": 3,
+      "source": "시계와 예약 저장",
+      "english": "Clock and scheduled saves"
+    },
+    {
+      "id": "c02156",
+      "path": "src/labs/playwright-step-20/lesson.spec.mjs",
+      "line": 3,
+      "source": "Console과 PageError",
+      "english": "Console and PageError"
+    },
+    {
+      "id": "c02236",
+      "path": "src/labs/playwright-step-21/lesson.spec.mjs",
+      "line": 3,
+      "source": "Trace 읽기",
+      "english": "Read a trace"
+    },
+    {
+      "id": "c02315",
+      "path": "src/labs/playwright-step-22/lesson.spec.mjs",
+      "line": 4,
+      "source": "Fixtures와 준비 책임",
+      "english": "Fixtures and setup responsibilities"
+    },
+    {
+      "id": "c02392",
+      "path": "src/labs/playwright-step-23/lesson.spec.mjs",
+      "line": 3,
+      "source": "병렬 실행과 충돌",
+      "english": "Parallel execution and conflicts"
+    },
+    {
+      "id": "c02470",
+      "path": "src/labs/playwright-step-24/lesson.spec.mjs",
+      "line": 3,
+      "source": "Retries와 흔들림",
+      "english": "Retries and flakiness"
+    },
+    {
+      "id": "c02547",
+      "path": "src/labs/playwright-step-25/lesson.spec.mjs",
+      "line": 3,
+      "source": "시각 기준 만들기",
+      "english": "Create visual baselines"
+    },
+    {
+      "id": "c02624",
+      "path": "src/labs/playwright-step-26/lesson.spec.mjs",
+      "line": 3,
+      "source": "허용 차이와 검토",
+      "english": "Tolerance and review"
+    },
+    {
+      "id": "c02701",
+      "path": "src/labs/playwright-step-27/lesson.spec.mjs",
+      "line": 3,
+      "source": "CI 실행과 산출물",
+      "english": "CI execution and artifacts"
+    }
+  ],
+  "documents": {
+    "src/labs/html-step-18/captions.en.vtt": "WEBVTT\r\n\r\n00:00.000 --> 00:03.000\r\nBlue: the baseline condition.\r\n\r\n00:03.000 --> 00:06.000\r\nOrange: only the background color has changed.\r\n",
+    "src/labs/html-step-18/README.en.md": "# Media, captions, and failure paths\r\n\r\nRun `python -m http.server 8000` in this folder, then open http://localhost:8000/index.html . Captions may be restricted when opened with file:// .\r\n\r\n1. Play the 6-second silent sample.mp4 and select Korean in the captions menu. Blue changes to orange at 3 seconds.\r\n2. Use the missing-file button to check the 404 and transcript fallback. Also test restoring the valid file.\r\n3. Change the timing and text in captions.vtt, reload, and compare.\r\n\r\nThis silent synthetic video is not intended to assess caption quality for actual speech. When replacing it with a speech video you own, update both captions and transcript.\r\n\r\nThe playback asset was generated with the FFmpeg color source. No external video or audio was used. See the generate-foundations-examples.mjs comments in the repository for the generation command.\r\n",
+    "src/labs/html-step-21/README.en.md": "# iframe sandbox boundary\r\n\r\nRun `python -m http.server 8000` in this folder, then open http://localhost:8000/index.html .\r\n\r\n- Unchecked: sandbox=\"\". The guide HTML is visible, but script, button handlers, and postMessage do not run.\r\n- Checked: sandbox=\"allow-scripts\". The same document reloads, and the counter and messaging work. The origin is \"null\" because allow-same-origin is absent.\r\n- The parent page checks event.source and the message type. This example does not send confidential data.\r\n\r\nFrontory also applies a parent CSP restriction, so perform this comparison on a standalone local server. Do not add allow-same-origin. Record blocked requests and console messages alongside actual button behavior.\r\n",
+    "src/labs/html-step-23/README.en.md": "# Classic, defer, and async loading\r\n\r\nRun `python -m http.server 8000` in this folder, then open http://localhost:8000/index.html . The two external scripts are intentionally placed in head before target.\r\n\r\n1. Default defer: body inline → first.js → second.js → DOMContentLoaded. Both external scripts report targetExists:true.\r\n2. Remove both defer attributes: first.js → second.js → body inline. Both external scripts block parsing, so targetExists:false.\r\n3. Change both defer attributes to async: scripts run in download-completion order. Record DOM availability and execution order each time. Do not assume async always changes the order or always executes before the DOM exists.\r\n4. Enable Disable cache and slow network conditions in DevTools Network, then retry. If the small local files show no difference, record that observation.\r\n\r\nTimes are observations from performance.now. The console and page display the same loadingLog. This performs actual fetch and parsing; distinguish it from the static source checks inside Frontory.\r\n",
+    "src/labs/svelte-02/README.en.md": "# Svelte component lab\r\n\r\n`example.js` demonstrates an actual Svelte writable store and DOM adapter in the built-in runner. It is not a Svelte component.\r\n\r\nIn a Svelte 5 Vite project, replace `src/App.svelte` with this folder’s `App.svelte` and copy `PointerCanvas.svelte` to the same location. Run the project’s development server. Manage the external project’s packages and lockfile separately.\r\n\r\nRepeatedly hide/show the component and change the period. The cleanup returned by `onMount` removes the timer and pointer listener. `#key period` creates a new component when the period changes. No Canvas timer should remain while it is hidden.\r\n",
+    "src/labs/svelte-03/README.en.md": "# Compare identical requirements\r\n\r\nThe built-in examples use actual React, Vue, and Svelte stores, but the Svelte column uses a handwritten DOM adapter. Do not compare that column’s DOM code size with Svelte component code size.\r\n\r\nReplace `src/App.svelte` in a Svelte 5 Vite project with the supplied file to run the actual component. On the same three cards, repeat: complete card 1 → enable the incomplete filter → disable the filter. Record whether completed counts and visible cards agree across the three implementations.\r\n\r\nRecord state declarations, derived values, events, and the presence of explicit subscription cleanup in the comparison table. Separate preferences from observations. This example does not measure relative performance.\r\n"
+  }
+}

@@ -1,3 +1,4 @@
+import { writeCompanionGuidance } from './companion-guidance.mjs'
 import { localizeExampleSource, writeGeneratedFile } from './example-presentation.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -149,5 +150,5 @@ for(const [p,s] of Object.entries(files))save(path.join(folder,p),p==='lesson.sp
 for(const series of ['gsap','motion','web-workers','offscreen-canvas','webassembly','playwright'].filter(series=>!process.argv[2]||series===process.argv[2])){
  const curriculum=JSON.parse(fs.readFileSync(path.join(base,'content/curricula',series+'.json'),'utf8'));const mapping={};
  for(const u of curriculum.units.filter(u=>u.id.includes('-step-'))){const folder=path.join(base,'src/labs',u.id);let source,files=[];if(series==='gsap')source=gsExample(u);if(series==='motion')source=motionExample(u);if(series==='web-workers')source=workersExample(u);if(series==='offscreen-canvas')source=offscreenExample(u);if(series==='webassembly')({source,files}=wasmExample(u,folder));if(series==='playwright')({source,files}=playwrightExample(u,folder));const localized=localizeExampleSource(u.id,source,u.id==='gsap-step-02'?{[JSON.parse(source.split('root.innerHTML=')[1].split(';\n')[0])]:'markup','fromTo supplies both endpoints; initial styles stay unchanged until Run':'result'}:{},u.id==='gsap-step-02'?{}:{messagesMarker:'/* ENGINEERING_MESSAGES */'});save(path.join(folder,'example.js'),localized.source);mapping[u.id]={...(localized.readingSource?{readingSource:localized.readingSource}:{}),mode:files.length?'external':'browser',note:reviewedNotes[u.id]??(files.length?(series==='webassembly'?'Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.':'Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.'):(/[가-힣]/.test(u.title)?u.title+' 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다.':'Interactive '+u.title+' experiment with resource cleanup.')),...(files.length?{files:files.map(f=>'src/labs/'+u.id+'/'+f)}:{})};}
- save(path.join(base,'content/examples',series+'.json'),JSON.stringify(mapping,null,2)+'\n');console.log(series,Object.keys(mapping).length);
+ save(path.join(base,'content/examples',series+'.json'),JSON.stringify(mapping,null,2)+'\n');console.log(series,Object.keys(mapping).length);writeCompanionGuidance('scripts/generate-engineering-examples.mjs',series);
 }

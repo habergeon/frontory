@@ -1,3 +1,4 @@
+import { writeCompanionGuidance } from './companion-guidance.mjs'
 import { localizeExampleSource, writeGeneratedFile } from './example-presentation.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -269,3 +270,5 @@ const externalFiles={
 for(const [day,files] of Object.entries(externalFiles)){const id='html-step-'+day,dir='src/labs/'+id;for(const [file,contents] of Object.entries(files))writeGeneratedFile(dir+'/'+file,contents);htmlMetadata[id].files=Object.keys(files).map(file=>dir+'/'+file);if(day==='18')htmlMetadata[id].files.push(dir+'/sample.mp4');htmlMetadata[id].note=day==='18'?'외부 HTTP 실행 예제: 6초 합성 MP4, 한국어 VTT, 대본과 정상/실패 전환을 제공합니다. 무음 합성 fixture이며 실제 발화 접근성 평가는 별도 영상으로 수행합니다.':day==='21'?'외부 HTTP 실행 예제: 동일 guide.html에서 sandbox=""와 allow-scripts를 전환하고 버튼·postMessage 동작을 관찰합니다.':'외부 HTTP 실행 예제: first.js/second.js를 실제 로드하고 일반/defer/async의 파싱·실행 순서를 기록합니다.';}
 writeGeneratedFile('content/examples/html.json',JSON.stringify(htmlMetadata,null,2)+'\n');
 // Reproduce sample.mp4 with FFmpeg: -f lavfi -i color=c=blue:s=640x360:d=3:r=24 -f lavfi -i color=c=orange:s=640x360:d=3:r=24 -filter_complex "[0:v][1:v]concat=n=2:v=1:a=0[v]" -map "[v]" -c:v libx264 -pix_fmt yuv420p -movflags +faststart sample.mp4
+
+writeCompanionGuidance('scripts/generate-foundations-examples.mjs');

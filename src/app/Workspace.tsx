@@ -1,7 +1,7 @@
 import { useLocale } from '../i18n/LocaleProvider'
 import { message, messages } from '../i18n/messages'
 import { getLocalizedUnit } from './curriculum'
-import { lazy, Suspense, useRef, useState } from 'react'
+import { lazy, Suspense, useImperativeHandle, useLayoutEffect, useRef, useState, type Ref } from 'react'
 import { draftStore, restoreCode, type Draft, type CodeLanguage, type LearningProgress } from '../shared/drafts'
 import type { Compilation } from '../editor/CodeEditor'
 import { MarkdownView } from '../shared/MarkdownView'
@@ -10,13 +10,29 @@ import type { Unit } from './curriculum'
 
 const panels = ['result', 'code', 'notes'] as const
 type Panel = typeof panels[number]
+export interface WorkspaceHandle { focusCode: () => void }
 const CodeEditor = lazy(() => import('../editor/CodeEditor'))
-export function Workspace({ unit, onProgressChange }: { unit: Unit; onProgressChange: () => void }) {
+export function Workspace({ unit, onProgressChange, ref }: { unit: Unit; onProgressChange: () => void; ref?: Ref<WorkspaceHandle> }) {
   const { locale } = useLocale()
   const text = messages[locale]
   const [saved, setSaved] = useState(() => draftStore.begin(unit.id, unit.source ?? '', locale))
   const [panel, setPanel] = useState<Panel>('result')
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([])
+  const codePanel = useRef<HTMLElement>(null)
+  const focusRequested = useRef(false)
+  const focusCodePanel = () => {
+    codePanel.current?.focus({ preventScroll: true })
+    codePanel.current?.scrollIntoView({ block: 'start' })
+  }
+  useImperativeHandle(ref, () => ({ focusCode: () => {
+    if (panel === 'code') focusCodePanel()
+    else { focusRequested.current = true; setPanel('code') }
+  } }), [panel])
+  useLayoutEffect(() => {
+    if (!focusRequested.current) return
+    focusRequested.current = false
+    focusCodePanel()
+  }, [panel])
   const [notePreview, setNotePreview] = useState(false)
   const [revision, setRevision] = useState(0)
   const [confirmReset, setConfirmReset] = useState(false)
@@ -81,7 +97,7 @@ export function Workspace({ unit, onProgressChange }: { unit: Unit; onProgressCh
         {unit.source !== undefined ? (executable !== null ? <Preview locale={locale} code={executable} revision={revision} notice={notice} /> : <div className="empty-state"><p>{compilation?.error ? text.fixCodeToRun : text.preparingEditor}</p></div>) :
           <div className="empty-state"><span>{text.documentPractice}</span><h3>{text.implementTask}</h3><p>{text.documentPracticeHint}</p></div>}
       </section>
-      <section id="panel-code" role="tabpanel" aria-labelledby="tab-code" tabIndex={0} className={'panel ' + (panel === 'code' ? 'mobile-active' : '')}>
+      <section ref={codePanel} id="panel-code" role="tabpanel" aria-labelledby="tab-code" tabIndex={0} className={'panel ' + (panel === 'code' ? 'mobile-active' : '')}>
         <header className="panel-header"><div><span className="eyebrow">02 / SOURCE</span><h2>{text.sourceCode}</h2></div>
           <button disabled={unit.source === undefined} onClick={() => setConfirmReset(true)}>{text.restoreOriginal}</button>
         </header>

@@ -31,3 +31,7 @@ html[lang=en] .practice-guide th,html[lang=en] .practice-guide td{min-width:100p
 
 html[lang=ko]{word-break:keep-all;overflow-wrap:break-word}
 html[lang=ko] :is(pre,code,.monaco-editor){word-break:normal}
+
+.learning-journey>.current-lesson{border-top:0;padding-top:0}.current-lesson h2{font-size:23px;margin:4px 0 8px;letter-spacing:-.5px}.current-lesson>div:first-child{min-width:0}.current-lesson-actions{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}.current-unit-status{font-size:12px;color:#607480}.journey-outline{margin-top:16px;border-top:1px solid #e2e9ef}.journey-outline>summary{padding:12px 0 0;cursor:pointer;color:#17665f;font-size:13px}.journey-outline .journey-heading{margin:16px 0}.journey-outline .unit-grid{margin:14px 0 0}.app-shell>.unit-pagination{padding:16px 0;border-top:1px solid #d5dee7}
+@media(max-width:850px){.current-lesson{align-items:flex-start;flex-direction:column}.current-lesson-actions{width:100%}}
+@media(max-width:600px){.current-lesson-actions button{flex:1;font-size:12px}.current-lesson-actions .primary-button{width:auto}.current-lesson h2{font-size:21px}.journey-outline .journey-actions{gap:6px}}

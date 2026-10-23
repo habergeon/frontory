@@ -2,7 +2,7 @@ async page => {
   const results = []
   const check = (name, value) => { results.push({ name, ok: value }); if (!value) throw Error(name) }
   await page.setViewportSize({ width: 1440, height: 1000 })
-  for (const id of ['javascript-step-02', 'css-step-04', 'react-step-03', 'gsap-step-02']) {
+  for (const id of ['javascript-step-02', 'css-step-04', 'react-step-03', 'gsap-step-02', '01-scene', 'javascript-01']) {
     await page.goto('http://127.0.0.1:4185/en/#' + id)
     await page.waitForSelector('.monaco-editor')
     const before = await page.evaluate(() => JSON.stringify(Object.keys(localStorage).sort().map(key => [key, localStorage.getItem(key)])))

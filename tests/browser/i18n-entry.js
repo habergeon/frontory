@@ -12,10 +12,10 @@ async page => {
     await app.goto('http://127.0.0.1:4186/en/')
     await app.locator('.home-series-row').first().waitFor()
     check('Direct /en/ renders actual app', app.url().endsWith('/en/') && await app.locator('html').getAttribute('lang') === 'en' && await app.title() === 'Frontory')
-    check('Direct /en/ has four published series', await app.locator('.home-series-row').count() === 4)
+    check('Direct /en/ has 23 published series', await app.locator('.home-series-row').count() === 23)
     await app.reload()
     await app.locator('.home-series-row').first().waitFor()
-    check('Refresh keeps real English app', await app.locator('html').getAttribute('lang') === 'en' && await app.locator('.home-series-row').count() === 4)
+    check('Refresh keeps real English app', await app.locator('html').getAttribute('lang') === 'en' && await app.locator('.home-series-row').count() === 23)
     await app.goto('http://127.0.0.1:4186/en/learn/javascript/javascript-step-02/')
     check('English public document loads', await app.locator('h1').innerText() === 'JavaScript · 02 String input and number conversion')
     await app.locator('.launch a').first().click()
@@ -34,7 +34,7 @@ async page => {
     await app.locator('a[href="/en/learn/javascript/javascript-step-02/"]').click()
     check('Practice returns to English public document', app.url().endsWith('/en/learn/javascript/javascript-step-02/') && (await app.locator('h1').innerText()).includes('String input'))
     check('No unexpected console warnings or errors before missing route', consoleMessages.length === 0)
-    const missingUrl = 'http://127.0.0.1:4186/en/learn/vue/'
+    const missingUrl = 'http://127.0.0.1:4186/en/learn/e09-does-not-exist/'
     const missing = await app.goto(missingUrl)
     check('Unavailable public English URL is real 404', missing.status() === 404 && await app.locator('html').getAttribute('lang') === 'en' && !/[가-힣]/.test(await app.locator('body').innerText()))
     const expectedMissingRouteErrors = consoleMessages.filter(entry => entry.type === 'error' && entry.url === missingUrl && entry.text === 'Failed to load resource: the server responded with a status of 404 (Not Found)')

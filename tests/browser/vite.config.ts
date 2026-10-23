@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
+import { defineConfig, mergeConfig } from 'vite'
+import appConfig from '../../vite.config'
 
-// Example authors may regenerate files while this explicit test page is running.
-// Reload the page manually to take a fresh source snapshot between runs.
-export default defineConfig({ server: { host: '127.0.0.1', port: 4185, strictPort: true, hmr: false } })
+// Keep the real app routes/plugins; reload manually after generated source changes.
+export default mergeConfig(appConfig, defineConfig({ server: { host: '127.0.0.1', port: 4185, strictPort: true, hmr: false } }))

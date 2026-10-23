@@ -1,8 +1,10 @@
+import { categoryLabels } from '../../src/i18n/messages'
 import englishCatalog from '../../src/app/catalog.en.json'
 import koreanCatalog from '../../src/app/catalog.json'
 
 const frame = document.querySelector('#app')
 const results = []
+const searches = ['no-such-series', 'react', '언어와 웹 기초', 'Languages and web fundamentals', ''].map(query => [query, englishCatalog.series.filter(item => [item.id, item.title, item.prerequisites, categoryLabels.ko[item.category], categoryLabels.en[item.category]].join(' ').toLowerCase().includes(query.toLowerCase())).length])
 const wait = async predicate => {
   for (let i = 0; i < 400; i++) { if (predicate()) return; await new Promise(resolve => setTimeout(resolve, 50)) }
   throw new Error('Timed out waiting for rendered UI')
@@ -33,22 +35,24 @@ try {
   await wait(() => doc().documentElement.lang === 'ko')
   check('Back restores Korean home', win().location.pathname, '/')
   await click(language())
-  check('English catalog count', doc().querySelectorAll('.home-series-row').length, 4)
+  check('English catalog count', doc().querySelectorAll('.home-series-row').length, englishCatalog.series.length)
   const homeSearch = doc().querySelector('input[type="search"]')
-  for (const [query, count] of [['no-such-series', 0], ['react', 1], ['언어와 웹 기초', 2], ['Languages and web fundamentals', 2], ['', 4]]) {
+  for (const [query, count] of searches) {
     await search(homeSearch, query)
     check('Home search ' + query, doc().querySelectorAll('.home-series-row').length, count)
     check('Home search result wording ' + query, doc().querySelector('.home-result-count').textContent, count + ' series')
   }
   const singleUnitSeries = [...doc().querySelectorAll('.home-series-row')].find(row => row.querySelector('h3').textContent === 'CSS')
-  check('Home unit singular', singleUnitSeries.querySelector('.home-series-progress').firstChild.textContent, '1 unit')
+  check('Home CSS unit count', singleUnitSeries.querySelector('.home-series-progress').firstChild.textContent, englishCatalog.units.filter(unit => unit.seriesId === 'css').length + ' units')
   await click([...doc().querySelectorAll('.home-series-row')].find(row => row.querySelector('h3').textContent === 'JavaScript').querySelector('button'))
   await wait(() => doc().querySelector('.workspace') && doc().querySelector('.monaco-editor') && doc().querySelector('.workspace iframe'))
   check('English selection uses published stable ID', win().location.hash, '#' + englishCatalog.units.find(unit => unit.seriesId === 'javascript').id)
   win().location.hash = '#javascript-step-02'
   await wait(() => doc().querySelector('.current-lesson h3')?.textContent.includes('String input and number conversion'))
   check('English title matches current lesson', doc().title.includes(doc().querySelector('.current-lesson h3').textContent), true)
+  await wait(() => /checks passed|execution paused/.test(doc().querySelector('.code-check-status').textContent))
   check('Editor status translated to English', /checks passed|execution paused/.test(doc().querySelector('.code-check-status').textContent), true)
+  await wait(() => doc().querySelector('.workspace iframe')?.srcdoc.includes('export function mount(){return()=>{}}') && doc().querySelector('.preview-status')?.textContent === 'Running')
   const workspace = doc().querySelector('.workspace')
   const editor = doc().querySelector('.monaco-editor')
   const preview = doc().querySelector('.workspace iframe')
@@ -73,7 +77,7 @@ try {
   await click(doc().querySelector('.journey-actions button'))
   await wait(() => doc().querySelector('.series-dialog[open]'))
   const dialog = doc().querySelector('.series-dialog')
-  for (const [query, count] of [['no-such-series', 0], ['react', 1], ['언어와 웹 기초', 2], ['Languages and web fundamentals', 2], ['', 4]]) {
+  for (const [query, count] of searches) {
     await search(dialog.querySelector('input'), query)
     check('Navigator search ' + query, dialog.querySelectorAll('.series-card').length, count)
     check('Navigator search count wording ' + query, dialog.querySelector('.series-tools p').textContent.startsWith(count + ' series ·'), true)
@@ -84,8 +88,14 @@ try {
     const draft = snapshot[unit.id] ?? JSON.parse(win().localStorage.getItem('web-gl-study:unit:v1:' + unit.id) || '{}')
     return draft.progress === 'completed'
   }).length
-  check('Navigator published unit and completion counts', dialog.querySelector('.series-card').textContent.includes(javascriptUnits.length + ' units · ' + completed + ' completed'), true)
-  check('Navigator singular unit', [...dialog.querySelectorAll('.series-card')].some(card => card.textContent.includes('CSS') && card.textContent.includes('1 unit ·')), true)
+  check('Navigator published unit and completion counts', [...dialog.querySelectorAll('.series-card')].find(card => card.querySelector('strong').textContent === 'JavaScript').textContent.includes(javascriptUnits.length + ' units · ' + completed + ' completed'), true)
+  check('Published stable ID sets match', JSON.stringify(englishCatalog.units.map(unit => unit.id).sort()), JSON.stringify(koreanCatalog.units.map(unit => unit.id).sort()))
+  check('Navigator full published ID set', englishCatalog.units.length, 644)
+  for (const item of englishCatalog.series) {
+    const card = [...dialog.querySelectorAll('.series-card')].find(card => card.querySelector('strong').textContent === item.title)
+    check('Navigator unit count ' + item.id, Number(card.querySelector('progress').max), englishCatalog.units.filter(unit => unit.seriesId === item.id).length)
+  }
+  check('Navigator full series set', dialog.querySelectorAll('.series-card').length, englishCatalog.series.length)
   await click(dialog.querySelector('.dialog-header button'))
   await click(doc().querySelector('.current-lesson button'))
   await wait(() => doc().querySelector('.document-dialog article h1'))
@@ -93,21 +103,17 @@ try {
   check('English document has no Korean lesson fallback', /[가-힣]/.test(doc().querySelector('.document-dialog article h1').textContent), false)
   await click(doc().querySelector('.document-dialog .dialog-header button'))
   await click(language())
-  const unpublished = koreanCatalog.units.find(unit => unit.day > 1 && !englishCatalog.units.some(published => published.id === unit.id))
-  const previous = koreanCatalog.units.find(unit => unit.seriesId === unpublished.seriesId && unit.day === unpublished.day - 1)
-  win().location.hash = '#' + previous.id
-  await wait(() => doc().querySelector('.current-lesson h3')?.textContent.includes(previous.title))
-  await click(doc().querySelector('.unit-pagination button:last-child'))
-  check('Korean next selects canonical unpublished ID', win().location.hash, '#' + unpublished.id)
+  const unknownId = 'e09-does-not-exist'
+  win().location.hash = '#' + unknownId
   await click(language())
-  check('Unpublished ID remains selected in English', win().location.pathname + win().location.hash, '/en/#' + unpublished.id)
-  check('English unavailable message', doc().body.textContent.includes('This lesson is not available in English yet.'), true)
-  check('No Korean navigator fallback', doc().querySelector('.current-lesson'), null)
-  const source = [...doc().querySelectorAll('a')].find(link => link.textContent === 'Read the Korean lesson')
-  check('Explicit Korean source URL', source.getAttribute('href'), '/#' + unpublished.id)
-  await click(source)
-  check('Korean source control restores same unit', win().location.pathname + win().location.hash, '/#' + unpublished.id)
-  check('Korean navigator is restored', !!doc().querySelector('.current-lesson'), true)
+  check('Unknown ID remains selected in English', win().location.pathname + win().location.hash, '/en/#' + unknownId)
+  await wait(() => doc().querySelectorAll('.home-series-row').length === englishCatalog.series.length)
+  check('Unknown ID renders English home', doc().documentElement.lang, 'en')
+  check('Unknown ID has no lesson workspace', doc().querySelector('.workspace'), null)
+  check('Unknown ID has no lesson navigator', doc().querySelector('.current-lesson'), null)
+  await click(language())
+  check('Unknown ID Korean roundtrip preserves hash', win().location.pathname + win().location.hash, '/#' + unknownId)
+  check('Unknown ID restores Korean home', doc().querySelectorAll('.home-series-row').length, koreanCatalog.series.length)
   check('No Vite overlay', !!doc().querySelector('vite-error-overlay'), false)
   document.querySelector('#state').textContent = 'PASS'
 } catch (error) {

@@ -9,9 +9,9 @@ async page => {
       const source = await (await page.request.get('http://127.0.0.1:4185/tests/browser/' + name + '.js')).text()
       const result = await eval('(' + source + '\n)')(app)
       suites.push({ name, ...result, results: result.results.map(({ name, ok }) => ({ name, ok })) })
-    } finally { await context.close() }
+    } catch(error) { throw Error(name + ': ' + error) } finally { await context.close() }
   }
-  for (const path of ['i18n.html', 'representative-lessons.html', 'representative-lessons.html?locale=en']) {
+  for (const path of ['i18n.html', 'representative-lessons.html', 'representative-lessons.html?locale=en', 'expansion-contracts.html', 'expansion-contracts.html?locale=en']) {
     const context = await page.context().browser().newContext()
     try {
       if (path === 'i18n.html') await context.addInitScript(() => {
@@ -22,9 +22,10 @@ async page => {
       await app.goto('http://127.0.0.1:4185/tests/browser/' + path)
       await app.waitForFunction(() => ['PASS', 'FAIL'].includes(document.querySelector('#state').textContent))
       const state = await app.locator('#state').innerText()
-      const { results } = JSON.parse(await app.locator('#results').innerText())
+      const report = JSON.parse(await app.locator('#results').innerText())
+      const { results } = report
       if (state !== 'PASS') throw Error(path + ': ' + JSON.stringify(results))
-      suites.push({ name: path, results: results.filter(result => 'ok' in result).map(({ name, ok }) => ({ name, ok })) })
+      suites.push({ name: path, ...report, results: results.filter(result => 'ok' in result).map(result => path.startsWith('expansion-contracts') ? result : { name: result.name, ok: result.ok }) })
     } finally { await context.close() }
   }
   return { userAgent: await page.evaluate(() => navigator.userAgent), suites, passed: suites.reduce((total, suite) => total + suite.results.filter(result => result.ok).length, 0) }

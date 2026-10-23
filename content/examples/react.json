@@ -1,5 +1,6 @@
 {
   "react-step-02": {
+    "readingSource": "/examples-en/react-step-02/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
@@ -9,94 +10,117 @@
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-04": {
+    "readingSource": "/examples-en/react-step-04/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-05": {
+    "readingSource": "/examples-en/react-step-05/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-06": {
+    "readingSource": "/examples-en/react-step-06/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-07": {
+    "readingSource": "/examples-en/react-step-07/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-08": {
+    "readingSource": "/examples-en/react-step-08/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-09": {
+    "readingSource": "/examples-en/react-step-09/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-10": {
+    "readingSource": "/examples-en/react-step-10/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-11": {
+    "readingSource": "/examples-en/react-step-11/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-12": {
+    "readingSource": "/examples-en/react-step-12/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-13": {
+    "readingSource": "/examples-en/react-step-13/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-15": {
+    "readingSource": "/examples-en/react-step-15/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-16": {
+    "readingSource": "/examples-en/react-step-16/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-17": {
+    "readingSource": "/examples-en/react-step-17/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-18": {
+    "readingSource": "/examples-en/react-step-18/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-19": {
+    "readingSource": "/examples-en/react-step-19/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-20": {
+    "readingSource": "/examples-en/react-step-20/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-21": {
+    "readingSource": "/examples-en/react-step-21/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다. Profiler callback은 profiling 지원 빌드에서 측정하세요. 배포 React 빌드에서는 callback이 비활성일 수 있습니다."
   },
   "react-step-22": {
+    "readingSource": "/examples-en/react-step-22/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-23": {
+    "readingSource": "/examples-en/react-step-23/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-24": {
+    "readingSource": "/examples-en/react-step-24/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-25": {
+    "readingSource": "/examples-en/react-step-25/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-26": {
+    "readingSource": "/examples-en/react-step-26/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   },
   "react-step-27": {
+    "readingSource": "/examples-en/react-step-27/example.js",
     "mode": "browser",
     "note": "실제 React API 실험입니다. JSX 대신 createElement를 사용합니다."
   }

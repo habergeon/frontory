@@ -1726,5 +1726,355 @@
       "display009": "방식 "
     },
     "comments": {}
+  },
+  "react-01": {
+    "messages": {
+      "display01": "React state",
+      "display02": "count: ",
+      "display03": "증가"
+    },
+    "comments": {
+      "comment01": "React createElement는 JSX와 같은 요소 트리를 만듭니다. STEP과 상태 소유권을 실험하세요."
+    }
+  },
+  "react-step-02": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Toggle done",
+      "display03": "JSX와 순수한 렌더"
+    },
+    "comments": {
+      "comment01": "JSX와 순수한 렌더",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-04": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Choose a target",
+      "display03": "객체와 배열 갱신"
+    },
+    "comments": {
+      "comment01": "객체와 배열 갱신",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-05": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "No matching cards",
+      "display03": "Reset",
+      "display04": "조건부 화면과 빈 상태"
+    },
+    "comments": {
+      "comment01": "조건부 화면과 빈 상태",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-06": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Reverse",
+      "display03": "Key: ",
+      "display04": "목록의 key와 정체성"
+    },
+    "comments": {
+      "comment01": "목록의 key와 정체성",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-07": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "A non-empty title is required",
+      "display03": "Add card",
+      "display04": "제어 입력과 폼 검증"
+    },
+    "comments": {
+      "comment01": "제어 입력과 폼 검증",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-08": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Detail: ",
+      "display03": "상태 끌어올리기"
+    },
+    "comments": {
+      "comment01": "상태 끌어올리기",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-09": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Delete ",
+      "display03": "reducer로 변경 규칙 모으기"
+    },
+    "comments": {
+      "comment01": "reducer로 변경 규칙 모으기",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-10": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Theme",
+      "display03": "Value: ",
+      "display04": "new object",
+      "display05": "Parent render ",
+      "display06": "Context로 설정 전달하기"
+    },
+    "comments": {
+      "comment01": "Context로 설정 전달하기",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-11": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Focus target",
+      "display03": "Focus",
+      "display04": "Increment ref (no render)",
+      "display05": "Render state",
+      "display06": "ref와 DOM 포커스"
+    },
+    "comments": {
+      "comment01": "ref와 DOM 포커스",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-12": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "connect ",
+      "display03": "disconnect ",
+      "display04": "Channel ",
+      "display05": "Effect의 의존성과 정리"
+    },
+    "comments": {
+      "comment01": "Effect의 의존성과 정리",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-13": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Waiting",
+      "display03": " response",
+      "display04": "Request A",
+      "display05": "Request B",
+      "display06": "A latency: ",
+      "display07": "요청 경합과 취소"
+    },
+    "comments": {
+      "comment01": "요청 경합과 취소",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-02": {
+    "messages": {
+      "display01": "생성: renderer / RAF / ResizeObserver / pointer",
+      "display02": "정리: RAF / observer / listener / geometry / material / renderer",
+      "display03": "Effect가 소유하는 Three.js 장면",
+      "display04": "장면을 숨기거나 key를 바꾸면 cleanup이 실행됩니다. pointer 이동으로 큐브를 기울이세요.",
+      "display05": "장면 숨기기",
+      "display06": "장면 표시",
+      "display07": "재마운트",
+      "display08": "세대 "
+    },
+    "comments": {}
+  },
+  "react-step-15": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Toggle second consumer",
+      "display03": "커스텀 Hook의 경계"
+    },
+    "comments": {
+      "comment01": "커스텀 Hook의 경계",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-16": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Expected string",
+      "display03": "Invalid JSON; recovered empty draft",
+      "display04": "Inject broken JSON and restore",
+      "display05": "Storage unavailable",
+      "display06": "필기 저장과 초기 복원"
+    },
+    "comments": {
+      "comment01": "필기 저장과 초기 복원",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-17": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Unit ",
+      "display03": "Key ",
+      "display04": "단위별 상태 보존"
+    },
+    "comments": {
+      "comment01": "단위별 상태 보존",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-18": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Toggle toolbar",
+      "display03": "Save",
+      "display04": "Content supplied as children; panel owns only layout.",
+      "display05": "컴포넌트 합성과 children"
+    },
+    "comments": {
+      "comment01": "컴포넌트 합성과 children",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-19": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Response ",
+      "display03": "failure",
+      "display04": "Load / retry",
+      "display05": "비동기 상태를 명시하기"
+    },
+    "comments": {
+      "comment01": "비동기 상태를 명시하기",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-20": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Deferred ",
+      "display03": "전환과 지연된 결과"
+    },
+    "comments": {
+      "comment01": "전환과 지연된 결과",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-21": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Rows ",
+      "display03": "Measure rerender ",
+      "display04": "Profiler callback requires a profiling-enabled React build.",
+      "display05": "Row ",
+      "display06": "Profiler로 병목 찾기"
+    },
+    "comments": {
+      "comment01": "Profiler로 병목 찾기",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-22": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": " renders ",
+      "display03": "Parent update ",
+      "display04": "memo ",
+      "display05": "측정한 경로만 메모하기"
+    },
+    "comments": {
+      "comment01": "측정한 경로만 메모하기",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-23": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Page size ",
+      "display03": "Previous",
+      "display04": "Next",
+      "display05": "Card ",
+      "display06": "긴 목록의 표시 범위"
+    },
+    "comments": {
+      "comment01": "긴 목록의 표시 범위",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-24": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Select ",
+      "display03": "select ",
+      "display04": "Delete ",
+      "display05": "delete ",
+      "display06": "이벤트 경계와 접근 가능한 선택"
+    },
+    "comments": {
+      "comment01": "이벤트 경계와 접근 가능한 선택",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-25": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Read twice",
+      "display03": "Same reference: ",
+      "display04": "A new object on every read violates the API contract and may loop. Compare identity safely before subscribing.",
+      "display05": "구독 저장소와 스냅샷"
+    },
+    "comments": {
+      "comment01": "구독 저장소와 스냅샷",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-26": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Fixture restored. Edit A → switch B → edit B → switch A.",
+      "display03": "Seed saved fixture",
+      "display04": "Switch ",
+      "display05": "Check isolation",
+      "display06": "PASS: distinct drafts",
+      "display07": "Both drafts match; edit distinct values first",
+      "display08": "회귀 시나리오 만들기"
+    },
+    "comments": {
+      "comment01": "회귀 시나리오 만들기",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-step-27": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "mount ",
+      "display03": " live",
+      "display04": "Switch ",
+      "display05": "통합 편집기와 자원 감사"
+    },
+    "comments": {
+      "comment01": "통합 편집기와 자원 감사",
+      "comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+    }
+  },
+  "react-03": {
+    "messages": {
+      "display01": "목록 렌더 시도 ",
+      "display02": "회",
+      "display03": "학습 단위 ",
+      "display04": "보존되는 필기 ",
+      "display05": "편집기 임시 상태 (key 변경으로 초기화) ",
+      "display06": "ms (실제 Profiler 콜백)",
+      "display07": "필기 소유권, key, memo",
+      "display08": "필기는 부모의 단위별 메모리에 남고 임시 입력은 Editor key가 바뀌면 초기화됩니다. 새 실행에서는 초기화됩니다.",
+      "display09": "단위 ",
+      "display10": "목록에 React.memo 적용",
+      "display11": "항목 수 ",
+      "display12": "이 런타임에서 Profiler가 비활성일 수 있습니다. 정확한 시간은 개발/profiling 빌드에서 기록하세요."
+    },
+    "comments": {
+      "comment01": "학습용 렌더 시도 계수, 시간 측정값이 아닙니다.",
+      "comment02": "개발/profiling 빌드에서만 콜백을 보장합니다. 결과를 state에 넣으면 추가 렌더가 생깁니다."
+    }
   }
 }

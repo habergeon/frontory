@@ -12,10 +12,15 @@ for (const unit of read('content/catalog-v2.json').units) {
   const english = validateExamplePresentation(original, record.presentation)
   const source = fs.readFileSync(`src/labs/${unit.id}/example.js`, 'utf8')
   const commentLocations = {}
-  if (['typescript-02', 'typescript-03', 'html-03'].includes(unit.id)) {
-    const text = '// ' + original.comments.inlineExplanation
-    const line = source.replaceAll('\r\n', '\n').split('\n').find(line => line.includes(text))
-    commentLocations.inlineExplanation = { line, column: line?.indexOf(text), kind: 'line' }
+  const anchoredKeys = {
+    'typescript-02': ['inlineExplanation'], 'typescript-03': ['inlineExplanation'], 'html-03': ['inlineExplanation'],
+    'react-03': ['comment01', 'comment02'], 'vue-02': ['comment01', 'comment02'], 'vue-03': ['comment01'],
+  }
+  for (const key of anchoredKeys[unit.id] ?? []) {
+    const text = '// ' + original.comments[key]
+    const matches = source.replaceAll('\r\n', '\n').split('\n').filter(line => line.includes(text))
+    if (matches.length !== 1) throw Error(`Expected one manual comment anchor: ${unit.id}.${key}`)
+    commentLocations[key] = { line: matches[0], column: matches[0].indexOf(text), kind: 'line' }
   }
   writeEnglishReadingSource(unit.id, source, original, english, { commentLocations })
 }

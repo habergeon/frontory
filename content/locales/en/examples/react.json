@@ -17,147 +17,477 @@
     }
   },
   "react-step-02": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "bf7362c0cde93385f2f5e18553253d5d5e2c8d95449f1055f28e7dfacc4bad96",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "4f61b5dda92c7ca89e68d847831af23ebeb2b3999e72ff36224e2df222ba497c",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Toggle done",
+        "messages.display03": "JSX and Pure Rendering",
+        "comments.comment01": "JSX and Pure Rendering",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-04": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "8acb90fc6ebfa490719ecf12898a204412cb991c2085fbc6606f8d325681a25c",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "6794b6c535511a515cc675481a0d86ed6e2df0b683bdb75eb9071934be64425c",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Choose a target",
+        "messages.display03": "Updating Objects and Arrays",
+        "comments.comment01": "Updating Objects and Arrays",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-05": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "42a135ca0249c3efcae028f46a249ce4d92f145fa4d8514738935780831827fe",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "77d6b8b10cc300c97a614bc5735f85a4f0d24f038683a22989fd1a64e18d3b46",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "No matching cards",
+        "messages.display03": "Reset",
+        "messages.display04": "Conditional Screens and Empty States",
+        "comments.comment01": "Conditional Screens and Empty States",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-06": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "7f961d6b0c989ee525224d94c25249cfe4a7737214d6e815f1f9da3b18ba8522",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "00d38867f214b41b17b9992259a8a02b5b361d9bf1c43e743e654b07e5f91445",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Reverse",
+        "messages.display03": "Key: ",
+        "messages.display04": "List Keys and Identity",
+        "comments.comment01": "List Keys and Identity",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-07": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "164ac8b91c33ac1bde49060bc0a3d26a48b805df0e8e014b6a1a782df93612e7",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "406c5c0c064c77e57719ba1e9ffe4fbe0514a1b89c7b226ef5b9dec15f77e189",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "A non-empty title is required",
+        "messages.display03": "Add card",
+        "messages.display04": "Controlled Inputs and Form Validation",
+        "comments.comment01": "Controlled Inputs and Form Validation",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-08": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "8275312e7c2445e8450589687d13feec91275bdf789986efdd53ba8e7d3db253",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "1e2e1c383df2be0f91e008f7cd774d19f4a8802dc59ca7f9d136e32c2169892f",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Detail: ",
+        "messages.display03": "Lifting State Up",
+        "comments.comment01": "Lifting State Up",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-09": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "bf79f613becd27d47e921c596a9cb0ea20ba75850ffd491e43c651eaacc6e9d3",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "516124bd9e8813821581195523d6dabe0471da07873362542a864f4f6870cb5d",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Delete ",
+        "messages.display03": "Collecting Update Rules in a Reducer",
+        "comments.comment01": "Collecting Update Rules in a Reducer",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-10": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "a753ee013dd4908991a500a5686e690ffb2ba3d21581f55031c01778e635cf26",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "e24e173e2c3d5e5aa36306c35e2770971148cd1954eca10e79e90486a7474795",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Theme",
+        "messages.display03": "Value: ",
+        "messages.display04": "new object",
+        "messages.display05": "Parent render ",
+        "messages.display06": "Passing Settings with Context",
+        "comments.comment01": "Passing Settings with Context",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-11": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "c2111d2425bfce72a51099398fc90e56ee12c0c78e1c291791d35c0e31bca868",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "94e275537fa52c22eb788a6eb029d48e043df5cc135ead34748a56388d73c0f0",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Focus target",
+        "messages.display03": "Focus",
+        "messages.display04": "Increment ref (no render)",
+        "messages.display05": "Render state",
+        "messages.display06": "Refs and DOM Focus",
+        "comments.comment01": "Refs and DOM Focus",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-12": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "59486bf5f339173b045f2457b259440f91cdc70adbdf45a688568292d548bb86",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "7264b34a53dad3d8925af62746eb7d7edbaa66b8406703b7555ec44b8b8add29",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "connect ",
+        "messages.display03": "disconnect ",
+        "messages.display04": "Channel ",
+        "messages.display05": "Effect Dependencies and Cleanup",
+        "comments.comment01": "Effect Dependencies and Cleanup",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-13": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "db4e64e32393aad60a28b6af263f9b26e56bfa206cd239c20b0df116833cff64",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "7e6af59ddf0d23f9525891d65c1a7bee9ac5cce9c18fad7de51d20ecf8e25fff",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Waiting",
+        "messages.display03": " response",
+        "messages.display04": "Request A",
+        "messages.display05": "Request B",
+        "messages.display06": "A latency: ",
+        "messages.display07": "Request Races and Cancellation",
+        "comments.comment01": "Request Races and Cancellation",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-15": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "25af945ba8cabf97581d8bfd9d9b369ead7ba01f3e1ee61ad0fc33469feec730",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "f1e3dbbd31aad18423462b5eecd5bc40e7d5ed7ade51ff0c0e994ac9c17e1583",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Toggle second consumer",
+        "messages.display03": "Custom Hook Boundaries",
+        "comments.comment01": "Custom Hook Boundaries",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-16": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "1ca9d9bbaf8d0aca403972302b217c85b53aff94edc48150f776ce364faa2de4",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "a4263b28b202546f9f6f5ba634da71a5b42a82d8676c3a550c5524e8663b9569",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Expected string",
+        "messages.display03": "Invalid JSON; recovered empty draft",
+        "messages.display04": "Inject broken JSON and restore",
+        "messages.display05": "Storage unavailable",
+        "messages.display06": "Saving Notes and Initial Restoration",
+        "comments.comment01": "Saving Notes and Initial Restoration",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-17": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "227883b74620f753d27cb63dd4c1a2bf460e9cfeab329f5c579e7d51c0ff9fc1",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "3518ea8b73e5c57ada063b05a2299d0a7e25bc94119a41466d0e786bd59fc478",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Unit ",
+        "messages.display03": "Key ",
+        "messages.display04": "Preserving State by Unit",
+        "comments.comment01": "Preserving State by Unit",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-18": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "3120e2354769be32f017437ce53dc5e769a9fe8158de99a1ea11d47662fd536f",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "9f20d823f746dbcd94d7aeabc7ac2f194086109bd254982d498b886c32f78776",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Toggle toolbar",
+        "messages.display03": "Save",
+        "messages.display04": "Content supplied as children; panel owns only layout.",
+        "messages.display05": "Component Composition and children",
+        "comments.comment01": "Component Composition and children",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-19": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "f294951b07ef3ca69eb4dfcc325b5a806c33fd578d72a2f1fcf92169ee4634a0",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "bc2cef0ab2079140f5dac917df2165c292626aa254e30f2c0596e8077a3e8291",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Response ",
+        "messages.display03": "failure",
+        "messages.display04": "Load / retry",
+        "messages.display05": "Making Asynchronous State Explicit",
+        "comments.comment01": "Making Asynchronous State Explicit",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-20": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "935a36507044ced917dac770d41996d356b995370eb8f78b4761b14a0b664aad",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "b26b08e4ceebd9bef3e0d2f398c6dfa0ec80f5fc169b83ea6a055aab4ba850d5",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Deferred ",
+        "messages.display03": "Transitions and Deferred Results",
+        "comments.comment01": "Transitions and Deferred Results",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-21": {
-    "sourceHash": "8a3d435f05e78959fc0e23f2688b017eb4e032f2e33dc5b452b6b1f054f1c1b3",
+    "sourceHash": "ef92265007b8c1df6832ec0f47f6603065b909c8f9e01840fccf36e59035cf45",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX. Measure the Profiler callback in a build with profiling support. The callback may be inactive in a production React build."
+    },
+    "presentation": {
+      "sourceHash": "5e4c877d8cf6410286b7b802b9a3f51403d0ce2b2d5f9d25eab5793426dbc4f7",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Rows ",
+        "messages.display03": "Measure rerender ",
+        "messages.display04": "Profiler callback requires a profiling-enabled React build.",
+        "messages.display05": "Row ",
+        "messages.display06": "Finding Bottlenecks with Profiler",
+        "comments.comment01": "Finding Bottlenecks with Profiler",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-22": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "3e56288bc2ea1c5a0d5a0510697be1df6e97d277e763f5785a9de27ab8ca7c36",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "fc1ca27ff6b13bf01f1adffe8fe2362fa898429a0059a17e26eee036bbad3821",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": " renders ",
+        "messages.display03": "Parent update ",
+        "messages.display04": "memo ",
+        "messages.display05": "Memoizing Only Measured Paths",
+        "comments.comment01": "Memoizing Only Measured Paths",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-23": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "b45229a4ba893fc6db056065720d9c3edf40db72dde0b5821453afaf2606d779",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "28de2992baad9c4986f81db7bdb5b19956d649f4007425db5e1a39c7b9ab66ce",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Page size ",
+        "messages.display03": "Previous",
+        "messages.display04": "Next",
+        "messages.display05": "Card ",
+        "messages.display06": "Display Ranges for Long Lists",
+        "comments.comment01": "Display Ranges for Long Lists",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-24": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "ffc4b8ea358e2ff43983e85eadf6a8cbedef3caa94de8857f44bc3aa359e49d7",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "2505382fc4e04e06042601b2189ad76b9ca3d7c768047a41ed1bb89a329eab21",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Select ",
+        "messages.display03": "select ",
+        "messages.display04": "Delete ",
+        "messages.display05": "delete ",
+        "messages.display06": "Event Boundaries and Accessible Selection",
+        "comments.comment01": "Event Boundaries and Accessible Selection",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-25": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "e38e8654a9f15af2e44c281e07dbd6b18f4480cfc32d4184b5eb76544be464f1",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "124b45d7f1b9bf4fdb1444461304a66bc20bde791b3b33acf1e6417a5cdc3ed0",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Read twice",
+        "messages.display03": "Same reference: ",
+        "messages.display04": "A new object on every read violates the API contract and may loop. Compare identity safely before subscribing.",
+        "messages.display05": "Subscription Stores and Snapshots",
+        "comments.comment01": "Subscription Stores and Snapshots",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-26": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "18179275fcdbe6e70eb319b976fe9d94301fef6084fb67ddb6b3c45a0b7bed9d",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "58036318d42e1c8a010bb8696978c6e8d518201ed221938095e7343ae6fe9e06",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Fixture restored. Edit A → switch B → edit B → switch A.",
+        "messages.display03": "Seed saved fixture",
+        "messages.display04": "Switch ",
+        "messages.display05": "Check isolation",
+        "messages.display06": "PASS: distinct drafts",
+        "messages.display07": "Both drafts match; edit distinct values first",
+        "messages.display08": "Creating Regression Scenarios",
+        "comments.comment01": "Creating Regression Scenarios",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
     }
   },
   "react-step-27": {
-    "sourceHash": "6c5de053dec3e8635ba6cf5f4017362a30c322594fed73744c0d52ea910ce013",
+    "sourceHash": "69151853683ce9b2ebcf020091e55c71a0c537d520620786da9b1644064dba06",
     "values": {
       "note": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
+    },
+    "presentation": {
+      "sourceHash": "e96670c16d19e68c4825d677d91a4a19799b32c799ef39326c8418bb83fedd25",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "mount ",
+        "messages.display03": " live",
+        "messages.display04": "Switch ",
+        "messages.display05": "Integrated Editor and Resource Audit",
+        "comments.comment01": "Integrated Editor and Resource Audit",
+        "comments.comment02": "Executable React createElement equivalent of JSX. Edit the experiment below."
+      }
+    }
+  },
+  "react-01": {
+    "presentation": {
+      "sourceHash": "d3ac05c7ed1fe843000ef96d4c488495988c57323056e19d22a5bd76cd5fa3f6",
+      "values": {
+        "messages.display01": "React state",
+        "messages.display02": "count: ",
+        "messages.display03": "Increment",
+        "comments.comment01": "React createElement builds the same element tree as JSX. Experiment with STEP and state ownership."
+      }
+    }
+  },
+  "react-02": {
+    "presentation": {
+      "sourceHash": "62eae0b32d36dcf1e73c0a2c87a4742966a594a2eef24c62065c79d7b9cc9594",
+      "values": {
+        "messages.display01": "Created: renderer / RAF / ResizeObserver / pointer",
+        "messages.display02": "Cleaned up: RAF / observer / listener / geometry / material / renderer",
+        "messages.display03": "A Three.js scene owned by an Effect",
+        "messages.display04": "Hiding the scene or changing its key runs cleanup. Move the pointer to tilt the cube.",
+        "messages.display05": "Hide scene",
+        "messages.display06": "Show scene",
+        "messages.display07": "Remount",
+        "messages.display08": "Generation "
+      }
+    }
+  },
+  "react-03": {
+    "presentation": {
+      "sourceHash": "3a0cc265b8ad1cf96a005da481f09f4bedbcf86fc36e7bbb1abd2b6dff307b5b",
+      "values": {
+        "messages.display01": "List render attempts: ",
+        "messages.display02": " times",
+        "messages.display03": "Learning unit ",
+        "messages.display04": "Preserved notes ",
+        "messages.display05": "Temporary editor state (reset when key changes) ",
+        "messages.display06": "ms (actual Profiler callback)",
+        "messages.display07": "Note ownership, key, and memo",
+        "messages.display08": "Notes remain in the parent’s per-unit memory, and temporary input resets when the Editor key changes. A new run resets the notes.",
+        "messages.display09": "Unit ",
+        "messages.display10": "Apply React.memo to the list",
+        "messages.display11": "Item count ",
+        "messages.display12": "Profiler may be inactive in this runtime. Record accurate timings in a development/profiling build.",
+        "comments.comment01": "A teaching counter of render attempts, not a timing measurement.",
+        "comments.comment02": "The callback is guaranteed only in development/profiling builds. Putting the result in state causes additional renders."
+      }
     }
   }
 }

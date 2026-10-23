@@ -1803,7 +1803,8 @@
       "title": "State and Ownership",
       "goal": "After toggling 1 card, the total increases by exactly 1. The state of the original 3 cards is preserved when the filter is turned off and on again.",
       "docPath": "/docs/en/labs/frameworks/react/01-foundations/README.md",
-      "seriesId": "react"
+      "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-01/example.js"
     },
     {
       "id": "react-step-02",
@@ -1813,6 +1814,7 @@
       "goal": "The title and badge match when rendered twice with the same input. aria-pressed is true on a completed card.",
       "docPath": "/docs/en/labs/frameworks/react/units/02/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-02/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1834,6 +1836,7 @@
       "goal": "The done values in the original array do not change. References to cards other than the target are preserved.",
       "docPath": "/docs/en/labs/frameworks/react/units/04/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-04/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1844,6 +1847,7 @@
       "goal": "The guidance appears exactly once when there are 0 results. Resetting restores the 3 cards.",
       "docPath": "/docs/en/labs/frameworks/react/units/05/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-05/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1854,6 +1858,7 @@
       "goal": "With id keys, note A stays on the original card. Record the comparison with index keys together with the ids.",
       "docPath": "/docs/en/labs/frameworks/react/units/06/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-06/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1864,6 +1869,7 @@
       "goal": "The card count stays the same after submitting whitespace. One Enter submission adds 1 card.",
       "docPath": "/docs/en/labs/frameworks/react/units/07/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-07/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1874,6 +1880,7 @@
       "goal": "Title edits appear in both the list and details. The previous details do not remain after deleting the selected card.",
       "docPath": "/docs/en/labs/frameworks/react/units/08/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-08/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1884,6 +1891,7 @@
       "goal": "Input/output examples for the three actions are recorded. After deleting the selected card, the selection does not point to a nonexistent id.",
       "docPath": "/docs/en/labs/frameworks/react/units/09/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-09/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1894,6 +1902,7 @@
       "goal": "The deeply nested Card's theme responds to button input. Keep separate logs for note input and theme changes.",
       "docPath": "/docs/en/labs/frameworks/react/units/10/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-10/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1904,6 +1913,7 @@
       "goal": "After adding, the active element is the title input. Record the observation that changing a ref alone does not change the display.",
       "docPath": "/docs/en/labs/frameworks/react/units/11/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-11/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1914,6 +1924,7 @@
       "goal": "The active connection count is 1 while displayed and 0 after removal. In the A→B transition logs, disconnection precedes the new connection.",
       "docPath": "/docs/en/labs/frameworks/react/units/12/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-12/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1924,6 +1935,7 @@
       "goal": "The final search query B matches the result id. A response completed after removal does not request a screen update.",
       "docPath": "/docs/en/labs/frameworks/react/units/13/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-13/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1933,7 +1945,8 @@
       "title": "Effects and External Renderers",
       "goal": "After 5 switches, only 1 Canvas exists. Frame logs and resize callbacks stop after hiding.",
       "docPath": "/docs/en/labs/frameworks/react/02-experiments/README.md",
-      "seriesId": "react"
+      "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-02/example.js"
     },
     {
       "id": "react-step-15",
@@ -1943,6 +1956,7 @@
       "goal": "Both panels display the same size. The subscription count is 0 after removing the last panel.",
       "docPath": "/docs/en/labs/frameworks/react/units/15/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-15/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1953,6 +1967,7 @@
       "goal": "Saved drafts for each unit are restored on reopening. Editing remains possible even with invalid JSON.",
       "docPath": "/docs/en/labs/frameworks/react/units/16/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-16/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1963,6 +1978,7 @@
       "goal": "Strings for A and B do not mix. Distinguish at least two fields that reset when the key changes.",
       "docPath": "/docs/en/labs/frameworks/react/units/17/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-17/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1973,6 +1989,7 @@
       "goal": "Panel does not directly read the items or notes structure. Each panel displays its own title and buttons correctly.",
       "docPath": "/docs/en/labs/frameworks/react/units/18/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-18/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1983,6 +2000,7 @@
       "goal": "loading and error guidance do not appear together. The error text disappears after a successful retry.",
       "docPath": "/docs/en/labs/frameworks/react/units/19/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-19/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -1993,6 +2011,7 @@
       "goal": "The input retains the exact last string. Show that results are deferred, and ensure the final results match the latest input.",
       "docPath": "/docs/en/labs/frameworks/react/units/20/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-20/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -2003,6 +2022,7 @@
       "goal": "There are 10 recordings for each of the two conditions. Record React render costs separately from Canvas costs without confusing them.",
       "docPath": "/docs/en/labs/frameworks/react/units/21/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-21/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX. Measure the Profiler callback in a build with profiling support. The callback may be inactive in a production React build."
     },
     {
@@ -2013,6 +2033,7 @@
       "goal": "There are before/after records for 10 identical inputs. Toggle and delete functionality stays consistent after memoization.",
       "docPath": "/docs/en/labs/frameworks/react/units/22/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-22/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -2023,6 +2044,7 @@
       "goal": "There are no more than 50 card rows in the DOM. Changing the filter does not leave the user on an invalid empty page.",
       "docPath": "/docs/en/labs/frameworks/react/units/23/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-23/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -2033,6 +2055,7 @@
       "goal": "1 delete click causes only 1 delete action. Perform both selection and deletion using only the keyboard.",
       "docPath": "/docs/en/labs/frameworks/react/units/24/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-24/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -2043,6 +2066,7 @@
       "goal": "Both panels display the same latest id. The subscription count is 0 after removing all panels.",
       "docPath": "/docs/en/labs/frameworks/react/units/25/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-25/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -2053,6 +2077,7 @@
       "goal": "Inputs and expected outputs are specified for at least 4 core flows. Previous drafts do not mix in when scenarios run in different orders.",
       "docPath": "/docs/en/labs/frameworks/react/units/26/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-26/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -2063,6 +2088,7 @@
       "goal": "A and B drafts remain unchanged after 10 switches. There are 0 active render loops in the final hidden state.",
       "docPath": "/docs/en/labs/frameworks/react/units/27/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-27/example.js",
       "exampleNote": "This is an experiment using actual React APIs. It uses createElement instead of JSX."
     },
     {
@@ -2072,7 +2098,8 @@
       "title": "State Preservation and Performance",
       "goal": "The exact note string is restored after A→B→A. There are 10 before/after measurements under identical conditions and reasons for adoption or rejection.",
       "docPath": "/docs/en/labs/frameworks/react/03-project/README.md",
-      "seriesId": "react"
+      "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-03/example.js"
     },
     {
       "id": "vue-01",

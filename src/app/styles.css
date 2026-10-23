@@ -28,3 +28,6 @@ html[lang=en] .practice-guide th,html[lang=en] .practice-guide td{min-width:100p
 
 .learning-header~* :focus:not(.monaco-editor *){scroll-margin-top:104px}
 @media(max-width:600px){.learning-header~* :focus:not(.monaco-editor *){scroll-margin-top:64px}}
+
+html[lang=ko]{word-break:keep-all;overflow-wrap:break-word}
+html[lang=ko] :is(pre,code,.monaco-editor){word-break:normal}

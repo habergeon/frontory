@@ -1,9 +1,11 @@
 {
   "css-step-02": {
+    "readingSource": "/examples-en/css-step-02/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-03": {
+    "readingSource": "/examples-en/css-step-03/example.js",
     "mode": "browser",
     "note": "initial, inherit, unset을 각각 바꾸고 계산된 color·border를 확인하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
@@ -13,90 +15,112 @@
     "note": "box-sizing을 border-box로 바꿔 실측 너비 244px와 200px를 비교하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-05": {
+    "readingSource": "/examples-en/css-step-05/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-06": {
+    "readingSource": "/examples-en/css-step-06/example.js",
     "mode": "browser",
     "note": "부모 flow-root는 부모/자식 마진 상쇄를 막지만 형제 문단끼리의 상쇄는 그대로입니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-07": {
+    "readingSource": "/examples-en/css-step-07/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-08": {
+    "readingSource": "/examples-en/css-step-08/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-09": {
+    "readingSource": "/examples-en/css-step-09/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-10": {
+    "readingSource": "/examples-en/css-step-10/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-11": {
+    "readingSource": "/examples-en/css-step-11/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-12": {
+    "readingSource": "/examples-en/css-step-12/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-13": {
+    "readingSource": "/examples-en/css-step-13/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-15": {
+    "readingSource": "/examples-en/css-step-15/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-16": {
+    "readingSource": "/examples-en/css-step-16/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-17": {
+    "readingSource": "/examples-en/css-step-17/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-18": {
+    "readingSource": "/examples-en/css-step-18/example.js",
     "mode": "browser",
     "note": "실제 텍스트 대비는 개발자 도구에서 검사하세요. 색상 외에도 체크 기호와 오류 텍스트를 제공합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-19": {
+    "readingSource": "/examples-en/css-step-19/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-20": {
+    "readingSource": "/examples-en/css-step-20/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-21": {
+    "readingSource": "/examples-en/css-step-21/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-22": {
+    "readingSource": "/examples-en/css-step-22/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-23": {
+    "readingSource": "/examples-en/css-step-23/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-24": {
+    "readingSource": "/examples-en/css-step-24/example.js",
     "mode": "browser",
     "note": "비레이어 background 선언 또는 !important를 각 레이어에 추가해 계산 스타일을 비교하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-25": {
+    "readingSource": "/examples-en/css-step-25/example.js",
     "mode": "browser",
     "note": "실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-26": {
+    "readingSource": "/examples-en/css-step-26/example.js",
     "mode": "browser",
     "note": "실제 Layout/Paint/Composite 비용은 DevTools Performance로 두 조건을 각각 기록하세요. 미리보기는 비용을 자동 추론하지 않습니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   },
   "css-step-27": {
+    "readingSource": "/examples-en/css-step-27/example.js",
     "mode": "browser",
     "note": "content-visibility를 visible로 바꾸고 초기 렌더 및 스크롤을 기록하세요. 검색과 Tab으로 뒤쪽 카드에 도달하는지도 확인합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다."
   }

@@ -1498,7 +1498,8 @@
       "title": "Cascade and Layout",
       "goal": "Explain the causes of overflow in both layout methods using computed values. Card titles and controls are not clipped at 360px.",
       "docPath": "/docs/en/labs/fundamentals/css/01-foundations/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-01/example.js"
     },
     {
       "id": "css-step-02",
@@ -1508,6 +1509,7 @@
       "goal": "Record the number of matches for each selector. Explain why one of two conflicting declarations wins using specificity.",
       "docPath": "/docs/en/labs/fundamentals/css/units/02/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-02/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1518,6 +1520,7 @@
       "goal": "Record 6 computed values for color and border. Confirm that unset behaves differently for inherited and non-inherited properties.",
       "docPath": "/docs/en/labs/fundamentals/css/units/03/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-03/example.js",
       "exampleNote": "Change initial, inherit, and unset in turn and check the computed color·border. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1539,6 +1542,7 @@
       "goal": "The title size stays within the specified range on both screens. Record computed font sizes and spacing before and after changing the root size.",
       "docPath": "/docs/en/labs/fundamentals/css/units/05/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-05/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1549,6 +1553,7 @@
       "goal": "Measure the spacing between siblings and the position of the parent boundary separately. Explain a case where margins are not added together.",
       "docPath": "/docs/en/labs/fundamentals/css/units/06/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-06/example.js",
       "exampleNote": "Setting flow-root on the parent prevents parent/child margin collapsing, but collapsing between sibling paragraphs remains unchanged. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1559,6 +1564,7 @@
       "goal": "The full URL can be inspected, and the page has no horizontal overflow. Record the difference between clipping and internal scrolling in two screenshots.",
       "docPath": "/docs/en/labs/fundamentals/css/units/07/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-07/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1569,6 +1575,7 @@
       "goal": "Sketch the main and cross axes for both directions. Measure positions for start, center, and end alignment.",
       "docPath": "/docs/en/labs/fundamentals/css/units/08/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-08/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1579,6 +1586,7 @@
       "goal": "Record the 3 actual panel widths at each container width. Distinguish the effect of min-width:0 from shrink.",
       "docPath": "/docs/en/labs/fundamentals/css/units/09/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-09/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1589,6 +1597,7 @@
       "goal": "Compare the sum of column widths and gaps with the container width. Identify and fix overflowing elements at a narrow width.",
       "docPath": "/docs/en/labs/fundamentals/css/units/10/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-10/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1599,6 +1608,7 @@
       "goal": "Record column counts and card widths for each card count. There is no horizontal scrolling even in a 320px container.",
       "docPath": "/docs/en/labs/fundamentals/css/units/11/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-11/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1609,6 +1619,7 @@
       "goal": "Compare visual order and Tab order on both screens. The final layout preserves the logical order of the main content.",
       "docPath": "/docs/en/labs/fundamentals/css/units/12/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-12/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1619,6 +1630,7 @@
       "goal": "Record computed styles and column counts before and after the breakpoint. Controls do not overlap at the four test widths.",
       "docPath": "/docs/en/labs/fundamentals/css/units/13/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-13/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1628,7 +1640,8 @@
       "title": "Responsive Layout and Motion",
       "goal": "The focused target is preserved after switching to a narrow layout. Under reduce, unnecessary movement disappears and states remain distinguishable.",
       "docPath": "/docs/en/labs/fundamentals/css/02-experiments/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-02/example.js"
     },
     {
       "id": "css-step-15",
@@ -1638,6 +1651,7 @@
       "goal": "The two cards show different layouts in the same viewport. Identify the query container in developer tools.",
       "docPath": "/docs/en/labs/fundamentals/css/units/15/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-15/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1648,6 +1662,7 @@
       "goal": "Record the start boundary and spacing in both directions. Text and controls do not overlap or get clipped.",
       "docPath": "/docs/en/labs/fundamentals/css/units/16/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-16/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1658,6 +1673,7 @@
       "goal": "Record the computed line heights for both settings and the total body text height. Text lines and controls do not overlap at 200% zoom.",
       "docPath": "/docs/en/labs/fundamentals/css/units/17/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-17/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1668,6 +1684,7 @@
       "goal": "Verify a contrast target of at least 4.5:1 for normal body text. Indicators distinguish errors and selection without relying on color.",
       "docPath": "/docs/en/labs/fundamentals/css/units/18/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-18/example.js",
       "exampleNote": "Inspect actual text contrast in developer tools. Check marks and error text are provided in addition to color. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1678,6 +1695,7 @@
       "goal": "Focus is visible and unclipped on every control. Record the 3 checked·disabled·invalid states.",
       "docPath": "/docs/en/labs/fundamentals/css/units/19/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-19/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1688,6 +1706,7 @@
       "goal": "Record the badge's reference element and computed position. Compare sticky behavior during document scrolling and parent scrolling.",
       "docPath": "/docs/en/labs/fundamentals/css/units/20/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-20/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1698,6 +1717,7 @@
       "goal": "Diagram the overlap order, including ancestor contexts. The final badge appears above the intended card.",
       "docPath": "/docs/en/labs/fundamentals/css/units/21/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-21/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1708,6 +1728,7 @@
       "goal": "The final selected state is correct after rapid clicks. Record intermediate states for both durations and the reduce alternative.",
       "docPath": "/docs/en/labs/fundamentals/css/units/22/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-22/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1718,6 +1739,7 @@
       "goal": "The position is preserved when paused, and playback continues from there when resumed. Nonessential repetition stops under reduce.",
       "docPath": "/docs/en/labs/fundamentals/css/units/23/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-23/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1728,6 +1750,7 @@
       "goal": "Check the winning layer for normal declarations in computed styles. Record important cases separately to distinguish them from normal rules.",
       "docPath": "/docs/en/labs/fundamentals/css/units/24/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-24/example.js",
       "exampleNote": "Add an unlayered background declaration or add !important to each layer, and compare computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1738,6 +1761,7 @@
       "goal": "Record the color and spacing token connections for the three elements. Check body text contrast and focus indicators in both themes.",
       "docPath": "/docs/en/labs/fundamentals/css/units/25/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-25/example.js",
       "exampleNote": "Render an actual CSS document and inspect DOM dimensions and computed styles. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1748,6 +1772,7 @@
       "goal": "Distinguish Layout·Paint intervals in both recordings. Keep 2 recordings under identical conditions and document the limits of the observations.",
       "docPath": "/docs/en/labs/fundamentals/css/units/26/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-26/example.js",
       "exampleNote": "Record both conditions separately in DevTools Performance to measure actual Layout/Paint/Composite costs. The preview does not infer costs automatically. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1758,6 +1783,7 @@
       "goal": "Compare the initial recording with height changes during scrolling. Reach offscreen cards using search and keyboard navigation.",
       "docPath": "/docs/en/labs/fundamentals/css/units/27/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-27/example.js",
       "exampleNote": "Change content-visibility to visible and record initial rendering and scrolling. Also check whether search and Tab reach the cards near the end. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1767,7 +1793,8 @@
       "title": "Tokens and Rendering Observations",
       "goal": "There are two performance recordings under identical conditions and observations for each stage. Document body text contrast and keyboard focus in both themes.",
       "docPath": "/docs/en/labs/fundamentals/css/03-project/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-03/example.js"
     },
     {
       "id": "react-01",

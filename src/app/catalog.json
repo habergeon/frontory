@@ -1423,7 +1423,8 @@
       "title": "Cascade와 레이아웃",
       "goal": "두 배치 방식의 넘침 원인을 계산값으로 설명한다. 360px에서 카드 제목과 조작이 잘리지 않는다.",
       "docPath": "/docs/labs/fundamentals/css/01-foundations/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-01/example.js"
     },
     {
       "id": "css-step-02",
@@ -1432,7 +1433,8 @@
       "title": "선택자와 우선순위",
       "goal": "각 선택자의 매칭 개수를 기록한다. 충돌 선언 두 개의 승리 이유를 specificity로 설명한다.",
       "docPath": "/docs/labs/fundamentals/css/units/02/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-02/example.js"
     },
     {
       "id": "css-step-03",
@@ -1441,7 +1443,8 @@
       "title": "상속과 초기화",
       "goal": "color와 border의 계산값 6개를 기록한다. unset이 상속 속성과 비상속 속성에서 다르게 작동함을 확인한다.",
       "docPath": "/docs/labs/fundamentals/css/units/03/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-03/example.js"
     },
     {
       "id": "css-step-04",
@@ -1460,7 +1463,8 @@
       "title": "단위와 유동 글자 크기",
       "goal": "두 화면에서 제목 크기가 지정 범위 안에 있다. 루트 변경 전후 글자와 간격 계산값을 기록한다.",
       "docPath": "/docs/labs/fundamentals/css/units/05/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-05/example.js"
     },
     {
       "id": "css-step-06",
@@ -1469,7 +1473,8 @@
       "title": "일반 흐름과 마진 상쇄",
       "goal": "형제 간격과 부모 경계 위치를 각각 측정한다. 합산되지 않은 margin 사례를 설명한다.",
       "docPath": "/docs/labs/fundamentals/css/units/06/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-06/example.js"
     },
     {
       "id": "css-step-07",
@@ -1478,7 +1483,8 @@
       "title": "크기 제약과 overflow",
       "goal": "URL 전체를 확인할 수 있고 페이지 가로 넘침이 없다. 자르기와 내부 스크롤의 차이를 두 화면으로 기록한다.",
       "docPath": "/docs/labs/fundamentals/css/units/07/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-07/example.js"
     },
     {
       "id": "css-step-08",
@@ -1487,7 +1493,8 @@
       "title": "Flex 축과 정렬",
       "goal": "두 방향의 주축·교차축을 스케치한다. 시작·중앙·끝 정렬의 위치를 측정한다.",
       "docPath": "/docs/labs/fundamentals/css/units/08/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-08/example.js"
     },
     {
       "id": "css-step-09",
@@ -1496,7 +1503,8 @@
       "title": "Flex 성장과 축소",
       "goal": "각 폭의 패널 실제 너비 3개를 기록한다. min-width:0의 효과를 shrink와 구분한다.",
       "docPath": "/docs/labs/fundamentals/css/units/09/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-09/example.js"
     },
     {
       "id": "css-step-10",
@@ -1505,7 +1513,8 @@
       "title": "Grid 트랙과 간격",
       "goal": "열 너비와 gap의 합을 컨테이너 폭과 비교한다. 좁은 폭에서 넘치는 요소를 식별하고 수정한다.",
       "docPath": "/docs/labs/fundamentals/css/units/10/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-10/example.js"
     },
     {
       "id": "css-step-11",
@@ -1514,7 +1523,8 @@
       "title": "자동 반복과 카드 수",
       "goal": "카드 수별 열 개수와 카드 너비를 기록한다. 320px 컨테이너에서도 가로 스크롤이 없다.",
       "docPath": "/docs/labs/fundamentals/css/units/11/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-11/example.js"
     },
     {
       "id": "css-step-12",
@@ -1523,7 +1533,8 @@
       "title": "배치 영역과 소스 순서",
       "goal": "두 화면의 시각 순서와 Tab 순서를 비교한다. 최종 배치에서 주요 내용의 논리 순서가 유지된다.",
       "docPath": "/docs/labs/fundamentals/css/units/12/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-12/example.js"
     },
     {
       "id": "css-step-13",
@@ -1532,7 +1543,8 @@
       "title": "미디어 쿼리와 중단점",
       "goal": "중단점 전후 계산 스타일과 열 수를 기록한다. 네 검사 폭에서 조작이 겹치지 않는다.",
       "docPath": "/docs/labs/fundamentals/css/units/13/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-13/example.js"
     },
     {
       "id": "css-02",
@@ -1541,7 +1553,8 @@
       "title": "반응형과 모션",
       "goal": "좁은 화면 전환 후 포커스 대상이 유지된다. reduce 조건에서 불필요한 이동이 사라지고 상태를 구분한다.",
       "docPath": "/docs/labs/fundamentals/css/02-experiments/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-02/example.js"
     },
     {
       "id": "css-step-15",
@@ -1550,7 +1563,8 @@
       "title": "컨테이너 쿼리와 재사용",
       "goal": "동일 뷰포트에서 두 카드가 서로 다른 배치를 보인다. 쿼리 컨테이너를 개발자 도구에서 식별한다.",
       "docPath": "/docs/labs/fundamentals/css/units/15/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-15/example.js"
     },
     {
       "id": "css-step-16",
@@ -1559,7 +1573,8 @@
       "title": "논리 속성과 쓰기 방향",
       "goal": "두 방향에서 시작 경계와 간격을 기록한다. 텍스트와 조작이 겹치거나 잘리지 않는다.",
       "docPath": "/docs/labs/fundamentals/css/units/16/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-16/example.js"
     },
     {
       "id": "css-step-17",
@@ -1568,7 +1583,8 @@
       "title": "타이포그래피와 줄 길이",
       "goal": "두 행간의 계산 높이와 총 본문 높이를 기록한다. 200% 확대에서 글줄과 조작이 겹치지 않는다.",
       "docPath": "/docs/labs/fundamentals/css/units/17/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-17/example.js"
     },
     {
       "id": "css-step-18",
@@ -1577,7 +1593,8 @@
       "title": "색상과 대비",
       "goal": "일반 본문 텍스트의 대비 목표 4.5:1 이상을 확인한다. 오류와 선택을 색 없이도 구분하는 표시가 있다.",
       "docPath": "/docs/labs/fundamentals/css/units/18/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-18/example.js"
     },
     {
       "id": "css-step-19",
@@ -1586,7 +1603,8 @@
       "title": "포커스와 입력 상태",
       "goal": "모든 조작에서 포커스가 보이고 잘리지 않는다. checked·disabled·invalid 상태 3개를 기록한다.",
       "docPath": "/docs/labs/fundamentals/css/units/19/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-19/example.js"
     },
     {
       "id": "css-step-20",
@@ -1595,7 +1613,8 @@
       "title": "위치 지정과 기준 블록",
       "goal": "배지의 기준 요소와 계산 위치를 기록한다. 문서 스크롤과 부모 스크롤의 sticky 동작을 비교한다.",
       "docPath": "/docs/labs/fundamentals/css/units/20/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-20/example.js"
     },
     {
       "id": "css-step-21",
@@ -1604,7 +1623,8 @@
       "title": "쌓임 맥락과 겹침",
       "goal": "겹침 순서를 조상 맥락까지 도식화한다. 최종 배지가 의도한 카드 위에 표시된다.",
       "docPath": "/docs/labs/fundamentals/css/units/21/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-21/example.js"
     },
     {
       "id": "css-step-22",
@@ -1613,7 +1633,8 @@
       "title": "전환과 중간 상태",
       "goal": "빠른 클릭 뒤 최종 선택 상태가 맞는다. 두 지속 시간의 중간 상태와 reduce 대체를 기록한다.",
       "docPath": "/docs/labs/fundamentals/css/units/22/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-22/example.js"
     },
     {
       "id": "css-step-23",
@@ -1622,7 +1643,8 @@
       "title": "키프레임과 재생 제어",
       "goal": "정지 후 위치가 유지되고 재개 시 이어진다. reduce 조건에서 비필수 반복이 중지된다.",
       "docPath": "/docs/labs/fundamentals/css/units/23/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-23/example.js"
     },
     {
       "id": "css-step-24",
@@ -1631,7 +1653,8 @@
       "title": "Cascade layers로 규칙 정리",
       "goal": "일반 선언의 승리 레이어를 계산 스타일에서 확인한다. important 사례를 별도로 기록해 일반 규칙과 구분한다.",
       "docPath": "/docs/labs/fundamentals/css/units/24/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-24/example.js"
     },
     {
       "id": "css-step-25",
@@ -1640,7 +1663,8 @@
       "title": "사용자 정의 속성과 테마",
       "goal": "세 요소의 색·간격 토큰 연결을 기록한다. 두 테마에서 본문 대비와 포커스 표시를 확인한다.",
       "docPath": "/docs/labs/fundamentals/css/units/25/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-25/example.js"
     },
     {
       "id": "css-step-26",
@@ -1649,7 +1673,8 @@
       "title": "레이아웃과 페인트 관찰",
       "goal": "두 기록에서 Layout·Paint 구간을 구분한다. 동일 조건의 기록 2개와 관찰 한계를 남긴다.",
       "docPath": "/docs/labs/fundamentals/css/units/26/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-26/example.js"
     },
     {
       "id": "css-step-27",
@@ -1658,7 +1683,8 @@
       "title": "contain과 오프스크린 콘텐츠",
       "goal": "초기 기록과 스크롤 중 높이 변화를 비교한다. 검색·키보드 이동으로 화면 밖 카드에 도달한다.",
       "docPath": "/docs/labs/fundamentals/css/units/27/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-27/example.js"
     },
     {
       "id": "css-03",
@@ -1667,7 +1693,8 @@
       "title": "토큰과 렌더링 관찰",
       "goal": "동일 조건의 두 성능 기록과 단계별 관찰이 있다. 두 테마의 본문 대비와 키보드 포커스를 문서화한다.",
       "docPath": "/docs/labs/fundamentals/css/03-project/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-03/example.js"
     },
     {
       "id": "react-01",

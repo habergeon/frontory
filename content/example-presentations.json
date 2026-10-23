@@ -1280,5 +1280,451 @@
     "comments": {
       "inlineExplanation": "잘못된 로컬 data URI로 네트워크 없이 이미지 실패를 만듭니다."
     }
+  },
+  "css-01": {
+    "messages": {},
+    "comments": {
+      "title": "minmax의 최소 너비와 gap을 바꾸고 결과 영역 너비를 바꿔 보세요."
+    }
+  },
+  "css-step-02": {
+    "messages": {
+      "title": "선택자와 우선순위",
+      "note": "공백 → 직접 자식 기호를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "직접 자식",
+      "display009": "중첩 자식",
+      "display010": "적용",
+      "display011": "바깥"
+    },
+    "comments": {
+      "title": "선택자와 우선순위: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-03": {
+    "messages": {
+      "title": "상속과 초기화",
+      "note": "initial, inherit, unset을 각각 바꾸고 계산된 color·border를 확인하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "자식: color와 border를 비교",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "HTML 소스",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "적용",
+      "display010": "부모"
+    },
+    "comments": {
+      "title": "상속과 초기화: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-05": {
+    "messages": {
+      "title": "단위와 유동 글자 크기",
+      "note": "16px → 20px를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "rem 간격은 루트 크기를 따릅니다.",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "유동 크기 제목",
+      "display007": "HTML 소스",
+      "display008": "CSS 소스",
+      "display009": "컨테이너 폭",
+      "display010": "적용"
+    },
+    "comments": {
+      "title": "단위와 유동 글자 크기: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-06": {
+    "messages": {
+      "title": "일반 흐름과 마진 상쇄",
+      "note": "부모 flow-root는 부모/자식 마진 상쇄를 막지만 형제 문단끼리의 상쇄는 그대로입니다. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "둘째 문단",
+      "display009": "첫 문단",
+      "display010": "적용"
+    },
+    "comments": {
+      "title": "일반 흐름과 마진 상쇄: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-07": {
+    "messages": {
+      "title": "크기 제약과 overflow",
+      "note": "normal → anywhere를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "스크롤 영역",
+      "display009": "적용"
+    },
+    "comments": {
+      "title": "크기 제약과 overflow: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-08": {
+    "messages": {
+      "title": "Flex 축과 정렬",
+      "note": "row → column를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "적용"
+    },
+    "comments": {
+      "title": "Flex 축과 정렬: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-09": {
+    "messages": {
+      "title": "Flex 성장과 축소",
+      "note": "1 → 0를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "셋째 카드",
+      "display009": "첫 카드",
+      "display010": "적용"
+    },
+    "comments": {
+      "title": "Flex 성장과 축소: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-10": {
+    "messages": {
+      "title": "Grid 트랙과 간격",
+      "note": "1fr → minmax(0,1fr)를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "셋째 카드",
+      "display009": "첫 카드",
+      "display010": "적용"
+    },
+    "comments": {
+      "title": "Grid 트랙과 간격: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-11": {
+    "messages": {
+      "title": "자동 반복과 카드 수",
+      "note": "auto-fill → auto-fit를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "적용"
+    },
+    "comments": {
+      "title": "자동 반복과 카드 수: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-12": {
+    "messages": {
+      "title": "배치 영역과 소스 순서",
+      "note": "본문 다음 aside → aside를 시각적으로 앞에를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "적용"
+    },
+    "comments": {
+      "title": "배치 영역과 소스 순서: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-13": {
+    "messages": {
+      "title": "미디어 쿼리와 중단점",
+      "note": "699px → 700px를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "셋째 카드",
+      "display009": "첫 카드",
+      "display010": "적용"
+    },
+    "comments": {
+      "title": "미디어 쿼리와 중단점: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-02": {
+    "messages": {
+      "display001": "컨테이너 폭 560px 이하에서 단일 열로 바뀝니다. Tab으로 카드 버튼을 이동하세요. OS 모션 감소 설정은 항상 우선합니다.",
+      "display002": "DOM 순서와 포커스는 폭이 달라도 같습니다.",
+      "display003": "모션 감소를 추가 적용",
+      "display004": " OS 모션 감소: ",
+      "display005": "폭과 모션 선호도",
+      "display006": " · 실제 폭 ",
+      "display007": "콘텐츠 폭 ",
+      "display008": " 선택",
+      "display009": "기록",
+      "display010": "읽기",
+      "display011": "실험",
+      "display012": "켜짐",
+      "display013": "꺼짐"
+    },
+    "comments": {}
+  },
+  "css-step-15": {
+    "messages": {
+      "title": "컨테이너 쿼리와 재사용",
+      "note": "300px → 800px를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "컨테이너 폭으로 배치가 변경됩니다.",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "HTML 소스",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "이미지 영역",
+      "display010": "적용"
+    },
+    "comments": {
+      "title": "컨테이너 쿼리와 재사용: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-16": {
+    "messages": {
+      "title": "논리 속성과 쓰기 방향",
+      "note": "ltr → rtl를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "start와 end가 쓰기 방향에 맞춰 바뀝니다.",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "HTML 소스",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "논리 속성",
+      "display010": "적용"
+    },
+    "comments": {
+      "title": "논리 속성과 쓰기 방향: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-17": {
+    "messages": {
+      "title": "타이포그래피와 줄 길이",
+      "note": "1.2 → 1.7를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "읽기 쉬운 본문",
+      "display006": "HTML 소스",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "보조 텍스트",
+      "display010": "적용"
+    },
+    "comments": {
+      "title": "타이포그래피와 줄 길이: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-18": {
+    "messages": {
+      "title": "색상과 대비",
+      "note": "실제 텍스트 대비는 개발자 도구에서 검사하세요. 색상 외에도 체크 기호와 오류 텍스트를 제공합니다. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "오류: 제목을 입력하세요.",
+      "display006": "HTML 소스",
+      "display007": "✓ 선택 카드",
+      "display008": "CSS 소스",
+      "display009": "컨테이너 폭",
+      "display010": "기본 카드",
+      "display011": "적용"
+    },
+    "comments": {
+      "title": "색상과 대비: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-19": {
+    "messages": {
+      "title": "포커스와 입력 상태",
+      "note": "없음 → 2px 실선과 offset를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "Tab으로 이동하세요.",
+      "display006": "HTML 소스",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "사용 불가",
+      "display010": "이메일 ",
+      "display011": "적용",
+      "display012": "저장",
+      "display013": "상세"
+    },
+    "comments": {
+      "title": "포커스와 입력 상태: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-20": {
+    "messages": {
+      "title": "위치 지정과 기준 블록",
+      "note": "visible → auto를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "카드의 position을 static으로 바꾸세요.",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "Sticky 목차",
+      "display007": "HTML 소스",
+      "display008": "CSS 소스",
+      "display009": "컨테이너 폭",
+      "display010": "스크롤 내용",
+      "display011": "기준 블록",
+      "display012": "적용"
+    },
+    "comments": {
+      "title": "위치 지정과 기준 블록: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-21": {
+    "messages": {
+      "title": "쌓임 맥락과 겹침",
+      "note": "none → translateZ(0)를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "배지 z-index 999",
+      "display006": "형제 B z-index 1",
+      "display007": "HTML 소스",
+      "display008": "CSS 소스",
+      "display009": "컨테이너 폭",
+      "display010": "부모 A",
+      "display011": "적용"
+    },
+    "comments": {
+      "title": "쌓임 맥락과 겹침: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-22": {
+    "messages": {
+      "title": "전환과 중간 상태",
+      "note": "150ms → 800ms를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "빠르게 반복 클릭",
+      "display006": "HTML 소스",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "선택 토글",
+      "display010": "적용"
+    },
+    "comments": {
+      "title": "전환과 중간 상태: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-23": {
+    "messages": {
+      "title": "키프레임과 재생 제어",
+      "note": "1회 → infinite를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "일시 정지",
+      "display009": "적용"
+    },
+    "comments": {
+      "title": "키프레임과 재생 제어: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-24": {
+    "messages": {
+      "title": "Cascade layers로 규칙 정리",
+      "note": "비레이어 background 선언 또는 !important를 각 레이어에 추가해 계산 스타일을 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "레이어 색상 충돌",
+      "display006": "HTML 소스",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "적용"
+    },
+    "comments": {
+      "title": "Cascade layers로 규칙 정리: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-25": {
+    "messages": {
+      "title": "사용자 정의 속성과 테마",
+      "note": "light → dark를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "기록 제목",
+      "display009": "토큰 테마",
+      "display010": "적용",
+      "display011": "제목",
+      "display012": "저장"
+    },
+    "comments": {
+      "title": "사용자 정의 속성과 테마: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-step-26": {
+    "messages": {
+      "title": "레이아웃과 페인트 관찰",
+      "note": "실제 Layout/Paint/Composite 비용은 DevTools Performance로 두 조건을 각각 기록하세요. 미리보기는 비용을 자동 추론하지 않습니다. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "적용",
+      "display009": "이동"
+    },
+    "comments": {
+      "title": "레이아웃과 페인트 관찰: 실제 HTML/CSS 실험",
+      "cssComparison": "비교: width 대신 transform:translateX(20px)"
+    }
+  },
+  "css-step-27": {
+    "messages": {
+      "title": "contain과 오프스크린 콘텐츠",
+      "note": "content-visibility를 visible로 바꾸고 초기 렌더 및 스크롤을 기록하세요. 검색과 Tab으로 뒤쪽 카드에 도달하는지도 확인합니다. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "카드 ",
+      "display009": "적용"
+    },
+    "comments": {
+      "title": "contain과 오프스크린 콘텐츠: 실제 HTML/CSS 실험"
+    }
+  },
+  "css-03": {
+    "messages": {
+      "display001": "DevTools Performance에서 같은 요소 수·속도로 두 기록을 비교하세요. 이 예제는 성능 점수를 생성하지 않습니다.",
+      "display002": "공유 색상·간격 토큰",
+      "display003": "토큰과 렌더링 관찰",
+      "display004": "전환 ms ",
+      "display005": "요소 수 ",
+      "display006": "테마 전환",
+      "display007": "전환 실행",
+      "display008": "개 / ",
+      "display009": "방식 "
+    },
+    "comments": {}
   }
 }

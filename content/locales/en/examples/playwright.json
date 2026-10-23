@@ -1,152 +1,414 @@
 {
   "playwright-step-02": {
-    "sourceHash": "c57c57bf7f5e63b039f1e026736969f5ef226c75a8fd31e64e681a7031bc26d0",
+    "sourceHash": "002908be5d0ffbe88945d3057126d120f6fa8115e2b9b0cb5f36f57d9b95bb86",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "241e16b12ed99f6627442240f0a9b3108e028105d1fc409297ac6de91734d188",
+      "values": {
+        "messages.display001": "<h3>Configuration and Execution Scope</h3><p>Runner / BaseURL</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-02: Configuration and Execution Scope"
+      }
     }
   },
   "playwright-step-03": {
-    "sourceHash": "c1fed536b60461efca01dc357cb91eed530680a71d9d147a9a7b4712bc41a112",
+    "sourceHash": "d1e98bb517439da61b5f32e17f36818248bb0d50093fbd2cdc223ffcf3969818",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "36110560e93580d2a031951a478bec02039b89bb3ae69d4d3e62d316c9533a0d",
+      "values": {
+        "messages.display001": "<h3>Role and Accessible Name</h3><p>Role / Name</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-03: Role and Accessible Name"
+      }
     }
   },
   "playwright-step-04": {
-    "sourceHash": "8c86b85f56ab44ab8d438b6343aee700b0a05e4796a82b7ad0f59c98514b83c8",
+    "sourceHash": "aa68dcbf8db3001ba576dc6a04a599238791c04a4288e5e12d61c657ded2901c",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "e9c5d546434950ce370eb71cd3972a62b9ef6e62b623a1a09d95de3e1a2b4603",
+      "values": {
+        "messages.display001": "<h3>Label and Input</h3><p>Label / Value assertion</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-04: Label and Input"
+      }
     }
   },
   "playwright-step-05": {
-    "sourceHash": "a1293a16e39296a7cbb1d64ef31563817175664ae35b819a6d9abda0c4cad2e2",
+    "sourceHash": "a411187b87249e6ce79e791cc7f3aaa83980f33667bfc6970f7ef6eac31c95d6",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "1e10d35cf1e08bd82ac4af45fa9c730ae95d766559273a0e57e039d3ce692b35",
+      "values": {
+        "messages.display001": "<h3>Locator Scope</h3><p>Narrowing scope / Strictness</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-05: Locator Scope"
+      }
     }
   },
   "playwright-step-06": {
-    "sourceHash": "0432b87358abae5a42c24d2b968e3e793e8123bd3e79412082792fc3530ae327",
+    "sourceHash": "423d79f8148ea4c1b283fbadc347eabdffa5d98806f25c6fffaaf0eaae96b41b",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "e999fa7118e3492c7f0dea03fab0f5b83c47cf1fbcfc5c5db2df3c565a5a31c6",
+      "values": {
+        "messages.display001": "<h3>Retrying Assertions</h3><p>Waiting for state / Failure explanation</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-06: Retrying Assertions"
+      }
     }
   },
   "playwright-step-07": {
-    "sourceHash": "450403ea23762cc02fd6a4622b23311a8217784d5cd784886c624d019c153cd4",
+    "sourceHash": "ec427044016a1e756a73feaeb9b5a4bf17bc16dda69aa599c4c82c8148bdf82e",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "f58099f3c4bc150c3b1cee963d5b8b1c02873d5f24b1d79000d665ea339e3196",
+      "values": {
+        "messages.display001": "<h3>Diagnosing Failures in the First Flow</h3><p>Failure location / Steps</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-07: Diagnosing Failures in the First Flow"
+      }
     }
   },
   "playwright-step-08": {
-    "sourceHash": "f678c4ca493a7feca38645c382ff4d1d7c2df844282c17d36effdf221b54dc36",
+    "sourceHash": "cc2c7036e7b6cb5b1dc86bc58ba9e7c425fe11aacb381d0005850bd735da4149",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "eb71e5d3b4fe63a26cc96ac6747b407e279cd977724b59d6ae1744ecef814e4d",
+      "values": {
+        "messages.display001": "<h3>BrowserContext Isolation</h3><p>New context / Test data</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-08: BrowserContext Isolation"
+      }
     }
   },
   "playwright-step-09": {
-    "sourceHash": "367ab53ca52deed648023e549ecc42f03c6954c46f7e5057c38f7f96a3ca08fd",
+    "sourceHash": "5bfb3ed6173b3395499f57ad2da68b86cd429a3dd2402e66dbf8a7493b2f70cc",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "5df0903659c518e725e61da81aeeabce48b62cb0a8e1c2349b804069f93ac97a",
+      "values": {
+        "messages.display001": "<h3>Saving and Reloading</h3><p>Persistent state / Completion signal</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-09: Saving and Reloading"
+      }
     }
   },
   "playwright-step-10": {
-    "sourceHash": "4de40326f3b7fac5e462eab0fdf2e3005b9fb9a6ac064fa7fe3163489f3a08ee",
+    "sourceHash": "1b0a7659e562dbb1f22f05d62fdc02ffe468bc34c7b53d18ec7371a9bf5108c1",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "fff6680492353cd829012528bae0972ffe4f1a2807c9596b8bcb72bfebe0e8e0",
+      "values": {
+        "messages.display001": "<h3>Download Events</h3><p>Event order / File validation</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-10: Download Events"
+      }
     }
   },
   "playwright-step-11": {
-    "sourceHash": "e5146cbf37742f5b700c99893b140906d24fc3de52ce76083ba8d924b0b52272",
+    "sourceHash": "7ca0069a17025bf8ace6b2e00c6e276935bf1832c1cd4cff1e162514db1d274e",
     "values": {
-      "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+      "note": "The supplied spec uploads a fixture with version:1 and one text value, then checks automatic restoration. Validating, confirming, and restoring a Frontory v3 backup with 644 entries is a separate assignment."
+    },
+    "presentation": {
+      "sourceHash": "66a76eebc83e5fe125d3c28a73dbd109c1607cdeda4ce7947a629cfc1161671e",
+      "values": {
+        "messages.display001": "<h3>File Upload</h3><p>File input / Restoration result</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-11: File Upload"
+      }
     }
   },
   "playwright-step-12": {
-    "sourceHash": "477c1b376e3cd56e2db51eee749ac8c050efbc41d9d5d5cf1acdae6ef193edad",
+    "sourceHash": "452195c08c30675a46f4fb6470128e576edaf5e3096daed44d25334a68e9276b",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "81b6092721c9bd4571217f61f839625f77d5099d745f86654493d0a12c155348",
+      "values": {
+        "messages.display001": "<h3>Invalid Files and Preservation</h3><p>Validation failure / Negative path</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-12: Invalid Files and Preservation"
+      }
     }
   },
   "playwright-step-13": {
-    "sourceHash": "bd703327104b3439a6ccfb3d9bdf1531020b57780919df0bcaa5870986730d01",
+    "sourceHash": "b3759ca01e1289685828e9c2bbfc34734d5cd6954483231e3b925be3b3382bf0",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "97f81c8af01bd83085529b540b8cc692d81c2f1fd7e2dcdc55b0410228fe52f4",
+      "values": {
+        "messages.display001": "<h3>Per-Item Storage Isolation</h3><p>Identifier / Round trip</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-13: Per-Item Storage Isolation"
+      }
     }
   },
   "playwright-step-15": {
-    "sourceHash": "f1d654b530676f7132927d6409986c7b40436c66407c7a729d345a9d90e348c2",
+    "sourceHash": "5e62001113ee20b6464620509bf3d7311005216e305a8757f5ab9780e12bf67b",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "b6a50a7f873202ac19128f121db3312bc77fc01857cab36af61a31ed8d97a39f",
+      "values": {
+        "messages.display001": "<h3>Keyboard Navigation</h3><p>Keyboard path / Focus</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-15: Keyboard Navigation"
+      }
     }
   },
   "playwright-step-16": {
-    "sourceHash": "917f76329157fff860496826daa6900a200365a06d681720fddf0f0be1afdc49",
+    "sourceHash": "156598d114be3fbfe237c12de55c0058fa3ecfddc86373b5b9bfe21ec4898caf",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "f8c2ef68295a99cc0e75926b3b1a17e0c42e5bccb6577ba1d3aa6a8875e32cb3",
+      "values": {
+        "messages.display001": "<h3>Viewport and Responsive Layout</h3><p>Explicit conditions / Core actions</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-16: Viewport and Responsive Layout"
+      }
     }
   },
   "playwright-step-17": {
-    "sourceHash": "5240eaddcc304ec35364f453343add0639af3390adfcbc651e92c6376d163abd",
+    "sourceHash": "5756798feec09ba0a067edd690e3dace46f6a087d7ee8a5efa42bf3b09fbfae5",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "f68635cf0a5a2cd326914ad1a96ebc3b80ff4327b38dd8da8144f62bc73a0184",
+      "values": {
+        "messages.display001": "<h3>Network Route</h3><p>Dependency control / Scope</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-17: Network Route"
+      }
     }
   },
   "playwright-step-18": {
-    "sourceHash": "c86c4142e510474088595216bae650e38f150d68be336c635d46e34254cfbccb",
+    "sourceHash": "b18c5e5ec78c20ef13c7cfbbe78ac73ed0ab282453d78e3b294011ba4ee32133",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "e276d3b15c8d133da03b462414f896e002d2684d55e8afbc1a25cee7b5bca4ed",
+      "values": {
+        "messages.display001": "<h3>Delays and Races</h3><p>Latest state / Response order</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-18: Delays and Races"
+      }
     }
   },
   "playwright-step-19": {
-    "sourceHash": "59d850638e3a0daca8910d20b51f89f61092169e3a3024a81c5fa7b62472edc0",
+    "sourceHash": "aec080f59ebeb94ad5beedf5118ed06da0b591108714d4208e2f8ce0754f57cc",
     "values": {
-      "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+      "note": "The supplied spec installs Clock after the beforeEach goto and checks the fixture’s 500ms debounced save. Installing Clock before navigation is a separate assignment. Frontory notes save synchronously onChange."
+    },
+    "presentation": {
+      "sourceHash": "169795a90ef2ab05fcb1ad023b3bb9824376be80b57d4a63dc213937826f4f06",
+      "values": {
+        "messages.display001": "<h3>Clock and Scheduled Saving</h3><p>Time control / Observation conditions</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-19: Clock and Scheduled Saving"
+      }
     }
   },
   "playwright-step-20": {
-    "sourceHash": "d7b05e4de85bd3a52d25abb322c20fa104a73b3a779c30286d0727ff1ee7f2bf",
+    "sourceHash": "20fc82e811c8a6980197f60c1d7e4e4959d72b6d05e5602f6e9ee2e6c775a31d",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "84b749cd1a3c364965e9a17ac2984441e0fb3984e5c84fa13d29730e7f47a7e2",
+      "values": {
+        "messages.display001": "<h3>Console and PageError</h3><p>Signal collection / Filter rationale</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-20: Console and PageError"
+      }
     }
   },
   "playwright-step-21": {
-    "sourceHash": "9b23d7074d6c27cfb1590775913a6d68a04e224a557230c561d749460b25834a",
+    "sourceHash": "183f4731ca65ee6423759c3675114196023d4b26d0fab8b5ed19e863e7cfd3e6",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "fd3c46d36a120da0411d6806cc4d412b4ab36457cbd6408445a76b9d565ea226",
+      "values": {
+        "messages.display001": "<h3>Reading Traces</h3><p>Execution evidence / Diagnosis</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-21: Reading Traces"
+      }
     }
   },
   "playwright-step-22": {
-    "sourceHash": "98da595bd85f5ed4bb3eb19054abf2972606f87628dd1aa18117d1c8d2c2b5b2",
+    "sourceHash": "3911bf73f5b7facbb3c08ca3ef3b30c4be44cc4a99d830a22e81d48c28069a17",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "72d6525b7a368077f4bf34050fc35a8e0347dfba06b745f5646daae7b5dfd6bc",
+      "values": {
+        "messages.display001": "<h3>Fixtures and Setup Responsibility</h3><p>Fixture / Teardown</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-22: Fixtures and Setup Responsibility"
+      }
     }
   },
   "playwright-step-23": {
-    "sourceHash": "6b153d5656944fa428882935992976995586a9f1bd769aa635773f0c05890ba5",
+    "sourceHash": "6d406dcca54f1c11f3a1fec2cebb00b1a2b68290a0f9e8c267cd773e689e75a4",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "f3a562dadba1e01473e54282cf8fa9c01a52aecc804ef77a234302038f6f7092",
+      "values": {
+        "messages.display001": "<h3>Parallel Execution and Collisions</h3><p>Parallelism / Independence</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-23: Parallel Execution and Collisions"
+      }
     }
   },
   "playwright-step-24": {
-    "sourceHash": "a74add710a37434c66a1cd2500a656ab202f4d2705a372c80127f79e01d52367",
+    "sourceHash": "eb633f5be1ce07ca762bda7f863cdec6db5d326689dce55618c674da4f577339",
     "values": {
-      "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+      "note": "This unit config uses retries:2. The spec records the retry index and checks saving. Comparing 0/1 retries, an intentional first failure, and repeated-run experiments are separate assignments."
+    },
+    "presentation": {
+      "sourceHash": "994c5965b66ad9ef92091aa6927a68364f737f237726949fb76337d0f67d5679",
+      "values": {
+        "messages.display001": "<h3>Retries and Flakiness</h3><p>Retry / Root cause</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-24: Retries and Flakiness"
+      }
     }
   },
   "playwright-step-25": {
-    "sourceHash": "1fdb96af8289a5afba65d0aa01a7aacda0d5d8aa81f79532b7dffde92c028afc",
+    "sourceHash": "f3e39d2cfe1aabf664b9c637839bd9d59ee1712409492a88ee0951aa26de6bc5",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "39849f4a3980ac2f7266861898f33977529b3c7ae0cf55577b1ccfa576cd5f62",
+      "values": {
+        "messages.display001": "<h3>Creating a Visual Baseline</h3><p>Determinism / Scope</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-25: Creating a Visual Baseline"
+      }
     }
   },
   "playwright-step-26": {
-    "sourceHash": "f1930f838e7309101a3f4d55de02bd903379971ff6af49facfd2491615f454eb",
+    "sourceHash": "59cabcf87ad780366fae5f38b52b118a0d0d77257335121112add9b40b01eba3",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "08dff92a9ff6a274291343cce2d12cc6fb2934a57e2724835cca6c160cde8589",
+      "values": {
+        "messages.display001": "<h3>Allowed Differences and Review</h3><p>Tolerance / Baseline update</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-26: Allowed Differences and Review"
+      }
     }
   },
   "playwright-step-27": {
-    "sourceHash": "87846e3b8485b988f6670e5b9a5b2a4d5322d4d8af31a7a0a7e95d97780d6a9f",
+    "sourceHash": "3130da339a23374c8e25c0201d88fa7525ad4f9cbb60cb387655f97c8eb9e362",
     "values": {
       "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+    },
+    "presentation": {
+      "sourceHash": "7a7b9b6739860409400f96bd3766b10c4c17be42c74aea131eaaa28bf36aff44",
+      "values": {
+        "messages.display001": "<h3>CI Execution and Artifacts</h3><p>Reproducible environment / Failure artifacts</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "External source only. This preview does not execute the test runner or claim any passing result.",
+        "comments.comment001": "playwright-step-27: CI Execution and Artifacts"
+      }
+    }
+  },
+  "playwright-01": {
+    "presentation": {
+      "sourceHash": "8615fab9eaf2a49c9ffb7c6a9e2211d54a96afd83b97ed80116c697ce36bf628",
+      "values": {
+        "messages.display001": "Run this in a separate Node environment. Editing the code on this screen also changes the test source below. See the lesson document for execution instructions.",
+        "comments.comment001": "Playwright controls a separate browser from Node. This screen supplies the test source to run externally."
+      }
+    }
+  },
+  "playwright-02": {
+    "presentation": {
+      "sourceHash": "a58e21c9bffaade6414bafbbf8e9fb7eca2d2e2824431791be70b09c323a38a3",
+      "values": {
+        "messages.display001": "<h3>JSON backup round trip</h3><p>Isolated context, download/filechooser waits armed before clicks, Korean and empty notes, invalid-file preservation, reload verification.</p><label>Test origin <input value=\"http://127.0.0.1:5174\" style=\"width:260px\"></label> <button>Regenerate spec</button><p>Use a disposable local test checkout. Start it on port 5174. In a separate test folder: npm init -y; npm install -D @playwright/test; npx playwright install chromium. Save the source below as lesson.spec.mjs. Run: npx playwright test lesson.spec.mjs --workers=1. For visual baselines add --update-snapshots once and inspect generated images. View failures with npx playwright show-trace &lt;trace.zip&gt;. No tests execute inside this iframe.</p><pre aria-live=\"polite\"></pre><textarea aria-label=\"Complete Playwright spec\" spellcheck=\"false\" style=\"width:100%;height:380px;box-sizing:border-box;font-family:monospace\"></textarea>",
+        "messages.display002": "Spec ready to select and save. Test status: not run. The standalone lesson.spec.mjs is also provided in this lesson folder.",
+        "comments.comment001": "Playwright runs in Node. This browser lesson authors a complete runnable spec; it does not run tests.",
+        "comments.nested002": "A new Playwright context per test isolates cookies/storage from your everyday browser.",
+        "comments.nested003": "Serve a disposable checkout at this separate test origin. Do not connect to a personal browser profile.",
+        "comments.nested004": "Arm events before their triggering click."
+      }
+    }
+  },
+  "playwright-03": {
+    "presentation": {
+      "sourceHash": "8192705ee9deecbbc073cbd81270099e2825eb3a35efdecaf03ef6ff754afacd",
+      "values": {
+        "messages.display001": "<h3>Stable visual regression</h3><p>Fixed viewport/DPR and fonts; snapshot a stable Frontory region. A separate rotating Canvas fixture stops at a defined angle before capture; traces are retained on failure.</p><label>Test origin <input value=\"http://127.0.0.1:5174\" style=\"width:260px\"></label> <button>Regenerate spec</button><p>Use a disposable local test checkout. Start it on port 5174. In a separate test folder: npm init -y; npm install -D @playwright/test; npx playwright install chromium. Save the source below as lesson.spec.mjs. Run: npx playwright test lesson.spec.mjs --workers=1. For visual baselines add --update-snapshots once and inspect generated images. View failures with npx playwright show-trace &lt;trace.zip&gt;. No tests execute inside this iframe.</p><pre aria-live=\"polite\"></pre><textarea aria-label=\"Complete Playwright spec\" spellcheck=\"false\" style=\"width:100%;height:380px;box-sizing:border-box;font-family:monospace\"></textarea>",
+        "messages.display002": "Spec ready to select and save. Test status: not run. The standalone lesson.spec.mjs is also provided in this lesson folder.",
+        "comments.comment001": "Playwright runs in Node. This browser lesson authors a complete runnable spec; it does not run tests.",
+        "comments.nested002": "Snapshot the stable notes panel. Canvas/iframe scene correctness needs separate semantic tests.",
+        "comments.nested003": "Keep browser version, OS, fonts, viewport, and DPR fixed in CI.",
+        "comments.nested004": "Generate baselines once with --update-snapshots; inspect them before committing.",
+        "comments.nested005": "Never increase tolerance merely to silence a failure. Use trace to inspect inputs/network/errors.",
+        "comments.nested006": "Cross-GPU scenes: verify numeric state and rendering availability separately; avoid pixel-exact portability claims."
+      }
     }
   }
 }

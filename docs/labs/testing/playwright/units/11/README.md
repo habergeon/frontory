@@ -65,7 +65,7 @@ setInputFiles는 input[type=file]에 파일을 설정한다. file chooser를 쓰
 
 [예제 원본](../../../../../../src/labs/playwright-step-11/example.js) · [실행 환경과 제한](../../../../../examples.md)
 
-Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.
+제공된 spec은 version:1과 단일 text를 가진 fixture 파일을 업로드하고 자동 복원 결과를 검사합니다. 644개 항목을 가진 Frontory v3 백업 검증·확인·복원은 별도 과제입니다.
 
 - [lesson.spec.mjs](../../../../../../src/labs/playwright-step-11/lesson.spec.mjs)
 - [fixture.html](../../../../../../src/labs/playwright-step-11/fixture.html)

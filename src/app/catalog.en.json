@@ -6988,7 +6988,8 @@
       "title": "Testing from the User’s Perspective",
       "goal": "Learning outcome: explain the role of User contract. Input cases: table of contents selection and the open-document button. Deliverable: assertion results for the selected title and dialog visibility. Explain the rationale for handling Auto-waiting, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/01-foundations/README.md",
-      "seriesId": "playwright"
+      "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-01/example.js"
     },
     {
       "id": "playwright-step-02",
@@ -6998,6 +6999,7 @@
       "goal": "Learning outcome: explain the role of Runner. Input cases: a separate local test origin. Deliverable: execution command, target URL, and report. Explain the rationale for handling BaseURL, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/02/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-02/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7008,6 +7010,7 @@
       "goal": "Learning outcome: explain the role of Role. Input cases: two buttons with similar names. Deliverable: locator count and state after clicking. Explain the rationale for handling Name, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/03/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-03/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7018,6 +7021,7 @@
       "goal": "Learning outcome: explain the role of Label. Input cases: notes with Korean text and line breaks. Deliverable: input values and saved-state results. Explain the rationale for handling Value assertion, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/04/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-04/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7028,6 +7032,7 @@
       "goal": "Learning outcome: explain the role of Narrowing scope. Input cases: three cards with the same button name. Deliverable: selected card ID and title. Explain the rationale for handling Strictness, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/05/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-05/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7038,6 +7043,7 @@
       "goal": "Learning outcome: explain the role of Waiting for state. Input cases: fast and delayed responses. Deliverable: assertion success and failure messages. Explain the rationale for handling Failure explanation, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/06/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-06/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7048,6 +7054,7 @@
       "goal": "Learning outcome: explain the role of Failure location. Input cases: a correct title and an intentionally incorrect expectation. Deliverable: report showing the failed step. Explain the rationale for handling Steps, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/07/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-07/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7058,6 +7065,7 @@
       "goal": "Learning outcome: explain the role of New context. Input cases: different notes for A and B. Deliverable: initial and final values for each test. Explain the rationale for handling Test data, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/08/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-08/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7068,6 +7076,7 @@
       "goal": "Learning outcome: explain the role of Persistent state. Input cases: Korean and empty notes. Deliverable: note values before and after reloading. Explain the rationale for handling Completion signal, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/09/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-09/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7078,6 +7087,7 @@
       "goal": "Learning outcome: explain the role of Event order. Input cases: a backup containing two notes. Deliverable: filename, JSON structure, and note values. Explain the rationale for handling File validation, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/10/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-10/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7088,7 +7098,8 @@
       "goal": "Create a valid v3 backup that retains all 644 units while modifying only the notes of one or more units. Distinguish file selection, validation, restoration confirmation, and reloading, and verify that the edited notes are restored to the corresponding IDs.",
       "docPath": "/docs/en/labs/testing/playwright/units/11/README.md",
       "seriesId": "playwright",
-      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+      "exampleReadingSource": "/examples-en/playwright-step-11/example.js",
+      "exampleNote": "The supplied spec uploads a fixture with version:1 and one text value, then checks automatic restoration. Validating, confirming, and restoring a Frontory v3 backup with 644 entries is a separate assignment."
     },
     {
       "id": "playwright-step-12",
@@ -7098,6 +7109,7 @@
       "goal": "Learning outcome: explain the role of Validation failure. Input cases: existing notes and two error files. Deliverable: error guidance, existing values, and values after reloading. Explain the rationale for handling Negative path, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/12/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-12/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7108,6 +7120,7 @@
       "goal": "Learning outcome: explain the role of Identifier. Input cases: note A and note B. Deliverable: mapping table of input and restored values for each item. Explain the rationale for handling Round trip, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/13/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-13/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7117,7 +7130,8 @@
       "title": "Saving, Downloading, and Restoring",
       "goal": "Learning outcome: explain the role of Round-trip contract. Input cases: empty notes, Korean text, and error files. Deliverable: notes after the round trip and error-preservation results. Explain the rationale for handling Isolation, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/02-experiments/README.md",
-      "seriesId": "playwright"
+      "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-02/example.js"
     },
     {
       "id": "playwright-step-15",
@@ -7127,6 +7141,7 @@
       "goal": "Learning outcome: explain the role of Keyboard path. Input cases: Tab·Enter·Escape. Deliverable: activeElement and dialog state at each step. Explain the rationale for handling Focus, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/15/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-15/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7137,6 +7152,7 @@
       "goal": "Learning outcome: explain the role of Explicit conditions. Input cases: 390×844 and 1280×800. Deliverable: button visibility, note input, and horizontal overflow results. Explain the rationale for handling Core actions, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/16/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-16/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7147,6 +7163,7 @@
       "goal": "Prepare a fetch-based document-loading fixture app and a separate origin. Return 200 and 500 responses for the same /docs/a request and verify loading, completion, and error states.",
       "docPath": "/docs/en/labs/testing/playwright/units/17/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-17/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7157,6 +7174,7 @@
       "goal": "Implement a latestRequestId guard in the Unit 17 fixture app to discard stale responses. Verify that the final selected ID, title, and body all correspond to B for both A→B and B→A completion orders.",
       "docPath": "/docs/en/labs/testing/playwright/units/18/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-18/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7167,7 +7185,8 @@
       "goal": "Create an independent fixture page with 500ms debounce saving and a save-count display. At input intervals of 600ms and 100ms, verify save counts of 3 and 1 and the same final saved value.",
       "docPath": "/docs/en/labs/testing/playwright/units/19/README.md",
       "seriesId": "playwright",
-      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+      "exampleReadingSource": "/examples-en/playwright-step-19/example.js",
+      "exampleNote": "The supplied spec installs Clock after the beforeEach goto and checks the fixture’s 500ms debounced save. Installing Clock before navigation is a separate assignment. Frontory notes save synchronously onChange."
     },
     {
       "id": "playwright-step-20",
@@ -7177,6 +7196,7 @@
       "goal": "Learning outcome: explain the role of Signal collection. Input cases: normal navigation and an intentional exception. Deliverable: error type, message, and stage of occurrence. Explain the rationale for handling Filter rationale, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/20/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-20/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7187,6 +7207,7 @@
       "goal": "Learning outcome: explain the role of Execution evidence. Input cases: an intentionally incorrect document expectation. Deliverable: diagnostic notes linking actions, DOM, and requests. Explain the rationale for handling Diagnosis, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/21/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-21/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7197,6 +7218,7 @@
       "goal": "Learning outcome: explain the role of Fixture. Input cases: a successful test and a failure partway through. Deliverable: setup and cleanup logs and remaining files. Explain the rationale for handling Teardown, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/22/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-22/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7207,6 +7229,7 @@
       "goal": "Learning outcome: explain the role of Parallelism. Input cases: two tests of the same backup flow. Deliverable: file paths and each test’s results. Explain the rationale for handling Independence, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/23/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-23/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7217,7 +7240,8 @@
       "goal": "Learning outcome: explain the role of Retry. Input cases: 10 repetitions of the same test. Deliverable: first-attempt and retry results and the rationale for the fix. Explain the rationale for handling Root cause, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/24/README.md",
       "seriesId": "playwright",
-      "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
+      "exampleReadingSource": "/examples-en/playwright-step-24/example.js",
+      "exampleNote": "This unit config uses retries:2. The spec records the retry index and checks saving. Comparing 0/1 retries, an intentional first failure, and repeated-run experiments are separate assignments."
     },
     {
       "id": "playwright-step-25",
@@ -7227,6 +7251,7 @@
       "goal": "Learning outcome: explain the role of Determinism. Input cases: fixed screen and font conditions. Deliverable: baseline image, environment, and change diff. Explain the rationale for handling Scope, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/25/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-25/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7237,6 +7262,7 @@
       "goal": "Learning outcome: explain the role of Tolerance. Input cases: a 2px spacing change and the original. Deliverable: diff location and a decision on updating the baseline. Explain the rationale for handling Baseline update, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/26/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-26/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7247,6 +7273,7 @@
       "goal": "Learning outcome: explain the role of Reproducible environment. Input cases: a clean run and an intentional failure. Deliverable: installed versions, exit code, and report path. Explain the rationale for handling Failure artifacts, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/units/27/README.md",
       "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-step-27/example.js",
       "exampleNote": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests."
     },
     {
@@ -7256,7 +7283,8 @@
       "title": "Visual Regression and Flakiness",
       "goal": "Learning outcome: explain the role of Environment differences. Input cases: fixed viewport, stopped rotation, and font readiness. Deliverable: baseline image, functional report, failure trace, and limitations document. Explain the rationale for handling Combined verification, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/03-project/README.md",
-      "seriesId": "playwright"
+      "seriesId": "playwright",
+      "exampleReadingSource": "/examples-en/playwright-03/example.js"
     }
   ]
 }

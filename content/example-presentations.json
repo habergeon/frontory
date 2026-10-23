@@ -8592,5 +8592,289 @@
     "comments": {
       "comment001": "Sandbox scope: real WebAssembly.Memory; computations here are JavaScript, NOT compiled Wasm."
     }
+  },
+  "playwright-01": {
+    "messages": {
+      "display001": "별도 Node 환경에서 실행합니다. 화면의 코드를 바꾸면 아래 테스트 소스도 바뀝니다. 실행 방법은 학습 문서를 참고하세요."
+    },
+    "comments": {
+      "comment001": "Playwright는 Node에서 별도 브라우저를 제어합니다. 이 화면은 실제 실행할 테스트 소스를 제공합니다."
+    }
+  },
+  "playwright-step-02": {
+    "messages": {
+      "display001": "<h3>설정과 실행 범위</h3><p>Runner / BaseURL</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-02: 설정과 실행 범위"
+    }
+  },
+  "playwright-step-03": {
+    "messages": {
+      "display001": "<h3>Role과 접근 가능한 이름</h3><p>Role / 이름</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-03: Role과 접근 가능한 이름"
+    }
+  },
+  "playwright-step-04": {
+    "messages": {
+      "display001": "<h3>Label과 입력</h3><p>Label / 값 assertion</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-04: Label과 입력"
+    }
+  },
+  "playwright-step-05": {
+    "messages": {
+      "display001": "<h3>Locator 범위</h3><p>범위 좁히기 / 엄격성</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-05: Locator 범위"
+    }
+  },
+  "playwright-step-06": {
+    "messages": {
+      "display001": "<h3>재시도 Assertion</h3><p>상태 대기 / 실패 설명</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-06: 재시도 Assertion"
+    }
+  },
+  "playwright-step-07": {
+    "messages": {
+      "display001": "<h3>첫 흐름의 실패 진단</h3><p>실패 위치 / 단계</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-07: 첫 흐름의 실패 진단"
+    }
+  },
+  "playwright-step-08": {
+    "messages": {
+      "display001": "<h3>BrowserContext 격리</h3><p>새 문맥 / 테스트 데이터</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-08: BrowserContext 격리"
+    }
+  },
+  "playwright-step-09": {
+    "messages": {
+      "display001": "<h3>저장과 새로고침</h3><p>영속 상태 / 완료 신호</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-09: 저장과 새로고침"
+    }
+  },
+  "playwright-step-10": {
+    "messages": {
+      "display001": "<h3>다운로드 이벤트</h3><p>이벤트 순서 / 파일 검증</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-10: 다운로드 이벤트"
+    }
+  },
+  "playwright-step-11": {
+    "messages": {
+      "display001": "<h3>파일 업로드</h3><p>파일 입력 / 복원 결과</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-11: 파일 업로드"
+    }
+  },
+  "playwright-step-12": {
+    "messages": {
+      "display001": "<h3>잘못된 파일과 보존</h3><p>검증 실패 / 음성 경로</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-12: 잘못된 파일과 보존"
+    }
+  },
+  "playwright-step-13": {
+    "messages": {
+      "display001": "<h3>항목별 저장 격리</h3><p>식별자 / 왕복 이동</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-13: 항목별 저장 격리"
+    }
+  },
+  "playwright-02": {
+    "messages": {
+      "display001": "<h3>JSON backup round trip</h3><p>Isolated context, download/filechooser waits armed before clicks, Korean and empty notes, invalid-file preservation, reload verification.</p><label>Test origin <input value=\"http://127.0.0.1:5174\" style=\"width:260px\"></label> <button>Regenerate spec</button><p>Use a disposable local test checkout. Start it on port 5174. In a separate test folder: npm init -y; npm install -D @playwright/test; npx playwright install chromium. Save the source below as lesson.spec.mjs. Run: npx playwright test lesson.spec.mjs --workers=1. For visual baselines add --update-snapshots once and inspect generated images. View failures with npx playwright show-trace &lt;trace.zip&gt;. No tests execute inside this iframe.</p><pre aria-live=\"polite\"></pre><textarea aria-label=\"Complete Playwright spec\" spellcheck=\"false\" style=\"width:100%;height:380px;box-sizing:border-box;font-family:monospace\"></textarea>",
+      "display002": "Spec ready to select and save. Test status: not run. The standalone lesson.spec.mjs is also provided in this lesson folder."
+    },
+    "comments": {
+      "comment001": "Playwright runs in Node. This browser lesson authors a complete runnable spec; it does not run tests.",
+      "nested002": "A new Playwright context per test isolates cookies/storage from your everyday browser.",
+      "nested003": "Serve a disposable checkout at this separate test origin. Do not connect to a personal browser profile.",
+      "nested004": "Arm events before their triggering click."
+    }
+  },
+  "playwright-step-15": {
+    "messages": {
+      "display001": "<h3>Keyboard 탐색</h3><p>키보드 경로 / 포커스</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-15: Keyboard 탐색"
+    }
+  },
+  "playwright-step-16": {
+    "messages": {
+      "display001": "<h3>Viewport와 반응형</h3><p>조건 명시 / 핵심 동작</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-16: Viewport와 반응형"
+    }
+  },
+  "playwright-step-17": {
+    "messages": {
+      "display001": "<h3>Network Route</h3><p>의존성 제어 / 범위</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-17: Network Route"
+    }
+  },
+  "playwright-step-18": {
+    "messages": {
+      "display001": "<h3>지연과 경합</h3><p>최신 상태 / 응답 순서</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-18: 지연과 경합"
+    }
+  },
+  "playwright-step-19": {
+    "messages": {
+      "display001": "<h3>시계와 예약 저장</h3><p>시간 제어 / 관찰 조건</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-19: 시계와 예약 저장"
+    }
+  },
+  "playwright-step-20": {
+    "messages": {
+      "display001": "<h3>Console과 PageError</h3><p>신호 수집 / 필터 근거</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-20: Console과 PageError"
+    }
+  },
+  "playwright-step-21": {
+    "messages": {
+      "display001": "<h3>Trace 읽기</h3><p>실행 증거 / 진단</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-21: Trace 읽기"
+    }
+  },
+  "playwright-step-22": {
+    "messages": {
+      "display001": "<h3>Fixtures와 준비 책임</h3><p>Fixture / 해제</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-22: Fixtures와 준비 책임"
+    }
+  },
+  "playwright-step-23": {
+    "messages": {
+      "display001": "<h3>병렬 실행과 충돌</h3><p>병렬성 / 독립성</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-23: 병렬 실행과 충돌"
+    }
+  },
+  "playwright-step-24": {
+    "messages": {
+      "display001": "<h3>Retries와 흔들림</h3><p>Retry / 근본 원인</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-24: Retries와 흔들림"
+    }
+  },
+  "playwright-step-25": {
+    "messages": {
+      "display001": "<h3>시각 기준 만들기</h3><p>결정성 / 범위</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-25: 시각 기준 만들기"
+    }
+  },
+  "playwright-step-26": {
+    "messages": {
+      "display001": "<h3>허용 차이와 검토</h3><p>허용치 / 기준 갱신</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-26: 허용 차이와 검토"
+    }
+  },
+  "playwright-step-27": {
+    "messages": {
+      "display001": "<h3>CI 실행과 산출물</h3><p>재현 환경 / 실패 자료</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "External source only. This preview does not execute the test runner or claim any passing result."
+    },
+    "comments": {
+      "comment001": "playwright-step-27: CI 실행과 산출물"
+    }
+  },
+  "playwright-03": {
+    "messages": {
+      "display001": "<h3>Stable visual regression</h3><p>Fixed viewport/DPR and fonts; snapshot a stable Frontory region. A separate rotating Canvas fixture stops at a defined angle before capture; traces are retained on failure.</p><label>Test origin <input value=\"http://127.0.0.1:5174\" style=\"width:260px\"></label> <button>Regenerate spec</button><p>Use a disposable local test checkout. Start it on port 5174. In a separate test folder: npm init -y; npm install -D @playwright/test; npx playwright install chromium. Save the source below as lesson.spec.mjs. Run: npx playwright test lesson.spec.mjs --workers=1. For visual baselines add --update-snapshots once and inspect generated images. View failures with npx playwright show-trace &lt;trace.zip&gt;. No tests execute inside this iframe.</p><pre aria-live=\"polite\"></pre><textarea aria-label=\"Complete Playwright spec\" spellcheck=\"false\" style=\"width:100%;height:380px;box-sizing:border-box;font-family:monospace\"></textarea>",
+      "display002": "Spec ready to select and save. Test status: not run. The standalone lesson.spec.mjs is also provided in this lesson folder."
+    },
+    "comments": {
+      "comment001": "Playwright runs in Node. This browser lesson authors a complete runnable spec; it does not run tests.",
+      "nested002": "Snapshot the stable notes panel. Canvas/iframe scene correctness needs separate semantic tests.",
+      "nested003": "Keep browser version, OS, fonts, viewport, and DPR fixed in CI.",
+      "nested004": "Generate baselines once with --update-snapshots; inspect them before committing.",
+      "nested005": "Never increase tolerance merely to silence a failure. Use trace to inspect inputs/network/errors.",
+      "nested006": "Cross-GPU scenes: verify numeric state and rendering availability separately; avoid pixel-exact portability claims."
+    }
   }
 }

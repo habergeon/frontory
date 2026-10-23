@@ -1,0 +1,16 @@
+// Playwright controls a separate browser from Node. This screen supplies the test source to run externally.
+export function mount({locale='ko', container }) {
+const messages=locale==='en'?{"display001":"Run this in a separate Node environment. Editing the code on this screen also changes the test source below. See the lesson document for execution instructions."}:{"display001":"별도 Node 환경에서 실행합니다. 화면의 코드를 바꾸면 아래 테스트 소스도 바뀝니다. 실행 방법은 학습 문서를 참고하세요."};
+  const source = `import { test, expect } from '@playwright/test';
+test('Frontory 카메라 학습 단위 탐색', async ({ page }) => {
+  await page.goto('http://127.0.0.1:5173/#02-camera');
+  await expect(page.getByRole('heading', { name: 'Scene·Camera·Renderer', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: '학습 문서 열기', exact: true }).click();
+  await expect(page.getByRole('dialog')).toBeVisible();
+});`
+  const pre = document.createElement('pre'); pre.textContent = source
+  pre.style.cssText = 'white-space:pre-wrap;font-size:12px'
+  const hint = document.createElement('p'); hint.textContent = messages.display001
+  container.append(hint,pre)
+  return () => container.replaceChildren()
+}

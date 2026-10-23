@@ -65,7 +65,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/playwright-step-11/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.
+The supplied spec uploads a fixture with version:1 and one text value, then checks automatic restoration. Validating, confirming, and restoring a Frontory v3 backup with 644 entries is a separate assignment.
 
 - [lesson.spec.mjs](../../../../../../../src/labs/playwright-step-11/lesson.spec.mjs)
 - [fixture.html](../../../../../../../src/labs/playwright-step-11/fixture.html)

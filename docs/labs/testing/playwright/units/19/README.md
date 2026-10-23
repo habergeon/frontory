@@ -66,7 +66,7 @@ fixture의 타이머 실행과 저장된 값의 표시는 별도 관찰 대상�
 
 [예제 원본](../../../../../../src/labs/playwright-step-19/example.js) · [실행 환경과 제한](../../../../../examples.md)
 
-Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.
+제공된 spec은 beforeEach의 goto 뒤에 Clock을 설치하고 fixture의 500ms 예약 저장을 검사합니다. 탐색 전에 Clock을 설치하는 과제와 구분합니다. Frontory 필기는 onChange에서 동기 저장합니다.
 
 - [lesson.spec.mjs](../../../../../../src/labs/playwright-step-19/lesson.spec.mjs)
 - [fixture.html](../../../../../../src/labs/playwright-step-19/fixture.html)

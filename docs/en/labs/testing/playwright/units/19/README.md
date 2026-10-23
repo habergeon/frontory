@@ -66,7 +66,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/playwright-step-19/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.
+The supplied spec installs Clock after the beforeEach goto and checks the fixture’s 500ms debounced save. Installing Clock before navigation is a separate assignment. Frontory notes save synchronously onChange.
 
 - [lesson.spec.mjs](../../../../../../../src/labs/playwright-step-19/lesson.spec.mjs)
 - [fixture.html](../../../../../../../src/labs/playwright-step-19/fixture.html)

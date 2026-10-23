@@ -1,5 +1,6 @@
 {
   "playwright-step-02": {
+    "readingSource": "/examples-en/playwright-step-02/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -10,6 +11,7 @@
     ]
   },
   "playwright-step-03": {
+    "readingSource": "/examples-en/playwright-step-03/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -20,6 +22,7 @@
     ]
   },
   "playwright-step-04": {
+    "readingSource": "/examples-en/playwright-step-04/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -30,6 +33,7 @@
     ]
   },
   "playwright-step-05": {
+    "readingSource": "/examples-en/playwright-step-05/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -40,6 +44,7 @@
     ]
   },
   "playwright-step-06": {
+    "readingSource": "/examples-en/playwright-step-06/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -50,6 +55,7 @@
     ]
   },
   "playwright-step-07": {
+    "readingSource": "/examples-en/playwright-step-07/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -60,6 +66,7 @@
     ]
   },
   "playwright-step-08": {
+    "readingSource": "/examples-en/playwright-step-08/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -70,6 +77,7 @@
     ]
   },
   "playwright-step-09": {
+    "readingSource": "/examples-en/playwright-step-09/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -80,6 +88,7 @@
     ]
   },
   "playwright-step-10": {
+    "readingSource": "/examples-en/playwright-step-10/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -90,8 +99,9 @@
     ]
   },
   "playwright-step-11": {
+    "readingSource": "/examples-en/playwright-step-11/example.js",
     "mode": "external",
-    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "note": "제공된 spec은 version:1과 단일 text를 가진 fixture 파일을 업로드하고 자동 복원 결과를 검사합니다. 644개 항목을 가진 Frontory v3 백업 검증·확인·복원은 별도 과제입니다.",
     "files": [
       "src/labs/playwright-step-11/lesson.spec.mjs",
       "src/labs/playwright-step-11/fixture.html",
@@ -100,6 +110,7 @@
     ]
   },
   "playwright-step-12": {
+    "readingSource": "/examples-en/playwright-step-12/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -110,6 +121,7 @@
     ]
   },
   "playwright-step-13": {
+    "readingSource": "/examples-en/playwright-step-13/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -120,6 +132,7 @@
     ]
   },
   "playwright-step-15": {
+    "readingSource": "/examples-en/playwright-step-15/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -130,6 +143,7 @@
     ]
   },
   "playwright-step-16": {
+    "readingSource": "/examples-en/playwright-step-16/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -140,6 +154,7 @@
     ]
   },
   "playwright-step-17": {
+    "readingSource": "/examples-en/playwright-step-17/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -150,6 +165,7 @@
     ]
   },
   "playwright-step-18": {
+    "readingSource": "/examples-en/playwright-step-18/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -160,8 +176,9 @@
     ]
   },
   "playwright-step-19": {
+    "readingSource": "/examples-en/playwright-step-19/example.js",
     "mode": "external",
-    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "note": "제공된 spec은 beforeEach의 goto 뒤에 Clock을 설치하고 fixture의 500ms 예약 저장을 검사합니다. 탐색 전에 Clock을 설치하는 과제와 구분합니다. Frontory 필기는 onChange에서 동기 저장합니다.",
     "files": [
       "src/labs/playwright-step-19/lesson.spec.mjs",
       "src/labs/playwright-step-19/fixture.html",
@@ -170,6 +187,7 @@
     ]
   },
   "playwright-step-20": {
+    "readingSource": "/examples-en/playwright-step-20/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -180,6 +198,7 @@
     ]
   },
   "playwright-step-21": {
+    "readingSource": "/examples-en/playwright-step-21/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -190,6 +209,7 @@
     ]
   },
   "playwright-step-22": {
+    "readingSource": "/examples-en/playwright-step-22/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -200,6 +220,7 @@
     ]
   },
   "playwright-step-23": {
+    "readingSource": "/examples-en/playwright-step-23/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -210,8 +231,9 @@
     ]
   },
   "playwright-step-24": {
+    "readingSource": "/examples-en/playwright-step-24/example.js",
     "mode": "external",
-    "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
+    "note": "이 단위의 config는 retries:2입니다. spec은 retry 번호를 기록하고 저장을 검사합니다. 0/1 비교, 의도적인 첫 실패와 반복 실행 실험은 별도 과제입니다.",
     "files": [
       "src/labs/playwright-step-24/lesson.spec.mjs",
       "src/labs/playwright-step-24/fixture.html",
@@ -220,6 +242,7 @@
     ]
   },
   "playwright-step-25": {
+    "readingSource": "/examples-en/playwright-step-25/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -230,6 +253,7 @@
     ]
   },
   "playwright-step-26": {
+    "readingSource": "/examples-en/playwright-step-26/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [
@@ -240,6 +264,7 @@
     ]
   },
   "playwright-step-27": {
+    "readingSource": "/examples-en/playwright-step-27/example.js",
     "mode": "external",
     "note": "Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.",
     "files": [

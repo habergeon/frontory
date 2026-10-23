@@ -65,7 +65,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/playwright-step-24/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.
+This unit config uses retries:2. The spec records the retry index and checks saving. Comparing 0/1 retries, an intentional first failure, and repeated-run experiments are separate assignments.
 
 - [lesson.spec.mjs](../../../../../../../src/labs/playwright-step-24/lesson.spec.mjs)
 - [fixture.html](../../../../../../../src/labs/playwright-step-24/fixture.html)

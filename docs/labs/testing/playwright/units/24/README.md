@@ -65,7 +65,7 @@
 
 [예제 원본](../../../../../../src/labs/playwright-step-24/example.js) · [실행 환경과 제한](../../../../../examples.md)
 
-Runnable standalone Playwright spec and HTTP fixture; preview does not run tests.
+이 단위의 config는 retries:2입니다. spec은 retry 번호를 기록하고 저장을 검사합니다. 0/1 비교, 의도적인 첫 실패와 반복 실행 실험은 별도 과제입니다.
 
 - [lesson.spec.mjs](../../../../../../src/labs/playwright-step-24/lesson.spec.mjs)
 - [fixture.html](../../../../../../src/labs/playwright-step-24/fixture.html)

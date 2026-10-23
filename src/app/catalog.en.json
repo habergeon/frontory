@@ -478,6 +478,33 @@
       "seriesId": "webgl"
     },
     {
+      "id": "18-gs-projection",
+      "day": 18,
+      "week": 3,
+      "title": "Projection·Sorting·Alpha Blending",
+      "goal": "Explain screen footprints and order-dependent compositing.",
+      "docPath": "/docs/en/labs/graphics/webgl/18-gs-projection/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "19-gs-loading",
+      "day": 19,
+      "week": 3,
+      "title": ".ply·.splat loading",
+      "goal": "Check input data specifications and implement successful and failed loading.",
+      "docPath": "/docs/en/labs/graphics/webgl/19-gs-loading/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "20-gs-interaction",
+      "day": 20,
+      "week": 3,
+      "title": "Three.js+GS camera and interaction",
+      "goal": "Connect the meaning of GS coordinates, scale, and selection to scene controls.",
+      "docPath": "/docs/en/labs/graphics/webgl/20-gs-interaction/README.md",
+      "seriesId": "webgl"
+    },
+    {
       "id": "javascript-01",
       "day": 1,
       "week": 1,

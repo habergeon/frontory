@@ -94,5 +94,17 @@
   "/docs/labs/graphics/webgl/17-sh/README.md": {
     "sourceHash": "cd7581ffde7be6d7001518b80ca1a32fcc3370ac5830170de2006db277b68869",
     "translatedPath": "/docs/en/labs/graphics/webgl/17-sh/README.md"
+  },
+  "/docs/labs/graphics/webgl/18-gs-projection/README.md": {
+    "sourceHash": "115d7fa7a8b0147ed6f973a3b44b644a294a6f6405879a2253157b598a042c5e",
+    "translatedPath": "/docs/en/labs/graphics/webgl/18-gs-projection/README.md"
+  },
+  "/docs/labs/graphics/webgl/19-gs-loading/README.md": {
+    "sourceHash": "3ecd8bf3b89a820db9ce8ef3694d368419cc91dfc69313a016e11fb54fb4937b",
+    "translatedPath": "/docs/en/labs/graphics/webgl/19-gs-loading/README.md"
+  },
+  "/docs/labs/graphics/webgl/20-gs-interaction/README.md": {
+    "sourceHash": "8cc2e2cc24178ffe769679bf5d889c2006afc5be7b594ff81d32df6e63484ef4",
+    "translatedPath": "/docs/en/labs/graphics/webgl/20-gs-interaction/README.md"
   }
 }

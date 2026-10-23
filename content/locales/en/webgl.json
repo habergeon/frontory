@@ -118,6 +118,27 @@
         "title": "Spherical Harmonics and view-dependent color",
         "goal": "Explain the difference between fixed RGB and direction-dependent color representations."
       }
+    },
+    "18-gs-projection": {
+      "sourceHash": "47702a331f8df56ca158c3a1e473adc8b9b7bfe2d0fbd09659d7fb09d05a9aa4",
+      "values": {
+        "title": "Projection·Sorting·Alpha Blending",
+        "goal": "Explain screen footprints and order-dependent compositing."
+      }
+    },
+    "19-gs-loading": {
+      "sourceHash": "e9552fab99c217d6120c99e6a3c08e705945b394daa013d2a1aed4680715315d",
+      "values": {
+        "title": ".ply·.splat loading",
+        "goal": "Check input data specifications and implement successful and failed loading."
+      }
+    },
+    "20-gs-interaction": {
+      "sourceHash": "54d021b5b08697282ad7ad3eb2b4f17e9bdef8f57576cd8a5f05692d47432b90",
+      "values": {
+        "title": "Three.js+GS camera and interaction",
+        "goal": "Connect the meaning of GS coordinates, scale, and selection to scene controls."
+      }
     }
   }
 }

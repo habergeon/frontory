@@ -48,7 +48,7 @@ URL이 언어를 결정합니다. `/`와 `/#<id>`는 한국어, `/en/`와 `/en/#
 
 `pnpm build:curricula`가 `src/app/catalog.en.json`과 영어 학습 Markdown을 생성하고 `pnpm check:curricula`가 최신 상태를 검사합니다. `readEnglishContent({ complete: true })`는 전체 영어 범위의 필수 검증입니다. 현재 빌드와 CI는 complete 검사를 통과해야 합니다. 실제 공개 경로 집합은 `generateSearchPages()`가 결정합니다. 영어 앱 진입·자산 결합은 `scripts/build-search.mjs`, 로컬 라우팅은 `vite.config.ts`가 맡습니다.
 
-전체 확장과 번들 최적화(E08), E09의 로컬 예제 검증은 완료했습니다. 이번 확장의 원격 CI·Cloudflare 배포와 실제 CDN header·언어별 404 검증(E10)은 아직 실행하지 않았습니다. 로컬 HTTP 성공을 운영 배포 완료로 해석하지 않습니다.
+전체 확장, E08의 공개 경로·다운로드·번들 구성 검증과 E09의 로컬 예제 검증은 완료했습니다. 이번 확장의 원격 CI·Cloudflare 배포와 실제 CDN header·언어별 404 검증(E10)은 아직 실행하지 않았습니다. 로컬 HTTP 성공을 운영 배포 완료로 해석하지 않습니다.
 
 ## Search Console 등록과 확인
 

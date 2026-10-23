@@ -139,6 +139,27 @@
         "title": "Three.js+GS camera and interaction",
         "goal": "Connect the meaning of GS coordinates, scale, and selection to scene controls."
       }
+    },
+    "21-gs-review": {
+      "sourceHash": "6ade6c6e01a0c0b761b0f75df9c96406339edd0ff140cf3c32c6e50360961dc2",
+      "values": {
+        "title": "GS viewer review and candidate comparison",
+        "goal": "Summarize the scope of a small GS viewer and the reasons for choosing a library."
+      }
+    },
+    "22-react-viewer": {
+      "sourceHash": "b5fc924afd7be56f65b19b8eb842a40038409a5aae1d5ebd852a38011bad9a60",
+      "values": {
+        "title": "React+Three.js component design",
+        "goal": "Separate UI state from per-frame scene state and create an exercise contract."
+      }
+    },
+    "23-loading-ui": {
+      "sourceHash": "8cd8efd1624e10240c55152af7bea0a3457d02fb7e48a10f5b8e8f8dd667158f",
+      "values": {
+        "title": "Loading UI and progress",
+        "goal": "Display progress based on actual stages and available evidence."
+      }
     }
   }
 }

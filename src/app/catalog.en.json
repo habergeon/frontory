@@ -505,6 +505,33 @@
       "seriesId": "webgl"
     },
     {
+      "id": "21-gs-review",
+      "day": 21,
+      "week": 3,
+      "title": "GS viewer review and candidate comparison",
+      "goal": "Summarize the scope of a small GS viewer and the reasons for choosing a library.",
+      "docPath": "/docs/en/labs/graphics/webgl/21-gs-review/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "22-react-viewer",
+      "day": 22,
+      "week": 4,
+      "title": "React+Three.js component design",
+      "goal": "Separate UI state from per-frame scene state and create an exercise contract.",
+      "docPath": "/docs/en/labs/graphics/webgl/22-react-viewer/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "23-loading-ui",
+      "day": 23,
+      "week": 4,
+      "title": "Loading UI and progress",
+      "goal": "Display progress based on actual stages and available evidence.",
+      "docPath": "/docs/en/labs/graphics/webgl/23-loading-ui/README.md",
+      "seriesId": "webgl"
+    },
+    {
       "id": "javascript-01",
       "day": 1,
       "week": 1,

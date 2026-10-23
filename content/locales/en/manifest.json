@@ -635,6 +635,9 @@
     "17-sh",
     "18-gs-projection",
     "19-gs-loading",
-    "20-gs-interaction"
+    "20-gs-interaction",
+    "21-gs-review",
+    "22-react-viewer",
+    "23-loading-ui"
   ]
 }

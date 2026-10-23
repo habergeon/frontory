@@ -106,5 +106,17 @@
   "/docs/labs/graphics/webgl/20-gs-interaction/README.md": {
     "sourceHash": "8cc2e2cc24178ffe769679bf5d889c2006afc5be7b594ff81d32df6e63484ef4",
     "translatedPath": "/docs/en/labs/graphics/webgl/20-gs-interaction/README.md"
+  },
+  "/docs/labs/graphics/webgl/21-gs-review/README.md": {
+    "sourceHash": "21b14ef920be33b607da731d8c92c2d86104a00c8841a08cd926b7632853c59e",
+    "translatedPath": "/docs/en/labs/graphics/webgl/21-gs-review/README.md"
+  },
+  "/docs/labs/graphics/webgl/22-react-viewer/README.md": {
+    "sourceHash": "6b72957a0c74f1c227bae80ccc07b90348b04fb0760ee755b7fdd27a4ad2603f",
+    "translatedPath": "/docs/en/labs/graphics/webgl/22-react-viewer/README.md"
+  },
+  "/docs/labs/graphics/webgl/23-loading-ui/README.md": {
+    "sourceHash": "98f944f321582ed2cce2d0435f8e1060b2880d7079cb0d9aa03f4cd842058cfd",
+    "translatedPath": "/docs/en/labs/graphics/webgl/23-loading-ui/README.md"
   }
 }

@@ -6683,7 +6683,8 @@
       "title": "Modules and Linear Memory",
       "goal": "Learning outcome: explain the role of Module boundary. Input cases: [1,2,3] and an invalid file path. Deliverable: JS·Wasm sum 6 and a record of loading errors. Explain the rationale for handling Preview scope, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/01-foundations/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-01/example.js"
     },
     {
       "id": "webassembly-step-02",
@@ -6693,6 +6694,7 @@
       "goal": "Learning outcome: explain the role of Text format. Input cases: the existing sum function and a modified constant. Deliverable: build logs and export call results. Explain the rationale for handling Build, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/02/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-02/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6703,6 +6705,7 @@
       "goal": "Learning outcome: explain the role of Module. Input cases: the same module and different first elements. Deliverable: the first element value for each instance. Explain the rationale for handling Instance, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/03/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-03/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6713,6 +6716,7 @@
       "goal": "Learning outcome: explain the role of Export surface. Input cases: a valid module and a typo in a required name. Deliverable: the export list and error guidance. Explain the rationale for handling Contract checks, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/04/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-04/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6723,6 +6727,7 @@
       "goal": "Learning outcome: explain the role of Import. Input cases: a reporting function present·missing. Deliverable: call values and linking error records. Explain the rationale for handling Boundary cost, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/05/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-05/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6733,6 +6738,7 @@
       "goal": "Learning outcome: explain the role of Numeric representation. Input cases: small numbers and values near INT32_MAX. Deliverable: expected·actual sums for each numeric range. Explain the rationale for handling Overflow, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/06/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-06/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6743,6 +6749,7 @@
       "goal": "Learning outcome: explain the role of Trap. Input cases: valid·negative length·out of bounds. Deliverable: rejection reasons and RuntimeError records. Explain the rationale for handling Preflight checks, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/07/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-07/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6753,6 +6760,7 @@
       "goal": "Learning outcome: explain the role of Pages. Input cases: four distinct integers. Deliverable: a table of index·offset·value read. Explain the rationale for handling Pointers, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/08/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-08/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6763,6 +6771,7 @@
       "goal": "Learning outcome: explain the role of Shared storage. Input cases: one 32-bit integer. Deliverable: four bytes and the reconstructed number. Explain the rationale for handling Byte order, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/09/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-09/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6773,6 +6782,7 @@
       "goal": "Learning outcome: explain the role of Set. Input cases: arrays of length 0·4·1003. Deliverable: a table of input·memory·result ranges. Explain the rationale for handling Bounds, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/10/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-10/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6783,6 +6793,7 @@
       "goal": "Learning outcome: explain the role of Grow. Input cases: one non-shared memory. Deliverable: capacity before·after growth and old/new view lengths. Explain the rationale for handling Recreation, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/11/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-11/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6793,6 +6804,7 @@
       "goal": "Learning outcome: explain the role of Maximum. Input cases: lengths on either side of a page boundary. Deliverable: a table of required·allocated pages and errors. Explain the rationale for handling Capacity calculation, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/12/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-12/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6803,6 +6815,7 @@
       "goal": "Learning outcome: explain the role of Call count. Input cases: 100 and 100003 integers. Deliverable: call counts·sums·measured times. Explain the rationale for handling Fair comparison, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/13/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-13/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6812,7 +6825,8 @@
       "title": "Arrays and Boundary Costs",
       "goal": "Learning outcome: explain the role of Memory layout. Input cases: the existing 100003 inputs and a small array. Deliverable: matching sums·copyMs·batchMs·scalarMs·view lengths. Explain the rationale for handling View lifetime, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/02-experiments/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-02/example.js"
     },
     {
       "id": "webassembly-step-15",
@@ -6822,6 +6836,7 @@
       "goal": "Learning outcome: explain the role of Overwriting. Input cases: arrays containing negative numbers·0·positive numbers. Deliverable: expected·actual values for every element. Explain the rationale for handling Repeat conditions, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/15/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-15/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6832,6 +6847,7 @@
       "goal": "Learning outcome: explain the role of Alignment. Input cases: the same four bytes. Deliverable: creation errors and values read. Explain the rationale for handling DataView, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/16/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-16/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6842,6 +6858,7 @@
       "goal": "Learning outcome: explain the role of Separate regions. Input cases: two arrays of different lengths. Deliverable: a region table and sentinel values. Explain the rationale for handling Ownership rules, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/17/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-17/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6852,6 +6869,7 @@
       "goal": "Learning outcome: explain the role of Encoding. Input cases: English·Korean·emoji. Deliverable: character counts·byte counts·round-trip strings. Explain the rationale for handling Passing length, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/18/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-18/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6862,6 +6880,7 @@
       "goal": "Learning outcome: explain the role of Streaming. Input cases: valid·404·incorrect MIME. Deliverable: response statuses and initialization results. Explain the rationale for handling Failure classification, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/19/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-19/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6872,6 +6891,7 @@
       "goal": "Learning outcome: explain the role of Initialization cost. Input cases: 5 consecutive requests. Deliverable: initialization counts and per-request results. Explain the rationale for handling Concurrent requests, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/20/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-20/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6882,6 +6902,7 @@
       "goal": "Learning outcome: explain the role of Execution location. Input cases: the same large array and UI clicks. Deliverable: main-thread·Worker results and round-trip latency. Explain the rationale for handling Transfer cost, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/21/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-21/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6892,6 +6913,7 @@
       "goal": "Learning outcome: explain the role of Cache. Input cases: the correct version and a stale binary. Deliverable: source hashes·binary hashes·check results. Explain the rationale for handling Version, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/22/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-22/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6902,6 +6924,7 @@
       "goal": "Learning outcome: explain the role of Cold costs. Input cases: the first request in a new process. Deliverable: per-stage durations and a table of included work. Explain the rationale for handling Measurement boundaries, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/23/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-23/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6912,6 +6935,7 @@
       "goal": "Learning outcome: explain the role of Warm-up. Input cases: 5 and 20 repetitions. Deliverable: raw durations·medians·whether errors occurred. Explain the rationale for handling Equivalent conditions, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/24/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-24/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6922,6 +6946,7 @@
       "goal": "Learning outcome: explain the role of Kernel time. Input cases: three data sizes. Deliverable: a table of JS·kernel·copy-inclusive times. Explain the rationale for handling Total cost, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/25/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-25/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6932,6 +6957,7 @@
       "goal": "Learning outcome: explain the role of Correctness first. Input cases: arrays of length 0·1·1003. Deliverable: PASS or failure differences for each case. Explain the rationale for handling Error tolerance, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/26/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-26/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6942,6 +6968,7 @@
       "goal": "Learning outcome: explain the role of Reproducibility. Input cases: small·medium·large arrays. Deliverable: correctness·total cost·maintenance judgments for each condition. Explain the rationale for handling Adoption criteria, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/units/27/README.md",
       "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-27/example.js",
       "exampleNote": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
     },
     {
@@ -6951,7 +6978,8 @@
       "title": "Evaluating Actual Bottlenecks",
       "goal": "Learning outcome: explain the role of End-to-end latency. Input cases: multiple sizes and repeat counts. Deliverable: a report on cold·warm·copies·correctness·adoption rationale. Explain the rationale for handling Evidence-based decisions, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/03-project/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-03/example.js"
     },
     {
       "id": "playwright-01",

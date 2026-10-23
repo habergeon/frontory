@@ -1,5 +1,6 @@
 {
   "webassembly-step-02": {
+    "readingSource": "/examples-en/webassembly-step-02/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -8,6 +9,7 @@
     ]
   },
   "webassembly-step-03": {
+    "readingSource": "/examples-en/webassembly-step-03/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -16,6 +18,7 @@
     ]
   },
   "webassembly-step-04": {
+    "readingSource": "/examples-en/webassembly-step-04/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -24,6 +27,7 @@
     ]
   },
   "webassembly-step-05": {
+    "readingSource": "/examples-en/webassembly-step-05/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -32,6 +36,7 @@
     ]
   },
   "webassembly-step-06": {
+    "readingSource": "/examples-en/webassembly-step-06/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -40,6 +45,7 @@
     ]
   },
   "webassembly-step-07": {
+    "readingSource": "/examples-en/webassembly-step-07/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -48,6 +54,7 @@
     ]
   },
   "webassembly-step-08": {
+    "readingSource": "/examples-en/webassembly-step-08/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -56,6 +63,7 @@
     ]
   },
   "webassembly-step-09": {
+    "readingSource": "/examples-en/webassembly-step-09/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -64,6 +72,7 @@
     ]
   },
   "webassembly-step-10": {
+    "readingSource": "/examples-en/webassembly-step-10/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -72,6 +81,7 @@
     ]
   },
   "webassembly-step-11": {
+    "readingSource": "/examples-en/webassembly-step-11/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -80,6 +90,7 @@
     ]
   },
   "webassembly-step-12": {
+    "readingSource": "/examples-en/webassembly-step-12/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -88,6 +99,7 @@
     ]
   },
   "webassembly-step-13": {
+    "readingSource": "/examples-en/webassembly-step-13/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -96,6 +108,7 @@
     ]
   },
   "webassembly-step-15": {
+    "readingSource": "/examples-en/webassembly-step-15/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -104,6 +117,7 @@
     ]
   },
   "webassembly-step-16": {
+    "readingSource": "/examples-en/webassembly-step-16/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -112,6 +126,7 @@
     ]
   },
   "webassembly-step-17": {
+    "readingSource": "/examples-en/webassembly-step-17/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -120,6 +135,7 @@
     ]
   },
   "webassembly-step-18": {
+    "readingSource": "/examples-en/webassembly-step-18/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -128,6 +144,7 @@
     ]
   },
   "webassembly-step-19": {
+    "readingSource": "/examples-en/webassembly-step-19/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -136,6 +153,7 @@
     ]
   },
   "webassembly-step-20": {
+    "readingSource": "/examples-en/webassembly-step-20/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -144,6 +162,7 @@
     ]
   },
   "webassembly-step-21": {
+    "readingSource": "/examples-en/webassembly-step-21/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -153,6 +172,7 @@
     ]
   },
   "webassembly-step-22": {
+    "readingSource": "/examples-en/webassembly-step-22/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -161,6 +181,7 @@
     ]
   },
   "webassembly-step-23": {
+    "readingSource": "/examples-en/webassembly-step-23/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -169,6 +190,7 @@
     ]
   },
   "webassembly-step-24": {
+    "readingSource": "/examples-en/webassembly-step-24/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -177,6 +199,7 @@
     ]
   },
   "webassembly-step-25": {
+    "readingSource": "/examples-en/webassembly-step-25/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -185,6 +208,7 @@
     ]
   },
   "webassembly-step-26": {
+    "readingSource": "/examples-en/webassembly-step-26/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [
@@ -193,6 +217,7 @@
     ]
   },
   "webassembly-step-27": {
+    "readingSource": "/examples-en/webassembly-step-27/example.js",
     "mode": "external",
     "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation.",
     "files": [

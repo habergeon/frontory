@@ -8293,5 +8293,304 @@
       "displayFix1004": " ms"
     },
     "comments": {}
+  },
+  "webassembly-01": {
+    "messages": {
+      "display001": "1 page = ",
+      "display002": " bytes\nUint32: 0x",
+      "display003": "\nUint8: ",
+      "display004": "\n같은 buffer를 다른 크기의 view로 읽었습니다. 값을 바꾸어 byte order를 관찰하세요."
+    },
+    "comments": {
+      "comment001": "WebAssembly.Memory의 실제 선형 메모리를 서로 다른 TypedArray로 관찰합니다.",
+      "comment002": "이 예제는 모듈 컴파일을 수행하지 않으므로 기존 CSP를 완화하지 않습니다."
+    }
+  },
+  "webassembly-step-02": {
+    "messages": {
+      "display001": "<h3>WAT와 바이너리</h3><p>텍스트 형식 / 빌드</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-02: WAT와 바이너리"
+    }
+  },
+  "webassembly-step-03": {
+    "messages": {
+      "display001": "<h3>Compile과 Instance</h3><p>Module / Instance</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-03: Compile과 Instance"
+    }
+  },
+  "webassembly-step-04": {
+    "messages": {
+      "display001": "<h3>Export 검사</h3><p>Export 표면 / 계약 검사</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-04: Export 검사"
+    }
+  },
+  "webassembly-step-05": {
+    "messages": {
+      "display001": "<h3>Import와 Host 함수</h3><p>Import / 경계 비용</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-05: Import와 Host 함수"
+    }
+  },
+  "webassembly-step-06": {
+    "messages": {
+      "display001": "<h3>I32와 JS Number</h3><p>수치 표현 / 오버플로</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-06: I32와 JS Number"
+    }
+  },
+  "webassembly-step-07": {
+    "messages": {
+      "display001": "<h3>Trap과 입력 검사</h3><p>Trap / 사전 검사</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-07: Trap과 입력 검사"
+    }
+  },
+  "webassembly-step-08": {
+    "messages": {
+      "display001": "<h3>페이지와 Byte Offset</h3><p>페이지 / 포인터</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-08: 페이지와 Byte Offset"
+    }
+  },
+  "webassembly-step-09": {
+    "messages": {
+      "display001": "<h3>View와 엔디언</h3><p>동일 저장소 / 바이트 순서</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-09: View와 엔디언"
+    }
+  },
+  "webassembly-step-10": {
+    "messages": {
+      "display001": "<h3>배열 복사와 범위</h3><p>Set / 범위</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-10: 배열 복사와 범위"
+    }
+  },
+  "webassembly-step-11": {
+    "messages": {
+      "display001": "<h3>Memory Grow와 View 수명</h3><p>Grow / 재생성</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-11: Memory Grow와 View 수명"
+    }
+  },
+  "webassembly-step-12": {
+    "messages": {
+      "display001": "<h3>용량 한도와 실패</h3><p>Maximum / 용량 계산</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-12: 용량 한도와 실패"
+    }
+  },
+  "webassembly-step-13": {
+    "messages": {
+      "display001": "<h3>스칼라와 배치 호출</h3><p>호출 횟수 / 공정한 비교</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-13: 스칼라와 배치 호출"
+    }
+  },
+  "webassembly-02": {
+    "messages": {
+      "display001": "<h3>Linear memory, copies, and view lifetime</h3><p>This sandbox blocks Wasm compilation. The controls below exercise real WebAssembly.Memory with JavaScript computations. For actual JS↔Wasm calls and cold/warm measurements, use the complete standalone files shown below. No sandbox policy changes are required.</p><label>Elements <input type=\"number\" min=\"1\" max=\"200000\" value=\"10003\"></label> <button>Run memory experiment</button><pre data-results aria-live=\"polite\"></pre><details><summary>Standalone kernel.wat + benchmark.mjs and run instructions</summary><p>Install the official WABT wat2wasm CLI and Node 22+. Save the two sources into an empty experiment folder. Run: wat2wasm kernel.wat -o kernel.wasm, then node benchmark.mjs. These files are also provided in this lesson source folder.</p><pre data-source style=\"white-space:pre-wrap;font-size:12px\"></pre></details>",
+      "display002": "\nCopy into linear memory: ",
+      "display003": " ms\nAfter memory.grow: old view=",
+      "display004": " bytes; fresh view=",
+      "display005": " bytes\nOut-of-range view rejected: ",
+      "display006": "\nComputation above is JS; use standalone benchmark for actual Wasm performance.",
+      "displayFix1001": "JS batch over Wasm memory: sum=",
+      "displayFix1002": "; expected=",
+      "displayFix1003": "; ",
+      "displayFix1004": "\nLoop time ",
+      "displayFix1005": " ms; ",
+      "displayFix1006": " elements / ",
+      "displayFix1007": " bytes"
+    },
+    "comments": {
+      "comment001": "Sandbox scope: real WebAssembly.Memory; computations here are JavaScript, NOT compiled Wasm."
+    }
+  },
+  "webassembly-step-15": {
+    "messages": {
+      "display001": "<h3>In-place 변환</h3><p>덮어쓰기 / 반복 조건</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-15: In-place 변환"
+    }
+  },
+  "webassembly-step-16": {
+    "messages": {
+      "display001": "<h3>정렬과 비정렬 접근</h3><p>정렬 / DataView</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-16: 정렬과 비정렬 접근"
+    }
+  },
+  "webassembly-step-17": {
+    "messages": {
+      "display001": "<h3>복수 배열의 배치</h3><p>영역 분리 / 소유권 규약</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-17: 복수 배열의 배치"
+    }
+  },
+  "webassembly-step-18": {
+    "messages": {
+      "display001": "<h3>문자열 바이트 계약</h3><p>인코딩 / 길이 전달</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-18: 문자열 바이트 계약"
+    }
+  },
+  "webassembly-step-19": {
+    "messages": {
+      "display001": "<h3>브라우저 로딩과 MIME</h3><p>Streaming / 실패 분류</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-19: 브라우저 로딩과 MIME"
+    }
+  },
+  "webassembly-step-20": {
+    "messages": {
+      "display001": "<h3>초기화 재사용</h3><p>초기화 비용 / 동시 요청</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-20: 초기화 재사용"
+    }
+  },
+  "webassembly-step-21": {
+    "messages": {
+      "display001": "<h3>Worker와 Wasm</h3><p>실행 위치 / 전송 비용</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-21: Worker와 Wasm"
+    }
+  },
+  "webassembly-step-22": {
+    "messages": {
+      "display001": "<h3>모듈 캐시와 버전</h3><p>캐시 / 버전</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-22: 모듈 캐시와 버전"
+    }
+  },
+  "webassembly-step-23": {
+    "messages": {
+      "display001": "<h3>콜드 실행 분해</h3><p>콜드 비용 / 측정 경계</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-23: 콜드 실행 분해"
+    }
+  },
+  "webassembly-step-24": {
+    "messages": {
+      "display001": "<h3>웜 반복과 워밍업</h3><p>워밍업 / 동등 조건</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-24: 웜 반복과 워밍업"
+    }
+  },
+  "webassembly-step-25": {
+    "messages": {
+      "display001": "<h3>복사 포함 총비용</h3><p>커널 시간 / 총비용</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-25: 복사 포함 총비용"
+    }
+  },
+  "webassembly-step-26": {
+    "messages": {
+      "display001": "<h3>경계값 정확도</h3><p>정확도 우선 / 오차 기준</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-26: 경계값 정확도"
+    }
+  },
+  "webassembly-step-27": {
+    "messages": {
+      "display001": "<h3>환경과 채택 기준</h3><p>재현성 / 채택 기준</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Show execution boundary",
+      "display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm."
+    },
+    "comments": {
+      "comment001": "webassembly-step-27: 환경과 채택 기준"
+    }
+  },
+  "webassembly-03": {
+    "messages": {
+      "display001": "<h3>Measure the whole path: JS sandbox + standalone Wasm</h3><p>This sandbox blocks Wasm compilation. The controls below exercise real WebAssembly.Memory with JavaScript computations. For actual JS↔Wasm calls and cold/warm measurements, use the complete standalone files shown below. No sandbox policy changes are required.</p><label>Elements <input type=\"number\" min=\"1\" max=\"200000\" value=\"10003\"></label> <button>Run memory experiment</button><pre data-results aria-live=\"polite\"></pre><details><summary>Standalone kernel.wat + benchmark.mjs and run instructions</summary><p>Install the official WABT wat2wasm CLI and Node 22+. Save the two sources into an empty experiment folder. Run: wat2wasm kernel.wat -o kernel.wasm, then node benchmark.mjs. These files are also provided in this lesson source folder.</p><pre data-source style=\"white-space:pre-wrap;font-size:12px\"></pre></details>",
+      "display002": "\nCopy into linear memory: ",
+      "display003": " ms\nAfter memory.grow: old view=",
+      "display004": " bytes; fresh view=",
+      "display005": " bytes\nOut-of-range view rejected: ",
+      "display006": "\nComputation above is JS; use standalone benchmark for actual Wasm performance.",
+      "displayFix1001": "JS point transform over Wasm memory: ",
+      "displayFix1002": "\nFirst JS kernel ",
+      "displayFix1003": " ms\nRepeated JS total incl. reset + readback copy ",
+      "displayFix1004": " ms\nNo Wasm module was compiled or timed here."
+    },
+    "comments": {
+      "comment001": "Sandbox scope: real WebAssembly.Memory; computations here are JavaScript, NOT compiled Wasm."
+    }
   }
 }

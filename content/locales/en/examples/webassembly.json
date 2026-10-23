@@ -1,152 +1,429 @@
 {
   "webassembly-step-02": {
-    "sourceHash": "36594da5ab3f8445c5fac4194159c4f01a20a022907212901c05623f8a0dc4ed",
+    "sourceHash": "52939dcd398d1bab99c9d23a4f43e170ba7f4c76dbfc81f8849e2cf1d72298c1",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "c9d7e8ba26fab0f4569d6c03c3acd68e375e35ce136e39bf0b40032c5ab00822",
+      "values": {
+        "messages.display001": "<h3>WAT and Binary</h3><p>Text format / Build</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-02: WAT and Binary"
+      }
     }
   },
   "webassembly-step-03": {
-    "sourceHash": "363dd230b3a8838c4ec3919bf370ac7616fd16da4c6937719a6d120eec2826e2",
+    "sourceHash": "b1e888904c4a41805db3b36f4da07e1583ab59e5d3122b70974d96e128b9e9b9",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "cdc0625a87e55afa040307c5be33fe1304822dc6a3cd0d3f7dc169a195babac1",
+      "values": {
+        "messages.display001": "<h3>Compile and Instance</h3><p>Module / Instance</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-03: Compile and Instance"
+      }
     }
   },
   "webassembly-step-04": {
-    "sourceHash": "6aa4e0e1f5922a880eb3a83ce159e66e80ee3e1c81a842974f57af3f5dbbfa81",
+    "sourceHash": "6963aa524dd50e410d962c24f18defac656650597e450f93ebc83ce86bea23ca",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "24412fe0bf03d325cb9845b45d06b9c70a19e7bebc859607c66ff78ea30ae15f",
+      "values": {
+        "messages.display001": "<h3>Inspecting Exports</h3><p>Export surface / Contract checks</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-04: Inspecting Exports"
+      }
     }
   },
   "webassembly-step-05": {
-    "sourceHash": "df0a531698ccef41c1fb980c12a226124b4ac84211bb8fc594a06dc5ce81bff1",
+    "sourceHash": "b34af4873e4c5419095cd2cc2f6e9206efe677356412e678c454c22e3aa24fe8",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "8ba957adbd06c669a9498a8a494740ce48739749600b2a4f08b4bb795b7ebc92",
+      "values": {
+        "messages.display001": "<h3>Imports and Host Functions</h3><p>Import / Boundary cost</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-05: Imports and Host Functions"
+      }
     }
   },
   "webassembly-step-06": {
-    "sourceHash": "381c2abe90a4746fd48b9cba33d1a81b291f23d295c53c370688b60b745275d0",
+    "sourceHash": "26917ee7b7082d41bdbe13df5f7f49ec24cae57ad912d7760b2e6ff1c9abd5bc",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "444854cca1c139c4b7d0bbbc1ce62b3b577fefe2d5ec08b546f58fa976f28b4b",
+      "values": {
+        "messages.display001": "<h3>I32 and JS Number</h3><p>Numeric representation / Overflow</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-06: I32 and JS Number"
+      }
     }
   },
   "webassembly-step-07": {
-    "sourceHash": "ee640e7cbc58093a7f06cdd3d5ecdd19367e2a5e6cc70b637a5b4a8977c15ccf",
+    "sourceHash": "d1a16acd09eff20beb3ea5e5e4b8dd64226f8c4826068152c131f63227064f32",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "f6b9604715169148d9116a4ad37173d28b4110d7158b339956a394f15ef8cbef",
+      "values": {
+        "messages.display001": "<h3>Traps and Input Validation</h3><p>Trap / Preflight checks</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-07: Traps and Input Validation"
+      }
     }
   },
   "webassembly-step-08": {
-    "sourceHash": "ca2806774e8440a25fcd24a42505ed04affd14027c606da92be9ea001db73718",
+    "sourceHash": "fce9b98618872300bc9756a9450c76c74c426b51eac791bc959b59944a1f660e",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "c2ea64db66a55131227fabb5fad2f60572bf683b63deef1ec45873dcda0bd9cd",
+      "values": {
+        "messages.display001": "<h3>Pages and Byte Offset</h3><p>Pages / Pointers</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-08: Pages and Byte Offset"
+      }
     }
   },
   "webassembly-step-09": {
-    "sourceHash": "5e99235419d01c7bf56582153626512b22fe0dc4b5bc9063ba8daaaae0e66a57",
+    "sourceHash": "3605206f251f50e4d3bb4debb25339ff9c8b191fe555ea085d55fa3fd641ed03",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "17e0dfde8ab2d5796b1281589ee0c1aa47bdcb9bb61d07fa8ae3137c2794044a",
+      "values": {
+        "messages.display001": "<h3>Views and Endianness</h3><p>Shared storage / Byte order</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-09: Views and Endianness"
+      }
     }
   },
   "webassembly-step-10": {
-    "sourceHash": "9261bd8f25fe33c9d703f0762820e034a064bc4952c6027d25a80d843de6bc68",
+    "sourceHash": "0958c3c11065b591617ad48d313585f65b1e0ca3750e75f7939a91913d47aa49",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "98f4ad60ffb4a5d8736f53514c8712bccb0afe811e7ff87efaa3759aad60224a",
+      "values": {
+        "messages.display001": "<h3>Array Copies and Bounds</h3><p>Set / Bounds</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-10: Array Copies and Bounds"
+      }
     }
   },
   "webassembly-step-11": {
-    "sourceHash": "39143211175c6a9ada4ca6376f428606c3bbcc132dca8984f68b915b02ded615",
+    "sourceHash": "d6fca87c0097c969eaa189d77b5702eb8cd76997af22c6ceca3f4be4e882bfa1",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "df8f228a578026e7e559d2e7e0d30f994c133d79ffcaef5e0f0b3b97e657a264",
+      "values": {
+        "messages.display001": "<h3>Memory Grow and View Lifetime</h3><p>Grow / Recreation</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-11: Memory Grow and View Lifetime"
+      }
     }
   },
   "webassembly-step-12": {
-    "sourceHash": "5ee59a297df2aa502db203b9517e8927fdbfddfcfaff20f6f834ed1928911d98",
+    "sourceHash": "b5cb2917f76fbc4794394734ae4b825a24a141071e4f0294d07ae3598952e3cd",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "168047517a21bf7068936ce5a4d4a333c30810a7d1bd43503a46dd87cd30817d",
+      "values": {
+        "messages.display001": "<h3>Capacity Limits and Failure</h3><p>Maximum / Capacity calculation</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-12: Capacity Limits and Failure"
+      }
     }
   },
   "webassembly-step-13": {
-    "sourceHash": "ecc1b619193396fb2880fbac81ee3a27aecbdd07b12e74ee0d3112e10a604f11",
+    "sourceHash": "87a0c25149e31b10fe9732478a1e7c45ae308d64c03c60cf602e99daaadffc55",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "17eac7f166269cfc615d093b576e4cc45ede2005e75dfdf8728dea99fee7361a",
+      "values": {
+        "messages.display001": "<h3>Scalar and Batch Calls</h3><p>Call count / Fair comparison</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-13: Scalar and Batch Calls"
+      }
     }
   },
   "webassembly-step-15": {
-    "sourceHash": "da0cd061aeb7eaf71e23ec360aa6a98a74a726bf638a6be90cea104d5dc682a0",
+    "sourceHash": "00964cab14e840973a4a473e284fe5510842112ad7eceed7b9e635269cdb393f",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "a18047ff7165cbef5825008d712edd74825311ad6a28718c22a787739ae6f96f",
+      "values": {
+        "messages.display001": "<h3>In-place Transformation</h3><p>Overwriting / Repeat conditions</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-15: In-place Transformation"
+      }
     }
   },
   "webassembly-step-16": {
-    "sourceHash": "1a65bbd3ed6dd3d0ad98b6b749db176b78981e3943a0e8a52c3defd9ecae4886",
+    "sourceHash": "e8d87a9d1655b70ac2460c20ff31b235fdebdc527e0e8077945c95b6e07b75b2",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "54d6f12558b3492a7e849ccf1426a5424bd501e0bbc4977701cee87a3717118f",
+      "values": {
+        "messages.display001": "<h3>Aligned and Unaligned Access</h3><p>Alignment / DataView</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-16: Aligned and Unaligned Access"
+      }
     }
   },
   "webassembly-step-17": {
-    "sourceHash": "6f6bb7ae573e0fd10720591741b62619bef523221d954a9986e15567499a27db",
+    "sourceHash": "fcfdb4e9ec268d2f669768289b7aebde04e13001896204bc4c6557ac7b467a6f",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "bfb7ea33c9cc33ac7143de470bacd9b5ea0db7a5f25d1691dec42bda449f4f6c",
+      "values": {
+        "messages.display001": "<h3>Laying Out Multiple Arrays</h3><p>Separate regions / Ownership rules</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-17: Laying Out Multiple Arrays"
+      }
     }
   },
   "webassembly-step-18": {
-    "sourceHash": "245966838415ed187190e2f8c9b1ce5afdf938d0bc59de35f8d7ddb4fcb71553",
+    "sourceHash": "a9ce218dff4520835ba109102e669e46d4275e5a7027e603dfe745c715aec684",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "7c00fc82e0e72fab5dcaa8630260fd7f3ce3e124437ffba13ffeda3e08b3ce3c",
+      "values": {
+        "messages.display001": "<h3>String Byte Contracts</h3><p>Encoding / Passing length</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-18: String Byte Contracts"
+      }
     }
   },
   "webassembly-step-19": {
-    "sourceHash": "91cf655c0374e169135285c4384c3a170ef2edbeb408809eb84058040dd8ac78",
+    "sourceHash": "45e1b6fd217eb7b60d6732d290df0d3c0f50bab6dddb03bc302d19927d29d525",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "aaf75f4693e09d19b5547395c2f16d5b540f7b343e2d8d900663cd8e72d1361b",
+      "values": {
+        "messages.display001": "<h3>Browser Loading and MIME</h3><p>Streaming / Failure classification</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-19: Browser Loading and MIME"
+      }
     }
   },
   "webassembly-step-20": {
-    "sourceHash": "394003f40d89914d7eca422c42b0f3becd99b55d29268d2be90549065ad9ce5c",
+    "sourceHash": "1037ea97b6b2efbee02e5a9e7caef364761f4ae4cf2cd4558968921a8222d35d",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "e67d3b52c8408f6c4a5c1bd1a6fa6b34c3da28dd99579c31890ac3efd2dfbd42",
+      "values": {
+        "messages.display001": "<h3>Reusing Initialization</h3><p>Initialization cost / Concurrent requests</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-20: Reusing Initialization"
+      }
     }
   },
   "webassembly-step-21": {
-    "sourceHash": "50816eacff20184bbcafc4c282adf3316e65fdd030901513bde3b9a9e35a5551",
+    "sourceHash": "25b575b7a8c5354cc3e5c3b9b0dcd92614929aa6db8bbd23d07e6ee0f5eb7f78",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "aa25ed9c7000acc1ac02d0fe229b78e55333710491f644a1de84c3705e615beb",
+      "values": {
+        "messages.display001": "<h3>Workers and Wasm</h3><p>Execution location / Transfer cost</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-21: Workers and Wasm"
+      }
     }
   },
   "webassembly-step-22": {
-    "sourceHash": "85a04dcc06c7f46fbd9d54498ad22e35371a4304ce0ba291127ab966f76140fe",
+    "sourceHash": "1ee9e1574b36c89d4dd27871fa3759ef20da53f68073f40e54ac2c635a665e57",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "9ef08bdbf1932ff5e79ca67d3f85547b4109a11ec3cc2e3cfe1cb774561b5893",
+      "values": {
+        "messages.display001": "<h3>Module Caching and Versions</h3><p>Cache / Version</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-22: Module Caching and Versions"
+      }
     }
   },
   "webassembly-step-23": {
-    "sourceHash": "d1c88498719e7f51e0cdb513f609ed8086fbd0be325e2f126fe12f182bcb95b2",
+    "sourceHash": "111f042ea07300b08fc7078c56b983a8922c15cbfa10e3ac3a777fab08bb4722",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "7bfd0341db65df4bc243e79004707e848209df1d2b16baf62bfc3bb93ff150f0",
+      "values": {
+        "messages.display001": "<h3>Breaking Down Cold Execution</h3><p>Cold costs / Measurement boundaries</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-23: Breaking Down Cold Execution"
+      }
     }
   },
   "webassembly-step-24": {
-    "sourceHash": "161fe540bceee31b875b360994f76de66c7b95fe12bfdc1535390ac40d9e3aaa",
+    "sourceHash": "fb5844aaca5143cd281456489e0bf371ee3fe000c0c183ae71db324c13ccfcab",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "5bc415a4021e20276cafdc104615669d21a87bd1de15546f725ec6fa4626aaa2",
+      "values": {
+        "messages.display001": "<h3>Warm Repeats and Warm-up</h3><p>Warm-up / Equivalent conditions</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-24: Warm Repeats and Warm-up"
+      }
     }
   },
   "webassembly-step-25": {
-    "sourceHash": "75a522ee90388756a1307b5262b5e63d6f15c9cc666964d6ee2f6ad0baab73ad",
+    "sourceHash": "ec50b1b2081de483334bb7dcf336ae7dfd5d14b70397f90ed8b115bde7e82ad5",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "35f3bb82f7ab2b35b49bc8e41fb6047d93c0ed1ca593e8a6f1db58e82fbef5e0",
+      "values": {
+        "messages.display001": "<h3>Total Cost Including Copies</h3><p>Kernel time / Total cost</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-25: Total Cost Including Copies"
+      }
     }
   },
   "webassembly-step-26": {
-    "sourceHash": "9a445ca5afb57cde41fa44942562470eb5d974a3293aeb4d010153b317b354b3",
+    "sourceHash": "f20360caa45eff483da1ea55e608ac439fda12b805ac234cfb4055cf2495b9bc",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "d1f7f92ef79a24d4845976ce3a4740433c54b0ba9ae5cd33e33b547bbe42865e",
+      "values": {
+        "messages.display001": "<h3>Boundary-value Correctness</h3><p>Correctness first / Error tolerance</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-26: Boundary-value Correctness"
+      }
     }
   },
   "webassembly-step-27": {
-    "sourceHash": "2be44233acf586d4957147426df52d651cac31a71cf8f10acbe1c15f7f363622",
+    "sourceHash": "8288296b911ebd00e778b8a34fdc9bf61dccc7ae0e468cbe1916b6649a36c428",
     "values": {
       "note": "Standalone WAT + Node assertions; iframe CSP blocks Wasm compilation."
+    },
+    "presentation": {
+      "sourceHash": "d3a668a6786aeccba5a8c38e960c0babe12aef9a127d3af9d829c605fe16a2de",
+      "values": {
+        "messages.display001": "<h3>Environment and Adoption Criteria</h3><p>Reproducibility / Adoption criteria</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Show execution boundary",
+        "messages.display003": "The iframe CSP does not allow Wasm compilation. The displayed companion runs real compiled Wasm externally; no JS replacement is labeled Wasm.",
+        "comments.comment001": "webassembly-step-27: Environment and Adoption Criteria"
+      }
+    }
+  },
+  "webassembly-01": {
+    "presentation": {
+      "sourceHash": "c39ae03e97e6f3c955a1a2813b98b24a1cba70bd91d30fe91c1d6ff5d21b40c6",
+      "values": {
+        "messages.display001": "1 page = ",
+        "messages.display002": " bytes\nUint32: 0x",
+        "messages.display003": "\nUint8: ",
+        "messages.display004": "\nThe same buffer was read through views of different sizes. Change the value to observe byte order.",
+        "comments.comment001": "Inspect the real linear memory of WebAssembly.Memory through different TypedArray views.",
+        "comments.comment002": "This example does not compile a module, so it does not relax the existing CSP."
+      }
+    }
+  },
+  "webassembly-02": {
+    "presentation": {
+      "sourceHash": "c98b4fc415966d61d22cb4479b9ebfa522ad20c1256c0acb3b8a06456e37e7e9",
+      "values": {
+        "messages.display001": "<h3>Linear memory, copies, and view lifetime</h3><p>This sandbox blocks Wasm compilation. The controls below exercise real WebAssembly.Memory with JavaScript computations. For actual JS↔Wasm calls and cold/warm measurements, use the complete standalone files shown below. No sandbox policy changes are required.</p><label>Elements <input type=\"number\" min=\"1\" max=\"200000\" value=\"10003\"></label> <button>Run memory experiment</button><pre data-results aria-live=\"polite\"></pre><details><summary>Standalone kernel.wat + benchmark.mjs and run instructions</summary><p>Install the official WABT wat2wasm CLI and Node 22+. Save the two sources into an empty experiment folder. Run: wat2wasm kernel.wat -o kernel.wasm, then node benchmark.mjs. These files are also provided in this lesson source folder.</p><pre data-source style=\"white-space:pre-wrap;font-size:12px\"></pre></details>",
+        "messages.display002": "\nCopy into linear memory: ",
+        "messages.display003": " ms\nAfter memory.grow: old view=",
+        "messages.display004": " bytes; fresh view=",
+        "messages.display005": " bytes\nOut-of-range view rejected: ",
+        "messages.display006": "\nComputation above is JS; use standalone benchmark for actual Wasm performance.",
+        "comments.comment001": "Sandbox scope: real WebAssembly.Memory; computations here are JavaScript, NOT compiled Wasm.",
+        "messages.displayFix1001": "JS batch over Wasm memory: sum=",
+        "messages.displayFix1002": "; expected=",
+        "messages.displayFix1003": "; ",
+        "messages.displayFix1004": "\nLoop time ",
+        "messages.displayFix1005": " ms; ",
+        "messages.displayFix1006": " elements / ",
+        "messages.displayFix1007": " bytes"
+      }
+    }
+  },
+  "webassembly-03": {
+    "presentation": {
+      "sourceHash": "2a5a986d6628762c1413d2c7f442cd8cb63e5611acdb3ecdb75bbd9025a2662e",
+      "values": {
+        "messages.display001": "<h3>Measure the whole path: JS sandbox + standalone Wasm</h3><p>This sandbox blocks Wasm compilation. The controls below exercise real WebAssembly.Memory with JavaScript computations. For actual JS↔Wasm calls and cold/warm measurements, use the complete standalone files shown below. No sandbox policy changes are required.</p><label>Elements <input type=\"number\" min=\"1\" max=\"200000\" value=\"10003\"></label> <button>Run memory experiment</button><pre data-results aria-live=\"polite\"></pre><details><summary>Standalone kernel.wat + benchmark.mjs and run instructions</summary><p>Install the official WABT wat2wasm CLI and Node 22+. Save the two sources into an empty experiment folder. Run: wat2wasm kernel.wat -o kernel.wasm, then node benchmark.mjs. These files are also provided in this lesson source folder.</p><pre data-source style=\"white-space:pre-wrap;font-size:12px\"></pre></details>",
+        "messages.display002": "\nCopy into linear memory: ",
+        "messages.display003": " ms\nAfter memory.grow: old view=",
+        "messages.display004": " bytes; fresh view=",
+        "messages.display005": " bytes\nOut-of-range view rejected: ",
+        "messages.display006": "\nComputation above is JS; use standalone benchmark for actual Wasm performance.",
+        "comments.comment001": "Sandbox scope: real WebAssembly.Memory; computations here are JavaScript, NOT compiled Wasm.",
+        "messages.displayFix1001": "JS point transform over Wasm memory: ",
+        "messages.displayFix1002": "\nFirst JS kernel ",
+        "messages.displayFix1003": " ms\nRepeated JS total incl. reset + readback copy ",
+        "messages.displayFix1004": " ms\nNo Wasm module was compiled or timed here."
+      }
     }
   }
 }

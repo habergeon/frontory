@@ -6183,7 +6183,8 @@
       "title": "모듈과 선형 메모리",
       "goal": "학습 결과: 모듈 경계의 역할을 설명한다. 입력 사례: [1,2,3]과 잘못된 파일 경로. 산출물: JS·Wasm 합계 6 및 로딩 오류 기록. 미리보기 범위 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/01-foundations/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-01/example.js"
     },
     {
       "id": "webassembly-step-02",
@@ -6192,7 +6193,8 @@
       "title": "WAT와 바이너리",
       "goal": "학습 결과: 텍스트 형식의 역할을 설명한다. 입력 사례: 기존 sum 함수와 변경한 상수. 산출물: 빌드 로그와 export 호출 결과. 빌드 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/02/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-02/example.js"
     },
     {
       "id": "webassembly-step-03",
@@ -6201,7 +6203,8 @@
       "title": "Compile과 Instance",
       "goal": "학습 결과: Module의 역할을 설명한다. 입력 사례: 같은 module과 다른 첫 원소. 산출물: 인스턴스별 첫 원소 값. Instance 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/03/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-03/example.js"
     },
     {
       "id": "webassembly-step-04",
@@ -6210,7 +6213,8 @@
       "title": "Export 검사",
       "goal": "학습 결과: Export 표면의 역할을 설명한다. 입력 사례: 정상 모듈과 필수 이름 오타. 산출물: export 목록과 오류 안내. 계약 검사 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/04/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-04/example.js"
     },
     {
       "id": "webassembly-step-05",
@@ -6219,7 +6223,8 @@
       "title": "Import와 Host 함수",
       "goal": "학습 결과: Import의 역할을 설명한다. 입력 사례: 보고 함수 있음·누락. 산출물: 호출 값과 연결 오류 기록. 경계 비용 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/05/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-05/example.js"
     },
     {
       "id": "webassembly-step-06",
@@ -6228,7 +6233,8 @@
       "title": "I32와 JS Number",
       "goal": "학습 결과: 수치 표현의 역할을 설명한다. 입력 사례: 작은 수와 INT32_MAX 근처 값. 산출물: 수치 범위별 기대·실제 합계. 오버플로 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/06/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-06/example.js"
     },
     {
       "id": "webassembly-step-07",
@@ -6237,7 +6243,8 @@
       "title": "Trap과 입력 검사",
       "goal": "학습 결과: Trap의 역할을 설명한다. 입력 사례: 정상·음수 길이·범위 초과. 산출물: 거부 사유와 RuntimeError 기록. 사전 검사 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/07/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-07/example.js"
     },
     {
       "id": "webassembly-step-08",
@@ -6246,7 +6253,8 @@
       "title": "페이지와 Byte Offset",
       "goal": "학습 결과: 페이지의 역할을 설명한다. 입력 사례: 서로 다른 네 정수. 산출물: index·offset·읽은 값 표. 포인터 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/08/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-08/example.js"
     },
     {
       "id": "webassembly-step-09",
@@ -6255,7 +6263,8 @@
       "title": "View와 엔디언",
       "goal": "학습 결과: 동일 저장소의 역할을 설명한다. 입력 사례: 32비트 정수 하나. 산출물: 네 바이트와 복원된 수치. 바이트 순서 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/09/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-09/example.js"
     },
     {
       "id": "webassembly-step-10",
@@ -6264,7 +6273,8 @@
       "title": "배열 복사와 범위",
       "goal": "학습 결과: Set의 역할을 설명한다. 입력 사례: 길이 0·4·1003 배열. 산출물: 입력·메모리·결과 범위 표. 범위 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/10/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-10/example.js"
     },
     {
       "id": "webassembly-step-11",
@@ -6273,7 +6283,8 @@
       "title": "Memory Grow와 View 수명",
       "goal": "학습 결과: Grow의 역할을 설명한다. 입력 사례: 비공유 memory 한 개. 산출물: 확장 전후 용량·old/new view 길이. 재생성 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/11/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-11/example.js"
     },
     {
       "id": "webassembly-step-12",
@@ -6282,7 +6293,8 @@
       "title": "용량 한도와 실패",
       "goal": "학습 결과: Maximum의 역할을 설명한다. 입력 사례: 페이지 경계 전후 길이. 산출물: 필요·할당 페이지와 오류 표. 용량 계산 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/12/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-12/example.js"
     },
     {
       "id": "webassembly-step-13",
@@ -6291,7 +6303,8 @@
       "title": "스칼라와 배치 호출",
       "goal": "학습 결과: 호출 횟수의 역할을 설명한다. 입력 사례: 100개와 100003개 정수. 산출물: 호출 수·합계·측정 시간. 공정한 비교 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/13/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-13/example.js"
     },
     {
       "id": "webassembly-02",
@@ -6300,7 +6313,8 @@
       "title": "배열과 경계 비용",
       "goal": "학습 결과: 메모리 배치의 역할을 설명한다. 입력 사례: 기존 100003개 입력과 작은 배열. 산출물: 합계 일치·copyMs·batchMs·scalarMs·view 길이. View 수명 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/02-experiments/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-02/example.js"
     },
     {
       "id": "webassembly-step-15",
@@ -6309,7 +6323,8 @@
       "title": "In-place 변환",
       "goal": "학습 결과: 덮어쓰기의 역할을 설명한다. 입력 사례: 음수·0·양수 배열. 산출물: 모든 원소의 기대·실제 값. 반복 조건 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/15/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-15/example.js"
     },
     {
       "id": "webassembly-step-16",
@@ -6318,7 +6333,8 @@
       "title": "정렬과 비정렬 접근",
       "goal": "학습 결과: 정렬의 역할을 설명한다. 입력 사례: 같은 네 바이트. 산출물: 생성 오류와 읽은 값. DataView 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/16/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-16/example.js"
     },
     {
       "id": "webassembly-step-17",
@@ -6327,7 +6343,8 @@
       "title": "복수 배열의 배치",
       "goal": "학습 결과: 영역 분리의 역할을 설명한다. 입력 사례: 서로 다른 길이의 두 배열. 산출물: 영역 표와 sentinel 값. 소유권 규약 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/17/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-17/example.js"
     },
     {
       "id": "webassembly-step-18",
@@ -6336,7 +6353,8 @@
       "title": "문자열 바이트 계약",
       "goal": "학습 결과: 인코딩의 역할을 설명한다. 입력 사례: 영문·한글·이모지. 산출물: 문자 수·바이트 수·왕복 문자열. 길이 전달 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/18/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-18/example.js"
     },
     {
       "id": "webassembly-step-19",
@@ -6345,7 +6363,8 @@
       "title": "브라우저 로딩과 MIME",
       "goal": "학습 결과: Streaming의 역할을 설명한다. 입력 사례: 정상·404·잘못된 MIME. 산출물: 응답 상태와 초기화 결과. 실패 분류 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/19/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-19/example.js"
     },
     {
       "id": "webassembly-step-20",
@@ -6354,7 +6373,8 @@
       "title": "초기화 재사용",
       "goal": "학습 결과: 초기화 비용의 역할을 설명한다. 입력 사례: 연속 요청 5개. 산출물: 초기화 횟수와 요청별 결과. 동시 요청 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/20/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-20/example.js"
     },
     {
       "id": "webassembly-step-21",
@@ -6363,7 +6383,8 @@
       "title": "Worker와 Wasm",
       "goal": "학습 결과: 실행 위치의 역할을 설명한다. 입력 사례: 같은 큰 배열과 UI 클릭. 산출물: 메인·Worker의 결과와 왕복 지연. 전송 비용 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/21/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-21/example.js"
     },
     {
       "id": "webassembly-step-22",
@@ -6372,7 +6393,8 @@
       "title": "모듈 캐시와 버전",
       "goal": "학습 결과: 캐시의 역할을 설명한다. 입력 사례: 정상 버전과 오래된 바이너리. 산출물: 소스 해시·바이너리 해시·검사 결과. 버전 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/22/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-22/example.js"
     },
     {
       "id": "webassembly-step-23",
@@ -6381,7 +6403,8 @@
       "title": "콜드 실행 분해",
       "goal": "학습 결과: 콜드 비용의 역할을 설명한다. 입력 사례: 새 프로세스 첫 요청. 산출물: 단계별 duration과 포함 작업 표. 측정 경계 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/23/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-23/example.js"
     },
     {
       "id": "webassembly-step-24",
@@ -6390,7 +6413,8 @@
       "title": "웜 반복과 워밍업",
       "goal": "학습 결과: 워밍업의 역할을 설명한다. 입력 사례: 반복 5회와 20회. 산출물: 원시 duration·중앙값·오차 여부. 동등 조건 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/24/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-24/example.js"
     },
     {
       "id": "webassembly-step-25",
@@ -6399,7 +6423,8 @@
       "title": "복사 포함 총비용",
       "goal": "학습 결과: 커널 시간의 역할을 설명한다. 입력 사례: 세 데이터 크기. 산출물: JS·커널·복사 포함 시간 표. 총비용 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/25/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-25/example.js"
     },
     {
       "id": "webassembly-step-26",
@@ -6408,7 +6433,8 @@
       "title": "경계값 정확도",
       "goal": "학습 결과: 정확도 우선의 역할을 설명한다. 입력 사례: 0·1·1003 길이 배열. 산출물: 사례별 PASS 또는 실패 차이. 오차 기준 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/26/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-26/example.js"
     },
     {
       "id": "webassembly-step-27",
@@ -6417,7 +6443,8 @@
       "title": "환경과 채택 기준",
       "goal": "학습 결과: 재현성의 역할을 설명한다. 입력 사례: 작은·중간·큰 배열. 산출물: 조건별 정확도·총비용·유지보수 판단. 채택 기준 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/units/27/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-step-27/example.js"
     },
     {
       "id": "webassembly-03",
@@ -6426,7 +6453,8 @@
       "title": "실제 병목 평가",
       "goal": "학습 결과: 전체 지연의 역할을 설명한다. 입력 사례: 여러 크기와 반복 수. 산출물: 콜드·웜·복사·정확도·채택 근거 보고서. 근거 있는 결정 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/webassembly/03-project/README.md",
-      "seriesId": "webassembly"
+      "seriesId": "webassembly",
+      "exampleReadingSource": "/examples-en/webassembly-03/example.js"
     },
     {
       "id": "playwright-01",

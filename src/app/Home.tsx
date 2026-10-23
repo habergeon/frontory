@@ -11,6 +11,7 @@ export function Home({ onSelect }: { onSelect: (id: string) => void }) {
   const copy = messages[locale]
   const { series, units } = getCatalog(locale)
   const categories = categoryLabels[locale]
+  const startingUnits = ['html-01', 'css-01', 'javascript-01'].map(id => units.find(unit => unit.id === id)!)
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState('all')
   const filtered = series.filter(item => (category === 'all' || item.category === category) &&
@@ -19,9 +20,24 @@ export function Home({ onSelect }: { onSelect: (id: string) => void }) {
     <section className="home-hero" aria-labelledby="home-title">
       <div><h1 id="home-title">{locale === 'ko' ? <>배운 것을,<br />직접 만드는 <em>경험으로.</em></> : copy.heroTitle}</h1>
         <p>{locale === 'ko' ? <>문서를 읽고, 코드를 바꾸고,<br className="home-mobile-break" /> 나의 언어로 기록하세요.</> : copy.heroDescription}</p>
-        <div className="home-hero-action"><a href="#series" className="home-primary">{copy.browseSeries} <span aria-hidden="true">→</span></a><span>{message(locale, 'catalogCount', { seriesCount: series.length, unitCount: units.length })}</span></div>
+        <div className="home-hero-action"><button className="home-primary" onClick={() => onSelect('html-01')}>{copy.startWithHtml} <span aria-hidden="true">→</span></button><a href="#series">{copy.browseSeries}</a><span>{message(locale, 'catalogCount', { seriesCount: series.length, unitCount: units.length })}</span></div>
       </div>
       <div className="home-wordmark" aria-hidden="true"><span>Learn.</span><span>Experiment.</span><span>Archive.</span></div>
+    </section>
+    <section className="home-start" aria-labelledby="home-start-title">
+      <h2 id="home-start-title">{copy.beginnerPathTitle}</h2>
+      <p>{copy.beginnerPathDescription}</p>
+      <ol className="home-start-list">{startingUnits.map((unit, index) => {
+        const item = series.find(item => item.id === unit.seriesId)!
+        return <li className="home-series-row home-start-row" key={unit.id}>
+          <span className="home-series-category">0{index + 1}</span>
+          <div className="home-start-topic"><h3>{item.title}</h3><p>{unit.title}</p></div>
+          <p className="home-start-prerequisite">{message(locale, 'prerequisites', { text: item.prerequisites })}</p>
+          <button onClick={() => onSelect(unit.id)} aria-label={message(locale, 'firstUnitLabel', { title: item.title })}>{copy.openFirstUnit} <span aria-hidden="true">→</span></button>
+        </li>
+      })}</ol>
+      <p className="home-start-note">{copy.beginnerPathNote}</p>
+      <p className="home-start-note">{copy.firstHtmlResult}</p>
     </section>
     <section className="home-method" aria-label={copy.learningMethod}>
       {[

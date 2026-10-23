@@ -1,152 +1,708 @@
 {
   "webgpu-step-02": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "c5ae7b30e714560df1d2babae4dff05f841ad96e6595bb86353d9046448001a3",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "3a056c1bf750b1b336cd7fac763a06618890d2304d27c288c028e455b3085521",
+      "values": {
+        "messages.display001": "Negotiating Features and limits",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Optional Features",
+        "messages.display004": "Disabled",
+        "messages.display005": "Request after checking support",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "comments.comment001": "webgpu-step-02: Negotiating Features and limits",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-03": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "b4ce1a7ac4054955e6181b144d84ae580ef1843030e013cacb594c1d6d868b9c",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "e41b7409067e6e49b5eab7a8afe07678f4c74dbd72df3453ce46950fffccb01a",
+      "values": {
+        "messages.display001": "Canvas Configuration and the Current Texture",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Clear color",
+        "messages.display004": "Black",
+        "messages.display005": "Dark blue",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "Obtained the current texture view and cleared the attachment.",
+        "comments.comment001": "webgpu-step-03: Canvas Configuration and the Current Texture",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-04": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "94cf455701dbe7627ed3e040a518d16e257ee56abd5e4294243e1a6b7c83b60e",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "c32f0d25f49bd163cb1651f73ae53596b7c233f99de1088a4e3b8cb483376732",
+      "values": {
+        "messages.display001": "Recording and Submitting Commands",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Submission count",
+        "messages.display004": "Once",
+        "messages.display005": "Twice",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "submit ",
+        "messages.display014": "onSubmittedWorkDone: queue complete",
+        "comments.comment001": "webgpu-step-04: Recording and Submitting Commands",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-05": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "5eb6d89e15598f1d71ca50c1506ea5de51597ff21d2ea0112b95cffbb13c0be0",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "d9c2086211f23f5a38f9e90fba3512c31f242788b5714ed076564ae4fcc8dd71",
+      "values": {
+        "messages.display001": "Shader Modules and Diagnostics",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Entry point",
+        "messages.display004": "Existing function name",
+        "messages.display005": "Nonexistent function name",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "Module compilation and pipeline entry point validation succeeded",
+        "comments.comment001": "webgpu-step-05: Shader Modules and Diagnostics",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-06": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "e317fd02ccdf0514bc226d978effd50a127c5ac2ffdc6c8f62352fd626b3d603",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "0872d49cfc713cb25e8c2d5cb7124f39d18bc411513e8aae66e6a6b662398330",
+      "values": {
+        "messages.display001": "Vertex Buffers and Attributes",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "arrayStride",
+        "messages.display004": "20 bytes",
+        "messages.display005": "24 bytes with matching padded data",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "Keep offsets 0/8 and change stride and padding together.",
+        "comments.comment001": "webgpu-step-06: Vertex Buffers and Attributes",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-07": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "175586558421c24eeae2fb428d7bb880e7f831f849645ee894134ae7b20ef8bf",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "3e08fe1bc69e9236c165f3e4e650e32518d258aaa1c65d4bb7842d3f6a9dabb8",
+      "values": {
+        "messages.display001": "Indices and Primitives",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "cullMode",
+        "messages.display004": "none",
+        "messages.display005": "back",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "Opposite winding in two viewports. With back culling, only one remains.",
+        "comments.comment001": "webgpu-step-07: Indices and Primitives",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-08": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "c5d527cfd22d8d0a0d3892b1653852cfe722bf1d19920e8a9e0e50364d7ef755",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "1c5029eccb527bef5d12f312ea3399e955760d39d1e57899fb3cb253cb462f21",
+      "values": {
+        "messages.display001": "Uniforms and Bind Groups",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Color input",
+        "messages.display004": "[1,0,0,1]",
+        "messages.display005": "[0,1,0,1]",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "Update with queue.writeBuffer, then draw again using the same pipeline and bind group",
+        "comments.comment001": "webgpu-step-08: Uniforms and Bind Groups",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-09": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "21d54d6b9b1b84d1ce7a81f7657700441ff9799342b920b6f3db401a5e6ae80d",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "5ef3ed40acd68ed9fdd35cbbd406196eafb3d5a6ffb5252485d7260280148ea7",
+      "values": {
+        "messages.display001": "Uniform Struct Alignment",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "gain offset",
+        "messages.display004": "12",
+        "messages.display005": "Intentionally write at 16",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "comments.comment001": "webgpu-step-09: Uniform Struct Alignment",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-10": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "cbf202e5756067c9df552d6df244e80e755ffcfdf01c4d44e7db812ad579c2c1",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "b94df94ffa34c05b1888f66bb99af2b57474d535734a2790fef881a9c7608834",
+      "values": {
+        "messages.display001": "Matrices and Cameras",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Matrix order",
+        "messages.display004": "Product intended to produce translation followed by rotation",
+        "messages.display005": "Swap the two matrices",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "rotation * translation",
+        "messages.display014": "translation * rotation",
+        "comments.comment001": "webgpu-step-10: Matrices and Cameras",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-11": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "91dbd2dc625202e17cd1896bd11295d697b091b3ddaf80e1dde8519c81926687",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "ec48a7480676aa585b37fb48ebf7f2a8edf0ad2099920e3835a28af4c033c84c",
+      "values": {
+        "messages.display001": "Textures and Samplers",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "filter",
+        "messages.display004": "nearest",
+        "messages.display005": "linear",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "In compute, compare textureSampleLevel using an explicit LOD.",
+        "comments.comment001": "webgpu-step-11: Textures and Samplers",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-12": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "8911ab3b63cf992a00f4772a6ab86dea312b2f374bcf1af57978aeb90efff490",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "a1ea6097e68497683be97d50b891751cb310d8e54a8d46cd2ecc973ae91af525",
+      "values": {
+        "messages.display001": "Depth Attachments",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Depth Testing",
+        "messages.display004": "Disabled",
+        "messages.display005": "less with writes enabled",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "Draw the nearby red triangle first and the distant blue triangle afterward.",
+        "comments.comment001": "webgpu-step-12: Depth Attachments",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-13": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "15b347e375d8827d87dc0eccb1ec1687878a792ad59078c4c87112efd519e3ce",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "b941886164535c7db636df98dff0c2d4d63116790547476a11a078d1e6eb5edf",
+      "values": {
+        "messages.display001": "Resize and Sample Count",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "sampleCount",
+        "messages.display004": "1",
+        "messages.display005": "4",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "Compare at a fixed drawing buffer size. Editing the size also recreates the attachment.",
+        "comments.comment001": "webgpu-step-13: Resize and Sample Count",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-15": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "b96eecff0ba498d525b571a00c0a2b1f994a156b543bb2cf74036cc220f37982",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "b7058bfc11c5a3752fb42bb5225daf92cbe8b41ffee9ff4612e815eb0ae37d15",
+      "values": {
+        "messages.display001": "A First Compute Array Transform",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Array length",
+        "messages.display004": "64",
+        "messages.display005": "65",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "comments.comment001": "webgpu-step-15: A First Compute Array Transform",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-16": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "07984063130a7cb461dd63bc0eacb640a19b61b7aab2c691edc4df43ce56d01f",
     "values": {
-      "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+      "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. Both selections run 4 ping-pong steps with fixed boundaries and separate input/output buffers. In-place writes are not executed; the second selection provides guidance for reviewing their risk."
+    },
+    "presentation": {
+      "sourceHash": "0f2185bdbdeeb51baeb6db03db295f6b1f445404317b03337adf25cbd2757c1c",
+      "values": {
+        "messages.display001": "Storage and Ping-Pong",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. Both selections run 4 ping-pong steps with fixed boundaries and separate input/output buffers. In-place writes are not executed; the second selection provides guidance for reviewing their risk.",
+        "messages.display003": "Input and output resources",
+        "messages.display004": "Separate A/B",
+        "messages.display005": "Conceptually review reading and writing the same array",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "Input and output remain separate. Aliasing neighbor reads and writes to the same storage does not guarantee ordering between workgroups.",
+        "comments.comment001": "webgpu-step-16: Storage and Ping-Pong",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-17": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "257547261db6a76a8ea0f077545b01bae2a6fda4c009fd83e8ec19aab1c5fe06",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "c3284e218d94dfdad503bd4b74f02d9b49bfc111db86b2e9fb30f742e6652d76",
+      "values": {
+        "messages.display001": "Mapping and Staging Buffers",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Read count",
+        "messages.display004": "Once at the end",
+        "messages.display005": "Every step",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "Includes host compilation, submission, copy, and map. This is not isolated GPU time.",
+        "comments.comment001": "webgpu-step-17: Mapping and Staging Buffers",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-18": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "357f81ddc7dbf37e420ff53f05723cc78be73560d19e79115006fd7e083dea7c",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "0193036a94696bf278b00579dd2a66f28da59b922856beae3c7a2c14fd8ec01a",
+      "values": {
+        "messages.display001": "Copy Alignment and Texture Rows",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Row stride",
+        "messages.display004": "52 bytes of valid data",
+        "messages.display005": "256-byte copy stride",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "comments.comment001": "webgpu-step-18: Copy Alignment and Texture Rows",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-19": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "ce92db84f4b42e3eba3f5d600032e7887a2032bb4d66f1ea65a286cad11dcd4e",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "d73f2ae939ef4700baba7be1712fd3014065111a7aa41dbcaf033db8199199b9",
+      "values": {
+        "messages.display001": "Workgroup Shared Memory",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Length",
+        "messages.display004": "64",
+        "messages.display005": "65",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "comments.comment001": "webgpu-step-19: Workgroup Shared Memory",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-20": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "bfc01b859c97b88853aff9217820309ed7b229d7b587a360d930bb4a062dc3ee",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "5e1b1c214193dfd869e2c8a5f52791f4a8dd741a3990d1dbd1cb6811bfbe08fb",
+      "values": {
+        "messages.display001": "Rendering Compute Results",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Readback policy",
+        "messages.display004": "Every frame",
+        "messages.display005": "Only on the validation button",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "Perform readback for validation",
+        "messages.display014": "Use compute storage directly as a vertex buffer. This draw has no CPU readback.",
+        "comments.comment001": "webgpu-step-20: Rendering Compute Results",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-21": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "1be1fc6463016d380e9d095bef01a8845da960039fafdd903d6936d3b9166097",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "016a9c598d5f4838581a89cbd5860023546fc079a0ae9879603f8fa746443705",
+      "values": {
+        "messages.display001": "Instancing and Data Structures",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Instance count",
+        "messages.display004": "64",
+        "messages.display005": "512",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "comments.comment001": "webgpu-step-21: Instancing and Data Structures",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-22": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "005709205ab68d27890e9759ea266ac8cb689e7fc23d2ba9c4838c45cb1a9ef8",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "04bcb015acec06174372e351783b8a4eba41391ac96ae26e5e00350b8898a107",
+      "values": {
+        "messages.display001": "Device Loss and Reinitialization",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Device state",
+        "messages.display004": "Normal",
+        "messages.display005": "Intentional loss through destroy",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "Destroy requested. After the device.lost callback, press Run to create a new device and pipeline.",
+        "messages.display014": "The device is working. In the changed condition, recover by rerunning after destroy.",
+        "comments.comment001": "webgpu-step-22: Device Loss and Reinitialization",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-23": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "332b0f6a5143058aa69b7800830144f09ce6c7107cdcf14fb39ab2f64efa728b",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "d70837c124af00a496cb056aa497b1dbc017ccd69f7af16cb785093ce70b55dd",
+      "values": {
+        "messages.display001": "Asynchronous Errors and Task Identity",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Completion order",
+        "messages.display004": "Current generation first",
+        "messages.display005": "Previous generation completes late",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "stale generation ",
+        "messages.display014": " ignored",
+        "messages.display015": "current generation ",
+        "messages.display016": " accepted: ",
+        "messages.display017": "The delay tests completion order; it does not measure GPU cost.",
+        "comments.comment001": "webgpu-step-23: Asynchronous Errors and Task Identity",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-24": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "1f12a49be769fe8d06ca5ba74ae781b354ba93ba3a58244c45ed43885d518641",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "7af5432f2f450cd899e9814f40e59bbbb1c1a8d89ef17fba7f4aabd1eae9640e",
+      "values": {
+        "messages.display001": "The Scope of Timing",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Array size",
+        "messages.display004": "1024",
+        "messages.display005": "65536",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "Host elapsed time including compilation, submission, and readback. This is not timestamp-query GPU time.",
+        "comments.comment001": "webgpu-step-24: The Scope of Timing",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-25": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "93eb63261996a4130d9cdf1a9f2518c78be5a6c9b4391e53a186a0683abeed5c",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "c5ed76d24c5fec55ab608f7a9b77058b056eef42f167c47754075b63c0080190",
+      "values": {
+        "messages.display001": "CPU References and Error Budgets",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Validation input",
+        "messages.display004": "Small positive values",
+        "messages.display005": "Mix of 0, negative, and large values",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "comments.comment001": "webgpu-step-25: CPU References and Error Budgets",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-26": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "007fd4973cf1ae366c8316bad45d3037c7f37aafe349928f46f58ea2c4de3acf",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "c14b88024d37306cd17b7d8bfa56373e688fa5b20a47ee3d726b86767601866f",
+      "values": {
+        "messages.display001": "Workgroup Size Experiments",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Workgroup size",
+        "messages.display004": "64",
+        "messages.display005": "32 and 128",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "This compares execution configurations without claiming a GPU performance ranking.",
+        "comments.comment001": "webgpu-step-26: Workgroup Size Experiments",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
     }
   },
   "webgpu-step-27": {
-    "sourceHash": "5bb904e329a26bdd6c00f63cb1cf11d31d03fb9eade6117bd8e2887206b04492",
+    "sourceHash": "82d8fc172e924b5aa7674333ae5cca8df41d4b45c8df7468a558298525dc72ef",
     "values": {
       "note": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+    },
+    "presentation": {
+      "sourceHash": "29e601641a8b729c5ff0b3991f05c8e0d18cf753225596a11bc273551e13af40",
+      "values": {
+        "messages.display001": "Acceptance of the Integrated Particle Experiment",
+        "messages.display002": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.",
+        "messages.display003": "Starting state",
+        "messages.display004": "Existing session",
+        "messages.display005": "New session with saved settings",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "WebGPU unavailable: HTTPS/localhost and a supported browser are required. CPU results are not presented as GPU execution.",
+        "messages.display008": "No adapter is available.",
+        "messages.display009": "Device lost: ",
+        "messages.display010": " — use the Run button to request a new device.",
+        "messages.display011": "GPU validation: ",
+        "messages.display012": "WebGPU canvas unavailable",
+        "messages.display013": "Each press of Run reconstructs particles with a new device and the same initial CPU input. This makes no claim about training or simulation performance.",
+        "comments.comment001": "webgpu-step-27: Acceptance of the Integrated Particle Experiment",
+        "comments.comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+      }
+    }
+  },
+  "webgpu-01": {
+    "presentation": {
+      "sourceHash": "8f2857f27e913c3aef8ed1345edbe135955bfc2d6aca06e91cf521b3dad751cf",
+      "values": {
+        "messages.display001": "WebGPU unavailable: check in a supported browser on HTTPS/localhost.",
+        "messages.display002": "No WebGPU adapter is available.",
+        "messages.display003": "Failed to create a WebGPU canvas context",
+        "comments.comment001": "Edit the WGSL vertices/colors directly. A supported GPU and a secure context are required."
+      }
+    }
+  },
+  "webgpu-02": {
+    "presentation": {
+      "sourceHash": "4e2a955a5fbfe5282dfa73ae0e449b4e0a29f16b2686fcabc1b64060345969f1",
+      "values": {
+        "messages.display001": "<h3>Uniform → render pass</h3><p>Update a real uniform buffer and draw a triangle. The validation button intentionally requests an invalid usage combination, captures the error, and redraws.</p><label>Red <input type=\"range\" min=\"0\" max=\"1\" step=\"0.01\" value=\"0.3\"></label> <label>Translation X <input type=\"range\" min=\"-0.5\" max=\"0.5\" step=\"0.01\" value=\"0\"></label> <button>Trigger validation / recover</button><pre aria-live=\"polite\"></pre>",
+        "messages.display002": "WebGPU unavailable. Use a supported browser on HTTPS/localhost. Controls require a real GPU.",
+        "messages.display003": "No GPU adapter available.",
+        "messages.display004": "WebGPU context unavailable",
+        "messages.display005": "CPU → writeBuffer → group 0 / binding 0 → render pass → submit\ncolor vec4f: bytes 0–15 | offset vec2f: 16–23 | scale: 24–27 | padding: 28–31\nred=",
+        "messages.display006": "; offset.x=",
+        "messages.display007": "; allocation=32 bytes",
+        "messages.display008": "\nIntentional MAP_READ | UNIFORM error: ",
+        "messages.display009": "No diagnostic returned",
+        "messages.display010": "Device lost: ",
+        "comments.comment001": "Edit the WGSL and byte offsets together; actual GPU validation remains enabled.",
+        "comments.comment002": "GPUBufferUsage.UNIFORM=64, COPY_DST=8. 32 bytes, 16-byte struct alignment."
+      }
+    }
+  },
+  "webgpu-03": {
+    "presentation": {
+      "sourceHash": "9cd9af770a6466ff032e173dceee1551888905f13779d04c6c2b3a385981bce1",
+      "values": {
+        "messages.display001": "<h3>Compute versus CPU + readback costs</h3><label>Array length <input type=\"number\" min=\"1\" max=\"262144\" value=\"1003\"></label> <label>Workgroup <select><option>32</option><option selected>64</option><option>128</option></select></label> <button>Dispatch and compare</button><pre aria-live=\"polite\"></pre>",
+        "messages.display002": "WebGPU unavailable: real compute requires a supported HTTPS/localhost browser.",
+        "messages.display003": "No adapter available",
+        "comments.comment001": "Extra invocations MUST exit.",
+        "messages.display004": "n=",
+        "messages.display005": "; group=",
+        "messages.display006": "; dispatched=",
+        "messages.display007": "; guarded extras=",
+        "messages.display008": "\nCPU reference: ",
+        "messages.display009": " ms\nsubmit → queue complete (includes copy): ",
+        "messages.display010": " ms\nmap + JS copy: ",
+        "messages.display011": " ms\nGPU path end-to-end (includes pipeline creation): ",
+        "messages.display012": " ms\nmax absolute error=",
+        "messages.display013": "; last=",
+        "messages.display014": " expected=",
+        "messages.display015": " — queue duration is not isolated GPU execution time.",
+        "messages.display016": "Device lost: ",
+        "comments.comment002": "Actual compute dispatch and GPU readback. Timings are wall-clock, not GPU timestamp queries."
+      }
     }
   }
 }

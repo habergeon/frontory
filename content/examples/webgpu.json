@@ -1,102 +1,127 @@
 {
   "webgpu-step-02": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-02/example.js"
   },
   "webgpu-step-03": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-03/example.js"
   },
   "webgpu-step-04": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-04/example.js"
   },
   "webgpu-step-05": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-05/example.js"
   },
   "webgpu-step-06": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-06/example.js"
   },
   "webgpu-step-07": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-07/example.js"
   },
   "webgpu-step-08": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-08/example.js"
   },
   "webgpu-step-09": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-09/example.js"
   },
   "webgpu-step-10": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-10/example.js"
   },
   "webgpu-step-11": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-11/example.js"
   },
   "webgpu-step-12": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-12/example.js"
   },
   "webgpu-step-13": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-13/example.js"
   },
   "webgpu-step-15": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-15/example.js"
   },
   "webgpu-step-16": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. 두 선택 모두 고정 경계에서 입력·출력 buffer를 분리해 4단계 ping-pong을 실행합니다. 제자리 쓰기는 실행하지 않으며 두 번째 선택은 그 위험을 검토하는 안내입니다.",
+    "readingSource": "/examples-en/webgpu-step-16/example.js"
   },
   "webgpu-step-17": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-17/example.js"
   },
   "webgpu-step-18": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-18/example.js"
   },
   "webgpu-step-19": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-19/example.js"
   },
   "webgpu-step-20": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-20/example.js"
   },
   "webgpu-step-21": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-21/example.js"
   },
   "webgpu-step-22": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-22/example.js"
   },
   "webgpu-step-23": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-23/example.js"
   },
   "webgpu-step-24": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-24/example.js"
   },
   "webgpu-step-25": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-25/example.js"
   },
   "webgpu-step-26": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-26/example.js"
   },
   "webgpu-step-27": {
     "mode": "browser",
-    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다."
+    "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+    "readingSource": "/examples-en/webgpu-step-27/example.js"
   }
 }

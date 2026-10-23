@@ -62,7 +62,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/webgpu-step-16/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.
+Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. Both selections run 4 ping-pong steps with fixed boundaries and separate input/output buffers. In-place writes are not executed; the second selection provides guidance for reviewing their risk.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

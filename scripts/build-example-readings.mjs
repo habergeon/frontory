@@ -14,6 +14,7 @@ for (const unit of read('content/catalog-v2.json').units) {
   const commentLocations = {}
   const anchoredKeys = {
     'typescript-02': ['inlineExplanation'], 'typescript-03': ['inlineExplanation'], 'html-03': ['inlineExplanation'],
+    'webgpu-02': ['comment002'], 'wgsl-02': ['comment002'],
     'react-03': ['comment01', 'comment02'], 'vue-02': ['comment01', 'comment02'], 'vue-03': ['comment01'],
   }
   for (const key of anchoredKeys[unit.id] ?? []) {
@@ -22,5 +23,13 @@ for (const unit of read('content/catalog-v2.json').units) {
     if (matches.length !== 1) throw Error(`Expected one manual comment anchor: ${unit.id}.${key}`)
     commentLocations[key] = { line: matches[0], column: matches[0].indexOf(text), kind: 'line' }
   }
-  writeEnglishReadingSource(unit.id, source, original, english, { commentLocations })
+  // These approved identity entries describe an existing nested shader comment.
+  // Its source has no trailing period; preserve the actual shader bytes exactly.
+  if (['webgpu-03', 'wgsl-03'].includes(unit.id)) {
+    const key = 'comment001', value = 'Extra invocations MUST exit.'
+    if (original.comments[key] !== value || english.comments[key] !== value || !source.includes(' // Extra invocations MUST exit')) throw Error('Changed shader comment identity: ' + unit.id)
+    const { [key]: _original, ...sourceComments } = original.comments
+    const { [key]: _english, ...englishComments } = english.comments
+    writeEnglishReadingSource(unit.id, source, { ...original, comments: sourceComments }, { ...english, comments: englishComments }, { commentLocations })
+  } else writeEnglishReadingSource(unit.id, source, original, english, { commentLocations })
 }

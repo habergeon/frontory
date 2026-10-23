@@ -1,22 +1,24 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { localizeExampleSource, writeGeneratedFile } from './example-presentation.mjs'
 
 // Authoring templates only: every emitted example is standalone and import-free.
 const root = path.resolve(import.meta.dirname, '..')
 const ui = (u, note) => `
   container.style.cssText = 'overflow:auto;background:#101827;color:#e5edf8;font:14px system-ui;padding:12px;box-sizing:border-box';
-  const title=document.createElement('h3'); title.textContent=${JSON.stringify(u.title)};
-  const help=document.createElement('p'); help.textContent=${JSON.stringify(note)};
-  const choice=document.createElement('select'); choice.setAttribute('aria-label',${JSON.stringify(u.variables[0].name)});
-  for(const text of ${JSON.stringify([u.variables[0].baseline,u.variables[0].change])}) { const o=document.createElement('option');o.textContent=text;choice.append(o); }
-  const button=document.createElement('button'); button.textContent='실행 / 다시 초기화';
+  const title=document.createElement('h3'); title.textContent=messages.display001;
+  const help=document.createElement('p'); help.textContent=messages.display002;
+  const choice=document.createElement('select'); choice.setAttribute('aria-label',messages.display003);
+  for(const text of [messages.display004,messages.display005]) { const o=document.createElement('option');o.textContent=text;choice.append(o); }
+  const button=document.createElement('button'); button.textContent=messages.display006;
   const output=document.createElement('pre'); output.style.cssText='white-space:pre-wrap;overflow-wrap:anywhere'; output.setAttribute('aria-live','polite');
   const canvas=document.createElement('canvas'); canvas.width=640;canvas.height=360;canvas.style.cssText='width:100%;height:auto;max-height:360px;object-fit:contain';
   container.append(title,help,choice,button,canvas,output);
 `
 const gpuTemplate = (u, body, note) => `// ${u.id}: ${u.title}
 // GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128.
-export function mount({container}) {
+export function mount({container,locale='ko'}) {
+/* GPU_MESSAGES */
 ${ui(u,note)}
   let active=true, generation=0, release=()=>{};
   async function run() {
@@ -25,23 +27,23 @@ ${ui(u,note)}
     const log=value=>{if(current())output.textContent=typeof value==='string'?value:JSON.stringify(value,null,2);};
     const variant=choice.selectedIndex;
     /** @type {any} */ const gpu=navigator['gpu'];
-    if(!globalThis.isSecureContext || !gpu) {log('WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.');button.disabled=false;return;}
+    if(!globalThis.isSecureContext || !gpu) {log(messages.display007);button.disabled=false;return;}
     /** @type {any} */ let device;
     const resources=[];let context;
     const dispose=()=>{for(const r of resources)r.destroy();resources.length=0;context?.unconfigure();device?.destroy();};
     try {
       const adapter=await gpu.requestAdapter();if(!current())return;
-      if(!adapter)throw new Error('사용 가능한 adapter가 없습니다.');
+      if(!adapter)throw new Error(messages.display008);
       const optional=${u.id==='webgpu-step-02'?'variant':'false'} && adapter.features.has('timestamp-query')?['timestamp-query']:[];
       device=await adapter.requestDevice({requiredFeatures:optional});
       if(!current()){device.destroy();return;} release=dispose;
-      device.lost.then(info=>{if(current())log('Device lost: '+info.reason+' — 실행 버튼으로 새 장치를 요청하세요.');});
-      device.addEventListener('uncapturederror',event=>log('GPU validation: '+event.error.message));
+      device.lost.then(info=>{if(current())log(messages.display009+info.reason+messages.display010);});
+      device.addEventListener('uncapturederror',event=>log(messages.display011+event.error.message));
       const buffer=(data,usage=128|4|8)=>{const bytes=typeof data==='number'?Math.max(4,data):data.byteLength;const b=device.createBuffer({size:Math.ceil(bytes/4)*4,usage});resources.push(b);if(typeof data!=='number')device.queue.writeBuffer(b,0,data);return b;};
       const read=async(b,size)=>{const staging=buffer(size,1|8);const e=device.createCommandEncoder();e.copyBufferToBuffer(b,0,staging,0,size);device.queue.submit([e.finish()]);await staging.mapAsync(1);if(!current()){staging.unmap();throw new Error('Cancelled');}const result=new Float32Array(staging.getMappedRange().slice(0));staging.unmap();return result;};
       const compile=async(code)=>{const m=device.createShaderModule({code});const info=await m.getCompilationInfo();if(!current())throw new Error('Cancelled');const errors=info.messages.filter(x=>x.type==='error');if(errors.length)throw new Error(errors.map(x=>'line '+x.lineNum+': '+x.message).join('\\n'));return m;};
       const compute=async(code,entries,groups,constants={})=>{const module=await compile(code);const p=await device.createComputePipelineAsync({layout:'auto',compute:{module,entryPoint:'main',constants}});if(!current())throw new Error('Cancelled');device.pushErrorScope('validation');const bind=device.createBindGroup({layout:p.getBindGroupLayout(0),entries});const e=device.createCommandEncoder();const pass=e.beginComputePass();pass.setPipeline(p);pass.setBindGroup(0,bind);pass.dispatchWorkgroups(...groups);pass.end();device.queue.submit([e.finish()]);const error=await device.popErrorScope();if(!current())throw new Error('Cancelled');if(error)throw new Error(error.message);};
-      const setupCanvas=()=>{context=canvas.getContext('webgpu');if(!context)throw new Error('WebGPU canvas 불가');const format=gpu.getPreferredCanvasFormat();context.configure({device,format,alphaMode:'opaque'});return format;};
+      const setupCanvas=()=>{context=canvas.getContext('webgpu');if(!context)throw new Error(messages.display012);const format=gpu.getPreferredCanvasFormat();context.configure({device,format,alphaMode:'opaque'});return format;};
       const triangle=\`@vertex fn vs(@builtin(vertex_index) i:u32)->@builtin(position) vec4f {let p=array<vec2f,3>(vec2f(-.7,-.6),vec2f(.7,-.6),vec2f(0,.7));return vec4f(p[i],0,1);}
       @fragment fn fs()->@location(0) vec4f{return vec4f(.2,.7,1,1);}\`;
       const render=async(code=triangle,options={})=>{const format=setupCanvas();const module=await compile(code);const p=await device.createRenderPipelineAsync({layout:'auto',vertex:{module,entryPoint:'vs'},fragment:{module,entryPoint:'fs',targets:[{format}]},...options});if(!current())throw new Error('Cancelled');const e=device.createCommandEncoder();const pass=e.beginRenderPass({colorAttachments:[{view:context.getCurrentTexture().createView(),clearValue:[.02,.04,.08,1],loadOp:'clear',storeOp:'store'}]});pass.setPipeline(p);pass.draw(3);pass.end();device.queue.submit([e.finish()]);};
@@ -92,7 +94,7 @@ const wgsl = {
 21:`const n=16;let src=buffer(Float32Array.from({length:n},(_,i)=>i===0?1:0)),dst=buffer(n*4);const code=\`@group(0) @binding(0) var<storage,read> a:array<f32>;@group(0) @binding(1) var<storage,read_write> b:array<f32>;@compute @workgroup_size(16) fn main(@builtin(global_invocation_id) id:vec3u){let i=id.x;let n=arrayLength(&a);\$\{variant?'b[i]=(a[(i+n-1u)%n]+a[i]+a[(i+1u)%n])/3.0;':'if(i==0u || i==n-1u){b[i]=a[i];}else{b[i]=(a[i-1u]+a[i]+a[i+1u])/3.0;}'\}}\`;for(let step=0;step<4;step++){await compute(code,[{binding:0,resource:{buffer:src}},{binding:1,resource:{buffer:dst}}],[1]);[src,dst]=[dst,src];}log({boundary:variant?'periodic':'fixed',after4:Array.from(await read(src,n*4))});`,
 24:simpleCompute('let v=vec2f(src[i],0);var direction=vec2f(0,1);if(dot(v,v)>1e-12){direction=v*inverseSqrt(dot(v,v));}dst[i]=direction.y;',{count:'3',init:'variant?[0,1e-8,1][i]:1'}),
 25:simpleCompute('dst[i]=src[i]*src[i];',{count:'variant?65:63',extra:"const expected=Array.from(input,x=>Math.fround(x*x));log({length:n,pass:expected.every((x,i)=>x===result[i]),last:result[n-1],note:'경계 유효값을 CPU와 비교합니다. 별도 sentinel 영역은 아래 코드를 확장해 추가하세요.'});"}),
-26:simpleCompute('dst[i]=sqrt(abs(src[i]));',{count:'1024',workgroup:'variant?128:32',extra:"log({workgroup:wg,pass:Array.from(result).every((x,i)=>Math.abs(x-Math.sqrt(input[i]))<1e-4),note:'실행 구성 비교이며 GPU 성능 순위를 단정하지 않습니다.'});"}),
+26:simpleCompute('dst[i]=sqrt(abs(src[i]));',{count:'1024',workgroup:'variant?128:32',extra:"log({workgroup:wg,pass:Array.from(result).every((x,i)=>Math.abs(x-Math.sqrt(input[i]))<1e-4),note:messages.display013});"}),
 27:simpleCompute('dst[i]=src[i]*2.0+1.0;',{count:'16',init:'((i*17+13)%101)/101',extra:"log({contract:{input:'f32[16]',output:'2*x+1',seed:13,workgroup:64},pass:Array.from(result).every((x,i)=>Math.abs(x-(input[i]*2+1))<1e-6),result:Array.from(result)});"}),
 }
 
@@ -100,7 +102,7 @@ const wgsl = {
 const textureCompute = (storage=false) => `
 const texture=device.createTexture({size:[4,4],format:'rgba8unorm',usage:4|8|2|1});resources.push(texture);
 const pixels=new Uint8Array(64);for(let i=0;i<16;i++){pixels[i*4]=i%2?255:0;pixels[i*4+2]=255;pixels[i*4+3]=255;}device.queue.writeTexture({texture},pixels,{bytesPerRow:16},{width:4,height:4});
-${storage?`await compute(\`@group(0) @binding(0) var image:texture_storage_2d<rgba8unorm,write>;@compute @workgroup_size(4,4) fn main(@builtin(global_invocation_id) id:vec3u){textureStore(image,vec2i(id.xy),vec4f(\$\{variant?'2.0':'0.5'\},.25,0,1));}\`,[{binding:0,resource:texture.createView()}],[1]);const staging=buffer(1024,1|8);const e=device.createCommandEncoder();e.copyTextureToBuffer({texture},{buffer:staging,bytesPerRow:256},{width:4,height:4});device.queue.submit([e.finish()]);await staging.mapAsync(1);if(!current())throw new Error('Cancelled');const bytes=new Uint8Array(staging.getMappedRange().slice(0));staging.unmap();log({firstPixel:Array.from(bytes.slice(0,4)),note:'rgba8unorm은 0..1을 0..255로 저장합니다.'});`:`const sampler=device.createSampler({magFilter:'linear',minFilter:'linear'});const dst=buffer(16);await compute(\`@group(0) @binding(0) var image:texture_2d<f32>;@group(0) @binding(1) var samp:sampler;@group(0) @binding(2) var<storage,read_write> out:vec4f;@compute @workgroup_size(1) fn main(){out=\$\{variant?'textureSampleLevel(image,samp,vec2f(.25,.5),0)':'textureLoad(image,vec2i(0,1),0)'\};}\`,[{binding:0,resource:texture.createView()},{binding:1,resource:sampler},{binding:2,resource:{buffer:dst}}],[1]);log({rgba:Array.from(await read(dst,16)),note:'Compute에서는 명시적 LOD를 사용하는 textureSampleLevel을 비교합니다.'});`}`
+${storage?`await compute(\`@group(0) @binding(0) var image:texture_storage_2d<rgba8unorm,write>;@compute @workgroup_size(4,4) fn main(@builtin(global_invocation_id) id:vec3u){textureStore(image,vec2i(id.xy),vec4f(\$\{variant?'2.0':'0.5'\},.25,0,1));}\`,[{binding:0,resource:texture.createView()}],[1]);const staging=buffer(1024,1|8);const e=device.createCommandEncoder();e.copyTextureToBuffer({texture},{buffer:staging,bytesPerRow:256},{width:4,height:4});device.queue.submit([e.finish()]);await staging.mapAsync(1);if(!current())throw new Error('Cancelled');const bytes=new Uint8Array(staging.getMappedRange().slice(0));staging.unmap();log({firstPixel:Array.from(bytes.slice(0,4)),note:'rgba8unorm은 0..1을 0..255로 저장합니다.'});`:`const sampler=device.createSampler({magFilter:'linear',minFilter:'linear'});const dst=buffer(16);await compute(\`@group(0) @binding(0) var image:texture_2d<f32>;@group(0) @binding(1) var samp:sampler;@group(0) @binding(2) var<storage,read_write> out:vec4f;@compute @workgroup_size(1) fn main(){out=\${variant?'textureSampleLevel(image,samp,vec2f(.25,.5),0)':'textureLoad(image,vec2i(0,1),0)'};}\`,[{binding:0,resource:texture.createView()},{binding:1,resource:sampler},{binding:2,resource:{buffer:dst}}],[1]);log({rgba:Array.from(await read(dst,16)),note:messages.display013});`}`
 wgsl[22]=textureCompute(false);wgsl[23]=textureCompute(true);
 // Both sampled bindings remain statically used in both variants of the pipeline.
 wgsl[22]=wgsl[22].replace("variant?'textureSampleLevel(image,samp,vec2f(.25,.5),0)':'textureLoad(image,vec2i(0,1),0)'", "'select(textureLoad(image,vec2i(0,1),0),textureSampleLevel(image,samp,vec2f(.25,.5),0),'+Boolean(variant)+')'");
@@ -120,28 +122,28 @@ wgsl[6]=wgsl[6].replace(".replace('WORKGROUP',String(wg))", ".replace('WORKGROUP
 
 const webgpu = {
 2:`log({requestedOptional:optional,enabled:Array.from(device.features),adapterMaxBufferSize:adapter.limits.maxBufferSize,deviceMaxBufferSize:device.limits.maxBufferSize,requestedBytes:1024,accepted:1024<=device.limits.maxBufferSize});`,
-3:`setupCanvas();const e=device.createCommandEncoder();const p=e.beginRenderPass({colorAttachments:[{view:context.getCurrentTexture().createView(),clearValue:variant?[.02,.1,.3,1]:[0,0,0,1],loadOp:'clear',storeOp:'store'}]});p.end();device.queue.submit([e.finish()]);log('현재 texture view를 얻어 attachment를 clear했습니다.');`,
-4:`setupCanvas();const events=[];for(let i=0;i<(variant?2:1);i++){const e=device.createCommandEncoder();const p=e.beginRenderPass({colorAttachments:[{view:context.getCurrentTexture().createView(),clearValue:i?[.3,.1,.02,1]:[.02,.1,.3,1],loadOp:'clear',storeOp:'store'}]});p.end();device.queue.submit([e.finish()]);events.push('submit '+(i+1));}await device.queue.onSubmittedWorkDone();events.push('onSubmittedWorkDone: queue complete');log(events);`,
-5:`await render(triangle,{vertex:{module:await compile(triangle),entryPoint:variant?'missing':'vs'}});log('모듈 컴파일과 pipeline entry point 검증 성공');`,
-8:`const uniform=buffer(new Float32Array(variant?[0,1,0,1]:[1,0,0,1]),64|8);const format=setupCanvas();const module=await compile(triangle.replace('@fragment fn fs()->@location(0) vec4f{return vec4f(.2,.7,1,1);}','@group(0) @binding(0) var<uniform> color:vec4f;@fragment fn fs()->@location(0) vec4f{return color;}'));const p=await device.createRenderPipelineAsync({layout:'auto',vertex:{module,entryPoint:'vs'},fragment:{module,entryPoint:'fs',targets:[{format}]}});if(!current())throw new Error('Cancelled');const group=device.createBindGroup({layout:p.getBindGroupLayout(0),entries:[{binding:0,resource:{buffer:uniform}}]});const draw=()=>{const e=device.createCommandEncoder();const pass=e.beginRenderPass({colorAttachments:[{view:context.getCurrentTexture().createView(),clearValue:[0,0,0,1],loadOp:'clear',storeOp:'store'}]});pass.setPipeline(p);pass.setBindGroup(0,group);pass.draw(3);pass.end();device.queue.submit([e.finish()]);};draw();device.queue.writeBuffer(uniform,0,new Float32Array(variant?[0,1,0,1]:[1,0,0,1]));draw();log('같은 pipeline과 bind group으로 queue.writeBuffer 갱신 후 다시 draw');`,
+3:`setupCanvas();const e=device.createCommandEncoder();const p=e.beginRenderPass({colorAttachments:[{view:context.getCurrentTexture().createView(),clearValue:variant?[.02,.1,.3,1]:[0,0,0,1],loadOp:'clear',storeOp:'store'}]});p.end();device.queue.submit([e.finish()]);log(messages.display013);`,
+4:`setupCanvas();const events=[];for(let i=0;i<(variant?2:1);i++){const e=device.createCommandEncoder();const p=e.beginRenderPass({colorAttachments:[{view:context.getCurrentTexture().createView(),clearValue:i?[.3,.1,.02,1]:[.02,.1,.3,1],loadOp:'clear',storeOp:'store'}]});p.end();device.queue.submit([e.finish()]);events.push(messages.display013+(i+1));}await device.queue.onSubmittedWorkDone();events.push(messages.display014);log(events);`,
+5:`await render(triangle,{vertex:{module:await compile(triangle),entryPoint:variant?'missing':'vs'}});log(messages.display013);`,
+8:`const uniform=buffer(new Float32Array(variant?[0,1,0,1]:[1,0,0,1]),64|8);const format=setupCanvas();const module=await compile(triangle.replace('@fragment fn fs()->@location(0) vec4f{return vec4f(.2,.7,1,1);}','@group(0) @binding(0) var<uniform> color:vec4f;@fragment fn fs()->@location(0) vec4f{return color;}'));const p=await device.createRenderPipelineAsync({layout:'auto',vertex:{module,entryPoint:'vs'},fragment:{module,entryPoint:'fs',targets:[{format}]}});if(!current())throw new Error('Cancelled');const group=device.createBindGroup({layout:p.getBindGroupLayout(0),entries:[{binding:0,resource:{buffer:uniform}}]});const draw=()=>{const e=device.createCommandEncoder();const pass=e.beginRenderPass({colorAttachments:[{view:context.getCurrentTexture().createView(),clearValue:[0,0,0,1],loadOp:'clear',storeOp:'store'}]});pass.setPipeline(p);pass.setBindGroup(0,group);pass.draw(3);pass.end();device.queue.submit([e.finish()]);};draw();device.queue.writeBuffer(uniform,0,new Float32Array(variant?[0,1,0,1]:[1,0,0,1]));draw();log(messages.display013);`,
 9:`const words=new Float32Array(8);words.set([1,.5,.25]);words[variant?4:3]=2;const src=buffer(words,64|8),dst=buffer(16);await compute('struct Params{color:vec3f,gain:f32};@group(0) @binding(0) var<uniform> p:Params;@group(0) @binding(1) var<storage,read_write> out:vec4f;@compute @workgroup_size(1) fn main(){out=vec4f(p.color*p.gain,p.gain);}',[{binding:0,resource:{buffer:src}},{binding:1,resource:{buffer:dst}}],[1]);log({gainByteOffset:variant?16:12,result:Array.from(await read(dst,16)),expected:[2,1,.5,2]});`,
-10:`const transform=variant?'r*(p[i]+vec2f(.45,0))':'r*p[i]+vec2f(.45,0)';await render(triangle.replace('return vec4f(p[i],0,1);',\`let a=.7;let r=mat2x2f(vec2f(cos(a),sin(a)),vec2f(-sin(a),cos(a)));return vec4f(\$\{transform\},0,1);\`));log({order:variant?'rotation * translation':'translation * rotation',angle:.7});`,
+10:`const transform=variant?'r*(p[i]+vec2f(.45,0))':'r*p[i]+vec2f(.45,0)';await render(triangle.replace('return vec4f(p[i],0,1);',\`let a=.7;let r=mat2x2f(vec2f(cos(a),sin(a)),vec2f(-sin(a),cos(a)));return vec4f(\${transform},0,1);\`));log({order:variant?messages.display013:messages.display014,angle:.7});`,
 11:textureCompute(false),
 15:simpleCompute('dst[i]=src[i]*2.0;'),
 16:wgsl[21],
-17:`const n=64;let src=buffer(Float32Array.from({length:n},(_,i)=>i)),dst=buffer(n*4);let mappings=0;const start=performance.now();for(let step=0;step<4;step++){await compute('@group(0) @binding(0) var<storage,read> a:array<f32>;@group(0) @binding(1) var<storage,read_write> b:array<f32>;@compute @workgroup_size(64) fn main(@builtin(global_invocation_id) id:vec3u){b[id.x]=a[id.x]+1.0;}',[{binding:0,resource:{buffer:src}},{binding:1,resource:{buffer:dst}}],[1]);[src,dst]=[dst,src];if(variant){await read(src,n*4);mappings++;}}const result=await read(src,n*4);mappings++;log({mappings,endToEndMs:performance.now()-start,last:result[n-1],note:'호스트 컴파일·제출·복사·map을 포함. GPU 단독 시간이 아닙니다.'});`,
+17:`const n=64;let src=buffer(Float32Array.from({length:n},(_,i)=>i)),dst=buffer(n*4);let mappings=0;const start=performance.now();for(let step=0;step<4;step++){await compute('@group(0) @binding(0) var<storage,read> a:array<f32>;@group(0) @binding(1) var<storage,read_write> b:array<f32>;@compute @workgroup_size(64) fn main(@builtin(global_invocation_id) id:vec3u){b[id.x]=a[id.x]+1.0;}',[{binding:0,resource:{buffer:src}},{binding:1,resource:{buffer:dst}}],[1]);[src,dst]=[dst,src];if(variant){await read(src,n*4);mappings++;}}const result=await read(src,n*4);mappings++;log({mappings,endToEndMs:performance.now()-start,last:result[n-1],note:messages.display013});`,
 18:`const texture=device.createTexture({size:[13,2],format:'rgba8unorm',usage:2|1});resources.push(texture);const input=Uint8Array.from({length:104},(_,i)=>i%256);device.queue.writeTexture({texture},input,{bytesPerRow:52},{width:13,height:2});const bytesPerRow=variant?256:52;const staging=buffer(512,1|8);device.pushErrorScope('validation');const e=device.createCommandEncoder();e.copyTextureToBuffer({texture},{buffer:staging,bytesPerRow},{width:13,height:2});device.queue.submit([e.finish()]);const error=await device.popErrorScope();if(error){log(error.message);return;}await staging.mapAsync(1);if(!current())throw new Error('Cancelled');const padded=new Uint8Array(staging.getMappedRange().slice(0));staging.unmap();const restored=[...padded.slice(0,52),...padded.slice(bytesPerRow,bytesPerRow+52)];log({bytesPerRow,restoredBytes:restored.length,pass:restored.every((x,i)=>x===input[i])});`,
 19:reduction(),
-22:`await render();if(variant){device.destroy();log('destroy 요청 완료. device.lost 콜백 후 실행 버튼을 눌러 새 device와 pipeline을 만드세요.');}else log('정상 장치. 변경 조건에서 destroy 후 다시 실행으로 복구합니다.');`,
-23:`let accepted=0;const requests=[1,2];const results=await Promise.all(requests.map(async id=>{const module=await compile(triangle);const p=await device.createRenderPipelineAsync({layout:'auto',vertex:{module,entryPoint:'vs'},fragment:{module,entryPoint:'fs',targets:[{format:gpu.getPreferredCanvasFormat()}]}});if(variant && id===1)await new Promise(resolve=>setTimeout(resolve,40));if(!current())return 'disposed';if(id!==2)return 'stale generation '+id+' ignored';accepted=id;return 'current generation '+id+' accepted: '+Boolean(p);}));log({accepted,results,note:'지연은 완료 순서 시험용이며 GPU 비용 측정이 아닙니다.'});`,
-24:simpleCompute('dst[i]=src[i]*src[i]+1.0;',{count:'variant?65536:1024',extra:"log({n,endToEndMs:performance.now()-started,note:'컴파일, 제출, readback 포함 호스트 경과 시간. timestamp-query GPU 시간이 아닙니다.'});"}),
+22:`await render();if(variant){device.destroy();log(messages.display013);}else log(messages.display014);`,
+23:`let accepted=0;const requests=[1,2];const results=await Promise.all(requests.map(async id=>{const module=await compile(triangle);const p=await device.createRenderPipelineAsync({layout:'auto',vertex:{module,entryPoint:'vs'},fragment:{module,entryPoint:'fs',targets:[{format:gpu.getPreferredCanvasFormat()}]}});if(variant && id===1)await new Promise(resolve=>setTimeout(resolve,40));if(!current())return 'disposed';if(id!==2)return messages.display013+id+messages.display014;accepted=id;return messages.display015+id+messages.display016+Boolean(p);}));log({accepted,results,note:messages.display017});`,
+24:simpleCompute('dst[i]=src[i]*src[i]+1.0;',{count:'variant?65536:1024',extra:"log({n,endToEndMs:performance.now()-started,note:messages.display013});"}),
 25:simpleCompute('dst[i]=sqrt(abs(src[i]))*src[i];',{count:'6',init:'variant?[0,-1,1e-8,1e8,-1e8,3.1][i]:i+1',extra:"const checks=Array.from(input,(x,i)=>{const expected=Math.sqrt(Math.abs(x))*x,error=Math.abs(result[i]-expected),tolerance=1e-5+Math.abs(expected)*1e-5;return {x,expected,gpu:result[i],error,tolerance,pass:error<=tolerance};});log(checks);"}),
 26:wgsl[26],
 27:wgsl[27],
 }
 webgpu[24]='const started=performance.now();'+webgpu[24];
 webgpu[11]=wgsl[22].replace("const sampler=device.createSampler({magFilter:'linear',minFilter:'linear'})", "const sampler=device.createSampler({magFilter:variant?'linear':'nearest',minFilter:variant?'linear':'nearest'})").replace("'select(textureLoad(image,vec2i(0,1),0),textureSampleLevel(image,samp,vec2f(.25,.5),0),'+Boolean(variant)+')'", "'textureSampleLevel(image,samp,vec2f(.25,.5),0)'");
-webgpu[16]=wgsl[21].replace("variant?'b[i]=(a[(i+n-1u)%n]+a[i]+a[(i+1u)%n])/3.0;':'if", "false?'b[i]=(a[(i+n-1u)%n]+a[i]+a[(i+1u)%n])/3.0;':'if")+"if(variant)log({review:'입출력은 계속 분리합니다. 이웃 읽기와 쓰기를 같은 storage에 alias하면 workgroup 간 순서가 보장되지 않습니다.',safeReference:Array.from(await read(src,n*4)),inPlaceExecuted:false});";
+webgpu[16]=wgsl[21].replace("boundary:variant?'periodic':'fixed'","boundary:'fixed'").replace("variant?'b[i]=(a[(i+n-1u)%n]+a[i]+a[(i+1u)%n])/3.0;':'if", "false?'b[i]=(a[(i+n-1u)%n]+a[i]+a[(i+1u)%n])/3.0;':'if")+"if(variant)log({review:messages.display013,safeReference:Array.from(await read(src,n*4)),inPlaceExecuted:false});";
 webgpu[19]=reduction().replace('n=variant?1003:65','n=variant?65:64');
 
 const vertexRender = (day) => `
@@ -157,15 +159,15 @@ webgpu[6]=vertexRender(6);webgpu[7]=vertexRender(7);
 webgpu[12]=`
 const format=setupCanvas();const depth=device.createTexture({size:[640,360],format:'depth24plus',usage:16});resources.push(depth);
 const module=await compile('struct Out{@builtin(position) p:vec4f,@location(0) color:vec3f};@vertex fn vs(@builtin(vertex_index) i:u32,@builtin(instance_index) j:u32)->Out{let p=array<vec2f,3>(vec2f(-.7,-.6),vec2f(.7,-.6),vec2f(0,.7));let z=select(.2,.8,j==1u);let c=select(vec3f(1,.2,.1),vec3f(.1,.5,1),j==1u);return Out(vec4f(p[i]+vec2f(f32(j)*.2,0),z,1),c);}@fragment fn fs(o:Out)->@location(0) vec4f{return vec4f(o.color,1);}');
-const p=await device.createRenderPipelineAsync({layout:'auto',vertex:{module,entryPoint:'vs'},fragment:{module,entryPoint:'fs',targets:[{format}]},depthStencil:{format:'depth24plus',depthWriteEnabled:!!variant,depthCompare:variant?'less':'always'}});if(!current())throw new Error('Cancelled');const e=device.createCommandEncoder();const pass=e.beginRenderPass({colorAttachments:[{view:context.getCurrentTexture().createView(),clearValue:[0,0,0,1],loadOp:'clear',storeOp:'store'}],depthStencilAttachment:{view:depth.createView(),depthClearValue:1,depthLoadOp:'clear',depthStoreOp:'store'}});pass.setPipeline(p);pass.draw(3,2);pass.end();device.queue.submit([e.finish()]);log('가까운 빨강을 먼저 그리고 먼 파랑을 나중에 그립니다.');`;
+const p=await device.createRenderPipelineAsync({layout:'auto',vertex:{module,entryPoint:'vs'},fragment:{module,entryPoint:'fs',targets:[{format}]},depthStencil:{format:'depth24plus',depthWriteEnabled:!!variant,depthCompare:variant?'less':'always'}});if(!current())throw new Error('Cancelled');const e=device.createCommandEncoder();const pass=e.beginRenderPass({colorAttachments:[{view:context.getCurrentTexture().createView(),clearValue:[0,0,0,1],loadOp:'clear',storeOp:'store'}],depthStencilAttachment:{view:depth.createView(),depthClearValue:1,depthLoadOp:'clear',depthStoreOp:'store'}});pass.setPipeline(p);pass.draw(3,2);pass.end();device.queue.submit([e.finish()]);log(messages.display013);`;
 webgpu[13]=`
-const format=setupCanvas(),samples=variant?4:1;const target=device.createTexture({size:[640,360],format,sampleCount:samples,usage:16});resources.push(target);const module=await compile(triangle);const p=await device.createRenderPipelineAsync({layout:'auto',vertex:{module,entryPoint:'vs'},fragment:{module,entryPoint:'fs',targets:[{format}]},multisample:{count:samples}});if(!current())throw new Error('Cancelled');const view=context.getCurrentTexture().createView();const e=device.createCommandEncoder();const pass=e.beginRenderPass({colorAttachments:[{view:samples===4?target.createView():view,...(samples===4?{resolveTarget:view}:{}),clearValue:[0,0,0,1],loadOp:'clear',storeOp:'store'}]});pass.setPipeline(p);pass.draw(3);pass.end();device.queue.submit([e.finish()]);log({sampleCount:samples,attachment:[640,360],note:'고정 drawing buffer에서 비교. 크기를 편집하면 attachment도 다시 생성합니다.'});`;
+const format=setupCanvas(),samples=variant?4:1;const target=device.createTexture({size:[640,360],format,sampleCount:samples,usage:16});resources.push(target);const module=await compile(triangle);const p=await device.createRenderPipelineAsync({layout:'auto',vertex:{module,entryPoint:'vs'},fragment:{module,entryPoint:'fs',targets:[{format}]},multisample:{count:samples}});if(!current())throw new Error('Cancelled');const view=context.getCurrentTexture().createView();const e=device.createCommandEncoder();const pass=e.beginRenderPass({colorAttachments:[{view:samples===4?target.createView():view,...(samples===4?{resolveTarget:view}:{}),clearValue:[0,0,0,1],loadOp:'clear',storeOp:'store'}]});pass.setPipeline(p);pass.draw(3);pass.end();device.queue.submit([e.finish()]);log({sampleCount:samples,attachment:[640,360],note:messages.display013});`;
 const particles = (instancing=false) => `
 const n=${instancing?'variant?512:64':'64'};const src=buffer(Float32Array.from({length:n*2},(_,i)=>(i%2?Math.floor(i/2)/n:((Math.floor(i/2)*17)%n)/n)*1.6-.8));const dst=buffer(n*8,128|4|8|32);
 await compute('@group(0) @binding(0) var<storage,read> a:array<vec2f>;@group(0) @binding(1) var<storage,read_write> b:array<vec2f>;@compute @workgroup_size(64) fn main(@builtin(global_invocation_id) id:vec3u){if(id.x>=arrayLength(&a)){return;}b[id.x]=a[id.x]+vec2f(.05*sin(f32(id.x)),0);}',[{binding:0,resource:{buffer:src}},{binding:1,resource:{buffer:dst}}],[Math.ceil(n/64)]);
 const format=setupCanvas();const module=await compile('@vertex fn vs(@location(0) center:vec2f,@builtin(vertex_index) i:u32)->@builtin(position) vec4f{let p=array<vec2f,3>(vec2f(-.012,-.012),vec2f(.012,-.012),vec2f(0,.018));return vec4f(center+p[i],0,1);}@fragment fn fs()->@location(0) vec4f{return vec4f(.2,.8,.6,1);}');const p=await device.createRenderPipelineAsync({layout:'auto',vertex:{module,entryPoint:'vs',buffers:[{arrayStride:8,stepMode:'instance',attributes:[{shaderLocation:0,offset:0,format:'float32x2'}]}]},fragment:{module,entryPoint:'fs',targets:[{format}]}});if(!current())throw new Error('Cancelled');const e=device.createCommandEncoder();const pass=e.beginRenderPass({colorAttachments:[{view:context.getCurrentTexture().createView(),clearValue:[0,0,0,1],loadOp:'clear',storeOp:'store'}]});pass.setPipeline(p);pass.setVertexBuffer(0,dst);pass.draw(3,n);pass.end();device.queue.submit([e.finish()]);
-${instancing?"log({instances:n,drawCalls:1,vertexInvocations:n*3});":"if(!variant)log({readback:Array.from((await read(dst,n*8)).slice(0,8)),note:'검증을 위해 readback 수행'});else log('compute storage를 vertex buffer로 직접 사용. 이번 draw에는 CPU readback 없음.');"}`;
-webgpu[20]=particles();webgpu[21]=particles(true);webgpu[27]=particles(true).replace('n=variant?512:64','n=64')+"log({seed:'index*17 modulo n',count:n,note:'실행 버튼마다 새 device와 동일 CPU 초기 입력에서 입자를 재구성합니다. 학습·시뮬레이션 성능 주장이 아닙니다.'});";
+${instancing?"log({instances:n,drawCalls:1,vertexInvocations:n*3});":"if(!variant)log({readback:Array.from((await read(dst,n*8)).slice(0,8)),note:messages.display013});else log(messages.display014);"}`;
+webgpu[20]=particles();webgpu[21]=particles(true);webgpu[27]=particles(true).replace('n=variant?512:64','n=64')+"log({seed:'index*17 modulo n',count:n,note:messages.display013});";
 
 const noiseGLSL=`float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 s=mix(f,f*f*(3.-2.*f),uVariant);return mix(mix(hash(i),hash(i+vec2(1,0)),s.x),mix(hash(i+vec2(0,1)),hash(i+1.),s.x),s.y);}`;
 const glslBodies={
@@ -201,7 +203,8 @@ function glslTemplate(u){
   const vertex=`varying vec2 vUv;varying vec3 vColor;varying vec3 vWorld;varying vec3 vNormal;varying vec3 vView;uniform float uVariant;uniform float uTime;${d===4?'attribute vec3 aColor;':''}void main(){vUv=uv;vec3 p=position;${d===20?'p.z+=.15*sin(p.x*8.);':''}vWorld=(modelMatrix*vec4(p,1)).xyz;vColor=${d===4?'mix(vec3(1,0,0),aColor,uVariant)':'vec3(1)'};vNormal=normalize(normalMatrix*normal);${d===20?'if(uVariant>.5)vNormal=normalize(normalMatrix*vec3(-1.2*cos(p.x*8.),0,1));':''}vView=(modelViewMatrix*vec4(p,1)).xyz;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1);}`;
   const fragment=`uniform float uVariant;uniform float uTime;uniform vec2 uResolution;uniform vec2 uPointer;uniform sampler2D uTexture;uniform vec3 uColor;varying vec2 vUv;varying vec3 vColor;varying vec3 vWorld;varying vec3 vNormal;varying vec3 vView;${[16,17,27].includes(d)?noiseGLSL:''}void main(){${glslBodies[d]}}`;
   return `// ${u.id}: real GLSL ShaderMaterial experiment.
-export function mount({THREE,container}) {
+export function mount({THREE,container,locale='ko'}) {
+/* GPU_MESSAGES */
 ${ui(u,'실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.')}
   const renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(1);
   const scene=new THREE.Scene();const camera=${[18,19,20].includes(d)?'new THREE.PerspectiveCamera(45,640/360,.1,20)':'new THREE.OrthographicCamera(-1,1,1,-1,.1,20)'};camera.position.z=3;
@@ -224,7 +227,7 @@ ${ui(u,'실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의
     ${d===22?'target.setSize(v?320:640,v?180:360);':''}
     ${d===26?`const gl=renderer.getContext();const shader=gl.createShader(gl.FRAGMENT_SHADER);gl.shaderSource(shader,v?'precision mediump float;void main(){gl_FragColor = ;}':'precision mediump float;void main(){gl_FragColor=vec4(1.);}');gl.compileShader(shader);const ok=gl.getShaderParameter(shader,gl.COMPILE_STATUS);output.textContent=ok?'새 소스 검증 성공 — 정상 화면 유지':gl.getShaderInfoLog(shader)+'\\n마지막 정상 ShaderMaterial 유지';gl.deleteShader(shader);return;`:''}
     ${d===27?'renderer.setSize(v?320:640,v?180:360,false);uniforms.uResolution.value.set(v?320:640,v?180:360);':''}
-    output.textContent=${JSON.stringify(u.variables[0].name)}+': '+choice.options[v].text+'\\n'+${JSON.stringify(u.variables[0].expected)};
+    output.textContent=messages.display003+messages.${d===26?'display009':'display007'}+choice.options[v].text+'\\n'+messages.${d===26?'display010':'display008'};
   }
   renderer.setSize(640,360,false);apply();button.onclick=apply;choice.onchange=apply;
   function tick(now){if(!active)return;const dt=Math.min(.1,(now-last)/1000);last=now;uniforms.uTime.value=now/1000;uniforms.uPointer.value.lerp(pointer,1-Math.exp(-${d===24?'(choice.selectedIndex?16:4)':'12'}*dt));
@@ -251,7 +254,7 @@ const gsBodies={
 10:`const properties=variant?['x','y','z']:['x','y','z','scale_0','scale_1','scale_2','rot_0','rot_1','rot_2','rot_3','opacity','f_dc_0','f_dc_1','f_dc_2'];const header=['ply','format ascii 1.0','element vertex 1',...properties.map(p=>'property float '+p),'end_header'].join('\\n');const parsed=header.split('\\n').filter(l=>l.startsWith('property float ')).map(l=>l.slice(15));const required=['x','y','z','scale_0','scale_1','scale_2','rot_0','rot_1','rot_2','rot_3','opacity','f_dc_0','f_dc_1','f_dc_2'];const missing=required.filter(p=>!parsed.includes(p));log({header,kind:missing.length?'point cloud; GS rejected':'GS property contract accepted',missing,note:'ASCII 헤더 검사만 수행합니다. binary/endian 해석은 제공하지 않습니다.'});`,
 11:`const encoded=variant?Math.log(.1):.1;const decoded=variant?Math.exp(encoded):encoded;const quaternion=[0,0,0,1],norm=Math.hypot(...quaternion);const opacity=1/(1+Math.exp(-0));const valid=Number.isFinite(decoded)&&decoded>0&&norm>1e-8;clear();if(valid)draw({x:320,y:180,sx:decoded*500,sy:decoded*200,angle:0,color:[80,210,160],opacity});log({encoding:variant?'log':'raw',encoded,decoded,normalizedQuaternion:quaternion.map(x=>x/norm),sigmoidOpacity:opacity,valid});`,
 12:`clear();const samples=[];for(let i=0;i<8;i++){const angle=i/8*Math.PI*2;const direction=[Math.cos(angle),Math.sin(angle),0];const dc=.2820947918*.8,first=variant?.4886025119*direction[0]*.6:0;const value=Math.max(0,Math.min(1,.5+dc+first));samples.push({direction,value});draw({x:320+Math.cos(angle)*180,y:180+Math.sin(angle)*110,sx:28,sy:20,angle,color:[value*255,100,255-value*255],opacity:1});}log({syntheticSH:true,samples,note:'상수 + 합성 1차 SH 항. 학습 데이터·재구성 품질 증거가 아닙니다.'});`,
-13:`const accepted=[];let request=0;const load=(name,delay)=>{const id=++request;return new Promise(resolve=>{const timer=setTimeout(()=>{timers.delete(timer);if(!isCurrent()||id!==request){resolve(name+' ignored');return;}clear();draw({x:320,y:180,sx:60,sy:35,angle:0,color:name==='A'?[255,120,40]:[40,150,255],opacity:1});accepted.push(name);resolve(name+' ready');},delay);timers.add(timer);});};const a=load('A',variant?140:20),b=load('B',variant?20:140);const outcomes=await Promise.all([a,b]);log({outcomes,accepted,lastSelection:'B',note:'네트워크가 아닌 로컬 지연 fixture. 취소된 결과는 commit하지 않습니다.'});`,
+13:`const accepted=[];let request=0;const load=(name,delay)=>{const id=++request;return new Promise(resolve=>{const timer=setTimeout(()=>{timers.delete(timer);if(!isCurrent()||id!==request){resolve(name+messages.display014);return;}clear();draw({x:320,y:180,sx:60,sy:35,angle:0,color:name==='A'?[255,120,40]:[40,150,255],opacity:1});accepted.push(name);resolve(name+' ready');},delay);timers.add(timer);});};const a=load('A',variant?140:20),b=load('B',variant?20:140);const outcomes=await Promise.all([a,b]);log({outcomes,accepted,lastSelection:'B',note:'네트워크가 아닌 로컬 지연 fixture. 취소된 결과는 commit하지 않습니다.'});`,
 15:`const radius=variant?24:8;clear();const projected=data.slice(0,80).map(p=>({...p,...project(p,3)}));for(const p of projected)draw({...p,sx:6,sy:3,angle:0,opacity:.6});const pick=(x,y)=>{const candidates=projected.filter(p=>Math.hypot(p.x-x,p.y-y)<=radius);ctx.strokeStyle='#fff';ctx.beginPath();ctx.arc(x,y,radius,0,Math.PI*2);ctx.stroke();log({radius,candidateIds:candidates.map(p=>p.id),note:'화면 중심 거리 선택 근사; 실제 3D 표면 교차가 아닙니다.'});};canvas.onclick=event=>{const r=canvas.getBoundingClientRect();pick((event.clientX-r.left)*canvas.width/r.width,(event.clientY-r.top)*canvas.height/r.height);};pick(320,180);`,
 16:`const objects=[{x:-25,y:180,sx:25,sy:20,angle:0,color:[255,150,40],opacity:1},{x:320,y:180,sx:40,sy:30,angle:0,color:[40,170,255],opacity:1},{x:670,y:150,sx:20,sy:15,angle:0,color:[255,90,150],opacity:1}];const visible=objects.filter(p=>variant?p.x+3*p.sx>=0&&p.x-3*p.sx<640:p.x>=0&&p.x<640);clear();visible.forEach(draw);log({rule:variant?'3 sigma bounding box':'center only',processed:visible.length,total:objects.length,note:'축 정렬 보수적 경계. 회전 타원에서는 공분산에서 bounding box를 계산해야 합니다.'});`,
 17:`const period=variant?4:1;let frameIndex=0,sorts=0,ordered=[];function tick(){if(!isCurrent())return;const angle=frameIndex*.04;const projected=data.slice(0,64).map(p=>({...p,depth:p.x*Math.sin(angle)+p.z*Math.cos(angle),px:320+(p.x*Math.cos(angle)-p.z*Math.sin(angle))*170}));if(frameIndex%period===0){ordered=projected.slice().sort((a,b)=>b.depth-a.depth).map(p=>p.id);sorts++;}clear();for(const id of ordered){const p=projected.find(x=>x.id===id);draw({x:p.px,y:180-p.y*110,sx:14,sy:7,angle:.3,color:p.color,opacity:.5});}log({frame:frameIndex,sorts,period,staleFrames:frameIndex%period});frameIndex++;raf=requestAnimationFrame(tick);}tick();`,
@@ -268,7 +271,8 @@ const gsBodies={
 };
 
 function gsTemplate(u){return `// ${u.id}: deliberately small CPU teaching experiment, not a trained GS renderer.
-export function mount({container}) {
+export function mount({container,locale='ko'}) {
+/* GPU_MESSAGES */
 ${ui(u,'CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.')}
   const ctx=canvas.getContext('2d');if(!ctx)throw new Error('Canvas2D unavailable');
   let active=true,generation=0,raf=0;const timers=new Set();
@@ -284,18 +288,32 @@ ${ui(u,'CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌�
 }
 `;}
 
+const noteOverrides={
+  "webgpu-step-16": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. 두 선택 모두 고정 경계에서 입력·출력 buffer를 분리해 4단계 ping-pong을 실행합니다. 제자리 쓰기는 실행하지 않으며 두 번째 선택은 그 위험을 검토하는 안내입니다.",
+  "glsl-step-07": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. 제공된 최종 색 식의 smoothstep(.5,.1,...)은 edge0 >= edge1이므로 결과가 정의되지 않습니다. 정상 기준 화면으로 해석하지 마세요. 브라우저 실패를 실행으로 확인한 것은 아닙니다. UV 직접 출력과 진단 과제는 별도로 관찰하세요.",
+  "glsl-step-17": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. 제공된 선택은 octave 수 1/5와 noise 보간식을 함께 바꿉니다. 이 비교만으로 octave 수의 효과를 분리해 판단할 수 없습니다. 보간식을 고정한 비교는 별도 과제입니다.",
+  "glsl-step-26": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. 제공된 예제는 독립 fragment shader만 compile하고 원문 compiler log를 표시하며 기존 ShaderMaterial 화면을 유지합니다. 성공한 candidate program 설치·교체나 context 복구는 구현하지 않습니다.",
+  "glsl-step-27": "브라우저 WebGL ShaderMaterial 실행. 640×360/320×180 비교이며 프레임 간격은 GPU 시간과 다릅니다. 제공된 선택은 전체/절반 해상도와 noise 보간식을 함께 바꾸며 4 octave는 유지합니다. 해상도만 바꾼 통제 비교로 해석할 수 없습니다. 보간식을 고정한 비교는 별도 과제입니다.",
+  "gaussian-splatting-step-19": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. 제공된 예제는 data.slice(0,count)로 앞의 N개를 유지합니다. seed 기반 선택과 opacity 선택 정책은 별도 과제이며 화면 기여도 기반 pruning은 구현하지 않습니다.",
+  "gaussian-splatting-step-21": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. 제공된 예제는 동일 카메라의 256/128 synthetic splat 이미지에서 byte RGB의 평균제곱오차(byteRGB_MSE)를 계산합니다. 과제의 평균절대오차와 여러 시점 비교는 별도로 구현해야 합니다.",
+  "gaussian-splatting-step-26": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. 제공된 예제는 frame index 기준 카메라 tick 61개와 rAF 간격 60개를 한 번 수집합니다. 과제의 시간 기반 경로와 설정별 3회 반복은 별도 구현이며 GPU 시간 측정이 아닙니다."
+};
+
 for(const series of ['webgpu','wgsl','glsl','gaussian-splatting']){
   const curriculum=JSON.parse(fs.readFileSync(path.join(root,'content/curricula',series+'.json'),'utf8'));
+  if(process.argv[2] && process.argv[2]!==series)continue;
   const metadata={};let count=0;
   for(const u of curriculum.units){
     if(!u.id.includes('-step-'))continue;
-    const note=series==='gaussian-splatting'?'CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.':series==='glsl'?'브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.':'실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.';
-    const source=series==='glsl'?glslTemplate(u):series==='gaussian-splatting'?gsTemplate(u):gpuTemplate(u,(series==='wgsl'?wgsl:webgpu)[u.day],note);
+    const note=noteOverrides[u.id]??(series==='gaussian-splatting'?'CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.':series==='glsl'?'브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.':'실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.');
+    let source=series==='glsl'?glslTemplate(u):series==='gaussian-splatting'?gsTemplate(u):gpuTemplate(u,(series==='wgsl'?wgsl:webgpu)[u.day],note);
     if(source.includes('undefined'))throw new Error('Missing implementation '+u.id);
-    const dir=path.join(root,'src/labs',u.id);fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(path.join(dir,'example.js'),source);
-    metadata[u.id]={mode:'browser',note};count++;
+    source=source.trimEnd()+String.fromCharCode(10);
+    const localized=localizeExampleSource(u.id,source,{}, {messagesMarker:'/* GPU_MESSAGES */'});source=localized.source;
+    const dir=path.join(root,'src/labs',u.id);fs.mkdirSync(dir,{recursive:true});writeGeneratedFile(path.join(dir,'example.js'),source);
+    metadata[u.id]={mode:'browser',note,readingSource:localized.readingSource};count++;
   }
   if(count!==25)throw new Error(series+': expected 25, got '+count);
-  fs.mkdirSync(path.join(root,'content/examples'),{recursive:true});fs.writeFileSync(path.join(root,'content/examples',series+'.json'),JSON.stringify(metadata,null,2)+'\n');
+  fs.mkdirSync(path.join(root,'content/examples'),{recursive:true});writeGeneratedFile(path.join(root,'content/examples',series+'.json'),JSON.stringify(metadata,null,2)+'\n');
   console.log(series+': '+count+' standalone examples');
 }

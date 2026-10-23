@@ -3910,7 +3910,8 @@
       "title": "Adapter·Device·Pipeline",
       "goal": "Check support requirements. Handle initialization failure as a recoverable state.",
       "docPath": "/docs/en/labs/graphics/webgpu/01-foundations/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-01/example.js"
     },
     {
       "id": "webgpu-step-02",
@@ -3920,6 +3921,7 @@
       "goal": "Negotiate device features. Write input checks based on limits.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/02/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-02/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -3930,6 +3932,7 @@
       "goal": "Connect the canvas to GPU output. Maintain the display-format contract.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/03/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-03/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -3940,6 +3943,7 @@
       "goal": "Build the command lifecycle. Distinguish submission from completion.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/04/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-04/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -3950,6 +3954,7 @@
       "goal": "Display shader diagnostics. Distinguish module errors from pipeline errors.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/05/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-05/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -3960,6 +3965,7 @@
       "goal": "Design a vertex-data layout. Connect a CPU array to GPU vertex input.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/06/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-06/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -3970,6 +3976,7 @@
       "goal": "Reuse vertices through indices. Validate primitive and front-face settings.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/07/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-07/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -3980,6 +3987,7 @@
       "goal": "Connect resources to bindings. Update small inputs without recreating resources.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/08/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-08/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -3990,6 +3998,7 @@
       "goal": "Match host and shader layouts. Distinguish the two alignment rules.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/09/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-09/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4000,6 +4009,7 @@
       "goal": "Build camera transforms. Validate the depth-coordinate convention.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/10/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-10/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4010,6 +4020,7 @@
       "goal": "Connect texture input. Compare the effects of sampler settings.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/11/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-11/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4020,6 +4031,7 @@
       "goal": "Configure depth testing. Manage attachment sizes and lifetimes.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/12/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-12/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4030,6 +4042,7 @@
       "goal": "Update resolution safely. Maintain the MSAA attachment contract.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/13/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-13/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4039,7 +4052,8 @@
       "title": "Buffers and Render Passes",
       "goal": "Integrate the rendering path. Diagnose and recover from validation failures.",
       "docPath": "/docs/en/labs/graphics/webgpu/02-experiments/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-02/example.js"
     },
     {
       "id": "webgpu-step-15",
@@ -4049,6 +4063,7 @@
       "goal": "Implement independent-element compute. Handle dispatch boundaries.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/15/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-15/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4059,7 +4074,8 @@
       "goal": "Separate input and output states. Manage data dependencies in repeated computation.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/16/README.md",
       "seriesId": "webgpu",
-      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
+      "exampleReadingSource": "/examples-en/webgpu-step-16/example.js",
+      "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. Both selections run 4 ping-pong steps with fixed boundaries and separate input/output buffers. In-place writes are not executed; the second selection provides guidance for reviewing their risk."
     },
     {
       "id": "webgpu-step-17",
@@ -4069,6 +4085,7 @@
       "goal": "Implement safe readback. Manage the buffer mapping lifetime.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/17/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-17/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4079,6 +4096,7 @@
       "goal": "Calculate copy alignment. Remove texture readback padding.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/18/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-18/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4089,6 +4107,7 @@
       "goal": "Create a shared-memory reduction. Maintain barrier reachability conditions.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/19/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-19/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4099,6 +4118,7 @@
       "goal": "Connect compute and render passes. Reduce unnecessary data round trips.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/20/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-20/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4109,6 +4129,7 @@
       "goal": "Build instanced rendering. Distinguish call count from processing volume.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/21/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-21/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4119,6 +4140,7 @@
       "goal": "Handle device loss. Validate the resource recreation path.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/22/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-22/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4129,6 +4151,7 @@
       "goal": "Connect asynchronous errors to tasks. Block stale results from being applied.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/23/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-23/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4139,6 +4162,7 @@
       "goal": "State the measurement scope clearly. Use optional measurement features safely.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/24/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-24/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4149,6 +4173,7 @@
       "goal": "Write a CPU reference. Judge numerical error explicitly.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/25/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-25/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4159,6 +4184,7 @@
       "goal": "Compare kernel configurations within limits. Measure costs while preserving correctness.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/26/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-26/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4169,6 +4195,7 @@
       "goal": "Document the full project contract. Perform acceptance checks including failures and restarts.",
       "docPath": "/docs/en/labs/graphics/webgpu/units/27/README.md",
       "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-27/example.js",
       "exampleNote": "Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results."
     },
     {
@@ -4178,7 +4205,8 @@
       "title": "Compute and Readback",
       "goal": "Compare compute correctness and overall cost. Decide when to use the GPU based on evidence.",
       "docPath": "/docs/en/labs/graphics/webgpu/03-project/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-03/example.js"
     },
     {
       "id": "react-three-fiber-01",

@@ -62,7 +62,7 @@
 
 [예제 원본](../../../../../../src/labs/webgpu-step-16/example.js) · [실행 환경과 제한](../../../../../examples.md)
 
-실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.
+실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다. 두 선택 모두 고정 경계에서 입력·출력 buffer를 분리해 4단계 ping-pong을 실행합니다. 제자리 쓰기는 실행하지 않으며 두 번째 선택은 그 위험을 검토하는 안내입니다.
 
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.

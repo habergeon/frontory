@@ -3635,7 +3635,8 @@
       "title": "Adapter·Device·Pipeline",
       "goal": "지원 조건을 점검한다. 초기화 실패를 복구 가능한 상태로 처리한다.",
       "docPath": "/docs/labs/graphics/webgpu/01-foundations/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-01/example.js"
     },
     {
       "id": "webgpu-step-02",
@@ -3644,7 +3645,8 @@
       "title": "기능과 limits 협상",
       "goal": "장치 기능을 협상한다. 한도 기반 입력 검사를 작성한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/02/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-02/example.js"
     },
     {
       "id": "webgpu-step-03",
@@ -3653,7 +3655,8 @@
       "title": "Canvas 구성과 현재 texture",
       "goal": "Canvas를 GPU 출력에 연결한다. 화면 형식 계약을 유지한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/03/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-03/example.js"
     },
     {
       "id": "webgpu-step-04",
@@ -3662,7 +3665,8 @@
       "title": "명령 기록과 제출",
       "goal": "명령 생명주기를 구성한다. 제출과 완료를 구분한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/04/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-04/example.js"
     },
     {
       "id": "webgpu-step-05",
@@ -3671,7 +3675,8 @@
       "title": "셰이더 모듈과 진단",
       "goal": "셰이더 진단을 표시한다. 모듈과 pipeline 오류를 구분한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/05/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-05/example.js"
     },
     {
       "id": "webgpu-step-06",
@@ -3680,7 +3685,8 @@
       "title": "정점 buffer와 속성",
       "goal": "정점 데이터 layout을 설계한다. CPU 배열을 GPU 정점 입력에 연결한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/06/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-06/example.js"
     },
     {
       "id": "webgpu-step-07",
@@ -3689,7 +3695,8 @@
       "title": "인덱스와 primitive",
       "goal": "인덱스로 정점을 재사용한다. 도형과 앞면 설정을 검증한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/07/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-07/example.js"
     },
     {
       "id": "webgpu-step-08",
@@ -3698,7 +3705,8 @@
       "title": "Uniform과 bind group",
       "goal": "자원을 binding에 연결한다. 작은 입력을 재생성 없이 갱신한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/08/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-08/example.js"
     },
     {
       "id": "webgpu-step-09",
@@ -3707,7 +3715,8 @@
       "title": "Uniform 구조체 정렬",
       "goal": "host와 shader 배치를 맞춘다. 두 정렬 규칙을 구분한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/09/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-09/example.js"
     },
     {
       "id": "webgpu-step-10",
@@ -3716,7 +3725,8 @@
       "title": "행렬과 카메라",
       "goal": "카메라 변환을 구성한다. 깊이 좌표 규약을 검증한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/10/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-10/example.js"
     },
     {
       "id": "webgpu-step-11",
@@ -3725,7 +3735,8 @@
       "title": "Texture와 sampler",
       "goal": "Texture 입력을 연결한다. 샘플러 설정의 효과를 비교한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/11/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-11/example.js"
     },
     {
       "id": "webgpu-step-12",
@@ -3734,7 +3745,8 @@
       "title": "깊이 attachment",
       "goal": "깊이 검사를 설정한다. attachment 크기와 수명을 관리한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/12/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-12/example.js"
     },
     {
       "id": "webgpu-step-13",
@@ -3743,7 +3755,8 @@
       "title": "Resize와 샘플 수",
       "goal": "해상도를 안전하게 갱신한다. MSAA attachment 계약을 유지한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/13/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-13/example.js"
     },
     {
       "id": "webgpu-02",
@@ -3752,7 +3765,8 @@
       "title": "Buffer와 Render pass",
       "goal": "렌더 경로를 통합한다. validation 실패를 진단하고 복구한다.",
       "docPath": "/docs/labs/graphics/webgpu/02-experiments/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-02/example.js"
     },
     {
       "id": "webgpu-step-15",
@@ -3761,7 +3775,8 @@
       "title": "Compute 첫 배열 변환",
       "goal": "독립 원소 compute를 구현한다. dispatch 경계를 처리한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/15/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-15/example.js"
     },
     {
       "id": "webgpu-step-16",
@@ -3770,7 +3785,8 @@
       "title": "Storage와 ping-pong",
       "goal": "입출력 상태를 분리한다. 반복 계산의 데이터 의존성을 관리한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/16/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-16/example.js"
     },
     {
       "id": "webgpu-step-17",
@@ -3779,7 +3795,8 @@
       "title": "Map과 staging buffer",
       "goal": "안전한 readback을 구현한다. buffer 매핑 수명을 관리한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/17/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-17/example.js"
     },
     {
       "id": "webgpu-step-18",
@@ -3788,7 +3805,8 @@
       "title": "복사 정렬과 texture 행",
       "goal": "복사 정렬을 계산한다. texture readback padding을 제거한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/18/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-18/example.js"
     },
     {
       "id": "webgpu-step-19",
@@ -3797,7 +3815,8 @@
       "title": "Workgroup 공유 메모리",
       "goal": "공유 메모리 감소 연산을 만든다. barrier 도달 조건을 유지한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/19/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-19/example.js"
     },
     {
       "id": "webgpu-step-20",
@@ -3806,7 +3825,8 @@
       "title": "Compute 결과 렌더링",
       "goal": "Compute와 렌더 pass를 연결한다. 불필요한 데이터 왕복을 줄인다.",
       "docPath": "/docs/labs/graphics/webgpu/units/20/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-20/example.js"
     },
     {
       "id": "webgpu-step-21",
@@ -3815,7 +3835,8 @@
       "title": "Instancing과 데이터 구조",
       "goal": "인스턴스 렌더링을 구성한다. 호출 수와 처리량을 구분한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/21/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-21/example.js"
     },
     {
       "id": "webgpu-step-22",
@@ -3824,7 +3845,8 @@
       "title": "Device loss와 재초기화",
       "goal": "장치 손실을 처리한다. 자원 재생성 경로를 검증한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/22/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-22/example.js"
     },
     {
       "id": "webgpu-step-23",
@@ -3833,7 +3855,8 @@
       "title": "비동기 오류와 작업 식별",
       "goal": "비동기 오류를 작업에 연결한다. 낡은 결과의 반영을 차단한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/23/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-23/example.js"
     },
     {
       "id": "webgpu-step-24",
@@ -3842,7 +3865,8 @@
       "title": "시간 측정의 범위",
       "goal": "측정 범위를 명확히 한다. 선택 측정 기능을 안전하게 사용한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/24/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-24/example.js"
     },
     {
       "id": "webgpu-step-25",
@@ -3851,7 +3875,8 @@
       "title": "CPU 기준과 오차 예산",
       "goal": "CPU 기준을 작성한다. 수치 오차를 명시적으로 판정한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/25/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-25/example.js"
     },
     {
       "id": "webgpu-step-26",
@@ -3860,7 +3885,8 @@
       "title": "Workgroup 크기 실험",
       "goal": "한도 안에서 커널 구성을 비교한다. 정확성을 유지하며 비용을 측정한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/26/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-26/example.js"
     },
     {
       "id": "webgpu-step-27",
@@ -3869,7 +3895,8 @@
       "title": "통합 입자 실험 인수",
       "goal": "전체 프로젝트 계약을 문서화한다. 실패와 재시작을 포함해 인수한다.",
       "docPath": "/docs/labs/graphics/webgpu/units/27/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-step-27/example.js"
     },
     {
       "id": "webgpu-03",
@@ -3878,7 +3905,8 @@
       "title": "Compute와 Readback",
       "goal": "Compute의 정확성과 전체 비용을 비교한다. GPU 사용 조건을 근거로 결정한다.",
       "docPath": "/docs/labs/graphics/webgpu/03-project/README.md",
-      "seriesId": "webgpu"
+      "seriesId": "webgpu",
+      "exampleReadingSource": "/examples-en/webgpu-03/example.js"
     },
     {
       "id": "react-three-fiber-01",

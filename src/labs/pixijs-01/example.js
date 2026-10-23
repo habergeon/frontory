@@ -1,5 +1,6 @@
 // PixiJS Application과 Graphics입니다. SPEED를 바꾸고 원을 클릭해 보세요.
-export async function mount({ PIXI, container }) {
+export async function mount({locale='ko', PIXI, container }) {
+  const messages=locale==='en'?{}:{};
   const SPEED = 0.02
   const app = new PIXI.Application()
   await app.init({ preference: 'webgl', background: '#edf2f7', width: container.clientWidth, height: container.clientHeight })

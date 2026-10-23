@@ -2,11 +2,12 @@
 // 실험: zIndex: 모두 0 → 선택 객체 10
 // 선택 객체가 같은 컨테이너의 다른 객체 앞에 표시됩니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="레이어와 그리기 순서";
-const VARIABLE="zIndex: 모두 0 ↔ 선택 객체 10";
 /** @param {any} context */
 export async function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Layers and Drawing Order","display002":"zIndex: All 0 ↔ Selected object 10","display003":"First card zIndex ","display004":"; sortableChildren enabled"}:{"display001":"레이어와 그리기 순서","display002":"zIndex: 모두 0 ↔ 선택 객체 10","display003":"First card zIndex ","display004":"; sortableChildren enabled"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -19,7 +20,7 @@ export async function mount(context){
   const source=document.createElement('canvas');source.width=source.height=64;const sourceContext=source.getContext('2d');['#2563eb','#f97316','#fbbf24','#22c55e'].forEach((color,i)=>{sourceContext.fillStyle=color;sourceContext.fillRect(i%2*32,Math.floor(i/2)*32,32,32);sourceContext.fillStyle='#fff';sourceContext.font='18px sans-serif';sourceContext.fillText(String(i+1),i%2*32+10,Math.floor(i/2)*32+24);});
   const texture=PIXI.Texture.from(source);let tick=(_dt,_ticker)=>{};const ownedTickerUpdate=ticker=>tick(Math.min(ticker.deltaMS/1000,.1),ticker);app.ticker.add(ownedTickerUpdate);
   disposers.push(()=>{app.ticker.remove(ownedTickerUpdate);app.destroy(true,{children:true});texture.destroy(true);});
-  const group=new PIXI.Container();group.sortableChildren=true;app.stage.addChild(group);const cards=[0,1,2].map(i=>{const s=new PIXI.Sprite(texture);s.position.set(90+i*55,70+i*20);s.scale.set(2);s.tint=[0x3b82f6,0xf97316,0x22c55e][i];group.addChild(s);return s;});function draw(){cards[0].zIndex=changed?10:0;group.sortChildren();status.textContent='First card zIndex '+cards[0].zIndex+'; sortableChildren enabled';}
+  const group=new PIXI.Container();group.sortableChildren=true;app.stage.addChild(group);const cards=[0,1,2].map(i=>{const s=new PIXI.Sprite(texture);s.position.set(90+i*55,70+i*20);s.scale.set(2);s.tint=[0x3b82f6,0xf97316,0x22c55e][i];group.addChild(s);return s;});function draw(){cards[0].zIndex=changed?10:0;group.sortChildren();status.textContent=messages.display003+cards[0].zIndex+messages.display004;}
   draw();
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

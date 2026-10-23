@@ -2,11 +2,12 @@
 // 실험: 화면 밖 비율: 10% → 90%
 // 표시 생략의 효과가 커질 수 있으나 검사 비용을 함께 측정해야 합니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="화면 밖 처리와 갱신 줄이기";
-const VARIABLE="화면 밖 비율: 10% ↔ 90%";
 /** @param {any} context */
 export async function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Offscreen Handling and Fewer Updates","display002":"Offscreen proportion: 10% ↔ 90%","display003":"Bounds checks ","display004":"; visible/update ","display005":"; CPU ","display006":"ms"}:{"display001":"화면 밖 처리와 갱신 줄이기","display002":"화면 밖 비율: 10% ↔ 90%","display003":"Bounds checks ","display004":"; visible/update ","display005":"; CPU ","display006":"ms"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -19,7 +20,7 @@ export async function mount(context){
   const source=document.createElement('canvas');source.width=source.height=64;const sourceContext=source.getContext('2d');['#2563eb','#f97316','#fbbf24','#22c55e'].forEach((color,i)=>{sourceContext.fillStyle=color;sourceContext.fillRect(i%2*32,Math.floor(i/2)*32,32,32);sourceContext.fillStyle='#fff';sourceContext.font='18px sans-serif';sourceContext.fillText(String(i+1),i%2*32+10,Math.floor(i/2)*32+24);});
   const texture=PIXI.Texture.from(source);let tick=(_dt,_ticker)=>{};const ownedTickerUpdate=ticker=>tick(Math.min(ticker.deltaMS/1000,.1),ticker);app.ticker.add(ownedTickerUpdate);
   disposers.push(()=>{app.ticker.remove(ownedTickerUpdate);app.destroy(true,{children:true});texture.destroy(true);});
-  const sprites=Array.from({length:200},(_,i)=>{const s=new PIXI.Sprite(texture);s.scale.set(.2);s.position.set((i%20)*22,Math.floor(i/20)*25);app.stage.addChild(s);return s;});let time=0;tick=dt=>{time+=dt;let checks=0,updates=0,visible=0;const begin=performance.now();for(let i=0;i<sprites.length;i++){const s=sprites[i];checks++;const base=(i%20)*22+(i<(changed?180:20)?500:0);s.x=base;s.visible=base<400;if(s.visible){visible++;s.y=Math.floor(i/20)*25+Math.sin(time)*2;updates++;}}status.textContent='Bounds checks '+checks+'; visible/update '+visible+'/'+updates+'; CPU '+(performance.now()-begin).toFixed(3)+'ms';};function draw(){}
+  const sprites=Array.from({length:200},(_,i)=>{const s=new PIXI.Sprite(texture);s.scale.set(.2);s.position.set((i%20)*22,Math.floor(i/20)*25);app.stage.addChild(s);return s;});let time=0;tick=dt=>{time+=dt;let checks=0,updates=0,visible=0;const begin=performance.now();for(let i=0;i<sprites.length;i++){const s=sprites[i];checks++;const base=(i%20)*22+(i<(changed?180:20)?500:0);s.x=base;s.visible=base<400;if(s.visible){visible++;s.y=Math.floor(i/20)*25+Math.sin(time)*2;updates++;}}status.textContent=messages.display003+checks+messages.display004+visible+'/'+updates+messages.display005+(performance.now()-begin).toFixed(3)+messages.display006;};function draw(){}
   draw();
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

@@ -3,8 +3,9 @@ import assert from 'node:assert/strict'
 
 // CPU DOM/canvas boundary test; this does not establish browser/GPU rendering.
 async function withDOM(run) {
-  const previous = { document: globalThis.document, cancelAnimationFrame: globalThis.cancelAnimationFrame }
+  const previous = Object.fromEntries(['document', 'cancelAnimationFrame', 'requestAnimationFrame', 'ResizeObserver', 'devicePixelRatio'].map(key => [key, globalThis[key]]))
   const nodes = [], drawn = []
+  let nextFrame
   const context = new Proxy({ measureText: text => ({ width: text.length * 20 }), fillText: text => drawn.push(text) }, { get: (target, key) => target[key] ?? (() => {}) })
   function element(tag) {
     const node = { tag, attributes: {}, children: [], style: {}, listeners: {},
@@ -15,13 +16,17 @@ async function withDOM(run) {
       removeEventListener(type) { delete this.listeners[type] },
       remove() { this.removed = true },
       getContext() { return context },
+      getBoundingClientRect() { return { left: 0, top: 0, width: 400, height: 260 } },
     }
     nodes.push(node)
     return node
   }
   globalThis.document = { createElement: element, createElementNS: (_, tag) => element(tag) }
   globalThis.cancelAnimationFrame = () => {}
-  try { await run({ container: element('container'), nodes, drawn }) }
+  globalThis.requestAnimationFrame = fn => { nextFrame = fn; return 1 }
+  globalThis.ResizeObserver = class { observe() {} disconnect() {} }
+  globalThis.devicePixelRatio = 1
+  try { await run({ container: element('container'), nodes, drawn, frame: time => nextFrame(time) }) }
   finally { Object.assign(globalThis, previous) }
 }
 
@@ -43,6 +48,30 @@ test('Canvas English mount keeps Korean width fixtures while localizing heading,
   })
 })
 
+test('manual SVG whole-template display evaluates its dictionary value', async () => {
+  const { mount } = await import('../src/labs/svg-01/example.js')
+  await withDOM(({ container }) => {
+    const dispose = mount({ container, locale: 'en' })
+    assert.match(container.innerHTML, /aria-label="SVG vector shapes"/)
+    assert.doesNotMatch(container.innerHTML, /messages\.display/)
+    dispose()
+  })
+})
+
+test('manual Canvas template fragments evaluate around live timing and pointer values', async () => {
+  const { mount } = await import('../src/labs/canvas-2d-02/example.js')
+  await withDOM(({ container, nodes, frame }) => {
+    const dispose = mount({ container, locale: 'en' })
+    frame(100)
+    const output = nodes.find(node => node.tag === 'output')
+    assert.equal(output.textContent, ' Δt 0.0 ms · speed 147 px/s · click canvas')
+    nodes.find(node => node.tag === 'canvas').onpointerdown({ clientX: 25, clientY: 30 })
+    frame(116)
+    assert.equal(output.textContent, ' Δt 16.0 ms · speed 147 px/s · click 25,30')
+    dispose()
+  })
+})
+
 test('SVG English mount keeps Korean city and long-label fixtures after toggling', async () => {
   const { mount } = await import('../src/labs/svg-step-12/example.js')
   await withDOM(({ container, nodes }) => {
@@ -54,4 +83,48 @@ test('SVG English mount keeps Korean city and long-label fixtures after toggling
     dispose()
     assert.equal(nodes.find(node => node.tag === 'section').removed, true)
   })
+})
+
+test('Pixi English async mount preserves Score/Count updates and releases its ticker', async () => {
+  for (const [id, initial, updated] of [['pixijs-step-05', 'Score: 0', 'Score: 1'], ['pixijs-step-21', 'Count 0', 'Count 1']]) {
+    const { mount } = await import(`../src/labs/${id}/example.js`)
+    await withDOM(async ({ container, nodes }) => {
+      let app, label, textureReleased = false
+      class Container {
+        children = []
+        position = { set() {} }
+        addChild(node) { this.children.push(node) }
+        cacheAsTexture() {}
+        updateCacheTexture() {}
+      }
+      class Graphics extends Container {
+        roundRect() { return this }
+        fill() { return this }
+      }
+      class Application {
+        constructor() {
+          app = this
+          this.canvas = { style: {} }
+          this.stage = new Container()
+          this.ticker = { add(fn) { this.fn = fn }, remove(fn) { assert.equal(this.fn, fn); this.fn = null } }
+        }
+        async init(options) { assert.equal(options.preference, 'webgl'); this.initialized = true }
+        destroy() { this.destroyed = true }
+      }
+      class Text extends Container {
+        constructor({ text }) { super(); label = this; this.text = text }
+      }
+      const PIXI = { Application, Container, Graphics, Text, Texture: { from: () => ({ destroy() { textureReleased = true } }) } }
+      const dispose = await mount({ container, locale: 'en', PIXI })
+      assert.equal(app.initialized, true)
+      assert.equal(label.text, initial)
+      if (id === 'pixijs-step-05') for (let index = 0; index < 12; index++) app.ticker.fn({ deltaMS: 100 })
+      else nodes.find(node => node.textContent === 'Change cached label').listeners.click()
+      assert.equal(label.text, updated)
+      dispose()
+      assert.equal(app.ticker.fn, null)
+      assert.equal(app.destroyed, true)
+      assert.equal(textureReleased, true)
+    })
+  }
 })

@@ -2,11 +2,12 @@
 // 실험: 등록 횟수: 1회 → 재생성 5회
 // 정리가 맞으면 한 프레임의 update 횟수는 늘지 않습니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="시작·정지와 콜백 정리";
-const VARIABLE="등록 횟수: 1회 ↔ 재생성 5회";
 /** @param {any} context */
 export async function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Starting, Stopping, and Callback Cleanup","display002":"Registration count: 1 run ↔ Recreate 5 times","display003":"Owned callback invocations ","display004":"Pause / resume owned callback","display005":"Re-register","display006":"Same function removed before each add"}:{"display001":"시작·정지와 콜백 정리","display002":"등록 횟수: 1회 ↔ 재생성 5회","display003":"Owned callback invocations ","display004":"Pause / resume owned callback","display005":"Re-register","display006":"Same function removed before each add"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -19,7 +20,7 @@ export async function mount(context){
   const source=document.createElement('canvas');source.width=source.height=64;const sourceContext=source.getContext('2d');['#2563eb','#f97316','#fbbf24','#22c55e'].forEach((color,i)=>{sourceContext.fillStyle=color;sourceContext.fillRect(i%2*32,Math.floor(i/2)*32,32,32);sourceContext.fillStyle='#fff';sourceContext.font='18px sans-serif';sourceContext.fillText(String(i+1),i%2*32+10,Math.floor(i/2)*32+24);});
   const texture=PIXI.Texture.from(source);let tick=(_dt,_ticker)=>{};const ownedTickerUpdate=ticker=>tick(Math.min(ticker.deltaMS/1000,.1),ticker);app.ticker.add(ownedTickerUpdate);
   disposers.push(()=>{app.ticker.remove(ownedTickerUpdate);app.destroy(true,{children:true});texture.destroy(true);});
-  const sprite=new PIXI.Sprite(texture);sprite.position.set(180,110);app.stage.addChild(sprite);let calls=0,active=true;const update=ticker=>{calls++;sprite.rotation+=ticker.deltaMS/1000;status.textContent='Owned callback invocations '+calls;};app.ticker.add(update);button('Pause / resume owned callback',()=>{active=!active;if(active)app.ticker.add(update);else app.ticker.remove(update);});button('Re-register',()=>{for(let i=0;i<(changed?5:1);i++){app.ticker.remove(update);if(active)app.ticker.add(update);}status.textContent='Same function removed before each add';});disposers.push(()=>app.ticker.remove(update));function draw(){}
+  const sprite=new PIXI.Sprite(texture);sprite.position.set(180,110);app.stage.addChild(sprite);let calls=0,active=true;const update=ticker=>{calls++;sprite.rotation+=ticker.deltaMS/1000;status.textContent=messages.display003+calls;};app.ticker.add(update);button(messages.display004,()=>{active=!active;if(active)app.ticker.add(update);else app.ticker.remove(update);});button(messages.display005,()=>{for(let i=0;i<(changed?5:1);i++){app.ticker.remove(update);if(active)app.ticker.add(update);}status.textContent=messages.display006;});disposers.push(()=>app.ticker.remove(update));function draw(){}
   draw();
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

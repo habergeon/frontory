@@ -1,152 +1,540 @@
 {
   "pixijs-step-02": {
-    "sourceHash": "8a97de2b6647b31f63db11136d2a47805eb2ade5b687e20dd6af8f89faa81510",
+    "sourceHash": "827d4859723bc35cafdc10e028b3a376b0a93615dc1a21e767c5d6805365d010",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "00772b8fad8c60a13a0c6699bc96035a59842bddc8eb617b9449027d4c9288e9",
+      "values": {
+        "messages.display001": "Sprites and Anchors",
+        "messages.display002": "anchor: 0,0 ↔ 0.5,0.5",
+        "messages.display003": "Position stays (200,130); anchor ",
+        "comments.comment001": "Sprites and Anchors",
+        "comments.comment002": "Experiment: anchor: 0,0 → 0.5,0.5",
+        "comments.comment003": "position points to the center of the image instead of its upper-left corner",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-03": {
-    "sourceHash": "c4a42e52f05d52e814e5ca939b0fbff12eb3571828bf7f591a7482ecb6b4910b",
+    "sourceHash": "2f73b9816c30ea51d510494abfbc157d701452572319edde06104636b197e87f",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "136f4bc4f7bf6f41a0e88a3c53aa801c17c3f8c551eab08184680a8c6b53ea9f",
+      "values": {
+        "messages.display001": "Containers and Local Coordinates",
+        "messages.display002": "Parent scale: 1 ↔ 2",
+        "messages.display003": "Local ",
+        "messages.display004": " / global ",
+        "comments.comment001": "Containers and Local Coordinates",
+        "comments.comment002": "Experiment: Parent scale: 1 → 2",
+        "comments.comment003": "The same local movement of the child appears twice as large on screen",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-04": {
-    "sourceHash": "8f76d65961f1c90c30f3f5de290ab96c30cf9071d7690662cbc5dbf14d3785f0",
+    "sourceHash": "a8d5bc1cc9aae4e01e62558462784739f1a0b0acfce4ae7889c3485e9edca302",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "04e5af6a58d98276388f413317142b8b8cb53c062c5f0955c9bc7eae4b95456e",
+      "values": {
+        "messages.display001": "Graphics 8 Shape API",
+        "messages.display002": "Movement method: clear and rebuild every frame ↔ Change position only",
+        "messages.display003": "Graphics path constructions: ",
+        "comments.comment001": "Graphics 8 Shape API",
+        "comments.comment002": "Experiment: Movement method: clear and rebuild every frame → Change position only",
+        "comments.comment003": "The number of path reconstructions can be reduced",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-05": {
-    "sourceHash": "86afae7410c3f415d1f5128002609000d6c8860b9bf4f7be9e195be227bcb639",
+    "sourceHash": "17ca75a8419471ea290c9d70a0e4670fa0a7a3060f233946630721cbb9c72078",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "591ec09b7121b59c5e1253789824749446352a5c4bf9f626195015fc193e5e37",
+      "values": {
+        "messages.display001": "Text and Style Updates",
+        "messages.display002": "Update frequency: Every frame ↔ When the value changes",
+        "messages.display003": "Text assignments ",
+        "messages.display004": "; only ",
+        "messages.display005": " value changes",
+        "comments.comment001": "Text and Style Updates",
+        "comments.comment002": "Experiment: Update frequency: Every frame → When the value changes",
+        "comments.comment003": "Unnecessary text update requests decrease",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-06": {
-    "sourceHash": "608258ece6a0eded80ed6d2a5545eecf9c61bad529bf7a5c0ea22e9a76d93615",
+    "sourceHash": "dbd363297a61a3e872c8c87efd7c38210f2b55b2ff72e11ae933cbd7c00d9c4a",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "23572df1b88c32a36cf8ff4e8c3e2ff0c342bcbd74d08a6727af123003c3548c",
+      "values": {
+        "messages.display001": "Layers and Drawing Order",
+        "messages.display002": "zIndex: All 0 ↔ Selected object 10",
+        "messages.display003": "First card zIndex ",
+        "messages.display004": "; sortableChildren enabled",
+        "comments.comment001": "Layers and Drawing Order",
+        "comments.comment002": "Experiment: zIndex: All 0 → Selected object 10",
+        "comments.comment003": "The selected object appears in front of the other objects in the same container",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-07": {
-    "sourceHash": "48bb634c391c245eff0022d1d479ade87a4b00335fec165a28939e074085edd5",
+    "sourceHash": "89ca1ffed6f78ab25c530a92661b29ad4706f2c8106cc5f021115f33ba2b4619",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "5a973418eddaa01324b062d2edf2824d9b157e71349e93ebb8fb9007e440f690",
+      "values": {
+        "messages.display001": "Responsive Screens and Resolution",
+        "messages.display002": "resolution: 1 ↔ 2",
+        "messages.display003": "Logical ",
+        "messages.display004": "; buffer ",
+        "comments.comment001": "Responsive Screens and Resolution",
+        "comments.comment002": "Experiment: resolution: 1 → 2",
+        "comments.comment003": "The logical size stays the same and the buffer has four times as many pixels",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-08": {
-    "sourceHash": "6b4b21a74beca19ec19e91e09e8cf3cd76b162d004ab1e470bc14f4f60d3443c",
+    "sourceHash": "b2875da5c0e56ef7e387dd8cde1dda8bb8723dc5344c267152ee3d8719497e93",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "ca7e11e3f3ca477b03ab15302f7c345a1e19a521ce9528771ec48f24153d92b8",
+      "values": {
+        "messages.display001": "Ticker and Time Units",
+        "messages.display002": "Speed: 50px/s ↔ 100px/s",
+        "messages.display003": "distance ",
+        "messages.display004": "px; speed ",
+        "messages.display005": "px/s",
+        "comments.comment001": "Ticker and Time Units",
+        "comments.comment002": "Experiment: Speed: 50px/s → 100px/s",
+        "comments.comment003": "Distance doubles for the same accumulated time",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-09": {
-    "sourceHash": "3eba3553fca1bde94a126bbe8eda0972d102c20e758a48189526dea4fef5dec9",
+    "sourceHash": "1ce5e3c034b8f2ddd8f0004ae9a59620c3bb460fe80a1a9dd2f7898339328664",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "9613e930e5d864460376251a475054ce76dbee6c1b869b196c878df8179107d2",
+      "values": {
+        "messages.display001": "Starting, Stopping, and Callback Cleanup",
+        "messages.display002": "Registration count: 1 run ↔ Recreate 5 times",
+        "messages.display003": "Owned callback invocations ",
+        "messages.display004": "Pause / resume owned callback",
+        "messages.display005": "Re-register",
+        "messages.display006": "Same function removed before each add",
+        "comments.comment001": "Starting, Stopping, and Callback Cleanup",
+        "comments.comment002": "Experiment: Registration count: 1 run → Recreate 5 times",
+        "comments.comment003": "With correct cleanup, the number of update calls per frame does not increase",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-10": {
-    "sourceHash": "b0895e5d68ff3bd315cd9818303596ef09a4ae3eff42665c76e34dfc8a9d3220",
+    "sourceHash": "df7ae6eaca7bbd50093f8e5c082b9862dd5204cc396451fae1b00ec884ea4fe0",
     "values": {
       "note": "Loads a local data URL with Assets. Reproduce the error state with a corrupted image; check external servers/CORS in a separate environment."
+    },
+    "presentation": {
+      "sourceHash": "562e07c5f823dd752b9bd7e02c97361dfa240abab0604c17040cccd77eb9a7fa",
+      "values": {
+        "messages.display001": "Asynchronous Asset Loading",
+        "messages.display002": "Image data URL: valid ↔ corrupted",
+        "messages.display003": "Loading",
+        "messages.display004": "Loaded asset; Assets owns cached texture",
+        "messages.display005": "Load failed; retry is available: ",
+        "messages.display006": "Load / retry",
+        "messages.display007": "Choose valid local data URL or invalid image, then Load",
+        "comments.comment001": "Asynchronous Asset Loading",
+        "comments.comment002": "Experiment: image data URL: valid → corrupted",
+        "comments.comment003": "The error state appears and the retry button remains available",
+        "comments.comment004": "Loads a local data URL with Assets. Reproduce the error state with a corrupted image; check external servers/CORS in a separate environment."
+      }
     }
   },
   "pixijs-step-11": {
-    "sourceHash": "b08e216bdb400bf94f9edbc2d7cbd2a84296bf4e5965b4d5c3f9d7c53034ff7f",
+    "sourceHash": "588de634f02b2db746d7bb9e63cd309d7e571942245e7c947bc7f52a884b3e1f",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "62347ccf5009b54bc97637fa09e86eb0bbe04fdb41ad5ff307187973867bac5d",
+      "values": {
+        "messages.display001": "Atlases and Frames",
+        "messages.display002": "Frame: First region ↔ Second region",
+        "messages.display003": "Two frame Textures, one TextureSource; frame x=",
+        "comments.comment001": "Atlases and Frames",
+        "comments.comment002": "Experiment: Frame: First region → Second region",
+        "comments.comment003": "Only the displayed region changes while the source remains shared",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-12": {
-    "sourceHash": "c43d08420ce9dfc5cde0c6ec78430758ccdc9de9ea40bcf3e5b240408193c14d",
+    "sourceHash": "9d4b5f2a7902a85022bf570d680b6afd6adbea733093e8d3f8e7bd50f97203c3",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "5d62eb5241a0d3e1e5cfc68287c243783c2025f9d09aa8e8a9e3a50bbbe72124",
+      "values": {
+        "messages.display001": "Event Modes and Hit Areas",
+        "messages.display002": "hitArea: Image size ↔ Expand 10px in each direction",
+        "messages.display003": "Hit count ",
+        "messages.display004": "Red outline = input bounds; sprite pixels unchanged",
+        "comments.comment001": "Event Modes and Hit Areas",
+        "comments.comment002": "Experiment: hitArea: Image size → Expand 10px in each direction",
+        "comments.comment003": "The selection region grows without changing the visible size",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-13": {
-    "sourceHash": "c8d6d8e5902aa95c75719327fbcf25e92e61a572a1f8df48d5783df23bee7a6d",
+    "sourceHash": "ee5390760bc78f5f06f2db4324741152e9a439d5ed285d917aa78f9271d8276c",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "2d347813c41ae11ab7a252abd71ab69460a8fb0f6e46e577ced32f5d65b2e738",
+      "values": {
+        "messages.display001": "Dragging and Global Pointers",
+        "messages.display002": "Parent scale: 1 ↔ 2",
+        "messages.display003": "Drag with local offset; parent scale ",
+        "comments.comment001": "Dragging and Global Pointers",
+        "comments.comment002": "Experiment: Parent scale: 1 → 2",
+        "comments.comment003": "With correct conversion, the grabbed point stays under the pointer",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-15": {
-    "sourceHash": "977298943b2643c58fd0576fc44340037250bdbe0ab6a74ac35212545af46a5e",
+    "sourceHash": "8ea2f426a1ceca68c4b26aba34007948885e3e8908599d19df6a202562c813d2",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "270693eea606a73ff8aa0087baa00c3389a6ca20cab0abbd624d80d88d248ad3",
+      "values": {
+        "messages.display001": "Keyboard Input and Accessibility",
+        "messages.display002": "Input: Pointer ↔ Keyboard",
+        "messages.display003": "Select sprite ",
+        "messages.display004": "Move selected right",
+        "messages.display005": "Selected sprite ",
+        "messages.display006": " at x=",
+        "comments.comment001": "Keyboard Input and Accessibility",
+        "comments.comment002": "Experiment: Input: Pointer → Keyboard",
+        "comments.comment003": "The same Sprite can be selected and its position changed",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-16": {
-    "sourceHash": "624f91ebee41aace3d815d620a15ddca61e46afa0c478a881e71abf586b542c0",
+    "sourceHash": "daa1cc720681b244705479053fed57259bb90c96088586c987f3d43b305537dc",
     "values": {
       "note": "Timers reproduce the completion order of asynchronous scenes. You can observe generation tokens without actual server loading."
+    },
+    "presentation": {
+      "sourceHash": "c485da8635e86c87bcf8fe69cbd45ab48863a16f3d551cf8589c6757a8b766b5",
+      "values": {
+        "messages.display001": "Scene Transitions and State Preservation",
+        "messages.display002": "Completion order: Current request first ↔ Previous request finishes later",
+        "messages.display003": "Switch A then B",
+        "messages.display004": "Move saved position",
+        "messages.display005": "Committed scene ",
+        "messages.display006": "; saved x=",
+        "messages.display007": "; generation ",
+        "comments.comment001": "Scene Transitions and State Preservation",
+        "comments.comment002": "Experiment: Completion order: Current request first → Previous request finishes later",
+        "comments.comment003": "An older result does not add a Sprite to the new screen",
+        "comments.comment004": "Timers reproduce the completion order of asynchronous scenes. You can observe generation tokens without actual server loading."
+      }
     }
   },
   "pixijs-step-17": {
-    "sourceHash": "3a6824bfbf8b78ee9bd3b357ac9dfe652c257dfef0d6a08e41aa950e4f0a7944",
+    "sourceHash": "afc6b9940cff338ce4b1ff57e1410aefec5d2624b78d099b73553d8dbd1bcf64",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "f926ffe3d7348e429e17c935035ba591de3c443fbb7a574972e574e813fca26c",
+      "values": {
+        "messages.display001": "Animation Frame Sequences",
+        "messages.display002": "fps: 6 ↔ 12",
+        "messages.display003": "Explicit frame order; ",
+        "messages.display004": " fps; index ",
+        "comments.comment001": "Animation Frame Sequences",
+        "comments.comment002": "Experiment: fps: 6 → 12",
+        "comments.comment003": "The same frame array cycles twice as fast",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-18": {
-    "sourceHash": "e7418aab262d1b778ab986a8535e572bee022f95c5b7a0db4246c5d8e7286053",
+    "sourceHash": "97cb70e1cf39fab0f51a6a921d0b6f30e1163de4d14c10ef5c9e8b4ba721813e",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "e1a67d414d431fb5306c57a43f1984f197d7b7f6a4d6f3f58d3c7e92ea66a9cf",
+      "values": {
+        "messages.display001": "Masks and Scroll Regions",
+        "messages.display002": "Scroll position: 0 ↔ Halfway through the list",
+        "messages.display003": "Visible row ",
+        "messages.display004": "Scroll offset ",
+        "messages.display005": "; input restricted to viewport",
+        "comments.comment001": "Masks and Scroll Regions",
+        "comments.comment002": "Experiment: Scroll position: 0 → Halfway through the list",
+        "comments.comment003": "A different section of the same card data appears inside the mask",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-19": {
-    "sourceHash": "c862f6d8dafdbaaa03a88a1d97520655476ac952dc57d87e2c9a786206d963a8",
+    "sourceHash": "bd88a9d810dbcadd5bc46d1ee8aed21d9d0ff3678bcc338bdc83e62aae8657dd",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "13d846b9778267a0790dcd59c7e3cc31bd0ed475fdf298e1fa7831a662620bc8",
+      "values": {
+        "messages.display001": "Filters and Their Scope",
+        "messages.display002": "Filter scope: One parent ↔ Each Sprite",
+        "messages.display003": "Three child filter regions",
+        "messages.display004": "One group filter region",
+        "comments.comment001": "Filters and Their Scope",
+        "comments.comment002": "Experiment: Filter scope: One parent → Each Sprite",
+        "comments.comment003": "Effect boundaries and intermediate processing costs may differ",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-20": {
-    "sourceHash": "4489426b316fca0daee323add23be790755e79a676a5c3dda3b9cc163c9742f6",
+    "sourceHash": "82b22a6d645ba14e174e24c3c0160c41eb71276a1689e550706a5fb08a2f4f9a",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "705d24c694384cc15c85332f109077cf23618181703f993ed8dca90d98e0a5f1",
+      "values": {
+        "messages.display001": "Blend Modes and Order",
+        "messages.display002": "blendMode: normal ↔ add",
+        "messages.display003": "Blend mode ",
+        "messages.display004": "; stable display order",
+        "comments.comment001": "Blend Modes and Order",
+        "comments.comment002": "Experiment: blendMode: normal → add",
+        "comments.comment003": "Overlapping regions may become brighter",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-21": {
-    "sourceHash": "fd81d1a118b27592c55f1b41b605097d58a0af86fc838e765fa9efad6ec5e83d",
+    "sourceHash": "2bf9c398e389952d86e8b4d613eba3fa8ccdbac00bae83b27eb7007222415289",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "6ee661152713d4ce00d7ed072574ab92274b2306ceb500648b5f26580fde3240",
+      "values": {
+        "messages.display001": "Caching Static UI",
+        "messages.display002": "Cache refresh: No refresh call ↔ Call when content changes",
+        "messages.display003": "Change cached label",
+        "messages.display004": "Data count ",
+        "messages.display005": "; cache ",
+        "messages.display006": "refreshed",
+        "messages.display007": "unchanged",
+        "messages.display008": "Change label with or without explicit updateCacheTexture",
+        "comments.comment001": "Caching Static UI",
+        "comments.comment002": "Experiment: Cache refresh: No refresh call → Call when content changes",
+        "comments.comment003": "New content appears instead of the stale label",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-22": {
-    "sourceHash": "a5b20659af061333d97a63958fd9f1082b9038339940717975362c7b08ebfe1f",
+    "sourceHash": "796c04650981e579fdc3b311c076b124ebd666d8a20988d0655c1b29e4c8fda4",
     "values": {
       "note": "Experiments with the reference lifetimes of directly owned frame Textures and TextureSources. See day 10 for the Assets.unload example."
+    },
+    "presentation": {
+      "sourceHash": "0304f98b384817def17f38f98a58c6d7af7c9864d5f2767624d3acd6a2e9b850",
+      "values": {
+        "messages.display001": "Releasing Textures and Owning Caches",
+        "messages.display002": "User count: 2 screens ↔ 0 screens",
+        "messages.display003": "Release users",
+        "messages.display004": "Shared TextureSource retained for ",
+        "messages.display005": " user",
+        "messages.display006": "Last user ended: shared source may now be released (owned by mount cleanup)",
+        "messages.display007": "Two frame Textures share one source; source is owned by this lesson",
+        "comments.comment001": "Releasing Textures and Owning Caches",
+        "comments.comment002": "Experiment: User count: 2 screens → 0 screens",
+        "comments.comment003": "Release the shared atlas only when its last user finishes",
+        "comments.comment004": "Experiments with the reference lifetimes of directly owned frame Textures and TextureSources. See day 10 for the Assets.unload example."
+      }
     }
   },
   "pixijs-step-23": {
-    "sourceHash": "690413724afda5e14286a69a020797447d91ea147dca9e3d2618a22a7896fc97",
+    "sourceHash": "e118936f878dfc91037809a83edeaf48eed1e20fa877ff036971c238ffb0bf86",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "0e9846d2cbbe5e91fbdfbd22e8a04efd2c3e8b0a49b50358a75e8183dca270e3",
+      "values": {
+        "messages.display001": "Large Particle Sets and Feature Boundaries",
+        "messages.display002": "rotation setting: Static ↔ Dynamic",
+        "messages.display003": "rotation ",
+        "messages.display004": "dynamic: uploaded every frame",
+        "messages.display005": "static: values mutate but buffer needs update()",
+        "messages.display006": "Upload static rotation",
+        "comments.comment001": "Large Particle Sets and Feature Boundaries",
+        "comments.comment002": "Experiment: rotation setting: Static → Dynamic",
+        "comments.comment003": "The update path and upload scope differ when rotation changes every frame",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-24": {
-    "sourceHash": "34b534bd9857e78034dd64aa659d2407cf1ad95f758aa6d6494215b708225964",
+    "sourceHash": "2fbf786448d18c8f43064c17348adf71a39579cfc46d4467c7f42f93e3ab3c79",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "6c4f7bccbaffcf99801d60fb91a07171146fa10560e449bf86f0faabea6b18ec",
+      "values": {
+        "messages.display001": "Offscreen Handling and Fewer Updates",
+        "messages.display002": "Offscreen proportion: 10% ↔ 90%",
+        "messages.display003": "Bounds checks ",
+        "messages.display004": "; visible/update ",
+        "messages.display005": "; CPU ",
+        "messages.display006": "ms",
+        "comments.comment001": "Offscreen Handling and Fewer Updates",
+        "comments.comment002": "Experiment: Offscreen proportion: 10% → 90%",
+        "comments.comment003": "Skipping display may have a larger effect, but the cost of checks must also be measured",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-25": {
-    "sourceHash": "adeab6d10bea426498af269db40171723fcd30ec51dfc24cdfcec6a8ab140b26",
+    "sourceHash": "fad59d6c2f7d566a80bec241871989cbd36e12c503731b8d89c49d199537f763",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "259e442b94612a43a88accb2a1cdd07d697d6e65cda7f4da06d390da1d98204d",
+      "values": {
+        "messages.display001": "Forming a Batching Hypothesis",
+        "messages.display002": "Drawing order: Alternate Sprites and Graphics ↔ Group by type",
+        "messages.display003": "Non-overlapping objects; reorder CPU ",
+        "messages.display004": "ms. Measure actual GPU batching with profiler.",
+        "comments.comment001": "Forming a Batching Hypothesis",
+        "comments.comment002": "Experiment: Drawing order: Alternate Sprites and Graphics → Group by type",
+        "comments.comment003": "State transition costs may decrease, but actual measurement is required",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-26": {
-    "sourceHash": "26213cedf7d2bfb78da682a6c3dfec26735eb17419cf1bfd73802bc842e54cdf",
+    "sourceHash": "96b635c390881022d36161738d21b0b3df8389544a8138c8dee9fd8814c3ee0c",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "6b97365a333ce40865405ad66771c785ff9afaf54e9f09b26e3b62f4ed7b37f7",
+      "values": {
+        "messages.display001": "Profiling and Quality Budgets",
+        "messages.display002": "resolution: 1 ↔ 2",
+        "messages.display003": "Resolution ",
+        "messages.display004": "; buffer pixels ",
+        "messages.display005": "; median interval ",
+        "messages.display006": "ms (not GPU time)",
+        "comments.comment001": "Profiling and Quality Budgets",
+        "comments.comment002": "Experiment: resolution: 1 → 2",
+        "comments.comment003": "More buffer pixels may increase filter or fill workload",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "pixijs-step-27": {
-    "sourceHash": "cf510eca3f6de68ba11a89b8d3f9956d4df1b359dd31b2b5a0e8c243ee0c5a5e",
+    "sourceHash": "ab0e52d6ccf9c4f5d2998130e09fa881e41a9962f9e4f53b6ac6ca467ede5c05",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "dc9661cb825a09974f295b8dfa7ff25a566aa25dafb59281491c099c26d37e24",
+      "values": {
+        "messages.display001": "Completing the 2D Scene Editor",
+        "messages.display002": "Reruns: 1 run ↔ 5 runs",
+        "messages.display003": "Rebuild",
+        "messages.display004": "Move selected",
+        "messages.display005": "Import JSON",
+        "messages.display006": "Builds ",
+        "messages.display007": "; selected ",
+        "messages.display008": "; one application ticker",
+        "comments.comment001": "Completing the 2D Scene Editor",
+        "comments.comment002": "Experiment: Reruns: 1 run → 5 runs",
+        "comments.comment003": "With correct cleanup, commands per input and ticker callback counts do not increase",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
+    }
+  },
+  "pixijs-01": {
+    "presentation": {
+      "sourceHash": "efa78b64db75983fa5d29a4e5af2dd3f76cd624955bc4a270142d9eeac67d1f3",
+      "values": {
+        "comments.comment001": "This uses PixiJS Application and Graphics. Change SPEED and click the circle."
+      }
+    }
+  },
+  "pixijs-02": {
+    "presentation": {
+      "sourceHash": "1bbc3d66a6aa22aa2f96691198f9597f053f6f19dd8d05dc8e87eb23508ae7d1",
+      "values": {
+        "messages.display001": "<button>Load invalid atlas</button> <button>Reload valid atlas</button> <button>Remove selected sprite</button><p role=\"status\"></p>",
+        "messages.display002": "Parsing local atlas…",
+        "messages.display003": "Selected. Remove it: siblings keep their shared atlas.",
+        "messages.display004": "Loaded 2 atlas frames, 5 sprites. Click a sprite.",
+        "messages.display005": "Atlas failed: ",
+        "messages.display006": ". Existing sprites retained; retry available.",
+        "messages.display007": " sprites still use the shared atlas.",
+        "comments.comment001": "Procedural local atlas: two frames share ONE TextureSource, owned by mount."
+      }
+    }
+  },
+  "pixijs-03": {
+    "presentation": {
+      "sourceHash": "37ef1b816e3d487ef32400d145e9b4cde20f0a8fc3590ed5a1a083a349db4ee8",
+      "values": {
+        "messages.display001": "<label><input type=\"checkbox\"> Blur</label> <label><input type=\"checkbox\"> Alternate textures</label> <label>DPR <select><option>1</option><option>2</option></select></label> <button>Record</button><pre></pre>",
+        "messages.display002": "600 sprites · blur ",
+        "messages.display003": " · textures ",
+        "messages.display004": " · DPR ",
+        "messages.display005": " samples · rAF ",
+        "messages.display006": " ms\n",
+        "comments.comment001": "Frame interval is observed; it is NOT GPU time or an inferred draw-call count."
+      }
     }
   }
 }

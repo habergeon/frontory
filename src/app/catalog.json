@@ -4167,7 +4167,8 @@
       "title": "Application과 Scene graph",
       "goal": "초기화 완료 후에만 화면 자원을 사용한다. Canvas 수동 그리기와 scene graph 갱신을 비교한다.",
       "docPath": "/docs/labs/graphics/pixijs/01-foundations/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-01/example.js"
     },
     {
       "id": "pixijs-step-02",
@@ -4176,7 +4177,8 @@
       "title": "스프라이트와 앵커",
       "goal": "앵커와 위치를 구별한다. 공유 텍스처의 Sprite를 독립 이동한다.",
       "docPath": "/docs/labs/graphics/pixijs/units/02/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-02/example.js"
     },
     {
       "id": "pixijs-step-03",
@@ -4185,7 +4187,8 @@
       "title": "컨테이너와 로컬 좌표",
       "goal": "좌표 왕복 변환의 오차를 확인한다. 부모와 자식 변환을 독립 조절한다.",
       "docPath": "/docs/labs/graphics/pixijs/units/03/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-03/example.js"
     },
     {
       "id": "pixijs-step-04",
@@ -4194,7 +4197,8 @@
       "title": "Graphics 8 도형 API",
       "goal": "v8 도형·fill 순서로 그림을 만든다. 기하 변경과 위치 변경을 구별한다.",
       "docPath": "/docs/labs/graphics/pixijs/units/04/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-04/example.js"
     },
     {
       "id": "pixijs-step-05",
@@ -4203,7 +4207,8 @@
       "title": "텍스트와 스타일 갱신",
       "goal": "동일 값 반복 입력을 건너뛴다. 긴 텍스트가 지정 영역을 벗어나지 않는다.",
       "docPath": "/docs/labs/graphics/pixijs/units/05/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-05/example.js"
     },
     {
       "id": "pixijs-step-06",
@@ -4212,7 +4217,8 @@
       "title": "레이어와 그리기 순서",
       "goal": "HUD가 월드 객체에 가려지지 않는다. 정렬 범위가 부모 단위임을 설명한다.",
       "docPath": "/docs/labs/graphics/pixijs/units/06/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-06/example.js"
     },
     {
       "id": "pixijs-step-07",
@@ -4221,7 +4227,8 @@
       "title": "반응형 화면과 해상도",
       "goal": "리사이즈 뒤 Sprite가 화면 중심에 남는다. 논리 크기와 버퍼 크기를 분리해 표시한다.",
       "docPath": "/docs/labs/graphics/pixijs/units/07/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-07/example.js"
     },
     {
       "id": "pixijs-step-08",
@@ -4230,7 +4237,8 @@
       "title": "Ticker와 시간 단위",
       "goal": "ticker 객체와 숫자 시간을 구별한다. 시간 단위가 계산식에 명시된다.",
       "docPath": "/docs/labs/graphics/pixijs/units/08/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-08/example.js"
     },
     {
       "id": "pixijs-step-09",
@@ -4239,7 +4247,8 @@
       "title": "시작·정지와 콜백 정리",
       "goal": "정지 중 시뮬레이션이 갱신되지 않는다. 제거한 장면의 콜백이 남지 않는다.",
       "docPath": "/docs/labs/graphics/pixijs/units/09/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-09/example.js"
     },
     {
       "id": "pixijs-step-10",
@@ -4248,7 +4257,8 @@
       "title": "Assets 비동기 로딩",
       "goal": "로딩 중 중복 요청 정책이 있다. 실패 뒤 정상 경로로 복구한다.",
       "docPath": "/docs/labs/graphics/pixijs/units/10/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-10/example.js"
     },
     {
       "id": "pixijs-step-11",
@@ -4257,7 +4267,8 @@
       "title": "아틀라스와 프레임",
       "goal": "프레임 이름과 화면 그림이 일치한다. 원본 크기를 벗어난 프레임을 찾아낸다.",
       "docPath": "/docs/labs/graphics/pixijs/units/11/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-11/example.js"
     },
     {
       "id": "pixijs-step-12",
@@ -4266,7 +4277,8 @@
       "title": "이벤트 모드와 히트 영역",
       "goal": "클릭 불가능한 장식과 버튼을 구분한다. 히트 영역을 화면에 디버그 표시한다.",
       "docPath": "/docs/labs/graphics/pixijs/units/12/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-12/example.js"
     },
     {
       "id": "pixijs-step-13",
@@ -4275,7 +4287,8 @@
       "title": "드래그와 전역 포인터",
       "goal": "확대 그룹에서도 드래그 속도가 맞는다. 객체 밖에서 놓아도 드래그가 종료된다.",
       "docPath": "/docs/labs/graphics/pixijs/units/13/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-13/example.js"
     },
     {
       "id": "pixijs-02",
@@ -4284,7 +4297,8 @@
       "title": "Assets와 이벤트",
       "goal": "실패와 재실행에서도 UI가 살아 있다. 선택 객체 제거 후 공유 텍스처의 형제가 깨지지 않는다.",
       "docPath": "/docs/labs/graphics/pixijs/02-experiments/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-02/example.js"
     },
     {
       "id": "pixijs-step-15",
@@ -4293,7 +4307,8 @@
       "title": "키보드와 접근성",
       "goal": "마우스 없이 선택·이동·삭제가 가능하다. 선택 이름과 오류가 텍스트로 제공된다.",
       "docPath": "/docs/labs/graphics/pixijs/units/15/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-15/example.js"
     },
     {
       "id": "pixijs-step-16",
@@ -4302,7 +4317,8 @@
       "title": "장면 전환과 상태 보존",
       "goal": "화면을 돌아와도 데이터 위치가 보존된다. 떠난 화면의 이벤트와 ticker가 제거된다.",
       "docPath": "/docs/labs/graphics/pixijs/units/16/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-16/example.js"
     },
     {
       "id": "pixijs-step-17",
@@ -4311,7 +4327,8 @@
       "title": "애니메이션 프레임 시퀀스",
       "goal": "프레임 순서가 명시되어 있다. 일시정지 후 같은 프레임에서 재개한다.",
       "docPath": "/docs/labs/graphics/pixijs/units/17/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-17/example.js"
     },
     {
       "id": "pixijs-step-18",
@@ -4320,7 +4337,8 @@
       "title": "마스크와 스크롤 영역",
       "goal": "마스크 밖으로 그림이 새지 않는다. 보이지 않는 카드의 선택 정책이 명확하다.",
       "docPath": "/docs/labs/graphics/pixijs/units/18/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-18/example.js"
     },
     {
       "id": "pixijs-step-19",
@@ -4329,7 +4347,8 @@
       "title": "필터와 적용 범위",
       "goal": "두 적용 방식의 품질 차이를 기록한다. 필터 해제와 destroy 시점을 구별한다.",
       "docPath": "/docs/labs/graphics/pixijs/units/19/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-19/example.js"
     },
     {
       "id": "pixijs-step-20",
@@ -4338,7 +4357,8 @@
       "title": "블렌드 모드와 순서",
       "goal": "순서를 바꿀 수 없는 투명 객체를 구별한다. 배경에 따른 혼합 결과를 설명한다.",
       "docPath": "/docs/labs/graphics/pixijs/units/20/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-20/example.js"
     },
     {
       "id": "pixijs-step-21",
@@ -4347,7 +4367,8 @@
       "title": "정적 UI 캐시",
       "goal": "캐시가 오래되는 경우를 재현한다. 동적 텍스트와 정적 장식을 적절히 분리한다.",
       "docPath": "/docs/labs/graphics/pixijs/units/21/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-21/example.js"
     },
     {
       "id": "pixijs-step-22",
@@ -4356,7 +4377,8 @@
       "title": "텍스처 해제와 캐시 소유",
       "goal": "다른 장면이 쓰는 텍스처를 파괴하지 않는다. 직접 만든 TextureSource와 Assets 자원을 구분한다.",
       "docPath": "/docs/labs/graphics/pixijs/units/22/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-22/example.js"
     },
     {
       "id": "pixijs-step-23",
@@ -4365,7 +4387,8 @@
       "title": "대량 입자와 기능 경계",
       "goal": "Sprite와 Particle 기능 차이를 기록한다. 실험적 API의 설치 버전과 문서 버전을 남긴다.",
       "docPath": "/docs/labs/graphics/pixijs/units/23/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-23/example.js"
     },
     {
       "id": "pixijs-step-24",
@@ -4374,7 +4397,8 @@
       "title": "화면 밖 처리와 갱신 줄이기",
       "goal": "다시 들어온 객체가 올바른 위치에 보인다. 표시와 시뮬레이션 정책을 따로 기록한다.",
       "docPath": "/docs/labs/graphics/pixijs/units/24/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-24/example.js"
     },
     {
       "id": "pixijs-step-25",
@@ -4383,7 +4407,8 @@
       "title": "배칭 가설 만들기",
       "goal": "화면 결과를 유지한 비교를 수행한다. 프레임 간격으로 draw call 수를 추정하지 않는다.",
       "docPath": "/docs/labs/graphics/pixijs/units/25/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-25/example.js"
     },
     {
       "id": "pixijs-step-26",
@@ -4392,7 +4417,8 @@
       "title": "프로파일과 품질 예산",
       "goal": "표본 수·환경·설정이 기록된다. 프레임 간격을 GPU 시간으로 부르지 않는다.",
       "docPath": "/docs/labs/graphics/pixijs/units/26/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-26/example.js"
     },
     {
       "id": "pixijs-step-27",
@@ -4401,7 +4427,8 @@
       "title": "2D 장면 편집기 완성",
       "goal": "JSON 복원 뒤 id와 좌표가 유지된다. 실패 후 재시도와 종료가 정상 작동한다.",
       "docPath": "/docs/labs/graphics/pixijs/units/27/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-27/example.js"
     },
     {
       "id": "pixijs-03",
@@ -4410,7 +4437,8 @@
       "title": "배칭과 품질",
       "goal": "변수 하나의 전후 비교로 병목 가설을 검증한다. 측정된 값과 추정·미확인 항목을 분리한다.",
       "docPath": "/docs/labs/graphics/pixijs/03-project/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-03/example.js"
     },
     {
       "id": "glsl-01",

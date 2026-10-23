@@ -4492,7 +4492,8 @@
       "title": "Application and Scene Graph",
       "goal": "Use screen resources only after initialization completes. Compare manual Canvas drawing with scene graph updates.",
       "docPath": "/docs/en/labs/graphics/pixijs/01-foundations/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-01/example.js"
     },
     {
       "id": "pixijs-step-02",
@@ -4502,6 +4503,7 @@
       "goal": "Distinguish anchors from positions. Move Sprites sharing a texture independently.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/02/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-02/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4512,6 +4514,7 @@
       "goal": "Check errors in coordinate round trips. Adjust parent and child transforms independently.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/03/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-03/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4522,6 +4525,7 @@
       "goal": "Draw using the v8 shape-then-fill order. Distinguish geometry changes from position changes.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/04/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-04/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4532,6 +4536,7 @@
       "goal": "Skip repeated assignments of the same value. Keep long text within the specified area.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/05/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-05/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4542,6 +4547,7 @@
       "goal": "Keep the HUD from being covered by world objects. Explain that sorting is scoped to a parent.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/06/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-06/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4552,6 +4558,7 @@
       "goal": "Keep the Sprite centered after resizing. Display logical size and buffer size separately.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/07/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-07/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4562,6 +4569,7 @@
       "goal": "Distinguish the ticker object from numeric time. State time units explicitly in the formula.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/08/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-08/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4572,6 +4580,7 @@
       "goal": "Do not update the simulation while paused. Leave no callbacks from a removed scene.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/09/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-09/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4582,6 +4591,7 @@
       "goal": "Define a policy for duplicate requests during loading. Recover to a valid path after failure.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/10/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-10/example.js",
       "exampleNote": "Loads a local data URL with Assets. Reproduce the error state with a corrupted image; check external servers/CORS in a separate environment."
     },
     {
@@ -4592,6 +4602,7 @@
       "goal": "Match frame names to the images on screen. Find frames that extend beyond the source dimensions.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/11/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-11/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4602,6 +4613,7 @@
       "goal": "Distinguish noninteractive decoration from buttons. Show the hit area as a debug overlay.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/12/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-12/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4612,6 +4624,7 @@
       "goal": "Keep dragging speed correct in a scaled group. End dragging even when the pointer is released outside the object.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/13/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-13/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4621,7 +4634,8 @@
       "title": "Assets and Events",
       "goal": "Keep the UI available through failure and reruns. Keep sibling Sprites sharing the texture intact after removing the selected object.",
       "docPath": "/docs/en/labs/graphics/pixijs/02-experiments/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-02/example.js"
     },
     {
       "id": "pixijs-step-15",
@@ -4631,6 +4645,7 @@
       "goal": "Support selection, movement, and deletion without a mouse. Provide the selected name and errors as text.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/15/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-15/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4641,6 +4656,7 @@
       "goal": "Preserve data positions when returning to a screen. Remove events and ticker callbacks from the screen you leave.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/16/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-16/example.js",
       "exampleNote": "Timers reproduce the completion order of asynchronous scenes. You can observe generation tokens without actual server loading."
     },
     {
@@ -4651,6 +4667,7 @@
       "goal": "Specify frame order explicitly. Resume at the same frame after pausing.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/17/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-17/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4661,6 +4678,7 @@
       "goal": "Keep graphics within the mask. Define a clear selection policy for invisible cards.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/18/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-18/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4671,6 +4689,7 @@
       "goal": "Record quality differences between the two scopes. Distinguish detaching a filter from destroying it.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/19/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-19/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4681,6 +4700,7 @@
       "goal": "Identify transparent objects whose order must be preserved. Explain blending results for different backgrounds.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/20/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-20/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4691,6 +4711,7 @@
       "goal": "Reproduce a stale cache. Separate dynamic text and static decoration appropriately.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/21/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-21/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4701,6 +4722,7 @@
       "goal": "Do not destroy textures used by another scene. Distinguish directly created TextureSources from Assets resources.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/22/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-22/example.js",
       "exampleNote": "Experiments with the reference lifetimes of directly owned frame Textures and TextureSources. See day 10 for the Assets.unload example."
     },
     {
@@ -4711,6 +4733,7 @@
       "goal": "Record feature differences between Sprite and Particle. Record the installed version and documentation version for experimental APIs.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/23/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-23/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4721,6 +4744,7 @@
       "goal": "Show objects at the correct position when they return onscreen. Record display and simulation policies separately.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/24/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-24/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4731,6 +4755,7 @@
       "goal": "Compare while preserving the visual result. Do not infer draw call counts from frame intervals.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/25/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-25/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4741,6 +4766,7 @@
       "goal": "Record sample counts, environment, and settings. Do not call frame intervals GPU time.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/26/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-26/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4751,6 +4777,7 @@
       "goal": "Preserve ids and coordinates after restoring JSON. Make retry and shutdown work correctly after failure.",
       "docPath": "/docs/en/labs/graphics/pixijs/units/27/README.md",
       "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-step-27/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -4760,7 +4787,8 @@
       "title": "Batching and Quality",
       "goal": "Test a bottleneck hypothesis by comparing before and after changing one variable. Separate measured values from estimates and unverified items.",
       "docPath": "/docs/en/labs/graphics/pixijs/03-project/README.md",
-      "seriesId": "pixijs"
+      "seriesId": "pixijs",
+      "exampleReadingSource": "/examples-en/pixijs-03/example.js"
     },
     {
       "id": "glsl-01",

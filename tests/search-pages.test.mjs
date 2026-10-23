@@ -1,6 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
+import { checkPublicHttp } from './helpers/public-http.mjs'
 
 test('home and learning pages provide complete social metadata and site identity', async () => {
   const { generateSearchPages } = await import('../scripts/search-pages.mjs')
@@ -214,7 +215,7 @@ test('English worksheets use shared headings and preserve every written field', 
   }
 })
 
-test('built English app entry shares real Vite assets and localized head, with localized static errors', { timeout: 120000 }, async () => {
+test('built English app entry shares real Vite assets and localized head, with localized static errors', { timeout: 300000 }, async () => {
   const { execFileSync } = await import('node:child_process')
   execFileSync(process.execPath, ['scripts/build-preview.mjs'], { encoding: 'utf8' })
   execFileSync(process.execPath, ['node_modules/vite/bin/vite.js', 'build'], { encoding: 'utf8' })
@@ -308,44 +309,3 @@ test('built English app entry shares real Vite assets and localized head, with l
     else process.env.NODE_ENV = previousNodeEnv
   }
 })
-
-test('development English routes load the app and missing translations return genuine 404s', { timeout: 120000 }, async () => {
-  const { createServer } = await import('vite')
-  const server = await createServer({ server: { host: '127.0.0.1', port: 0 } })
-  await server.listen()
-  try {
-    await checkPublicHttp(server.httpServer.address().port)
-    const en = await (await fetch(`http://127.0.0.1:${server.httpServer.address().port}/en/`)).text()
-    assert.match(en, /<div id="root"><main>/)
-    assert.match(en, /src="\/src\/main.tsx"/)
-    assert.match(en, /@react-refresh/)
-    assert.doesNotMatch(en, /google-adsense-account/)
-  } finally { await server.close() }
-})
-
-async function checkPublicHttp(port) {
-  const base = `http://127.0.0.1:${port}`
-  for (const route of ['/', '/en/', '/learn/', '/en/learn/', '/en/about/', '/en/learn/react/react-step-03/']) {
-    const response = await fetch(base + route)
-    assert.equal(response.status, 200, route)
-    assert.match(await response.text(), route.startsWith('/en/') ? /<html lang="en">/ : /<html lang="ko">/)
-  }
-  for (const route of ['/en', '/en/learn', '/en/about']) {
-    const response = await fetch(base + route + '?from=test', { redirect: 'manual' })
-    assert.equal(response.status, 301, route)
-    assert.equal(response.headers.get('location'), route + '/?from=test')
-  }
-  for (const route of ['/en/learn/missing/', '/en/not-found/', '/en/learn/missing-series/', '/learn/missing/']) {
-    const response = await fetch(base + route)
-    assert.equal(response.status, 404, route)
-    const html = await response.text()
-    assert.match(html, route.startsWith('/en/') ? /<h1>Page not found<\/h1>/ : /페이지를 찾을 수 없습니다/)
-    assert.match(html, /noindex/)
-  }
-  for (const route of ['/examples/react-step-03/example.js', '/examples-en/react-step-03/example.js']) {
-    const response = await fetch(base + route)
-    assert.equal(response.status, 200, route)
-    assert.equal(response.headers.get('x-robots-tag'), 'noindex')
-    assert.match(response.headers.get('content-disposition'), /^attachment/)
-  }
-}

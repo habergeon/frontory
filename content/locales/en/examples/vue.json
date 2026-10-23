@@ -1,152 +1,454 @@
 {
   "vue-step-02": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "338220e3964852654db54a31d09b92c6f705ac57405d034983ef8e25649eb714",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "a8e562e2594cd6c132845d8c753b6d5f4c7d9b211e608bf1f86d97780742f002",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Toggle disabled",
+        "messages.display03": "Action received",
+        "messages.display04": "Bound action",
+        "comments.comment01": "SFCs and Template Binding",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-03": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "092fed66184ccf3cbdcdf7c5b2c94c5a0028d9114e62a243a660e19ae0c52c28",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "94985b6cc4d74b0d7959b35e4a8153ca1e8245f1bcfbf7411b48635ab69a083c",
+      "values": {
+        "messages.display01": "Experiment input",
+        "comments.comment01": "reactive and Preserving References",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-04": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "0e0b743041d36589e18848df7e94e05edafa2e4d4a30fbaea453e32880ff28ee",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "0f6ee1bc3721691720489fdf55a18b6292dd6db3c5eb3056e9be61c641c42eae",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Theme ",
+        "comments.comment01": "Pure Computation with computed",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-05": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "ffd0ae19f64060d63deb2336a070e887c5f725ffbc656a83d993a2757a152b54",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "b501c7491aeba00572aa56844260e6064560f3e2f07a47511ef0ba58543ab873",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Visible ",
+        "messages.display03": "Policy ",
+        "comments.comment01": "List Keys and Conditional Lifetimes",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-06": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "af514342fb8baeebed1fd85ddf5f7410e0af4aff65600e7d7ad2a7df517c97b6",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "b89708a7abcca22c57cdee839a6fc152732acdd486af249b8e81555f5b6c781d",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Number",
+        "comments.comment01": "Events and Input Conversion",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-07": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "59561285823ee8bc90c0d36edca1d3cc59f17310bfcb6ab07c1f40bf9ff15f0d",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "0a13b4353f11784b8d6a0f3c5114f09bc969799dee8f8519b5bfc1ebf67747b6",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Done",
+        "messages.display03": "Select",
+        "messages.display04": "Card ",
+        "messages.display05": "complete",
+        "messages.display06": "incomplete",
+        "comments.comment01": "Expressing State with Classes and Styles",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-08": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "8a82aa2d9b4e29c7e5597cc3856e30a171615443f2d05b7a6f03ab20fb652f21",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "6042f13b4ef6db3c2b02a324bdaf67372ee4ccbf81ca73667605906349e8a631",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Child prop: ",
+        "comments.comment01": "The One-Way Contract of props",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-09": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "71ec46bd7304e17f5d8e95aa55fcda3bced28fa24e44f4eb274874d98a51941d",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "8ef46e34bec2571b361595d3d6af8aa33065a16e32f1dfb31ff3ad16d3aab265",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Reverse",
+        "comments.comment01": "Communicating Change Intent with emits",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-10": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "35a45fff53b0800afffb2fc0629984cb655f2a52e7ecd4e1c25d3be003825bc0",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "2c99df68dce3af9043db2dfbe16e86cedbb60e56bb3b1b5a58f60916d46197fc",
+      "values": {
+        "messages.display01": "Experiment input",
+        "comments.comment01": "Component v-model",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-11": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "0f9b4756b06748d19c07a592c3a6c0b73450fc29c8c9c3076cbc953f295fd0a4",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "130a147f8d991b74360e06435422d8b4e6fc6ec60e206b54d0b3fb570ceeeb8b",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Detailed ",
+        "messages.display03": " · id ",
+        "comments.comment01": "Composing Screens with Slots",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-12": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "c6bed7ecb91ce1027fbcaab03babc9d35f600a0e808840842e1e7a7bd7722ddb",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "b1f93ca16c8905491fd34b610f440f03e63e33ac5f83786799cb58720e2fb4ca",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "observed ",
+        "messages.display03": "Theme",
+        "messages.display04": "Scope ",
+        "messages.display05": "all filters",
+        "comments.comment01": "watch Sources and Timing",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-13": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "cea688a111c72a17fd22ab3ae0ba071d267ecbe2e66ac873cedd3036471d11ac",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "807bbec8f44755c581b31d064871711199c6d4d782012a9e9e65663b594bd35b",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Waiting",
+        "messages.display03": " response",
+        "messages.display04": "Request A",
+        "messages.display05": "Request B",
+        "messages.display06": "Slow A ",
+        "comments.comment01": "Watcher Cleanup and Out-of-Order Requests",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-15": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "4eb9eb60e3c8d7cb678999c0321a035c2175bd919ed4a08d5c361a29c17bae48",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "81fb40d1a02c693e73d8c6991170371e5bae68f1beb1b75f1d7b46952d3f79bc",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Show and focus after nextTick",
+        "messages.display03": "Remove",
+        "messages.display04": "New editor",
+        "comments.comment01": "Template Refs and nextTick",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-16": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "925cd214c1851d268432d02f005874883e22ef30775f50e8234997f720c96640",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "c8a105e8012ac28051de484390416916695d0671983687f6ed9f7a0446b8e156",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Move pointer",
+        "messages.display03": "Second consumer",
+        "comments.comment01": "Composable Lifetimes",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-17": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "ae70979360aa412bbf4a475065a8d304977817b4bfb893f8c7e133ca76a9a835",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "edf884536158e12f1d7accc94f5d8805ea7d430e08dff51eed2e0b3ab37506bb",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Outer",
+        "messages.display03": "Nested",
+        "comments.comment01": "provide and inject",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-18": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "e06ea4037bc97bb9b4a3088addf18a9f99b07cb429081c230d9ba9e1d142f761",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "b387a864fd560a5bb7fbe5552906c23e9ad9cd31cead3fe25f2207f18045e11b",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Isolated ",
+        "comments.comment01": "Shared Store Scope",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-19": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "36d930b625819e78e6a8c10e8622e8c70e374570417bf53f2a5677aeb788ec5a",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "bb5a12792162748c427d419088fa726eb286236285abb903004dea66ba9fe519",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Restored",
+        "messages.display03": "Restore",
+        "messages.display04": "Corrupt",
+        "comments.comment01": "Restoring Saved Data and Validation",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-20": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "559f0e78b8dec515f87bc70661045e49f6200e04da8955c091faf01c1ea2be03",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "ecf5f5e70443884392bdac6601efbb07f9365e3f2ee054c5b075613def916004",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Loaded editor",
+        "messages.display03": "Loading component…",
+        "messages.display04": "Component load failed",
+        "messages.display05": "Fail ",
+        "messages.display06": "Mount lazy component",
+        "comments.comment01": "Async Components and Loading UI",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-21": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "d5990628049cb5e52596b5761d924ddb8a43c7b9079813f86d2e71d58be2479c",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "a3fe0e7dafd33343cbf5124b6e02f2c85040ffb1a73bcecba4cb7b299f077e4e",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Visible ",
+        "messages.display03": "KeepAlive ",
+        "comments.comment01": "KeepAlive and Pausing",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-22": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "31f6d7ed875b773f1e5ac4ed7265284518be03e612fe0179cad3fb91385fbd06",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "cbe68b5005f0ca0bd62ae9bc640d3eeea9d7e178bf27ecb38292370525de0b55",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Toggle canvas",
+        "comments.comment01": "Creating and Releasing Canvas Resources",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-23": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "3ee65e6d044e3077d28d9f0fad7b9877124d07e63edd52944a2147077928973b",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "d168c8528c7be34fb499ebe899dc091ae79fa636ca4ac17f6af8736db53503c9",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Speed ",
+        "comments.comment01": "Separating Frame Values from UI Values",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-24": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "4cec27326d3f2763cf87a24e2f84bb30b1a5976aaf9d0d8f138779fac8d23492",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "fe71e8011a29d45ae3673ba0e88f50b306fdfd9b93b9def742e48e017625e70a",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Mutate nested x",
+        "messages.display03": "triggerRef",
+        "messages.display04": "Replace object",
+        "comments.comment01": "Shallow Reactivity and External Objects",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-25": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "2eb10bf8dbf33a26990f5e51505b143dc82791476afedd803eaebf666322da48",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "4c2ba03ef8781f84ee8c0507506c4cfdd24de82a7c9629347834748fbeae72a5",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": " renders ",
+        "messages.display03": "Select next",
+        "messages.display04": "Per-row selected ",
+        "comments.comment01": "Observing Vue Performance",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-26": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "7a17abd12c3297bc559e96034e40b8539e46251075c63bea315473965d4958d5",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "3f2fdba0427ab1682715c4382fe21f1a15eac5867676263f772e8152f63845ce",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "Switch ",
+        "messages.display03": "Delay ",
+        "comments.comment01": "Checking Behavior Regressions and Save Races",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
     }
   },
   "vue-step-27": {
-    "sourceHash": "e0e5cb6312bab13df4b20d6886f43d15e6201528e2f9e3fb7430e6757331c79b",
+    "sourceHash": "875fd7cb5e4a942abe49c10a0df6e7b8b9c97b1e0e05e13f22270845acf73103",
     "values": {
       "note": "This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment."
+    },
+    "presentation": {
+      "sourceHash": "d08eb146a588ab3f7d58c3f5f08e438e14a04c6917d9eae68d9ad8ef4e48885b",
+      "values": {
+        "messages.display01": "Experiment input",
+        "messages.display02": "start ",
+        "messages.display03": " / active ",
+        "messages.display04": "Switch ",
+        "comments.comment01": "Composition API Integration Review",
+        "comments.comment02": "Real Vue render functions; templates and SFCs require a compiler."
+      }
+    }
+  },
+  "vue-01": {
+    "presentation": {
+      "sourceHash": "0ca70b9c77d15d520853ec9c738d5a308b041f756d4d5105e6c3d488032f8c01",
+      "values": {
+        "messages.display01": "Vue ref + computed",
+        "messages.display02": "count: ",
+        "messages.display03": " / doubled: ",
+        "messages.display04": "Increment",
+        "comments.comment01": "This uses actual Vue ref/computed and h render functions. Observe reactivity without template compilation."
+      }
+    }
+  },
+  "vue-02": {
+    "presentation": {
+      "sourceHash": "fe09cd768505d20f168b8080fbe155b1244711c05beec94a236b366519c0089d",
+      "values": {
+        "messages.display01": "Per-unit notes ",
+        "messages.display02": "Waiting for input",
+        "messages.display03": " save pending (",
+        "messages.display04": " saved",
+        "messages.display05": "props / emits / watch cleanup",
+        "messages.display06": "Quickly type in A and switch to B. The parent preserves drafts and cancels the save timer. Storage is limited to memory for this run.",
+        "messages.display07": "Unit ",
+        "messages.display08": "Save delay in ms ",
+        "comments.comment01": "Capture the unit and string as a snapshot so a delayed timer cannot write to the new unit.",
+        "comments.comment02": "Clean up on both reruns and component unmount"
+      }
+    }
+  },
+  "vue-03": {
+    "presentation": {
+      "sourceHash": "e8c87d0d983a893adb5f7fba42b8c792c1328ab938d5812b8c1b2d20986297c2",
+      "values": {
+        "messages.display01": "onMounted: created Canvas / RAF / observer",
+        "messages.display02": "onUnmounted: cleaned up RAF / observer",
+        "messages.display03": "A blue dot moving along an orbit",
+        "messages.display04": "Vue Canvas lifecycle",
+        "messages.display05": "Compare React useEffect setup/cleanup with Vue onMounted/onUnmounted. Frame coordinates are local variables; only the speed setting is a ref.",
+        "messages.display06": "Hide",
+        "messages.display07": "Show",
+        "messages.display08": "Remount",
+        "messages.display09": "Speed ",
+        "comments.comment01": "angle is a local variable: it does not request a Vue render every frame."
+      }
     }
   }
 }

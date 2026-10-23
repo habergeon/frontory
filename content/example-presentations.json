@@ -2076,5 +2076,329 @@
       "comment01": "학습용 렌더 시도 계수, 시간 측정값이 아닙니다.",
       "comment02": "개발/profiling 빌드에서만 콜백을 보장합니다. 결과를 state에 넣으면 추가 렌더가 생깁니다."
     }
+  },
+  "vue-01": {
+    "messages": {
+      "display01": "Vue ref + computed",
+      "display02": "count: ",
+      "display03": " / doubled: ",
+      "display04": "증가"
+    },
+    "comments": {
+      "comment01": "Vue의 실제 ref/computed와 h 렌더 함수입니다. 템플릿 컴파일 없이 반응성을 관찰합니다."
+    }
+  },
+  "vue-step-02": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Toggle disabled",
+      "display03": "Action received",
+      "display04": "Bound action"
+    },
+    "comments": {
+      "comment01": "SFC와 템플릿 바인딩",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-03": {
+    "messages": {
+      "display01": "Experiment input"
+    },
+    "comments": {
+      "comment01": "reactive와 참조 유지",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-04": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Theme "
+    },
+    "comments": {
+      "comment01": "computed의 순수한 계산",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-05": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Visible ",
+      "display03": "Policy "
+    },
+    "comments": {
+      "comment01": "목록 key와 조건부 수명",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-06": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Number"
+    },
+    "comments": {
+      "comment01": "이벤트와 입력 변환",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-07": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Done",
+      "display03": "Select",
+      "display04": "Card ",
+      "display05": "complete",
+      "display06": "incomplete"
+    },
+    "comments": {
+      "comment01": "클래스와 스타일의 상태 표현",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-08": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Child prop: "
+    },
+    "comments": {
+      "comment01": "props의 단방향 계약",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-09": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Reverse"
+    },
+    "comments": {
+      "comment01": "emits로 변경 의도 전달",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-10": {
+    "messages": {
+      "display01": "Experiment input"
+    },
+    "comments": {
+      "comment01": "컴포넌트 v-model",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-11": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Detailed ",
+      "display03": " · id "
+    },
+    "comments": {
+      "comment01": "슬롯으로 화면 조합하기",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-12": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "observed ",
+      "display03": "Theme",
+      "display04": "Scope ",
+      "display05": "all filters"
+    },
+    "comments": {
+      "comment01": "watch의 대상과 시점",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-13": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Waiting",
+      "display03": " response",
+      "display04": "Request A",
+      "display05": "Request B",
+      "display06": "Slow A "
+    },
+    "comments": {
+      "comment01": "감시 정리와 요청 역전",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-02": {
+    "messages": {
+      "display01": "단위별 필기 ",
+      "display02": "입력 대기",
+      "display03": " 저장 대기 (",
+      "display04": " 저장 완료",
+      "display05": "props / emits / watch 정리",
+      "display06": "빠르게 A에 입력하고 B로 전환하세요. 초안은 부모가 보존하고 저장 타이머는 취소됩니다. 저장소는 이 실행의 메모리입니다.",
+      "display07": "단위 ",
+      "display08": "저장 지연 ms "
+    },
+    "comments": {
+      "comment01": "단위와 문자열을 스냅샷으로 잡아, 늦은 타이머가 새 단위에 쓰지 못하게 합니다.",
+      "comment02": "재실행과 컴포넌트 해제에서 모두 정리"
+    }
+  },
+  "vue-step-15": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Show and focus after nextTick",
+      "display03": "Remove",
+      "display04": "New editor"
+    },
+    "comments": {
+      "comment01": "템플릿 ref와 nextTick",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-16": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Move pointer",
+      "display03": "Second consumer"
+    },
+    "comments": {
+      "comment01": "Composable의 수명",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-17": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Outer",
+      "display03": "Nested"
+    },
+    "comments": {
+      "comment01": "provide와 inject",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-18": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Isolated "
+    },
+    "comments": {
+      "comment01": "공유 저장소의 범위",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-19": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Restored",
+      "display03": "Restore",
+      "display04": "Corrupt"
+    },
+    "comments": {
+      "comment01": "저장 복원과 데이터 검증",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-20": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Loaded editor",
+      "display03": "Loading component…",
+      "display04": "Component load failed",
+      "display05": "Fail ",
+      "display06": "Mount lazy component"
+    },
+    "comments": {
+      "comment01": "비동기 컴포넌트와 로딩 UI",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-21": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Visible ",
+      "display03": "KeepAlive "
+    },
+    "comments": {
+      "comment01": "KeepAlive와 일시 정지",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-22": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Toggle canvas"
+    },
+    "comments": {
+      "comment01": "Canvas 생성과 해제",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-23": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Speed "
+    },
+    "comments": {
+      "comment01": "프레임 값과 UI 값 분리",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-24": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Mutate nested x",
+      "display03": "triggerRef",
+      "display04": "Replace object"
+    },
+    "comments": {
+      "comment01": "얕은 반응성과 외부 객체",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-25": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": " renders ",
+      "display03": "Select next",
+      "display04": "Per-row selected "
+    },
+    "comments": {
+      "comment01": "Vue 성능 관찰",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-26": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "Switch ",
+      "display03": "Delay "
+    },
+    "comments": {
+      "comment01": "동작 회귀와 저장 경합 검증",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-step-27": {
+    "messages": {
+      "display01": "Experiment input",
+      "display02": "start ",
+      "display03": " / active ",
+      "display04": "Switch "
+    },
+    "comments": {
+      "comment01": "Composition API 통합 검토",
+      "comment02": "Real Vue render functions; templates and SFCs require a compiler."
+    }
+  },
+  "vue-03": {
+    "messages": {
+      "display01": "onMounted: Canvas / RAF / observer 생성",
+      "display02": "onUnmounted: RAF / observer 정리",
+      "display03": "궤도를 도는 파란 점",
+      "display04": "Vue Canvas 수명주기",
+      "display05": "React useEffect의 생성/cleanup과 Vue onMounted/onUnmounted를 비교하세요. 프레임 좌표는 지역 변수, 속도 설정만 ref입니다.",
+      "display06": "숨기기",
+      "display07": "표시",
+      "display08": "재마운트",
+      "display09": "속도 "
+    },
+    "comments": {
+      "comment01": "angle은 지역 변수: 매 프레임 Vue 렌더를 요청하지 않습니다."
+    }
   }
 }

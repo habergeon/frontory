@@ -1983,7 +1983,8 @@
       "title": "반응성과 템플릿",
       "goal": "토글 한 번에 완료 수가 1 증가한다. 필터 해제 뒤 원본 카드 3개가 유지된다.",
       "docPath": "/docs/labs/frameworks/vue/01-foundations/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-01/example.js"
     },
     {
       "id": "vue-step-02",
@@ -1992,7 +1993,8 @@
       "title": "SFC와 템플릿 바인딩",
       "goal": "false 바인딩에서 버튼을 클릭할 수 있다. true 바인딩에서 버튼이 비활성이다.",
       "docPath": "/docs/labs/frameworks/vue/units/02/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-02/example.js"
     },
     {
       "id": "vue-step-03",
@@ -2001,7 +2003,8 @@
       "title": "reactive와 참조 유지",
       "goal": "원본 입력과 연결된 query가 일치한다. 일반 구조 분해의 초기값 유지 현상을 재현한다.",
       "docPath": "/docs/labs/frameworks/vue/units/03/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-03/example.js"
     },
     {
       "id": "vue-step-04",
@@ -2010,7 +2013,8 @@
       "title": "computed의 순수한 계산",
       "goal": "검색어와 표시 카드 제목이 일치한다. theme만 바꿀 때 원본 items가 변하지 않는다.",
       "docPath": "/docs/labs/frameworks/vue/units/04/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-04/example.js"
     },
     {
       "id": "vue-step-05",
@@ -2019,7 +2023,8 @@
       "title": "목록 key와 조건부 수명",
       "goal": "id key로 정렬해도 메모가 같은 카드에 남는다. 두 숨김 방식의 메모 보존 결과를 각각 기록한다.",
       "docPath": "/docs/labs/frameworks/vue/units/05/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-05/example.js"
     },
     {
       "id": "vue-step-06",
@@ -2028,7 +2033,8 @@
       "title": "이벤트와 입력 변환",
       "goal": "Enter 제출 한 번에 카드가 1개 추가된다. 빈 횟수 입력의 처리 규칙과 실제 결과가 일치한다.",
       "docPath": "/docs/labs/frameworks/vue/units/06/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-06/example.js"
     },
     {
       "id": "vue-step-07",
@@ -2037,7 +2043,8 @@
       "title": "클래스와 스타일의 상태 표현",
       "goal": "네 조합에서 완료 텍스트와 aria-pressed가 일치한다. 선택 스타일 변경이 다른 카드에 번지지 않는다.",
       "docPath": "/docs/labs/frameworks/vue/units/07/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-07/example.js"
     },
     {
       "id": "vue-step-08",
@@ -2046,7 +2053,8 @@
       "title": "props의 단방향 계약",
       "goal": "자식 코드에 props 직접 대입이 없다. 부모 제목 변경 후 자식 제목이 일치한다.",
       "docPath": "/docs/labs/frameworks/vue/units/08/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-08/example.js"
     },
     {
       "id": "vue-step-09",
@@ -2055,7 +2063,8 @@
       "title": "emits로 변경 의도 전달",
       "goal": "클릭 1회에 toggle 이벤트가 1개 발생한다. 정렬 후 클릭한 카드만 완료 상태가 바뀐다.",
       "docPath": "/docs/labs/frameworks/vue/units/09/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-09/example.js"
     },
     {
       "id": "vue-step-10",
@@ -2064,7 +2073,8 @@
       "title": "컴포넌트 v-model",
       "goal": "A 에디터 입력이 B 에디터에 반영된다. 자식을 제거하고 다시 표시해도 부모 초안이 남는다.",
       "docPath": "/docs/labs/frameworks/vue/units/10/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-10/example.js"
     },
     {
       "id": "vue-step-11",
@@ -2073,7 +2083,8 @@
       "title": "슬롯으로 화면 조합하기",
       "goal": "두 패널의 footer가 서로 다른 내용을 표시한다. 슬롯 변경 후 필터 결과 개수가 유지된다.",
       "docPath": "/docs/labs/frameworks/vue/units/11/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-11/example.js"
     },
     {
       "id": "vue-step-12",
@@ -2082,7 +2093,8 @@
       "title": "watch의 대상과 시점",
       "goal": "theme 변경은 검색 요청을 시작하지 않는다. query 변경 후 요청 로그에 최신 문자열이 남는다.",
       "docPath": "/docs/labs/frameworks/vue/units/12/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-12/example.js"
     },
     {
       "id": "vue-step-13",
@@ -2091,7 +2103,8 @@
       "title": "감시 정리와 요청 역전",
       "goal": "최종 결과가 최신 B 입력과 일치한다. 컴포넌트 제거 후 요청 갱신이 반영되지 않는다.",
       "docPath": "/docs/labs/frameworks/vue/units/13/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-13/example.js"
     },
     {
       "id": "vue-02",
@@ -2100,7 +2113,8 @@
       "title": "컴포넌트 계약과 감시",
       "goal": "A 입력 후 B 전환에도 B 저장값이 오염되지 않는다. 연속 입력 5회 뒤 마지막 값만 저장 완료된다.",
       "docPath": "/docs/labs/frameworks/vue/02-experiments/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-02/example.js"
     },
     {
       "id": "vue-step-15",
@@ -2109,7 +2123,8 @@
       "title": "템플릿 ref와 nextTick",
       "goal": "패널을 열 때 textarea가 활성 요소다. 숨김 상태에서 null 접근 오류가 없다.",
       "docPath": "/docs/labs/frameworks/vue/units/15/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-15/example.js"
     },
     {
       "id": "vue-step-16",
@@ -2118,7 +2133,8 @@
       "title": "Composable의 수명",
       "goal": "남은 패널의 크기가 계속 갱신된다. 모든 패널 제거 뒤 활성 리스너가 0이다.",
       "docPath": "/docs/labs/frameworks/vue/units/16/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-16/example.js"
     },
     {
       "id": "vue-step-17",
@@ -2127,7 +2143,8 @@
       "title": "provide와 inject",
       "goal": "두 Workspace 선택이 서로 섞이지 않는다. 소비자에서 직접 대입하지 않고 select 함수로 변경한다.",
       "docPath": "/docs/labs/frameworks/vue/units/17/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-17/example.js"
     },
     {
       "id": "vue-step-18",
@@ -2136,7 +2153,8 @@
       "title": "공유 저장소의 범위",
       "goal": "두 작업공간이 서로 다른 문자열을 보존한다. reset이 지정한 작업공간만 비운다.",
       "docPath": "/docs/labs/frameworks/vue/units/18/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-18/example.js"
     },
     {
       "id": "vue-step-19",
@@ -2145,7 +2163,8 @@
       "title": "저장 복원과 데이터 검증",
       "goal": "유효한 A·B 초안이 각각 복원된다. 잘못된 데이터에서도 새 입력을 유지한다.",
       "docPath": "/docs/labs/frameworks/vue/units/19/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-19/example.js"
     },
     {
       "id": "vue-step-20",
@@ -2154,7 +2173,8 @@
       "title": "비동기 컴포넌트와 로딩 UI",
       "goal": "지연 중 빈 화면 대신 로딩 안내가 있다. 실패 후 목록과 필기 조작이 가능하다.",
       "docPath": "/docs/labs/frameworks/vue/units/20/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-20/example.js"
     },
     {
       "id": "vue-step-21",
@@ -2163,7 +2183,8 @@
       "title": "KeepAlive와 일시 정지",
       "goal": "복귀한 Editor의 로컬 문자열이 남는다. 비활성 Preview의 tick이 증가하지 않는다.",
       "docPath": "/docs/labs/frameworks/vue/units/21/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-21/example.js"
     },
     {
       "id": "vue-step-22",
@@ -2172,7 +2193,8 @@
       "title": "Canvas 생성과 해제",
       "goal": "제거 후 tick 로그가 멈춘다. 재표시 후 원 하나만 움직인다.",
       "docPath": "/docs/labs/frameworks/vue/units/22/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-22/example.js"
     },
     {
       "id": "vue-step-23",
@@ -2181,7 +2203,8 @@
       "title": "프레임 값과 UI 값 분리",
       "goal": "speed 0에서 원 위치가 멈춘다. speed 변경 때 Canvas 생성 계수가 늘지 않는다.",
       "docPath": "/docs/labs/frameworks/vue/units/23/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-23/example.js"
     },
     {
       "id": "vue-step-24",
@@ -2190,7 +2213,8 @@
       "title": "얕은 반응성과 외부 객체",
       "goal": "renderer 핸들 교체 시 소비자가 새 핸들을 읽는다. 프레임 변화마다 템플릿 통계가 갱신되지 않는다.",
       "docPath": "/docs/labs/frameworks/vue/units/24/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-24/example.js"
     },
     {
       "id": "vue-step-25",
@@ -2199,7 +2223,8 @@
       "title": "Vue 성능 관찰",
       "goal": "두 방식의 같은 입력 10회 기록이 있다. 최적화 뒤 선택 표시가 정확히 1개다.",
       "docPath": "/docs/labs/frameworks/vue/units/25/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-25/example.js"
     },
     {
       "id": "vue-step-26",
@@ -2208,7 +2233,8 @@
       "title": "동작 회귀와 저장 경합 검증",
       "goal": "A 문자열이 B 저장값에 들어가지 않는다. 추가·토글·검색·전환 네 흐름이 통과한다.",
       "docPath": "/docs/labs/frameworks/vue/units/26/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-26/example.js"
     },
     {
       "id": "vue-step-27",
@@ -2217,7 +2243,8 @@
       "title": "Composition API 통합 검토",
       "goal": "상태·파생·외부 작업의 소유자가 각각 적혀 있다. 5회 전환 후 활성 Canvas가 1개다.",
       "docPath": "/docs/labs/frameworks/vue/units/27/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-step-27/example.js"
     },
     {
       "id": "vue-03",
@@ -2226,7 +2253,8 @@
       "title": "Canvas 수명주기",
       "goal": "최종 제거 뒤 RAF·observer·리스너 활성 수가 0이다. 속도 조절과 10회 재마운트 후 초안·Canvas 조작이 정상이다.",
       "docPath": "/docs/labs/frameworks/vue/03-project/README.md",
-      "seriesId": "vue"
+      "seriesId": "vue",
+      "exampleReadingSource": "/examples-en/vue-03/example.js"
     },
     {
       "id": "svelte-01",

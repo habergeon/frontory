@@ -6,7 +6,7 @@ async page => {
   await page.reload()
   await page.waitForSelector('.monaco-editor')
   // Use the visible reset flow to establish a runnable scene on repeated runs.
-  await page.locator('#panel-code .panel-header button').click()
+  await page.locator('#panel-code .code-panel-actions button:first-child').click()
   await page.locator('.reset-confirm button').first().click()
   await page.waitForSelector('.workspace iframe')
   check('Page identity', page.url().endsWith('/en/#javascript-step-02'))
@@ -26,7 +26,7 @@ async page => {
   await page.locator('.learning-status button').nth(1).click()
   await page.locator('.notes-toolbar button').nth(1).click()
   await page.locator('#tab-notes').evaluate(element => element.click())
-  await page.locator('#panel-code .panel-header button').click()
+  await page.locator('#panel-code .code-panel-actions button:first-child').click()
   await page.evaluate(() => { window.f10refs = { editor: document.querySelector('.monaco-editor'), input: document.querySelector('.monaco-editor [role="textbox"]'), preview: document.querySelector('.workspace iframe'), notes: document.querySelector('.notes-preview'), selection: document.querySelector('.monaco-editor .view-overlays').innerHTML, errors: document.querySelector('.code-issues').textContent, storage: JSON.stringify(Object.keys(localStorage).sort().map(key => [key, localStorage.getItem(key)])) } })
   // Observe Monaco via public read-only APIs; edits above use actual keyboard input.
   await page.evaluate(async () => { const { monaco } = await import('/src/editor/monaco.ts'); const instance = monaco.editor.getEditors()[0]; Object.assign(window.f10refs, { model: instance.getModel(), version: instance.getModel().getVersionId(), selected: JSON.stringify(instance.getSelection()) }) })

@@ -17,6 +17,8 @@ export function Workspace({ unit, onProgressChange, ref }: { unit: Unit; onProgr
   const text = messages[locale]
   const [saved, setSaved] = useState(() => draftStore.begin(unit.id, unit.source ?? '', locale))
   const [panel, setPanel] = useState<Panel>('result')
+  const [wideCode, setWideCode] = useState(false)
+  const [wrapCode, setWrapCode] = useState(true)
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([])
   const codePanel = useRef<HTMLElement>(null)
   const focusRequested = useRef(false)
@@ -89,7 +91,7 @@ export function Workspace({ unit, onProgressChange, ref }: { unit: Unit; onProgr
           }}
           onClick={() => setPanel(value)}>{[text.practiceScreen, text.sourceCode, text.markdownNotes][index]}</button>)}
     </div>
-    <div className="workspace">
+    <div className={'workspace' + (wideCode ? ' wide-code' : '')}>
       <section id="panel-result" role="tabpanel" aria-labelledby="tab-result" tabIndex={0} className={'panel ' + (panel === 'result' ? 'mobile-active' : '')}>
         <header className="panel-header"><div><span className="eyebrow">01 / PREVIEW</span><h2>{text.practiceScreen}</h2></div>
           {unit.source !== undefined && <button onClick={() => setRevision(value => value + 1)}>{text.rerun}</button>}
@@ -99,11 +101,15 @@ export function Workspace({ unit, onProgressChange, ref }: { unit: Unit; onProgr
       </section>
       <section ref={codePanel} id="panel-code" role="tabpanel" aria-labelledby="tab-code" tabIndex={0} className={'panel ' + (panel === 'code' ? 'mobile-active' : '')}>
         <header className="panel-header"><div><span className="eyebrow">02 / SOURCE</span><h2>{text.sourceCode}</h2></div>
-          <button disabled={unit.source === undefined} onClick={() => setConfirmReset(true)}>{text.restoreOriginal}</button>
+          <div className="code-panel-actions">
+            <button disabled={unit.source === undefined} onClick={() => setConfirmReset(true)}>{text.restoreOriginal}</button>
+            <button className="wide-code-toggle" aria-pressed={wideCode} onClick={() => setWideCode(value => !value)}>{wideCode ? text.showAllPanels : text.widenCode}</button>
+            <button disabled={unit.source === undefined} aria-pressed={wrapCode} onClick={() => setWrapCode(value => !value)}>{text.wrapLines}</button>
+          </div>
         </header>
         {confirmReset && <div className="reset-confirm" role="alert"><p>{text.resetConfirmation}</p><div><button onClick={reset}>{text.resetCodeOnly}</button><button onClick={() => setConfirmReset(false)}>{text.cancel}</button></div></div>}
         <div className="editor-caption">{unit.source !== undefined ? <><label htmlFor="code-language">{text.codeLanguage}</label><select id="code-language" value={language} onChange={event => save({ ...draft, language: event.target.value as CodeLanguage })}><option value="javascript">JavaScript</option><option value="typescript">TypeScript</option></select><span>{text.editorCaption}</span></> : text.documentImplementation}</div>
-        {unit.source !== undefined ? <Suspense fallback={<div className="empty-state">{text.loadingEditor}</div>}><CodeEditor value={draft.code} language={language} unitId={unit.id}
+        {unit.source !== undefined ? <Suspense fallback={<div className="empty-state">{text.loadingEditor}</div>}><CodeEditor wrap={wrapCode} value={draft.code} language={language} unitId={unit.id}
           onChange={code => save({ ...draft, code })} onCompile={result => { setCompilation(result); if (result.output !== null) setExecutable(result.output) }} /></Suspense> : <div className="empty-state">{text.separateProjectHint}</div>}
         <p className="panel-hint">{unit.source !== undefined ? text.mountHint : text.separateCodeHint}</p>
       </section>

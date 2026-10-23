@@ -5,9 +5,9 @@ import { monaco } from './monaco'
 import type { CodeLanguage } from '../shared/drafts'
 
 export interface Compilation { source: string; language: CodeLanguage; output: string | null; error: string | null }
-interface Props { value: string; language: CodeLanguage; unitId: string; onChange: (value: string) => void; onCompile: (result: Compilation) => void }
+interface Props { wrap: boolean; value: string; language: CodeLanguage; unitId: string; onChange: (value: string) => void; onCompile: (result: Compilation) => void }
 
-export default function CodeEditor({ value, language, unitId, onChange, onCompile }: Props) {
+export default function CodeEditor({ wrap, value, language, unitId, onChange, onCompile }: Props) {
   const { locale } = useLocale()
   const text = messages[locale]
   const [status, setStatus] = useState<'loading' | 'waiting' | 'invalid' | 'valid' | 'failed'>('loading')
@@ -26,7 +26,7 @@ export default function CodeEditor({ value, language, unitId, onChange, onCompil
       model, automaticLayout: true, minimap: { enabled: false }, fontSize: 12,
       lineNumbers: 'on', scrollBeyondLastLine: false, tabSize: 2,
       ariaLabel: messages[locale].sourceCode, theme: 'vs', fixedOverflowWidgets: true,
-      padding: { top: 12 }, wordWrap: 'off', renderValidationDecorations: 'on',
+      padding: { top: 12 }, wordWrap: 'on', renderValidationDecorations: 'on',
     })
     editor.current = instance
     let timer: number | undefined
@@ -76,6 +76,7 @@ export default function CodeEditor({ value, language, unitId, onChange, onCompil
     validate()
     return () => { disposed = true; sequence++; window.clearTimeout(timer); change.dispose(); instance.dispose(); model.dispose(); editor.current = null }
   }, [language, unitId])
+  useEffect(() => { editor.current?.updateOptions({ wordWrap: wrap ? 'on' : 'off' }) }, [wrap, language, unitId])
   useEffect(() => { editor.current?.updateOptions({ ariaLabel: messages[locale].sourceCode }) }, [locale, language, unitId])
   useEffect(() => { const model = editor.current?.getModel(); if (model && model.getValue() !== value) model.setValue(value) }, [value])
   return <div className="code-workbench">

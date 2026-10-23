@@ -14,7 +14,7 @@ async page => {
   await page.waitForSelector('.monaco-editor')
   // Preserve the original example through the actual restore UI, including after RED.
   const restore = async () => {
-    await page.locator('#panel-code .panel-header button').click()
+    await page.locator('#panel-code .code-panel-actions button:first-child').click()
     await page.locator('.reset-confirm button').first().click()
     await page.frameLocator('.workspace iframe').getByRole('textbox', { name: /실험 JSON 입력|Experiment JSON input/ }).waitFor()
     await page.waitForFunction(() => document.querySelector('.code-check-status')?.textContent.includes('검사 통과') || document.querySelector('.code-check-status')?.textContent.includes('checks passed'))

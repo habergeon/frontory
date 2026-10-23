@@ -2263,7 +2263,8 @@
       "title": "컴파일과 반응성",
       "goal": "토글 후 목록과 합계가 함께 바뀐다. 내장 어댑터와 .svelte 컴파일 실행을 구분한 기록이 있다.",
       "docPath": "/docs/labs/frameworks/svelte/01-foundations/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-01/example.js"
     },
     {
       "id": "svelte-step-02",
@@ -2272,7 +2273,8 @@
       "title": "마크업과 이벤트 속성",
       "goal": "초기 클릭 수가 0이다. 클릭 한 번 뒤 1을 표시한다.",
       "docPath": "/docs/labs/frameworks/svelte/units/02/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-02/example.js"
     },
     {
       "id": "svelte-step-03",
@@ -2281,7 +2283,8 @@
       "title": "$state 객체의 변경 경로",
       "goal": "카드와 파생 done이 항상 일치한다. 일반 복사값이 초기 상태에 머무르는 현상을 기록한다.",
       "docPath": "/docs/labs/frameworks/svelte/units/03/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-03/example.js"
     },
     {
       "id": "svelte-step-04",
@@ -2290,7 +2293,8 @@
       "title": "$derived로 필터 계산하기",
       "goal": "필터 결과 수가 일치하는 제목 수와 같다. 정렬 뒤 원본 id 순서가 변하지 않는다.",
       "docPath": "/docs/labs/frameworks/svelte/units/04/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-04/example.js"
     },
     {
       "id": "svelte-step-05",
@@ -2299,7 +2303,8 @@
       "title": "조건 블록과 빈 화면",
       "goal": "결과 0개일 때 빈 안내가 1개 있다. 초기화 뒤 카드 3개가 복원된다.",
       "docPath": "/docs/labs/frameworks/svelte/units/05/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-05/example.js"
     },
     {
       "id": "svelte-step-06",
@@ -2308,7 +2313,8 @@
       "title": "keyed each와 카드 정체성",
       "goal": "역순 정렬 후 A가 원래 카드 id에 남는다. 삭제한 카드의 로컬 입력이 다른 카드로 이동하지 않는다.",
       "docPath": "/docs/labs/frameworks/svelte/units/06/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-06/example.js"
     },
     {
       "id": "svelte-step-07",
@@ -2317,7 +2323,8 @@
       "title": "폼 바인딩과 검증",
       "goal": "공백 제출 후 카드 수가 그대로다. Enter 제출 뒤 제목이 같은 카드가 1개 추가된다.",
       "docPath": "/docs/labs/frameworks/svelte/units/07/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-07/example.js"
     },
     {
       "id": "svelte-step-08",
@@ -2326,7 +2333,8 @@
       "title": "$props와 변경 콜백",
       "goal": "클릭한 id의 done만 바뀐다. 한 번 클릭에 부모 변경 로그가 1개다.",
       "docPath": "/docs/labs/frameworks/svelte/units/08/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-08/example.js"
     },
     {
       "id": "svelte-step-09",
@@ -2335,7 +2343,8 @@
       "title": "$bindable과 편집기 계약",
       "goal": "textarea와 부모 출력 문자열이 일치한다. 에디터 제거 후 재표시해도 초안이 남는다.",
       "docPath": "/docs/labs/frameworks/svelte/units/09/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-09/example.js"
     },
     {
       "id": "svelte-step-10",
@@ -2344,7 +2353,8 @@
       "title": "snippet으로 행 표시 바꾸기",
       "goal": "두 표현의 카드 id 순서가 같다. 상세 표현에만 완료 설명이 추가된다.",
       "docPath": "/docs/labs/frameworks/svelte/units/10/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-10/example.js"
     },
     {
       "id": "svelte-step-11",
@@ -2353,7 +2363,8 @@
       "title": "DOM 참조와 tick",
       "goal": "열기 후 활성 요소가 textarea다. 숨긴 요소에 접근하는 오류가 없다.",
       "docPath": "/docs/labs/frameworks/svelte/units/11/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-11/example.js"
     },
     {
       "id": "svelte-step-12",
@@ -2362,7 +2373,8 @@
       "title": "$effect 의존성과 해제",
       "goal": "period 변경 뒤 활성 타이머가 1개다. 컴포넌트 제거 뒤 tick이 멈춘다.",
       "docPath": "/docs/labs/frameworks/svelte/units/12/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-12/example.js"
     },
     {
       "id": "svelte-step-13",
@@ -2371,7 +2383,8 @@
       "title": "onMount와 초기 자원",
       "goal": "표시 중 pointer 입력 1회에 처리 1회다. 숨긴 상태에서는 pointer 처리 로그가 없다.",
       "docPath": "/docs/labs/frameworks/svelte/units/13/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-13/example.js"
     },
     {
       "id": "svelte-02",
@@ -2380,7 +2393,8 @@
       "title": "이벤트와 자원 정리",
       "goal": "재표시 뒤 포인터 위치에 원이 하나 그려진다. 숨김 뒤 타이머와 리스너 처리가 멈춘다.",
       "docPath": "/docs/labs/frameworks/svelte/02-experiments/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-02/example.js"
     },
     {
       "id": "svelte-step-15",
@@ -2389,7 +2403,8 @@
       "title": "writable과 구독 계약",
       "goal": "두 소비자가 최신 id를 읽는다. 직접 구독 해제 뒤 해당 로그가 더 나오지 않는다.",
       "docPath": "/docs/labs/frameworks/svelte/units/15/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-15/example.js"
     },
     {
       "id": "svelte-step-16",
@@ -2398,7 +2413,8 @@
       "title": "공유 runes 모듈",
       "goal": "두 Workspace의 A 초안이 서로 다르다. 한 Workspace reset이 다른 쪽 값을 지우지 않는다.",
       "docPath": "/docs/labs/frameworks/svelte/units/16/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-16/example.js"
     },
     {
       "id": "svelte-step-17",
@@ -2407,7 +2423,8 @@
       "title": "Context로 작업공간 연결",
       "goal": "각 트리에서 최신 문자열이 함께 보인다. 다른 트리의 초안이 변경되지 않는다.",
       "docPath": "/docs/labs/frameworks/svelte/units/17/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-17/example.js"
     },
     {
       "id": "svelte-step-18",
@@ -2416,7 +2433,8 @@
       "title": "요청과 오래된 결과",
       "goal": "최종 query와 결과 id가 B로 같다. 컴포넌트 제거 뒤 결과가 반영되지 않는다.",
       "docPath": "/docs/labs/frameworks/svelte/units/18/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-18/example.js"
     },
     {
       "id": "svelte-step-19",
@@ -2425,7 +2443,8 @@
       "title": "await 블록과 상태 안내",
       "goal": "대기 중 로딩 안내가 1개 나온다. 재시도 성공 뒤 오류 안내가 사라진다.",
       "docPath": "/docs/labs/frameworks/svelte/units/19/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-19/example.js"
     },
     {
       "id": "svelte-step-20",
@@ -2434,7 +2453,8 @@
       "title": "초안 저장과 복원",
       "goal": "정상 A·B 초안이 각각 복원된다. 쓰기 실패 뒤 입력한 문자열이 화면에 남는다.",
       "docPath": "/docs/labs/frameworks/svelte/units/20/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-20/example.js"
     },
     {
       "id": "svelte-step-21",
@@ -2443,7 +2463,8 @@
       "title": "key 블록과 초안 보존",
       "goal": "A와 B 초안이 섞이지 않는다. key 변경 뒤 편집 횟수가 초기값이다.",
       "docPath": "/docs/labs/frameworks/svelte/units/21/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-21/example.js"
     },
     {
       "id": "svelte-step-22",
@@ -2452,7 +2473,8 @@
       "title": "Canvas 루프와 반응성 분리",
       "goal": "speed 0에서 원이 정지한다. 속도 변경이 Canvas 재생성을 일으키지 않는다.",
       "docPath": "/docs/labs/frameworks/svelte/units/22/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-22/example.js"
     },
     {
       "id": "svelte-step-23",
@@ -2461,7 +2483,8 @@
       "title": "스타일 범위와 접근성",
       "goal": "마우스 없이 완료 상태를 바꾼다. 포커스 위치를 화면에서 구분할 수 있다.",
       "docPath": "/docs/labs/frameworks/svelte/units/23/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-23/example.js"
     },
     {
       "id": "svelte-step-24",
@@ -2470,7 +2493,8 @@
       "title": "전환 중 수명 확인",
       "goal": "두 duration에서 A 초안이 유지된다. 최종 숨김 후 활성 타이머가 0이다.",
       "docPath": "/docs/labs/frameworks/svelte/units/24/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-24/example.js"
     },
     {
       "id": "svelte-step-25",
@@ -2479,7 +2503,8 @@
       "title": "컴파일 결과와 성능 관찰",
       "goal": "두 데이터 크기의 입력 10회 기록이 있다. 빌드 모드와 기기·브라우저를 기록한다.",
       "docPath": "/docs/labs/frameworks/svelte/units/25/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-25/example.js"
     },
     {
       "id": "svelte-step-26",
@@ -2488,7 +2513,8 @@
       "title": "동일 계약의 회귀 시나리오",
       "goal": "핵심 4개 흐름의 기대 출력이 명시된다. 두 번 실행해도 이전 테스트의 카드가 남지 않는다.",
       "docPath": "/docs/labs/frameworks/svelte/units/26/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-26/example.js"
     },
     {
       "id": "svelte-step-27",
@@ -2497,7 +2523,8 @@
       "title": "세 프레임워크 비교 준비",
       "goal": "세 구현에 동일 fixture를 사용한다. 실행 여부와 비교할 API 위치가 표에 있다.",
       "docPath": "/docs/labs/frameworks/svelte/units/27/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-27/example.js"
     },
     {
       "id": "svelte-03",
@@ -2506,7 +2533,8 @@
       "title": "프레임워크 비교",
       "goal": "세 구현의 토글·필터·초안 결과가 같은 계약으로 기록된다. store 어댑터와 컴파일 Svelte 결과를 혼동하지 않는다.",
       "docPath": "/docs/labs/frameworks/svelte/03-project/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-03/example.js"
     },
     {
       "id": "canvas-2d-01",

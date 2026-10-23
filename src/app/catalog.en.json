@@ -2413,7 +2413,8 @@
       "title": "Compilation and Reactivity",
       "goal": "The list and total both change after a toggle. The record distinguishes the built-in adapter from execution of compiled .svelte components.",
       "docPath": "/docs/en/labs/frameworks/svelte/01-foundations/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-01/example.js"
     },
     {
       "id": "svelte-step-02",
@@ -2423,6 +2424,7 @@
       "goal": "The initial click count is 0. It displays 1 after one click.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/02/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-02/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2433,6 +2435,7 @@
       "goal": "The card and derived done always agree. Record how an ordinary copied value stays at its initial state.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/03/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-03/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2443,6 +2446,7 @@
       "goal": "The filter result count equals the number of matching titles. The original id order stays unchanged after sorting.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/04/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-04/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2453,6 +2457,7 @@
       "goal": "When there are 0 results, there is 1 empty-state message. Resetting restores 3 cards.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/05/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-05/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2463,6 +2468,7 @@
       "goal": "After reversing the order, A remains with its original card id. Local input from a deleted card does not move to another card.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/06/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-06/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2473,6 +2479,7 @@
       "goal": "The card count stays unchanged after submitting whitespace. Submitting with Enter adds 1 card with the same title.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/07/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-07/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2483,6 +2490,7 @@
       "goal": "Only done for the clicked id changes. One click produces 1 parent change log.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/08/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-08/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2493,6 +2501,7 @@
       "goal": "The textarea and parent output strings agree. The draft remains after removing and showing the editor again.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/09/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-09/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2503,6 +2512,7 @@
       "goal": "The card id order is the same in both presentations. Only the detailed presentation adds a completion description.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/10/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-10/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2513,6 +2523,7 @@
       "goal": "The active element is textarea after opening. There are no errors from accessing a hidden element.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/11/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-11/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2523,6 +2534,7 @@
       "goal": "There is 1 active timer after changing period. Ticks stop after the component is removed.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/12/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-12/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2533,6 +2545,7 @@
       "goal": "While visible, 1 pointer input is handled 1 time. There are no pointer handling logs while hidden.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/13/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-13/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2542,7 +2555,8 @@
       "title": "Events and Resource Cleanup",
       "goal": "After showing it again, one circle is drawn at the pointer position. Timer and listener handling stop after hiding.",
       "docPath": "/docs/en/labs/frameworks/svelte/02-experiments/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-02/example.js"
     },
     {
       "id": "svelte-step-15",
@@ -2552,6 +2566,7 @@
       "goal": "Both consumers read the latest id. The corresponding log stops after manually unsubscribing.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/15/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-15/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2562,6 +2577,7 @@
       "goal": "The A drafts in two Workspaces differ. Resetting one Workspace does not erase values in the other.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/16/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-16/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2572,6 +2588,7 @@
       "goal": "The latest string appears consistently within each tree. Drafts in the other tree do not change.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/17/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-17/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2582,6 +2599,7 @@
       "goal": "The final query and result id are both B. Results are not applied after component removal.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/18/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-18/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2592,6 +2610,7 @@
       "goal": "While pending, 1 loading message appears. The error message disappears after a successful retry.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/19/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-19/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2602,6 +2621,7 @@
       "goal": "Valid A·B drafts are restored separately. The entered string remains on screen after a write failure.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/20/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-20/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2612,6 +2632,7 @@
       "goal": "A and B drafts do not get mixed. The edit count returns to its initial value after a key change.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/21/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-21/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2622,6 +2643,7 @@
       "goal": "The circle stops at speed 0. Changing speed does not recreate the Canvas.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/22/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-22/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2632,6 +2654,7 @@
       "goal": "Change completion state without a mouse. The focus position is visually distinguishable.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/23/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-23/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2642,6 +2665,7 @@
       "goal": "The A draft remains at both duration values. There are 0 active timers after the final hide.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/24/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-24/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2652,6 +2676,7 @@
       "goal": "There is a record of 10 inputs at each of two data sizes. Record build mode, device, and browser.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/25/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-25/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2662,6 +2687,7 @@
       "goal": "Expected outputs for the 4 core flows are explicit. Cards from the previous test do not remain on a second run.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/26/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-26/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2672,6 +2698,7 @@
       "goal": "All three implementations use the same fixture. The table includes execution status and locations of APIs to compare.",
       "docPath": "/docs/en/labs/frameworks/svelte/units/27/README.md",
       "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-step-27/example.js",
       "exampleNote": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
     },
     {
@@ -2681,7 +2708,8 @@
       "title": "Framework Comparison",
       "goal": "Toggle, filter, and draft results from all three implementations are recorded against the same contract. Store adapter results are not confused with compiled Svelte results.",
       "docPath": "/docs/en/labs/frameworks/svelte/03-project/README.md",
-      "seriesId": "svelte"
+      "seriesId": "svelte",
+      "exampleReadingSource": "/examples-en/svelte-03/example.js"
     },
     {
       "id": "canvas-2d-01",

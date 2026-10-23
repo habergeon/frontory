@@ -1,152 +1,499 @@
 {
   "svelte-step-02": {
-    "sourceHash": "4cb21f0f1edba630cc40e490932d3d8d7836eac5c0b9f76146e54c450903ca30",
+    "sourceHash": "98270f820b7b5d9a105747286f8ec7b32631d8cf7035a49fd49dc75e991bc58d",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "e668d7a11a3533f2e1c2c6fe815d6fd02ee37ea66ac15100deed5de902f09281",
+      "values": {
+        "messages.display01": "Markup and Event Attributes",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Title",
+        "messages.display04": "HTML-looking string",
+        "comments.comment01": "Markup and Event Attributes",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-03": {
-    "sourceHash": "b8e99fb78384acbb3371a2557993829c8413576be3989671a85550aa93f81ac3",
+    "sourceHash": "5f7bc391929f3e5ba087eea4c299652cdbd2f3720db75374f32474285e1643d6",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "de323531c951674c8fe3ccc36440346462bf71641ac9b6f54887029cbc8dbb30",
+      "values": {
+        "messages.display01": "Update Paths in $state Objects",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Toggle done",
+        "comments.comment01": "Update Paths in $state Objects",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-04": {
-    "sourceHash": "9971cf2b773a0e44a4ea333e6914d078945355df53498bf77c5627da3335b4d6",
+    "sourceHash": "ef03357a11930b8f2de4438f7c0730eee79d33d27d4381876fa5d20e5efdfba2",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "41e860c702e882c27508695f1daa2d65402f6b7c3ec3eeea76024a945e8a8aa8",
+      "values": {
+        "messages.display01": "Calculating Filters with $derived",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Query",
+        "comments.comment01": "Calculating Filters with $derived",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-05": {
-    "sourceHash": "664ce237c904213bbda01396ef4684c005400c8135ea7a737689a27704882f1d",
+    "sourceHash": "757d0cc4ee852a382e5b64d70c1b341e06188b6b6deb8310387c8914575a9238",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "a3a4a855d736ab9e64f723e000b30c93ea0a610d0dbaf4696f268144853acaf9",
+      "values": {
+        "messages.display01": "Conditional Blocks and Empty States",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "No matches. Reset query to restore.",
+        "messages.display04": "Query",
+        "messages.display05": "Reset",
+        "comments.comment01": "Conditional Blocks and Empty States",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-06": {
-    "sourceHash": "d29b9a574c72fc4a8f3ce693ca0219c76d852354b62da3d087406ab5bf8179bf",
+    "sourceHash": "170181ed96d2c806624f3c09279ae6ff81f882ca4640f0ab1de1e3ed8e610bcd",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "364dccba7a3cef55e361614976460716a5801a8cdd23c5c2a6460adb6c596ff5",
+      "values": {
+        "messages.display01": "Keyed Each and Card Identity",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Card ",
+        "messages.display04": "Memo ",
+        "messages.display05": "Reverse keyed DOM nodes",
+        "comments.comment01": "Keyed Each and Card Identity",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-07": {
-    "sourceHash": "70bc537630a5159ee0bde6fbcdf232df848f9643e98c22a9654b1fbd210445a5",
+    "sourceHash": "52a687777551b54eaf230fa63e00d519a9103a87c79a55b398104c9e06d844e9",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "ac9bd8f5096159cb7ac5998167ef865c0794c711147bc5ccbcaae74f855024fb",
+      "values": {
+        "messages.display01": "Form Bindings and Validation",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Title",
+        "messages.display04": "Submit",
+        "messages.display05": "Rejected: blank title",
+        "comments.comment01": "Form Bindings and Validation",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-08": {
-    "sourceHash": "dd4297b741884febb9a0487f0dd6496e90dd41f40846969cb8046c0fc31e0e7b",
+    "sourceHash": "aeaac013d07b97628e02935d0c4e4e55798acd702597c678a83123109d8c3ab3",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "38426df14e68438ac2d9225a81a5a4025ec86152969229e405cce0d7c6bff10b",
+      "values": {
+        "messages.display01": "$props and Change Callbacks",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Reverse",
+        "comments.comment01": "$props and Change Callbacks",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-09": {
-    "sourceHash": "bcde3e566361753f2bc96372834713a9f625b691daaf8f2b6a0f8f26cbfad0a4",
+    "sourceHash": "9d0027faa92347f0ca109d2ea3599171428cfd3b9cfd8d25b025bbfe29424def",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "ea34a0565857b335c3d6ab604d8f9f519a2c861463f45278568f5688f7c052e0",
+      "values": {
+        "messages.display01": "$bindable and the Editor Contract",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Editor A",
+        "messages.display04": "Editor B",
+        "comments.comment01": "$bindable and the Editor Contract",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-10": {
-    "sourceHash": "db7bb0dc03f6e7753a8f02ae331e5e56c7fb30cbd874c647d329b0f1ae8b48ba",
+    "sourceHash": "67d3eac805593a5b0a2856b59f44eaa20bf82906aa4ba9fa89a2b321ae3cbd19",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "a8d3b04fbccba044d2203c55d20339c64428b2eabc6202b49a50cf1e4f751fcd",
+      "values": {
+        "messages.display01": "Changing Row Presentation with Snippets",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": " / id ",
+        "messages.display04": "Toggle compact/detailed",
+        "comments.comment01": "Changing Row Presentation with Snippets",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-11": {
-    "sourceHash": "c52cc22d386b3d612ec0941f2247cde3a89b942a4dbe430733a85a8ca433b453",
+    "sourceHash": "9120712a5109fa429b3aa2515051a176b841d912cef939698c10c5ccea5401d1",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "3e6663ddf074b65c7db5cb05aaf12a1fdaf9704f522f4931806eb3365ae74563",
+      "values": {
+        "messages.display01": "DOM References and tick",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Create then focus (DOM harness)",
+        "messages.display04": "New editor",
+        "comments.comment01": "DOM References and tick",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-12": {
-    "sourceHash": "e72e6ab5d00c6d7cd6c6781940bd160f16ffea23e06ac6f8da6dfc992803f658",
+    "sourceHash": "4d8aa3f1374e1a78c37234652619db2c2a089e0114c325d509a63ce277b6aca8",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "9b97ab05e9864a4d2255efd2aeea74541ab58ec6a2804c5a5e4f066d2ffba396",
+      "values": {
+        "messages.display01": "$effect Dependencies and Cleanup",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Period 100 / 500ms",
+        "comments.comment01": "$effect Dependencies and Cleanup",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-13": {
-    "sourceHash": "560c8341af325013c9122ccefa2eac892cf46057d5deb7880f83d32c68666da5",
+    "sourceHash": "18fba11095a6489b407722c4e4f2da3f0ecd9597ed0806076e96e0448e09d82d",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "6340fa1b3b0f21de57d27d18db32da26d9b058f2fccbad0ac634763a749c2a73",
+      "values": {
+        "messages.display01": "onMount and Initial Resources",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Mount / unmount pointer listener",
+        "comments.comment01": "onMount and Initial Resources",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-15": {
-    "sourceHash": "4a30c996b85ffdf9f34fb44cf7b3799c1cacf4992457c78c90dbc67fc73cee60",
+    "sourceHash": "3af71b6ff2a87708bdbca2e8d6160e1a1f684030852b2bc1874a75ea6f48011f",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "db91f358194718aa82227ba21c60476c3c2869079b47becd41cbbb1cef52a0dd",
+      "values": {
+        "messages.display01": "writable and the Subscription Contract",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Store",
+        "messages.display04": "Subscribe",
+        "messages.display05": "Unsubscribe",
+        "messages.display06": "Unsubscribed: edits no longer update output",
+        "comments.comment01": "writable and the Subscription Contract",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-16": {
-    "sourceHash": "d334aaaf4bf561868ee0f75884b8b2cbd524f35370088c4c663fa424408446a3",
+    "sourceHash": "ffe51c15f0e8cd07d123f1fc93c88c696873915f7ac51b5101115e381464ed81",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "bfcbb5f59f17bd4e099574e3e967bff96c3e2efcac439cf2770c18415151faaa",
+      "values": {
+        "messages.display01": "Shared Runes Modules",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Workspace A",
+        "messages.display04": "Workspace B",
+        "comments.comment01": "Shared Runes Modules",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-17": {
-    "sourceHash": "9fb7019191dfc832a219ae597ceed8a5ca1c53c79c77a615e5e1fd30a00891a4",
+    "sourceHash": "e405560aae1bdf52bc30222391ec38e7c646d8797aeb649b0464726fcf1139ff",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "b3bdf700b6e79c6869139e4f9883960c51aefa791a996821c1f647d8360d3e1b",
+      "values": {
+        "messages.display01": "Connecting Workspaces with Context",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Outer provider",
+        "messages.display04": "Nearest inner provider",
+        "comments.comment01": "Connecting Workspaces with Context",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-18": {
-    "sourceHash": "e3266a30674eb67568b45848316dc60aa8843234911696b1b9eac5a7eb0fdf63",
+    "sourceHash": "feb8736578686680e96de3f2da05d0426bf5cd15e2ae0e3b5a12498f84e1bc35",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "8b7efe6599019fe7ece6962d98b01d522654dc87a1ff5fc89e36585306c64467",
+      "values": {
+        "messages.display01": "Requests and Stale Results",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Request slow A",
+        "messages.display04": "Request fast B",
+        "comments.comment01": "Requests and Stale Results",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-19": {
-    "sourceHash": "3eb5082c74a69152f69d643411f55f5f10582a435734724a44fcba48f95b0f2d",
+    "sourceHash": "c537ac57cedf56b63140a571597b45dd7dce282ff814a259d6335897ebd2b474",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "00724c189e79a20c28a3db5b4158ce31f904fc75bb04e94e40e355f89d5a5f2f",
+      "values": {
+        "messages.display01": "Await Blocks and State Guidance",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Loading",
+        "messages.display04": "Request failed; retry available",
+        "messages.display05": "Fail request",
+        "messages.display06": "Retry success",
+        "comments.comment01": "Await Blocks and State Guidance",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-20": {
-    "sourceHash": "4e562db08a4277b1ff480512897e1f422334241eb455ccd4636b0922caf94a6c",
+    "sourceHash": "59f511b0bd14051084119b03a8eaf4eaa76c92cfd04d7a84c210a62b227e7faf",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "7df5800970fd6157982a615dfded489babb2ef897bfe5fdadcbc64786c692e4a",
+      "values": {
+        "messages.display01": "Saving and Restoring Drafts",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Serialized draft",
+        "messages.display04": "Restore",
+        "messages.display05": "Invalid storage; recovered empty draft",
+        "comments.comment01": "Saving and Restoring Drafts",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-21": {
-    "sourceHash": "742e5d839cee74c11173f0eead4a216cc5129992669111b8fe7a40b5b5c3c090",
+    "sourceHash": "57a62e43274a7eb4aae80365ee0da77a73b9633d2f9eadbb918df4e63aede293",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "ba4e9537a44f0525ee3c8aa0f732b60d4cd0ee029d84a8c1b72e7dc4d551fd54",
+      "values": {
+        "messages.display01": "Key Blocks and Draft Preservation",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Draft",
+        "messages.display04": "Switch unit and recreate local state",
+        "comments.comment01": "Key Blocks and Draft Preservation",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-22": {
-    "sourceHash": "f16a866de782cb7129fbdad2beb725575c54a197fbcb4eb6f229aebf2559a301",
+    "sourceHash": "4a0cd410eeafb56fc52b37c14ca89f27fd3902e6e0c13989c141096152336a16",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "aca26aba53680f3ac8d97b4e9e7f57d1d7205be14c7765379035e682e1aaec1f",
+      "values": {
+        "messages.display01": "Separating Canvas Loops from Reactivity",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Speed 1 / 2",
+        "comments.comment01": "Separating Canvas Loops from Reactivity",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-23": {
-    "sourceHash": "3bcfa65e4b99de02347ebcff748076b7ac7945a6c1628eb23cae507259110d8d",
+    "sourceHash": "0c3b9a5f399ef4ad6ca08d36cd012c4207b6b61343c7c779eb82dbd2d699e1f7",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "93ee818b912d4e812614797e368f8dfdf806fee033815a1051a9edb9eb8bc5e8",
+      "values": {
+        "messages.display01": "Style Scope and Accessibility",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Select card with mouse, Space, or Enter",
+        "comments.comment01": "Style Scope and Accessibility",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-24": {
-    "sourceHash": "b8d0e1b641e7943e6ba3306c8741151fdac2591851350022eabfe222caed2048",
+    "sourceHash": "5d54e26e677bcf89c5939fe4d46e46849d7e7d9afbd0ef1879c2ceffd4cc6b3b",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "03f9bc2287d975e5d792ccd5d77f337dc78a63f74503d911909790a65d530bfe",
+      "values": {
+        "messages.display01": "Checking Lifetimes During Transitions",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Persistent draft panel",
+        "messages.display04": "Duration 300 / 0ms",
+        "messages.display05": "Toggle transition",
+        "messages.display06": "Preserved draft",
+        "comments.comment01": "Checking Lifetimes During Transitions",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-25": {
-    "sourceHash": "748d305677f13ae2a3933bcd7b7efef15389ed0bfc1eaf11f371cd77e894d148",
+    "sourceHash": "d162825db5361e79a7899a4dd11e556ded443dea8b5f6b95c4951bc8b565fcad",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "ceb1127e547a1d13162bf4ebd3c0a89543bf74c1ebe7fad19c74d5208e3275d1",
+      "values": {
+        "messages.display01": "Observing Compilation Output and Performance",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Card ",
+        "messages.display04": "DOM harness timing, not compiled Svelte timing",
+        "messages.display05": "100 / 1000 cards",
+        "comments.comment01": "Observing Compilation Output and Performance",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-26": {
-    "sourceHash": "5761a84b65353da7aa0b8d5d5c872c10f10c8bf72e34190e3695bb4e84d83fb9",
+    "sourceHash": "0b5c4cbf429ee28373556ec942106f70a7b2c451b00d211f1dd63b0f6ad3ad56",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "c8828fb5a690db687dac9c985a3355f50fd4596c9b0caa787066b593b1a47d22",
+      "values": {
+        "messages.display01": "Regression Scenarios for the Same Contract",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Draft",
+        "messages.display04": "Seed fixture",
+        "messages.display05": "Switch",
+        "messages.display06": "Check isolation",
+        "comments.comment01": "Regression Scenarios for the Same Contract",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
     }
   },
   "svelte-step-27": {
-    "sourceHash": "d0570d711e1166d928e9df98a2fc0b0f122692c13548a36896c494802aa7b4d3",
+    "sourceHash": "55df3649a05598f6333bfec93fed9b822bfb4a46d1fbe6b4ab92aad377e1aa1d",
     "values": {
       "note": "The preview is a Svelte writable/DOM contract experiment. To run runes, snippets, and compiled output, run the actual App.svelte in a Svelte 5 project."
+    },
+    "presentation": {
+      "sourceHash": "42761515d6efee3a0df26f8cb3f32f1d8c523b7b952ef19f852a32c0c8437fd0",
+      "values": {
+        "messages.display01": "Preparing a Three-Framework Comparison",
+        "messages.display02": "DOM/store harness — App.svelte is the actual compiler experiment.",
+        "messages.display03": "Toggle id ",
+        "comments.comment01": "Preparing a Three-Framework Comparison",
+        "comments.comment02": "Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.",
+        "comments.comment03": "Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions."
+      }
+    }
+  },
+  "svelte-01": {
+    "presentation": {
+      "sourceHash": "77b867ff2d333a0c28310f17c007fa1b87b7042d43df064b1a7e61477467675b",
+      "values": {
+        "messages.display01": "Increment Svelte store",
+        "messages.display02": "Subscription result: ",
+        "comments.comment01": "A basic example for observing the actual Svelte writable store API.",
+        "comments.comment02": ".svelte component compilation and $state rune examples are covered in separate steps."
+      }
+    }
+  },
+  "svelte-02": {
+    "presentation": {
+      "sourceHash": "f8c21d5090166885406618d8f67c9293f0071e9f15421402d9e31b53688d3aaa",
+      "values": {
+        "messages.display01": "<h2>Svelte store and resource cleanup experiment</h2><p>Preview scope: actual writable subscriptions and a DOM adapter. This is not a compiled Svelte component. Run the same lifecycle in the included App.svelte.</p>\r\n    <button id=\"toggle\">Hide Canvas</button><label>Sample period in ms <input type=\"range\" min=\"30\" max=\"500\" value=\"100\"></label><p role=\"status\"></p><section></section>",
+        "messages.display02": "Active Canvas 0 / subscriptions 0 / timers 0",
+        "messages.display03": "A circle drawn at the pointer coordinates",
+        "messages.display04": "Generation ",
+        "messages.display05": " / active subscriptions 1 / timers 1 / tick ",
+        "messages.display06": "Hide Canvas",
+        "messages.display07": "Show Canvas",
+        "comments.comment01": "This runner does not inject the Svelte compiler. It uses actual writable stores and an explicit DOM adapter.",
+        "comments.comment02": "Practice the onMount component lifecycle in PointerCanvas.svelte / App.svelte in the same folder."
+      }
+    }
+  },
+  "svelte-03": {
+    "presentation": {
+      "sourceHash": "031504aca4c5d4e373b74a2a8bf0e40f112dc63a4bb2fb065879de1d9927826c",
+      "values": {
+        "messages.display01": "<h2>Compare the same requirements</h2><p>Each column has independent state. Operate the completion buttons and filter in the same order. The Svelte column uses an actual store and a DOM adapter; App.svelte provides the component comparison source.</p>\r\n    <div style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px\"><section id=\"react\"></section><section id=\"vue\"></section><section id=\"svelte\"></section></div>\r\n    <table><caption>Implementation boundaries to observe</caption><thead><tr><th>Tool</th><th>State / derived values</th><th>Cleanup</th></tr></thead><tbody><tr><td>React</td><td>useState / filter during render</td><td>root.unmount</td></tr><tr><td>Vue</td><td>ref / computed</td><td>app.unmount</td></tr><tr><td>Svelte preview</td><td>writable / filter in subscriber</td><td>unsubscribe + event cleanup</td></tr><tr><td>Svelte source</td><td>$state / $derived</td><td>Component lifetime</td></tr></tbody></table>",
+        "messages.display02": "React",
+        "messages.display03": "Incomplete only",
+        "messages.display04": "Completed ",
+        "messages.display05": "Vue",
+        "messages.display06": "<h3>Svelte store adapter</h3><label><input type=\"checkbox\">Incomplete only</label><p></p><div></div>",
+        "comments.comment01": "The three implementations use the same card data, completion toggle, and incomplete-only filter contract.",
+        "comments.comment02": "The Svelte column uses writable stores and a DOM adapter; the compiled component is provided as App.svelte."
+      }
     }
   }
 }

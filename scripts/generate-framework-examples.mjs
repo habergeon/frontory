@@ -113,138 +113,138 @@ function vueSource(unit,body){return [
 // Each Svelte lesson includes genuine compiler input, plus an explicitly labelled DOM/store harness.
 const svelte={}
 svelte[2]=[
-"const title=writable('Card title');const output=el('p');cleanups.push(title.subscribe(value=>output.textContent=value));field('Title','Card title',value=>title.set(value));control('HTML-looking string',()=>title.set('<img src=x onerror=alert(1)>'));",
+"const title=writable('Card title');const output=el('p');cleanups.push(title.subscribe(value=>output.textContent=value));field(messages.display03,'Card title',value=>title.set(value));control(messages.display04,()=>title.set('<img src=x onerror=alert(1)>'));",
 "let title=$state('Card title');",
 '<input aria-label="Title" bind:value={title}/><p>{title}</p><button onclick={()=>title="<b>plain text</b>"}>HTML-looking text</button>'
 ]
 svelte[3]=[
-"const state=writable({done:false});const detached=false;cleanups.push(state.subscribe(value=>show({detached,derived:value.done})));control('Toggle done',()=>state.update(value=>({...value,done:!value.done})));",
+"const state=writable({done:false});const detached=false;cleanups.push(state.subscribe(value=>show({detached,derived:value.done})));control(messages.display03,()=>state.update(value=>({...value,done:!value.done})));",
 "let card=$state({done:false});const detached=card.done;let linked=$derived(card.done);",
 '<button onclick={()=>card.done=!card.done}>Toggle</button><p>Detached {String(detached)} / derived {String(linked)}</p>'
 ]
 svelte[4]=[
-"const items=['State','Effects','Canvas'];field('Query','',value=>show({matches:items.filter(item=>item.toLowerCase().includes(value.toLowerCase())),original:items}));show(items);",
+"const items=['State','Effects','Canvas'];field(messages.display03,'',value=>show({matches:items.filter(item=>item.toLowerCase().includes(value.toLowerCase())),original:items}));show(items);",
 "let query=$state('');let items=$state(['State','Effects','Canvas']);let matches=$derived(items.filter(item=>item.toLowerCase().includes(query.toLowerCase())));",
 '<input aria-label="Query" bind:value={query}/>{#each matches as title (title)}<p>{title}</p>{/each}'
 ]
 svelte[5]=[
-"const list=el('div');function render(q){list.replaceChildren();const matches=['State','Effects','Canvas'].filter(v=>v.includes(q));if(matches.length)matches.forEach(v=>{const p=document.createElement('p');p.textContent=v;list.append(p);});else list.textContent='No matches. Reset query to restore.';}const query=field('Query','',render);control('Reset',()=>{query.value='';render('');});render('');",
+"const list=el('div');function render(q){list.replaceChildren();const matches=['State','Effects','Canvas'].filter(v=>v.includes(q));if(matches.length)matches.forEach(v=>{const p=document.createElement('p');p.textContent=v;list.append(p);});else list.textContent=messages.display03;}const query=field(messages.display04,'',render);control(messages.display05,()=>{query.value='';render('');});render('');",
 "let query=$state('');const items=['State','Effects','Canvas'];let matches=$derived(items.filter(v=>v.includes(query)));",
 '<input aria-label="Query" bind:value={query}/>{#if matches.length}{#each matches as title}<p>{title}</p>{/each}{:else}<p>No matches</p><button onclick={()=>query=""}>Reset</button>{/if}'
 ]
 svelte[6]=[
-"const list=el('div');let ids=[1,2,3];const rows=new Map(ids.map(id=>{const row=document.createElement('label');row.textContent='Card '+id;const input=document.createElement('input');input.setAttribute('aria-label','Memo '+id);row.append(input);return [id,row];}));function render(){ids.forEach(id=>list.append(rows.get(id)));}control('Reverse keyed DOM nodes',()=>{ids.reverse();render();});render();",
+"const list=el('div');let ids=[1,2,3];const rows=new Map(ids.map(id=>{const row=document.createElement('label');row.textContent=messages.display03+id;const input=document.createElement('input');input.setAttribute('aria-label',messages.display04+id);row.append(input);return [id,row];}));function render(){ids.forEach(id=>list.append(rows.get(id)));}control(messages.display05,()=>{ids.reverse();render();});render();",
 "let items=$state([{id:1,note:''},{id:2,note:''},{id:3,note:''}]);",
 '<button onclick={()=>items=[...items].reverse()}>Reverse</button>{#each items as item (item.id)}<label>Card {item.id}<input bind:value={item.note}/></label>{/each}'
 ]
 svelte[7]=[
-"let title='';const items=[];const input=field('Title','',v=>title=v);control('Submit',()=>{if(!title.trim()){show('Rejected: blank title');return;}items.push(title.trim());title='';input.value='';show(items);});",
+"let title='';const items=[];const input=field(messages.display03,'',v=>title=v);control(messages.display04,()=>{if(!title.trim()){show(messages.display05);return;}items.push(title.trim());title='';input.value='';show(items);});",
 "let title=$state(''),items=$state([]),error=$state('');function submit(e){e.preventDefault();if(!title.trim()){error='Title required';return;}items.push(title.trim());title='';error='';}",
 '<form onsubmit={submit}><input aria-label="Title" bind:value={title}/><button>Add</button><p>{error}</p></form>{#each items as item}<p>{item}</p>{/each}'
 ]
 svelte[8]=[
-"let items=[{id:1,title:'State',done:false},{id:2,title:'Canvas',done:false}];const list=el('div');function toggle(id){items=items.map(v=>v.id===id?{...v,done:!v.done}:v);render();}function render(){list.replaceChildren();items.forEach(item=>{const b=document.createElement('button');b.textContent=item.id+' '+item.title+': '+item.done;b.onclick=()=>toggle(item.id);list.append(b);});}control('Reverse',()=>{items.reverse();render();});render();",
+"let items=[{id:1,title:'State',done:false},{id:2,title:'Canvas',done:false}];const list=el('div');function toggle(id){items=items.map(v=>v.id===id?{...v,done:!v.done}:v);render();}function render(){list.replaceChildren();items.forEach(item=>{const b=document.createElement('button');b.textContent=item.id+' '+item.title+': '+item.done;b.onclick=()=>toggle(item.id);list.append(b);});}control(messages.display03,()=>{items.reverse();render();});render();",
 "let {item={id:1,title:'State',done:false},ontoggle=(id)=>console.log(id)}=$props();",
 '<button onclick={()=>ontoggle(item.id)}>{item.title}: {String(item.done)}</button>'
 ]
 svelte[9]=[
-"const draft=writable('Shared draft');const a=field('Editor A','',v=>draft.set(v)),b=field('Editor B','',v=>draft.set(v));cleanups.push(draft.subscribe(value=>{a.value=value;b.value=value;show({parentDraft:value});}));",
+"const draft=writable('Shared draft');const a=field(messages.display03,'',v=>draft.set(v)),b=field(messages.display04,'',v=>draft.set(v));cleanups.push(draft.subscribe(value=>{a.value=value;b.value=value;show({parentDraft:value});}));",
 "let {value=$bindable('Shared draft')}=$props();",
 '<input aria-label="Bindable editor" bind:value/><p>{value}</p>'
 ]
 svelte[10]=[
-"let detailed=false;function render(){show([{id:1,title:'State'},{id:2,title:'Canvas'}].map(v=>detailed?v.title+' / id '+v.id:v.title));}control('Toggle compact/detailed',()=>{detailed=!detailed;render();});render();",
+"let detailed=false;function render(){show([{id:1,title:'State'},{id:2,title:'Canvas'}].map(v=>detailed?v.title+messages.display03+v.id:v.title));}control(messages.display04,()=>{detailed=!detailed;render();});render();",
 "let detailed=$state(false);const items=[{id:1,title:'State'},{id:2,title:'Canvas'}];",
 '{#snippet row(item)}<p>{item.title}{#if detailed} / id {item.id}{/if}</p>{/snippet}<button onclick={()=>detailed=!detailed}>Detail</button>{#each items as item (item.id)}{@render row(item)}{/each}'
 ]
 svelte[11]=[
-"const host=el('div');control('Create then focus (DOM harness)',()=>{host.replaceChildren();const input=document.createElement('textarea');input.setAttribute('aria-label','New editor');host.append(input);queueMicrotask(()=>{if(input.isConnected)input.focus();});});",
+"const host=el('div');control(messages.display03,()=>{host.replaceChildren();const input=document.createElement('textarea');input.setAttribute('aria-label',messages.display04);host.append(input);queueMicrotask(()=>{if(input.isConnected)input.focus();});});",
 "import {tick} from 'svelte';let visible=$state(false),editor;async function reveal(){visible=true;await tick();editor?.focus();}",
 '<button onclick={reveal}>Show then focus</button>{#if visible}<textarea aria-label="Editor" bind:this={editor}></textarea>{/if}'
 ]
 svelte[12]=[
-"let period=100,ticks=0,timer;function restart(){clearInterval(timer);timer=setInterval(()=>show({period,ticks:++ticks,activeTimers:1}),period);}control('Period 100 / 500ms',()=>{period=period===100?500:100;restart();});restart();cleanups.push(()=>clearInterval(timer));",
+"let period=100,ticks=0,timer;function restart(){clearInterval(timer);timer=setInterval(()=>show({period,ticks:++ticks,activeTimers:1}),period);}control(messages.display03,()=>{period=period===100?500:100;restart();});restart();cleanups.push(()=>clearInterval(timer));",
 "let period=$state(100),ticks=$state(0);$effect(()=>{const timer=setInterval(()=>ticks++,period);return ()=>clearInterval(timer);});",
 '<button onclick={()=>period=period===100?500:100}>Period {period}ms</button><p>Ticks {ticks}</p>'
 ]
 svelte[13]=[
-"let enabled=false,events=0;const handler=()=>show({events:++events,activeListeners:1});function toggle(){enabled=!enabled;window.removeEventListener('pointermove',handler);if(enabled)window.addEventListener('pointermove',handler);show({events,activeListeners:enabled?1:0});}control('Mount / unmount pointer listener',toggle);cleanups.push(()=>window.removeEventListener('pointermove',handler));toggle();",
+"let enabled=false,events=0;const handler=()=>show({events:++events,activeListeners:1});function toggle(){enabled=!enabled;window.removeEventListener('pointermove',handler);if(enabled)window.addEventListener('pointermove',handler);show({events,activeListeners:enabled?1:0});}control(messages.display03,toggle);cleanups.push(()=>window.removeEventListener('pointermove',handler));toggle();",
 "import {onMount} from 'svelte';let moves=$state(0);onMount(()=>{const handler=()=>moves++;window.addEventListener('pointermove',handler);return ()=>window.removeEventListener('pointermove',handler);});",
 '<p>Pointer events {moves}; unmount this component to remove the listener.</p>'
 ]
 svelte[15]=[
-"const store=writable('Store value');let unsub=null;field('Store','Store value',v=>store.set(v));control('Subscribe',()=>{if(!unsub)unsub=store.subscribe(value=>show({subscribed:true,value}));});control('Unsubscribe',()=>{unsub?.();unsub=null;show('Unsubscribed: edits no longer update output');});cleanups.push(()=>unsub?.());",
+"const store=writable('Store value');let unsub=null;field(messages.display03,'Store value',v=>store.set(v));control(messages.display04,()=>{if(!unsub)unsub=store.subscribe(value=>show({subscribed:true,value}));});control(messages.display05,()=>{unsub?.();unsub=null;show(messages.display06);});cleanups.push(()=>unsub?.());",
 "import {writable} from 'svelte/store';const title=writable('Store value');",
 '<input aria-label="Store value" bind:value={$title}/><p>Auto-subscription: {$title}</p>'
 ]
 svelte[16]=[
-"function createWorkspace(){return writable({draft:''});}const a=createWorkspace(),b=createWorkspace();field('Workspace A','',draft=>a.set({draft}));field('Workspace B','',draft=>b.set({draft}));let state={A:'',B:''};cleanups.push(a.subscribe(v=>{state.A=v.draft;show(state);}),b.subscribe(v=>{state.B=v.draft;show(state);}));",
+"function createWorkspace(){return writable({draft:''});}const a=createWorkspace(),b=createWorkspace();field(messages.display03,'',draft=>a.set({draft}));field(messages.display04,'',draft=>b.set({draft}));let state={A:'',B:''};cleanups.push(a.subscribe(v=>{state.A=v.draft;show(state);}),b.subscribe(v=>{state.B=v.draft;show(state);}));",
 "import {createWorkspace} from './workspace.svelte.js';const a=createWorkspace(),b=createWorkspace();",
 '<label>A <input bind:value={a.draft}/></label><label>B <input bind:value={b.draft}/></label>'
 ]
 svelte[17]=[
-"const contexts=[{draft:'Outer'},{draft:'Inner'}];field('Outer provider',contexts[0].draft,v=>{contexts[0].draft=v;show(contexts);});field('Nearest inner provider',contexts[1].draft,v=>{contexts[1].draft=v;show(contexts);});show(contexts);",
+"const contexts=[{draft:'Outer'},{draft:'Inner'}];field(messages.display03,contexts[0].draft,v=>{contexts[0].draft=v;show(contexts);});field(messages.display04,contexts[1].draft,v=>{contexts[1].draft=v;show(contexts);});show(contexts);",
 "import {setContext} from 'svelte';import Consumer from './Consumer.svelte';let workspace=$state({draft:'Provider draft'});setContext('workspace',workspace);",
 '<Consumer/><p>Provider: {workspace.draft}</p>'
 ]
 svelte[18]=[
-"let timer;function request(id){clearTimeout(timer);show({pending:id});timer=setTimeout(()=>show({result:id}),id==='A'?800:100);}control('Request slow A',()=>request('A'));control('Request fast B',()=>request('B'));cleanups.push(()=>clearTimeout(timer));request('A');",
+"let timer;function request(id){clearTimeout(timer);show({pending:id});timer=setTimeout(()=>show({result:id}),id==='A'?800:100);}control(messages.display03,()=>request('A'));control(messages.display04,()=>request('B'));cleanups.push(()=>clearTimeout(timer));request('A');",
 "let query=$state('A'),result=$state('Waiting');$effect(()=>{const id=query;let ignore=false;const timer=setTimeout(()=>{if(!ignore)result=id;},id==='A'?800:100);return ()=>{ignore=true;clearTimeout(timer);};});",
 '<button onclick={()=>query="A"}>Slow A</button><button onclick={()=>query="B"}>Fast B</button><p>{result}</p>'
 ]
 svelte[19]=[
-"let timer;function request(fail){clearTimeout(timer);show('Loading');timer=setTimeout(()=>show(fail?{error:'Request failed; retry available'}:{items:['State','Canvas']}),400);}control('Fail request',()=>request(true));control('Retry success',()=>request(false));cleanups.push(()=>clearTimeout(timer));request(false);",
+"let timer;function request(fail){clearTimeout(timer);show(messages.display03);timer=setTimeout(()=>show(fail?{error:messages.display04}:{items:['State','Canvas']}),400);}control(messages.display05,()=>request(true));control(messages.display06,()=>request(false));cleanups.push(()=>clearTimeout(timer));request(false);",
 "import {onDestroy} from 'svelte';let timer;function request(fail){clearTimeout(timer);return new Promise((resolve,reject)=>{timer=setTimeout(()=>fail?reject(Error('Request failed')):resolve(['State','Canvas']),400);});}let promise=$state(request(false));onDestroy(()=>clearTimeout(timer));",
 '<button onclick={()=>promise=request(true)}>Fail</button><button onclick={()=>promise=request(false)}>Retry</button>{#await promise}<p>Loading</p>{:then items}{#each items as item}<p>{item}</p>{/each}{:catch error}<p role="alert">{error.message}</p>{/await}'
 ]
 svelte[20]=[
-"let raw=JSON.stringify({A:'Saved draft'});field('Serialized draft',raw,v=>raw=v);control('Restore',()=>{try{const data=JSON.parse(raw);if(typeof data.A!=='string')throw Error('Expected string A');show(data);}catch{show({A:'',error:'Invalid storage; recovered empty draft'});}});",
+"let raw=JSON.stringify({A:'Saved draft'});field(messages.display03,raw,v=>raw=v);control(messages.display04,()=>{try{const data=JSON.parse(raw);if(typeof data.A!=='string')throw Error('Expected string A');show(data);}catch{show({A:'',error:messages.display05});}});",
 "let raw=$state(JSON.stringify({A:'Saved draft'})),draft=$state(''),error=$state('');function restore(){try{const data=JSON.parse(raw);if(typeof data.A!=='string')throw Error('Expected string');draft=data.A;error='';}catch{draft='';error='Invalid storage';}}",
 '<input aria-label="Serialized data" bind:value={raw}/><button onclick={restore}>Restore</button><textarea aria-label="Draft" bind:value={draft}></textarea><p>{error}</p>'
 ]
 svelte[21]=[
-"let unit='A',edits=0;const drafts={A:'',B:''};const input=field('Draft','',value=>{drafts[unit]=value;edits++;show({unit,drafts,localEdits:edits});});control('Switch unit and recreate local state',()=>{unit=unit==='A'?'B':'A';edits=0;input.value=drafts[unit];show({unit,drafts,localEdits:edits});});",
+"let unit='A',edits=0;const drafts={A:'',B:''};const input=field(messages.display03,'',value=>{drafts[unit]=value;edits++;show({unit,drafts,localEdits:edits});});control(messages.display04,()=>{unit=unit==='A'?'B':'A';edits=0;input.value=drafts[unit];show({unit,drafts,localEdits:edits});});",
 "import Editor from './Editor.svelte';let unit=$state('A'),drafts=$state({A:'',B:''});",
 '<button onclick={()=>unit=unit==="A"?"B":"A"}>Unit {unit}</button>{#key unit}<Editor bind:value={drafts[unit]}/>{/key}<pre>{JSON.stringify(drafts)}</pre>'
 ]
 svelte[22]=[
-"const canvas=el('canvas');canvas.width=300;canvas.height=180;const ctx=canvas.getContext('2d');let speed=1,last=0,angle=0,frame;control('Speed 1 / 2',()=>{speed=speed===1?2:1;show({speed});});function draw(time){if(last)angle+=(time-last)/1000*speed;last=time;ctx.clearRect(0,0,300,180);ctx.save();ctx.translate(150,90);ctx.rotate(angle);ctx.fillRect(-40,-10,80,20);ctx.restore();frame=requestAnimationFrame(draw);}frame=requestAnimationFrame(draw);cleanups.push(()=>cancelAnimationFrame(frame));",
+"const canvas=el('canvas');canvas.width=300;canvas.height=180;const ctx=canvas.getContext('2d');let speed=1,last=0,angle=0,frame;control(messages.display03,()=>{speed=speed===1?2:1;show({speed});});function draw(time){if(last)angle+=(time-last)/1000*speed;last=time;ctx.clearRect(0,0,300,180);ctx.save();ctx.translate(150,90);ctx.rotate(angle);ctx.fillRect(-40,-10,80,20);ctx.restore();frame=requestAnimationFrame(draw);}frame=requestAnimationFrame(draw);cleanups.push(()=>cancelAnimationFrame(frame));",
 "import {onMount} from 'svelte';let canvas,speed=$state(1);onMount(()=>{const ctx=canvas.getContext('2d');let frame,last=0,angle=0;function draw(time){if(last)angle+=(time-last)/1000*speed;last=time;ctx.clearRect(0,0,300,180);ctx.save();ctx.translate(150,90);ctx.rotate(angle);ctx.fillRect(-40,-10,80,20);ctx.restore();frame=requestAnimationFrame(draw);}frame=requestAnimationFrame(draw);return ()=>cancelAnimationFrame(frame);});",
 '<button onclick={()=>speed=speed===1?2:1}>Speed {speed}</button><canvas bind:this={canvas} width="300" height="180"></canvas>'
 ]
 svelte[23]=[
-"let selected=false;const b=control('Select card with mouse, Space, or Enter',()=>{selected=!selected;b.setAttribute('aria-pressed',String(selected));b.style.background=selected?'#9bdfff':'';show({selected});});b.setAttribute('aria-pressed','false');",
+"let selected=false;const b=control(messages.display03,()=>{selected=!selected;b.setAttribute('aria-pressed',String(selected));b.style.background=selected?'#9bdfff':'';show({selected});});b.setAttribute('aria-pressed','false');",
 "let selected=$state(false);",
 '<button class:selected aria-pressed={selected} onclick={()=>selected=!selected}>Select card</button><style>button{padding:1rem}.selected{background:#9bdfff}button:focus-visible{outline:3px solid #174fc7}</style>'
 ]
 svelte[24]=[
-"const panel=el('p');panel.textContent='Persistent draft panel';let duration=300,visible=true;control('Duration 300 / 0ms',()=>{duration=duration?0:300;show({duration});});control('Toggle transition',()=>{visible=!visible;panel.style.transition='opacity '+duration+'ms';panel.style.opacity=visible?'1':'0';});field('Preserved draft','',value=>show({draft:value,duration}));",
+"const panel=el('p');panel.textContent=messages.display03;let duration=300,visible=true;control(messages.display04,()=>{duration=duration?0:300;show({duration});});control(messages.display05,()=>{visible=!visible;panel.style.transition='opacity '+duration+'ms';panel.style.opacity=visible?'1':'0';});field(messages.display06,'',value=>show({draft:value,duration}));",
 "import {fade} from 'svelte/transition';let visible=$state(true),duration=$state(300),draft=$state('');",
 '<button onclick={()=>duration=duration?0:300}>Duration {duration}</button><button onclick={()=>visible=!visible}>Toggle</button><input aria-label="Draft" bind:value={draft}/>{#if visible}<p transition:fade={{duration}}>Draft {draft}</p>{/if}'
 ]
 svelte[25]=[
-"const list=el('div');let count=100;function measure(){const start=performance.now();const fragment=document.createDocumentFragment();for(let i=0;i<count;i++){const p=document.createElement('p');p.textContent='Card '+i;fragment.append(p);}list.replaceChildren(fragment);show({count,domBuildMs:performance.now()-start,note:'DOM harness timing, not compiled Svelte timing'});}control('100 / 1000 cards',()=>{count=count===100?1000:100;measure();});measure();",
+"const list=el('div');let count=100;function measure(){const start=performance.now();const fragment=document.createDocumentFragment();for(let i=0;i<count;i++){const p=document.createElement('p');p.textContent=messages.display03+i;fragment.append(p);}list.replaceChildren(fragment);show({count,domBuildMs:performance.now()-start,note:messages.display04});}control(messages.display05,()=>{count=count===100?1000:100;measure();});measure();",
 "import {tick} from 'svelte';let count=$state(100),elapsed=$state(0);let rows=$derived(Array.from({length:count},(_,id)=>id));async function measure(){const start=performance.now();count=count===100?1000:100;await tick();elapsed=performance.now()-start;}",
 '<button onclick={measure}>100 / 1000 rows</button><p>Update to tick: {elapsed.toFixed(2)} ms</p>{#each rows as id (id)}<p>Card {id}</p>{/each}'
 ]
 svelte[26]=[
-"const drafts={A:'',B:''};let unit='A';const input=field('Draft','',v=>{drafts[unit]=v;show({unit,drafts});});control('Seed fixture',()=>{drafts.A='Saved A';drafts.B='';unit='A';input.value=drafts.A;show(drafts);});control('Switch',()=>{unit=unit==='A'?'B':'A';input.value=drafts[unit];show({unit,drafts});});control('Check isolation',()=>show({pass:drafts.A!==drafts.B,drafts}));",
+"const drafts={A:'',B:''};let unit='A';const input=field(messages.display03,'',v=>{drafts[unit]=v;show({unit,drafts});});control(messages.display04,()=>{drafts.A='Saved A';drafts.B='';unit='A';input.value=drafts.A;show(drafts);});control(messages.display05,()=>{unit=unit==='A'?'B':'A';input.value=drafts[unit];show({unit,drafts});});control(messages.display06,()=>show({pass:drafts.A!==drafts.B,drafts}));",
 "let unit=$state('A'),drafts=$state({A:'',B:''});function seed(){unit='A';drafts={A:'Saved A',B:''};}",
 '<button onclick={seed}>Seed</button><button onclick={()=>unit=unit==="A"?"B":"A"}>Switch {unit}</button><input aria-label="Draft" bind:value={drafts[unit]}/><pre>{JSON.stringify(drafts)}</pre>'
 ]
 svelte[27]=[
-"const fixture=[{id:1,title:'State',done:false},{id:2,title:'Canvas',done:false}];const store=writable(fixture);cleanups.push(store.subscribe(items=>show({total:items.length,done:items.filter(v=>v.done).length,items})));fixture.forEach(item=>control('Toggle id '+item.id,()=>store.update(items=>items.map(v=>v.id===item.id?{...v,done:!v.done}:v))));",
+"const fixture=[{id:1,title:'State',done:false},{id:2,title:'Canvas',done:false}];const store=writable(fixture);cleanups.push(store.subscribe(items=>show({total:items.length,done:items.filter(v=>v.done).length,items})));fixture.forEach(item=>control(messages.display03+item.id,()=>store.update(items=>items.map(v=>v.id===item.id?{...v,done:!v.done}:v))));",
 "let items=$state([{id:1,title:'State',done:false},{id:2,title:'Canvas',done:false}]);let done=$derived(items.filter(v=>v.done).length);",
 '<p>Total {items.length}; done {done}</p>{#each items as item (item.id)}<button aria-pressed={item.done} onclick={()=>item.done=!item.done}>{item.title}</button>{/each}'
 ]
 function svelteSource(unit,body){return [
 '// '+unit.title,'// Browser: real Svelte writable + DOM harness, NOT compiled Svelte components.',
 '// Open App.svelte in a Svelte 5 project to execute runes, snippets, bindings, and transitions.',
-'/** @param {any} context */','export function mount({writable,container}){',
-'const cleanups=[];',
+'/** @param {any} context */','export function mount({locale=\'ko\',writable,container}){',
+'/* framework messages */','const cleanups=[];',
 "/** @returns {any} */ function el(tag){const node=document.createElement(tag);container.append(node);return node;}",
-"el('h2').textContent="+JSON.stringify(unit.title)+";",
-"el('p').textContent='DOM/store harness — App.svelte is the actual compiler experiment.';",
+"el('h2').textContent="+"messages.display01"+";",
+"el('p').textContent=messages.display02;",
 "const report=el('pre');const show=value=>report.textContent=JSON.stringify(value,null,2);",
 "function control(label,handler){const b=el('button');b.textContent=label;b.type='button';b.onclick=handler;return b;}",
 "function field(label,value,change){const node=el('input');node.setAttribute('aria-label',label);node.placeholder=label;node.value=value;node.oninput=()=>change(node.value);return node;}",

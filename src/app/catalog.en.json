@@ -424,6 +424,33 @@
       "seriesId": "webgl"
     },
     {
+      "id": "12-waves",
+      "day": 12,
+      "week": 2,
+      "title": "Noise·Sin·Cos waves and distortion",
+      "goal": "Explain the difference between periodic functions and noise, and experiment with waves one variable at a time.",
+      "docPath": "/docs/en/labs/graphics/webgl/12-waves/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "13-shader-material",
+      "day": 13,
+      "week": 2,
+      "title": "ShaderMaterial integration",
+      "goal": "Connect custom shader inputs, lifetimes, and errors to a Three.js scene.",
+      "docPath": "/docs/en/labs/graphics/webgl/13-shader-material/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "14-shader-review",
+      "day": 14,
+      "week": 2,
+      "title": "Interactive shader review",
+      "goal": "Complete and explain a small effect that connects UI input to uniforms.",
+      "docPath": "/docs/en/labs/graphics/webgl/14-shader-review/README.md",
+      "seriesId": "webgl"
+    },
+    {
       "id": "javascript-01",
       "day": 1,
       "week": 1,

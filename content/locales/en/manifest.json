@@ -626,6 +626,9 @@
     "08-shader-stages",
     "09-glsl-color",
     "10-shader-data",
-    "11-uv"
+    "11-uv",
+    "12-waves",
+    "13-shader-material",
+    "14-shader-review"
   ]
 }

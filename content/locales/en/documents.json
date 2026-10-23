@@ -70,5 +70,17 @@
   "/docs/labs/graphics/webgl/11-uv/README.md": {
     "sourceHash": "70c1835d39de8edb411108ee6103be6c33cd3234f181ea9037f92f1495e96bbb",
     "translatedPath": "/docs/en/labs/graphics/webgl/11-uv/README.md"
+  },
+  "/docs/labs/graphics/webgl/12-waves/README.md": {
+    "sourceHash": "347c398269a2d4556ec401cc761e60f694e45ef129f40eccd2c51d7b1b518586",
+    "translatedPath": "/docs/en/labs/graphics/webgl/12-waves/README.md"
+  },
+  "/docs/labs/graphics/webgl/13-shader-material/README.md": {
+    "sourceHash": "74e2dc8426d8eed9425ab7fd0cf01fdf1cbe016730f5a096c2731d20568a4077",
+    "translatedPath": "/docs/en/labs/graphics/webgl/13-shader-material/README.md"
+  },
+  "/docs/labs/graphics/webgl/14-shader-review/README.md": {
+    "sourceHash": "821385399cb7782aacea3768a62fa398bcd483b8828ab50b7adb38e1c5bacaf4",
+    "translatedPath": "/docs/en/labs/graphics/webgl/14-shader-review/README.md"
   }
 }

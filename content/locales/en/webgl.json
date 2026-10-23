@@ -76,6 +76,27 @@
         "title": "UV and Texture Sampling",
         "goal": "Distinguish surface UVs from screen coordinates and explain sampling."
       }
+    },
+    "12-waves": {
+      "sourceHash": "da7235ba85e8f9d26d3fe09975b9a1bac2ef337ffaceea7fdcf23b903a79efe6",
+      "values": {
+        "title": "Noise·Sin·Cos waves and distortion",
+        "goal": "Explain the difference between periodic functions and noise, and experiment with waves one variable at a time."
+      }
+    },
+    "13-shader-material": {
+      "sourceHash": "1ec7179d0dcdfe49643321410c649b9ad814662ffd0d27fde12fdeb873a32fc3",
+      "values": {
+        "title": "ShaderMaterial integration",
+        "goal": "Connect custom shader inputs, lifetimes, and errors to a Three.js scene."
+      }
+    },
+    "14-shader-review": {
+      "sourceHash": "fa7e82455a5d03d15a593b70c80d8bb17ab64e69bda9fd55c8c4ba9eb92f2937",
+      "values": {
+        "title": "Interactive shader review",
+        "goal": "Complete and explain a small effect that connects UI input to uniforms."
+      }
     }
   }
 }

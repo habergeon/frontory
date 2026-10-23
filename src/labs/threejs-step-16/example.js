@@ -2,11 +2,12 @@
 // 실험: 렌더 정책: 항상 루프 → 변경 시 요청
 // 정적 장면에서 불필요한 렌더 호출이 줄어듭니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="궤도 제어와 요구 렌더링";
-const VARIABLE="렌더 정책: 항상 루프 ↔ 변경 시 요청";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Orbit Controls and On-Demand Rendering","display002":"Rendering policy: Continuous loop ↔ Request on change","display003":"Render calls ","display004":"; drag to orbit","display005":"Continuous render calls "}:{"display001":"궤도 제어와 요구 렌더링","display002":"렌더 정책: 항상 루프 ↔ 변경 시 요청","display003":"Render calls ","display004":"; drag to orbit","display005":"Continuous render calls "};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  mesh(new THREE.TorusKnotGeometry(.8,.25,96,16));const controls=new OrbitControls(camera,renderer.domElement);let calls=0;function request(){if(closed)return;renderer.render(scene,camera);calls++;status.textContent='Render calls '+calls+'; drag to orbit';}controls.addEventListener('change',request);disposers.push(()=>{controls.removeEventListener('change',request);controls.dispose();});function draw(){renderEveryFrame=!changed;request();}tick=()=>{if(!changed){calls++;status.textContent='Continuous render calls '+calls;}};
+  mesh(new THREE.TorusKnotGeometry(.8,.25,96,16));const controls=new OrbitControls(camera,renderer.domElement);let calls=0;function request(){if(closed)return;renderer.render(scene,camera);calls++;status.textContent=messages.display003+calls+messages.display004;}controls.addEventListener('change',request);disposers.push(()=>{controls.removeEventListener('change',request);controls.dispose();});function draw(){renderEveryFrame=!changed;request();}tick=()=>{if(!changed){calls++;status.textContent=messages.display005+calls;}};
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

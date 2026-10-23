@@ -2,11 +2,12 @@
 // 실험: 카메라: PerspectiveCamera → OrthographicCamera
 // 깊이가 다른 큐브가 같은 화면 크기로 보입니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="원근과 직교 투영";
-const VARIABLE="카메라: PerspectiveCamera ↔ OrthographicCamera";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Perspective and Orthographic Projection","display002":"Camera: PerspectiveCamera ↔ OrthographicCamera","display003":"Orthographic: equal projected size","display004":"Perspective: near object appears larger"}:{"display001":"원근과 직교 투영","display002":"카메라: PerspectiveCamera ↔ OrthographicCamera","display003":"Orthographic: equal projected size","display004":"Perspective: near object appears larger"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  camera.position.set(0,0,9);camera.lookAt(0,0,0);const near=mesh(new THREE.BoxGeometry()),far=mesh(new THREE.BoxGeometry());near.position.set(-1,0,2);far.position.set(1,0,-2);const perspective=camera,orthographic=new THREE.OrthographicCamera(-3,3,2,-2,.1,100);orthographic.position.copy(camera.position);orthographic.lookAt(0,0,0);function draw(){camera=changed?orthographic:perspective;status.textContent=changed?'Orthographic: equal projected size':'Perspective: near object appears larger';}
+  camera.position.set(0,0,9);camera.lookAt(0,0,0);const near=mesh(new THREE.BoxGeometry()),far=mesh(new THREE.BoxGeometry());near.position.set(-1,0,2);far.position.set(1,0,-2);const perspective=camera,orthographic=new THREE.OrthographicCamera(-3,3,2,-2,.1,100);orthographic.position.copy(camera.position);orthographic.lookAt(0,0,0);function draw(){camera=changed?orthographic:perspective;status.textContent=changed?messages.display003:messages.display004;}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

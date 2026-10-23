@@ -2,11 +2,12 @@
 // 실험: timeScale: 1 → 0.5
 // 같은 클립이 절반 속도로 재생됩니다
 // 절차적으로 만든 AnimationClip과 AnimationMixer를 실행합니다. glTF 클립 목록 로딩은 GLTFLoader가 있는 외부 프로젝트에서 확장하세요.
-const TITLE="클립 애니메이션";
-const VARIABLE="timeScale: 1 ↔ 0.5";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Clip Animation","display002":"timeScale: 1 ↔ 0.5","display003":"Procedural AnimationClip: Turn; mixer timeScale "}:{"display001":"클립 애니메이션","display002":"timeScale: 1 ↔ 0.5","display003":"Procedural AnimationClip: Turn; mixer timeScale "};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  const cube=mesh(new THREE.BoxGeometry());const trackRotation=new THREE.NumberKeyframeTrack('.rotation[y]',[0,1,2],[0,Math.PI,Math.PI*2]);const clip=new THREE.AnimationClip('Turn',2,[trackRotation]);const mixer=new THREE.AnimationMixer(cube);mixer.clipAction(clip).play();disposers.push(()=>{mixer.stopAllAction();mixer.uncacheRoot(cube);});tick=dt=>mixer.update(dt);function draw(){mixer.timeScale=changed?.5:1;status.textContent='Procedural AnimationClip: Turn; mixer timeScale '+mixer.timeScale;}
+  const cube=mesh(new THREE.BoxGeometry());const trackRotation=new THREE.NumberKeyframeTrack('.rotation[y]',[0,1,2],[0,Math.PI,Math.PI*2]);const clip=new THREE.AnimationClip('Turn',2,[trackRotation]);const mixer=new THREE.AnimationMixer(cube);mixer.clipAction(clip).play();disposers.push(()=>{mixer.stopAllAction();mixer.uncacheRoot(cube);});tick=dt=>mixer.update(dt);function draw(){mixer.timeScale=changed?.5:1;status.textContent=messages.display003+mixer.timeScale;}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

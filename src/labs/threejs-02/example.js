@@ -1,7 +1,8 @@
 // An embedded JSON model exercises asynchronous loading without network access.
-export function mount({ THREE, container }) {
-  const button=document.createElement('button');button.textContent='Load malformed model'
-  const retry=document.createElement('button');retry.textContent='Load valid model'
+export function mount({locale='ko', THREE, container }) {
+  const messages=locale==='en'?{"display001":"Load malformed model","display002":"Load valid model","display003":"Loading embedded JSON…","display004":"Loaded. Click a shape to select.","display005":"Load failed: invalid JSON. Existing scene remains usable; retry valid model.","display006":"box","display007":"sphere","display008":"Selected ","display009":" · geometry and material are separate","display010":"Selection cleared"}:{"display001":"Load malformed model","display002":"Load valid model","display003":"Loading embedded JSON…","display004":"Loaded. Click a shape to select.","display005":"Load failed: invalid JSON. Existing scene remains usable; retry valid model.","display006":"box","display007":"sphere","display008":"Selected ","display009":" · geometry and material are separate","display010":"Selection cleared"};
+  const button=document.createElement('button');button.textContent=messages.display001
+  const retry=document.createElement('button');retry.textContent=messages.display002
   const status=document.createElement('p');status.setAttribute('role','status');container.append(button,retry,status)
   const renderer=new THREE.WebGLRenderer({antialias:true});container.append(renderer.domElement)
   const scene=new THREE.Scene();scene.background=new THREE.Color('#edf2f7')
@@ -11,9 +12,9 @@ export function mount({ THREE, container }) {
   objects.forEach((m,i)=>{m.position.x=(i-.5)*2.4;scene.add(m)})
   const ray=new THREE.Raycaster(),pointer=new THREE.Vector2();let closed=false,request=0
   const render=()=>renderer.render(scene,camera)
-  const load=async fail=>{const id=++request;status.textContent='Loading embedded JSON…';try{const raw=await Promise.resolve(fail?'{ broken':'{"color":"#8b5cc7"}');const data=JSON.parse(raw);if(closed||id!==request)return;objects[0].material.color.set(data.color);status.textContent='Loaded. Click a shape to select.';render()}catch(error){if(!closed&&id===request)status.textContent='Load failed: invalid JSON. Existing scene remains usable; retry valid model.'}}
+  const load=async fail=>{const id=++request;status.textContent=messages.display003;try{const raw=await Promise.resolve(fail?'{ broken':'{"color":"#8b5cc7"}');const data=JSON.parse(raw);if(closed||id!==request)return;objects[0].material.color.set(data.color);status.textContent=messages.display004;render()}catch(error){if(!closed&&id===request)status.textContent=messages.display005}}
   button.onclick=()=>load(true);retry.onclick=()=>load(false)
-  renderer.domElement.onclick=e=>{const r=renderer.domElement.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(pointer,camera);const hit=ray.intersectObjects(objects)[0];objects.forEach(m=>m.material.emissive.set(m===hit?.object?'#5d2808':'#000000'));status.textContent=hit?`Selected ${hit.object===objects[0]?'box':'sphere'} · geometry and material are separate`:'Selection cleared';render()}
+  renderer.domElement.onclick=e=>{const r=renderer.domElement.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(pointer,camera);const hit=ray.intersectObjects(objects)[0];objects.forEach(m=>m.material.emissive.set(m===hit?.object?'#5d2808':'#000000'));status.textContent=hit?`${messages.display008}${hit.object===objects[0]?messages.display006:messages.display007}${messages.display009}`:messages.display010;render()}
   const resize=()=>{const w=Math.max(1,container.clientWidth),h=Math.max(1,container.clientHeight-95);renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();render()};const observer=new ResizeObserver(resize);observer.observe(container);resize();load(false)
   return()=>{closed=true;observer.disconnect();objects.forEach(m=>{m.geometry.dispose();m.material.dispose()});renderer.dispose();renderer.forceContextLoss();container.replaceChildren()}
 }

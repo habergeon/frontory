@@ -1,5 +1,6 @@
 {
   "threejs-step-02": {
+    "readingSource": "/examples-en/threejs-step-02/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -7,6 +8,7 @@
     ]
   },
   "threejs-step-03": {
+    "readingSource": "/examples-en/threejs-step-03/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -14,6 +16,7 @@
     ]
   },
   "threejs-step-04": {
+    "readingSource": "/examples-en/threejs-step-04/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -21,6 +24,7 @@
     ]
   },
   "threejs-step-05": {
+    "readingSource": "/examples-en/threejs-step-05/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -28,6 +32,7 @@
     ]
   },
   "threejs-step-06": {
+    "readingSource": "/examples-en/threejs-step-06/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -35,6 +40,7 @@
     ]
   },
   "threejs-step-07": {
+    "readingSource": "/examples-en/threejs-step-07/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -42,6 +48,7 @@
     ]
   },
   "threejs-step-08": {
+    "readingSource": "/examples-en/threejs-step-08/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -49,6 +56,7 @@
     ]
   },
   "threejs-step-09": {
+    "readingSource": "/examples-en/threejs-step-09/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -56,6 +64,7 @@
     ]
   },
   "threejs-step-10": {
+    "readingSource": "/examples-en/threejs-step-10/example.js",
     "mode": "browser",
     "note": "외부 이미지 대신 생성한 체크 DataTexture로 UV repeat를 검증합니다. 네트워크 TextureLoader 오류 처리는 외부 프로젝트에서 확장하세요.",
     "files": [
@@ -63,6 +72,7 @@
     ]
   },
   "threejs-step-11": {
+    "readingSource": "/examples-en/threejs-step-11/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -70,6 +80,7 @@
     ]
   },
   "threejs-step-12": {
+    "readingSource": "/examples-en/threejs-step-12/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -77,6 +88,7 @@
     ]
   },
   "threejs-step-13": {
+    "readingSource": "/examples-en/threejs-step-13/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -84,6 +96,7 @@
     ]
   },
   "threejs-step-15": {
+    "readingSource": "/examples-en/threejs-step-15/example.js",
     "mode": "browser",
     "note": "기본 도형으로 Box3 프레이밍을 재현합니다. 임의 glTF 로더는 preview runtime에 주입되지 않습니다.",
     "files": [
@@ -91,6 +104,7 @@
     ]
   },
   "threejs-step-16": {
+    "readingSource": "/examples-en/threejs-step-16/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -98,6 +112,7 @@
     ]
   },
   "threejs-step-17": {
+    "readingSource": "/examples-en/threejs-step-17/example.js",
     "mode": "browser",
     "note": "절차적으로 만든 AnimationClip과 AnimationMixer를 실행합니다. glTF 클립 목록 로딩은 GLTFLoader가 있는 외부 프로젝트에서 확장하세요.",
     "files": [
@@ -105,6 +120,7 @@
     ]
   },
   "threejs-step-18": {
+    "readingSource": "/examples-en/threejs-step-18/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -112,6 +128,7 @@
     ]
   },
   "threejs-step-19": {
+    "readingSource": "/examples-en/threejs-step-19/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -119,6 +136,7 @@
     ]
   },
   "threejs-step-20": {
+    "readingSource": "/examples-en/threejs-step-20/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -126,6 +144,7 @@
     ]
   },
   "threejs-step-21": {
+    "readingSource": "/examples-en/threejs-step-21/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -133,6 +152,7 @@
     ]
   },
   "threejs-step-22": {
+    "readingSource": "/examples-en/threejs-step-22/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -140,6 +160,7 @@
     ]
   },
   "threejs-step-23": {
+    "readingSource": "/examples-en/threejs-step-23/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -147,6 +168,7 @@
     ]
   },
   "threejs-step-24": {
+    "readingSource": "/examples-en/threejs-step-24/example.js",
     "mode": "browser",
     "note": "지연된 절차적 지오메트리로 완료 역순과 오래된 결과 해제를 재현합니다. 네트워크 모델 로딩 자체는 포함하지 않습니다.",
     "files": [
@@ -154,6 +176,7 @@
     ]
   },
   "threejs-step-25": {
+    "readingSource": "/examples-en/threejs-step-25/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -161,6 +184,7 @@
     ]
   },
   "threejs-step-26": {
+    "readingSource": "/examples-en/threejs-step-26/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
     "files": [
@@ -168,6 +192,7 @@
     ]
   },
   "threejs-step-27": {
+    "readingSource": "/examples-en/threejs-step-27/example.js",
     "mode": "browser",
     "note": "기본 도형 검사기의 선택·재생성·JSON·회전 수명을 실행합니다. glTF 로딩과 미니맵 통합은 외부 캡스톤 확장입니다.",
     "files": [

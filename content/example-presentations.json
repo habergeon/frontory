@@ -3902,5 +3902,412 @@
     "comments": {
       "comment001": "Identical seeded points. Times measure synchronous construction/draw, NOT GPU paint."
     }
+  },
+  "threejs-01": {
+    "messages": {
+      "display001": "local: ",
+      "display002": "\nworld = parent.matrixWorld × local: ",
+      "display003": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "과제: 부모 회전과 자식의 local 좌표를 바꿔 world 좌표를 예측하세요.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "threejs-step-02": {
+    "messages": {
+      "display001": "렌더러와 화면 크기",
+      "display002": "viewport 폭 (높이 240px): 240px ↔ 400px",
+      "display003": "Aspect ",
+      "display004": "; sphere remains circular"
+    },
+    "comments": {
+      "comment001": "렌더러와 화면 크기",
+      "comment002": "실험: viewport 폭 (높이 240px): 240px → 400px",
+      "comment003": "aspect를 갱신하면 구가 타원처럼 늘어나지 않습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-03": {
+    "messages": {
+      "display001": "원근과 직교 투영",
+      "display002": "카메라: PerspectiveCamera ↔ OrthographicCamera",
+      "display003": "Orthographic: equal projected size",
+      "display004": "Perspective: near object appears larger"
+    },
+    "comments": {
+      "comment001": "원근과 직교 투영",
+      "comment002": "실험: 카메라: PerspectiveCamera → OrthographicCamera",
+      "comment003": "깊이가 다른 큐브가 같은 화면 크기로 보입니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-04": {
+    "messages": {
+      "display001": "회전과 피벗",
+      "display002": "피벗 위치: 문 중심 ↔ 문 가장자리",
+      "display003": "Pivot at ",
+      "display004": "; door local x="
+    },
+    "comments": {
+      "comment001": "회전과 피벗",
+      "comment002": "실험: 피벗 위치: 문 중심 → 문 가장자리",
+      "comment003": "문이 중심 회전 대신 경첩을 따라 움직입니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-05": {
+    "messages": {
+      "display001": "버퍼 지오메트리",
+      "display002": "인덱스 순서: 반시계 ↔ 시계",
+      "display003": "Front-face winding: ",
+      "display004": "clockwise (culled)",
+      "display005": "counterclockwise"
+    },
+    "comments": {
+      "comment001": "버퍼 지오메트리",
+      "comment002": "실험: 인덱스 순서: 반시계 → 시계",
+      "comment003": "기본 앞면 판단이 바뀌어 면이 사라질 수 있습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-06": {
+    "messages": {
+      "display001": "법선과 표면 방향",
+      "display002": "정점 공유: 면별 분리 ↔ 모서리 공유",
+      "display003": "Shared edge vertices: averaged normals",
+      "display004": "Separated face vertices: sharp normals"
+    },
+    "comments": {
+      "comment001": "법선과 표면 방향",
+      "comment002": "실험: 정점 공유: 면별 분리 → 모서리 공유",
+      "comment003": "평균 법선 때문에 모서리가 부드럽게 보일 수 있습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-07": {
+    "messages": {
+      "display001": "공유 지오메트리와 복제",
+      "display002": "재질: 공유 참조 ↔ clone된 개별 재질",
+      "display003": "Only first material cloned",
+      "display004": "Color mutation affects all shared references"
+    },
+    "comments": {
+      "comment001": "공유 지오메트리와 복제",
+      "comment002": "실험: 재질: 공유 참조 → clone된 개별 재질",
+      "comment003": "한 큐브의 색 수정이 다른 큐브에 전파되지 않습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-08": {
+    "messages": {
+      "display001": "조명 종류와 배치",
+      "display002": "광원 종류: DirectionalLight ↔ PointLight",
+      "display003": "PointLight: distance attenuation",
+      "display004": "DirectionalLight: parallel illumination"
+    },
+    "comments": {
+      "comment001": "조명 종류와 배치",
+      "comment002": "실험: 광원 종류: DirectionalLight → PointLight",
+      "comment003": "거리와 위치 변화에 대한 표면 반응이 달라집니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-09": {
+    "messages": {
+      "display001": "거칠기와 금속성",
+      "display002": "roughness: 0.1 ↔ 0.8",
+      "display003": "Roughness ",
+      "display004": "; columns metalness 0 / .5 / 1. No environment map: metals reflect local lighting only."
+    },
+    "comments": {
+      "comment001": "거칠기와 금속성",
+      "comment002": "실험: roughness: 0.1 → 0.8",
+      "comment003": "반사 하이라이트가 더 넓고 흐려집니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-10": {
+    "messages": {
+      "display001": "텍스처와 UV",
+      "display002": "repeat: 1,1 ↔ 4,2",
+      "display003": "UV repeat "
+    },
+    "comments": {
+      "comment001": "텍스처와 UV",
+      "comment002": "실험: repeat: 1,1 → 4,2",
+      "comment003": "표면 위 체크 패턴이 가로 네 번 세로 두 번 반복됩니다",
+      "comment004": "외부 이미지 대신 생성한 체크 DataTexture로 UV repeat를 검증합니다. 네트워크 TextureLoader 오류 처리는 외부 프로젝트에서 확장하세요."
+    }
+  },
+  "threejs-step-11": {
+    "messages": {
+      "display001": "색 공간과 출력",
+      "display002": "색 텍스처 colorSpace: SRGBColorSpace ↔ NoColorSpace",
+      "display003": "Color texture interpretation: "
+    },
+    "comments": {
+      "comment001": "색 공간과 출력",
+      "comment002": "실험: 색 텍스처 colorSpace: SRGBColorSpace → NoColorSpace",
+      "comment003": "동일 이미지의 밝기 해석이 달라질 수 있습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-12": {
+    "messages": {
+      "display001": "그림자 지도",
+      "display002": "shadow 범위: 넓은 영역 ↔ 대상 주변 작은 영역",
+      "display003": "Shadow extent ±",
+      "display004": "; fixed map 512×512"
+    },
+    "comments": {
+      "comment001": "그림자 지도",
+      "comment002": "실험: shadow 범위: 넓은 영역 → 대상 주변 작은 영역",
+      "comment003": "동일 mapSize에서 대상 부근 그림자가 더 세밀해질 수 있습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-13": {
+    "messages": {
+      "display001": "정규화 좌표와 선택",
+      "display002": "포인터 위치: 캔버스 중앙 ↔ 왼쪽 상단",
+      "display003": "NDC ",
+      "display004": "miss",
+      "display005": "Click a cube; coordinates are normalized from this canvas bounds"
+    },
+    "comments": {
+      "comment001": "정규화 좌표와 선택",
+      "comment002": "실험: 포인터 위치: 캔버스 중앙 → 왼쪽 상단",
+      "comment003": "NDC는 대략 0,0에서 -1,1로 바뀝니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-02": {
+    "messages": {
+      "display001": "Load malformed model",
+      "display002": "Load valid model",
+      "display003": "Loading embedded JSON…",
+      "display004": "Loaded. Click a shape to select.",
+      "display005": "Load failed: invalid JSON. Existing scene remains usable; retry valid model.",
+      "display006": "box",
+      "display007": "sphere",
+      "display008": "Selected ",
+      "display009": " · geometry and material are separate",
+      "display010": "Selection cleared"
+    },
+    "comments": {
+      "comment001": "An embedded JSON model exercises asynchronous loading without network access."
+    }
+  },
+  "threejs-step-15": {
+    "messages": {
+      "display001": "모델 크기와 카메라 맞춤",
+      "display002": "모델 scale: 1 ↔ 10",
+      "display003": "Bounds ",
+      "display004": "; camera z "
+    },
+    "comments": {
+      "comment001": "모델 크기와 카메라 맞춤",
+      "comment002": "실험: 모델 scale: 1 → 10",
+      "comment003": "프레이밍 후 화면 점유율이 비슷하게 유지됩니다",
+      "comment004": "기본 도형으로 Box3 프레이밍을 재현합니다. 임의 glTF 로더는 preview runtime에 주입되지 않습니다."
+    }
+  },
+  "threejs-step-16": {
+    "messages": {
+      "display001": "궤도 제어와 요구 렌더링",
+      "display002": "렌더 정책: 항상 루프 ↔ 변경 시 요청",
+      "display003": "Render calls ",
+      "display004": "; drag to orbit",
+      "display005": "Continuous render calls "
+    },
+    "comments": {
+      "comment001": "궤도 제어와 요구 렌더링",
+      "comment002": "실험: 렌더 정책: 항상 루프 → 변경 시 요청",
+      "comment003": "정적 장면에서 불필요한 렌더 호출이 줄어듭니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-17": {
+    "messages": {
+      "display001": "클립 애니메이션",
+      "display002": "timeScale: 1 ↔ 0.5",
+      "display003": "Procedural AnimationClip: Turn; mixer timeScale "
+    },
+    "comments": {
+      "comment001": "클립 애니메이션",
+      "comment002": "실험: timeScale: 1 → 0.5",
+      "comment003": "같은 클립이 절반 속도로 재생됩니다",
+      "comment004": "절차적으로 만든 AnimationClip과 AnimationMixer를 실행합니다. glTF 클립 목록 로딩은 GLTFLoader가 있는 외부 프로젝트에서 확장하세요."
+    }
+  },
+  "threejs-step-18": {
+    "messages": {
+      "display001": "투명도와 깊이",
+      "display002": "depthWrite: true ↔ false",
+      "display003": "depthWrite ",
+      "display004": "; intersecting transparency still has sorting limitations"
+    },
+    "comments": {
+      "comment001": "투명도와 깊이",
+      "comment002": "실험: depthWrite: true → false",
+      "comment003": "가림 양상이 바뀌지만 모든 투명 정렬 문제가 해결되지는 않습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-19": {
+    "messages": {
+      "display001": "인스턴싱 기초",
+      "display002": "표현: 개별 Mesh ↔ InstancedMesh",
+      "display003": "Previous render calls ",
+      "display004": "500 Mesh objects"
+    },
+    "comments": {
+      "comment001": "인스턴싱 기초",
+      "comment002": "실험: 표현: 개별 Mesh → InstancedMesh",
+      "comment003": "같은 재질 조건에서 draw call이 줄어듭니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-20": {
+    "messages": {
+      "display001": "인스턴스 선택과 갱신",
+      "display002": "선택 대상: 첫 인스턴스 ↔ 마지막 인스턴스",
+      "display003": "instanceId ",
+      "display004": " → data id item-"
+    },
+    "comments": {
+      "comment001": "인스턴스 선택과 갱신",
+      "comment002": "실험: 선택 대상: 첫 인스턴스 → 마지막 인스턴스",
+      "comment003": "해당 항목만 강조되고 데이터 id가 일치합니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-21": {
+    "messages": {
+      "display001": "화면 밖 객체와 상세도",
+      "display002": "먼 구 세그먼트: 64 ↔ 12",
+      "display003": "Far sphere triangles ",
+      "display004": "; compare silhouette at its distance"
+    },
+    "comments": {
+      "comment001": "화면 밖 객체와 상세도",
+      "comment002": "실험: 먼 구 세그먼트: 64 → 12",
+      "comment003": "삼각형 수는 줄지만 윤곽 품질은 거리별로 달라집니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-22": {
+    "messages": {
+      "display001": "렌더 타깃과 미니맵",
+      "display002": "타깃 크기: 256×256 ↔ 512×512",
+      "display003": "Render target ",
+      "display004": "; top camera inset"
+    },
+    "comments": {
+      "comment001": "렌더 타깃과 미니맵",
+      "comment002": "실험: 타깃 크기: 256×256 → 512×512",
+      "comment003": "미니맵 선명도와 처리 픽셀 수가 함께 늘어납니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-23": {
+    "messages": {
+      "display001": "자원 소유권 장부",
+      "display002": "삭제 범위: 한 사용자만 ↔ 모든 사용자",
+      "display003": "Release users",
+      "display004": "0 users: geometry and material disposed",
+      "display005": " user remains: shared resources retained",
+      "display006": "Resource ledger: 1 geometry, 1 material, ",
+      "display007": " users"
+    },
+    "comments": {
+      "comment001": "자원 소유권 장부",
+      "comment002": "실험: 삭제 범위: 한 사용자만 → 모든 사용자",
+      "comment003": "공유 자원은 마지막 사용자 종료 뒤 해제해야 합니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-24": {
+    "messages": {
+      "display001": "비동기 장면 교체",
+      "display002": "완료 순서: 요청순 ↔ 역순",
+      "display003": "Requested ",
+      "display004": "Committed current request ",
+      "display005": "; token ",
+      "display006": "Request A then B",
+      "display007": "Synthetic async geometry loader; toggle completion order then request A/B"
+    },
+    "comments": {
+      "comment001": "비동기 장면 교체",
+      "comment002": "실험: 완료 순서: 요청순 → 역순",
+      "comment003": "현재 요청과 다른 결과는 장면을 덮지 않습니다",
+      "comment004": "지연된 절차적 지오메트리로 완료 역순과 오래된 결과 해제를 재현합니다. 네트워크 모델 로딩 자체는 포함하지 않습니다."
+    }
+  },
+  "threejs-step-25": {
+    "messages": {
+      "display001": "HTML 제어와 접근성",
+      "display002": "입력: 포인터 ↔ 키보드만",
+      "display003": "Selected ",
+      "display004": "Select ",
+      "display005": "HTML buttons and raycast call the same selection command"
+    },
+    "comments": {
+      "comment001": "HTML 제어와 접근성",
+      "comment002": "실험: 입력: 포인터 → 키보드만",
+      "comment003": "같은 객체와 카메라 목표를 선택할 수 있습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-26": {
+    "messages": {
+      "display001": "렌더 통계와 프로파일",
+      "display002": "렌더 패스: 메인만 ↔ 메인과 미니맵",
+      "display003": "Frame draw calls ",
+      "display004": "; triangles ",
+      "display005": " (not VRAM or GPU time)"
+    },
+    "comments": {
+      "comment001": "렌더 통계와 프로파일",
+      "comment002": "실험: 렌더 패스: 메인만 → 메인과 미니맵",
+      "comment003": "한 프레임의 호출·삼각형 합계가 증가할 수 있습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "threejs-step-27": {
+    "messages": {
+      "display001": "장면 검사기 통합",
+      "display002": "실행 횟수: 1회 ↔ 5회",
+      "display003": "Rebuild scene",
+      "display004": "Select next",
+      "display005": "Export state",
+      "display006": "Scene builds ",
+      "display007": "; selected ",
+      "display008": "; one render loop retained"
+    },
+    "comments": {
+      "comment001": "장면 검사기 통합",
+      "comment002": "실험: 실행 횟수: 1회 → 5회",
+      "comment003": "수명 관리가 맞으면 이벤트와 활성 루프가 누적되지 않습니다",
+      "comment004": "기본 도형 검사기의 선택·재생성·JSON·회전 수명을 실행합니다. glTF 로딩과 미니맵 통합은 외부 캡스톤 확장입니다."
+    }
+  },
+  "threejs-03": {
+    "messages": {
+      "display001": "Switch to instancing",
+      "display002": "Delete resources",
+      "display003": "Rebuild",
+      "display004": "100 Meshes",
+      "display005": " · calls ",
+      "display006": "\ngeometries ",
+      "display007": " · textures ",
+      "display008": " · rebuilds ",
+      "display009": "\nCounts are renderer resources, not VRAM.",
+      "display010": "Switch to individual meshes"
+    },
+    "comments": {
+      "comment001": "renderer.info reports draw calls/resources, not GPU VRAM or GPU elapsed time."
+    }
   }
 }

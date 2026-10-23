@@ -2,11 +2,12 @@
 // 실험: depthWrite: true → false
 // 가림 양상이 바뀌지만 모든 투명 정렬 문제가 해결되지는 않습니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="투명도와 깊이";
-const VARIABLE="depthWrite: true ↔ false";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Transparency and Depth","display002":"depthWrite: true ↔ false","display003":"depthWrite ","display004":"; intersecting transparency still has sorting limitations"}:{"display001":"투명도와 깊이","display002":"depthWrite: true ↔ false","display003":"depthWrite ","display004":"; intersecting transparency still has sorting limitations"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  const planes=[];for(let i=0;i<2;i++){const material=track(new THREE.MeshStandardMaterial({color:i?'#f97316':'#2563eb',transparent:true,opacity:.5,side:THREE.DoubleSide}));const p=mesh(new THREE.PlaneGeometry(3,3),material);p.rotation.y=i?Math.PI/3:-Math.PI/3;p.position.x=i?.3:-.3;planes.push(p);}const cube=mesh(new THREE.BoxGeometry(.8,.8,.8));cube.position.z=-1;function draw(){planes.forEach(p=>p.material.depthWrite=!changed);status.textContent='depthWrite '+!changed+'; intersecting transparency still has sorting limitations';}
+  const planes=[];for(let i=0;i<2;i++){const material=track(new THREE.MeshStandardMaterial({color:i?'#f97316':'#2563eb',transparent:true,opacity:.5,side:THREE.DoubleSide}));const p=mesh(new THREE.PlaneGeometry(3,3),material);p.rotation.y=i?Math.PI/3:-Math.PI/3;p.position.x=i?.3:-.3;planes.push(p);}const cube=mesh(new THREE.BoxGeometry(.8,.8,.8));cube.position.z=-1;function draw(){planes.forEach(p=>p.material.depthWrite=!changed);status.textContent=messages.display003+!changed+messages.display004;}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

@@ -2,11 +2,12 @@
 // 실험: repeat: 1,1 → 4,2
 // 표면 위 체크 패턴이 가로 네 번 세로 두 번 반복됩니다
 // 외부 이미지 대신 생성한 체크 DataTexture로 UV repeat를 검증합니다. 네트워크 TextureLoader 오류 처리는 외부 프로젝트에서 확장하세요.
-const TITLE="텍스처와 UV";
-const VARIABLE="repeat: 1,1 ↔ 4,2";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Textures and UVs","display002":"repeat: 1,1 ↔ 4,2","display003":"UV repeat "}:{"display001":"텍스처와 UV","display002":"repeat: 1,1 ↔ 4,2","display003":"UV repeat "};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  const pixels=new Uint8Array(8*8*4);for(let y=0;y<8;y++)for(let x=0;x<8;x++){const i=(y*8+x)*4,v=(x+y)%2?240:40;pixels.set([v,v,255,255],i);}const texture=track(new THREE.DataTexture(pixels,8,8));texture.wrapS=texture.wrapT=THREE.RepeatWrapping;texture.magFilter=THREE.NearestFilter;texture.needsUpdate=true;const plane=mesh(new THREE.PlaneGeometry(5,3),track(new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide})));camera.position.set(0,0,6);camera.lookAt(0,0,0);function draw(){texture.repeat.set(changed?4:1,changed?2:1);status.textContent='UV repeat '+texture.repeat.toArray().join(', ');}
+  const pixels=new Uint8Array(8*8*4);for(let y=0;y<8;y++)for(let x=0;x<8;x++){const i=(y*8+x)*4,v=(x+y)%2?240:40;pixels.set([v,v,255,255],i);}const texture=track(new THREE.DataTexture(pixels,8,8));texture.wrapS=texture.wrapT=THREE.RepeatWrapping;texture.magFilter=THREE.NearestFilter;texture.needsUpdate=true;const plane=mesh(new THREE.PlaneGeometry(5,3),track(new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide})));camera.position.set(0,0,6);camera.lookAt(0,0,0);function draw(){texture.repeat.set(changed?4:1,changed?2:1);status.textContent=messages.display003+texture.repeat.toArray().join(', ');}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

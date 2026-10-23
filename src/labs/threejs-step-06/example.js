@@ -2,11 +2,12 @@
 // 실험: 정점 공유: 면별 분리 → 모서리 공유
 // 평균 법선 때문에 모서리가 부드럽게 보일 수 있습니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="법선과 표면 방향";
-const VARIABLE="정점 공유: 면별 분리 ↔ 모서리 공유";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Normals and Surface Orientation","display002":"Vertex sharing: Separate per face ↔ Shared at edges","display003":"Shared edge vertices: averaged normals","display004":"Separated face vertices: sharp normals"}:{"display001":"법선과 표면 방향","display002":"정점 공유: 면별 분리 ↔ 모서리 공유","display003":"Shared edge vertices: averaged normals","display004":"Separated face vertices: sharp normals"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  const smoothGeometry=track(new THREE.BufferGeometry());smoothGeometry.setAttribute('position',new THREE.Float32BufferAttribute([-1,0,0,0,0,1,1,0,0,0,1,0],3));smoothGeometry.setIndex([0,1,3,1,2,3]);smoothGeometry.computeVertexNormals();const flatGeometry=track(smoothGeometry.toNonIndexed());flatGeometry.computeVertexNormals();const surface=mesh(flatGeometry,track(new THREE.MeshNormalMaterial({side:THREE.DoubleSide})));function draw(){surface.geometry=changed?smoothGeometry:flatGeometry;status.textContent=changed?'Shared edge vertices: averaged normals':'Separated face vertices: sharp normals';}
+  const smoothGeometry=track(new THREE.BufferGeometry());smoothGeometry.setAttribute('position',new THREE.Float32BufferAttribute([-1,0,0,0,0,1,1,0,0,0,1,0],3));smoothGeometry.setIndex([0,1,3,1,2,3]);smoothGeometry.computeVertexNormals();const flatGeometry=track(smoothGeometry.toNonIndexed());flatGeometry.computeVertexNormals();const surface=mesh(flatGeometry,track(new THREE.MeshNormalMaterial({side:THREE.DoubleSide})));function draw(){surface.geometry=changed?smoothGeometry:flatGeometry;status.textContent=changed?messages.display003:messages.display004;}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

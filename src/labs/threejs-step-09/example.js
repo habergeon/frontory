@@ -2,11 +2,12 @@
 // 실험: roughness: 0.1 → 0.8
 // 반사 하이라이트가 더 넓고 흐려집니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="거칠기와 금속성";
-const VARIABLE="roughness: 0.1 ↔ 0.8";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Roughness and Metalness","display002":"roughness: 0.1 ↔ 0.8","display003":"Roughness ","display004":"; columns metalness 0 / .5 / 1. No environment map: metals reflect local lighting only."}:{"display001":"거칠기와 금속성","display002":"roughness: 0.1 ↔ 0.8","display003":"Roughness ","display004":"; columns metalness 0 / .5 / 1. No environment map: metals reflect local lighting only."};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  const spheres=[];for(let y=0;y<2;y++)for(let x=0;x<3;x++){const material=track(new THREE.MeshStandardMaterial({color:'#eab308',roughness:.1,metalness:x/2}));const sphere=mesh(new THREE.SphereGeometry(.55,32,24),material);sphere.position.set((x-1)*1.5,(y-.5)*1.5,0);spheres.push(sphere);}function draw(){spheres.forEach((s,i)=>s.material.roughness=changed?.8:.1);status.textContent='Roughness '+(changed?.8:.1)+'; columns metalness 0 / .5 / 1. No environment map: metals reflect local lighting only.';}
+  const spheres=[];for(let y=0;y<2;y++)for(let x=0;x<3;x++){const material=track(new THREE.MeshStandardMaterial({color:'#eab308',roughness:.1,metalness:x/2}));const sphere=mesh(new THREE.SphereGeometry(.55,32,24),material);sphere.position.set((x-1)*1.5,(y-.5)*1.5,0);spheres.push(sphere);}function draw(){spheres.forEach((s,i)=>s.material.roughness=changed?.8:.1);status.textContent=messages.display003+(changed?.8:.1)+messages.display004;}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

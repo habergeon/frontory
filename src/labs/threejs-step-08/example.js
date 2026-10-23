@@ -2,11 +2,12 @@
 // 실험: 광원 종류: DirectionalLight → PointLight
 // 거리와 위치 변화에 대한 표면 반응이 달라집니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="조명 종류와 배치";
-const VARIABLE="광원 종류: DirectionalLight ↔ PointLight";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Light Types and Placement","display002":"Light type: DirectionalLight ↔ PointLight","display003":"PointLight: distance attenuation","display004":"DirectionalLight: parallel illumination"}:{"display001":"조명 종류와 배치","display002":"광원 종류: DirectionalLight ↔ PointLight","display003":"PointLight: distance attenuation","display004":"DirectionalLight: parallel illumination"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  mesh(new THREE.SphereGeometry(1,32,24));const floor=mesh(new THREE.PlaneGeometry(8,8));floor.rotation.x=-Math.PI/2;floor.position.y=-1.2;const point=track(new THREE.PointLight(0xffffff,40,20));point.position.set(2,3,2);scene.add(point);function draw(){keyLight.visible=!changed;point.visible=changed;status.textContent=changed?'PointLight: distance attenuation':'DirectionalLight: parallel illumination';}tick=(_dt,time)=>{point.position.x=Math.sin(time)*3;};
+  mesh(new THREE.SphereGeometry(1,32,24));const floor=mesh(new THREE.PlaneGeometry(8,8));floor.rotation.x=-Math.PI/2;floor.position.y=-1.2;const point=track(new THREE.PointLight(0xffffff,40,20));point.position.set(2,3,2);scene.add(point);function draw(){keyLight.visible=!changed;point.visible=changed;status.textContent=changed?messages.display003:messages.display004;}tick=(_dt,time)=>{point.position.x=Math.sin(time)*3;};
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

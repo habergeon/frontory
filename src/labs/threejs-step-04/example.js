@@ -2,11 +2,12 @@
 // 실험: 피벗 위치: 문 중심 → 문 가장자리
 // 문이 중심 회전 대신 경첩을 따라 움직입니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="회전과 피벗";
-const VARIABLE="피벗 위치: 문 중심 ↔ 문 가장자리";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Rotation and Pivots","display002":"Pivot position: Door center ↔ Door edge","display003":"Pivot at ","display004":"; door local x="}:{"display001":"회전과 피벗","display002":"피벗 위치: 문 중심 ↔ 문 가장자리","display003":"Pivot at ","display004":"; door local x="};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  const pivot=new THREE.Group();scene.add(pivot);const door=mesh(new THREE.BoxGeometry(2,3,.15));scene.remove(door);pivot.add(door);scene.add(new THREE.AxesHelper(3));function draw(){pivot.position.x=changed?-1:0;door.position.x=changed?1:0;status.textContent='Pivot at '+pivot.position.x+'; door local x='+door.position.x;}tick=(_dt,time)=>{pivot.rotation.y=Math.sin(time)*1.1;};
+  const pivot=new THREE.Group();scene.add(pivot);const door=mesh(new THREE.BoxGeometry(2,3,.15));scene.remove(door);pivot.add(door);scene.add(new THREE.AxesHelper(3));function draw(){pivot.position.x=changed?-1:0;door.position.x=changed?1:0;status.textContent=messages.display003+pivot.position.x+messages.display004+door.position.x;}tick=(_dt,time)=>{pivot.rotation.y=Math.sin(time)*1.1;};
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

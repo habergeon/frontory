@@ -2,11 +2,12 @@
 // 실험: 완료 순서: 요청순 → 역순
 // 현재 요청과 다른 결과는 장면을 덮지 않습니다
 // 지연된 절차적 지오메트리로 완료 역순과 오래된 결과 해제를 재현합니다. 네트워크 모델 로딩 자체는 포함하지 않습니다.
-const TITLE="비동기 장면 교체";
-const VARIABLE="완료 순서: 요청순 ↔ 역순";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Asynchronous Scene Replacement","display002":"Completion order: Request order ↔ Reverse order","display003":"Requested ","display004":"Committed current request ","display005":"; token ","display006":"Request A then B","display007":"Synthetic async geometry loader; toggle completion order then request A/B"}:{"display001":"비동기 장면 교체","display002":"완료 순서: 요청순 ↔ 역순","display003":"Requested ","display004":"Committed current request ","display005":"; token ","display006":"Request A then B","display007":"Synthetic async geometry loader; toggle completion order then request A/B"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  let generation=0,current=null;function request(id,delay){const token=++generation;status.textContent='Requested '+id;const timer=setTimeout(()=>{const geometry=track(new THREE.BoxGeometry(id===1?1:2,1,1)),material=track(new THREE.MeshStandardMaterial({color:id===1?'#2563eb':'#f97316'})),result=new THREE.Mesh(geometry,material);if(closed||token!==generation){geometry.dispose();material.dispose();return;}if(current){scene.remove(current);current.geometry.dispose();current.material.dispose();resources.delete(current.geometry);resources.delete(current.material);}current=result;scene.add(result);status.textContent='Committed current request '+id+'; token '+token;},delay);disposers.push(()=>clearTimeout(timer));}button('Request A then B',()=>{request(1,changed?800:150);request(2,changed?150:800);});function draw(){status.textContent='Synthetic async geometry loader; toggle completion order then request A/B';}
+  let generation=0,current=null;function request(id,delay){const token=++generation;status.textContent=messages.display003+id;const timer=setTimeout(()=>{const geometry=track(new THREE.BoxGeometry(id===1?1:2,1,1)),material=track(new THREE.MeshStandardMaterial({color:id===1?'#2563eb':'#f97316'})),result=new THREE.Mesh(geometry,material);if(closed||token!==generation){geometry.dispose();material.dispose();return;}if(current){scene.remove(current);current.geometry.dispose();current.material.dispose();resources.delete(current.geometry);resources.delete(current.material);}current=result;scene.add(result);status.textContent=messages.display004+id+messages.display005+token;},delay);disposers.push(()=>clearTimeout(timer));}button(messages.display006,()=>{request(1,changed?800:150);request(2,changed?150:800);});function draw(){status.textContent=messages.display007;}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

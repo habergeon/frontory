@@ -2,11 +2,12 @@
 // 실험: 선택 대상: 첫 인스턴스 → 마지막 인스턴스
 // 해당 항목만 강조되고 데이터 id가 일치합니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="인스턴스 선택과 갱신";
-const VARIABLE="선택 대상: 첫 인스턴스 ↔ 마지막 인스턴스";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Instance Selection and Updates","display002":"Selection target: First instance ↔ Last instance","display003":"instanceId ","display004":" → data id item-"}:{"display001":"인스턴스 선택과 갱신","display002":"선택 대상: 첫 인스턴스 ↔ 마지막 인스턴스","display003":"instanceId ","display004":" → data id item-"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  const instances=new THREE.InstancedMesh(track(new THREE.BoxGeometry(.6,.6,.6)),track(new THREE.MeshStandardMaterial()),12);scene.add(instances);const matrix=new THREE.Matrix4();for(let i=0;i<12;i++){matrix.makeTranslation((i%4-1.5)*1.1,(Math.floor(i/4)-1)*1.1,0);instances.setMatrixAt(i,matrix);instances.setColorAt(i,new THREE.Color('#2563eb'));}instances.instanceMatrix.needsUpdate=true;let selected=0;function select(i){selected=i;for(let j=0;j<12;j++)instances.setColorAt(j,new THREE.Color(j===i?'#f97316':'#2563eb'));instances.instanceColor.needsUpdate=true;status.textContent='instanceId '+i+' → data id item-'+i;}on(renderer.domElement,'pointerdown',e=>{const r=renderer.domElement.getBoundingClientRect(),ray=new THREE.Raycaster();ray.setFromCamera(new THREE.Vector2((e.clientX-r.left)/r.width*2-1,1-(e.clientY-r.top)/r.height*2),camera);const hit=ray.intersectObject(instances)[0];if(hit)select(hit.instanceId);});disposers.push(()=>instances.dispose());function draw(){select(changed?11:0);}
+  const instances=new THREE.InstancedMesh(track(new THREE.BoxGeometry(.6,.6,.6)),track(new THREE.MeshStandardMaterial()),12);scene.add(instances);const matrix=new THREE.Matrix4();for(let i=0;i<12;i++){matrix.makeTranslation((i%4-1.5)*1.1,(Math.floor(i/4)-1)*1.1,0);instances.setMatrixAt(i,matrix);instances.setColorAt(i,new THREE.Color('#2563eb'));}instances.instanceMatrix.needsUpdate=true;let selected=0;function select(i){selected=i;for(let j=0;j<12;j++)instances.setColorAt(j,new THREE.Color(j===i?'#f97316':'#2563eb'));instances.instanceColor.needsUpdate=true;status.textContent=messages.display003+i+messages.display004+i;}on(renderer.domElement,'pointerdown',e=>{const r=renderer.domElement.getBoundingClientRect(),ray=new THREE.Raycaster();ray.setFromCamera(new THREE.Vector2((e.clientX-r.left)/r.width*2-1,1-(e.clientY-r.top)/r.height*2),camera);const hit=ray.intersectObject(instances)[0];if(hit)select(hit.instanceId);});disposers.push(()=>instances.dispose());function draw(){select(changed?11:0);}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

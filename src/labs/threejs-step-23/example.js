@@ -2,11 +2,12 @@
 // 실험: 삭제 범위: 한 사용자만 → 모든 사용자
 // 공유 자원은 마지막 사용자 종료 뒤 해제해야 합니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="자원 소유권 장부";
-const VARIABLE="삭제 범위: 한 사용자만 ↔ 모든 사용자";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Resource Ownership Ledger","display002":"Removal scope: One user only ↔ All users","display003":"Release users","display004":"0 users: geometry and material disposed","display005":" user remains: shared resources retained","display006":"Resource ledger: 1 geometry, 1 material, ","display007":" users"}:{"display001":"자원 소유권 장부","display002":"삭제 범위: 한 사용자만 ↔ 모든 사용자","display003":"Release users","display004":"0 users: geometry and material disposed","display005":" user remains: shared resources retained","display006":"Resource ledger: 1 geometry, 1 material, ","display007":" users"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  const geometry=track(new THREE.BoxGeometry()),material=track(new THREE.MeshStandardMaterial({color:'#2563eb'}));let users=[];function rebuild(){users.forEach(m=>scene.remove(m));users=[-1,1].map(x=>{const m=new THREE.Mesh(geometry,material);m.position.x=x;scene.add(m);return m;});}rebuild();button('Release users',()=>{const count=changed?users.length:Math.min(1,users.length);for(let i=0;i<count;i++)scene.remove(users.pop());if(!users.length){geometry.dispose();material.dispose();status.textContent='0 users: geometry and material disposed';}else status.textContent=users.length+' user remains: shared resources retained';});function draw(){status.textContent='Resource ledger: 1 geometry, 1 material, '+users.length+' users';}
+  const geometry=track(new THREE.BoxGeometry()),material=track(new THREE.MeshStandardMaterial({color:'#2563eb'}));let users=[];function rebuild(){users.forEach(m=>scene.remove(m));users=[-1,1].map(x=>{const m=new THREE.Mesh(geometry,material);m.position.x=x;scene.add(m);return m;});}rebuild();button(messages.display003,()=>{const count=changed?users.length:Math.min(1,users.length);for(let i=0;i<count;i++)scene.remove(users.pop());if(!users.length){geometry.dispose();material.dispose();status.textContent=messages.display004;}else status.textContent=users.length+messages.display005;});function draw(){status.textContent=messages.display006+users.length+messages.display007;}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

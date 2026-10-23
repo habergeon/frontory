@@ -2,11 +2,12 @@
 // 실험: 모델 scale: 1 → 10
 // 프레이밍 후 화면 점유율이 비슷하게 유지됩니다
 // 기본 도형으로 Box3 프레이밍을 재현합니다. 임의 glTF 로더는 preview runtime에 주입되지 않습니다.
-const TITLE="모델 크기와 카메라 맞춤";
-const VARIABLE="모델 scale: 1 ↔ 10";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Model Size and Camera Fitting","display002":"Model scale: 1 ↔ 10","display003":"Bounds ","display004":"; camera z "}:{"display001":"모델 크기와 카메라 맞춤","display002":"모델 scale: 1 ↔ 10","display003":"Bounds ","display004":"; camera z "};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  const model=new THREE.Group();scene.add(model);const cube=mesh(new THREE.BoxGeometry(2,1,1));scene.remove(cube);model.add(cube);const box=new THREE.Box3(),size=new THREE.Vector3(),center=new THREE.Vector3();function draw(){model.scale.setScalar(changed?10:1);model.updateMatrixWorld(true);box.setFromObject(model);box.getSize(size);box.getCenter(center);const fit=Math.max(size.y,size.x/camera.aspect)/2/Math.tan(THREE.MathUtils.degToRad(camera.fov/2));camera.position.copy(center).add(new THREE.Vector3(0,0,fit*1.4+size.z/2));camera.near=.01;camera.far=fit*10+100;camera.updateProjectionMatrix();camera.lookAt(center);status.textContent='Bounds '+size.toArray().join(' × ')+'; camera z '+camera.position.z.toFixed(2);}
+  const model=new THREE.Group();scene.add(model);const cube=mesh(new THREE.BoxGeometry(2,1,1));scene.remove(cube);model.add(cube);const box=new THREE.Box3(),size=new THREE.Vector3(),center=new THREE.Vector3();function draw(){model.scale.setScalar(changed?10:1);model.updateMatrixWorld(true);box.setFromObject(model);box.getSize(size);box.getCenter(center);const fit=Math.max(size.y,size.x/camera.aspect)/2/Math.tan(THREE.MathUtils.degToRad(camera.fov/2));camera.position.copy(center).add(new THREE.Vector3(0,0,fit*1.4+size.z/2));camera.near=.01;camera.far=fit*10+100;camera.updateProjectionMatrix();camera.lookAt(center);status.textContent=messages.display003+size.toArray().join(' × ')+messages.display004+camera.position.z.toFixed(2);}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

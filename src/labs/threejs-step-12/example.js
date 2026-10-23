@@ -2,11 +2,12 @@
 // 실험: shadow 범위: 넓은 영역 → 대상 주변 작은 영역
 // 동일 mapSize에서 대상 부근 그림자가 더 세밀해질 수 있습니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="그림자 지도";
-const VARIABLE="shadow 범위: 넓은 영역 ↔ 대상 주변 작은 영역";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Shadow Maps","display002":"shadow coverage: Wide area ↔ Small area around the target","display003":"Shadow extent ±","display004":"; fixed map 512×512"}:{"display001":"그림자 지도","display002":"shadow 범위: 넓은 영역 ↔ 대상 주변 작은 영역","display003":"Shadow extent ±","display004":"; fixed map 512×512"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;keyLight.castShadow=true;keyLight.shadow.mapSize.set(512,512);const ball=mesh(new THREE.SphereGeometry(.8,32,24));ball.castShadow=true;const floor=mesh(new THREE.PlaneGeometry(12,12));floor.rotation.x=-Math.PI/2;floor.position.y=-1;floor.receiveShadow=true;function draw(){const extent=changed?3:15;Object.assign(keyLight.shadow.camera,{left:-extent,right:extent,top:extent,bottom:-extent});keyLight.shadow.camera.updateProjectionMatrix();keyLight.shadow.needsUpdate=true;status.textContent='Shadow extent ±'+extent+'; fixed map 512×512';}
+  renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;keyLight.castShadow=true;keyLight.shadow.mapSize.set(512,512);const ball=mesh(new THREE.SphereGeometry(.8,32,24));ball.castShadow=true;const floor=mesh(new THREE.PlaneGeometry(12,12));floor.rotation.x=-Math.PI/2;floor.position.y=-1;floor.receiveShadow=true;function draw(){const extent=changed?3:15;Object.assign(keyLight.shadow.camera,{left:-extent,right:extent,top:extent,bottom:-extent});keyLight.shadow.camera.updateProjectionMatrix();keyLight.shadow.needsUpdate=true;status.textContent=messages.display003+extent+messages.display004;}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

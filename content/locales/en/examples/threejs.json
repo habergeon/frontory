@@ -1,152 +1,537 @@
 {
   "threejs-step-02": {
-    "sourceHash": "9535ddcc751beb26854eed66966d88169d558776a563591646846c16c0f2421f",
+    "sourceHash": "f3c5ff8d7846d33127d4248b37c79e3ba9e4f9f1d050b4af6eb468425f6fe2a6",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "639c63f3f159555d54fed59e707ed6908a4357e1ed6216b71be487dc8fa77e0c",
+      "values": {
+        "messages.display001": "Renderer and Display Size",
+        "messages.display002": "Viewport width (height 240px): 240px ↔ 400px",
+        "messages.display003": "Aspect ",
+        "messages.display004": "; sphere remains circular",
+        "comments.comment001": "Renderer and Display Size",
+        "comments.comment002": "Experiment: viewport width (height 240px): 240px → 400px",
+        "comments.comment003": "Updating aspect prevents the sphere from stretching into an ellipse.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-03": {
-    "sourceHash": "56f874b9443dd7791e5bf7ea6d023e911064c3d57f62668c387e0ca42a617de6",
+    "sourceHash": "a60c31a135601baaeaaa586595ec7b8364212db4e1203287ec7990572c580111",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "07328c6d2149d7c19286f4fe98d86af2c0bcd9a5b95972723bf5437d2b32fec9",
+      "values": {
+        "messages.display001": "Perspective and Orthographic Projection",
+        "messages.display002": "Camera: PerspectiveCamera ↔ OrthographicCamera",
+        "messages.display003": "Orthographic: equal projected size",
+        "messages.display004": "Perspective: near object appears larger",
+        "comments.comment001": "Perspective and Orthographic Projection",
+        "comments.comment002": "Experiment: Camera: PerspectiveCamera → OrthographicCamera",
+        "comments.comment003": "Cubes at different depths appear the same size on screen.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-04": {
-    "sourceHash": "7abc72e3ec7d928c5e9e5f7de91476a00900bae453771024b0f2b28a859d2a56",
+    "sourceHash": "a9da97bc1caa7eff77ec6e849c48960cd7f02b64bc4b51a9e490aafa6aaf559a",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "580d04947ff3fd79fdc0ce709600d20c82ed0cf2a3fb023d95e1f262d57e3f14",
+      "values": {
+        "messages.display001": "Rotation and Pivots",
+        "messages.display002": "Pivot position: Door center ↔ Door edge",
+        "messages.display003": "Pivot at ",
+        "messages.display004": "; door local x=",
+        "comments.comment001": "Rotation and Pivots",
+        "comments.comment002": "Experiment: Pivot position: Door center → Door edge",
+        "comments.comment003": "The door moves around its hinge instead of rotating around its center.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-05": {
-    "sourceHash": "2881a619e98fe067f6dcba39681fd93e7ba64074df8972a1cb787fac44ce676b",
+    "sourceHash": "8abc5199d91c23f1afd08020b2929499008a46563908ec2be40114275dcac92c",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "73f63b5b8ca5e2fee252b6d4d165816aff18f823aabb956110fdc43ebdc4129b",
+      "values": {
+        "messages.display001": "Buffer Geometry",
+        "messages.display002": "Index order: Counterclockwise ↔ Clockwise",
+        "messages.display003": "Front-face winding: ",
+        "messages.display004": "clockwise (culled)",
+        "messages.display005": "counterclockwise",
+        "comments.comment001": "Buffer Geometry",
+        "comments.comment002": "Experiment: Index order: Counterclockwise → Clockwise",
+        "comments.comment003": "The default front-face classification changes, so the face may disappear.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-06": {
-    "sourceHash": "89117d7d13f422c5cdbf0166a29469df7aeedf3c7213502af68589e04a0daacf",
+    "sourceHash": "666e66537ce60ebca06afa3514e263f4fd1839e306842a68933bf6981c2ff5b7",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "d481e21813dd9e2638b7970bc4db430d50ae6a7a7b1de1d065bd6229e47a6211",
+      "values": {
+        "messages.display001": "Normals and Surface Orientation",
+        "messages.display002": "Vertex sharing: Separate per face ↔ Shared at edges",
+        "messages.display003": "Shared edge vertices: averaged normals",
+        "messages.display004": "Separated face vertices: sharp normals",
+        "comments.comment001": "Normals and Surface Orientation",
+        "comments.comment002": "Experiment: Vertex sharing: Separate per face → Shared at edges",
+        "comments.comment003": "Averaged normals may make edges look smooth.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-07": {
-    "sourceHash": "2061757ef6d378aa97d592317ba5d8229410381e55afa5f935f91a4f89230b01",
+    "sourceHash": "1733a5aab2aceb155c5b60d9b76211f8d9f450eaa05451891a13c6bb04f6b29d",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "0215c374e7c05ed3c14220f38f26a82e201032bf14e5b41aed944dc764b21aa0",
+      "values": {
+        "messages.display001": "Shared Geometry and Cloning",
+        "messages.display002": "Material: Shared reference ↔ Individual cloned materials",
+        "messages.display003": "Only first material cloned",
+        "messages.display004": "Color mutation affects all shared references",
+        "comments.comment001": "Shared Geometry and Cloning",
+        "comments.comment002": "Experiment: Material: Shared reference → Individual cloned materials",
+        "comments.comment003": "Changing one cube’s color does not propagate to the other cubes.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-08": {
-    "sourceHash": "d96ecaa74d7968bd174e73ffb8af3411e9d0e3c4e1eefb4d392850e51152c3d5",
+    "sourceHash": "967ae2361223fea6b22fc77b76033325018ef5e251fdb2f5956cb4dc97f0be9f",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "93f5f4a3eb345cbc5481770d4766a7f229b75e09bfd62c7e3166ab7f8158c384",
+      "values": {
+        "messages.display001": "Light Types and Placement",
+        "messages.display002": "Light type: DirectionalLight ↔ PointLight",
+        "messages.display003": "PointLight: distance attenuation",
+        "messages.display004": "DirectionalLight: parallel illumination",
+        "comments.comment001": "Light Types and Placement",
+        "comments.comment002": "Experiment: Light type: DirectionalLight → PointLight",
+        "comments.comment003": "The surface response to distance and position changes differs.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-09": {
-    "sourceHash": "f973622cbd90b4817eab660192ad50b67c6bb3eb02393ab81e512cb9635bbd56",
+    "sourceHash": "4c664177e0e92b6fe405053e35fad42a8c83b141b7698a8e8a27128f81eb05ee",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "0b33b86727279b1e634be510a2a6bd562fea3771335d27cee628d9ae21c0a9f1",
+      "values": {
+        "messages.display001": "Roughness and Metalness",
+        "messages.display002": "roughness: 0.1 ↔ 0.8",
+        "messages.display003": "Roughness ",
+        "messages.display004": "; columns metalness 0 / .5 / 1. No environment map: metals reflect local lighting only.",
+        "comments.comment001": "Roughness and Metalness",
+        "comments.comment002": "Experiment: roughness: 0.1 → 0.8",
+        "comments.comment003": "Reflected highlights become wider and blurrier.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-10": {
-    "sourceHash": "f42212a8492813a507f18a7413177688a613a3759a3e31685393f775abbd59d4",
+    "sourceHash": "d3bd5738598ac1da1496708bcf839085ad1c4fd0a2c50df6a4d32da31eafa625",
     "values": {
       "note": "Checks UV repeat with a generated checker DataTexture instead of an external image. Extend network TextureLoader error handling in an external project."
+    },
+    "presentation": {
+      "sourceHash": "3d79ec40a3f324680fd6cd6260ba593bc7c104ef7fa2a9a94104ffa43891b628",
+      "values": {
+        "messages.display001": "Textures and UVs",
+        "messages.display002": "repeat: 1,1 ↔ 4,2",
+        "messages.display003": "UV repeat ",
+        "comments.comment001": "Textures and UVs",
+        "comments.comment002": "Experiment: repeat: 1,1 → 4,2",
+        "comments.comment003": "The checker pattern repeats four times horizontally and twice vertically across the surface.",
+        "comments.comment004": "Checks UV repeat with a generated checker DataTexture instead of an external image. Extend network TextureLoader error handling in an external project."
+      }
     }
   },
   "threejs-step-11": {
-    "sourceHash": "de28b0eed295575d0d26d83c6155b680204301ed8cf8cb986748e095f0e7725b",
+    "sourceHash": "d47f7601f62282984bbb37a8b3863e7ee22c1cee25c56fdcee40252b48af95c5",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "7aaea76500289d70a72369b04b2daa08a8638381bdc57dd3661a16b007f01335",
+      "values": {
+        "messages.display001": "Color Spaces and Output",
+        "messages.display002": "Color texture colorSpace: SRGBColorSpace ↔ NoColorSpace",
+        "messages.display003": "Color texture interpretation: ",
+        "comments.comment001": "Color Spaces and Output",
+        "comments.comment002": "Experiment: Color texture colorSpace: SRGBColorSpace → NoColorSpace",
+        "comments.comment003": "The interpretation of brightness in the same image may change.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-12": {
-    "sourceHash": "8971dd91b6e35145b063026e858d829b13a1e1adf39f20705557a741dadf7237",
+    "sourceHash": "8a29ba5314e1d219c4e197dc390f1f1e8b01933a7088b9a22bc90f6fa140d413",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "19bb606a7b67ce9e65b874c217037a8964f52c5c48c4f3d289b71bb463a3577d",
+      "values": {
+        "messages.display001": "Shadow Maps",
+        "messages.display002": "shadow coverage: Wide area ↔ Small area around the target",
+        "messages.display003": "Shadow extent ±",
+        "messages.display004": "; fixed map 512×512",
+        "comments.comment001": "Shadow Maps",
+        "comments.comment002": "Experiment: shadow coverage: Wide area → Small area around the target",
+        "comments.comment003": "With the same mapSize, shadows near the target may become more detailed.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-13": {
-    "sourceHash": "5ce8222607c27c475a6b2f656450738fda930d0d3344215444ab0d0166ba378d",
+    "sourceHash": "8e7ae537affa165897d7d034673c15dc14bcd35934771d29d625e0d0afd31e6c",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "2668575516773c415cb747ccc12a57c8649ad5c5cc7f369483e33ac78fb91d12",
+      "values": {
+        "messages.display001": "Normalized Coordinates and Selection",
+        "messages.display002": "Pointer position: Canvas center ↔ Top left",
+        "messages.display003": "NDC ",
+        "messages.display004": "miss",
+        "messages.display005": "Click a cube; coordinates are normalized from this canvas bounds",
+        "comments.comment001": "Normalized Coordinates and Selection",
+        "comments.comment002": "Experiment: Pointer position: Canvas center → Top left",
+        "comments.comment003": "NDC changes approximately from 0,0 to -1,1.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-15": {
-    "sourceHash": "bac52cf3100762cfd2dfb1257716778ecbc317867e423b2d5db5a6008daed6f7",
+    "sourceHash": "c1d07aa7d2cb29fb08bf05037877622e511c189c67ae62a9254c5808fb75e098",
     "values": {
       "note": "Reproduces Box3 framing with basic shapes. An arbitrary glTF loader is not injected into the preview runtime."
+    },
+    "presentation": {
+      "sourceHash": "dfe5dcbd1208c3e75c1e588b4613bfeb784ff702103cae5c5f2d1c3ead10ada8",
+      "values": {
+        "messages.display001": "Model Size and Camera Fitting",
+        "messages.display002": "Model scale: 1 ↔ 10",
+        "messages.display003": "Bounds ",
+        "messages.display004": "; camera z ",
+        "comments.comment001": "Model Size and Camera Fitting",
+        "comments.comment002": "Experiment: Model scale: 1 → 10",
+        "comments.comment003": "After framing, the model occupies a similar proportion of the screen.",
+        "comments.comment004": "Reproduces Box3 framing with basic shapes. An arbitrary glTF loader is not injected into the preview runtime."
+      }
     }
   },
   "threejs-step-16": {
-    "sourceHash": "b09a79f3c595866a79f5bb5c193865855794374b891ba4e24a30a8fe32d5b1bb",
+    "sourceHash": "0c9cd6e3471bd3fd3aa27321d5344bff6ab1ed0351487f156cb4ab844b347702",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "adc10c8f0ed5740a4dce8d43f329d55391ea0b0ef79547be7f9296e727eb0142",
+      "values": {
+        "messages.display001": "Orbit Controls and On-Demand Rendering",
+        "messages.display002": "Rendering policy: Continuous loop ↔ Request on change",
+        "messages.display003": "Render calls ",
+        "messages.display004": "; drag to orbit",
+        "messages.display005": "Continuous render calls ",
+        "comments.comment001": "Orbit Controls and On-Demand Rendering",
+        "comments.comment002": "Experiment: Rendering policy: Continuous loop → Request on change",
+        "comments.comment003": "Unnecessary render calls decrease in a static scene.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-17": {
-    "sourceHash": "7561570990640725af132852016283ea02fce07bd5ae94fe1678736478eef24c",
+    "sourceHash": "cd2668698e3907ebbe1bdd73b68c4814a008f68c3cf3e9ea919da911cbb4d071",
     "values": {
       "note": "Runs a procedurally created AnimationClip and AnimationMixer. Extend glTF clip-list loading in an external project with GLTFLoader."
+    },
+    "presentation": {
+      "sourceHash": "fde02ea0b4849123dbc19f732329a3bde3765c2c8440ed7931b930ebbcd6317b",
+      "values": {
+        "messages.display001": "Clip Animation",
+        "messages.display002": "timeScale: 1 ↔ 0.5",
+        "messages.display003": "Procedural AnimationClip: Turn; mixer timeScale ",
+        "comments.comment001": "Clip Animation",
+        "comments.comment002": "Experiment: timeScale: 1 → 0.5",
+        "comments.comment003": "The same clip plays at half speed.",
+        "comments.comment004": "Runs a procedurally created AnimationClip and AnimationMixer. Extend glTF clip-list loading in an external project with GLTFLoader."
+      }
     }
   },
   "threejs-step-18": {
-    "sourceHash": "051f1e5fa9f76c2b9674689fbc8086ae05b0182c57ffa27abff1504afa174333",
+    "sourceHash": "b1ff7ece0041b8967029ad9142d7f0a85bd820434d19a2828d93e4c54635b3f9",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "6475da39183cd1b5b0dd07f2aa60d87a3138890e98a723a5cb22b86689a72e76",
+      "values": {
+        "messages.display001": "Transparency and Depth",
+        "messages.display002": "depthWrite: true ↔ false",
+        "messages.display003": "depthWrite ",
+        "messages.display004": "; intersecting transparency still has sorting limitations",
+        "comments.comment001": "Transparency and Depth",
+        "comments.comment002": "Experiment: depthWrite: true → false",
+        "comments.comment003": "Occlusion changes, but not every transparency-sorting problem is solved.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-19": {
-    "sourceHash": "cd3fe8890a2a4dc7270728df22a197ba0f66c276acf92f0d77e768f8618e4490",
+    "sourceHash": "bee694dd11f33aadfb3fdf3304fa1ed418478e5370f12d3ee0550c942082ca5a",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "0d9f3200f103b06082eec391bd244de6030d2b4f0e86558b582b6722db4921e0",
+      "values": {
+        "messages.display001": "Instancing Basics",
+        "messages.display002": "Representation: Individual Mesh objects ↔ InstancedMesh",
+        "messages.display003": "Previous render calls ",
+        "messages.display004": "500 Mesh objects",
+        "comments.comment001": "Instancing Basics",
+        "comments.comment002": "Experiment: Representation: Individual Mesh objects → InstancedMesh",
+        "comments.comment003": "Under the same material conditions, draw calls decrease.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-20": {
-    "sourceHash": "f12d51fdcfb22565ab2b4979bfe04d5c9b90f2d807255ecfde7455b9ce9a2458",
+    "sourceHash": "afcdb6f69f427c9d37f1dc61ca0c8a6555d5879dd83155deba3d7d1c310c9d6a",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "5a4c5428e428f90851c56a03bf3b72321a9e11cd21f4125d5c37b9c1ac1cc8ae",
+      "values": {
+        "messages.display001": "Instance Selection and Updates",
+        "messages.display002": "Selection target: First instance ↔ Last instance",
+        "messages.display003": "instanceId ",
+        "messages.display004": " → data id item-",
+        "comments.comment001": "Instance Selection and Updates",
+        "comments.comment002": "Experiment: Selection target: First instance → Last instance",
+        "comments.comment003": "Only that item is highlighted and its data id matches.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-21": {
-    "sourceHash": "0bf180470ebda2fa808bc9c9b4c44a373c7f21d3992d6498bc4dc248fabf6438",
+    "sourceHash": "32a0615b4fff147d52c44b6b4a491a8bd44fd99cde8e3de2f9e51817dafc6c8e",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "cdfaedba2a03c76fd463137684713ed8883084372c620a3c3495083f2cfcfdd5",
+      "values": {
+        "messages.display001": "Offscreen Objects and Level of Detail",
+        "messages.display002": "Distant sphere segments: 64 ↔ 12",
+        "messages.display003": "Far sphere triangles ",
+        "messages.display004": "; compare silhouette at its distance",
+        "comments.comment001": "Offscreen Objects and Level of Detail",
+        "comments.comment002": "Experiment: Distant sphere segments: 64 → 12",
+        "comments.comment003": "The triangle count decreases, but silhouette quality varies with distance.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-22": {
-    "sourceHash": "78700b063e68ae04c1111491b7985f4b1931fa6dd8bbcb51fcb21e566aeef12a",
+    "sourceHash": "0cc616d930a6af9a5091414dd6f52d4c1e887068654df62b725d3da0994caa70",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "453daa0807d2629ac220cfdf1c29acf027f9c5ae533afb6c5a3f1bbc177227d8",
+      "values": {
+        "messages.display001": "Render Targets and Minimap",
+        "messages.display002": "Target size: 256×256 ↔ 512×512",
+        "messages.display003": "Render target ",
+        "messages.display004": "; top camera inset",
+        "comments.comment001": "Render Targets and Minimap",
+        "comments.comment002": "Experiment: Target size: 256×256 → 512×512",
+        "comments.comment003": "Minimap sharpness and the number of processed pixels both increase.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-23": {
-    "sourceHash": "de8ebf04e1429d77de18c8984f4dec452c0ccfba184287f43cd9b27d112e190a",
+    "sourceHash": "2a128e1b1f861a1be04b84cf4adba1c64fd61f08c4bb3576e4d6b3332463873c",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "dcad666e0e84c0c6a500da888d0702ac261ce231d80187bbd91b325581e3b1df",
+      "values": {
+        "messages.display001": "Resource Ownership Ledger",
+        "messages.display002": "Removal scope: One user only ↔ All users",
+        "messages.display003": "Release users",
+        "messages.display004": "0 users: geometry and material disposed",
+        "messages.display005": " user remains: shared resources retained",
+        "messages.display006": "Resource ledger: 1 geometry, 1 material, ",
+        "messages.display007": " users",
+        "comments.comment001": "Resource Ownership Ledger",
+        "comments.comment002": "Experiment: Removal scope: One user only → All users",
+        "comments.comment003": "Shared resources must be released after the last user finishes.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-24": {
-    "sourceHash": "cc0f5fb4345ed59066bc10a3d1eec171ff0ca62245a3e85f1e4614fdb527f19d",
+    "sourceHash": "4e045d093a391c75a2328fc9448858101312f3f7faf6f324159216fe2f0923bf",
     "values": {
       "note": "Reproduces reverse completion order and disposal of stale results with delayed procedural geometry. Network model loading itself is not included."
+    },
+    "presentation": {
+      "sourceHash": "226a32d494a985ecb7cd04aa22ed53811e17d530a34ac28c431424c93f449f30",
+      "values": {
+        "messages.display001": "Asynchronous Scene Replacement",
+        "messages.display002": "Completion order: Request order ↔ Reverse order",
+        "messages.display003": "Requested ",
+        "messages.display004": "Committed current request ",
+        "messages.display005": "; token ",
+        "messages.display006": "Request A then B",
+        "messages.display007": "Synthetic async geometry loader; toggle completion order then request A/B",
+        "comments.comment001": "Asynchronous Scene Replacement",
+        "comments.comment002": "Experiment: Completion order: Request order → Reverse order",
+        "comments.comment003": "A result that does not match the current request does not overwrite the scene.",
+        "comments.comment004": "Reproduces reverse completion order and disposal of stale results with delayed procedural geometry. Network model loading itself is not included."
+      }
     }
   },
   "threejs-step-25": {
-    "sourceHash": "8fee6076a0152b79f6f17d0ea962471081bfe8f8cbd0e5d52aa2979fab3b9894",
+    "sourceHash": "6900a3ace61464f254284a137aae45c9295b0d27e197f4698886047c72bdc35a",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "2c3c281f38c9a3791f98ef8f8e47d94a2741eafa7cc3f8d991d56fca3ab763c0",
+      "values": {
+        "messages.display001": "HTML Controls and Accessibility",
+        "messages.display002": "Input: Pointer ↔ Keyboard only",
+        "messages.display003": "Selected ",
+        "messages.display004": "Select ",
+        "messages.display005": "HTML buttons and raycast call the same selection command",
+        "comments.comment001": "HTML Controls and Accessibility",
+        "comments.comment002": "Experiment: Input: Pointer → Keyboard only",
+        "comments.comment003": "The same objects and camera targets can be selected.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-26": {
-    "sourceHash": "674188ca9f41eba1c310c37f3415cb48d56e0bfcb173aa9ed366715f5db117db",
+    "sourceHash": "9d7b79eb26e370e62ea2661be11d3482e490c442cae175b631a014dbb6499f26",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "44c7c4d73f857d1c87fa8d855e528b22d8d17b44c6c4100ae55f6d7782b028f6",
+      "values": {
+        "messages.display001": "Render Statistics and Profiling",
+        "messages.display002": "Render passes: Main only ↔ Main and minimap",
+        "messages.display003": "Frame draw calls ",
+        "messages.display004": "; triangles ",
+        "messages.display005": " (not VRAM or GPU time)",
+        "comments.comment001": "Render Statistics and Profiling",
+        "comments.comment002": "Experiment: Render passes: Main only → Main and minimap",
+        "comments.comment003": "The total calls and triangles for one frame may increase.",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "threejs-step-27": {
-    "sourceHash": "6b265218ae1e1f9c32064b70fd29531f7f779d13d4214370f1be3477880845d8",
+    "sourceHash": "ce8e0cf55f612410f10d242d4e49e823a414ab50734c11f506f977cd98472bfe",
     "values": {
       "note": "Runs selection, rebuilding, JSON, and rotation lifetimes in a basic-shape inspector. glTF loading and minimap integration are external capstone extensions."
+    },
+    "presentation": {
+      "sourceHash": "ffe370224791461048da2820b82429f754a554cdd14f326921793a0686b1c9d4",
+      "values": {
+        "messages.display001": "Integrating the Scene Inspector",
+        "messages.display002": "Run count: 1 run ↔ 5 runs",
+        "messages.display003": "Rebuild scene",
+        "messages.display004": "Select next",
+        "messages.display005": "Export state",
+        "messages.display006": "Scene builds ",
+        "messages.display007": "; selected ",
+        "messages.display008": "; one render loop retained",
+        "comments.comment001": "Integrating the Scene Inspector",
+        "comments.comment002": "Experiment: Run count: 1 run → 5 runs",
+        "comments.comment003": "With correct lifetime management, events and active loops do not accumulate.",
+        "comments.comment004": "Runs selection, rebuilding, JSON, and rotation lifetimes in a basic-shape inspector. glTF loading and minimap integration are external capstone extensions."
+      }
+    }
+  },
+  "threejs-01": {
+    "presentation": {
+      "sourceHash": "2178784765a916f2a0060102739b63ca3b0bd7bf45d08ea1e44ba78a713da5cb",
+      "values": {
+        "messages.display001": "local: ",
+        "messages.display002": "\nworld = parent.matrixWorld × local: ",
+        "messages.display003": "Three.js learning scene",
+        "comments.comment001": "Assignment: change the parent rotation and the child’s local coordinates, then predict the world coordinates.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as you edit it."
+      }
+    }
+  },
+  "threejs-02": {
+    "presentation": {
+      "sourceHash": "5aa622e432b44749da25c8bef375da2805ec536733b925bb0137fa54944e86c4",
+      "values": {
+        "messages.display001": "Load malformed model",
+        "messages.display002": "Load valid model",
+        "messages.display003": "Loading embedded JSON…",
+        "messages.display004": "Loaded. Click a shape to select.",
+        "messages.display005": "Load failed: invalid JSON. Existing scene remains usable; retry valid model.",
+        "messages.display006": "box",
+        "messages.display007": "sphere",
+        "messages.display008": "Selected ",
+        "messages.display009": " · geometry and material are separate",
+        "messages.display010": "Selection cleared",
+        "comments.comment001": "An embedded JSON model exercises asynchronous loading without network access."
+      }
+    }
+  },
+  "threejs-03": {
+    "presentation": {
+      "sourceHash": "af9a7743bbeb1552c87f22c73bf822bf5571f4ed7fadab7ebee90d629c5da6a5",
+      "values": {
+        "messages.display001": "Switch to instancing",
+        "messages.display002": "Delete resources",
+        "messages.display003": "Rebuild",
+        "messages.display004": "100 Meshes",
+        "messages.display005": " · calls ",
+        "messages.display006": "\ngeometries ",
+        "messages.display007": " · textures ",
+        "messages.display008": " · rebuilds ",
+        "messages.display009": "\nCounts are renderer resources, not VRAM.",
+        "messages.display010": "Switch to individual meshes",
+        "comments.comment001": "renderer.info reports draw calls/resources, not GPU VRAM or GPU elapsed time."
+      }
     }
   }
 }

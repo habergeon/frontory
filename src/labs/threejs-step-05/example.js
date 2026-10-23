@@ -2,11 +2,12 @@
 // 실험: 인덱스 순서: 반시계 → 시계
 // 기본 앞면 판단이 바뀌어 면이 사라질 수 있습니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="버퍼 지오메트리";
-const VARIABLE="인덱스 순서: 반시계 ↔ 시계";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Buffer Geometry","display002":"Index order: Counterclockwise ↔ Clockwise","display003":"Front-face winding: ","display004":"clockwise (culled)","display005":"counterclockwise"}:{"display001":"버퍼 지오메트리","display002":"인덱스 순서: 반시계 ↔ 시계","display003":"Front-face winding: ","display004":"clockwise (culled)","display005":"counterclockwise"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  const geometry=track(new THREE.BufferGeometry());geometry.setAttribute('position',new THREE.BufferAttribute(new Float32Array([-1,-1,0,1,-1,0,1,1,0,-1,1,0]),3));const plane=mesh(geometry,track(new THREE.MeshBasicMaterial({color:'#2563eb',side:THREE.FrontSide})));camera.position.set(0,0,5);camera.lookAt(0,0,0);function draw(){geometry.setIndex(changed?[0,2,1,0,3,2]:[0,1,2,0,2,3]);geometry.computeVertexNormals();status.textContent='Front-face winding: '+(changed?'clockwise (culled)':'counterclockwise');}
+  const geometry=track(new THREE.BufferGeometry());geometry.setAttribute('position',new THREE.BufferAttribute(new Float32Array([-1,-1,0,1,-1,0,1,1,0,-1,1,0]),3));const plane=mesh(geometry,track(new THREE.MeshBasicMaterial({color:'#2563eb',side:THREE.FrontSide})));camera.position.set(0,0,5);camera.lookAt(0,0,0);function draw(){geometry.setIndex(changed?[0,2,1,0,3,2]:[0,1,2,0,2,3]);geometry.computeVertexNormals();status.textContent=messages.display003+(changed?messages.display004:messages.display005);}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

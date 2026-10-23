@@ -2,11 +2,12 @@
 // 실험: 포인터 위치: 캔버스 중앙 → 왼쪽 상단
 // NDC는 대략 0,0에서 -1,1로 바뀝니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="정규화 좌표와 선택";
-const VARIABLE="포인터 위치: 캔버스 중앙 ↔ 왼쪽 상단";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Normalized Coordinates and Selection","display002":"Pointer position: Canvas center ↔ Top left","display003":"NDC ","display004":"miss","display005":"Click a cube; coordinates are normalized from this canvas bounds"}:{"display001":"정규화 좌표와 선택","display002":"포인터 위치: 캔버스 중앙 ↔ 왼쪽 상단","display003":"NDC ","display004":"miss","display005":"Click a cube; coordinates are normalized from this canvas bounds"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  const cubes=[-1.5,0,1.5].map((x,i)=>{const m=mesh(new THREE.BoxGeometry());m.position.x=x;m.userData.id='cube-'+i;return m;});const raycaster=new THREE.Raycaster();on(renderer.domElement,'pointerdown',e=>{const r=renderer.domElement.getBoundingClientRect(),ndc=new THREE.Vector2((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);scene.updateMatrixWorld(true);raycaster.setFromCamera(ndc,camera);const hit=raycaster.intersectObjects(cubes)[0];cubes.forEach(m=>m.material.color.set(m===hit?.object?'#f97316':'#2563eb'));status.textContent='NDC '+ndc.toArray().map(v=>v.toFixed(2)).join(', ')+' / '+(hit?.object.userData.id||'miss');});function draw(){status.textContent='Click a cube; coordinates are normalized from this canvas bounds';}
+  const cubes=[-1.5,0,1.5].map((x,i)=>{const m=mesh(new THREE.BoxGeometry());m.position.x=x;m.userData.id='cube-'+i;return m;});const raycaster=new THREE.Raycaster();on(renderer.domElement,'pointerdown',e=>{const r=renderer.domElement.getBoundingClientRect(),ndc=new THREE.Vector2((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);scene.updateMatrixWorld(true);raycaster.setFromCamera(ndc,camera);const hit=raycaster.intersectObjects(cubes)[0];cubes.forEach(m=>m.material.color.set(m===hit?.object?'#f97316':'#2563eb'));status.textContent=messages.display003+ndc.toArray().map(v=>v.toFixed(2)).join(', ')+' / '+(hit?.object.userData.id||messages.display004);});function draw(){status.textContent=messages.display005;}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

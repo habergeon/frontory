@@ -2,11 +2,12 @@
 // 실험: 재질: 공유 참조 → clone된 개별 재질
 // 한 큐브의 색 수정이 다른 큐브에 전파되지 않습니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="공유 지오메트리와 복제";
-const VARIABLE="재질: 공유 참조 ↔ clone된 개별 재질";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Shared Geometry and Cloning","display002":"Material: Shared reference ↔ Individual cloned materials","display003":"Only first material cloned","display004":"Color mutation affects all shared references"}:{"display001":"공유 지오메트리와 복제","display002":"재질: 공유 참조 ↔ clone된 개별 재질","display003":"Only first material cloned","display004":"Color mutation affects all shared references"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  const geometry=track(new THREE.BoxGeometry()),shared=track(new THREE.MeshStandardMaterial({color:'#2563eb'})),individual=track(shared.clone());const cubes=[-1.5,0,1.5].map(x=>{const m=mesh(geometry,shared);m.position.x=x;return m;});function draw(){shared.color.set('#2563eb');individual.color.set('#f97316');cubes[0].material=changed?individual:shared;if(!changed)cubes[0].material.color.set('#f97316');status.textContent=changed?'Only first material cloned':'Color mutation affects all shared references';}
+  const geometry=track(new THREE.BoxGeometry()),shared=track(new THREE.MeshStandardMaterial({color:'#2563eb'})),individual=track(shared.clone());const cubes=[-1.5,0,1.5].map(x=>{const m=mesh(geometry,shared);m.position.x=x;return m;});function draw(){shared.color.set('#2563eb');individual.color.set('#f97316');cubes[0].material=changed?individual:shared;if(!changed)cubes[0].material.color.set('#f97316');status.textContent=changed?messages.display003:messages.display004;}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

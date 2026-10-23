@@ -2,11 +2,12 @@
 // 실험: 렌더 패스: 메인만 → 메인과 미니맵
 // 한 프레임의 호출·삼각형 합계가 증가할 수 있습니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="렌더 통계와 프로파일";
-const VARIABLE="렌더 패스: 메인만 ↔ 메인과 미니맵";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Render Statistics and Profiling","display002":"Render passes: Main only ↔ Main and minimap","display003":"Frame draw calls ","display004":"; triangles ","display005":" (not VRAM or GPU time)"}:{"display001":"렌더 통계와 프로파일","display002":"렌더 패스: 메인만 ↔ 메인과 미니맵","display003":"Frame draw calls ","display004":"; triangles ","display005":" (not VRAM or GPU time)"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  for(let i=0;i<8;i++){const cube=mesh(new THREE.BoxGeometry(.6,.6,.6));cube.position.set((i%4-1.5),Math.floor(i/4)-.5,0);}const top=new THREE.PerspectiveCamera(50,1,.1,100);top.position.set(0,8,0);top.lookAt(0,0,0);renderer.info.autoReset=false;renderEveryFrame=false;tick=()=>{renderer.info.reset();renderer.setViewport(0,0,viewport.clientWidth,viewport.clientHeight);renderer.render(scene,camera);if(changed){renderer.autoClear=false;renderer.clearDepth();renderer.setViewport(0,0,100,100);renderer.render(scene,top);renderer.autoClear=true;}status.textContent='Frame draw calls '+renderer.info.render.calls+'; triangles '+renderer.info.render.triangles+' (not VRAM or GPU time)';};function draw(){}
+  for(let i=0;i<8;i++){const cube=mesh(new THREE.BoxGeometry(.6,.6,.6));cube.position.set((i%4-1.5),Math.floor(i/4)-.5,0);}const top=new THREE.PerspectiveCamera(50,1,.1,100);top.position.set(0,8,0);top.lookAt(0,0,0);renderer.info.autoReset=false;renderEveryFrame=false;tick=()=>{renderer.info.reset();renderer.setViewport(0,0,viewport.clientWidth,viewport.clientHeight);renderer.render(scene,camera);if(changed){renderer.autoClear=false;renderer.clearDepth();renderer.setViewport(0,0,100,100);renderer.render(scene,top);renderer.autoClear=true;}status.textContent=messages.display003+renderer.info.render.calls+messages.display004+renderer.info.render.triangles+messages.display005;};function draw(){}
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

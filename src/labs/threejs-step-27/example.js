@@ -2,11 +2,12 @@
 // 실험: 실행 횟수: 1회 → 5회
 // 수명 관리가 맞으면 이벤트와 활성 루프가 누적되지 않습니다
 // 기본 도형 검사기의 선택·재생성·JSON·회전 수명을 실행합니다. glTF 로딩과 미니맵 통합은 외부 캡스톤 확장입니다.
-const TITLE="장면 검사기 통합";
-const VARIABLE="실행 횟수: 1회 ↔ 5회";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Integrating the Scene Inspector","display002":"Run count: 1 run ↔ 5 runs","display003":"Rebuild scene","display004":"Select next","display005":"Export state","display006":"Scene builds ","display007":"; selected ","display008":"; one render loop retained"}:{"display001":"장면 검사기 통합","display002":"실행 횟수: 1회 ↔ 5회","display003":"Rebuild scene","display004":"Select next","display005":"Export state","display006":"Scene builds ","display007":"; selected ","display008":"; one render loop retained"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -24,7 +25,7 @@ export function mount(context){
   function resize(){const w=Math.max(1,viewport.clientWidth),h=Math.max(1,viewport.clientHeight);renderer.setSize(w,h);if(camera.isPerspectiveCamera)camera.aspect=w/h;camera.updateProjectionMatrix();}resize();
   let tick=(_dt,_time)=>{},renderEveryFrame=true;
   disposers.push(()=>{renderer.setAnimationLoop(null);resources.forEach(resource=>resource.dispose());scene.traverse(o=>{if(o.isLight&&o.dispose)o.dispose();});renderer.dispose();renderer.forceContextLoss();});
-  let objects=[],selected=0,runs=0;function rebuild(){for(let i=0;i<(changed?5:1);i++){objects.forEach(o=>{scene.remove(o);o.geometry.dispose();o.material.dispose();});objects=[-1,1].map(x=>{const o=mesh(new THREE.BoxGeometry());o.position.x=x;return o;});runs++;}draw();}button('Rebuild scene',rebuild);button('Select next',()=>{selected=1-selected;draw();});button('Export state',()=>status.textContent=JSON.stringify(objects.map((o,i)=>({id:i,x:o.position.x,selected:i===selected}))));function draw(){objects.forEach((o,i)=>o.material.color.set(i===selected?'#f97316':'#2563eb'));status.textContent='Scene builds '+runs+'; selected '+selected+'; one render loop retained';}rebuild();tick=dt=>{if(objects[selected])objects[selected].rotation.y+=dt*.5;};
+  let objects=[],selected=0,runs=0;function rebuild(){for(let i=0;i<(changed?5:1);i++){objects.forEach(o=>{scene.remove(o);o.geometry.dispose();o.material.dispose();});objects=[-1,1].map(x=>{const o=mesh(new THREE.BoxGeometry());o.position.x=x;return o;});runs++;}draw();}button(messages.display003,rebuild);button(messages.display004,()=>{selected=1-selected;draw();});button(messages.display005,()=>status.textContent=JSON.stringify(objects.map((o,i)=>({id:i,x:o.position.x,selected:i===selected}))));function draw(){objects.forEach((o,i)=>o.material.color.set(i===selected?'#f97316':'#2563eb'));status.textContent=messages.display006+runs+messages.display007+selected+messages.display008;}rebuild();tick=dt=>{if(objects[selected])objects[selected].rotation.y+=dt*.5;};
   draw();loop((dt,time)=>{tick(dt,time);if(renderEveryFrame)renderer.render(scene,camera);});
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

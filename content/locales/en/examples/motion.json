@@ -1,152 +1,455 @@
 {
   "motion-step-02": {
-    "sourceHash": "41a1291e32cbea6ebf3f167e614ce51dc18987400b06ffd1bf2f13d262e33918",
+    "sourceHash": "32618d95fba2393ee023de78ad43900ea9a9abde55711de952474c0e4e2a5ee3",
     "values": {
       "note": "Interactive Initial and Animate experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "5f70e64a8086d6d79e63a16edfe216adb5d2f331b63623b946623ca1ea56e4b8",
+      "values": {
+        "messages.display001": "Initial and Animate",
+        "messages.display002": "Initial / First appearance",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Initial → animate",
+        "comments.comment001": "motion-step-02: Initial and Animate"
+      }
     }
   },
   "motion-step-03": {
-    "sourceHash": "ca1818b9bb54ffb2fda03af67d4848475368861e1b89470b3cbeb5c5f59c0cb5",
+    "sourceHash": "c83aeb622da3dd77eb09da9226053dc4cfd0e9284f37c1f999991b50a35ff22a",
     "values": {
       "note": "Interactive Configuring Transition experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "fadaea0f869d636c311e03fd3318423a9020928320abb1d580d6c75a68fa2055",
+      "values": {
+        "messages.display001": "Configuring Transition",
+        "messages.display002": "Tween / Per-property settings",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Per-property",
+        "comments.comment001": "motion-step-03: Configuring Transition"
+      }
     }
   },
   "motion-step-04": {
-    "sourceHash": "08e8d576d85e2ececba0a5e9930482d0e58687cc9834054d162875cde360392d",
+    "sourceHash": "c36df77d3b2085f27300113e97583be32b0b15f71ea2c0c67baef0b9a573fed9",
     "values": {
       "note": "Interactive Physical Spring Parameters experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "cdbb8e8f9931f83c5eb8e31f09ef03dcd36dfe325a8533ef459908ef2adb6c93",
+      "values": {
+        "messages.display001": "Physical Spring Parameters",
+        "messages.display002": "Stiffness / Damping",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Spring",
+        "comments.comment001": "motion-step-04: Physical Spring Parameters"
+      }
     }
   },
   "motion-step-05": {
-    "sourceHash": "fdd9f51b7c28f98dd7e4d6ecc0f60e58063fd5431d0f666bfc3e47a1ad7ce4c8",
+    "sourceHash": "ffc893accd4a5e6ab270867da11bf8fc22935ebc800b62114371abc74c064639",
     "values": {
       "note": "Interactive Keyframes experiment with resource cleanup."
+    },
+    "presentation": {
+      "sourceHash": "c4c87a37606478d15325b1848dd212ee96b5b3fb22f0386fedc41fff6a0fe944",
+      "values": {
+        "messages.display001": "Keyframes",
+        "messages.display002": "Keyframes / Times",
+        "messages.display003": "Toggle / replay",
+        "comments.comment001": "motion-step-05: Keyframes"
+      }
     }
   },
   "motion-step-06": {
-    "sourceHash": "06e345f3eedd347555a957b11c60a68113267a7da0092730f1bbc206f2b57d18",
+    "sourceHash": "e09703aa117c3c8f5174cfbefdb429a799434cfe8b948ae680bed6e6379746d6",
     "values": {
       "note": "Interactive Variants experiment with resource cleanup."
+    },
+    "presentation": {
+      "sourceHash": "d3d9ccb805516fd202d0097b39e25c1f5e0baee0469917939243081de197de62",
+      "values": {
+        "messages.display001": "Variants",
+        "messages.display002": "Named states / Propagation",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Child ",
+        "comments.comment001": "motion-step-06: Variants"
+      }
     }
   },
   "motion-step-07": {
-    "sourceHash": "17afee1cff2f83b23884409ca139e1e3fe73b0fdaeed75fb200c40b81befced4",
+    "sourceHash": "d4d255bcb417cdde35fe467aeb22fc9175b3878b5f5f700ed711ed5c34897e98",
     "values": {
       "note": "Interactive Child Entrance Order experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "f65377a7a330f0966e1aea6f7db80e57ec0a7e8892a22e093a1cebaa40742086",
+      "values": {
+        "messages.display001": "Child Entrance Order",
+        "messages.display002": "Orchestration / Stagger",
+        "messages.display003": "Toggle / replay",
+        "comments.comment001": "motion-step-07: Child Entrance Order"
+      }
     }
   },
   "motion-step-08": {
-    "sourceHash": "cf21aeb0fa8c85499c8a719ef25133548fb980fe72ccd413495556bbafaec5c7",
+    "sourceHash": "9b12c2812261205c9c6e86a806e093af556fd6c0df607a25963584025d7970f1",
     "values": {
       "note": "Interactive Measuring Layout experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "6578b946fb2a7213a8ebcb0bc833afa8e28921bf0a43521c0ac697e677a2dec5",
+      "values": {
+        "messages.display001": "Measuring Layout",
+        "messages.display002": "Layout / Transform interpolation",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Measure layout",
+        "comments.comment001": "motion-step-08: Measuring Layout"
+      }
     }
   },
   "motion-step-09": {
-    "sourceHash": "a86b545e2354df11a81274d1601e7e0c69b1669b2505317564900d5a11489727",
+    "sourceHash": "e5fa721dd236080e413ae2172a2e5c847dfc734a54dafe242ca01386a2b30f8f",
     "values": {
       "note": "Interactive Stable Keys experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "776ce1ef2b2add08a296c18b51d7c63a99fa903dbf4e0efa16ac6b7ffd734a57",
+      "values": {
+        "messages.display001": "Stable Keys",
+        "messages.display002": "Identity / Local state",
+        "messages.display003": "Toggle / replay",
+        "comments.comment001": "motion-step-09: Stable Keys"
+      }
     }
   },
   "motion-step-10": {
-    "sourceHash": "2872038eef38d705132b6a8de433135d365289e70703a71fdc23266b14e160f5",
+    "sourceHash": "9b115f037ce67ba4dacbc4214c7862849c306f46a02feb3268b3ed6958695b7b",
     "values": {
       "note": "Interactive AnimatePresence Basics experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "648749e75c87faf0af32719cf466c77ecc31b5eedd04704787a7f3a7e17040cc",
+      "values": {
+        "messages.display001": "AnimatePresence Basics",
+        "messages.display002": "Presence / Boundary placement",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Exit keeps DOM alive",
+        "comments.comment001": "motion-step-10: AnimatePresence Basics"
+      }
     }
   },
   "motion-step-11": {
-    "sourceHash": "393d7fb340a4f3a1d827a74b900509c5d6b74ec0f3c6b735bb46c0edf359bd63",
+    "sourceHash": "f3b2113d7512b0d1c013c2449efb190470870aaafa10f7a20b7e38b532c22e0d",
     "values": {
       "note": "Interactive Presence Modes experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "464a8d3fabed3644c1fed28f45aadc1420dcd264fea4c73cc2e74f2d44910fc6",
+      "values": {
+        "messages.display001": "Presence Modes",
+        "messages.display002": "Concurrent transitions / Sequential transitions",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Sequential ",
+        "comments.comment001": "motion-step-11: Presence Modes"
+      }
     }
   },
   "motion-step-12": {
-    "sourceHash": "fbc9d13c1d7b9b2ca46aec3926e41a7d6eb3746e704e4d1fd2636cb63c926476",
+    "sourceHash": "1d3c47c2ed467111314af5f0115799c73dd4f4cb08469cf258f8fbcc2f67741b",
     "values": {
       "note": "Interactive Sharing LayoutId experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "210292d9cee3040aa334f6906f17c9f9e1c5401689d4d64e22672b765e317518",
+      "values": {
+        "messages.display001": "Sharing LayoutId",
+        "messages.display002": "Visual connection / Separating regions",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Shared",
+        "comments.comment001": "motion-step-12: Sharing LayoutId"
+      }
     }
   },
   "motion-step-13": {
-    "sourceHash": "0e3d89d24982bb263d5b944205ce9f9be3986372f99f54e6e8defff8b40326e3",
+    "sourceHash": "742c66d5cd9d8ae1e645a346c8ea231093376c862681ca772166245d6598c120",
     "values": {
-      "note": "Interactive Focus During Deletion experiment with cleanup of the resources used."
+      "note": "The supplied example restores focus to the control after onExitComplete. Moving focus immediately to a valid target during exit is a separate assignment."
+    },
+    "presentation": {
+      "sourceHash": "d83cc7e5ed47fc86937a77c3af87c71951386ddba3001c75c3baaa356636d839",
+      "values": {
+        "messages.display001": "Focus During Deletion",
+        "messages.display002": "DOM lifetime / Focus restoration",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Remove focused item",
+        "comments.comment001": "motion-step-13: Focus During Deletion"
+      }
     }
   },
   "motion-step-15": {
-    "sourceHash": "be7442bb618bf9ec57dc915fa9278b61865ae2e3d9f4a87d61205806402a4acb",
+    "sourceHash": "4ae898404a828807e926a5349c3213d16fdac50a3332062e17ba3430a5bad527",
     "values": {
       "note": "Interactive Hover and Focus experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "d57b488e255b74d7f2ec81ef73a5c60eb921a2972794a5a992cfef9735d865f4",
+      "values": {
+        "messages.display001": "Hover and Focus",
+        "messages.display002": "Pointer state / Focus",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Hover or Tab here",
+        "comments.comment001": "motion-step-15: Hover and Focus"
+      }
     }
   },
   "motion-step-16": {
-    "sourceHash": "149832eff55aaab4fcd921770445769e619fe6c32decb84337de7c818d4d3a2c",
+    "sourceHash": "29dc33b3f4259a3f3aaf121b21b69a681c69efcdbf4d9d58c7987229e20462d8",
     "values": {
       "note": "Interactive Tap Feedback experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "7187c1816c9ad6638393c93f73e546bfc2c8f7e8ed79837e8a0db2e65156d596",
+      "values": {
+        "messages.display001": "Tap Feedback",
+        "messages.display002": "Pressed state / Functional events",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Activated ",
+        "comments.comment001": "motion-step-16: Tap Feedback"
+      }
     }
   },
   "motion-step-17": {
-    "sourceHash": "bc1e557fcb1055d3b9c7c9b6de905e2587ad84c269cc74c0262dee89df106724",
+    "sourceHash": "b00d04464e9d8ff61ee357fa088d5d812c42a5090ffafe8f6bd22d1519f69d31",
     "values": {
       "note": "Interactive Drag Coordinates and Bounds experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "cbe2cf99f9c32c5e2df39a735b3badd1f75d58e1aa82c11e34fa8175fa6b9da3",
+      "values": {
+        "messages.display001": "Drag Coordinates and Bounds",
+        "messages.display002": "Drag / Constraints",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Drag within bounds",
+        "comments.comment001": "motion-step-17: Drag Coordinates and Bounds"
+      }
     }
   },
   "motion-step-18": {
-    "sourceHash": "d046c6ed817749e29785d2b9f2f91563c15c5c72d9356d7174a4363d7522ea82",
+    "sourceHash": "53f5d4cb5869cc3de4aa885063199274962a7806fb2343a7741a0658115c42fd",
     "values": {
       "note": "Interactive Inertia and Elasticity experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "0b4ea588755bc9f7ab58058f391c3a68f2839ff207a0d390aea57ce3f17fe5c6",
+      "values": {
+        "messages.display001": "Inertia and Elasticity",
+        "messages.display002": "Momentum / Elastic",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Elastic + inertia",
+        "messages.display005": "Hard bounds",
+        "comments.comment001": "motion-step-18: Inertia and Elasticity"
+      }
     }
   },
   "motion-step-19": {
-    "sourceHash": "7a6b6116b5aacefbbee4095bcb03259ba839de7cf68726258ad6a6f356d8e614",
+    "sourceHash": "45b7dccfdeb51afce4d3b4bc8fb72ef09983b3a0fd772c25acf7db36632e9353",
     "values": {
       "note": "Interactive Reordering with Buttons experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "c141fb7abcb7646fa425362fda05934bdcdc626647f57ca636031cc1e75c145e",
+      "values": {
+        "messages.display001": "Reordering with Buttons",
+        "messages.display002": "Explicit order / Equivalent alternatives",
+        "messages.display003": "Toggle / replay",
+        "comments.comment001": "motion-step-19: Reordering with Buttons"
+      }
     }
   },
   "motion-step-20": {
-    "sourceHash": "39525432746f7b65fdef5c22ca5ddebe05eeac5f9771f714a118f5efd60d4863",
+    "sourceHash": "37bf5ece6f59e67686488b4fd3bac816c3e1ae4ad169c99b1bb02a2691422349",
     "values": {
       "note": "Interactive MotionValue experiment with resource cleanup."
+    },
+    "presentation": {
+      "sourceHash": "2bb245c114244adbbcbbc59d8b70f90019e3029d42c2b8c903ce79a5743a22df",
+      "values": {
+        "messages.display001": "MotionValue",
+        "messages.display002": "Separate values / Subscriptions",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "MotionValue x",
+        "comments.comment001": "motion-step-20: MotionValue"
+      }
     }
   },
   "motion-step-21": {
-    "sourceHash": "b2ecc9cbaeeab465d931bd9d0ad7c54a25834835f4157f1692bcaf098e8c4a4f",
+    "sourceHash": "841fc51676eeba4952f2df3c08e5711a6ca134a6b821de9d3e82b584de769f54",
     "values": {
       "note": "Interactive Connecting Transform and Spring experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "f597620e8e5de6420ff8c694cd952701261937c5a36b59a61e01967aaa992090",
+      "values": {
+        "messages.display001": "Connecting Transform and Spring",
+        "messages.display002": "Derived values / Following values",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Derived + spring",
+        "comments.comment001": "motion-step-21: Connecting Transform and Spring"
+      }
     }
   },
   "motion-step-22": {
-    "sourceHash": "e22099d7d5a8b13559a25a0d5089216353d7412d072e9f6658c8268df1840060",
+    "sourceHash": "583a3f0db2228f0f0466688cbc80130ebe7f900fdf7c0e5e85173f7d81555f1d",
     "values": {
       "note": "Interactive Scroll-Linked Animation experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "5057b3eefe40e98586a1ca5c07c644a4ef92cd8deb6f160936750ef766f13ec0",
+      "values": {
+        "messages.display001": "Scroll-Linked Animation",
+        "messages.display002": "UseScroll / Offset",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Scroll progress",
+        "messages.display005": "Scroll this area",
+        "comments.comment001": "motion-step-22: Scroll-Linked Animation"
+      }
     }
   },
   "motion-step-23": {
-    "sourceHash": "7af7e7bcbebf8c918441d545c9c5435d2ca5cbae32efa951eb2af86abcceba7b",
+    "sourceHash": "8768c7414eb674880ab410859b9b4d544facf7a2976fb317fd2da7d6f6eede84",
     "values": {
       "note": "Interactive In-View Animation experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "cd718956260fb990b280194664c2b2b3d9a65d37b676b13c3adcb968993f7eb7",
+      "values": {
+        "messages.display001": "In-View Animation",
+        "messages.display002": "InView / Once",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Scroll down",
+        "messages.display005": "Once in view",
+        "comments.comment001": "motion-step-23: In-View Animation"
+      }
     }
   },
   "motion-step-24": {
-    "sourceHash": "a67ed540ae4c013edac1ff615df1046f4c21ba2b2edc1572ffa12d05a4ed3ce4",
+    "sourceHash": "0e915aade72543b23cee8dce909ce0fbf637c132e8db36996cfb09a3ae8e4a12",
     "values": {
       "note": "Interactive UseAnimate Cleanup experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "ff0cf52b5ed18b0c7050f13a02c728b7a34331ab308f76d8da3af42a961cc5bb",
+      "values": {
+        "messages.display001": "UseAnimate Cleanup",
+        "messages.display002": "Scope / Asynchronous order",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Scoped sequence",
+        "comments.comment001": "motion-step-24: UseAnimate Cleanup"
+      }
     }
   },
   "motion-step-25": {
-    "sourceHash": "15fff9fab3332e845cc02b0a3cd7dffc8de1572c5791da4d32fba6643623db93",
+    "sourceHash": "b4523549527a6c58eb8463cdd3de3dbc968a330d95a12756156dd8f8cedad09a",
     "values": {
       "note": "Interactive Reduced Motion Policy experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "54eeeec535c314fe3fbd61a517be933f8d0d8edc30061f25fe769f7affb52637",
+      "values": {
+        "messages.display001": "Reduced Motion Policy",
+        "messages.display002": "Detecting preferences / Preserving content",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Reduced motion",
+        "messages.display005": "Motion enabled",
+        "comments.comment001": "motion-step-25: Reduced Motion Policy"
+      }
     }
   },
   "motion-step-26": {
-    "sourceHash": "e8b915e48a42ec870c7bd42037e0b76e53cffd75b517ee2d51b2f74c9cf7ef9a",
+    "sourceHash": "2fb1b14f7d4b401346bd08275b58a4160caac180b0a279f8a3f531510af386c5",
     "values": {
       "note": "Interactive Observing Renders and Performance experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "848be2b4c67fbde1f3576d74d244401bf83d62194010e2bcbefa337703c8c556",
+      "values": {
+        "messages.display001": "Observing Renders and Performance",
+        "messages.display002": "Render cost / Measurement",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "React renders: ",
+        "comments.comment001": "motion-step-26: Observing Renders and Performance"
+      }
     }
   },
   "motion-step-27": {
-    "sourceHash": "7fef6cee9bd5851bb3cd1ae8380bbefb8439a2a52d3f3ff0460aeccf5595307f",
+    "sourceHash": "0a66fec43cc8a4d446322f35740641524cfc591facfa467b2735d287b599f1a2",
     "values": {
       "note": "Interactive Remounting and State Restoration experiment with cleanup of the resources used."
+    },
+    "presentation": {
+      "sourceHash": "7a2abacc903f3dfe0205e6bcfc53a2aa161644aa1ff2a113dd46f307c242bb7e",
+      "values": {
+        "messages.display001": "Remounting and State Restoration",
+        "messages.display002": "Lifetime / Restoration",
+        "messages.display003": "Toggle / replay",
+        "messages.display004": "Restored value",
+        "comments.comment001": "motion-step-27: Remounting and State Restoration"
+      }
+    }
+  },
+  "motion-01": {
+    "presentation": {
+      "sourceHash": "3e0892487ec7b384cd7309774caa1639d10cbaa79da6105535b93bfd059371df",
+      "values": {
+        "messages.display001": "Switch target state",
+        "comments.comment001": "This uses the real Motion animate API. Change the duration and target values for each state."
+      }
+    }
+  },
+  "motion-02": {
+    "presentation": {
+      "sourceHash": "26a59568b438ac5026633a08db5b9432fbd7cf339180f213b05108f8190fb752",
+      "values": {
+        "messages.display001": "<p>Motion JS · stable IDs + layout FLIP + delayed exit removal</p><button>Reverse order</button><div data-list></div><p role=\"status\"></p>",
+        "messages.display002": "ID ",
+        "messages.display003": ": ",
+        "messages.display004": "Delete",
+        "messages.display005": " logically removed; DOM stays until exit finishes.",
+        "messages.display006": " DOM removed. ",
+        "messages.display007": " active cards.",
+        "messages.display008": "Reversed by stable ID: typed notes stay with their cards.",
+        "comments.comment001": "Motion JS animate + FLIP. Stable data IDs preserve the actual input DOM nodes.",
+        "messages.displayFix1001": "Read",
+        "messages.displayFix1002": "Experiment",
+        "messages.displayFix1003": "Explain",
+        "messages.displayFix1004": "Review",
+        "messages.displayFix1005": " notes"
+      }
+    }
+  },
+  "motion-03": {
+    "presentation": {
+      "sourceHash": "021cdc88a90ba83ceb3aa30e7ae9e833cad70af6eb972818f907493149a63cab",
+      "values": {
+        "messages.display001": "<p>Drag a card at least 40px vertically, or use Up/Down buttons.</p><div></div><p role=\"status\"></p>",
+        "messages.display002": " → ",
+        "messages.display003": "Order: ",
+        "messages.display004": ". ",
+        "messages.display005": " is position ",
+        "messages.display006": ".",
+        "messages.display007": "↑ Up",
+        "messages.display008": "↓ Down",
+        "messages.display009": "Order: Observe → Predict → Test",
+        "comments.comment001": "Motion JS gesture feedback; drag and native buttons call the same reorder action.",
+        "messages.displayFix1001": "Observe",
+        "messages.displayFix1002": "Predict",
+        "messages.displayFix1003": "Test",
+        "messages.displayFix1004": "Move ",
+        "messages.displayFix1005": " up",
+        "messages.displayFix1006": " down"
+      }
     }
   }
 }

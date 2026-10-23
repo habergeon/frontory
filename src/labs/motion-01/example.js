@@ -1,7 +1,8 @@
 // 실제 Motion animate API입니다. duration과 상태별 목표 값을 바꿔 보세요.
-export function mount({ animate, container }) {
+export function mount({locale='ko', animate, container }) {
+const messages=locale==='en'?{"display001":"Switch target state"}:{"display001":"목표 상태 전환"};
   const button = document.createElement('button')
-  button.textContent = '목표 상태 전환'
+  button.textContent = messages.display001
   const box = document.createElement('div')
   box.style.cssText = 'width:70px;height:70px;background:#26836c;border-radius:12px;margin:40px'
   container.append(button, box)

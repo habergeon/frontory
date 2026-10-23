@@ -529,7 +529,7 @@
 | [10. AnimatePresence 기초](labs/animation/motion/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-10/example.js) — AnimatePresence 기초 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [11. Presence 모드](labs/animation/motion/units/11/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-11/example.js) — Presence 모드 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [12. LayoutId 공유](labs/animation/motion/units/12/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-12/example.js) — LayoutId 공유 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
-| [13. 삭제 중 포커스](labs/animation/motion/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-13/example.js) — 삭제 중 포커스 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [13. 삭제 중 포커스](labs/animation/motion/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-13/example.js) — 내장 예제는 onExitComplete 뒤에 제어 버튼으로 포커스를 돌립니다. 퇴장 중 즉시 유효한 대상으로 포커스를 옮기는 동작은 별도 과제입니다. |
 | [15. Hover와 Focus](labs/animation/motion/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-15/example.js) — Hover와 Focus 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [16. Tap 피드백](labs/animation/motion/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-16/example.js) — Tap 피드백 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [17. Drag 좌표와 경계](labs/animation/motion/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/motion-step-17/example.js) — Drag 좌표와 경계 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |

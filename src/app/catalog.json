@@ -5343,7 +5343,8 @@
       "title": "상태 기반 애니메이션",
       "goal": "학습 결과: 목표 상태의 역할을 설명한다. 입력 사례: 선택·해제 카드. 산출물: 상태값과 최종 opacity·x 표. API 경계 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/01-foundations/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-01/example.js"
     },
     {
       "id": "motion-step-02",
@@ -5352,7 +5353,8 @@
       "title": "Initial과 Animate",
       "goal": "학습 결과: Initial의 역할을 설명한다. 입력 사례: 첫 마운트와 상태 변경. 산출물: 최초·전환 후 스타일 표. 첫 표시 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/02/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-02/example.js"
     },
     {
       "id": "motion-step-03",
@@ -5361,7 +5363,8 @@
       "title": "Transition 구성",
       "goal": "학습 결과: Tween의 역할을 설명한다. 입력 사례: 선택 버튼 한 번. 산출물: 두 속성의 중간·종료 관찰 표. 속성별 설정 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/03/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-03/example.js"
     },
     {
       "id": "motion-step-04",
@@ -5370,7 +5373,8 @@
       "title": "Spring의 물리 변수",
       "goal": "학습 결과: Stiffness의 역할을 설명한다. 입력 사례: x=0과 x=160. 산출물: 초과 이동과 안정화 관찰 기록. Damping 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/04/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-04/example.js"
     },
     {
       "id": "motion-step-05",
@@ -5379,7 +5383,8 @@
       "title": "Keyframes",
       "goal": "학습 결과: 키프레임의 역할을 설명한다. 입력 사례: 0→100→60 위치. 산출물: 각 지정 시점의 위치 표. Times 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/05/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-05/example.js"
     },
     {
       "id": "motion-step-06",
@@ -5388,7 +5393,8 @@
       "title": "Variants",
       "goal": "학습 결과: 이름 있는 상태의 역할을 설명한다. 입력 사례: 두 카드 선택 변경. 산출물: 부모·자식 목표 상태 표. 전파 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/06/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-06/example.js"
     },
     {
       "id": "motion-step-07",
@@ -5397,7 +5403,8 @@
       "title": "자식 등장 순서",
       "goal": "학습 결과: Orchestration의 역할을 설명한다. 입력 사례: 카드 4개와 12개. 산출물: 첫·마지막 카드 등장 시각. Stagger 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/07/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-07/example.js"
     },
     {
       "id": "motion-step-08",
@@ -5406,7 +5413,8 @@
       "title": "Layout 측정",
       "goal": "학습 결과: Layout의 역할을 설명한다. 입력 사례: 1열·3열 토글. 산출물: 최종 배치와 전환 중 텍스트 관찰 기록. Transform 보간 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/08/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-08/example.js"
     },
     {
       "id": "motion-step-09",
@@ -5415,7 +5423,8 @@
       "title": "안정적인 Key",
       "goal": "학습 결과: 정체성의 역할을 설명한다. 입력 사례: 카드별 다른 메모. 산출물: 정렬 전후 ID·메모 대응 표. 로컬 상태 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/09/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-09/example.js"
     },
     {
       "id": "motion-step-10",
@@ -5424,7 +5433,8 @@
       "title": "AnimatePresence 기초",
       "goal": "학습 결과: Presence의 역할을 설명한다. 입력 사례: 카드 표시·삭제. 산출물: 삭제 요청과 DOM 제거 시각. 경계 배치 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/10/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-10/example.js"
     },
     {
       "id": "motion-step-11",
@@ -5433,7 +5443,8 @@
       "title": "Presence 모드",
       "goal": "학습 결과: 동시 전환의 역할을 설명한다. 입력 사례: A→B 선택. 산출물: 등장·퇴장 순서 로그. 순차 전환 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/11/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-11/example.js"
     },
     {
       "id": "motion-step-12",
@@ -5442,7 +5453,8 @@
       "title": "LayoutId 공유",
       "goal": "학습 결과: 시각적 연결의 역할을 설명한다. 입력 사례: 두 목록의 다른 카드 선택. 산출물: 목록별 표시선 위치 표. 영역 분리 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/12/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-12/example.js"
     },
     {
       "id": "motion-step-13",
@@ -5451,7 +5463,8 @@
       "title": "삭제 중 포커스",
       "goal": "학습 결과: DOM 수명의 역할을 설명한다. 입력 사례: 첫·중간·마지막 카드 삭제. 산출물: 삭제 위치별 activeElement 기록. 포커스 복구 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/13/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-13/example.js"
     },
     {
       "id": "motion-02",
@@ -5460,7 +5473,8 @@
       "title": "Layout과 Exit",
       "goal": "학습 결과: 정렬과 제거의 역할을 설명한다. 입력 사례: 다른 메모가 있는 카드 5개. 산출물: 정렬·연속 삭제 후 ID·메모·DOM 표. 정체성 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/02-experiments/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-02/example.js"
     },
     {
       "id": "motion-step-15",
@@ -5469,7 +5483,8 @@
       "title": "Hover와 Focus",
       "goal": "학습 결과: 포인터 상태의 역할을 설명한다. 입력 사례: 마우스 진입과 Tab. 산출물: 두 입력의 강조와 선택 표시 표. Focus 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/15/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-15/example.js"
     },
     {
       "id": "motion-step-16",
@@ -5478,7 +5493,8 @@
       "title": "Tap 피드백",
       "goal": "학습 결과: 누름 상태의 역할을 설명한다. 입력 사례: 클릭·Enter·Space. 산출물: 입력별 증가 횟수. 기능 이벤트 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/16/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-16/example.js"
     },
     {
       "id": "motion-step-17",
@@ -5487,7 +5503,8 @@
       "title": "Drag 좌표와 경계",
       "goal": "학습 결과: Drag의 역할을 설명한다. 입력 사례: 왼쪽·오른쪽 경계 밖 이동. 산출물: 최종 x와 컨테이너 폭 표. Constraints 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/17/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-17/example.js"
     },
     {
       "id": "motion-step-18",
@@ -5496,7 +5513,8 @@
       "title": "관성과 탄성",
       "goal": "학습 결과: Momentum의 역할을 설명한다. 입력 사례: 같은 방향의 짧은 드래그. 산출물: 포인터 해제·최종 위치 표. Elastic 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/18/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-18/example.js"
     },
     {
       "id": "motion-step-19",
@@ -5505,7 +5523,8 @@
       "title": "버튼으로 재배치",
       "goal": "학습 결과: 명시적 순서의 역할을 설명한다. 입력 사례: 가운데 카드를 한 칸 위로 이동. 산출물: 입력 방식별 ID 배열. 동등한 대안 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/19/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-19/example.js"
     },
     {
       "id": "motion-step-20",
@@ -5514,7 +5533,8 @@
       "title": "MotionValue",
       "goal": "학습 결과: 별도 값의 역할을 설명한다. 입력 사례: 드래그 1회. 산출물: 값 변경 수와 React 렌더 수. 구독 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/20/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-20/example.js"
     },
     {
       "id": "motion-step-21",
@@ -5523,7 +5543,8 @@
       "title": "Transform과 Spring 연결",
       "goal": "학습 결과: 파생 값의 역할을 설명한다. 입력 사례: x=-100·0·100. 산출물: 원본·파생·추종 값 표. 추종 값 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/21/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-21/example.js"
     },
     {
       "id": "motion-step-22",
@@ -5532,7 +5553,8 @@
       "title": "스크롤 연동",
       "goal": "학습 결과: UseScroll의 역할을 설명한다. 입력 사례: 상단·중간·하단 스크롤. 산출물: 진행도와 표시선 길이. Offset 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/22/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-22/example.js"
     },
     {
       "id": "motion-step-23",
@@ -5541,7 +5563,8 @@
       "title": "화면 진입 애니메이션",
       "goal": "학습 결과: InView의 역할을 설명한다. 입력 사례: 스크롤로 진입·이탈 3회. 산출물: 회차별 실행 횟수. Once 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/23/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-23/example.js"
     },
     {
       "id": "motion-step-24",
@@ -5550,7 +5573,8 @@
       "title": "UseAnimate 정리",
       "goal": "학습 결과: 범위의 역할을 설명한다. 입력 사례: 실행·중간 제거. 산출물: 완료 로그와 제거 후 작업 기록. 비동기 순서 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/24/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-24/example.js"
     },
     {
       "id": "motion-step-25",
@@ -5559,7 +5583,8 @@
       "title": "모션 감소 정책",
       "goal": "학습 결과: 선호 감지의 역할을 설명한다. 입력 사례: 선택·정렬·삭제. 산출물: 기본·감소 모드의 최종 데이터와 내용 표. 내용 보존 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/25/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-25/example.js"
     },
     {
       "id": "motion-step-26",
@@ -5568,7 +5593,8 @@
       "title": "렌더와 성능 관찰",
       "goal": "학습 결과: 렌더 비용의 역할을 설명한다. 입력 사례: 카드 20개와 100개. 산출물: 렌더 수·프레임 분포 기록. 실측 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/26/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-26/example.js"
     },
     {
       "id": "motion-step-27",
@@ -5577,7 +5603,8 @@
       "title": "재마운트와 상태 복구",
       "goal": "학습 결과: 수명의 역할을 설명한다. 입력 사례: 재정렬 후 숨김·표시. 산출물: 순서·구독·포커스 복구 표. 복구 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/units/27/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-27/example.js"
     },
     {
       "id": "motion-03",
@@ -5586,7 +5613,8 @@
       "title": "제스처와 접근성",
       "goal": "학습 결과: 동등한 기능의 역할을 설명한다. 입력 사례: 포인터 없는 재정렬·연속 삭제·reduce. 산출물: 입력별 ID 배열과 포커스·내용 검증 보고서. 종합 검증 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/motion/03-project/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-03/example.js"
     },
     {
       "id": "web-workers-01",

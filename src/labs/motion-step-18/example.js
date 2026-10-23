@@ -1,8 +1,9 @@
 // motion-step-18: 관성과 탄성
-export function mount({container,React,createRoot,Motion}) {
+export function mount({locale='ko',container,React,createRoot,Motion}) {
+const messages=locale==='en'?{"display001":"Inertia and Elasticity","display002":"Momentum / Elastic","display003":"Toggle / replay","display004":"Elastic + inertia","display005":"Hard bounds"}:{"display001":"관성과 탄성","display002":"Momentum / Elastic","display003":"Toggle / replay","display004":"Elastic + inertia","display005":"Hard bounds"};
  const h=React.createElement,m=Motion.motion,root=createRoot(container);
  function App(){const [on,setOn]=React.useState(true),[count,setCount]=React.useState(0),[saved,setSaved]=React.useState('Persisted above child');const control=React.useRef(null),scrollRef=React.useRef(null),renders=React.useRef(0);renders.current++;const x=Motion.useMotionValue(0),spring=Motion.useSpring(x,{stiffness:90,damping:15}),derived=Motion.useTransform(x,[0,200],[.3,1]);const {scrollYProgress}=Motion.useScroll({});const reduce=Motion.useReducedMotion();const [scope,sequence]=Motion.useAnimate();const card={padding:18,margin:8,width:110,background:'#89dae4',borderRadius:10};
  React.useEffect(()=>{return()=>{}},[]);
- return h('section',{style:{padding:18,fontFamily:'system-ui'}},h('h3',{},"관성과 탄성"),h('p',{},"Momentum / Elastic"),h('button',{ref:control,onClick:()=>{setOn(v=>!v);setCount(c=>c+1)}},'Toggle / replay'),h('div',{style:{minHeight:220,marginTop:20}},h(m.div,{drag:'x',dragConstraints:{left:0,right:180},dragElastic:on?.8:0,dragMomentum:on,style:{...card,touchAction:'none'}},on?'Elastic + inertia':'Hard bounds')));}
+ return h('section',{style:{padding:18,fontFamily:'system-ui'}},h('h3',{},messages.display001),h('p',{},messages.display002),h('button',{ref:control,onClick:()=>{setOn(v=>!v);setCount(c=>c+1)}},'Toggle / replay'),h('div',{style:{minHeight:220,marginTop:20}},h(m.div,{drag:'x',dragConstraints:{left:0,right:180},dragElastic:on?.8:0,dragMomentum:on,style:{...card,touchAction:'none'}},on?'Elastic + inertia':'Hard bounds')));}
  root.render(h(App));return()=>root.unmount();
 }

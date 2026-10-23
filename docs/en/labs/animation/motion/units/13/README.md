@@ -62,7 +62,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/motion-step-13/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-Interactive Focus During Deletion experiment with cleanup of the resources used.
+The supplied example restores focus to the control after onExitComplete. Moving focus immediately to a valid target during exit is a separate assignment.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

@@ -7034,5 +7034,330 @@
     "comments": {
       "comment001": "Inputs remain enabled. New transitions kill old tweens and target the latest state."
     }
+  },
+  "motion-01": {
+    "messages": {
+      "display001": "목표 상태 전환"
+    },
+    "comments": {
+      "comment001": "실제 Motion animate API입니다. duration과 상태별 목표 값을 바꿔 보세요."
+    }
+  },
+  "motion-step-02": {
+    "messages": {
+      "display001": "Initial과 Animate",
+      "display002": "Initial / 첫 표시",
+      "display003": "Toggle / replay",
+      "display004": "Initial → animate"
+    },
+    "comments": {
+      "comment001": "motion-step-02: Initial과 Animate"
+    }
+  },
+  "motion-step-03": {
+    "messages": {
+      "display001": "Transition 구성",
+      "display002": "Tween / 속성별 설정",
+      "display003": "Toggle / replay",
+      "display004": "Per-property"
+    },
+    "comments": {
+      "comment001": "motion-step-03: Transition 구성"
+    }
+  },
+  "motion-step-04": {
+    "messages": {
+      "display001": "Spring의 물리 변수",
+      "display002": "Stiffness / Damping",
+      "display003": "Toggle / replay",
+      "display004": "Spring"
+    },
+    "comments": {
+      "comment001": "motion-step-04: Spring의 물리 변수"
+    }
+  },
+  "motion-step-05": {
+    "messages": {
+      "display001": "Keyframes",
+      "display002": "키프레임 / Times",
+      "display003": "Toggle / replay"
+    },
+    "comments": {
+      "comment001": "motion-step-05: Keyframes"
+    }
+  },
+  "motion-step-06": {
+    "messages": {
+      "display001": "Variants",
+      "display002": "이름 있는 상태 / 전파",
+      "display003": "Toggle / replay",
+      "display004": "Child "
+    },
+    "comments": {
+      "comment001": "motion-step-06: Variants"
+    }
+  },
+  "motion-step-07": {
+    "messages": {
+      "display001": "자식 등장 순서",
+      "display002": "Orchestration / Stagger",
+      "display003": "Toggle / replay"
+    },
+    "comments": {
+      "comment001": "motion-step-07: 자식 등장 순서"
+    }
+  },
+  "motion-step-08": {
+    "messages": {
+      "display001": "Layout 측정",
+      "display002": "Layout / Transform 보간",
+      "display003": "Toggle / replay",
+      "display004": "Measure layout"
+    },
+    "comments": {
+      "comment001": "motion-step-08: Layout 측정"
+    }
+  },
+  "motion-step-09": {
+    "messages": {
+      "display001": "안정적인 Key",
+      "display002": "정체성 / 로컬 상태",
+      "display003": "Toggle / replay"
+    },
+    "comments": {
+      "comment001": "motion-step-09: 안정적인 Key"
+    }
+  },
+  "motion-step-10": {
+    "messages": {
+      "display001": "AnimatePresence 기초",
+      "display002": "Presence / 경계 배치",
+      "display003": "Toggle / replay",
+      "display004": "Exit keeps DOM alive"
+    },
+    "comments": {
+      "comment001": "motion-step-10: AnimatePresence 기초"
+    }
+  },
+  "motion-step-11": {
+    "messages": {
+      "display001": "Presence 모드",
+      "display002": "동시 전환 / 순차 전환",
+      "display003": "Toggle / replay",
+      "display004": "Sequential "
+    },
+    "comments": {
+      "comment001": "motion-step-11: Presence 모드"
+    }
+  },
+  "motion-step-12": {
+    "messages": {
+      "display001": "LayoutId 공유",
+      "display002": "시각적 연결 / 영역 분리",
+      "display003": "Toggle / replay",
+      "display004": "Shared"
+    },
+    "comments": {
+      "comment001": "motion-step-12: LayoutId 공유"
+    }
+  },
+  "motion-step-13": {
+    "messages": {
+      "display001": "삭제 중 포커스",
+      "display002": "DOM 수명 / 포커스 복구",
+      "display003": "Toggle / replay",
+      "display004": "Remove focused item"
+    },
+    "comments": {
+      "comment001": "motion-step-13: 삭제 중 포커스"
+    }
+  },
+  "motion-02": {
+    "messages": {
+      "display001": "<p>Motion JS · stable IDs + layout FLIP + delayed exit removal</p><button>Reverse order</button><div data-list></div><p role=\"status\"></p>",
+      "display002": "ID ",
+      "display003": ": ",
+      "display004": "Delete",
+      "display005": " logically removed; DOM stays until exit finishes.",
+      "display006": " DOM removed. ",
+      "display007": " active cards.",
+      "display008": "Reversed by stable ID: typed notes stay with their cards.",
+      "displayFix1001": "Read",
+      "displayFix1002": "Experiment",
+      "displayFix1003": "Explain",
+      "displayFix1004": "Review",
+      "displayFix1005": " notes"
+    },
+    "comments": {
+      "comment001": "Motion JS animate + FLIP. Stable data IDs preserve the actual input DOM nodes."
+    }
+  },
+  "motion-step-15": {
+    "messages": {
+      "display001": "Hover와 Focus",
+      "display002": "포인터 상태 / Focus",
+      "display003": "Toggle / replay",
+      "display004": "Hover or Tab here"
+    },
+    "comments": {
+      "comment001": "motion-step-15: Hover와 Focus"
+    }
+  },
+  "motion-step-16": {
+    "messages": {
+      "display001": "Tap 피드백",
+      "display002": "누름 상태 / 기능 이벤트",
+      "display003": "Toggle / replay",
+      "display004": "Activated "
+    },
+    "comments": {
+      "comment001": "motion-step-16: Tap 피드백"
+    }
+  },
+  "motion-step-17": {
+    "messages": {
+      "display001": "Drag 좌표와 경계",
+      "display002": "Drag / Constraints",
+      "display003": "Toggle / replay",
+      "display004": "Drag within bounds"
+    },
+    "comments": {
+      "comment001": "motion-step-17: Drag 좌표와 경계"
+    }
+  },
+  "motion-step-18": {
+    "messages": {
+      "display001": "관성과 탄성",
+      "display002": "Momentum / Elastic",
+      "display003": "Toggle / replay",
+      "display004": "Elastic + inertia",
+      "display005": "Hard bounds"
+    },
+    "comments": {
+      "comment001": "motion-step-18: 관성과 탄성"
+    }
+  },
+  "motion-step-19": {
+    "messages": {
+      "display001": "버튼으로 재배치",
+      "display002": "명시적 순서 / 동등한 대안",
+      "display003": "Toggle / replay"
+    },
+    "comments": {
+      "comment001": "motion-step-19: 버튼으로 재배치"
+    }
+  },
+  "motion-step-20": {
+    "messages": {
+      "display001": "MotionValue",
+      "display002": "별도 값 / 구독",
+      "display003": "Toggle / replay",
+      "display004": "MotionValue x"
+    },
+    "comments": {
+      "comment001": "motion-step-20: MotionValue"
+    }
+  },
+  "motion-step-21": {
+    "messages": {
+      "display001": "Transform과 Spring 연결",
+      "display002": "파생 값 / 추종 값",
+      "display003": "Toggle / replay",
+      "display004": "Derived + spring"
+    },
+    "comments": {
+      "comment001": "motion-step-21: Transform과 Spring 연결"
+    }
+  },
+  "motion-step-22": {
+    "messages": {
+      "display001": "스크롤 연동",
+      "display002": "UseScroll / Offset",
+      "display003": "Toggle / replay",
+      "display004": "Scroll progress",
+      "display005": "Scroll this area"
+    },
+    "comments": {
+      "comment001": "motion-step-22: 스크롤 연동"
+    }
+  },
+  "motion-step-23": {
+    "messages": {
+      "display001": "화면 진입 애니메이션",
+      "display002": "InView / Once",
+      "display003": "Toggle / replay",
+      "display004": "Scroll down",
+      "display005": "Once in view"
+    },
+    "comments": {
+      "comment001": "motion-step-23: 화면 진입 애니메이션"
+    }
+  },
+  "motion-step-24": {
+    "messages": {
+      "display001": "UseAnimate 정리",
+      "display002": "범위 / 비동기 순서",
+      "display003": "Toggle / replay",
+      "display004": "Scoped sequence"
+    },
+    "comments": {
+      "comment001": "motion-step-24: UseAnimate 정리"
+    }
+  },
+  "motion-step-25": {
+    "messages": {
+      "display001": "모션 감소 정책",
+      "display002": "선호 감지 / 내용 보존",
+      "display003": "Toggle / replay",
+      "display004": "Reduced motion",
+      "display005": "Motion enabled"
+    },
+    "comments": {
+      "comment001": "motion-step-25: 모션 감소 정책"
+    }
+  },
+  "motion-step-26": {
+    "messages": {
+      "display001": "렌더와 성능 관찰",
+      "display002": "렌더 비용 / 실측",
+      "display003": "Toggle / replay",
+      "display004": "React renders: "
+    },
+    "comments": {
+      "comment001": "motion-step-26: 렌더와 성능 관찰"
+    }
+  },
+  "motion-step-27": {
+    "messages": {
+      "display001": "재마운트와 상태 복구",
+      "display002": "수명 / 복구",
+      "display003": "Toggle / replay",
+      "display004": "Restored value"
+    },
+    "comments": {
+      "comment001": "motion-step-27: 재마운트와 상태 복구"
+    }
+  },
+  "motion-03": {
+    "messages": {
+      "display001": "<p>Drag a card at least 40px vertically, or use Up/Down buttons.</p><div></div><p role=\"status\"></p>",
+      "display002": " → ",
+      "display003": "Order: ",
+      "display004": ". ",
+      "display005": " is position ",
+      "display006": ".",
+      "display007": "↑ Up",
+      "display008": "↓ Down",
+      "display009": "Order: Observe → Predict → Test",
+      "displayFix1001": "Observe",
+      "displayFix1002": "Predict",
+      "displayFix1003": "Test",
+      "displayFix1004": "Move ",
+      "displayFix1005": " up",
+      "displayFix1006": " down"
+    },
+    "comments": {
+      "comment001": "Motion JS gesture feedback; drag and native buttons call the same reorder action."
+    }
   }
 }

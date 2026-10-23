@@ -5768,7 +5768,8 @@
       "title": "State-Based Animation",
       "goal": "Learning outcome: Explain the role of Target state. Input case: Selecting and deselecting a card. Deliverable: A table of state values and final opacity and x values. Connect your rationale for handling API boundary to the code.",
       "docPath": "/docs/en/labs/animation/motion/01-foundations/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-01/example.js"
     },
     {
       "id": "motion-step-02",
@@ -5778,6 +5779,7 @@
       "goal": "Learning outcome: Explain the role of Initial. Input case: First mount and state changes. Deliverable: A table of styles on first appearance and after transitions. Connect your rationale for handling First appearance to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/02/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-02/example.js",
       "exampleNote": "Interactive Initial and Animate experiment with cleanup of the resources used."
     },
     {
@@ -5788,6 +5790,7 @@
       "goal": "Learning outcome: Explain the role of Tween. Input case: Selecting a button once. Deliverable: A table of observations during and at the end of both property transitions. Connect your rationale for handling Per-property settings to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/03/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-03/example.js",
       "exampleNote": "Interactive Configuring Transition experiment with cleanup of the resources used."
     },
     {
@@ -5798,6 +5801,7 @@
       "goal": "Learning outcome: Explain the role of Stiffness. Input case: x=0 and x=160. Deliverable: A record of overshoot and settling observations. Connect your rationale for handling Damping to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/04/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-04/example.js",
       "exampleNote": "Interactive Physical Spring Parameters experiment with cleanup of the resources used."
     },
     {
@@ -5808,6 +5812,7 @@
       "goal": "Learning outcome: Explain the role of Keyframes. Input case: Positions 0→100→60. Deliverable: A table of positions at each specified time. Connect your rationale for handling Times to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/05/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-05/example.js",
       "exampleNote": "Interactive Keyframes experiment with resource cleanup."
     },
     {
@@ -5818,6 +5823,7 @@
       "goal": "Learning outcome: Explain the role of Named states. Input case: Changing the selection between two cards. Deliverable: A table of parent and child target states. Connect your rationale for handling Propagation to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/06/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-06/example.js",
       "exampleNote": "Interactive Variants experiment with resource cleanup."
     },
     {
@@ -5828,6 +5834,7 @@
       "goal": "Learning outcome: Explain the role of Orchestration. Input case: Lists of 4 and 12 cards. Deliverable: The appearance times of the first and last cards. Connect your rationale for handling Stagger to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/07/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-07/example.js",
       "exampleNote": "Interactive Child Entrance Order experiment with cleanup of the resources used."
     },
     {
@@ -5838,6 +5845,7 @@
       "goal": "Learning outcome: Explain the role of Layout. Input case: Toggling between 1 and 3 columns. Deliverable: A record of final layout and text observations during the transition. Connect your rationale for handling Transform interpolation to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/08/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-08/example.js",
       "exampleNote": "Interactive Measuring Layout experiment with cleanup of the resources used."
     },
     {
@@ -5848,6 +5856,7 @@
       "goal": "Learning outcome: Explain the role of Identity. Input case: Different notes on each card. Deliverable: An ID-to-note mapping table before and after sorting. Connect your rationale for handling Local state to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/09/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-09/example.js",
       "exampleNote": "Interactive Stable Keys experiment with cleanup of the resources used."
     },
     {
@@ -5858,6 +5867,7 @@
       "goal": "Learning outcome: Explain the role of Presence. Input case: Showing and deleting a card. Deliverable: The times of the deletion request and DOM removal. Connect your rationale for handling Boundary placement to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/10/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-10/example.js",
       "exampleNote": "Interactive AnimatePresence Basics experiment with cleanup of the resources used."
     },
     {
@@ -5868,6 +5878,7 @@
       "goal": "Learning outcome: Explain the role of Concurrent transitions. Input case: Selection A→B. Deliverable: A log of entrance and exit order. Connect your rationale for handling Sequential transitions to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/11/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-11/example.js",
       "exampleNote": "Interactive Presence Modes experiment with cleanup of the resources used."
     },
     {
@@ -5878,6 +5889,7 @@
       "goal": "Learning outcome: Explain the role of Visual connection. Input case: Selecting different cards in two lists. Deliverable: A table of indicator positions for each list. Connect your rationale for handling Separating regions to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/12/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-12/example.js",
       "exampleNote": "Interactive Sharing LayoutId experiment with cleanup of the resources used."
     },
     {
@@ -5888,7 +5900,8 @@
       "goal": "Learning outcome: Explain the role of DOM lifetime. Input case: Deleting the first, middle, and last cards. Deliverable: A record of activeElement for each deletion position. Connect your rationale for handling Focus restoration to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/13/README.md",
       "seriesId": "motion",
-      "exampleNote": "Interactive Focus During Deletion experiment with cleanup of the resources used."
+      "exampleReadingSource": "/examples-en/motion-step-13/example.js",
+      "exampleNote": "The supplied example restores focus to the control after onExitComplete. Moving focus immediately to a valid target during exit is a separate assignment."
     },
     {
       "id": "motion-02",
@@ -5897,7 +5910,8 @@
       "title": "Layout and Exit",
       "goal": "Learning outcome: Explain the role of Sorting and removal. Input case: 5 cards with different notes. Deliverable: An ID, note, and DOM table after sorting and consecutive deletions. Connect your rationale for handling Identity to the code.",
       "docPath": "/docs/en/labs/animation/motion/02-experiments/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-02/example.js"
     },
     {
       "id": "motion-step-15",
@@ -5907,6 +5921,7 @@
       "goal": "Learning outcome: Explain the role of Pointer state. Input case: Mouse entry and Tab. Deliverable: A table of emphasis and selection indicators for both inputs. Connect your rationale for handling Focus to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/15/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-15/example.js",
       "exampleNote": "Interactive Hover and Focus experiment with cleanup of the resources used."
     },
     {
@@ -5917,6 +5932,7 @@
       "goal": "Learning outcome: Explain the role of Pressed state. Input case: Click, Enter, and Space. Deliverable: The increment count for each input. Connect your rationale for handling Functional events to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/16/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-16/example.js",
       "exampleNote": "Interactive Tap Feedback experiment with cleanup of the resources used."
     },
     {
@@ -5927,6 +5943,7 @@
       "goal": "Learning outcome: Explain the role of Drag. Input case: Moving beyond the left and right bounds. Deliverable: A table of final x values and container widths. Connect your rationale for handling Constraints to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/17/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-17/example.js",
       "exampleNote": "Interactive Drag Coordinates and Bounds experiment with cleanup of the resources used."
     },
     {
@@ -5937,6 +5954,7 @@
       "goal": "Learning outcome: Explain the role of Momentum. Input case: Short drags in the same direction. Deliverable: A table of positions at pointer release and after settling. Connect your rationale for handling Elastic to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/18/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-18/example.js",
       "exampleNote": "Interactive Inertia and Elasticity experiment with cleanup of the resources used."
     },
     {
@@ -5947,6 +5965,7 @@
       "goal": "Learning outcome: Explain the role of Explicit order. Input case: Moving the middle card up by one position. Deliverable: The ID array for each input method. Connect your rationale for handling Equivalent alternatives to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/19/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-19/example.js",
       "exampleNote": "Interactive Reordering with Buttons experiment with cleanup of the resources used."
     },
     {
@@ -5957,6 +5976,7 @@
       "goal": "Learning outcome: Explain the role of Separate values. Input case: 1 drag. Deliverable: The number of value changes and React renders. Connect your rationale for handling Subscriptions to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/20/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-20/example.js",
       "exampleNote": "Interactive MotionValue experiment with resource cleanup."
     },
     {
@@ -5967,6 +5987,7 @@
       "goal": "Learning outcome: Explain the role of Derived values. Input case: x=-100·0·100. Deliverable: A table of original, derived, and following values. Connect your rationale for handling Following values to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/21/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-21/example.js",
       "exampleNote": "Interactive Connecting Transform and Spring experiment with cleanup of the resources used."
     },
     {
@@ -5977,6 +5998,7 @@
       "goal": "Learning outcome: Explain the role of UseScroll. Input case: Scrolling to the top, middle, and bottom. Deliverable: Progress values and indicator lengths. Connect your rationale for handling Offset to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/22/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-22/example.js",
       "exampleNote": "Interactive Scroll-Linked Animation experiment with cleanup of the resources used."
     },
     {
@@ -5987,6 +6009,7 @@
       "goal": "Learning outcome: Explain the role of InView. Input case: Scrolling into and out of view 3 times. Deliverable: The execution count for each repetition. Connect your rationale for handling Once to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/23/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-23/example.js",
       "exampleNote": "Interactive In-View Animation experiment with cleanup of the resources used."
     },
     {
@@ -5997,6 +6020,7 @@
       "goal": "Learning outcome: Explain the role of Scope. Input case: Running and removing midway. Deliverable: Completion logs and a record of work after removal. Connect your rationale for handling Asynchronous order to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/24/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-24/example.js",
       "exampleNote": "Interactive UseAnimate Cleanup experiment with cleanup of the resources used."
     },
     {
@@ -6007,6 +6031,7 @@
       "goal": "Learning outcome: Explain the role of Detecting preferences. Input case: Selection, sorting, and deletion. Deliverable: A table of final data and content in default and reduced modes. Connect your rationale for handling Preserving content to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/25/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-25/example.js",
       "exampleNote": "Interactive Reduced Motion Policy experiment with cleanup of the resources used."
     },
     {
@@ -6017,6 +6042,7 @@
       "goal": "Learning outcome: Explain the role of Render cost. Input case: 20 and 100 cards. Deliverable: A record of render counts and frame distributions. Connect your rationale for handling Measurement to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/26/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-26/example.js",
       "exampleNote": "Interactive Observing Renders and Performance experiment with cleanup of the resources used."
     },
     {
@@ -6027,6 +6053,7 @@
       "goal": "Learning outcome: Explain the role of Lifetime. Input case: Hiding and showing after reordering. Deliverable: A table of order, subscriptions, and focus restoration. Connect your rationale for handling Restoration to the code.",
       "docPath": "/docs/en/labs/animation/motion/units/27/README.md",
       "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-step-27/example.js",
       "exampleNote": "Interactive Remounting and State Restoration experiment with cleanup of the resources used."
     },
     {
@@ -6036,7 +6063,8 @@
       "title": "Gestures and Accessibility",
       "goal": "Learning outcome: Explain the role of Equivalent functionality. Input case: Reordering without a pointer, consecutive deletions, and reduce. Deliverable: A validation report of ID arrays, focus, and content for each input. Connect your rationale for handling Comprehensive validation to the code.",
       "docPath": "/docs/en/labs/animation/motion/03-project/README.md",
-      "seriesId": "motion"
+      "seriesId": "motion",
+      "exampleReadingSource": "/examples-en/motion-03/example.js"
     },
     {
       "id": "web-workers-01",

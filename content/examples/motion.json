@@ -1,101 +1,126 @@
 {
   "motion-step-02": {
+    "readingSource": "/examples-en/motion-step-02/example.js",
     "mode": "browser",
     "note": "Initial과 Animate 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-03": {
+    "readingSource": "/examples-en/motion-step-03/example.js",
     "mode": "browser",
     "note": "Transition 구성 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-04": {
+    "readingSource": "/examples-en/motion-step-04/example.js",
     "mode": "browser",
     "note": "Spring의 물리 변수 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-05": {
+    "readingSource": "/examples-en/motion-step-05/example.js",
     "mode": "browser",
     "note": "Interactive Keyframes experiment with resource cleanup."
   },
   "motion-step-06": {
+    "readingSource": "/examples-en/motion-step-06/example.js",
     "mode": "browser",
     "note": "Interactive Variants experiment with resource cleanup."
   },
   "motion-step-07": {
+    "readingSource": "/examples-en/motion-step-07/example.js",
     "mode": "browser",
     "note": "자식 등장 순서 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-08": {
+    "readingSource": "/examples-en/motion-step-08/example.js",
     "mode": "browser",
     "note": "Layout 측정 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-09": {
+    "readingSource": "/examples-en/motion-step-09/example.js",
     "mode": "browser",
     "note": "안정적인 Key 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-10": {
+    "readingSource": "/examples-en/motion-step-10/example.js",
     "mode": "browser",
     "note": "AnimatePresence 기초 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-11": {
+    "readingSource": "/examples-en/motion-step-11/example.js",
     "mode": "browser",
     "note": "Presence 모드 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-12": {
+    "readingSource": "/examples-en/motion-step-12/example.js",
     "mode": "browser",
     "note": "LayoutId 공유 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-13": {
+    "readingSource": "/examples-en/motion-step-13/example.js",
     "mode": "browser",
-    "note": "삭제 중 포커스 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
+    "note": "내장 예제는 onExitComplete 뒤에 제어 버튼으로 포커스를 돌립니다. 퇴장 중 즉시 유효한 대상으로 포커스를 옮기는 동작은 별도 과제입니다."
   },
   "motion-step-15": {
+    "readingSource": "/examples-en/motion-step-15/example.js",
     "mode": "browser",
     "note": "Hover와 Focus 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-16": {
+    "readingSource": "/examples-en/motion-step-16/example.js",
     "mode": "browser",
     "note": "Tap 피드백 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-17": {
+    "readingSource": "/examples-en/motion-step-17/example.js",
     "mode": "browser",
     "note": "Drag 좌표와 경계 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-18": {
+    "readingSource": "/examples-en/motion-step-18/example.js",
     "mode": "browser",
     "note": "관성과 탄성 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-19": {
+    "readingSource": "/examples-en/motion-step-19/example.js",
     "mode": "browser",
     "note": "버튼으로 재배치 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-20": {
+    "readingSource": "/examples-en/motion-step-20/example.js",
     "mode": "browser",
     "note": "Interactive MotionValue experiment with resource cleanup."
   },
   "motion-step-21": {
+    "readingSource": "/examples-en/motion-step-21/example.js",
     "mode": "browser",
     "note": "Transform과 Spring 연결 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-22": {
+    "readingSource": "/examples-en/motion-step-22/example.js",
     "mode": "browser",
     "note": "스크롤 연동 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-23": {
+    "readingSource": "/examples-en/motion-step-23/example.js",
     "mode": "browser",
     "note": "화면 진입 애니메이션 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-24": {
+    "readingSource": "/examples-en/motion-step-24/example.js",
     "mode": "browser",
     "note": "UseAnimate 정리 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-25": {
+    "readingSource": "/examples-en/motion-step-25/example.js",
     "mode": "browser",
     "note": "모션 감소 정책 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-26": {
+    "readingSource": "/examples-en/motion-step-26/example.js",
     "mode": "browser",
     "note": "렌더와 성능 관찰 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "motion-step-27": {
+    "readingSource": "/examples-en/motion-step-27/example.js",
     "mode": "browser",
     "note": "재마운트와 상태 복구 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   }

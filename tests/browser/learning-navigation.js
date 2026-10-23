@@ -55,6 +55,21 @@ async (page, baseUrl = 'http://127.0.0.1:4187') => {
         const styles = [...nav.querySelectorAll('.header-action')].map(element => { const style = getComputedStyle(element); return [style.border, style.borderRadius, style.backgroundColor, style.fontSize, style.lineHeight, style.padding].join('|') })
         return new Set(styles).size === 1
       }))
+      for (const [key, from, target] of [['Tab', 0, 1], ['Shift+Tab', 1, 0]]) {
+        await page.locator('.learning-status button').nth(from).focus()
+        await page.evaluate(index => {
+          const button = document.querySelectorAll('.learning-status button')[index]
+          window.scrollBy(0, button.getBoundingClientRect().top - 12)
+        }, target)
+        await page.keyboard.press(key)
+        check(locale + ' ' + key + ' focus clears sticky header at ' + width, await page.evaluate(index => {
+          const button = document.querySelectorAll('.learning-status button')[index]
+          const rect = button.getBoundingClientRect()
+          const header = document.querySelector('.learning-header').getBoundingClientRect()
+          const center = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2)
+          return document.activeElement === button && rect.top >= header.bottom && (center === button || button.contains(center))
+        }, target))
+      }
     }
     await page.locator('.header-navigation a').first().click()
     await page.waitForSelector('.home-hero')

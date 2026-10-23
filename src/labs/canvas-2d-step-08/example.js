@@ -2,11 +2,12 @@
 // 실험: 시간 간격: 1/60초 → 1/30초
 // 한 번의 이동은 두 배지만 같은 총 시간의 거리는 같습니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="애니메이션 시계";
-const VARIABLE="시간 간격: 1/60초 ↔ 1/30초";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"The Animation Clock","display002":"Time Interval: 1/60 seconds ↔ 1/30 seconds","display003":"Fixed dt: ","display004":"s; speed: 90 px/s"}:{"display001":"애니메이션 시계","display002":"시간 간격: 1/60초 ↔ 1/30초","display003":"Fixed dt: ","display004":"s; speed: 90 px/s"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -19,7 +20,7 @@ export function mount(context){
   function clear(){ctx.resetTransform();ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,400,260);ctx.fillStyle='#edf2f7';ctx.fillRect(0,0,400,260);}
   function circle(x,y,r,color='#2563eb'){ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}
   function point(e){const r=canvas.getBoundingClientRect();return {x:(e.clientX-r.left)*400/r.width,y:(e.clientY-r.top)*260/r.height};}
-  let x=20,accumulator=0;function update(dt){x=(x+90*dt)%400;}function draw(){clear();circle(x,130,18);}loop(dt=>{accumulator+=dt;const step=changed?1/30:1/60;while(accumulator>=step){update(step);accumulator-=step;}draw();status.textContent='Fixed dt: '+step.toFixed(4)+'s; speed: 90 px/s';});
+  let x=20,accumulator=0;function update(dt){x=(x+90*dt)%400;}function draw(){clear();circle(x,130,18);}loop(dt=>{accumulator+=dt;const step=changed?1/30:1/60;while(accumulator>=step){update(step);accumulator-=step;}draw();status.textContent=messages.display003+step.toFixed(4)+messages.display004;});
   draw();
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

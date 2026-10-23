@@ -2,11 +2,12 @@
 // 실험: 잡는 위치: 도형 중심 → 도형 가장자리
 // offset 보정이 있으면 시작 순간 중심이 튀지 않습니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="드래그와 포인터 수명";
-const VARIABLE="잡는 위치: 도형 중심 ↔ 도형 가장자리";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Dragging and Pointer Lifetimes","display002":"Grab Position: shape center ↔ shape edge","display003":"Drag center or edge: grab offset is preserved"}:{"display001":"드래그와 포인터 수명","display002":"잡는 위치: 도형 중심 ↔ 도형 가장자리","display003":"Drag center or edge: grab offset is preserved"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -19,7 +20,7 @@ export function mount(context){
   function clear(){ctx.resetTransform();ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,400,260);ctx.fillStyle='#edf2f7';ctx.fillRect(0,0,400,260);}
   function circle(x,y,r,color='#2563eb'){ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}
   function point(e){const r=canvas.getBoundingClientRect();return {x:(e.clientX-r.left)*400/r.width,y:(e.clientY-r.top)*260/r.height};}
-  let p={x:180,y:120},drag=null;on(canvas,'pointerdown',e=>{const q=point(e);if(Math.hypot(q.x-p.x,q.y-p.y)>40)return;drag={x:q.x-p.x,y:q.y-p.y};canvas.setPointerCapture(e.pointerId);});on(canvas,'pointermove',e=>{if(drag){const q=point(e);p={x:q.x-drag.x,y:q.y-drag.y};draw();}});for(const type of ['pointerup','pointercancel'])on(canvas,type,e=>{drag=null;if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);});function draw(){clear();circle(p.x,p.y,40);status.textContent='Drag center or edge: grab offset is preserved';}
+  let p={x:180,y:120},drag=null;on(canvas,'pointerdown',e=>{const q=point(e);if(Math.hypot(q.x-p.x,q.y-p.y)>40)return;drag={x:q.x-p.x,y:q.y-p.y};canvas.setPointerCapture(e.pointerId);});on(canvas,'pointermove',e=>{if(drag){const q=point(e);p={x:q.x-drag.x,y:q.y-drag.y};draw();}});for(const type of ['pointerup','pointercancel'])on(canvas,type,e=>{drag=null;if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);});function draw(){clear();circle(p.x,p.y,40);status.textContent=messages.display003;}
   draw();
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

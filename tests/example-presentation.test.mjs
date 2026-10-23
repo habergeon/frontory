@@ -12,7 +12,9 @@ for (const [id, original] of Object.entries(sources)) {
     const translated = readEnglishContent().examplePresentations[id]
     let restored = reading
     for (const [key, value] of Object.entries(translated.comments)) {
-      assert.doesNotMatch(value, /[가-힣]/)
+      if (id === 'canvas-2d-step-07' && key === 'comment002') {
+        assert.equal(value, 'Experiment: Input String: 가나 → WWW iii')
+      } else assert.doesNotMatch(value, /[가-힣]/)
       const css = id === 'css-step-26' && key === 'cssComparison'
       const from = css ? JSON.stringify('/* ' + value + ' */').slice(1, -1) : '// ' + value
       const to = css ? JSON.stringify('/* ' + original.comments[key] + ' */').slice(1, -1) : '// ' + original.comments[key]
@@ -25,6 +27,10 @@ for (const [id, original] of Object.entries(sources)) {
     // that exact approved span before comparing executable JavaScript output.
     assert.equal(parsed(id === 'css-step-26' ? restored : reading), parsed(common))
     assert.match(common, /locale='ko'/)
-    assert.ok(Object.values(translated.messages).every(value => !/[가-힣]/.test(value)))
+    for (const [key, value] of Object.entries(translated.messages)) {
+      if (id === 'canvas-2d-step-07' && key === 'display002') {
+        assert.equal(value, 'Input String: 가나 ↔ WWW iii')
+      } else assert.doesNotMatch(value, /[가-힣]/)
+    }
   })
 }

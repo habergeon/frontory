@@ -2,11 +2,12 @@
 // 실험: 처리 범위: 전체 이미지 → 왼쪽 절반
 // 절반만 회색으로 바뀌고 투명도는 같습니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="픽셀 읽기와 필터";
-const VARIABLE="처리 범위: 전체 이미지 ↔ 왼쪽 절반";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Reading Pixels and Applying Filters","display002":"Processing Region: entire image ↔ left half"}:{"display001":"픽셀 읽기와 필터","display002":"처리 범위: 전체 이미지 ↔ 왼쪽 절반"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);

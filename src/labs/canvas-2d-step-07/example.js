@@ -2,11 +2,12 @@
 // 실험: 입력 문자열: 가나 → WWW iii
 // 문자 수가 비슷해도 배지 폭은 실제 글리프 폭에 따라 달라집니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="텍스트와 배지 구성";
-const VARIABLE="입력 문자열: 가나 ↔ WWW iii";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Text and Badge Composition","display002":"Input String: 가나 ↔ WWW iii","display003":"Measured width: ","display004":"px; padding: 20px"}:{"display001":"텍스트와 배지 구성","display002":"입력 문자열: 가나 ↔ WWW iii","display003":"Measured width: ","display004":"px; padding: 20px"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -19,7 +20,7 @@ export function mount(context){
   function clear(){ctx.resetTransform();ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,400,260);ctx.fillStyle='#edf2f7';ctx.fillRect(0,0,400,260);}
   function circle(x,y,r,color='#2563eb'){ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}
   function point(e){const r=canvas.getBoundingClientRect();return {x:(e.clientX-r.left)*400/r.width,y:(e.clientY-r.top)*260/r.height};}
-  function draw(){clear();const text=changed?'WWW iii':'가나';ctx.font='30px system-ui';const width=ctx.measureText(text).width;ctx.fillStyle='#2563eb';ctx.fillRect(35,90,width+40,70);ctx.fillStyle='#fff';ctx.textBaseline='middle';ctx.fillText(text,55,125);status.textContent='Measured width: '+width.toFixed(2)+'px; padding: 20px';}
+  function draw(){clear();const text=changed?'WWW iii':'가나';ctx.font='30px system-ui';const width=ctx.measureText(text).width;ctx.fillStyle='#2563eb';ctx.fillRect(35,90,width+40,70);ctx.fillStyle='#fff';ctx.textBaseline='middle';ctx.fillText(text,55,125);status.textContent=messages.display003+width.toFixed(2)+messages.display004;}
   draw();
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

@@ -3128,5 +3128,391 @@
     "comments": {
       "comment01": "Shared resources are owned by mount, not individual meshes (dispose:null)."
     }
+  },
+  "canvas-2d-01": {
+    "messages": {
+      "display001": "Canvas 2D 좌표와 픽셀",
+      "display002": "CSS ",
+      "display003": " / buffer "
+    },
+    "comments": {
+      "comment001": "CSS 좌표와 backing buffer 픽셀 수를 비교하세요. SCALE을 1/2로 바꿔 봅니다."
+    }
+  },
+  "canvas-2d-step-02": {
+    "messages": {
+      "display001": "경로와 선의 상태",
+      "display002": "lineJoin: miter ↔ round"
+    },
+    "comments": {
+      "comment001": "경로와 선의 상태",
+      "comment002": "실험: lineJoin: miter → round",
+      "comment003": "뾰족한 바깥 모서리가 둥글게 바뀝니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-03": {
+    "messages": {
+      "display001": "도형 함수와 상태 격리",
+      "display002": "상태 복원: restore 있음 ↔ restore 제거",
+      "display003": "Final fillStyle: "
+    },
+    "comments": {
+      "comment001": "도형 함수와 상태 격리",
+      "comment002": "실험: 상태 복원: restore 있음 → restore 제거",
+      "comment003": "마지막 배지의 색이나 변환이 다음 그림에 남습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-04": {
+    "messages": {
+      "display001": "행렬과 회전 중심",
+      "display002": "변환 순서: 이동 후 회전 ↔ 회전 후 이동",
+      "display003": "Red point: intended pivot (180,90)"
+    },
+    "comments": {
+      "comment001": "행렬과 회전 중심",
+      "comment002": "실험: 변환 순서: 이동 후 회전 → 회전 후 이동",
+      "comment003": "도형이 자기 중심 대신 화면 원점을 따라 공전합니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-05": {
+    "messages": {
+      "display001": "색과 그라디언트",
+      "display002": "중간 정지점: 0.5 ↔ 0.2"
+    },
+    "comments": {
+      "comment001": "색과 그라디언트",
+      "comment002": "실험: 중간 정지점: 0.5 → 0.2",
+      "comment003": "중간 색에 도달하는 구간이 왼쪽으로 좁아집니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-06": {
+    "messages": {
+      "display001": "이미지 로딩과 자르기",
+      "display002": "소스 폭: 64 ↔ 32"
+    },
+    "comments": {
+      "comment001": "이미지 로딩과 자르기",
+      "comment002": "실험: 소스 폭: 64 → 32",
+      "comment003": "같은 출력 폭에서 잘린 부분이 두 배로 확대됩니다",
+      "comment004": "브라우저 예제는 자체 생성 PNG를 decode한 뒤 자릅니다. 외부 이미지 URL과 CORS 실패는 별도 HTTP 환경에서 확인하세요."
+    }
+  },
+  "canvas-2d-step-07": {
+    "messages": {
+      "display001": "텍스트와 배지 구성",
+      "display002": "입력 문자열: 가나 ↔ WWW iii",
+      "display003": "Measured width: ",
+      "display004": "px; padding: 20px"
+    },
+    "comments": {
+      "comment001": "텍스트와 배지 구성",
+      "comment002": "실험: 입력 문자열: 가나 → WWW iii",
+      "comment003": "문자 수가 비슷해도 배지 폭은 실제 글리프 폭에 따라 달라집니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-08": {
+    "messages": {
+      "display001": "애니메이션 시계",
+      "display002": "시간 간격: 1/60초 ↔ 1/30초",
+      "display003": "Fixed dt: ",
+      "display004": "s; speed: 90 px/s"
+    },
+    "comments": {
+      "comment001": "애니메이션 시계",
+      "comment002": "실험: 시간 간격: 1/60초 → 1/30초",
+      "comment003": "한 번의 이동은 두 배지만 같은 총 시간의 거리는 같습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-09": {
+    "messages": {
+      "display001": "정지와 재개",
+      "display002": "재개 정책: 이전 시간 유지 ↔ 이전 시간 초기화",
+      "display003": "Pause / resume",
+      "display004": "Paused — wait, then resume",
+      "display005": "Running one owned loop"
+    },
+    "comments": {
+      "comment001": "정지와 재개",
+      "comment002": "실험: 재개 정책: 이전 시간 유지 → 이전 시간 초기화",
+      "comment003": "장시간 정지 뒤 공의 순간 이동을 막습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-10": {
+    "messages": {
+      "display001": "경계 충돌과 적분",
+      "display002": "dt: 0.016초 ↔ 0.2초",
+      "display003": "x=",
+      "display004": "; velocity="
+    },
+    "comments": {
+      "comment001": "경계 충돌과 적분",
+      "comment002": "실험: dt: 0.016초 → 0.2초",
+      "comment003": "이산 충돌의 초과 이동이 커져 보정 필요성이 드러납니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-11": {
+    "messages": {
+      "display001": "포인터 좌표 변환",
+      "display002": "CSS 표시 폭: 400px ↔ 200px",
+      "display003": "Logical: ",
+      "display004": "; buffer: "
+    },
+    "comments": {
+      "comment001": "포인터 좌표 변환",
+      "comment002": "실험: CSS 표시 폭: 400px → 200px",
+      "comment003": "동일한 그림 위치를 클릭하면 논리 좌표가 유지됩니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-12": {
+    "messages": {
+      "display001": "도형 선택과 히트 테스트",
+      "display002": "검사 순서: 앞에서 뒤 ↔ 뒤에서 앞",
+      "display003": "Selected: ",
+      "display004": "; click overlap"
+    },
+    "comments": {
+      "comment001": "도형 선택과 히트 테스트",
+      "comment002": "실험: 검사 순서: 앞에서 뒤 → 뒤에서 앞",
+      "comment003": "겹침 영역에서 화면 위쪽 도형이 선택됩니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-13": {
+    "messages": {
+      "display001": "드래그와 포인터 수명",
+      "display002": "잡는 위치: 도형 중심 ↔ 도형 가장자리",
+      "display003": "Drag center or edge: grab offset is preserved"
+    },
+    "comments": {
+      "comment001": "드래그와 포인터 수명",
+      "comment002": "실험: 잡는 위치: 도형 중심 → 도형 가장자리",
+      "comment003": "offset 보정이 있으면 시작 순간 중심이 튀지 않습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-02": {
+    "messages": {
+      "display001": "Pause",
+      "display002": "Resume",
+      "display003": " Δt ",
+      "display004": " ms · speed ",
+      "display005": " px/s",
+      "display006": " · click ",
+      "display007": " · click canvas"
+    },
+    "comments": {
+      "comment001": "px/second movement; pointer coordinates stay in CSS pixels regardless of DPR."
+    }
+  },
+  "canvas-2d-step-15": {
+    "messages": {
+      "display001": "장면 데이터와 다시 그리기",
+      "display002": "삭제 대상: 마지막 도형 ↔ 중간 도형",
+      "display003": "Delete target",
+      "display004": "Reset"
+    },
+    "comments": {
+      "comment001": "장면 데이터와 다시 그리기",
+      "comment002": "실험: 삭제 대상: 마지막 도형 → 중간 도형",
+      "comment003": "배열 순서를 유지한 채 해당 그림만 사라집니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-16": {
+    "messages": {
+      "display001": "실행 취소와 기록",
+      "display002": "기록 시점: 매 pointermove ↔ pointerup",
+      "display003": "Undo",
+      "display004": "Undo snapshots: "
+    },
+    "comments": {
+      "comment001": "실행 취소와 기록",
+      "comment002": "실험: 기록 시점: 매 pointermove → pointerup",
+      "comment003": "한 번의 드래그가 한 번의 취소로 되돌아갑니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-17": {
+    "messages": {
+      "display001": "합성으로 지우개 만들기",
+      "display002": "지우개 알파: 1 ↔ 0.3",
+      "display003": "Refill"
+    },
+    "comments": {
+      "comment001": "합성으로 지우개 만들기",
+      "comment002": "실험: 지우개 알파: 1 → 0.3",
+      "comment003": "완전 삭제 대신 여러 번 지나가며 점차 옅어집니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-18": {
+    "messages": {
+      "display001": "클리핑과 마스크",
+      "display002": "마스크 반지름: 60 ↔ 30",
+      "display003": "Clip restored: border is not clipped"
+    },
+    "comments": {
+      "comment001": "클리핑과 마스크",
+      "comment002": "실험: 마스크 반지름: 60 → 30",
+      "comment003": "이미지 위치는 유지되고 노출 영역만 줄어듭니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-19": {
+    "messages": {
+      "display001": "픽셀 읽기와 필터",
+      "display002": "처리 범위: 전체 이미지 ↔ 왼쪽 절반"
+    },
+    "comments": {
+      "comment001": "픽셀 읽기와 필터",
+      "comment002": "실험: 처리 범위: 전체 이미지 → 왼쪽 절반",
+      "comment003": "절반만 회색으로 바뀌고 투명도는 같습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-20": {
+    "messages": {
+      "display001": "정적 레이어와 캐시",
+      "display002": "캐시 갱신: 매 프레임 ↔ 리사이즈 때만",
+      "display003": "Background builds: "
+    },
+    "comments": {
+      "comment001": "정적 레이어와 캐시",
+      "comment002": "실험: 캐시 갱신: 매 프레임 → 리사이즈 때만",
+      "comment003": "정적 경로 생성 횟수가 줄어듭니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-21": {
+    "messages": {
+      "display001": "고해상도와 반응형",
+      "display002": "DPR 상한: 실제 devicePixelRatio가 2 이상인 환경에서 DPR 상한 1 ↔ 2",
+      "display003": "DPR ",
+      "display004": " buffer pixels"
+    },
+    "comments": {
+      "comment001": "고해상도와 반응형",
+      "comment002": "실험: DPR 상한: 실제 devicePixelRatio가 2 이상인 환경에서 DPR 상한 1 → 2",
+      "comment003": "선은 선명해질 수 있지만 처리 픽셀 수가 네 배가 됩니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-22": {
+    "messages": {
+      "display001": "접근 가능한 캔버스 조작",
+      "display002": "입력 방식: 포인터 ↔ 키보드만",
+      "display003": "Select ",
+      "display004": "Move selected right",
+      "display005": "Selected ",
+      "display006": " at "
+    },
+    "comments": {
+      "comment001": "접근 가능한 캔버스 조작",
+      "comment002": "실험: 입력 방식: 포인터 → 키보드만",
+      "comment003": "동일 id가 선택되고 같은 이동 명령이 적용됩니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-23": {
+    "messages": {
+      "display001": "내보내기와 원본 데이터",
+      "display002": "입력 JSON: 유효 좌표 ↔ x에 문자열",
+      "display003": "Import JSON",
+      "display004": "Valid scene imported",
+      "display005": "PNG preview"
+    },
+    "comments": {
+      "comment001": "내보내기와 원본 데이터",
+      "comment002": "실험: 입력 JSON: 유효 좌표 → x에 문자열",
+      "comment003": "잘못된 데이터는 거부되고 기존 장면은 유지됩니다",
+      "comment004": "PNG는 미리보기로 생성하고 JSON은 입력란으로 가져옵니다. 파일 다운로드는 iframe 정책에 따라 외부 환경이 필요할 수 있습니다."
+    }
+  },
+  "canvas-2d-step-24": {
+    "messages": {
+      "display001": "입자 상태와 방출",
+      "display002": "방출률: 20개/s ↔ 80개/s",
+      "display003": "Alive: ",
+      "display004": "; rate: ",
+      "display005": "/s"
+    },
+    "comments": {
+      "comment001": "입자 상태와 방출",
+      "comment002": "실험: 방출률: 20개/s → 80개/s",
+      "comment003": "같은 수명에서 평균 활성 입자 수가 늘어납니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-25": {
+    "messages": {
+      "display001": "입자 재사용과 할당",
+      "display002": "할당 정책: 매 방출 새 객체 ↔ 비활성 슬롯 재사용",
+      "display003": "New allocations: ",
+      "display004": "; active: ",
+      "display005": "; pool capacity 100 (drop when full)"
+    },
+    "comments": {
+      "comment001": "입자 재사용과 할당",
+      "comment002": "실험: 할당 정책: 매 방출 새 객체 → 비활성 슬롯 재사용",
+      "comment003": "할당량은 줄지만 프레임 개선 정도는 측정이 필요합니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-26": {
+    "messages": {
+      "display001": "프레임 계측과 병목",
+      "display002": "입자 수: 500 ↔ 2000",
+      "display003": "CPU update ",
+      "display004": "ms / draw submission ",
+      "display005": "ms; frame median ",
+      "display006": "ms / p95 ",
+      "display007": "ms (not GPU time)"
+    },
+    "comments": {
+      "comment001": "프레임 계측과 병목",
+      "comment002": "실험: 입자 수: 500 → 2000",
+      "comment003": "갱신과 그리기 중 어느 구간이 증가하는지 구별할 수 있습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "canvas-2d-step-27": {
+    "messages": {
+      "display001": "통합 편집기와 회귀 점검",
+      "display002": "재초기화 횟수: 1회 ↔ 5회",
+      "display003": "Move A",
+      "display004": "Undo",
+      "display005": "Replay / reinitialize",
+      "display006": "JSON",
+      "display007": "Command count: ",
+      "display008": "; A.x=",
+      "display009": "; replay expected 100"
+    },
+    "comments": {
+      "comment001": "통합 편집기와 회귀 점검",
+      "comment002": "실험: 재초기화 횟수: 1회 → 5회",
+      "comment003": "정리가 맞으면 입력당 명령 실행 횟수가 늘지 않습니다",
+      "comment004": "명령 재생·취소·JSON 상태를 검증하는 축소 편집기입니다. 전체 캡스톤의 모든 도구를 대체하지 않습니다."
+    }
+  },
+  "canvas-2d-03": {
+    "messages": {
+      "display001": "<label>Particles <select><option>200</option><option>2000</option><option>10000</option></select></label> <label><input type=\"checkbox\" checked> Cache static background</label> <button>Record sample</button><pre></pre>",
+      "display002": " · cache ",
+      "display003": " frames · CPU draw ",
+      "display004": " ms · rAF ",
+      "display005": " ms\n"
+    },
+    "comments": {
+      "comment001": "Compare CPU drawing time with the SAME deterministic particles and background."
+    }
   }
 }

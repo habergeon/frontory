@@ -1,8 +1,9 @@
 // CSS 좌표와 backing buffer 픽셀 수를 비교하세요. SCALE을 1/2로 바꿔 봅니다.
-export function mount({ container }) {
+export function mount({locale='ko', container }) {
+  const messages=locale==='en'?{"display001":"Canvas 2D coordinates and pixels","display002":"CSS ","display003":" / buffer "}:{"display001":"Canvas 2D 좌표와 픽셀","display002":"CSS ","display003":" / buffer "};
   const SCALE = Math.min(devicePixelRatio, 2)
   const canvas = document.createElement('canvas')
-  canvas.setAttribute('aria-label', 'Canvas 2D 좌표와 픽셀')
+  canvas.setAttribute('aria-label', messages.display001)
   container.append(canvas)
   const context = canvas.getContext('2d')
   const draw = () => {
@@ -13,7 +14,7 @@ export function mount({ container }) {
     context.fillStyle = '#3179bf'; context.fillRect(30, 70, 100, 100)
     context.beginPath(); context.arc(w / 2, h / 2, 45, 0, Math.PI * 2); context.fillStyle = '#e97645'; context.fill()
     context.fillStyle = '#172c3f'; context.font = '14px system-ui'
-    context.fillText('CSS ' + w + '×' + h + ' / buffer ' + canvas.width + '×' + canvas.height, 16, 30)
+    context.fillText(messages.display002 + w + '×' + h + messages.display003 + canvas.width + '×' + canvas.height, 16, 30)
   }
   const observer = new ResizeObserver(draw); observer.observe(container); draw()
   return () => { observer.disconnect(); canvas.remove() }

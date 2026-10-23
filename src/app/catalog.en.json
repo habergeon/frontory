@@ -2718,7 +2718,8 @@
       "title": "Coordinates and Pixels",
       "goal": "Output the CSS dimensions and buffer dimensions separately. The circle's center and radius remain unchanged after resizing.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/01-foundations/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-01/example.js"
     },
     {
       "id": "canvas-2d-step-02",
@@ -2728,6 +2729,7 @@
       "goal": "Colors do not spill between separate lines. Explain the effect of resetting the path with drawings.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/02/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-02/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2738,6 +2740,7 @@
       "goal": "Styles are preserved after a shape function call. Keep logs that reproduce a missing restore.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/03/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-03/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2748,6 +2751,7 @@
       "goal": "Distinguish the trajectories produced by the two transform orders. Restore state after rotation so the grid does not tilt.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/04/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-04/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2758,6 +2762,7 @@
       "goal": "Explain the relationship between stop positions and color bands. Restore globalAlpha before drawing the next shape.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/05/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-05/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2768,6 +2773,7 @@
       "goal": "Distinguish drawing before loading from drawing after decoding. Show an error message even for an invalid URL.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/06/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-06/example.js",
       "exampleNote": "The browser example decodes a self-generated PNG before cropping it. Check external image URLs and CORS failures in a separate HTTP environment."
     },
     {
@@ -2778,6 +2784,7 @@
       "goal": "The background width adjusts to the text length. Record layout differences after changing the baseline.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/07/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-07/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2788,6 +2795,7 @@
       "goal": "Specify speed units as px/s. Obtain similar positions for the same accumulated time.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/08/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-08/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2798,6 +2806,7 @@
       "goal": "Only one loop runs even after repeated start clicks. There is no large position jump on resume.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/09/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-09/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2808,6 +2817,7 @@
       "goal": "The ball does not remain outside the walls. Record remaining errors at high speed.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/10/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-10/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2818,6 +2828,7 @@
       "goal": "Click markers remain accurate after scrolling the page. Apply DPR in only one place.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/11/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-11/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2828,6 +2839,7 @@
       "goal": "Clicking an empty area clears selection. Drawing and selection use the same path.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/12/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-12/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2838,6 +2850,7 @@
       "goal": "Dragging ends even when the pointer is released outside the canvas. The relative position is preserved when grabbing an edge.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/13/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-13/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2847,7 +2860,8 @@
       "title": "Time and Input",
       "goal": "Movement per unit time remains similar when frame intervals change. Input coordinates remain correct after pausing, resuming, and resizing.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/02-experiments/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-02/example.js"
     },
     {
       "id": "canvas-2d-step-15",
@@ -2857,6 +2871,7 @@
       "goal": "No ghost image remains after deletion. Drawing the same data twice produces matching results.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/15/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-15/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2867,6 +2882,7 @@
       "goal": "Movement and deletion are each undone in a single step. Later changes do not alter earlier snapshots.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/16/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-16/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2877,6 +2893,7 @@
       "goal": "The normal pen works correctly after using the eraser. Explain which layers own the background and ink.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/17/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-17/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2887,6 +2904,7 @@
       "goal": "The image does not leak outside the circle. The following label is not cut off by clipping.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/18/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-18/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2897,6 +2915,7 @@
       "goal": "Colors do not shift at row boundaries. The alpha of transparent pixels is preserved.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/19/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-19/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2907,6 +2926,7 @@
       "goal": "Background resolution is correct after resizing. Record cache builds separately from frame counts.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/20/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-20/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2917,6 +2937,7 @@
       "goal": "Handle hidden containers with width 0 safely. Coordinates and display remain aligned after size changes.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/21/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-21/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2927,6 +2948,7 @@
       "goal": "Selection, movement, and deletion are possible using only the keyboard. Convey selection state through text as well as color.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/22/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-22/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2937,6 +2959,7 @@
       "goal": "Distinguish the purposes of PNG and JSON. Existing work remains after an invalid import.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/23/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-23/example.js",
       "exampleNote": "PNG output is generated as a preview, and JSON is imported through an input field. File downloads may require an external environment depending on iframe policy."
     },
     {
@@ -2947,6 +2970,7 @@
       "goal": "Calculate the emission rate independently of frame rate. No expired particles remain even after a long run.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/24/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-24/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2957,6 +2981,7 @@
       "goal": "The policy for exceeding pool capacity is clear. Keep comparison records under the same input conditions.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/25/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-25/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2967,6 +2992,7 @@
       "goal": "Record measurement conditions and sample counts. Do not treat CPU measurements as GPU time.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/26/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-26/example.js",
       "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -2977,6 +3003,7 @@
       "goal": "After replay, shape ids and coordinates match the expected state. No duplicate loops or events remain after reinitialization.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/units/27/README.md",
       "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-27/example.js",
       "exampleNote": "This is a reduced editor for checking command replay, undo, and JSON state. It does not replace every tool in the full capstone."
     },
     {
@@ -2986,7 +3013,8 @@
       "title": "Particles and Cost",
       "goal": "Keep before-and-after frame records and quality images under identical conditions. Explain improvements and remaining bottlenecks with evidence.",
       "docPath": "/docs/en/labs/graphics/canvas-2d/03-project/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-03/example.js"
     },
     {
       "id": "svg-01",

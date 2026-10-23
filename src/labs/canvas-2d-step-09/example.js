@@ -2,11 +2,12 @@
 // 실험: 재개 정책: 이전 시간 유지 → 이전 시간 초기화
 // 장시간 정지 뒤 공의 순간 이동을 막습니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="정지와 재개";
-const VARIABLE="재개 정책: 이전 시간 유지 ↔ 이전 시간 초기화";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Stopping and Resuming","display002":"Resume Policy: keep the previous time ↔ reset the previous time","display003":"Pause / resume","display004":"Paused — wait, then resume","display005":"Running one owned loop"}:{"display001":"정지와 재개","display002":"재개 정책: 이전 시간 유지 ↔ 이전 시간 초기화","display003":"Pause / resume","display004":"Paused — wait, then resume","display005":"Running one owned loop"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -19,7 +20,7 @@ export function mount(context){
   function clear(){ctx.resetTransform();ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,400,260);ctx.fillStyle='#edf2f7';ctx.fillRect(0,0,400,260);}
   function circle(x,y,r,color='#2563eb'){ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}
   function point(e){const r=canvas.getBoundingClientRect();return {x:(e.clientX-r.left)*400/r.width,y:(e.clientY-r.top)*260/r.height};}
-  let paused=false,x=20,last=performance.now();button('Pause / resume',()=>{paused=!paused;if(!paused&&changed)last=performance.now();});function draw(){clear();circle(x,130,20);}loop(()=>{const now=performance.now();if(!paused){const elapsed=(now-last)/1000;x=(x+elapsed*80)%400;last=now;draw();}status.textContent=paused?'Paused — wait, then resume':'Running one owned loop';});
+  let paused=false,x=20,last=performance.now();button(messages.display003,()=>{paused=!paused;if(!paused&&changed)last=performance.now();});function draw(){clear();circle(x,130,20);}loop(()=>{const now=performance.now();if(!paused){const elapsed=(now-last)/1000;x=(x+elapsed*80)%400;last=now;draw();}status.textContent=paused?messages.display004:messages.display005;});
   draw();
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

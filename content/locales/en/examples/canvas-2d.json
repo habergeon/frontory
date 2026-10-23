@@ -1,152 +1,516 @@
 {
   "canvas-2d-step-02": {
-    "sourceHash": "f94a893769293e74deb3fe7464bc412f6c97edae23421354bb703b1e281d5e38",
+    "sourceHash": "a23c0c8c09e1ea5f80b395ca6abc74b40436b95730e522eea94164479ce07a2a",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "7fbce9cd9b6d3243160628e00236d8f57edd4ae1195d7741119525344d9b1f5e",
+      "values": {
+        "messages.display001": "Paths and Line State",
+        "messages.display002": "lineJoin: miter ↔ round",
+        "comments.comment001": "Paths and Line State",
+        "comments.comment002": "Experiment: lineJoin: miter → round",
+        "comments.comment003": "Sharp outer corners become rounded",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-03": {
-    "sourceHash": "8e75523afad525417c9639273ad1eeeba7dbe5489a60b087632d1052e4328621",
+    "sourceHash": "c1bd0e0095269008a1079c229bd2aa0c47f698bfc51d7adf91b3735e5a11bbe0",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "26a839a897e9a1f6c97b03f452a1a295c9f6456acbc566336624a74e4f30ccf2",
+      "values": {
+        "messages.display001": "Shape Functions and State Isolation",
+        "messages.display002": "State Restoration: restore present ↔ restore removed",
+        "messages.display003": "Final fillStyle: ",
+        "comments.comment001": "Shape Functions and State Isolation",
+        "comments.comment002": "Experiment: State Restoration: restore present → restore removed",
+        "comments.comment003": "The last badge's color or transform remains in subsequent drawings",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-04": {
-    "sourceHash": "853b9f84136ad3ae474eb241cd5a28bd0f039121579bc5691a5d305586cdfc07",
+    "sourceHash": "be0c9108b98e667f3aa706e2e4124322abd7afecc05918752de1e448d9453361",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "4f523f5a0742391888db11a4f98b723b8478f80fd31ac27d32d956415fb10394",
+      "values": {
+        "messages.display001": "Matrices and Rotation Centers",
+        "messages.display002": "Transform Order: translate then rotate ↔ rotate then translate",
+        "messages.display003": "Red point: intended pivot (180,90)",
+        "comments.comment001": "Matrices and Rotation Centers",
+        "comments.comment002": "Experiment: Transform Order: translate then rotate → rotate then translate",
+        "comments.comment003": "The shape orbits the screen origin instead of rotating around its own center",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-05": {
-    "sourceHash": "dc5ad335e7b516b9adb5f944e42b79eef0087deb199e1329ee7c0a56ba284a09",
+    "sourceHash": "259961f524b0a196ffa29d57bb4d0ce10bfbad1406d491398dbc1ee3a80e856a",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "780ab7082f4819e171d1d0985b8ac375e1c6395282b565dc62acc64316642476",
+      "values": {
+        "messages.display001": "Colors and Gradients",
+        "messages.display002": "Middle Color Stop: 0.5 ↔ 0.2",
+        "comments.comment001": "Colors and Gradients",
+        "comments.comment002": "Experiment: Middle Color Stop: 0.5 → 0.2",
+        "comments.comment003": "The interval leading to the middle color narrows toward the left",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-06": {
-    "sourceHash": "a0f6c83e5a61d4e647973edebebf30946740bd8e82dc0e4bde73b5c221cdd12b",
+    "sourceHash": "41a140f712effa9e05d7a19602e0737094da40806927f9fb9a5b3b02cc12e01e",
     "values": {
       "note": "The browser example decodes a self-generated PNG before cropping it. Check external image URLs and CORS failures in a separate HTTP environment."
+    },
+    "presentation": {
+      "sourceHash": "b97f1bbfb50c1b16cb862b4a72a93c17572bcfd73020a78c9c7a2255211081e8",
+      "values": {
+        "messages.display001": "Loading and Cropping Images",
+        "messages.display002": "Source Width: 64 ↔ 32",
+        "comments.comment001": "Loading and Cropping Images",
+        "comments.comment002": "Experiment: Source Width: 64 → 32",
+        "comments.comment003": "The cropped area is magnified twice as much at the same output width",
+        "comments.comment004": "The browser example decodes a self-generated PNG before cropping it. Check external image URLs and CORS failures in a separate HTTP environment."
+      }
     }
   },
   "canvas-2d-step-07": {
-    "sourceHash": "14d791abb6d6d41afeec8ff32dd0758cfa624968482d079566091cf4908efe10",
+    "sourceHash": "8acf3ec4b54e9125b533a4532787c2604cf18c487369f8e96cfeb1901563c417",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "19d22f331cdda6277224abccfa16eb37c15dfed5e0270f4952de0c91bf5929ca",
+      "values": {
+        "messages.display001": "Text and Badge Composition",
+        "messages.display002": "Input String: 가나 ↔ WWW iii",
+        "messages.display003": "Measured width: ",
+        "messages.display004": "px; padding: 20px",
+        "comments.comment001": "Text and Badge Composition",
+        "comments.comment002": "Experiment: Input String: 가나 → WWW iii",
+        "comments.comment003": "Even with similar character counts, badge width varies with actual glyph widths",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-08": {
-    "sourceHash": "c6cbb6c8dcbfb6515b85cee746828dbab2137e0a534953e2851fbe44feb6c8ce",
+    "sourceHash": "edf64084931e963f8dc16d70417d06c19179543126a4d0565af96226d243f210",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "76fe7c608e8f7e5037a8f96b551bf6d82506e6602cc5b5fcf40f50350e45d0ec",
+      "values": {
+        "messages.display001": "The Animation Clock",
+        "messages.display002": "Time Interval: 1/60 seconds ↔ 1/30 seconds",
+        "messages.display003": "Fixed dt: ",
+        "messages.display004": "s; speed: 90 px/s",
+        "comments.comment001": "The Animation Clock",
+        "comments.comment002": "Experiment: Time Interval: 1/60 seconds → 1/30 seconds",
+        "comments.comment003": "Movement per step doubles, but the distance over the same total time stays the same",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-09": {
-    "sourceHash": "2dd8347cba7feeff9364091118904440ab6f25d07fdb425fad9cc48824f26086",
+    "sourceHash": "e35de48c634fe995ad9a81a5ba63c9d46ba53b8ce7f93ed9cf38cc42699377b1",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "4d796d410ed116b607c62675e169fd454594428bdc03141f4f27d3a3a76c868c",
+      "values": {
+        "messages.display001": "Stopping and Resuming",
+        "messages.display002": "Resume Policy: keep the previous time ↔ reset the previous time",
+        "messages.display003": "Pause / resume",
+        "messages.display004": "Paused — wait, then resume",
+        "messages.display005": "Running one owned loop",
+        "comments.comment001": "Stopping and Resuming",
+        "comments.comment002": "Experiment: Resume Policy: keep the previous time → reset the previous time",
+        "comments.comment003": "The ball is prevented from jumping after a long pause",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-10": {
-    "sourceHash": "a57d0c7c8a350bea8fcf32021de26ec393b583e8673c1bcebc0fc275cfca5ac2",
+    "sourceHash": "55e49c52abc024787921b2cf0e3caa68d87fd05dd8f649cae6f3166d693c93ee",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "d09938505d50d162afc12f75a78810ba05019680e0a5a6020a8c46f74b2efce8",
+      "values": {
+        "messages.display001": "Boundary Collisions and Integration",
+        "messages.display002": "dt: 0.016 seconds ↔ 0.2 seconds",
+        "messages.display003": "x=",
+        "messages.display004": "; velocity=",
+        "comments.comment001": "Boundary Collisions and Integration",
+        "comments.comment002": "Experiment: dt: 0.016 seconds → 0.2 seconds",
+        "comments.comment003": "Larger overshoot in discrete collisions reveals the need for correction",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-11": {
-    "sourceHash": "b6057cad16615c842d94d991c08635aef8a78533e5496ecad01b09f3d509899e",
+    "sourceHash": "860edfa1a0cb5a99a91784fd610ad647ee0c7bc7c010d4f6e1c2eb8ca2a49e71",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "0d9d9d3d1ab58847e7189f2b5acd5a38050154cba62dd49cdc882afcd911c11f",
+      "values": {
+        "messages.display001": "Converting Pointer Coordinates",
+        "messages.display002": "CSS Display Width: 400px ↔ 200px",
+        "messages.display003": "Logical: ",
+        "messages.display004": "; buffer: ",
+        "comments.comment001": "Converting Pointer Coordinates",
+        "comments.comment002": "Experiment: CSS Display Width: 400px → 200px",
+        "comments.comment003": "Clicking the same position in the drawing preserves the logical coordinates",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-12": {
-    "sourceHash": "660edc35ec94db36565a6f5eec39b9432926cb5281f28eec3d6996d4e8770820",
+    "sourceHash": "cf5f6572da3ee98f881cd9458770ca7ed926481533239f064e44faeb56683926",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "bba1cae9efd30a12ab759d839ffa006b8123bc42ef1800906e9b8ed959723d39",
+      "values": {
+        "messages.display001": "Shape Selection and Hit Testing",
+        "messages.display002": "Test Order: front to back ↔ back to front",
+        "messages.display003": "Selected: ",
+        "messages.display004": "; click overlap",
+        "comments.comment001": "Shape Selection and Hit Testing",
+        "comments.comment002": "Experiment: Test Order: front to back → back to front",
+        "comments.comment003": "The topmost shape is selected in an overlapping area",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-13": {
-    "sourceHash": "dc95b86363c829e9f0f0e4d15603da398f224407f8817f6e96d8c12d911cec72",
+    "sourceHash": "9d19fa9b5ee5ccc187ac1667eb9b98367dd2061fd2cb3b01e65123e51a06de76",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "707614d6e9e86b0547f8c8598d0e2872474daddae9fdcc6bc78891e391aa01bb",
+      "values": {
+        "messages.display001": "Dragging and Pointer Lifetimes",
+        "messages.display002": "Grab Position: shape center ↔ shape edge",
+        "messages.display003": "Drag center or edge: grab offset is preserved",
+        "comments.comment001": "Dragging and Pointer Lifetimes",
+        "comments.comment002": "Experiment: Grab Position: shape center → shape edge",
+        "comments.comment003": "With offset correction, the center does not jump when dragging starts",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-15": {
-    "sourceHash": "5f20a443c24b50bc0ba3c1a4291bacff4fd1d3dbfe6eb7d505a89d8b02f472e5",
+    "sourceHash": "9f68ce34111987747048ac2bdd2cf994bc671055d21143acdabf2a4b879ff435",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "981afb9e1769965462b484f162717dcef4a88dc34a853b783766f47893845c86",
+      "values": {
+        "messages.display001": "Scene Data and Redrawing",
+        "messages.display002": "Deletion Target: last shape ↔ middle shape",
+        "messages.display003": "Delete target",
+        "messages.display004": "Reset",
+        "comments.comment001": "Scene Data and Redrawing",
+        "comments.comment002": "Experiment: Deletion Target: last shape → middle shape",
+        "comments.comment003": "Only the corresponding drawing disappears, while array order is preserved",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-16": {
-    "sourceHash": "1c350ba1b168a562c741201ce6931b4884a5ada929bbd79eb13414b931ca9fff",
+    "sourceHash": "c525872b31d72865fa964b8c49557cebdfd73cc94b4e9405e155c7a24b6dc84b",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "eb9a99c67fd79df0b4bd43d02c871025c336f7216e1f4563ddc48853cba621b4",
+      "values": {
+        "messages.display001": "Undo and History",
+        "messages.display002": "Recording Time: every pointermove ↔ pointerup",
+        "messages.display003": "Undo",
+        "messages.display004": "Undo snapshots: ",
+        "comments.comment001": "Undo and History",
+        "comments.comment002": "Experiment: Recording Time: every pointermove → pointerup",
+        "comments.comment003": "One drag is reverted with one undo",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-17": {
-    "sourceHash": "9a68f39a28b4ecc8fd3c6ed30fd55e4724f4e44d19b7bc072cf742afd4dfe335",
+    "sourceHash": "eb549cec2218b97c1d79e15003e000093dbce093a110adc3ee0b89c4f24f1ceb",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "42b1f0637e507f4247b2dcddbde381385889b330dea39be1bda98acf5007bd8a",
+      "values": {
+        "messages.display001": "Making an Eraser with Compositing",
+        "messages.display002": "Eraser Alpha: 1 ↔ 0.3",
+        "messages.display003": "Refill",
+        "comments.comment001": "Making an Eraser with Compositing",
+        "comments.comment002": "Experiment: Eraser Alpha: 1 → 0.3",
+        "comments.comment003": "Repeated passes gradually fade the area instead of erasing it completely",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-18": {
-    "sourceHash": "1fc4d8d647e74d6896ded7bac66728d4046c0d7b6efa37e271084630a8e769a1",
+    "sourceHash": "b31cb9f59c5781e8f28d629eb62834284ef4ffcdd1df4bdf1cf17182732114e6",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "bbf5533bcea55ac0611638a563e1ce2ff9e6f94e489c5398a4396633dfb814e9",
+      "values": {
+        "messages.display001": "Clipping and Masks",
+        "messages.display002": "Mask Radius: 60 ↔ 30",
+        "messages.display003": "Clip restored: border is not clipped",
+        "comments.comment001": "Clipping and Masks",
+        "comments.comment002": "Experiment: Mask Radius: 60 → 30",
+        "comments.comment003": "The image position stays the same, and only the exposed area shrinks",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-19": {
-    "sourceHash": "60b43f69464fde09ee1d0105b99d32dbfb97fb0a6f294434e964a774b69a5a55",
+    "sourceHash": "48957460de3aecb53f6553ed75b38897376632e561738d731f079e02f4540635",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "1889c1d90026d78028ff4572a80b6c05584557a05b3bbc70ce1dc04468a3c56e",
+      "values": {
+        "messages.display001": "Reading Pixels and Applying Filters",
+        "messages.display002": "Processing Region: entire image ↔ left half",
+        "comments.comment001": "Reading Pixels and Applying Filters",
+        "comments.comment002": "Experiment: Processing Region: entire image → left half",
+        "comments.comment003": "Only half becomes grayscale, while transparency stays the same",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-20": {
-    "sourceHash": "5a9962c84ef0b2c4975c1097a3aa4ab186b256bb1bce9c8f77b86b4fbb529e72",
+    "sourceHash": "385807dc86f527532fb8eab77f63d9edb783e38c746a783bea150319c5e9a765",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "6b6e8c625d0ee6136a80a328c3cacfbbb297c05f0a8eae3e632c4c4d0fd39cf8",
+      "values": {
+        "messages.display001": "Static Layers and Caching",
+        "messages.display002": "Cache Updates: every frame ↔ only on resize",
+        "messages.display003": "Background builds: ",
+        "comments.comment001": "Static Layers and Caching",
+        "comments.comment002": "Experiment: Cache Updates: every frame → only on resize",
+        "comments.comment003": "The number of static path constructions decreases",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-21": {
-    "sourceHash": "7d0f2c89ebdb96f27f9dfd756801ddf76cb2c0cbb51b3c57eda7b862b0f79250",
+    "sourceHash": "f364993f9980132785667ec309110d929f50dcbc87666a7c34e72e702a9e5588",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "97452bc3692d5eb9425c87d44414d02b53f40504d66793b89805a7245b84d0b3",
+      "values": {
+        "messages.display001": "High Resolution and Responsive Layout",
+        "messages.display002": "DPR Cap: In an environment where actual devicePixelRatio is at least 2, DPR cap 1 ↔ 2",
+        "messages.display003": "DPR ",
+        "messages.display004": " buffer pixels",
+        "comments.comment001": "High Resolution and Responsive Layout",
+        "comments.comment002": "Experiment: DPR Cap: In an environment where actual devicePixelRatio is at least 2, DPR cap 1 → 2",
+        "comments.comment003": "Lines may become sharper, but the number of processed pixels becomes four times larger",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-22": {
-    "sourceHash": "11cea7b8126d65fe41aed6847640d54854e89a096b12e8805f6ee63baff1f4b6",
+    "sourceHash": "583fd9095d4dd10ff45523facd12c31fa43cb1318b32efffea9a7f8b823f0b31",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "7f4848b1b7a3ffb24da3eb7ff5d3858d82dd563e2989f9abb0d1901cdf9b534d",
+      "values": {
+        "messages.display001": "Accessible Canvas Controls",
+        "messages.display002": "Input Method: pointer ↔ keyboard only",
+        "messages.display003": "Select ",
+        "messages.display004": "Move selected right",
+        "messages.display005": "Selected ",
+        "messages.display006": " at ",
+        "comments.comment001": "Accessible Canvas Controls",
+        "comments.comment002": "Experiment: Input Method: pointer → keyboard only",
+        "comments.comment003": "The same id is selected, and the same movement commands are applied",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-23": {
-    "sourceHash": "25762b0cc3915142888a185d4ad0ae2195ce06a683dc43214eca31026cff0c23",
+    "sourceHash": "126c4f85661fdc2b4d3d8e0d5e0969be169c0e58029b413dcec7a5b128840915",
     "values": {
       "note": "PNG output is generated as a preview, and JSON is imported through an input field. File downloads may require an external environment depending on iframe policy."
+    },
+    "presentation": {
+      "sourceHash": "5e4a53a528fd5506926a483337f6668c165dce51e17797393c96039bf51297ef",
+      "values": {
+        "messages.display001": "Exporting and Source Data",
+        "messages.display002": "Input JSON: valid coordinates ↔ a string in x",
+        "messages.display003": "Import JSON",
+        "messages.display004": "Valid scene imported",
+        "messages.display005": "PNG preview",
+        "comments.comment001": "Exporting and Source Data",
+        "comments.comment002": "Experiment: Input JSON: valid coordinates → a string in x",
+        "comments.comment003": "Invalid data is rejected, and the existing scene is preserved",
+        "comments.comment004": "PNG output is generated as a preview, and JSON is imported through an input field. File downloads may require an external environment depending on iframe policy."
+      }
     }
   },
   "canvas-2d-step-24": {
-    "sourceHash": "e427ab7e2866f78377b1f6d26c612a69bfef5122a135505135d3d96d693abb2f",
+    "sourceHash": "0f7baacb37239117d912d9c160b1de211c27fedb944159c3307e52ffd7537a30",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "903046f679ab5e56fe1e0d56617a187405ef5304a4cf81ed7d0b09e331e35984",
+      "values": {
+        "messages.display001": "Particle State and Emission",
+        "messages.display002": "Emission Rate: 20 particles/s ↔ 80 particles/s",
+        "messages.display003": "Alive: ",
+        "messages.display004": "; rate: ",
+        "messages.display005": "/s",
+        "comments.comment001": "Particle State and Emission",
+        "comments.comment002": "Experiment: Emission Rate: 20 particles/s → 80 particles/s",
+        "comments.comment003": "The average active particle count increases for the same lifetime",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-25": {
-    "sourceHash": "671980759fcb980041777c5085270db9aeb92f2bfe9752fdad9ca0e896a53c3d",
+    "sourceHash": "7bb34fbf146cae8e5964cb00a2b853cd244fc21921a6a74301322bcacb3a5af0",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "dd1a9bec13efa938bc8a883be7789e6a2ff100a22bc5d082c1c48c514589d554",
+      "values": {
+        "messages.display001": "Particle Reuse and Allocation",
+        "messages.display002": "Allocation Policy: new object for every emission ↔ reuse inactive slots",
+        "messages.display003": "New allocations: ",
+        "messages.display004": "; active: ",
+        "messages.display005": "; pool capacity 100 (drop when full)",
+        "comments.comment001": "Particle Reuse and Allocation",
+        "comments.comment002": "Experiment: Allocation Policy: new object for every emission → reuse inactive slots",
+        "comments.comment003": "Allocations decrease, but the degree of frame improvement must be measured",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-26": {
-    "sourceHash": "0216dcc116cd24503996bf7b0f69c08595b698447142f7f157509805bf3cc530",
+    "sourceHash": "5e94f3f798857bc93b3c6834bbbcd4358dd22975598d2995bd476c606c77e5bc",
     "values": {
       "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "02588efd803f9aa5f8c6e8318a0831a9f5db6ad9163309b234a05d6f0a98f69d",
+      "values": {
+        "messages.display001": "Frame Measurement and Bottlenecks",
+        "messages.display002": "Particle Count: 500 ↔ 2000",
+        "messages.display003": "CPU update ",
+        "messages.display004": "ms / draw submission ",
+        "messages.display005": "ms; frame median ",
+        "messages.display006": "ms / p95 ",
+        "messages.display007": "ms (not GPU time)",
+        "comments.comment001": "Frame Measurement and Bottlenecks",
+        "comments.comment002": "Experiment: Particle Count: 500 → 2000",
+        "comments.comment003": "You can distinguish whether the update or drawing section increases",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "canvas-2d-step-27": {
-    "sourceHash": "cc9f12d6dd8aa886d1ae9457852b6990637e16e55b52db376918aed0a1695087",
+    "sourceHash": "1f896c10a290af49ecc574ef2583b2e321142cadf26bb7c475c9bbde64a159aa",
     "values": {
       "note": "This is a reduced editor for checking command replay, undo, and JSON state. It does not replace every tool in the full capstone."
+    },
+    "presentation": {
+      "sourceHash": "61bf8fdc5b415650fbacc5374725bc11eb164531e5a00fbdce06e6d096adc030",
+      "values": {
+        "messages.display001": "Integrated Editor and Regression Checks",
+        "messages.display002": "Reinitialization Count: 1 time ↔ 5 times",
+        "messages.display003": "Move A",
+        "messages.display004": "Undo",
+        "messages.display005": "Replay / reinitialize",
+        "messages.display006": "JSON",
+        "messages.display007": "Command count: ",
+        "messages.display008": "; A.x=",
+        "messages.display009": "; replay expected 100",
+        "comments.comment001": "Integrated Editor and Regression Checks",
+        "comments.comment002": "Experiment: Reinitialization Count: 1 time → 5 times",
+        "comments.comment003": "With correct cleanup, the command count per input does not increase",
+        "comments.comment004": "This is a reduced editor for checking command replay, undo, and JSON state. It does not replace every tool in the full capstone."
+      }
+    }
+  },
+  "canvas-2d-01": {
+    "presentation": {
+      "sourceHash": "8890c9ebf84441f5789f329b87cd83ecfee0784dac2d95715e932e3b73e79f58",
+      "values": {
+        "messages.display001": "Canvas 2D coordinates and pixels",
+        "messages.display002": "CSS ",
+        "messages.display003": " / buffer ",
+        "comments.comment001": "Compare CSS coordinates with the backing buffer pixel count. Try changing SCALE to 1 or 2."
+      }
+    }
+  },
+  "canvas-2d-02": {
+    "presentation": {
+      "sourceHash": "523f346be54cf0531ddd814827ae032aa52e3d0872b2f4f8c147675714f61cd2",
+      "values": {
+        "messages.display001": "Pause",
+        "messages.display002": "Resume",
+        "messages.display003": " Δt ",
+        "messages.display004": " ms · speed ",
+        "messages.display005": " px/s",
+        "messages.display006": " · click ",
+        "messages.display007": " · click canvas",
+        "comments.comment001": "px/second movement; pointer coordinates stay in CSS pixels regardless of DPR."
+      }
+    }
+  },
+  "canvas-2d-03": {
+    "presentation": {
+      "sourceHash": "f9c490bb32d0ac4a79d51ba059356b4c93f36fca333d36feed2a31220ed2f6c6",
+      "values": {
+        "messages.display001": "<label>Particles <select><option>200</option><option>2000</option><option>10000</option></select></label> <label><input type=\"checkbox\" checked> Cache static background</label> <button>Record sample</button><pre></pre>",
+        "messages.display002": " · cache ",
+        "messages.display003": " frames · CPU draw ",
+        "messages.display004": " ms · rAF ",
+        "messages.display005": " ms\n",
+        "comments.comment001": "Compare CPU drawing time with the SAME deterministic particles and background."
+      }
     }
   }
 }

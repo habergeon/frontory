@@ -2,11 +2,12 @@
 // 실험: 소스 폭: 64 → 32
 // 같은 출력 폭에서 잘린 부분이 두 배로 확대됩니다
 // 브라우저 예제는 자체 생성 PNG를 decode한 뒤 자릅니다. 외부 이미지 URL과 CORS 실패는 별도 HTTP 환경에서 확인하세요.
-const TITLE="이미지 로딩과 자르기";
-const VARIABLE="소스 폭: 64 ↔ 32";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Loading and Cropping Images","display002":"Source Width: 64 ↔ 32"}:{"display001":"이미지 로딩과 자르기","display002":"소스 폭: 64 ↔ 32"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);

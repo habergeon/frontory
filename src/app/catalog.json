@@ -2543,7 +2543,8 @@
       "title": "좌표와 픽셀",
       "goal": "CSS 크기와 버퍼 크기를 각각 출력한다. 리사이즈 뒤 원의 중심과 반지름이 유지된다.",
       "docPath": "/docs/labs/graphics/canvas-2d/01-foundations/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-01/example.js"
     },
     {
       "id": "canvas-2d-step-02",
@@ -2552,7 +2553,8 @@
       "title": "경로와 선의 상태",
       "goal": "서로 다른 선에 색이 번지지 않는다. 경로 초기화 유무의 차이를 그림으로 설명한다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/02/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-02/example.js"
     },
     {
       "id": "canvas-2d-step-03",
@@ -2561,7 +2563,8 @@
       "title": "도형 함수와 상태 격리",
       "goal": "도형 함수 호출 후 스타일이 보존된다. 복원 누락을 재현한 로그가 있다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/03/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-03/example.js"
     },
     {
       "id": "canvas-2d-step-04",
@@ -2570,7 +2573,8 @@
       "title": "행렬과 회전 중심",
       "goal": "두 변환 순서의 궤적을 구별한다. 회전 후 상태를 복원해 격자가 기울지 않는다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/04/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-04/example.js"
     },
     {
       "id": "canvas-2d-step-05",
@@ -2579,7 +2583,8 @@
       "title": "색과 그라디언트",
       "goal": "정지점 위치와 색 띠의 관계를 설명한다. 다음 도형 전에 globalAlpha를 복구한다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/05/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-05/example.js"
     },
     {
       "id": "canvas-2d-step-06",
@@ -2588,7 +2593,8 @@
       "title": "이미지 로딩과 자르기",
       "goal": "로딩 전 그리기와 디코딩 후 그리기를 구별한다. 잘못된 URL에서도 오류 문구가 보인다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/06/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-06/example.js"
     },
     {
       "id": "canvas-2d-step-07",
@@ -2597,7 +2603,8 @@
       "title": "텍스트와 배지 구성",
       "goal": "텍스트 길이에 맞춰 배경 폭이 조절된다. 기준선을 바꾼 배치 차이를 기록한다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/07/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-07/example.js"
     },
     {
       "id": "canvas-2d-step-08",
@@ -2606,7 +2613,8 @@
       "title": "애니메이션 시계",
       "goal": "속도 단위가 px/s로 명시된다. 같은 누적 시간에 가까운 위치를 얻는다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/08/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-08/example.js"
     },
     {
       "id": "canvas-2d-step-09",
@@ -2615,7 +2623,8 @@
       "title": "정지와 재개",
       "goal": "연속 시작 클릭에도 루프가 하나다. 재개 시 큰 위치 점프가 없다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/09/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-09/example.js"
     },
     {
       "id": "canvas-2d-step-10",
@@ -2624,7 +2633,8 @@
       "title": "경계 충돌과 적분",
       "goal": "공이 벽 바깥에서 머물지 않는다. 높은 속도에서 남는 오차를 기록한다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/10/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-10/example.js"
     },
     {
       "id": "canvas-2d-step-11",
@@ -2633,7 +2643,8 @@
       "title": "포인터 좌표 변환",
       "goal": "페이지 스크롤 후에도 클릭 표시가 맞는다. DPR 적용 위치를 한 곳으로 한정한다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/11/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-11/example.js"
     },
     {
       "id": "canvas-2d-step-12",
@@ -2642,7 +2653,8 @@
       "title": "도형 선택과 히트 테스트",
       "goal": "빈 영역 클릭은 선택을 해제한다. 그리기와 선택이 같은 경로를 사용한다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/12/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-12/example.js"
     },
     {
       "id": "canvas-2d-step-13",
@@ -2651,7 +2663,8 @@
       "title": "드래그와 포인터 수명",
       "goal": "캔버스 밖에서 놓아도 드래그가 끝난다. 가장자리를 잡아도 상대 위치가 유지된다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/13/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-13/example.js"
     },
     {
       "id": "canvas-2d-02",
@@ -2660,7 +2673,8 @@
       "title": "시간과 입력",
       "goal": "프레임 간격을 바꿔도 시간당 이동이 유사하다. 정지·재개·리사이즈 후 입력 좌표가 맞는다.",
       "docPath": "/docs/labs/graphics/canvas-2d/02-experiments/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-02/example.js"
     },
     {
       "id": "canvas-2d-step-15",
@@ -2669,7 +2683,8 @@
       "title": "장면 데이터와 다시 그리기",
       "goal": "삭제 후 잔상이 남지 않는다. 같은 데이터로 두 번 그린 결과가 일치한다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/15/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-15/example.js"
     },
     {
       "id": "canvas-2d-step-16",
@@ -2678,7 +2693,8 @@
       "title": "실행 취소와 기록",
       "goal": "이동과 삭제가 각각 한 단계로 취소된다. 이전 스냅샷이 후속 수정으로 바뀌지 않는다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/16/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-16/example.js"
     },
     {
       "id": "canvas-2d-step-17",
@@ -2687,7 +2703,8 @@
       "title": "합성으로 지우개 만들기",
       "goal": "지우개 이후 일반 펜이 정상 작동한다. 배경과 잉크의 소유 레이어를 설명한다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/17/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-17/example.js"
     },
     {
       "id": "canvas-2d-step-18",
@@ -2696,7 +2713,8 @@
       "title": "클리핑과 마스크",
       "goal": "원 바깥으로 이미지가 새지 않는다. 다음 라벨이 클리핑에 잘리지 않는다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/18/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-18/example.js"
     },
     {
       "id": "canvas-2d-step-19",
@@ -2705,7 +2723,8 @@
       "title": "픽셀 읽기와 필터",
       "goal": "행 경계에서 색이 밀리지 않는다. 투명 픽셀의 알파가 보존된다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/19/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-19/example.js"
     },
     {
       "id": "canvas-2d-step-20",
@@ -2714,7 +2733,8 @@
       "title": "정적 레이어와 캐시",
       "goal": "리사이즈 후 배경 해상도가 맞는다. 캐시 생성 횟수와 프레임 수를 따로 기록한다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/20/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-20/example.js"
     },
     {
       "id": "canvas-2d-step-21",
@@ -2723,7 +2743,8 @@
       "title": "고해상도와 반응형",
       "goal": "폭 0인 숨김 컨테이너도 안전하게 처리한다. 크기 변경 뒤 좌표와 표시가 어긋나지 않는다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/21/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-21/example.js"
     },
     {
       "id": "canvas-2d-step-22",
@@ -2732,7 +2753,8 @@
       "title": "접근 가능한 캔버스 조작",
       "goal": "키보드만으로 선택·이동·삭제가 가능하다. 선택 상태를 색 외 텍스트로 전달한다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/22/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-22/example.js"
     },
     {
       "id": "canvas-2d-step-23",
@@ -2741,7 +2763,8 @@
       "title": "내보내기와 원본 데이터",
       "goal": "PNG와 JSON의 용도를 구별한다. 잘못된 가져오기 후 기존 작업이 남는다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/23/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-23/example.js"
     },
     {
       "id": "canvas-2d-step-24",
@@ -2750,7 +2773,8 @@
       "title": "입자 상태와 방출",
       "goal": "프레임률과 무관하게 방출률을 계산한다. 오래 실행해도 수명 지난 입자가 남지 않는다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/24/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-24/example.js"
     },
     {
       "id": "canvas-2d-step-25",
@@ -2759,7 +2783,8 @@
       "title": "입자 재사용과 할당",
       "goal": "풀 용량 초과 정책이 명확하다. 같은 입력 조건의 비교 기록이 있다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/25/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-25/example.js"
     },
     {
       "id": "canvas-2d-step-26",
@@ -2768,7 +2793,8 @@
       "title": "프레임 계측과 병목",
       "goal": "측정 조건과 표본 수가 기록된다. CPU 측정값을 GPU 시간으로 단정하지 않는다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/26/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-26/example.js"
     },
     {
       "id": "canvas-2d-step-27",
@@ -2777,7 +2803,8 @@
       "title": "통합 편집기와 회귀 점검",
       "goal": "재생 후 도형 id와 좌표가 기대 상태와 맞는다. 재초기화 후 중복 루프와 이벤트가 없다.",
       "docPath": "/docs/labs/graphics/canvas-2d/units/27/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-step-27/example.js"
     },
     {
       "id": "canvas-2d-03",
@@ -2786,7 +2813,8 @@
       "title": "입자와 비용",
       "goal": "동일 조건의 전후 프레임 기록과 품질 이미지가 있다. 개선 효과와 남은 병목을 근거로 설명한다.",
       "docPath": "/docs/labs/graphics/canvas-2d/03-project/README.md",
-      "seriesId": "canvas-2d"
+      "seriesId": "canvas-2d",
+      "exampleReadingSource": "/examples-en/canvas-2d-03/example.js"
     },
     {
       "id": "svg-01",

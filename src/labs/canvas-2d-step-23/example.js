@@ -2,11 +2,12 @@
 // 실험: 입력 JSON: 유효 좌표 → x에 문자열
 // 잘못된 데이터는 거부되고 기존 장면은 유지됩니다
 // PNG는 미리보기로 생성하고 JSON은 입력란으로 가져옵니다. 파일 다운로드는 iframe 정책에 따라 외부 환경이 필요할 수 있습니다.
-const TITLE="내보내기와 원본 데이터";
-const VARIABLE="입력 JSON: 유효 좌표 ↔ x에 문자열";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Exporting and Source Data","display002":"Input JSON: valid coordinates ↔ a string in x","display003":"Import JSON","display004":"Valid scene imported","display005":"PNG preview"}:{"display001":"내보내기와 원본 데이터","display002":"입력 JSON: 유효 좌표 ↔ x에 문자열","display003":"Import JSON","display004":"Valid scene imported","display005":"PNG preview"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -19,7 +20,7 @@ export function mount(context){
   function clear(){ctx.resetTransform();ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,400,260);ctx.fillStyle='#edf2f7';ctx.fillRect(0,0,400,260);}
   function circle(x,y,r,color='#2563eb'){ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}
   function point(e){const r=canvas.getBoundingClientRect();return {x:(e.clientX-r.left)*400/r.width,y:(e.clientY-r.top)*260/r.height};}
-  let objects=[{x:100,y:130},{x:280,y:130}];const input=document.createElement('textarea');input.value=JSON.stringify(objects);ui.append(input);button('Import JSON',()=>{try{const data=JSON.parse(input.value);if(!Array.isArray(data)||!data.every(s=>Number.isFinite(s.x)&&Number.isFinite(s.y)))throw Error('Coordinates must be finite numbers');objects=data;draw();status.textContent='Valid scene imported';}catch(e){status.textContent=String(e);}});button('PNG preview',()=>canvas.toBlob(blob=>{if(!blob||closed)return;const url=URL.createObjectURL(blob);const img=document.createElement('img');img.src=url;img.width=160;ui.append(img);disposers.push(()=>URL.revokeObjectURL(url));}));function draw(){clear();objects.forEach(s=>circle(s.x,s.y,25));input.value=JSON.stringify(changed?[{x:'invalid',y:130}]:objects);}
+  let objects=[{x:100,y:130},{x:280,y:130}];const input=document.createElement('textarea');input.value=JSON.stringify(objects);ui.append(input);button(messages.display003,()=>{try{const data=JSON.parse(input.value);if(!Array.isArray(data)||!data.every(s=>Number.isFinite(s.x)&&Number.isFinite(s.y)))throw Error('Coordinates must be finite numbers');objects=data;draw();status.textContent=messages.display004;}catch(e){status.textContent=String(e);}});button(messages.display005,()=>canvas.toBlob(blob=>{if(!blob||closed)return;const url=URL.createObjectURL(blob);const img=document.createElement('img');img.src=url;img.width=160;ui.append(img);disposers.push(()=>URL.revokeObjectURL(url));}));function draw(){clear();objects.forEach(s=>circle(s.x,s.y,25));input.value=JSON.stringify(changed?[{x:'invalid',y:130}]:objects);}
   draw();
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

@@ -2,11 +2,12 @@
 // 실험: 변환 순서: 이동 후 회전 → 회전 후 이동
 // 도형이 자기 중심 대신 화면 원점을 따라 공전합니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="행렬과 회전 중심";
-const VARIABLE="변환 순서: 이동 후 회전 ↔ 회전 후 이동";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Matrices and Rotation Centers","display002":"Transform Order: translate then rotate ↔ rotate then translate","display003":"Red point: intended pivot (180,90)"}:{"display001":"행렬과 회전 중심","display002":"변환 순서: 이동 후 회전 ↔ 회전 후 이동","display003":"Red point: intended pivot (180,90)"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -19,7 +20,7 @@ export function mount(context){
   function clear(){ctx.resetTransform();ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,400,260);ctx.fillStyle='#edf2f7';ctx.fillRect(0,0,400,260);}
   function circle(x,y,r,color='#2563eb'){ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}
   function point(e){const r=canvas.getBoundingClientRect();return {x:(e.clientX-r.left)*400/r.width,y:(e.clientY-r.top)*260/r.height};}
-  function draw(){clear();ctx.save();if(changed){ctx.rotate(0.6);ctx.translate(180,90);}else{ctx.translate(180,90);ctx.rotate(0.6);}ctx.fillStyle='#2563eb';ctx.fillRect(-70,-10,140,20);ctx.restore();ctx.fillStyle='#e11d48';ctx.fillRect(177,87,6,6);status.textContent='Red point: intended pivot (180,90)';}
+  function draw(){clear();ctx.save();if(changed){ctx.rotate(0.6);ctx.translate(180,90);}else{ctx.translate(180,90);ctx.rotate(0.6);}ctx.fillStyle='#2563eb';ctx.fillRect(-70,-10,140,20);ctx.restore();ctx.fillStyle='#e11d48';ctx.fillRect(177,87,6,6);status.textContent=messages.display003;}
   draw();
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

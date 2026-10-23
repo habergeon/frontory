@@ -2,11 +2,12 @@
 // 실험: 상태 복원: restore 있음 → restore 제거
 // 마지막 배지의 색이나 변환이 다음 그림에 남습니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="도형 함수와 상태 격리";
-const VARIABLE="상태 복원: restore 있음 ↔ restore 제거";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Shape Functions and State Isolation","display002":"State Restoration: restore present ↔ restore removed","display003":"Final fillStyle: "}:{"display001":"도형 함수와 상태 격리","display002":"상태 복원: restore 있음 ↔ restore 제거","display003":"Final fillStyle: "};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -19,7 +20,7 @@ export function mount(context){
   function clear(){ctx.resetTransform();ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,400,260);ctx.fillStyle='#edf2f7';ctx.fillRect(0,0,400,260);}
   function circle(x,y,r,color='#2563eb'){ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}
   function point(e){const r=canvas.getBoundingClientRect();return {x:(e.clientX-r.left)*400/r.width,y:(e.clientY-r.top)*260/r.height};}
-  function badge(x,color){ctx.save();ctx.translate(x,130);ctx.fillStyle=color;ctx.fillRect(-35,-35,70,70);if(!changed)ctx.restore();} function draw(){clear();ctx.fillStyle='#2563eb';badge(80,'#ef4444');badge(180,'#f59e0b');ctx.fillRect(20,210,80,25);status.textContent='Final fillStyle: '+ctx.fillStyle;if(changed){ctx.restore();ctx.restore();}ctx.resetTransform();}
+  function badge(x,color){ctx.save();ctx.translate(x,130);ctx.fillStyle=color;ctx.fillRect(-35,-35,70,70);if(!changed)ctx.restore();} function draw(){clear();ctx.fillStyle='#2563eb';badge(80,'#ef4444');badge(180,'#f59e0b');ctx.fillRect(20,210,80,25);status.textContent=messages.display003+ctx.fillStyle;if(changed){ctx.restore();ctx.restore();}ctx.resetTransform();}
   draw();
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

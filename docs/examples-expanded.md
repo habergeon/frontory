@@ -565,13 +565,13 @@
 | [17. Worker Pool](labs/engineering/web-workers/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-17/example.js) — Interactive Worker Pool experiment with resource cleanup. |
 | [18. 결과 순서 복원](labs/engineering/web-workers/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-18/example.js) — 결과 순서 복원 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [19. Timeout과 중복 응답](labs/engineering/web-workers/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-19/example.js) — Timeout과 중복 응답 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
-| [20. 장애 복구](labs/engineering/web-workers/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-20/example.js) — 장애 복구 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [20. 장애 복구](labs/engineering/web-workers/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-20/example.js) — 내장 예제는 요청 오류 응답을 받으면 Worker를 교체하고 새 ID로 [9,9] 합계를 요청합니다. Worker error 이벤트 복구나 원래 요청의 재시도는 구현하지 않습니다. |
 | [21. MessageChannel 분리](labs/engineering/web-workers/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-21/example.js) — MessageChannel 분리 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [22. 데이터 분할과 병합](labs/engineering/web-workers/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-22/example.js) — 데이터 분할과 병합 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [23. 공유 메모리 조건](labs/engineering/web-workers/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-23/example.js) — 공유 메모리 조건 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [24. Atomics와 동기화](labs/engineering/web-workers/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-24/example.js) — Atomics와 동기화 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [25. 전체 지연 측정](labs/engineering/web-workers/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-25/example.js) — 전체 지연 측정 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
-| [26. 메모리와 풀 한도](labs/engineering/web-workers/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-26/example.js) — 메모리와 풀 한도 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [26. 메모리와 풀 한도](labs/engineering/web-workers/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-26/example.js) — 내장 예제는 1 MiB 버퍼 세 개를 할당하고 하나를 이전합니다. 네 번째 할당이나 거부 분기는 실행하지 않으며 피크 메모리를 측정하지 않습니다. |
 | [27. 해제와 다시 시작](labs/engineering/web-workers/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/web-workers-step-27/example.js) — 해제와 다시 시작 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 
 ## OffscreenCanvas

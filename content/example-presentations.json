@@ -7359,5 +7359,456 @@
     "comments": {
       "comment001": "Motion JS gesture feedback; drag and native buttons call the same reorder action."
     }
+  },
+  "web-workers-01": {
+    "messages": {
+      "display001": "Worker 합계 계산",
+      "display002": "\n계산 시간만 표시하며 메시지 왕복 비용은 포함하지 않습니다.",
+      "display003": "Worker 실행 실패: ",
+      "display004": "계산 요청 중"
+    },
+    "comments": {
+      "comment001": "LIMIT을 바꾸고 계산 중에도 버튼에 포커스가 이동하는지 관찰하세요."
+    }
+  },
+  "web-workers-step-02": {
+    "messages": {
+      "display001": "<h3>모듈 Worker 로딩</h3><p>Module Worker / 로딩 실패</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: ",
+      "display009": "Module worker loaded from a blob URL; watch ready result"
+    },
+    "comments": {
+      "comment001": "web-workers-step-02: 모듈 Worker 로딩"
+    }
+  },
+  "web-workers-step-03": {
+    "messages": {
+      "display001": "<h3>메시지 계약</h3><p>태그 / 검증</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-03: 메시지 계약"
+    }
+  },
+  "web-workers-step-04": {
+    "messages": {
+      "display001": "<h3>Structured Clone</h3><p>복사 / 복제 제한</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: ",
+      "display009": "Main changed first item to 999 after clone; worker sum remains 6",
+      "display010": "; function rejected: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-04: Structured Clone"
+    }
+  },
+  "web-workers-step-05": {
+    "messages": {
+      "display001": "<h3>TypedArray와 Buffer</h3><p>View / Offset</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-05: TypedArray와 Buffer"
+    }
+  },
+  "web-workers-step-06": {
+    "messages": {
+      "display001": "<h3>오류 응답 계약</h3><p>작업 오류 / 정리</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-06: 오류 응답 계약"
+    }
+  },
+  "web-workers-step-07": {
+    "messages": {
+      "display001": "<h3>메인 응답성 관찰</h3><p>분리 / 기준 실험</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: ",
+      "display009": "Worker processing; counter button remains interactive. Sent at "
+    },
+    "comments": {
+      "comment001": "web-workers-step-07: 메인 응답성 관찰"
+    }
+  },
+  "web-workers-step-08": {
+    "messages": {
+      "display001": "<h3>Transfer 소유권</h3><p>이전 / 접근 금지</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: ",
+      "display009": "Sender byteLength after transfer: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-08: Transfer 소유권"
+    }
+  },
+  "web-workers-step-09": {
+    "messages": {
+      "display001": "<h3>부분 View 전송</h3><p>저장소 단위 / 경계 최소화</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: ",
+      "display009": "Copied subview only; original backing still "
+    },
+    "comments": {
+      "comment001": "web-workers-step-09: 부분 View 전송"
+    }
+  },
+  "web-workers-step-10": {
+    "messages": {
+      "display001": "<h3>버퍼 반환</h3><p>왕복 소유권 / 풀 상태</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-10: 버퍼 반환"
+    }
+  },
+  "web-workers-step-11": {
+    "messages": {
+      "display001": "<h3>오래된 결과 거부</h3><p>최신 요청 / 계산 취소 구별</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-11: 오래된 결과 거부"
+    }
+  },
+  "web-workers-step-12": {
+    "messages": {
+      "display001": "<h3>협력적 취소</h3><p>이벤트 루프 / 취소 지점</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-12: 협력적 취소"
+    }
+  },
+  "web-workers-step-13": {
+    "messages": {
+      "display001": "<h3>강제 종료와 재생성</h3><p>Terminate / 복구</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-13: 강제 종료와 재생성"
+    }
+  },
+  "web-workers-02": {
+    "messages": {
+      "display001": "<h3>Copy, transfer, cancel</h3><label>Float32 elements <input type=\"number\" min=\"1\" max=\"4000000\" value=\"500000\"></label> <button data-mode=\"copy\">Copy</button> <button data-mode=\"transfer\">Transfer</button> <button data-mode=\"error\">Error path</button> <button data-mode=\"cancel\">Cancel</button><pre aria-live=\"polite\"></pre><p>Start another request immediately to ignore an older reply. Cancel terminates the worker and creates a fresh one on the next request. Input buffers are allocated anew.</p>",
+      "display002": "Canceled. Worker terminated; UI ready for a new request.",
+      "display003": "Worker error: ",
+      "display004": "Error: ",
+      "display005": "PASS",
+      "display006": "FAIL",
+      "display007": "sum=",
+      "display008": "; expected=",
+      "display009": "; ",
+      "display010": "Request ",
+      "display011": ", ",
+      "display012": "\npostMessage synchronous cost: ",
+      "display013": " ms\nSender byteLength before=",
+      "display014": ", after=",
+      "display015": "\nWaiting… (Copy retains sender data; transfer detaches it.)",
+      "display016": "Could not start worker: "
+    },
+    "comments": {}
+  },
+  "web-workers-step-15": {
+    "messages": {
+      "display001": "<h3>진행도 보고</h3><p>보고 빈도 / 단조 증가</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-15: 진행도 보고"
+    }
+  },
+  "web-workers-step-16": {
+    "messages": {
+      "display001": "<h3>제한된 작업 큐</h3><p>Backpressure / 상태 전이</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: ",
+      "display009": "Queue capacity 3: rejected additional input"
+    },
+    "comments": {
+      "comment001": "web-workers-step-16: 제한된 작업 큐"
+    }
+  },
+  "web-workers-step-17": {
+    "messages": {
+      "display001": "<h3>Worker Pool</h3><p>병렬성 / 유휴 배정</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: ",
+      "display009": "Pool busy: wait for two worker slots",
+      "display010": "Two fixed workers dispatched",
+      "display011": " worker ",
+      "display012": ": "
+    },
+    "comments": {
+      "comment001": "web-workers-step-17: Worker Pool"
+    }
+  },
+  "web-workers-step-18": {
+    "messages": {
+      "display001": "<h3>결과 순서 복원</h3><p>완료 순서 / 인덱스</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": " ordered: ",
+      "display008": "Response counter: 0",
+      "display009": "Response counter: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-18: 결과 순서 복원"
+    }
+  },
+  "web-workers-step-19": {
+    "messages": {
+      "display001": "<h3>Timeout과 중복 응답</h3><p>시간 제한 / 완료 단일화</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: ",
+      "display009": "Timed out request ",
+      "display010": "; late result ignored"
+    },
+    "comments": {
+      "comment001": "web-workers-step-19: Timeout과 중복 응답"
+    }
+  },
+  "web-workers-step-20": {
+    "messages": {
+      "display001": "<h3>장애 복구</h3><p>요청 오류 / Worker 교체와 새 요청</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-20: 장애 복구"
+    }
+  },
+  "web-workers-step-21": {
+    "messages": {
+      "display001": "<h3>MessageChannel 분리</h3><p>포트 / 해제</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: ",
+      "display009": "Dedicated port replied "
+    },
+    "comments": {
+      "comment001": "web-workers-step-21: MessageChannel 분리"
+    }
+  },
+  "web-workers-step-22": {
+    "messages": {
+      "display001": "<h3>데이터 분할과 병합</h3><p>분할 / 결합</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": " merged sum: ",
+      "display008": "Response counter: 0",
+      "display009": "Response counter: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-22: 데이터 분할과 병합"
+    }
+  },
+  "web-workers-step-23": {
+    "messages": {
+      "display001": "<h3>공유 메모리 조건</h3><p>격리 / 대체</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: ",
+      "display009": "SharedArrayBuffer requires cross-origin isolation; using clone fallback"
+    },
+    "comments": {
+      "comment001": "web-workers-step-23: 공유 메모리 조건"
+    }
+  },
+  "web-workers-step-24": {
+    "messages": {
+      "display001": "<h3>Atomics와 동기화</h3><p>경쟁 / Atomics</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: ",
+      "display009": "Atomics shared-worker experiment unavailable: COOP/COEP isolation required"
+    },
+    "comments": {
+      "comment001": "web-workers-step-24: Atomics와 동기화"
+    }
+  },
+  "web-workers-step-25": {
+    "messages": {
+      "display001": "<h3>전체 지연 측정</h3><p>왕복 비용 / 시계 기준</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": " round-trip including serialization ",
+      "display008": "ms",
+      "display009": "Response counter: 0",
+      "display010": "Response counter: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-25: 전체 지연 측정"
+    }
+  },
+  "web-workers-step-26": {
+    "messages": {
+      "display001": "<h3>메모리와 풀 한도</h3><p>피크 사용량 / 한도</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: ",
+      "display009": "Pool budget ",
+      "display010": " bytes; 버퍼 3개 할당, 1개 이전; 네 번째 요청 없음"
+    },
+    "comments": {
+      "comment001": "web-workers-step-26: 메모리와 풀 한도"
+    }
+  },
+  "web-workers-step-27": {
+    "messages": {
+      "display001": "<h3>해제와 다시 시작</h3><p>수명 관리 / 반복 실행</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Worker load/runtime error: ",
+      "display003": "Progress ",
+      "display004": "%",
+      "display005": " returned buffer ",
+      "display006": " bytes",
+      "display007": "Response counter: 0",
+      "display008": "Response counter: "
+    },
+    "comments": {
+      "comment001": "web-workers-step-27: 해제와 다시 시작"
+    }
+  },
+  "web-workers-03": {
+    "messages": {
+      "display001": "<h3>Bounded worker queue</h3><label>Workers <input data-pool type=\"number\" min=\"1\" max=\"4\" value=\"2\"></label> <label>Jobs <input data-jobs type=\"number\" min=\"1\" max=\"24\" value=\"8\"></label> <button data-run=\"workers\">Worker pool</button> <button data-run=\"main\">Main thread</button> <button data-run=\"stop\">Stop</button><label>Type while running <input data-probe></label><pre aria-live=\"polite\"></pre><p>Same deterministic CPU kernel in both modes. End-to-end includes worker startup and messages. The heartbeat gap measures event-loop responsiveness, not hardware input latency.</p>",
+      "display002": "Stopped: no active workers or queued main-thread jobs.",
+      "display003": ": ",
+      "display004": "/",
+      "display005": " completed; at most ",
+      "display006": " in flight\nElapsed ",
+      "display007": " ms; heartbeat max gap ",
+      "display008": " ms\nResult checksum ",
+      "display009": "\nFinal end-to-end ",
+      "display010": " ms; observed heartbeat gap ",
+      "display011": " ms.\nAll jobs finished; pool terminated.",
+      "display012": "Worker failed: ",
+      "display013": "Choose a mode. Compare the same job count and type into the input.",
+      "displayFix1001": " input events; event-loop max gap ",
+      "displayFix1002": " ms"
+    },
+    "comments": {
+      "comment001": "Keep work bounded, but substantial enough to compare UI responsiveness."
+    }
   }
 }

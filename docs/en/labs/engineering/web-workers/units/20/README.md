@@ -62,7 +62,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/web-workers-step-20/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-An interactive Failure Recovery experiment with cleanup of the resources it uses.
+On a request-error response, the supplied example replaces the Worker and submits a new [9,9] sum request with a new ID. It does not implement Worker error-event recovery or retry the original request.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

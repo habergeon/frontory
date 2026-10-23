@@ -1,101 +1,126 @@
 {
   "web-workers-step-02": {
+    "readingSource": "/examples-en/web-workers-step-02/example.js",
     "mode": "browser",
     "note": "모듈 Worker 로딩 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-03": {
+    "readingSource": "/examples-en/web-workers-step-03/example.js",
     "mode": "browser",
     "note": "메시지 계약 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-04": {
+    "readingSource": "/examples-en/web-workers-step-04/example.js",
     "mode": "browser",
     "note": "Interactive Structured Clone experiment with resource cleanup."
   },
   "web-workers-step-05": {
+    "readingSource": "/examples-en/web-workers-step-05/example.js",
     "mode": "browser",
     "note": "TypedArray와 Buffer 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-06": {
+    "readingSource": "/examples-en/web-workers-step-06/example.js",
     "mode": "browser",
     "note": "오류 응답 계약 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-07": {
+    "readingSource": "/examples-en/web-workers-step-07/example.js",
     "mode": "browser",
     "note": "메인 응답성 관찰 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-08": {
+    "readingSource": "/examples-en/web-workers-step-08/example.js",
     "mode": "browser",
     "note": "Transfer 소유권 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-09": {
+    "readingSource": "/examples-en/web-workers-step-09/example.js",
     "mode": "browser",
     "note": "부분 View 전송 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-10": {
+    "readingSource": "/examples-en/web-workers-step-10/example.js",
     "mode": "browser",
     "note": "버퍼 반환 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-11": {
+    "readingSource": "/examples-en/web-workers-step-11/example.js",
     "mode": "browser",
     "note": "오래된 결과 거부 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-12": {
+    "readingSource": "/examples-en/web-workers-step-12/example.js",
     "mode": "browser",
     "note": "협력적 취소 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-13": {
+    "readingSource": "/examples-en/web-workers-step-13/example.js",
     "mode": "browser",
     "note": "강제 종료와 재생성 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-15": {
+    "readingSource": "/examples-en/web-workers-step-15/example.js",
     "mode": "browser",
     "note": "진행도 보고 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-16": {
+    "readingSource": "/examples-en/web-workers-step-16/example.js",
     "mode": "browser",
     "note": "제한된 작업 큐 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-17": {
+    "readingSource": "/examples-en/web-workers-step-17/example.js",
     "mode": "browser",
     "note": "Interactive Worker Pool experiment with resource cleanup."
   },
   "web-workers-step-18": {
+    "readingSource": "/examples-en/web-workers-step-18/example.js",
     "mode": "browser",
     "note": "결과 순서 복원 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-19": {
+    "readingSource": "/examples-en/web-workers-step-19/example.js",
     "mode": "browser",
     "note": "Timeout과 중복 응답 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-20": {
+    "readingSource": "/examples-en/web-workers-step-20/example.js",
     "mode": "browser",
-    "note": "장애 복구 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
+    "note": "내장 예제는 요청 오류 응답을 받으면 Worker를 교체하고 새 ID로 [9,9] 합계를 요청합니다. Worker error 이벤트 복구나 원래 요청의 재시도는 구현하지 않습니다."
   },
   "web-workers-step-21": {
+    "readingSource": "/examples-en/web-workers-step-21/example.js",
     "mode": "browser",
     "note": "MessageChannel 분리 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-22": {
+    "readingSource": "/examples-en/web-workers-step-22/example.js",
     "mode": "browser",
     "note": "데이터 분할과 병합 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-23": {
+    "readingSource": "/examples-en/web-workers-step-23/example.js",
     "mode": "browser",
     "note": "공유 메모리 조건 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-24": {
+    "readingSource": "/examples-en/web-workers-step-24/example.js",
     "mode": "browser",
     "note": "Atomics와 동기화 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-25": {
+    "readingSource": "/examples-en/web-workers-step-25/example.js",
     "mode": "browser",
     "note": "전체 지연 측정 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "web-workers-step-26": {
+    "readingSource": "/examples-en/web-workers-step-26/example.js",
     "mode": "browser",
-    "note": "메모리와 풀 한도 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
+    "note": "내장 예제는 1 MiB 버퍼 세 개를 할당하고 하나를 이전합니다. 네 번째 할당이나 거부 분기는 실행하지 않으며 피크 메모리를 측정하지 않습니다."
   },
   "web-workers-step-27": {
+    "readingSource": "/examples-en/web-workers-step-27/example.js",
     "mode": "browser",
     "note": "해제와 다시 시작 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   }

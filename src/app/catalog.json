@@ -5623,7 +5623,8 @@
       "title": "메시지와 실행 경계",
       "goal": "학습 결과: Worker 문맥의 역할을 설명한다. 입력 사례: ID와 정수 배열 3개. 산출물: 요청별 합계와 UI 입력 반응 기록. 요청 식별 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/01-foundations/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-01/example.js"
     },
     {
       "id": "web-workers-step-02",
@@ -5632,7 +5633,8 @@
       "title": "모듈 Worker 로딩",
       "goal": "학습 결과: Module Worker의 역할을 설명한다. 입력 사례: 정상 경로와 없는 경로. 산출물: ready 또는 로딩 오류 상태. 로딩 실패 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/02/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-02/example.js"
     },
     {
       "id": "web-workers-step-03",
@@ -5641,7 +5643,8 @@
       "title": "메시지 계약",
       "goal": "학습 결과: 태그의 역할을 설명한다. 입력 사례: 정상·누락 ID·문자열 배열. 산출물: 입력별 수락·거부 표. 검증 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/03/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-03/example.js"
     },
     {
       "id": "web-workers-step-04",
@@ -5650,7 +5653,8 @@
       "title": "Structured Clone",
       "goal": "학습 결과: 복사의 역할을 설명한다. 입력 사례: 객체와 함수 필드. 산출물: 송수신 값 및 DataCloneError 기록. 복제 제한 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/04/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-04/example.js"
     },
     {
       "id": "web-workers-step-05",
@@ -5659,7 +5663,8 @@
       "title": "TypedArray와 Buffer",
       "goal": "학습 결과: View의 역할을 설명한다. 입력 사례: [10,20,30,40]의 중간 두 값. 산출물: 송수신 범위와 합계 표. Offset 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/05/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-05/example.js"
     },
     {
       "id": "web-workers-step-06",
@@ -5668,7 +5673,8 @@
       "title": "오류 응답 계약",
       "goal": "학습 결과: 작업 오류의 역할을 설명한다. 입력 사례: 0·음수·허용 초과 크기. 산출물: 요청별 상태와 pending 크기. 정리 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/06/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-06/example.js"
     },
     {
       "id": "web-workers-step-07",
@@ -5677,7 +5683,8 @@
       "title": "메인 응답성 관찰",
       "goal": "학습 결과: 분리의 역할을 설명한다. 입력 사례: 같은 배열과 계산 중 클릭. 산출물: 두 모드의 합계·입력 지연. 기준 실험 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/07/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-07/example.js"
     },
     {
       "id": "web-workers-step-08",
@@ -5686,7 +5693,8 @@
       "title": "Transfer 소유권",
       "goal": "학습 결과: 이전의 역할을 설명한다. 입력 사례: 길이 16의 Int32Array. 산출물: 송신 전후 byteLength와 수신 합계. 접근 금지 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/08/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-08/example.js"
     },
     {
       "id": "web-workers-step-09",
@@ -5695,7 +5703,8 @@
       "title": "부분 View 전송",
       "goal": "학습 결과: 저장소 단위의 역할을 설명한다. 입력 사례: 큰 배열의 중간 8개. 산출물: 전송 저장소 크기와 다른 view 상태. 경계 최소화 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/09/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-09/example.js"
     },
     {
       "id": "web-workers-step-10",
@@ -5704,7 +5713,8 @@
       "title": "버퍼 반환",
       "goal": "학습 결과: 왕복 소유권의 역할을 설명한다. 입력 사례: 버퍼 2개와 연속 요청. 산출물: 요청별 소유자와 값 변화 표. 풀 상태 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/10/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-10/example.js"
     },
     {
       "id": "web-workers-step-11",
@@ -5713,7 +5723,8 @@
       "title": "오래된 결과 거부",
       "goal": "학습 결과: 최신 요청의 역할을 설명한다. 입력 사례: 큰 작업 뒤 작은 작업. 산출물: 응답 순서와 화면에 채택된 ID. 계산 취소 구별 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/11/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-11/example.js"
     },
     {
       "id": "web-workers-step-12",
@@ -5722,7 +5733,8 @@
       "title": "협력적 취소",
       "goal": "학습 결과: 이벤트 루프의 역할을 설명한다. 입력 사례: 계산 중 cancel 요청. 산출물: 취소 확인 시점과 처리 원소 수. 취소 지점 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/12/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-12/example.js"
     },
     {
       "id": "web-workers-step-13",
@@ -5731,7 +5743,8 @@
       "title": "강제 종료와 재생성",
       "goal": "학습 결과: Terminate의 역할을 설명한다. 입력 사례: 긴 작업 중 중단 후 새 요청. 산출물: 종료 전후 pending과 새 결과. 복구 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/13/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-13/example.js"
     },
     {
       "id": "web-workers-02",
@@ -5740,7 +5753,8 @@
       "title": "Transfer와 취소",
       "goal": "학습 결과: 소유권 추적의 역할을 설명한다. 입력 사례: 겹친 요청과 취소. 산출물: 버퍼 상태·취소 응답·최종 UI 표. 취소 정책 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/02-experiments/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-02/example.js"
     },
     {
       "id": "web-workers-step-15",
@@ -5749,7 +5763,8 @@
       "title": "진행도 보고",
       "goal": "학습 결과: 보고 빈도의 역할을 설명한다. 입력 사례: 100개 chunk의 작업. 산출물: 메시지 수와 진행률 순서. 단조 증가 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/15/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-15/example.js"
     },
     {
       "id": "web-workers-step-16",
@@ -5758,7 +5773,8 @@
       "title": "제한된 작업 큐",
       "goal": "학습 결과: Backpressure의 역할을 설명한다. 입력 사례: 동시 요청 8개. 산출물: 수락·거부·완료 ID 표. 상태 전이 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/16/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-16/example.js"
     },
     {
       "id": "web-workers-step-17",
@@ -5767,7 +5783,8 @@
       "title": "Worker Pool",
       "goal": "학습 결과: 병렬성의 역할을 설명한다. 입력 사례: 서로 다른 크기 작업 6개. 산출물: worker별 작업 구간과 전체 완료 시간. 유휴 배정 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/17/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-17/example.js"
     },
     {
       "id": "web-workers-step-18",
@@ -5776,7 +5793,8 @@
       "title": "결과 순서 복원",
       "goal": "학습 결과: 완료 순서의 역할을 설명한다. 입력 사례: 크기가 다른 배열 4개. 산출물: 제출·완료·표시 순서 표. 인덱스 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/18/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-18/example.js"
     },
     {
       "id": "web-workers-step-19",
@@ -5785,7 +5803,8 @@
       "title": "Timeout과 중복 응답",
       "goal": "학습 결과: 시간 제한의 역할을 설명한다. 입력 사례: 정상·지연·중복 응답. 산출물: 요청별 완료 횟수와 pending 크기. 완료 단일화 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/19/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-19/example.js"
     },
     {
       "id": "web-workers-step-20",
@@ -5794,7 +5813,8 @@
       "title": "장애 복구",
       "goal": "학습 결과: Worker 장애의 역할을 설명한다. 입력 사례: 정상 작업과 장애 작업. 산출물: 교체 횟수·최종 오류·완료 ID. 재시도 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/20/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-20/example.js"
     },
     {
       "id": "web-workers-step-21",
@@ -5803,7 +5823,8 @@
       "title": "MessageChannel 분리",
       "goal": "학습 결과: 포트의 역할을 설명한다. 입력 사례: 동시 작업 두 개. 산출물: 통로별 메시지와 close 기록. 해제 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/21/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-21/example.js"
     },
     {
       "id": "web-workers-step-22",
@@ -5812,7 +5833,8 @@
       "title": "데이터 분할과 병합",
       "goal": "학습 결과: 분할의 역할을 설명한다. 입력 사례: 길이 1003의 정수 배열. 산출물: chunk 범위와 CPU 기준 합계. 결합 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/22/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-22/example.js"
     },
     {
       "id": "web-workers-step-23",
@@ -5821,7 +5843,8 @@
       "title": "공유 메모리 조건",
       "goal": "학습 결과: 격리의 역할을 설명한다. 입력 사례: 격리·비격리 환경. 산출물: 헤더·crossOriginIsolated·선택 경로 표. 대체 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/23/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-23/example.js"
     },
     {
       "id": "web-workers-step-24",
@@ -5830,7 +5853,8 @@
       "title": "Atomics와 동기화",
       "goal": "학습 결과: 경쟁의 역할을 설명한다. 입력 사례: 각 Worker 10000회 증가. 산출물: 최종 카운터와 기대값 20000. Atomics 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/24/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-24/example.js"
     },
     {
       "id": "web-workers-step-25",
@@ -5839,7 +5863,8 @@
       "title": "전체 지연 측정",
       "goal": "학습 결과: 왕복 비용의 역할을 설명한다. 입력 사례: 세 배열 크기. 산출물: 왕복·계산·잔여 구간 표. 시계 기준 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/25/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-25/example.js"
     },
     {
       "id": "web-workers-step-26",
@@ -5848,7 +5873,8 @@
       "title": "메모리와 풀 한도",
       "goal": "학습 결과: 피크 사용량의 역할을 설명한다. 입력 사례: 같은 작업 20개. 산출물: 최대 동시 버퍼 바이트와 잔여 참조 수. 한도 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/26/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-26/example.js"
     },
     {
       "id": "web-workers-step-27",
@@ -5857,7 +5883,8 @@
       "title": "해제와 다시 시작",
       "goal": "학습 결과: 수명 관리의 역할을 설명한다. 입력 사례: 실행·해제·재시작 5회. 산출물: 세대별 완료 ID와 잔여 자원 수. 반복 실행 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/units/27/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-27/example.js"
     },
     {
       "id": "web-workers-03",
@@ -5866,7 +5893,8 @@
       "title": "작업 큐와 측정",
       "goal": "학습 결과: 전체 비용의 역할을 설명한다. 입력 사례: 동일 작업의 메인·1 Worker·2 Worker 실행. 산출물: 정확도·전체 지연·입력 지연·피크 버퍼 보고서. 의사결정 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/web-workers/03-project/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-03/example.js"
     },
     {
       "id": "offscreen-canvas-01",

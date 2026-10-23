@@ -62,7 +62,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/web-workers-step-26/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-An interactive Memory and Pool Limits experiment with cleanup of the resources it uses.
+The supplied example allocates three 1 MiB buffers and transfers one. It does not attempt or reject a fourth allocation or measure peak memory.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

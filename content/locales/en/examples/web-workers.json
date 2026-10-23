@@ -1,152 +1,582 @@
 {
   "web-workers-step-02": {
-    "sourceHash": "bfd588c173e521525c897a6cfa366667952abd1c9ba42c380abd3ad8d6f05968",
+    "sourceHash": "1c456e5ee529ff345605efc2c7c21cbb872eba17d38ce33d162420da41256e64",
     "values": {
       "note": "An interactive Module Worker Loading experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "65de4da2b23cf435e5832869a838c3e1716dfe1bfd552082b59906de4b23e21f",
+      "values": {
+        "messages.display001": "<h3>Module Worker Loading</h3><p>Module Worker / Loading failure</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "messages.display009": "Module worker loaded from a blob URL; watch ready result",
+        "comments.comment001": "web-workers-step-02: Module Worker Loading"
+      }
     }
   },
   "web-workers-step-03": {
-    "sourceHash": "0825f76922f1a11f67ddc4122b255cf4620cc0770221797b118940e2770f957a",
+    "sourceHash": "184bf96dac5a6195b00e7ae6e8b7b3834445728f2c5d51e9470549503f274db9",
     "values": {
       "note": "An interactive Message Contracts experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "69fa4cd97aa686ad21249b1e8d26b69409b068aa441e574905370704d0d361a6",
+      "values": {
+        "messages.display001": "<h3>Message Contracts</h3><p>Tags / Validation</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "comments.comment001": "web-workers-step-03: Message Contracts"
+      }
     }
   },
   "web-workers-step-04": {
-    "sourceHash": "3d7ff1071fc9abf7a269f2c0092b9fa1196080a3f67160831bb03bfb1b407e27",
+    "sourceHash": "de5c54664a0065065d51a435bcb39f7e33b6b807ea3c93884aa3035c20500d10",
     "values": {
       "note": "Interactive Structured Clone experiment with resource cleanup."
+    },
+    "presentation": {
+      "sourceHash": "7998d31ff0360e3be03936b5dcd1383e496a2a80ba2f4d37c55432d81288ff56",
+      "values": {
+        "messages.display001": "<h3>Structured Clone</h3><p>Copying / Cloning limitations</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "messages.display009": "Main changed first item to 999 after clone; worker sum remains 6",
+        "messages.display010": "; function rejected: ",
+        "comments.comment001": "web-workers-step-04: Structured Clone"
+      }
     }
   },
   "web-workers-step-05": {
-    "sourceHash": "b3cf5d9e4822e9e130f5fe378f3192455dd5e22f3f406aa98880dd308d78d7f3",
+    "sourceHash": "92928ab4e189dec7da9098747127ba2051e5220d026b0443abf966f6e23aeeee",
     "values": {
       "note": "An interactive TypedArray and Buffer experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "9aecd22b6668eae1601ee8b1cf1dc0ccf826dd7c6186d56e5d214dd4bbb0dbeb",
+      "values": {
+        "messages.display001": "<h3>TypedArray and Buffer</h3><p>View / Offset</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "comments.comment001": "web-workers-step-05: TypedArray and Buffer"
+      }
     }
   },
   "web-workers-step-06": {
-    "sourceHash": "f07e70e8471ec9932eaccef04722de6c01d5c69601c6960ee2cfa1950040c8b4",
+    "sourceHash": "2b2c9fc67b6a60367e0391198a84a36db1b20d701969e83c77e7b8494a1743df",
     "values": {
       "note": "An interactive Error Response Contracts experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "00b524fd4c745c4be2c2055bf7861f85e41a85e4bfccf6349abf7d6a66fb0d3d",
+      "values": {
+        "messages.display001": "<h3>Error Response Contracts</h3><p>Task errors / Cleanup</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "comments.comment001": "web-workers-step-06: Error Response Contracts"
+      }
     }
   },
   "web-workers-step-07": {
-    "sourceHash": "5e547c734c9494a05fa41f7a0ef0f6d0048b238110b62346885baa898c4af8ce",
+    "sourceHash": "e1b1f45a628f478c6a8b8402a4c98a49ba16bd573e3c9395e049830b57c5d1a1",
     "values": {
       "note": "An interactive Observing Main-Thread Responsiveness experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "86e3a0bee1fde64fd7f6a6060840e856a320e00f1987485dd59f9ba6fe1d5984",
+      "values": {
+        "messages.display001": "<h3>Observing Main-Thread Responsiveness</h3><p>Separation / Baseline experiment</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "messages.display009": "Worker processing; counter button remains interactive. Sent at ",
+        "comments.comment001": "web-workers-step-07: Observing Main-Thread Responsiveness"
+      }
     }
   },
   "web-workers-step-08": {
-    "sourceHash": "39271a6924b37cb500e75d2356a95943260de012236a78cb264840095275f948",
+    "sourceHash": "2240176c667cefe4d49b257a7de092f3aa8d7c2ca868013484ea1d4e6c866ab4",
     "values": {
       "note": "An interactive Transfer Ownership experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "e4c7ed709f2ee2af841305786421380764a90e7bed90ee3847b37c16e604d461",
+      "values": {
+        "messages.display001": "<h3>Transfer Ownership</h3><p>Transfer / No further access</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "messages.display009": "Sender byteLength after transfer: ",
+        "comments.comment001": "web-workers-step-08: Transfer Ownership"
+      }
     }
   },
   "web-workers-step-09": {
-    "sourceHash": "9ea07730b517db8d08d0b145fd901faba2c0be6e2f7fa12d1c5254eebf86f8f4",
+    "sourceHash": "9a3d08bd1fcf54c51056c10ee598e5f6775d001b6a7050b4402c152fbff5920e",
     "values": {
       "note": "An interactive Transferring a Partial View experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "41669c3766e7ef0ea6e24ec171bc024fcc911b2a2dcb6a3b5aaac6239ac3bbf4",
+      "values": {
+        "messages.display001": "<h3>Transferring a Partial View</h3><p>Storage granularity / Minimizing the boundary</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "messages.display009": "Copied subview only; original backing still ",
+        "comments.comment001": "web-workers-step-09: Transferring a Partial View"
+      }
     }
   },
   "web-workers-step-10": {
-    "sourceHash": "353968c5d57fa51d939078c8cc941fb200fb30837e714e3e2dfc8355e5d2053f",
+    "sourceHash": "d5456414b5bf6d328069ff6d3e87571312ab0283466df183adcd573d9a847bc3",
     "values": {
       "note": "An interactive Returning Buffers experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "aa95d5f8543f4172dd3afa5ffff1e4da058eb1f17c4d53a13740fa9cc529483f",
+      "values": {
+        "messages.display001": "<h3>Returning Buffers</h3><p>Round-trip ownership / Pool states</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "comments.comment001": "web-workers-step-10: Returning Buffers"
+      }
     }
   },
   "web-workers-step-11": {
-    "sourceHash": "faba40cf7e57ae6720a6f8e9f35750e9954582759b97725f48b5a6d42820b89e",
+    "sourceHash": "f5b9dbe7a2c3e797e6b3b207494eff317cce0a8250d3a16057ac3bfcb865561c",
     "values": {
       "note": "An interactive Rejecting Stale Results experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "ec7e196eaca9fe41d571c1f4a2c09f0116afe52a31fa2015744ef76d5df8c5ec",
+      "values": {
+        "messages.display001": "<h3>Rejecting Stale Results</h3><p>Latest request / Distinguishing computation cancellation</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "comments.comment001": "web-workers-step-11: Rejecting Stale Results"
+      }
     }
   },
   "web-workers-step-12": {
-    "sourceHash": "58e92def8b49b9437288e1be014030f032d41daa9cf55b5ff5b6936ce52fd581",
+    "sourceHash": "92e045a45af70bc7a9895ce58ef9af8af6ee80935708af29dcf7fe08aafaf185",
     "values": {
       "note": "An interactive Cooperative Cancellation experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "e452db225b4f73e6c2e3a96066d0b1f84eeae6af56d1dbf84314b084bc13d76b",
+      "values": {
+        "messages.display001": "<h3>Cooperative Cancellation</h3><p>Event loop / Cancellation points</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "comments.comment001": "web-workers-step-12: Cooperative Cancellation"
+      }
     }
   },
   "web-workers-step-13": {
-    "sourceHash": "ca3d185405cbe8110ad2b1cfef453bdb69bbe056c80cb71b2e396dcc1ffe6951",
+    "sourceHash": "f0d94b6bedbe3c5903cfd34dfff7d0be06cd9e60f343a4f4429388934b3c44e2",
     "values": {
       "note": "An interactive Termination and Recreation experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "03ea395f373e19bcc53c9170e52dfee9edf08113760f6a736a293ae8ead25b24",
+      "values": {
+        "messages.display001": "<h3>Termination and Recreation</h3><p>Terminate / Recovery</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "comments.comment001": "web-workers-step-13: Termination and Recreation"
+      }
     }
   },
   "web-workers-step-15": {
-    "sourceHash": "8b9697f21dd419c68c867ad00087168f602e91a97d3126e39a54257e8979b63e",
+    "sourceHash": "78ca2f3603639d4030e5f5bdd1ec62d72f3360a666b8fb5e7100a2d96229f520",
     "values": {
       "note": "An interactive Progress Reporting experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "e8048c6068bce64435e7369bd04782569bf060ebeaa95c9e56c27b93231c0306",
+      "values": {
+        "messages.display001": "<h3>Progress Reporting</h3><p>Reporting frequency / Monotonic progress</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "comments.comment001": "web-workers-step-15: Progress Reporting"
+      }
     }
   },
   "web-workers-step-16": {
-    "sourceHash": "9b6a95d016f6a86c67513db864716896a03a67a0c460aa0e1896bd7a00e7172c",
+    "sourceHash": "c48d4d9bd7b9918107186437c907ec49a508cc5eddf464c11bf87835694c4e19",
     "values": {
       "note": "An interactive bounded task queue experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "29d0dd4902ae2502fd3fcef37f2a2008d460c3b8cdbd3103a47ebbb4fb11f2de",
+      "values": {
+        "messages.display001": "<h3>A Bounded Task Queue</h3><p>Backpressure / State transitions</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "messages.display009": "Queue capacity 3: rejected additional input",
+        "comments.comment001": "web-workers-step-16: A Bounded Task Queue"
+      }
     }
   },
   "web-workers-step-17": {
-    "sourceHash": "9729af5a29222c7f861dc1a746f87f594b050a987cc6eafeed13dbecebdfae84",
+    "sourceHash": "ba157e3757604e769cc0dd94abd48c5fd46b6e3331eb6e713849b4d308a940e4",
     "values": {
       "note": "Interactive Worker Pool experiment with resource cleanup."
+    },
+    "presentation": {
+      "sourceHash": "46c43c36203c75bd0212cf1a7ed950b33c2a5380595decd48447d3b63c5c4e39",
+      "values": {
+        "messages.display001": "<h3>Worker Pool</h3><p>Parallelism / Idle assignment</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "messages.display009": "Pool busy: wait for two worker slots",
+        "messages.display010": "Two fixed workers dispatched",
+        "messages.display011": " worker ",
+        "messages.display012": ": ",
+        "comments.comment001": "web-workers-step-17: Worker Pool"
+      }
     }
   },
   "web-workers-step-18": {
-    "sourceHash": "4db798d7c1d30914f9da8dba70ecda0c4631444b3fd09a4778e3b0892a8ee8f1",
+    "sourceHash": "7ace28bf9e3fcf8aa7aec4fb4d0a5655392f40e0cf0867ccdd0040b7a5b9f61b",
     "values": {
       "note": "An interactive Restoring Result Order experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "58282e5d792b3bed67fd47a7a46ba7cd51dbacc31a393ac45aed8eeee605252c",
+      "values": {
+        "messages.display001": "<h3>Restoring Result Order</h3><p>Completion order / Index</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": " ordered: ",
+        "messages.display008": "Response counter: 0",
+        "messages.display009": "Response counter: ",
+        "comments.comment001": "web-workers-step-18: Restoring Result Order"
+      }
     }
   },
   "web-workers-step-19": {
-    "sourceHash": "b28cebe9cf194dd2e1a910b9c36fc70a6addc3f8c4939b88d9c08e5d42914f69",
+    "sourceHash": "2e57b00393ce8183fb5ab516ee6ed9e609c6f8e53785ff8240d74557383d72a6",
     "values": {
       "note": "An interactive Timeouts and Duplicate Responses experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "a2f330a9fcaf96b694fd09ec2a0a98f3b405971d7b5977e683e87cca6be3409d",
+      "values": {
+        "messages.display001": "<h3>Timeouts and Duplicate Responses</h3><p>Time limit / Single settlement</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "messages.display009": "Timed out request ",
+        "messages.display010": "; late result ignored",
+        "comments.comment001": "web-workers-step-19: Timeouts and Duplicate Responses"
+      }
     }
   },
   "web-workers-step-20": {
-    "sourceHash": "20a9702f46bff611521f7cb18c4fe0ed886a4058e0157e258ba6900add70aec5",
+    "sourceHash": "94cd385a0b8502e5fd93717d968a8cde3969d73252ed8529e80bede4388adae7",
     "values": {
-      "note": "An interactive Failure Recovery experiment with cleanup of the resources it uses."
+      "note": "On a request-error response, the supplied example replaces the Worker and submits a new [9,9] sum request with a new ID. It does not implement Worker error-event recovery or retry the original request."
+    },
+    "presentation": {
+      "sourceHash": "f8fbe5a2a21e26299fb6d4f232ea5a162678860865756fe8e12a465346efe5eb",
+      "values": {
+        "messages.display001": "<h3>Failure Recovery</h3><p>Request error / Worker replacement and a new request</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "comments.comment001": "web-workers-step-20: Failure Recovery"
+      }
     }
   },
   "web-workers-step-21": {
-    "sourceHash": "b914c9b94653879baccf831d78728efd905506b8ea88d3ccc43601b42fe7ac9f",
+    "sourceHash": "5fba2a2084a0a94a23cafaba4d7575d4d6057ce644a4182ce133cb534b3ecad7",
     "values": {
       "note": "An interactive Separating MessageChannels experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "33dcf998f608c89dd71137700c462f4008dc1a6c92756e73fbd2f301618d9970",
+      "values": {
+        "messages.display001": "<h3>Separating MessageChannels</h3><p>Ports / Disposal</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "messages.display009": "Dedicated port replied ",
+        "comments.comment001": "web-workers-step-21: Separating MessageChannels"
+      }
     }
   },
   "web-workers-step-22": {
-    "sourceHash": "e95ea261259901d317aab6c3f2f5989a0f19ec0e074c1c882820373cc918fc38",
+    "sourceHash": "3acd52105577d293f9528b5f545cd0ab4f68587697d3953afffdd1bf3abe79bb",
     "values": {
       "note": "An interactive Splitting and Merging Data experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "ec58ad2ebfe2db5236066dd37269708b3309ed641f232182b97f523bbfd0a98e",
+      "values": {
+        "messages.display001": "<h3>Splitting and Merging Data</h3><p>Partitioning / Combining</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": " merged sum: ",
+        "messages.display008": "Response counter: 0",
+        "messages.display009": "Response counter: ",
+        "comments.comment001": "web-workers-step-22: Splitting and Merging Data"
+      }
     }
   },
   "web-workers-step-23": {
-    "sourceHash": "1b092dd91a6290e2a6fdd9b5ca36f7f71d4db89e7b586a7a3997fd0c356f2a25",
+    "sourceHash": "565fe2149efcf0ce14c526fd159aa00cf665ddd1257ded7522f90982ed1d9334",
     "values": {
       "note": "An interactive Shared Memory Requirements experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "7e098afc0831958f758450bad013b82339abb9930f7a473acbbb4b1e2b1d93b1",
+      "values": {
+        "messages.display001": "<h3>Shared Memory Requirements</h3><p>Isolation / Fallback</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "messages.display009": "SharedArrayBuffer requires cross-origin isolation; using clone fallback",
+        "comments.comment001": "web-workers-step-23: Shared Memory Requirements"
+      }
     }
   },
   "web-workers-step-24": {
-    "sourceHash": "1e56df75830fdefa62c7383617a1b07847aafdcc80225894fdb721968d90e60f",
+    "sourceHash": "79ab5f249911ab0bf8e9b719d8105ae2a704386338af8926f5bfd027e6ef0165",
     "values": {
       "note": "An interactive Atomics and Synchronization experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "e5a94398042053df8ff761a424215d2af7df1274582a9d160554cc07c7a721e4",
+      "values": {
+        "messages.display001": "<h3>Atomics and Synchronization</h3><p>Races / Atomics</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "messages.display009": "Atomics shared-worker experiment unavailable: COOP/COEP isolation required",
+        "comments.comment001": "web-workers-step-24: Atomics and Synchronization"
+      }
     }
   },
   "web-workers-step-25": {
-    "sourceHash": "f90a204fe57c5139adf2e2501284096ce992c1613d9856ead9a46b0eff2965e5",
+    "sourceHash": "b32320d841df22e853b6e45ba430909bc5a340fc84d1026bda2f29e81b50b658",
     "values": {
       "note": "An interactive Measuring End-to-End Latency experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "f53aa83c0834f0368317c0b3b220077342bc43fed2fe35a6d4a7ca3f6d90ca86",
+      "values": {
+        "messages.display001": "<h3>Measuring End-to-End Latency</h3><p>Round-trip cost / Clock references</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": " round-trip including serialization ",
+        "messages.display008": "ms",
+        "messages.display009": "Response counter: 0",
+        "messages.display010": "Response counter: ",
+        "comments.comment001": "web-workers-step-25: Measuring End-to-End Latency"
+      }
     }
   },
   "web-workers-step-26": {
-    "sourceHash": "7b8224ba22376055d483507a695a88dc86b54f7b268eb4f17cd3390731ac86a6",
+    "sourceHash": "4aafacaf37296ea41e288ea2c8d52f72e44e0321c465d68d5d7d39500a10346e",
     "values": {
-      "note": "An interactive Memory and Pool Limits experiment with cleanup of the resources it uses."
+      "note": "The supplied example allocates three 1 MiB buffers and transfers one. It does not attempt or reject a fourth allocation or measure peak memory."
+    },
+    "presentation": {
+      "sourceHash": "3f1dcbc45a4c6b01ffe8d3caf2dc262b03e30587f680458baea9207d830b4f22",
+      "values": {
+        "messages.display001": "<h3>Memory and Pool Limits</h3><p>Peak usage / Limits</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "messages.display009": "Pool budget ",
+        "messages.display010": " bytes; allocate 3 buffers, transfer 1; no fourth request",
+        "comments.comment001": "web-workers-step-26: Memory and Pool Limits"
+      }
     }
   },
   "web-workers-step-27": {
-    "sourceHash": "72ebdc3136aa4750dd5b25d3887b6310877603ffd791c123232d3dc54461875d",
+    "sourceHash": "413578951ad3d2e863b4e5afc5686e2d0a8de516b3bcc73d2b3dc28a60ce4f95",
     "values": {
       "note": "An interactive Disposal and Restart experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "d4f9b9dc5a8c2afdee98b4c4ad063eb859ac8c635c9e48cb2e442a1727947ba9",
+      "values": {
+        "messages.display001": "<h3>Disposal and Restart</h3><p>Lifetime management / Repeated execution</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Worker load/runtime error: ",
+        "messages.display003": "Progress ",
+        "messages.display004": "%",
+        "messages.display005": " returned buffer ",
+        "messages.display006": " bytes",
+        "messages.display007": "Response counter: 0",
+        "messages.display008": "Response counter: ",
+        "comments.comment001": "web-workers-step-27: Disposal and Restart"
+      }
+    }
+  },
+  "web-workers-01": {
+    "presentation": {
+      "sourceHash": "2c0f9a51a361c38e0c9507bc3dc7b6cd1922cb17595775e6f28eaad729a0c1f3",
+      "values": {
+        "messages.display001": "Worker sum calculation",
+        "messages.display002": "\nOnly computation time is shown; message round-trip cost is excluded.",
+        "messages.display003": "Worker execution failed: ",
+        "messages.display004": "Computation requested",
+        "comments.comment001": "Change LIMIT and observe whether focus can move to the button during computation."
+      }
+    }
+  },
+  "web-workers-02": {
+    "presentation": {
+      "sourceHash": "6523810671ca8ea8fb03556662ed7a4caa7e4ef0b1910e0b15e2f706dfcacd80",
+      "values": {
+        "messages.display001": "<h3>Copy, transfer, cancel</h3><label>Float32 elements <input type=\"number\" min=\"1\" max=\"4000000\" value=\"500000\"></label> <button data-mode=\"copy\">Copy</button> <button data-mode=\"transfer\">Transfer</button> <button data-mode=\"error\">Error path</button> <button data-mode=\"cancel\">Cancel</button><pre aria-live=\"polite\"></pre><p>Start another request immediately to ignore an older reply. Cancel terminates the worker and creates a fresh one on the next request. Input buffers are allocated anew.</p>",
+        "messages.display002": "Canceled. Worker terminated; UI ready for a new request.",
+        "messages.display003": "Worker error: ",
+        "messages.display004": "Error: ",
+        "messages.display005": "PASS",
+        "messages.display006": "FAIL",
+        "messages.display007": "sum=",
+        "messages.display008": "; expected=",
+        "messages.display009": "; ",
+        "messages.display010": "Request ",
+        "messages.display011": ", ",
+        "messages.display012": "\npostMessage synchronous cost: ",
+        "messages.display013": " ms\nSender byteLength before=",
+        "messages.display014": ", after=",
+        "messages.display015": "\nWaiting… (Copy retains sender data; transfer detaches it.)",
+        "messages.display016": "Could not start worker: "
+      }
+    }
+  },
+  "web-workers-03": {
+    "presentation": {
+      "sourceHash": "cbb7b3270a21f2dd9f409ff7de1cd32c45bc5218e86fd8608694f53a9d30554e",
+      "values": {
+        "messages.display001": "<h3>Bounded worker queue</h3><label>Workers <input data-pool type=\"number\" min=\"1\" max=\"4\" value=\"2\"></label> <label>Jobs <input data-jobs type=\"number\" min=\"1\" max=\"24\" value=\"8\"></label> <button data-run=\"workers\">Worker pool</button> <button data-run=\"main\">Main thread</button> <button data-run=\"stop\">Stop</button><label>Type while running <input data-probe></label><pre aria-live=\"polite\"></pre><p>Same deterministic CPU kernel in both modes. End-to-end includes worker startup and messages. The heartbeat gap measures event-loop responsiveness, not hardware input latency.</p>",
+        "messages.display002": "Stopped: no active workers or queued main-thread jobs.",
+        "messages.display003": ": ",
+        "messages.display004": "/",
+        "messages.display005": " completed; at most ",
+        "messages.display006": " in flight\nElapsed ",
+        "messages.display007": " ms; heartbeat max gap ",
+        "messages.display008": " ms\nResult checksum ",
+        "messages.display009": "\nFinal end-to-end ",
+        "messages.display010": " ms; observed heartbeat gap ",
+        "messages.display011": " ms.\nAll jobs finished; pool terminated.",
+        "messages.display012": "Worker failed: ",
+        "messages.display013": "Choose a mode. Compare the same job count and type into the input.",
+        "comments.comment001": "Keep work bounded, but substantial enough to compare UI responsiveness.",
+        "messages.displayFix1001": " input events; event-loop max gap ",
+        "messages.displayFix1002": " ms"
+      }
     }
   }
 }

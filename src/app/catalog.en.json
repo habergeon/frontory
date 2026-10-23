@@ -6073,7 +6073,8 @@
       "title": "Messages and Execution Boundaries",
       "goal": "Learning outcome: explain the role of Worker context. Input cases: IDs and 3 integer arrays. Deliverable: per-request sums and a record of UI input responsiveness. Explain the rationale for handling Request identification, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/01-foundations/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-01/example.js"
     },
     {
       "id": "web-workers-step-02",
@@ -6083,6 +6084,7 @@
       "goal": "Learning outcome: explain the role of Module Worker. Input cases: a valid path and a missing path. Deliverable: a ready state or loading error state. Explain the rationale for handling Loading failure, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/02/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-02/example.js",
       "exampleNote": "An interactive Module Worker Loading experiment with cleanup of the resources it uses."
     },
     {
@@ -6093,6 +6095,7 @@
       "goal": "Learning outcome: explain the role of Tags. Input cases: valid input, a missing ID, and an array of strings. Deliverable: an acceptance/rejection table for each input. Explain the rationale for handling Validation, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/03/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-03/example.js",
       "exampleNote": "An interactive Message Contracts experiment with cleanup of the resources it uses."
     },
     {
@@ -6103,6 +6106,7 @@
       "goal": "Learning outcome: explain the role of Copying. Input cases: an object and a function field. Deliverable: sent and received values and a DataCloneError record. Explain the rationale for handling Cloning limitations, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/04/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-04/example.js",
       "exampleNote": "Interactive Structured Clone experiment with resource cleanup."
     },
     {
@@ -6113,6 +6117,7 @@
       "goal": "Learning outcome: explain the role of View. Input cases: the middle two values of [10,20,30,40]. Deliverable: a table of sent and received ranges and sums. Explain the rationale for handling Offset, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/05/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-05/example.js",
       "exampleNote": "An interactive TypedArray and Buffer experiment with cleanup of the resources it uses."
     },
     {
@@ -6123,6 +6128,7 @@
       "goal": "Learning outcome: explain the role of Task errors. Input cases: 0, negative sizes, and sizes above the allowed limit. Deliverable: per-request states and pending size. Explain the rationale for handling Cleanup, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/06/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-06/example.js",
       "exampleNote": "An interactive Error Response Contracts experiment with cleanup of the resources it uses."
     },
     {
@@ -6133,6 +6139,7 @@
       "goal": "Learning outcome: explain the role of Separation. Input cases: the same array and clicks during computation. Deliverable: sums and input delays for both modes. Explain the rationale for handling Baseline experiment, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/07/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-07/example.js",
       "exampleNote": "An interactive Observing Main-Thread Responsiveness experiment with cleanup of the resources it uses."
     },
     {
@@ -6143,6 +6150,7 @@
       "goal": "Learning outcome: explain the role of Transfer. Input cases: an Int32Array of length 16. Deliverable: byteLength before and after sending, and the received sum. Explain the rationale for handling No further access, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/08/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-08/example.js",
       "exampleNote": "An interactive Transfer Ownership experiment with cleanup of the resources it uses."
     },
     {
@@ -6153,6 +6161,7 @@
       "goal": "Learning outcome: explain the role of Storage granularity. Input cases: the middle 8 elements of a large array. Deliverable: transferred storage size and the states of other views. Explain the rationale for handling Minimizing the boundary, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/09/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-09/example.js",
       "exampleNote": "An interactive Transferring a Partial View experiment with cleanup of the resources it uses."
     },
     {
@@ -6163,6 +6172,7 @@
       "goal": "Learning outcome: explain the role of Round-trip ownership. Input cases: 2 buffers and consecutive requests. Deliverable: a table of owners and value changes for each request. Explain the rationale for handling Pool states, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/10/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-10/example.js",
       "exampleNote": "An interactive Returning Buffers experiment with cleanup of the resources it uses."
     },
     {
@@ -6173,6 +6183,7 @@
       "goal": "Learning outcome: explain the role of Latest request. Input cases: a large task followed by a small task. Deliverable: response order and the ID accepted for display. Explain the rationale for handling Distinguishing computation cancellation, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/11/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-11/example.js",
       "exampleNote": "An interactive Rejecting Stale Results experiment with cleanup of the resources it uses."
     },
     {
@@ -6183,6 +6194,7 @@
       "goal": "Learning outcome: explain the role of Event loop. Input cases: a cancel request during computation. Deliverable: the point when cancellation is acknowledged and the number of elements processed. Explain the rationale for handling Cancellation points, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/12/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-12/example.js",
       "exampleNote": "An interactive Cooperative Cancellation experiment with cleanup of the resources it uses."
     },
     {
@@ -6193,6 +6205,7 @@
       "goal": "Learning outcome: explain the role of Terminate. Input cases: stopping a long task and then submitting a new request. Deliverable: pending entries before and after termination, and the new result. Explain the rationale for handling Recovery, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/13/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-13/example.js",
       "exampleNote": "An interactive Termination and Recreation experiment with cleanup of the resources it uses."
     },
     {
@@ -6202,7 +6215,8 @@
       "title": "Transfer and Cancellation",
       "goal": "Learning outcome: explain the role of Ownership tracking. Input cases: overlapping requests and cancellation. Deliverable: a table of buffer states, cancellation responses, and the final UI. Explain the rationale for handling Cancellation policy, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/02-experiments/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-02/example.js"
     },
     {
       "id": "web-workers-step-15",
@@ -6212,6 +6226,7 @@
       "goal": "Learning outcome: explain the role of Reporting frequency. Input cases: a task with 100 chunks. Deliverable: message count and progress sequence. Explain the rationale for handling Monotonic progress, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/15/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-15/example.js",
       "exampleNote": "An interactive Progress Reporting experiment with cleanup of the resources it uses."
     },
     {
@@ -6222,6 +6237,7 @@
       "goal": "Learning outcome: explain the role of Backpressure. Input cases: 8 simultaneous requests. Deliverable: a table of accepted, rejected, and completed IDs. Explain the rationale for handling State transitions, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/16/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-16/example.js",
       "exampleNote": "An interactive bounded task queue experiment with cleanup of the resources it uses."
     },
     {
@@ -6232,6 +6248,7 @@
       "goal": "Learning outcome: explain the role of Parallelism. Input cases: 6 tasks of different sizes. Deliverable: per-worker task intervals and total completion time. Explain the rationale for handling Idle assignment, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/17/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-17/example.js",
       "exampleNote": "Interactive Worker Pool experiment with resource cleanup."
     },
     {
@@ -6242,6 +6259,7 @@
       "goal": "Learning outcome: explain the role of Completion order. Input cases: 4 arrays of different sizes. Deliverable: a table of submission, completion, and display order. Explain the rationale for handling Index, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/18/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-18/example.js",
       "exampleNote": "An interactive Restoring Result Order experiment with cleanup of the resources it uses."
     },
     {
@@ -6252,6 +6270,7 @@
       "goal": "Learning outcome: explain the role of Time limit. Input cases: normal, delayed, and duplicate responses. Deliverable: per-request settlement counts and pending size. Explain the rationale for handling Single settlement, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/19/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-19/example.js",
       "exampleNote": "An interactive Timeouts and Duplicate Responses experiment with cleanup of the resources it uses."
     },
     {
@@ -6262,7 +6281,8 @@
       "goal": "Learning outcome: explain the role of Worker failure. Input cases: a normal task and a failing task. Deliverable: replacement count, final error, and completed IDs. Explain the rationale for handling Retry, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/20/README.md",
       "seriesId": "web-workers",
-      "exampleNote": "An interactive Failure Recovery experiment with cleanup of the resources it uses."
+      "exampleReadingSource": "/examples-en/web-workers-step-20/example.js",
+      "exampleNote": "On a request-error response, the supplied example replaces the Worker and submits a new [9,9] sum request with a new ID. It does not implement Worker error-event recovery or retry the original request."
     },
     {
       "id": "web-workers-step-21",
@@ -6272,6 +6292,7 @@
       "goal": "Learning outcome: explain the role of Ports. Input cases: two simultaneous tasks. Deliverable: messages for each channel and close records. Explain the rationale for handling Disposal, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/21/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-21/example.js",
       "exampleNote": "An interactive Separating MessageChannels experiment with cleanup of the resources it uses."
     },
     {
@@ -6282,6 +6303,7 @@
       "goal": "Learning outcome: explain the role of Partitioning. Input cases: an integer array of length 1003. Deliverable: chunk ranges and the CPU baseline sum. Explain the rationale for handling Combining, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/22/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-22/example.js",
       "exampleNote": "An interactive Splitting and Merging Data experiment with cleanup of the resources it uses."
     },
     {
@@ -6292,6 +6314,7 @@
       "goal": "Learning outcome: explain the role of Isolation. Input cases: isolated and non-isolated environments. Deliverable: a table of headers, crossOriginIsolated, and the selected path. Explain the rationale for handling Fallback, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/23/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-23/example.js",
       "exampleNote": "An interactive Shared Memory Requirements experiment with cleanup of the resources it uses."
     },
     {
@@ -6302,6 +6325,7 @@
       "goal": "Learning outcome: explain the role of Races. Input cases: 10000 increments per Worker. Deliverable: the final counter and the expected value 20000. Explain the rationale for handling Atomics, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/24/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-24/example.js",
       "exampleNote": "An interactive Atomics and Synchronization experiment with cleanup of the resources it uses."
     },
     {
@@ -6312,6 +6336,7 @@
       "goal": "Learning outcome: explain the role of Round-trip cost. Input cases: three array sizes. Deliverable: a table of round-trip, computation, and remaining intervals. Explain the rationale for handling Clock references, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/25/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-25/example.js",
       "exampleNote": "An interactive Measuring End-to-End Latency experiment with cleanup of the resources it uses."
     },
     {
@@ -6322,7 +6347,8 @@
       "goal": "Learning outcome: explain the role of Peak usage. Input cases: 20 identical tasks. Deliverable: maximum concurrent buffer bytes and the remaining reference count. Explain the rationale for handling Limits, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/26/README.md",
       "seriesId": "web-workers",
-      "exampleNote": "An interactive Memory and Pool Limits experiment with cleanup of the resources it uses."
+      "exampleReadingSource": "/examples-en/web-workers-step-26/example.js",
+      "exampleNote": "The supplied example allocates three 1 MiB buffers and transfers one. It does not attempt or reject a fourth allocation or measure peak memory."
     },
     {
       "id": "web-workers-step-27",
@@ -6332,6 +6358,7 @@
       "goal": "Learning outcome: explain the role of Lifetime management. Input cases: 5 cycles of running, disposing, and restarting. Deliverable: completed IDs by generation and remaining resource counts. Explain the rationale for handling Repeated execution, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/units/27/README.md",
       "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-step-27/example.js",
       "exampleNote": "An interactive Disposal and Restart experiment with cleanup of the resources it uses."
     },
     {
@@ -6341,7 +6368,8 @@
       "title": "Task Queues and Measurement",
       "goal": "Learning outcome: explain the role of Total cost. Input cases: the same task on the main thread, 1 Worker, and 2 Workers. Deliverable: a report on correctness, end-to-end latency, input delay, and peak buffers. Explain the rationale for handling Decision-making, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/web-workers/03-project/README.md",
-      "seriesId": "web-workers"
+      "seriesId": "web-workers",
+      "exampleReadingSource": "/examples-en/web-workers-03/example.js"
     },
     {
       "id": "offscreen-canvas-01",

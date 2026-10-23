@@ -5102,7 +5102,8 @@
       "title": "Types and Entry Points",
       "goal": "Write the input and output contract for each stage. Diagnose interface errors.",
       "docPath": "/docs/en/labs/shader/wgsl/01-foundations/README.md",
-      "seriesId": "wgsl"
+      "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-01/example.js"
     },
     {
       "id": "wgsl-step-02",
@@ -5112,6 +5113,7 @@
       "goal": "Choose numeric types. Make type conversions explicit.",
       "docPath": "/docs/en/labs/shader/wgsl/units/02/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-02/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5122,6 +5124,7 @@
       "goal": "Write vector and matrix operations. Verify the matrix storage convention.",
       "docPath": "/docs/en/labs/shader/wgsl/units/03/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-03/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5132,6 +5135,7 @@
       "goal": "Choose declarations that match value lifetimes. Distinguish pipeline constants from runtime inputs.",
       "docPath": "/docs/en/labs/shader/wgsl/units/04/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-04/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5142,6 +5146,7 @@
       "goal": "Create computation functions with explicit types. Distinguish the purposes of structures.",
       "docPath": "/docs/en/labs/shader/wgsl/units/05/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-05/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5152,6 +5157,7 @@
       "goal": "Write explicit control flow. Maintain safe access conditions.",
       "docPath": "/docs/en/labs/shader/wgsl/units/06/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-06/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5162,6 +5168,7 @@
       "goal": "Configure interpolation between stages. Distinguish the meanings of system coordinates.",
       "docPath": "/docs/en/labs/shader/wgsl/units/07/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-07/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5172,6 +5179,7 @@
       "goal": "Choose address spaces. Respect resource access permissions.",
       "docPath": "/docs/en/labs/shader/wgsl/units/08/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-08/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5182,6 +5190,7 @@
       "goal": "Connect resource locations to the host. Trace binding validation errors.",
       "docPath": "/docs/en/labs/shader/wgsl/units/09/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-09/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5192,6 +5201,7 @@
       "goal": "Calculate member layouts. Match byte writes to shader interpretation.",
       "docPath": "/docs/en/labs/shader/wgsl/units/10/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-10/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5202,6 +5212,7 @@
       "goal": "Calculate matrix column layouts. Verify array strides.",
       "docPath": "/docs/en/labs/shader/wgsl/units/11/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-11/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5212,6 +5223,7 @@
       "goal": "Design uniform-compatible layouts. Reflect explicit padding in the host.",
       "docPath": "/docs/en/labs/shader/wgsl/units/12/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-12/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5222,6 +5234,7 @@
       "goal": "Declare runtime arrays. Distinguish binding ranges from logical lengths.",
       "docPath": "/docs/en/labs/shader/wgsl/units/13/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-13/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5231,7 +5244,8 @@
       "title": "Bindings and Memory Layout",
       "goal": "Implement a mixed uniform layout. Verify that field updates are independent.",
       "docPath": "/docs/en/labs/shader/wgsl/02-experiments/README.md",
-      "seriesId": "wgsl"
+      "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-02/example.js"
     },
     {
       "id": "wgsl-step-15",
@@ -5241,6 +5255,7 @@
       "goal": "Interpret invocation IDs. Flatten multidimensional indices.",
       "docPath": "/docs/en/labs/shader/wgsl/units/15/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-15/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5251,6 +5266,7 @@
       "goal": "Handle bounds in independent kernels. Define empty input explicitly.",
       "docPath": "/docs/en/labs/shader/wgsl/units/16/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-16/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5261,6 +5277,7 @@
       "goal": "Initialize shared memory. Implement cooperation within a group.",
       "docPath": "/docs/en/labs/shader/wgsl/units/17/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-17/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5271,6 +5288,7 @@
       "goal": "Write uniform barrier paths. Distinguish synchronization scopes.",
       "docPath": "/docs/en/labs/shader/wgsl/units/18/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-18/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5281,6 +5299,7 @@
       "goal": "Implement an atomic counter. Explain the scope of atomic guarantees.",
       "docPath": "/docs/en/labs/shader/wgsl/units/19/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-19/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5291,6 +5310,7 @@
       "goal": "Write cooperative reductions. Separate computation stages across groups.",
       "docPath": "/docs/en/labs/shader/wgsl/units/20/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-20/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5301,6 +5321,7 @@
       "goal": "Avoid data races. Separate state for each time step.",
       "docPath": "/docs/en/labs/shader/wgsl/units/21/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-21/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5311,6 +5332,7 @@
       "goal": "Choose texture functions appropriate to the stage. Distinguish texel and normalized coordinates.",
       "docPath": "/docs/en/labs/shader/wgsl/units/22/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-22/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5321,6 +5343,7 @@
       "goal": "Configure image compute output. Verify format-dependent value conversions.",
       "docPath": "/docs/en/labs/shader/wgsl/units/23/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-23/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5331,6 +5354,7 @@
       "goal": "Handle unstable inputs. Verify errors across input scales.",
       "docPath": "/docs/en/labs/shader/wgsl/units/24/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-24/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5341,6 +5365,7 @@
       "goal": "Build tests focused on boundaries. Report numeric failures with reproducible information.",
       "docPath": "/docs/en/labs/shader/wgsl/units/25/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-25/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5351,6 +5376,7 @@
       "goal": "Validate kernel configuration candidates. Interpret results according to the measurement scope.",
       "docPath": "/docs/en/labs/shader/wgsl/units/26/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-26/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5361,6 +5387,7 @@
       "goal": "Document kernel resource contracts. Manage reproduction and failure states.",
       "docPath": "/docs/en/labs/shader/wgsl/units/27/README.md",
       "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-step-27/example.js",
       "exampleNote": "Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results."
     },
     {
@@ -5370,7 +5397,8 @@
       "title": "Compute and Boundaries",
       "goal": "Apply a boundary strategy for each kernel. Verify layout, synchronization, and numeric correctness together.",
       "docPath": "/docs/en/labs/shader/wgsl/03-project/README.md",
-      "seriesId": "wgsl"
+      "seriesId": "wgsl",
+      "exampleReadingSource": "/examples-en/wgsl-03/example.js"
     },
     {
       "id": "gsap-01",

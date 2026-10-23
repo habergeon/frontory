@@ -1,13 +1,14 @@
 // WGSL의 @vertex/@fragment 진입점과 vec2f/vec4f를 관찰하세요. 아래 WGSL 문자열을 직접 수정합니다.
-export async function mount({ container }) {
+export async function mount({locale='ko', container }) {
+  const messages=locale==='en'?{"display001":"WebGPU unavailable: check in a supported browser on HTTPS/localhost.","display002":"No WebGPU adapter is available.","display003":"Failed to create a WebGPU canvas context"}:{"display001":"WebGPU 미지원: 지원 브라우저와 HTTPS/localhost에서 확인하세요.","display002":"사용 가능한 WebGPU adapter가 없습니다.","display003":"WebGPU canvas context 생성 실패"};
   /** @type {any} */ const gpu = navigator['gpu']
-  if (!gpu) { container.textContent = 'WebGPU 미지원: 지원 브라우저와 HTTPS/localhost에서 확인하세요.'; return () => container.replaceChildren() }
+  if (!gpu) { container.textContent = messages.display001; return () => container.replaceChildren() }
   const adapter = await gpu.requestAdapter()
-  if (!adapter) { container.textContent = '사용 가능한 WebGPU adapter가 없습니다.'; return () => container.replaceChildren() }
+  if (!adapter) { container.textContent = messages.display002; return () => container.replaceChildren() }
   const device = await adapter.requestDevice()
   const canvas = document.createElement('canvas'); container.append(canvas)
   /** @type {any} */ const context = canvas.getContext('webgpu')
-  if (!context) { device.destroy(); throw new Error('WebGPU canvas context 생성 실패') }
+  if (!context) { device.destroy(); throw new Error(messages.display003) }
   const format = gpu.getPreferredCanvasFormat()
   const module = device.createShaderModule({ code: `
     @vertex fn vertexMain(@builtin(vertex_index) i: u32) -> @builtin(position) vec4f {

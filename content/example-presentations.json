@@ -5296,5 +5296,564 @@
       "comment001": "Extra invocations MUST exit.",
       "comment002": "Actual compute dispatch and GPU readback. Timings are wall-clock, not GPU timestamp queries."
     }
+  },
+  "wgsl-01": {
+    "messages": {
+      "display001": "WebGPU 미지원: 지원 브라우저와 HTTPS/localhost에서 확인하세요.",
+      "display002": "사용 가능한 WebGPU adapter가 없습니다.",
+      "display003": "WebGPU canvas context 생성 실패"
+    },
+    "comments": {
+      "comment001": "WGSL의 @vertex/@fragment 진입점과 vec2f/vec4f를 관찰하세요. 아래 WGSL 문자열을 직접 수정합니다."
+    }
+  },
+  "wgsl-step-02": {
+    "messages": {
+      "display001": "리터럴과 명시적 수치 타입",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "입력 타입",
+      "display004": "i32(3)",
+      "display005": "f32(3.5)",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가",
+      "display013": "소수 입력은 i32 변환에서 잘립니다. dst 식을 src[i]/2.0으로 바꾸어 비교하세요."
+    },
+    "comments": {
+      "comment001": "wgsl-step-02: 리터럴과 명시적 수치 타입",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-03": {
+    "messages": {
+      "display001": "벡터·행렬 생성과 곱",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "행렬 열",
+      "display004": "정상 열 순서",
+      "display005": "행·열을 바꾼 배열",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가",
+      "display013": "열 [1,2],[3,4]. 열 순서를 편집하면 비대칭 변환을 확인합니다."
+    },
+    "comments": {
+      "comment001": "wgsl-step-03: 벡터·행렬 생성과 곱",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-04": {
+    "messages": {
+      "display001": "Const·Let·Var·Override",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "SCALE",
+      "display004": "1",
+      "display005": "2로 pipeline 생성",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-04: Const·Let·Var·Override",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-05": {
+    "messages": {
+      "display001": "함수와 구조체 계약",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "진폭",
+      "display004": "0.1",
+      "display005": "0.3",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-05: 함수와 구조체 계약",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-06": {
+    "messages": {
+      "display001": "조건·반복과 종료",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "반복 수",
+      "display004": "1",
+      "display005": "8",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-06: 조건·반복과 종료",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-07": {
+    "messages": {
+      "display001": "보간과 Stage 인터페이스",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "색 보간",
+      "display004": "기본 보간",
+      "display005": "flat 보간",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-07: 보간과 Stage 인터페이스",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-08": {
+    "messages": {
+      "display001": "주소 공간과 접근 모드",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "입력 접근",
+      "display004": "read",
+      "display005": "입력에 쓰기 시도",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가",
+      "display013": "read 접근 계약: 컴파일 성공. 변경 조건은 read storage 쓰기를 진단합니다."
+    },
+    "comments": {
+      "comment001": "wgsl-step-08: 주소 공간과 접근 모드",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-09": {
+    "messages": {
+      "display001": "Group·Binding과 호스트 연결",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "binding 번호",
+      "display004": "양쪽 0",
+      "display005": "호스트만 1",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-09: Group·Binding과 호스트 연결",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-10": {
+    "messages": {
+      "display001": "Scalar·Vector 정렬",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "b offset",
+      "display004": "16",
+      "display005": "의도적으로 4",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-10: Scalar·Vector 정렬",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-11": {
+    "messages": {
+      "display001": "행렬과 배열 Stride",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "행렬 stride",
+      "display004": "48바이트",
+      "display005": "36바이트로 잘못 가정",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-11: 행렬과 배열 Stride",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-12": {
+    "messages": {
+      "display001": "Uniform의 추가 배치 제약",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "원소 간격",
+      "display004": "16바이트",
+      "display005": "4바이트로 잘못 기록",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-12: Uniform의 추가 배치 제약",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-13": {
+    "messages": {
+      "display001": "런타임 배열과 Binding 범위",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "binding 범위",
+      "display004": "전체 배열",
+      "display005": "절반 범위",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-13: 런타임 배열과 Binding 범위",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-02": {
+    "messages": {
+      "display001": "<h3>WGSL binding and byte layout</h3><p>Two independent uniform fields: red at byte 0 and translation at byte 16. Move both controls and compare the layout below.</p><label>Red <input type=\"range\" min=\"0\" max=\"1\" step=\"0.01\" value=\"0.3\"></label> <label>Translation X <input type=\"range\" min=\"-0.5\" max=\"0.5\" step=\"0.01\" value=\"0\"></label> <button>Trigger validation / recover</button><pre aria-live=\"polite\"></pre>",
+      "display002": "WebGPU unavailable. Use a supported browser on HTTPS/localhost. Controls require a real GPU.",
+      "display003": "No GPU adapter available.",
+      "display004": "WebGPU context unavailable",
+      "display005": "CPU → writeBuffer → group 0 / binding 0 → render pass → submit\ncolor vec4f: bytes 0–15 | offset vec2f: 16–23 | scale: 24–27 | padding: 28–31\nred=",
+      "display006": "; offset.x=",
+      "display007": "; allocation=32 bytes",
+      "display008": "\nIntentional MAP_READ | UNIFORM error: ",
+      "display009": "No diagnostic returned",
+      "display010": "Device lost: "
+    },
+    "comments": {
+      "comment001": "Edit the WGSL and byte offsets together; actual GPU validation remains enabled.",
+      "comment002": "GPUBufferUsage.UNIFORM=64, COPY_DST=8. 32 bytes, 16-byte struct alignment."
+    }
+  },
+  "wgsl-step-15": {
+    "messages": {
+      "display001": "Compute ID와 인덱스",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "격자",
+      "display004": "8×8",
+      "display005": "13×9",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-15: Compute ID와 인덱스",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-16": {
+    "messages": {
+      "display001": "경계 검사와 빈 입력",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "길이",
+      "display004": "64",
+      "display005": "65",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-16: 경계 검사와 빈 입력",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-17": {
+    "messages": {
+      "display001": "Workgroup 메모리와 협력",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "남는 lane 값",
+      "display004": "0으로 초기화",
+      "display005": "중립값 아닌 1",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-17: Workgroup 메모리와 협력",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-18": {
+    "messages": {
+      "display001": "Barrier와 균일 제어 흐름",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "barrier 위치",
+      "display004": "비균일 if 내부",
+      "display005": "모든 lane의 공통 경로",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가",
+      "display013": "모든 lane의 공통 경로 barrier: 컴파일 성공"
+    },
+    "comments": {
+      "comment001": "wgsl-step-18: Barrier와 균일 제어 흐름",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-19": {
+    "messages": {
+      "display001": "Atomic과 카운터",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "양수 비율",
+      "display004": "절반",
+      "display005": "전부 양수",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-19: Atomic과 카운터",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-20": {
+    "messages": {
+      "display001": "부분합 Reduction",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "입력 수",
+      "display004": "64",
+      "display005": "1003",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-20: 부분합 Reduction",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-21": {
+    "messages": {
+      "display001": "Ping-pong과 데이터 경쟁",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "끝점 처리",
+      "display004": "고정 경계",
+      "display005": "순환 경계",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-21: Ping-pong과 데이터 경쟁",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-22": {
+    "messages": {
+      "display001": "Texture 함수의 단계 제약",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "접근 방식",
+      "display004": "정수 texel load",
+      "display005": "정규화 좌표와 linear sampling",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가",
+      "display013": "Compute에서는 명시적 LOD를 사용하는 textureSampleLevel을 비교합니다."
+    },
+    "comments": {
+      "comment001": "wgsl-step-22: Texture 함수의 단계 제약",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-23": {
+    "messages": {
+      "display001": "Storage texture 출력",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "출력 색",
+      "display004": "0..1 범위",
+      "display005": "일부 성분 1 초과",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가",
+      "display013": "rgba8unorm은 0..1을 0..255로 저장합니다."
+    },
+    "comments": {
+      "comment001": "wgsl-step-23: Storage texture 출력",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-24": {
+    "messages": {
+      "display001": "수치 안정성과 특수 입력",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "벡터 길이",
+      "display004": "1",
+      "display005": "0과 1e-8",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-24: 수치 안정성과 특수 입력",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-25": {
+    "messages": {
+      "display001": "커널 테스트와 Sentinel",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "길이",
+      "display004": "64",
+      "display005": "63과 65",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-25: 커널 테스트와 Sentinel",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-26": {
+    "messages": {
+      "display001": "Workgroup 구성과 측정",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "workgroup 크기",
+      "display004": "64",
+      "display005": "32와 128",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가",
+      "display013": "실행 구성 비교이며 GPU 성능 순위를 단정하지 않습니다."
+    },
+    "comments": {
+      "comment001": "wgsl-step-26: Workgroup 구성과 측정",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-step-27": {
+    "messages": {
+      "display001": "커널 계약 문서화",
+      "display002": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",
+      "display003": "실행 시작",
+      "display004": "기존 장치 상태",
+      "display005": "재초기화한 새 세션",
+      "display006": "실행 / 다시 초기화",
+      "display007": "WebGPU 미지원: HTTPS/localhost와 지원 브라우저가 필요합니다. CPU 결과를 GPU 실행으로 표시하지 않습니다.",
+      "display008": "사용 가능한 adapter가 없습니다.",
+      "display009": "Device lost: ",
+      "display010": " — 실행 버튼으로 새 장치를 요청하세요.",
+      "display011": "GPU validation: ",
+      "display012": "WebGPU canvas 불가"
+    },
+    "comments": {
+      "comment001": "wgsl-step-27: 커널 계약 문서화",
+      "comment002": "GPUBufferUsage: MAP_READ=1, COPY_SRC=4, COPY_DST=8, VERTEX=32, UNIFORM=64, STORAGE=128."
+    }
+  },
+  "wgsl-03": {
+    "messages": {
+      "display001": "<h3>Non-multiple lengths and invocation boundaries</h3><label>Array length <input type=\"number\" min=\"1\" max=\"262144\" value=\"1003\"></label> <label>Workgroup <select><option>32</option><option selected>64</option><option>128</option></select></label> <button>Dispatch and compare</button><pre aria-live=\"polite\"></pre>",
+      "display002": "WebGPU unavailable: real compute requires a supported HTTPS/localhost browser.",
+      "display003": "No adapter available",
+      "display004": "n=",
+      "display005": "; group=",
+      "display006": "; dispatched=",
+      "display007": "; guarded extras=",
+      "display008": "\nCPU reference: ",
+      "display009": " ms\nsubmit → queue complete (includes copy): ",
+      "display010": " ms\nmap + JS copy: ",
+      "display011": " ms\nGPU path end-to-end (includes pipeline creation): ",
+      "display012": " ms\nmax absolute error=",
+      "display013": "; last=",
+      "display014": " expected=",
+      "display015": " — queue duration is not isolated GPU execution time.",
+      "display016": "Device lost: "
+    },
+    "comments": {
+      "comment001": "Extra invocations MUST exit.",
+      "comment002": "Actual compute dispatch and GPU readback. Timings are wall-clock, not GPU timestamp queries."
+    }
   }
 }

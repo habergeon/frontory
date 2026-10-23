@@ -43,3 +43,17 @@ test('manual async WebGPU unavailable path uses its requested locale', async () 
     dispose(); assert.deepEqual(container.children, [])
   })
 })
+
+test('WGSL async adapter errors keep the original message in English UI', async () => {
+  const { mount } = await import('../src/labs/wgsl-step-21/example.js')
+  await withDOM(async ({ container, nodes }) => {
+    const raw = 'adapter: 한글 café 日本語 — original diagnostic'
+    navigator.gpu = { requestAdapter: async () => { throw new Error(raw) } }
+    const dispose = mount({ container, locale: 'en' })
+    await new Promise(resolve => setImmediate(resolve))
+    assert.equal(nodes.find(n => n.tag === 'pre').textContent, raw)
+    assert.equal(nodes.find(n => n.tag === 'button').disabled, false)
+    assert.equal(nodes.find(n => n.tag === 'select').attributes['aria-label'], 'Endpoint handling')
+    dispose(); assert.deepEqual(container.children, [])
+  })
+})

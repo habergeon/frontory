@@ -13,6 +13,27 @@
         "title": "Scene·Camera·Renderer",
         "goal": "Distinguish the effects of camera position and field of view."
       }
+    },
+    "03-mesh": {
+      "sourceHash": "1744430c32e2161340e190e0df63ae6e3a9cc8a42f50f41d3b70c50657eccad6",
+      "values": {
+        "title": "Geometry·Material·Mesh",
+        "goal": "Experiment with shape and surface appearance separately."
+      }
+    },
+    "04-coordinates": {
+      "sourceHash": "e5226710918853032ec35e9ec6f51f162ead62ee8a88a96eefa2f51d8332a451",
+      "values": {
+        "title": "Coordinate systems·Vector3·Matrix4",
+        "goal": "Predict local/world coordinates and the order of transformations."
+      }
+    },
+    "05-light": {
+      "sourceHash": "ba59c175d057a71fbb12326b440ba4174baac0b0d2dfdb4024cf15b37dbdf706",
+      "values": {
+        "title": "Light·Shadow·Texture",
+        "goal": "Distinguish how light, shadows, and textures contribute to the image."
+      }
     }
   }
 }

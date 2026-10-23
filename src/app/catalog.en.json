@@ -343,6 +343,33 @@
       "seriesId": "webgl"
     },
     {
+      "id": "03-mesh",
+      "day": 3,
+      "week": 1,
+      "title": "Geometry·Material·Mesh",
+      "goal": "Experiment with shape and surface appearance separately.",
+      "docPath": "/docs/en/labs/graphics/webgl/03-mesh/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "04-coordinates",
+      "day": 4,
+      "week": 1,
+      "title": "Coordinate systems·Vector3·Matrix4",
+      "goal": "Predict local/world coordinates and the order of transformations.",
+      "docPath": "/docs/en/labs/graphics/webgl/04-coordinates/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "05-light",
+      "day": 5,
+      "week": 1,
+      "title": "Light·Shadow·Texture",
+      "goal": "Distinguish how light, shadows, and textures contribute to the image.",
+      "docPath": "/docs/en/labs/graphics/webgl/05-light/README.md",
+      "seriesId": "webgl"
+    },
+    {
       "id": "javascript-01",
       "day": 1,
       "week": 1,

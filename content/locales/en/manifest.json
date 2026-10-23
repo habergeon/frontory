@@ -617,6 +617,9 @@
     "playwright-step-27",
     "playwright-03",
     "01-scene",
-    "02-camera"
+    "02-camera",
+    "03-mesh",
+    "04-coordinates",
+    "05-light"
   ]
 }

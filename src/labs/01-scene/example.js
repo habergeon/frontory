@@ -1,6 +1,7 @@
 // 이 모듈이 오른쪽/가운데 편집기와 실습 화면에서 실제로 실행됩니다.
 // 첫 과제: CAMERA_POSITION을 [0, 2, 5], [5, 2, 0]으로 바꾸고 예상과 결과를 기록하세요.
-export function mount({ THREE, OrbitControls, container }) {
+export function mount({locale='ko', THREE, OrbitControls, container }) {
+  const messages=locale==='en'?{"display001":"Rotating cube and coordinate axes"}:{"display001":"회전 큐브와 좌표축"};
   const CAMERA_POSITION = [3, 2, 5]
   const CUBE_COLOR = '#3179bf'
   const FOV = 50
@@ -12,7 +13,7 @@ export function mount({ THREE, OrbitControls, container }) {
   camera.position.set(...CAMERA_POSITION)
   const renderer = new THREE.WebGLRenderer({ antialias: true })
   const canvas = renderer.domElement
-  canvas.setAttribute('aria-label', '회전 큐브와 좌표축')
+  canvas.setAttribute('aria-label', messages.display001)
   container.appendChild(canvas)
 
   const geometry = new THREE.BoxGeometry(1, 1, 1)

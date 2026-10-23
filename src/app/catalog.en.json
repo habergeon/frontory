@@ -331,7 +331,8 @@
       "title": "WebGL·GPU and the first image",
       "goal": "Connect the roles of the CPU and GPU and the rendering pipeline to the code for your first scene.",
       "docPath": "/docs/en/labs/graphics/webgl/01-scene/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/01-scene/example.js"
     },
     {
       "id": "02-camera",
@@ -340,7 +341,8 @@
       "title": "Scene·Camera·Renderer",
       "goal": "Distinguish the effects of camera position and field of view.",
       "docPath": "/docs/en/labs/graphics/webgl/02-camera/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/02-camera/example.js"
     },
     {
       "id": "03-mesh",
@@ -349,7 +351,8 @@
       "title": "Geometry·Material·Mesh",
       "goal": "Experiment with shape and surface appearance separately.",
       "docPath": "/docs/en/labs/graphics/webgl/03-mesh/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/03-mesh/example.js"
     },
     {
       "id": "04-coordinates",
@@ -358,7 +361,8 @@
       "title": "Coordinate systems·Vector3·Matrix4",
       "goal": "Predict local/world coordinates and the order of transformations.",
       "docPath": "/docs/en/labs/graphics/webgl/04-coordinates/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/04-coordinates/example.js"
     },
     {
       "id": "05-light",
@@ -367,7 +371,8 @@
       "title": "Light·Shadow·Texture",
       "goal": "Distinguish how light, shadows, and textures contribute to the image.",
       "docPath": "/docs/en/labs/graphics/webgl/05-light/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/05-light/example.js"
     },
     {
       "id": "06-interaction",
@@ -376,7 +381,8 @@
       "title": "Raycaster·OrbitControls",
       "goal": "Turn a pointer position into a spatial ray and distinguish camera controls from selection.",
       "docPath": "/docs/en/labs/graphics/webgl/06-interaction/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/06-interaction/example.js"
     },
     {
       "id": "07-scene-review",
@@ -385,7 +391,8 @@
       "title": "Interactive scene review",
       "goal": "Integrate the camera, selection, resizing, and cleanup into one small scene.",
       "docPath": "/docs/en/labs/graphics/webgl/07-scene-review/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/07-scene-review/example.js"
     },
     {
       "id": "08-shader-stages",
@@ -394,7 +401,8 @@
       "title": "Vertex·Fragment shader",
       "goal": "Distinguish the inputs and outputs of the two shader stages.",
       "docPath": "/docs/en/labs/graphics/webgl/08-shader-stages/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/08-shader-stages/example.js"
     },
     {
       "id": "09-glsl-color",
@@ -403,7 +411,8 @@
       "title": "GLSL syntax and color",
       "goal": "Create colors using GLSL types and vector operations, and fix compilation errors.",
       "docPath": "/docs/en/labs/graphics/webgl/09-glsl-color/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/09-glsl-color/example.js"
     },
     {
       "id": "10-shader-data",
@@ -412,7 +421,8 @@
       "title": "Uniform·Attribute·Varying and time",
       "goal": "Explain the data paths between JavaScript and shaders, and create changes over time.",
       "docPath": "/docs/en/labs/graphics/webgl/10-shader-data/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/10-shader-data/example.js"
     },
     {
       "id": "11-uv",
@@ -421,7 +431,8 @@
       "title": "UV and Texture Sampling",
       "goal": "Distinguish surface UVs from screen coordinates and explain sampling.",
       "docPath": "/docs/en/labs/graphics/webgl/11-uv/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/11-uv/example.js"
     },
     {
       "id": "12-waves",
@@ -430,7 +441,8 @@
       "title": "Noise·Sin·Cos waves and distortion",
       "goal": "Explain the difference between periodic functions and noise, and experiment with waves one variable at a time.",
       "docPath": "/docs/en/labs/graphics/webgl/12-waves/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/12-waves/example.js"
     },
     {
       "id": "13-shader-material",
@@ -439,7 +451,8 @@
       "title": "ShaderMaterial integration",
       "goal": "Connect custom shader inputs, lifetimes, and errors to a Three.js scene.",
       "docPath": "/docs/en/labs/graphics/webgl/13-shader-material/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/13-shader-material/example.js"
     },
     {
       "id": "14-shader-review",
@@ -448,7 +461,8 @@
       "title": "Interactive shader review",
       "goal": "Complete and explain a small effect that connects UI input to uniforms.",
       "docPath": "/docs/en/labs/graphics/webgl/14-shader-review/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/14-shader-review/example.js"
     },
     {
       "id": "15-nerf-gs",
@@ -457,7 +471,8 @@
       "title": "Comparing NeRF and 3DGS",
       "goal": "Explain how the two approaches differ in input, representation, and rendering.",
       "docPath": "/docs/en/labs/graphics/webgl/15-nerf-gs/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/15-nerf-gs/example.js"
     },
     {
       "id": "16-gaussian",
@@ -466,7 +481,8 @@
       "title": "Gaussian position·size·rotation·opacity",
       "goal": "Connect Gaussian spatial parameters to diagrams and API names.",
       "docPath": "/docs/en/labs/graphics/webgl/16-gaussian/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/16-gaussian/example.js"
     },
     {
       "id": "17-sh",
@@ -475,7 +491,8 @@
       "title": "Spherical Harmonics and view-dependent color",
       "goal": "Explain the difference between fixed RGB and direction-dependent color representations.",
       "docPath": "/docs/en/labs/graphics/webgl/17-sh/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/17-sh/example.js"
     },
     {
       "id": "18-gs-projection",
@@ -484,7 +501,8 @@
       "title": "Projection·Sorting·Alpha Blending",
       "goal": "Explain screen footprints and order-dependent compositing.",
       "docPath": "/docs/en/labs/graphics/webgl/18-gs-projection/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/18-gs-projection/example.js"
     },
     {
       "id": "19-gs-loading",
@@ -493,7 +511,8 @@
       "title": ".ply·.splat loading",
       "goal": "Check input data specifications and implement successful and failed loading.",
       "docPath": "/docs/en/labs/graphics/webgl/19-gs-loading/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/19-gs-loading/example.js"
     },
     {
       "id": "20-gs-interaction",
@@ -502,7 +521,8 @@
       "title": "Three.js+GS camera and interaction",
       "goal": "Connect the meaning of GS coordinates, scale, and selection to scene controls.",
       "docPath": "/docs/en/labs/graphics/webgl/20-gs-interaction/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/20-gs-interaction/example.js"
     },
     {
       "id": "21-gs-review",
@@ -511,7 +531,8 @@
       "title": "GS viewer review and candidate comparison",
       "goal": "Summarize the scope of a small GS viewer and the reasons for choosing a library.",
       "docPath": "/docs/en/labs/graphics/webgl/21-gs-review/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/21-gs-review/example.js"
     },
     {
       "id": "22-react-viewer",
@@ -520,7 +541,8 @@
       "title": "React+Three.js component design",
       "goal": "Separate UI state from per-frame scene state and create an exercise contract.",
       "docPath": "/docs/en/labs/graphics/webgl/22-react-viewer/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/22-react-viewer/example.js"
     },
     {
       "id": "23-loading-ui",
@@ -529,7 +551,8 @@
       "title": "Loading UI and progress",
       "goal": "Display progress based on actual stages and available evidence.",
       "docPath": "/docs/en/labs/graphics/webgl/23-loading-ui/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/23-loading-ui/example.js"
     },
     {
       "id": "24-camera-controls",
@@ -538,7 +561,8 @@
       "title": "Camera movement·rotation·zoom",
       "goal": "Make control limits and reset behavior consistent.",
       "docPath": "/docs/en/labs/graphics/webgl/24-camera-controls/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/24-camera-controls/example.js"
     },
     {
       "id": "25-markers",
@@ -547,7 +571,8 @@
       "title": "Markers and Raycasting",
       "goal": "Define what selected coordinates mean and place markers.",
       "docPath": "/docs/en/labs/graphics/webgl/25-markers/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/25-markers/example.js"
     },
     {
       "id": "26-performance",
@@ -556,7 +581,8 @@
       "title": "FPS·Draw Calls·memory analysis",
       "goal": "Record a performance baseline under reproducible conditions.",
       "docPath": "/docs/en/labs/graphics/webgl/26-performance/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/26-performance/example.js"
     },
     {
       "id": "27-optimization",
@@ -565,7 +591,8 @@
       "title": "Resolution·data optimization",
       "goal": "Test a bottleneck hypothesis by comparing before and after changing just one variable.",
       "docPath": "/docs/en/labs/graphics/webgl/27-optimization/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/27-optimization/example.js"
     },
     {
       "id": "28-review",
@@ -574,7 +601,8 @@
       "title": "Documentation and optional deployment planning",
       "goal": "Summarize reproducible results and remaining questions, and review deployment conditions in a document.",
       "docPath": "/docs/en/labs/graphics/webgl/28-review/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/28-review/example.js"
     },
     {
       "id": "javascript-01",

@@ -1,7 +1,8 @@
 // 과제: LIGHT_X, ROUGHNESS, SHADOWS를 바꾸어 질감과 그림자를 비교하세요.
-export function mount({ THREE, OrbitControls, container }) {
+export function mount({locale='ko', THREE, OrbitControls, container }) {
+  const messages=locale==='en'?{"display001":"Procedurally generated checker texture · castShadow + receiveShadow + renderer.shadowMap","display002":"Three.js learning scene"}:{"display001":"직접 생성한 체크 텍스처 · castShadow + receiveShadow + renderer.shadowMap","display002":"Three.js 학습 장면"};
   const LIGHT_X = 3, ROUGHNESS = 0.6, SHADOWS = true
-  const lab = setup(THREE, OrbitControls, container)
+  const lab = setup(THREE, OrbitControls, container, messages)
   lab.renderer.shadowMap.enabled = SHADOWS
   lab.light.position.x = LIGHT_X
   lab.light.castShadow = true
@@ -21,18 +22,18 @@ export function mount({ THREE, OrbitControls, container }) {
   floor.rotation.x = -Math.PI / 2
   floor.receiveShadow = true
   lab.scene.add(cube, floor)
-  lab.label.textContent = '직접 생성한 체크 텍스처 · castShadow + receiveShadow + renderer.shadowMap'
+  lab.label.textContent = messages.display001
   return lab.dispose
 }
 
 // 공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다.
-function setup(THREE, OrbitControls, container) {
+function setup(THREE, OrbitControls, container, messages) {
   const scene = new THREE.Scene()
   scene.background = new THREE.Color('#edf2f7')
   const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100)
   camera.position.set(4, 3, 6)
   const renderer = new THREE.WebGLRenderer({ antialias: true })
-  renderer.domElement.setAttribute('aria-label', 'Three.js 학습 장면')
+  renderer.domElement.setAttribute('aria-label', messages.display002)
   container.appendChild(renderer.domElement)
   const controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = true

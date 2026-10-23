@@ -1,15 +1,16 @@
 // center/scale/quaternion/opacity를 각각 바꿔 투영된 타원의 차이를 관찰하세요.
-export function mount({THREE,OrbitControls,container}){
-  const lab=splatLab(THREE,OrbitControls,container)
+export function mount({locale='ko',THREE,OrbitControls,container}){
+  const messages=locale==='en'?{"display001":"Change opacity","display002":"Gaussian covariance projection scene","display003":"Educational CPU Gaussian projection · ","display004":" splats\nsorting ","display005":" · DPR ","display006":" · observed FPS ","display007":" · draw ","display008":"ms\nThese values do not measure the performance of an actual 3DGS GPU renderer.","display009":"Choose a small GS file","display010":"Procedurally generated sample data · no server upload","display011":"loading ","display012":"ready ","display013":" splats · SH DC only","display014":"error: "}:{"display001":"불투명도 변경","display002":"Gaussian 공분산 투영 장면","display003":"교육용 CPU Gaussian 투영 · ","display004":" splats\n정렬 ","display005":" · DPR ","display006":" · 관찰 FPS ","display007":" · draw ","display008":"ms\n실제 3DGS GPU 렌더러 성능이 아닙니다.","display009":"작은 GS 파일 선택","display010":"직접 생성한 예시 데이터 · 서버 업로드 없음","display011":"loading ","display012":"ready ","display013":" splats · SH DC만 사용","display014":"error: "};
+  const lab=splatLab(THREE,OrbitControls,container,messages)
   lab.data=[{center:new THREE.Vector3(-0.7,0,0),scale:new THREE.Vector3(0.3,0.3,0.3),quaternion:new THREE.Quaternion(),color:[0.2,0.5,0.9],opacity:0.8},{center:new THREE.Vector3(0.7,0,0),scale:new THREE.Vector3(0.5,0.1,0.2),quaternion:new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),0.6),color:[0.9,0.4,0.2],opacity:0.7}]
-  lab.button('불투명도 변경',()=>{lab.data[1].opacity=lab.data[1].opacity===0.7?0.25:0.7})
+  lab.button(messages.display001,()=>{lab.data[1].opacity=lab.data[1].opacity===0.7?0.25:0.7})
   return lab.dispose
 }
 
 // 교육용 CPU 투영기: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.
 // 실제 GPU tile rasterizer/고차 SH/LOD/GS picking은 구현하지 않습니다.
-function splatLab(THREE,OrbitControls,container,options={}) {
-  const canvas=document.createElement('canvas');canvas.setAttribute('aria-label','Gaussian 공분산 투영 장면');container.append(canvas)
+function splatLab(THREE,OrbitControls,container,messages,options={}) {
+  const canvas=document.createElement('canvas');canvas.setAttribute('aria-label',messages.display002);container.append(canvas)
   const ctx=canvas.getContext('2d'),camera=new THREE.PerspectiveCamera(50,1,0.1,100)
   camera.position.set(0,0,5)
   const controls=new OrbitControls(camera,canvas);controls.enableDamping=true;controls.minDistance=1.5;controls.maxDistance=12;controls.saveState()
@@ -52,7 +53,7 @@ function splatLab(THREE,OrbitControls,container,options={}) {
       ctx.fillStyle=gradient;ctx.fillRect(-3,-3,6,6);ctx.restore()
     }
     frames++;if(time-last>1000){fps=frames*1000/(time-last);last=time;frames=0}
-    info.textContent='교육용 CPU Gaussian 투영 · '+data.length+' splats\n정렬 '+sort+' · DPR '+dpr+' · 관찰 FPS '+fps.toFixed(1)+' · draw '+(performance.now()-begin).toFixed(2)+'ms\n실제 3DGS GPU 렌더러 성능이 아닙니다.'
+    info.textContent=messages.display003+data.length+messages.display004+sort+messages.display005+dpr+messages.display006+fps.toFixed(1)+messages.display007+(performance.now()-begin).toFixed(2)+messages.display008
     frame=requestAnimationFrame(draw)
   }
   const resize=()=>{width=Math.max(1,container.clientWidth);height=Math.max(1,container.clientHeight);canvas.width=width*dpr;canvas.height=height*dpr;camera.aspect=width/height;camera.updateProjectionMatrix()}
@@ -90,12 +91,12 @@ function parseSplats(THREE,buffer,name){
   }else throw new Error('.splat 또는 ASCII GS .ply를 선택하세요')
   return result
 }
-function addLoader(THREE,lab){
-  const input=document.createElement('input');input.type='file';input.accept='.splat,.ply';input.setAttribute('aria-label','작은 GS 파일 선택')
-  const status=document.createElement('p');status.textContent='직접 생성한 예시 데이터 · 서버 업로드 없음'
+function addLoader(THREE,lab,messages){
+  const input=document.createElement('input');input.type='file';input.accept='.splat,.ply';input.setAttribute('aria-label',messages.display009)
+  const status=document.createElement('p');status.textContent=messages.display010
   let request=0,closed=false
-  const read=async()=>{const file=input.files?.[0];if(!file)return;const current=++request;status.textContent='loading '+file.name
-    try{if(file.size>1024*1024)throw new Error('학습용 파일은 1 MiB 이하');const buffer=await file.arrayBuffer();if(closed||current!==request)return;const data=parseSplats(THREE,buffer,file.name);lab.data=data;const center=data.reduce((sum,s)=>sum.add(s.center),new THREE.Vector3()).divideScalar(data.length);lab.controls.target.copy(center);lab.camera.position.copy(center).add(new THREE.Vector3(0,0,5));lab.controls.update();lab.controls.saveState();status.textContent='ready '+file.name+' · '+file.size+' bytes · '+data.length+' splats · SH DC만 사용'}catch(error){if(!closed&&current===request)status.textContent='error: '+error.message}}
+  const read=async()=>{const file=input.files?.[0];if(!file)return;const current=++request;status.textContent=messages.display011+file.name
+    try{if(file.size>1024*1024)throw new Error('학습용 파일은 1 MiB 이하');const buffer=await file.arrayBuffer();if(closed||current!==request)return;const data=parseSplats(THREE,buffer,file.name);lab.data=data;const center=data.reduce((sum,s)=>sum.add(s.center),new THREE.Vector3()).divideScalar(data.length);lab.controls.target.copy(center);lab.camera.position.copy(center).add(new THREE.Vector3(0,0,5));lab.controls.update();lab.controls.saveState();status.textContent=messages.display012+file.name+' · '+file.size+' bytes · '+data.length+messages.display013}catch(error){if(!closed&&current===request)status.textContent=messages.display014+error.message}}
   input.addEventListener('change',read);lab.panel.append(input,status)
   return()=>{closed=true;request++;input.removeEventListener('change',read)}
 }

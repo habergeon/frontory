@@ -1,7 +1,8 @@
 // 과제: SEGMENTS, WIREFRAME, ROUGHNESS를 하나씩 바꾸세요.
-export function mount({ THREE, OrbitControls, container }) {
+export function mount({locale='ko', THREE, OrbitControls, container }) {
+  const messages=locale==='en'?{"display001":"Geometry: vertices/triangles · Material: surface · Mesh: combines both","display002":"Three.js learning scene"}:{"display001":"Geometry: 정점/삼각형 · Material: 표면 · Mesh: 둘의 결합","display002":"Three.js 학습 장면"};
   const SEGMENTS = 12, WIREFRAME = false, ROUGHNESS = 0.4
-  const lab = setup(THREE, OrbitControls, container)
+  const lab = setup(THREE, OrbitControls, container, messages)
   const shapes = [new THREE.BoxGeometry(), new THREE.SphereGeometry(0.7, SEGMENTS, SEGMENTS), new THREE.TorusGeometry(0.55, 0.2, SEGMENTS, SEGMENTS)]
   shapes.forEach((geometry, index) => {
     const material = new THREE.MeshStandardMaterial({ color: ['#3179bf', '#e97645', '#26836c'][index], roughness: ROUGHNESS, wireframe: WIREFRAME })
@@ -9,18 +10,18 @@ export function mount({ THREE, OrbitControls, container }) {
     mesh.position.x = (index - 1) * 2
     lab.scene.add(mesh)
   })
-  lab.label.textContent = 'Geometry: 정점/삼각형 · Material: 표면 · Mesh: 둘의 결합'
+  lab.label.textContent = messages.display001
   return lab.dispose
 }
 
 // 공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다.
-function setup(THREE, OrbitControls, container) {
+function setup(THREE, OrbitControls, container, messages) {
   const scene = new THREE.Scene()
   scene.background = new THREE.Color('#edf2f7')
   const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100)
   camera.position.set(4, 3, 6)
   const renderer = new THREE.WebGLRenderer({ antialias: true })
-  renderer.domElement.setAttribute('aria-label', 'Three.js 학습 장면')
+  renderer.domElement.setAttribute('aria-label', messages.display002)
   container.appendChild(renderer.domElement)
   const controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = true

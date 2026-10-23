@@ -1,0 +1,419 @@
+{
+  "01-scene": {
+    "presentation": {
+      "sourceHash": "bff730dfcb590c5308cf903a8e821c9ac89ab1afa2ce49dc0ae56cb3ee73b82d",
+      "values": {
+        "messages.display001": "Rotating cube and coordinate axes",
+        "comments.comment001": "This module runs in the right/center editor and the practice view.",
+        "comments.comment002": "First task: change CAMERA_POSITION to [0, 2, 5] and [5, 2, 0], then record your predictions and results.",
+        "comments.comment003": "Manage resources and their cleanup together so they can be released on rerun or when the view closes."
+      }
+    }
+  },
+  "02-camera": {
+    "presentation": {
+      "sourceHash": "12c0896c30e3ee7c7f457e7736363b2345e3a19395124ed82c17b713b6db4031",
+      "values": {
+        "messages.display001": "FOV ",
+        "messages.display002": "° · camera ",
+        "messages.display003": "\nResize the window and check that the aspect ratio is preserved.",
+        "messages.display004": "Three.js learning scene",
+        "comments.comment001": "Task: change FOV and CAMERA_POSITION separately and compare perspective and size.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "03-mesh": {
+    "presentation": {
+      "sourceHash": "03f08510874fcba4cb94d9401ba6516005b56177ee3d70bff8329966a8706f44",
+      "values": {
+        "messages.display001": "Geometry: vertices/triangles · Material: surface · Mesh: combines both",
+        "messages.display002": "Three.js learning scene",
+        "comments.comment001": "Task: change SEGMENTS, WIREFRAME, and ROUGHNESS one at a time.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "04-coordinates": {
+    "presentation": {
+      "sourceHash": "2178784765a916f2a0060102739b63ca3b0bd7bf45d08ea1e44ba78a713da5cb",
+      "values": {
+        "messages.display001": "local: ",
+        "messages.display002": "\nworld = parent.matrixWorld × local: ",
+        "messages.display003": "Three.js learning scene",
+        "comments.comment001": "Task: change the parent rotation and the child's local coordinates, then predict its world coordinates.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "05-light": {
+    "presentation": {
+      "sourceHash": "bb3f55c966fb187ceeb03af8e71531bb6006276a53de0cb2eea797c7aeaaa660",
+      "values": {
+        "messages.display001": "Procedurally generated checker texture · castShadow + receiveShadow + renderer.shadowMap",
+        "messages.display002": "Three.js learning scene",
+        "comments.comment001": "Task: change LIGHT_X, ROUGHNESS, and SHADOWS to compare surface appearance and shadows.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "06-interaction": {
+    "presentation": {
+      "sourceHash": "6f10764d65ae47be8a7ec56616ca8eb8d678fa60b21ab5e12518360f5d24199a",
+      "values": {
+        "messages.display001": "Object ",
+        "messages.display002": " · distance ",
+        "messages.display003": "No selection",
+        "messages.display004": "Click: Raycaster selection · drag: OrbitControls",
+        "messages.display005": "Three.js learning scene",
+        "comments.comment001": "Task: click an object and check that selection still works after dragging.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "07-scene-review": {
+    "presentation": {
+      "sourceHash": "72cbe0c0d2ceb952e9c6215bdca2bc6ed54b9192f5580777f2df50e7ca022703",
+      "values": {
+        "messages.display001": "Object ",
+        "messages.display002": " · distance ",
+        "messages.display003": "No selection",
+        "messages.display004": "Click: Raycaster selection · drag: OrbitControls",
+        "messages.display005": "Three.js learning scene",
+        "comments.comment001": "Review task: add a button to stop the selected object's rotation and restore its color.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "08-shader-stages": {
+    "presentation": {
+      "sourceHash": "a0ac739f0ac519a48a0941bcf5b1e641a2fd52fcaf964b365abcaa258d16ceb2",
+      "values": {
+        "messages.display001": "vertex: vertex position → fragment: pixel color",
+        "messages.display002": "Three.js learning scene",
+        "comments.comment001": "Vertex offsets and fragment color belong to different stages. Change position and color independently.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "09-glsl-color": {
+    "presentation": {
+      "sourceHash": "4870d03e9a8f35d776da3c385d82761cf4df2b316305d5159f26e2adbe5ca87a",
+      "values": {
+        "messages.display001": "uMix: red 0 → purple 0.5 → blue 1",
+        "messages.display002": "Three.js learning scene",
+        "comments.comment001": "Change the mix ratio to 0/0.5/1. Assign vec3 and vec4 incorrectly to inspect a GPU error, then fix it.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "10-shader-data": {
+    "presentation": {
+      "sourceHash": "0a2ab85e3027b5e8e78350bf0821de9b0774854208bd65ef3a38f18380af5409",
+      "values": {
+        "messages.display001": "uniform uTime / attribute uv / varying vUv",
+        "messages.display002": "Three.js learning scene",
+        "comments.comment001": "uTime is a uniform, uv is an attribute, and vUv is a varying. Compare SPEED=0/1/3.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "11-uv": {
+    "presentation": {
+      "sourceHash": "0efd247ed97ed73ef65f2149233bc670f29ed6c06ed3b9b324a2c1ba2edb757a",
+      "values": {
+        "messages.display001": "CanvasTexture → texture2D · change uRepeat",
+        "messages.display002": "Three.js learning scene",
+        "comments.comment001": "Compare uRepeat=2/8/24. texture2D samples an actual CanvasTexture.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "12-waves": {
+    "presentation": {
+      "sourceHash": "2699cfaa27eff699a00a73e24e389704d708322f4f0e9e115ec5639f085b3530",
+      "values": {
+        "messages.display001": "sin(x) × cos(y) · vertex subdivisions ",
+        "messages.display002": "Three.js learning scene",
+        "comments.comment001": "Change SEGMENTS=4/16/64 and AMPLITUDE independently. Observe the effects of sin/cos phase and subdivision.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "13-shader-material": {
+    "presentation": {
+      "sourceHash": "06edbe3419f7ac65953159a063e0b8eb24880d94cea4197687bf14b7d9e84e09",
+      "values": {
+        "messages.display001": "Change uniform color",
+        "messages.display002": "Three.js learning scene",
+        "comments.comment001": "createMaterial defines the uniform contract. Color changes update only value without recreating the material.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "14-shader-review": {
+    "presentation": {
+      "sourceHash": "2df8789afb1f2927c8d340837fb4bfce47505f0ccc74ea2db9a5e7989205e9b2",
+      "values": {
+        "messages.display001": "Wave amplitude",
+        "messages.display002": "Wave speed",
+        "messages.display003": "Pause/resume",
+        "messages.display004": "Amplitude ",
+        "messages.display005": " speed ",
+        "messages.display006": "Three.js learning scene",
+        "comments.comment001": "Connect amplitude, speed, and pause to the UI and uniforms. The source is saved; temporary UI state is not.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "15-nerf-gs": {
+    "presentation": {
+      "sourceHash": "9c34a50f84f48b9ebafc586cc18814dca2c11715398db3069a32aaf9cce541a6",
+      "values": {
+        "messages.display001": "Ray sample count",
+        "messages.display002": "Ray integration samples ",
+        "messages.display003": " · accumulated brightness ",
+        "messages.display004": "\nNeRF: position/view direction → neural network density/color → integration\n3DGS: explicit Gaussians → screen projection → sorting/compositing\nThis example uses analytical Gaussian density instead of a neural network.",
+        "comments.comment001": "This is an analytical 1D density example. It does not train NeRF or run actual neural network inference."
+      }
+    }
+  },
+  "16-gaussian": {
+    "presentation": {
+      "sourceHash": "702d984b2bda37392609b17106990ae8a30eb5004f7ae242ca5f39142b51c2f5",
+      "values": {
+        "messages.display001": "Change opacity",
+        "messages.display002": "Gaussian covariance projection scene",
+        "messages.display003": "Educational CPU Gaussian projection · ",
+        "messages.display004": " splats\nsorting ",
+        "messages.display005": " · DPR ",
+        "messages.display006": " · observed FPS ",
+        "messages.display007": " · draw ",
+        "messages.display008": "ms\nThese values do not measure the performance of an actual 3DGS GPU renderer.",
+        "messages.display009": "Choose a small GS file",
+        "messages.display010": "Procedurally generated sample data · no server upload",
+        "messages.display011": "loading ",
+        "messages.display012": "ready ",
+        "messages.display013": " splats · SH DC only",
+        "messages.display014": "error: ",
+        "comments.comment001": "Change center/scale/quaternion/opacity separately and observe the differences in the projected ellipses.",
+        "comments.comment002": "Educational CPU projector: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.",
+        "comments.comment003": "An actual GPU tile rasterizer, higher-order SH, LOD, and GS picking are not implemented.",
+        "comments.comment004": "Standard .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/row."
+      }
+    }
+  },
+  "17-sh": {
+    "presentation": {
+      "sourceHash": "c2312c957e8e07e9cb602d2a3abc57b6c16044431572cc7c1089b8dfadd625cd",
+      "values": {
+        "messages.display001": "Fixed color / order-1 directional color",
+        "messages.display002": "RGB = 0.5 + 0.488603 × (view direction x,y,z). Rotate only the camera, without lighting.",
+        "messages.display003": "Gaussian covariance projection scene",
+        "messages.display004": "Educational CPU Gaussian projection · ",
+        "messages.display005": " splats\nsorting ",
+        "messages.display006": " · DPR ",
+        "messages.display007": " · observed FPS ",
+        "messages.display008": " · draw ",
+        "messages.display009": "ms\nThese values do not measure the performance of an actual 3DGS GPU renderer.",
+        "messages.display010": "Choose a small GS file",
+        "messages.display011": "Procedurally generated sample data · no server upload",
+        "messages.display012": "loading ",
+        "messages.display013": "ready ",
+        "messages.display014": " splats · SH DC only",
+        "messages.display015": "error: ",
+        "comments.comment001": "Visualizes the directional terms of order-1 real SH. This does not use learned coefficients or perform complete SH color reconstruction.",
+        "comments.comment002": "Educational CPU projector: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.",
+        "comments.comment003": "An actual GPU tile rasterizer, higher-order SH, LOD, and GS picking are not implemented.",
+        "comments.comment004": "Standard .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/row."
+      }
+    }
+  },
+  "18-gs-projection": {
+    "presentation": {
+      "sourceHash": "0ca90d01741a4ae8af862b94f829bbbfe31d13cd068d92d9a1764dd7cb769abe",
+      "values": {
+        "messages.display001": "Reverse compositing order",
+        "messages.display002": "Back→front: ",
+        "messages.display003": "\nOverlap RGB over black = ",
+        "messages.display004": "\nProjected 1σ radius f×scale/z = ",
+        "comments.comment001": "Alpha compositing is not commutative. Change the red/blue order and depth."
+      }
+    }
+  },
+  "19-gs-loading": {
+    "presentation": {
+      "sourceHash": "11808c98f04cc565499d9d57e7f0a86a7e06a17eff7a9c634e246971f4d46162",
+      "values": {
+        "messages.display001": "Gaussian covariance projection scene",
+        "messages.display002": "Educational CPU Gaussian projection · ",
+        "messages.display003": " splats\nsorting ",
+        "messages.display004": " · DPR ",
+        "messages.display005": " · observed FPS ",
+        "messages.display006": " · draw ",
+        "messages.display007": "ms\nThese values do not measure the performance of an actual 3DGS GPU renderer.",
+        "messages.display008": "Choose a small GS file",
+        "messages.display009": "Procedurally generated sample data · no server upload",
+        "messages.display010": "loading ",
+        "messages.display011": "ready ",
+        "messages.display012": " splats · SH DC only",
+        "messages.display013": "error: ",
+        "comments.comment001": "Parses small real files and projects covariance onto a CPU Canvas. This is not a full GPU GS viewer.",
+        "comments.comment002": "Educational CPU projector: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.",
+        "comments.comment003": "An actual GPU tile rasterizer, higher-order SH, LOD, and GS picking are not implemented.",
+        "comments.comment004": "Standard .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/row."
+      }
+    }
+  },
+  "20-gs-interaction": {
+    "presentation": {
+      "sourceHash": "88b9da03815c7c6f2273ebdd8c77ed5aa6409d5fe4e83b38f586e45365b8bd34",
+      "values": {
+        "messages.display001": "Reset camera",
+        "messages.display002": "GS picking is not implemented: an ellipse center differs from an actual surface intersection.",
+        "messages.display003": "Gaussian covariance projection scene",
+        "messages.display004": "Educational CPU Gaussian projection · ",
+        "messages.display005": " splats\nsorting ",
+        "messages.display006": " · DPR ",
+        "messages.display007": " · observed FPS ",
+        "messages.display008": " · draw ",
+        "messages.display009": "ms\nThese values do not measure the performance of an actual 3DGS GPU renderer.",
+        "messages.display010": "Choose a small GS file",
+        "messages.display011": "Procedurally generated sample data · no server upload",
+        "messages.display012": "loading ",
+        "messages.display013": "ready ",
+        "messages.display014": " splats · SH DC only",
+        "messages.display015": "error: ",
+        "comments.comment001": "Parses small real files and projects covariance onto a CPU Canvas. This is not a full GPU GS viewer.",
+        "comments.comment002": "Educational CPU projector: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.",
+        "comments.comment003": "An actual GPU tile rasterizer, higher-order SH, LOD, and GS picking are not implemented.",
+        "comments.comment004": "Standard .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/row."
+      }
+    }
+  },
+  "21-gs-review": {
+    "presentation": {
+      "sourceHash": "2f864381e2f89d131dbc7dfa5ea91fd1d02a2a97367e3ecc50ff83cbf53d2bd5",
+      "values": {
+        "messages.display001": "<label><input type=\"checkbox\">Check a valid file</label><label><input type=\"checkbox\">Check an invalid-format error</label><label><input type=\"checkbox\">Check camera reset</label><p>Candidate comparison: check the official documentation for supported formats, cleanup APIs, and licenses of Spark / GaussianSplats3D / huggingface gsplat.js.</p>",
+        "messages.display002": "Reset",
+        "messages.display003": "Gaussian covariance projection scene",
+        "messages.display004": "Educational CPU Gaussian projection · ",
+        "messages.display005": " splats\nsorting ",
+        "messages.display006": " · DPR ",
+        "messages.display007": " · observed FPS ",
+        "messages.display008": " · draw ",
+        "messages.display009": "ms\nThese values do not measure the performance of an actual 3DGS GPU renderer.",
+        "messages.display010": "Choose a small GS file",
+        "messages.display011": "Procedurally generated sample data · no server upload",
+        "messages.display012": "loading ",
+        "messages.display013": "ready ",
+        "messages.display014": " splats · SH DC only",
+        "messages.display015": "error: ",
+        "comments.comment001": "Parses small real files and projects covariance onto a CPU Canvas. This is not a full GPU GS viewer.",
+        "comments.comment002": "Educational CPU projector: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.",
+        "comments.comment003": "An actual GPU tile rasterizer, higher-order SH, LOD, and GS picking are not implemented.",
+        "comments.comment004": "Standard .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/row."
+      }
+    }
+  },
+  "22-react-viewer": {
+    "presentation": {
+      "sourceHash": "79ee14b57776bdf45e9233fb232137acd9d11458927d24d1a737ecb02e7883a9",
+      "values": {
+        "messages.display001": "idle",
+        "messages.display002": "loading ",
+        "messages.display003": "ready ",
+        "messages.display004": "Slow A",
+        "messages.display005": "Fast B",
+        "comments.comment001": "React owns the selection state and Three.js owns the canvas. Select B while slow A is loading.",
+        "comments.comment002": "Only a delay is simulated, without network access. The actual renderer is created after loading completes."
+      }
+    }
+  },
+  "23-loading-ui": {
+    "presentation": {
+      "sourceHash": "4c3f1f234dfc101cd699588a15e158a78e7aad7a7100cedf89530bc0bc9f73ca",
+      "values": {
+        "messages.display001": "<h2>Loading state experiment</h2><label><input type=\"checkbox\" id=\"known\" checked>Total size known</label><label><input type=\"checkbox\" id=\"fail\">Simulate failure</label><button id=\"start\">Load/retry</button><button id=\"cancel\">Cancel</button><progress max=\"100\"></progress><pre aria-live=\"polite\"></pre>",
+        "messages.display002": "idle · canceled",
+        "messages.display003": "loading",
+        "messages.display004": "loading · ",
+        "messages.display005": "Total size unknown",
+        "messages.display006": "error · retry available",
+        "messages.display007": "ready",
+        "messages.display008": "idle",
+        "comments.comment001": "A delay model for experimenting with loading state transitions and cancellation boundaries without actual network access."
+      }
+    }
+  },
+  "24-camera-controls": {
+    "presentation": {
+      "sourceHash": "8c6d9b64eb37f41599884d760edd24aea6c91336fe7e1402ea5dfcd6fe4c424e",
+      "values": {
+        "messages.display001": "Reset camera",
+        "messages.display002": "Three.js learning scene",
+        "comments.comment001": "Zoom/rotate/pan to extreme values, then reset. The camera and target are restored together.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "25-markers": {
+    "presentation": {
+      "sourceHash": "b59ea50f4e20ac53d8c9eec8d28c993aa995bc144c821104e52cf36df3dc363b",
+      "values": {
+        "messages.display001": "Intersection ",
+        "messages.display002": "Click the sphere surface → world-space marker",
+        "messages.display003": "Three.js learning scene",
+        "comments.comment001": "Places a marker at the mesh raycast intersection. Do not generalize this to a GS selection algorithm.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "26-performance": {
+    "presentation": {
+      "sourceHash": "cb910f701507f366baac9009d64034215d9c994126fd4fc48ae0f41c14c3bb7b",
+      "values": {
+        "messages.display001": "Observed FPS ",
+        "messages.display002": " · calls ",
+        "messages.display003": " · triangles ",
+        "messages.display004": "\ngeometries ",
+        "messages.display005": " · textures ",
+        "messages.display006": " (counts, not VRAM)\nINSTANCED=",
+        "messages.display007": " / DPR=",
+        "messages.display008": "Three.js learning scene",
+        "comments.comment001": "These are measured values. Do not compare them directly across devices or with background tabs. renderer.info is not total VRAM.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "27-optimization": {
+    "presentation": {
+      "sourceHash": "cb910f701507f366baac9009d64034215d9c994126fd4fc48ae0f41c14c3bb7b",
+      "values": {
+        "messages.display001": "Observed FPS ",
+        "messages.display002": " · calls ",
+        "messages.display003": " · triangles ",
+        "messages.display004": "\ngeometries ",
+        "messages.display005": " · textures ",
+        "messages.display006": " (counts, not VRAM)\nINSTANCED=",
+        "messages.display007": " / DPR=",
+        "messages.display008": "Three.js learning scene",
+        "comments.comment001": "These are measured values. Do not compare them directly across devices or with background tabs. renderer.info is not total VRAM.",
+        "comments.comment002": "Shared scene setup: the code below also runs exactly as edited."
+      }
+    }
+  },
+  "28-review": {
+    "presentation": {
+      "sourceHash": "597ac2df6e82e1c1cc16956ad1d21b037534b0593a0d466ea84cac0064d98321",
+      "values": {
+        "messages.display001": "<h2>Experiment reproduction card</h2><label>Title<input id=\"title\" value=\"나의 WebGL 실험\"></label><label>Changed variable<input id=\"variable\" placeholder=\"e.g. DPR 2 → 1\"></label><label>Actual results<textarea id=\"result\" placeholder=\"Values and conditions you measured\"></textarea></label><label><input type=\"checkbox\" id=\"verified\">Reproduction verified</label><pre></pre>",
+        "messages.display002": "\n\n## Changed variable\n",
+        "messages.display003": "\n\n## Actual results\n",
+        "messages.display004": "] Reproduction verified\n- [ ] Public asset permissions checked\n- [ ] Deployment is a separate decision",
+        "comments.comment001": "An executable form for recording results. Enter only work you actually performed. It does not deploy anything."
+      }
+    }
+  }
+}

@@ -1,20 +1,21 @@
 // 극단값에서 줌/회전/이동 후 초기화하세요. 카메라와 target을 함께 복원합니다.
-export function mount({THREE,OrbitControls,container}){
-  const lab=setup(THREE,OrbitControls,container)
+export function mount({locale='ko',THREE,OrbitControls,container}){
+  const messages=locale==='en'?{"display001":"Reset camera","display002":"Three.js learning scene"}:{"display001":"카메라 초기화","display002":"Three.js 학습 장면"};
+  const lab=setup(THREE,OrbitControls,container, messages)
   lab.scene.add(new THREE.Mesh(new THREE.TorusKnotGeometry(0.6,0.2,96,12),new THREE.MeshNormalMaterial()),new THREE.GridHelper(10,10))
   lab.controls.minDistance=2;lab.controls.maxDistance=10;lab.controls.maxPolarAngle=Math.PI*0.85
   lab.controls.saveState()
-  const reset=document.createElement('button');reset.textContent='카메라 초기화';reset.onclick=()=>lab.controls.reset();lab.label.append(reset)
+  const reset=document.createElement('button');reset.textContent=messages.display001;reset.onclick=()=>lab.controls.reset();lab.label.append(reset)
   return lab.dispose
 }
 // 공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다.
-function setup(THREE, OrbitControls, container) {
+function setup(THREE, OrbitControls, container, messages) {
   const scene = new THREE.Scene()
   scene.background = new THREE.Color('#edf2f7')
   const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100)
   camera.position.set(4, 3, 6)
   const renderer = new THREE.WebGLRenderer({ antialias: true })
-  renderer.domElement.setAttribute('aria-label', 'Three.js 학습 장면')
+  renderer.domElement.setAttribute('aria-label', messages.display002)
   container.appendChild(renderer.domElement)
   renderer.debug.onShaderError = (gl, program, vertex, fragment) => {
     const message = [gl.getProgramInfoLog(program), gl.getShaderInfoLog(vertex), gl.getShaderInfoLog(fragment)].filter(Boolean).join('\n')

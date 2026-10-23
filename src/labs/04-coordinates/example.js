@@ -1,7 +1,8 @@
 // 과제: 부모 회전과 자식의 local 좌표를 바꿔 world 좌표를 예측하세요.
-export function mount({ THREE, OrbitControls, container }) {
+export function mount({locale='ko', THREE, OrbitControls, container }) {
+  const messages=locale==='en'?{"display001":"local: ","display002":"\nworld = parent.matrixWorld × local: ","display003":"Three.js learning scene"}:{"display001":"local: ","display002":"\nworld = parent.matrixWorld × local: ","display003":"Three.js 학습 장면"};
   const LOCAL_X = 2, PARENT_SPEED = 0.4
-  const lab = setup(THREE, OrbitControls, container)
+  const lab = setup(THREE, OrbitControls, container, messages)
   const parent = new THREE.Group()
   parent.position.set(1, 0, 0)
   const child = new THREE.Mesh(new THREE.BoxGeometry(), new THREE.MeshNormalMaterial())
@@ -13,19 +14,19 @@ export function mount({ THREE, OrbitControls, container }) {
     parent.rotation.y = time * PARENT_SPEED
     parent.updateMatrixWorld(true)
     world.copy(child.position).applyMatrix4(parent.matrixWorld)
-    lab.label.textContent = 'local: ' + child.position.toArray().join(', ') + '\nworld = parent.matrixWorld × local: ' + world.toArray().map(v => v.toFixed(2)).join(', ')
+    lab.label.textContent = messages.display001 + child.position.toArray().join(', ') + messages.display002 + world.toArray().map(v => v.toFixed(2)).join(', ')
   })
   return lab.dispose
 }
 
 // 공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다.
-function setup(THREE, OrbitControls, container) {
+function setup(THREE, OrbitControls, container, messages) {
   const scene = new THREE.Scene()
   scene.background = new THREE.Color('#edf2f7')
   const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100)
   camera.position.set(4, 3, 6)
   const renderer = new THREE.WebGLRenderer({ antialias: true })
-  renderer.domElement.setAttribute('aria-label', 'Three.js 학습 장면')
+  renderer.domElement.setAttribute('aria-label', messages.display003)
   container.appendChild(renderer.domElement)
   const controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = true

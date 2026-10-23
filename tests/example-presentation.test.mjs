@@ -30,6 +30,9 @@ for (const [id, original] of Object.entries(sources)) {
     for (const [key, value] of Object.entries(translated.messages)) {
       if (id === 'canvas-2d-step-07' && key === 'display002') {
         assert.equal(value, 'Input String: 가나 ↔ WWW iii')
+      } else if (id === '28-review' && key === 'display001') {
+        assert.ok(value.includes('value="나의 WebGL 실험"'))
+        assert.doesNotMatch(value.replace('value="나의 WebGL 실험"', ''), /[가-힣]/)
       } else assert.doesNotMatch(value, /[가-힣]/)
     }
   })

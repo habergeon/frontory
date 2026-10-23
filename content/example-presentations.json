@@ -8876,5 +8876,394 @@
       "nested005": "Never increase tolerance merely to silence a failure. Use trace to inspect inputs/network/errors.",
       "nested006": "Cross-GPU scenes: verify numeric state and rendering availability separately; avoid pixel-exact portability claims."
     }
+  },
+  "01-scene": {
+    "messages": {
+      "display001": "회전 큐브와 좌표축"
+    },
+    "comments": {
+      "comment001": "이 모듈이 오른쪽/가운데 편집기와 실습 화면에서 실제로 실행됩니다.",
+      "comment002": "첫 과제: CAMERA_POSITION을 [0, 2, 5], [5, 2, 0]으로 바꾸고 예상과 결과를 기록하세요.",
+      "comment003": "재실행·화면 종료 시 해제할 자원은 생성한 곳과 함께 관리합니다."
+    }
+  },
+  "02-camera": {
+    "messages": {
+      "display001": "FOV ",
+      "display002": "° · 카메라 ",
+      "display003": "\n창 크기를 바꾸어 비율이 유지되는지 확인하세요.",
+      "display004": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "과제: FOV와 CAMERA_POSITION을 따로 바꾸며 원근과 크기를 비교하세요.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "03-mesh": {
+    "messages": {
+      "display001": "Geometry: 정점/삼각형 · Material: 표면 · Mesh: 둘의 결합",
+      "display002": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "과제: SEGMENTS, WIREFRAME, ROUGHNESS를 하나씩 바꾸세요.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "04-coordinates": {
+    "messages": {
+      "display001": "local: ",
+      "display002": "\nworld = parent.matrixWorld × local: ",
+      "display003": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "과제: 부모 회전과 자식의 local 좌표를 바꿔 world 좌표를 예측하세요.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "05-light": {
+    "messages": {
+      "display001": "직접 생성한 체크 텍스처 · castShadow + receiveShadow + renderer.shadowMap",
+      "display002": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "과제: LIGHT_X, ROUGHNESS, SHADOWS를 바꾸어 질감과 그림자를 비교하세요.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "06-interaction": {
+    "messages": {
+      "display001": "물체 ",
+      "display002": " · 거리 ",
+      "display003": "선택 없음",
+      "display004": "클릭: Raycaster 선택 · 드래그: OrbitControls",
+      "display005": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "과제: 물체를 클릭하고, 드래그 후에도 선택이 맞는지 확인하세요.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "07-scene-review": {
+    "messages": {
+      "display001": "물체 ",
+      "display002": " · 거리 ",
+      "display003": "선택 없음",
+      "display004": "클릭: Raycaster 선택 · 드래그: OrbitControls",
+      "display005": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "복습 과제: 선택한 물체의 회전을 멈추고 색상을 되돌리는 버튼을 추가하세요.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "08-shader-stages": {
+    "messages": {
+      "display001": "vertex: 정점 위치 → fragment: 픽셀 색상",
+      "display002": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "정점 오프셋과 fragment 색상은 다른 단계입니다. 위치와 색을 독립적으로 바꾸세요.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "09-glsl-color": {
+    "messages": {
+      "display001": "uMix: 빨강 0 → 보라 0.5 → 파랑 1",
+      "display002": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "mix 비율을 0/0.5/1로 변경하세요. vec3와 vec4를 잘못 대입해 GPU 오류를 확인한 뒤 수정하세요.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "10-shader-data": {
+    "messages": {
+      "display001": "uniform uTime / attribute uv / varying vUv",
+      "display002": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "uTime은 uniform, uv는 attribute, vUv는 varying입니다. SPEED=0/1/3을 비교하세요.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "11-uv": {
+    "messages": {
+      "display001": "CanvasTexture → texture2D · uRepeat 변경",
+      "display002": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "uRepeat=2/8/24 비교. texture2D가 실제 CanvasTexture를 샘플링합니다.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "12-waves": {
+    "messages": {
+      "display001": "sin(x) × cos(y) · 정점 분할 수 ",
+      "display002": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "SEGMENTS=4/16/64와 AMPLITUDE를 독립적으로 변경하세요. sin·cos 위상과 분할의 효과를 봅니다.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "13-shader-material": {
+    "messages": {
+      "display001": "uniform 색상 변경",
+      "display002": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "createMaterial이 uniform 계약을 만듭니다. 색상 변경은 material 재생성 없이 value만 갱신합니다.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "14-shader-review": {
+    "messages": {
+      "display001": "파동 진폭",
+      "display002": "파동 속도",
+      "display003": "정지/재개",
+      "display004": "진폭 ",
+      "display005": " 속도 ",
+      "display006": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "진폭·속도·일시정지를 UI와 uniform으로 연결합니다. 저장되는 것은 소스이며 일시적인 UI 상태는 아닙니다.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "15-nerf-gs": {
+    "messages": {
+      "display001": "광선 샘플 수",
+      "display002": "광선 적분 샘플 ",
+      "display003": " · 누적 밝기 ",
+      "display004": "\nNeRF: 위치·시선 → 신경망 밀도/색 → 적분\n3DGS: 명시적 Gaussian → 화면 투영 → 정렬·합성\n여기서는 신경망 대신 분석 가능한 Gaussian 밀도를 사용합니다."
+    },
+    "comments": {
+      "comment001": "분석용 1D 밀도 예제입니다. NeRF 학습이나 실제 신경망 추론을 수행하지 않습니다."
+    }
+  },
+  "16-gaussian": {
+    "messages": {
+      "display001": "불투명도 변경",
+      "display002": "Gaussian 공분산 투영 장면",
+      "display003": "교육용 CPU Gaussian 투영 · ",
+      "display004": " splats\n정렬 ",
+      "display005": " · DPR ",
+      "display006": " · 관찰 FPS ",
+      "display007": " · draw ",
+      "display008": "ms\n실제 3DGS GPU 렌더러 성능이 아닙니다.",
+      "display009": "작은 GS 파일 선택",
+      "display010": "직접 생성한 예시 데이터 · 서버 업로드 없음",
+      "display011": "loading ",
+      "display012": "ready ",
+      "display013": " splats · SH DC만 사용",
+      "display014": "error: "
+    },
+    "comments": {
+      "comment001": "center/scale/quaternion/opacity를 각각 바꿔 투영된 타원의 차이를 관찰하세요.",
+      "comment002": "교육용 CPU 투영기: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.",
+      "comment003": "실제 GPU tile rasterizer/고차 SH/LOD/GS picking은 구현하지 않습니다.",
+      "comment004": "일반 .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/행."
+    }
+  },
+  "17-sh": {
+    "messages": {
+      "display001": "고정 색 / 1차 방향 색",
+      "display002": "RGB = 0.5 + 0.488603 × (시선 x,y,z). 조명 없이 카메라만 회전하세요.",
+      "display003": "Gaussian 공분산 투영 장면",
+      "display004": "교육용 CPU Gaussian 투영 · ",
+      "display005": " splats\n정렬 ",
+      "display006": " · DPR ",
+      "display007": " · 관찰 FPS ",
+      "display008": " · draw ",
+      "display009": "ms\n실제 3DGS GPU 렌더러 성능이 아닙니다.",
+      "display010": "작은 GS 파일 선택",
+      "display011": "직접 생성한 예시 데이터 · 서버 업로드 없음",
+      "display012": "loading ",
+      "display013": "ready ",
+      "display014": " splats · SH DC만 사용",
+      "display015": "error: "
+    },
+    "comments": {
+      "comment001": "1차 실수 SH의 방향 항을 시각화합니다. 학습된 계수나 완전한 SH 색 복원이 아닙니다.",
+      "comment002": "교육용 CPU 투영기: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.",
+      "comment003": "실제 GPU tile rasterizer/고차 SH/LOD/GS picking은 구현하지 않습니다.",
+      "comment004": "일반 .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/행."
+    }
+  },
+  "18-gs-projection": {
+    "messages": {
+      "display001": "합성 순서 뒤집기",
+      "display002": "뒤→앞: ",
+      "display003": "\n검정 위 겹침 RGB = ",
+      "display004": "\n투영 1σ 반경 f×scale/z = "
+    },
+    "comments": {
+      "comment001": "alpha 합성은 교환법칙이 성립하지 않습니다. 빨강/파랑 순서와 depth를 바꾸세요."
+    }
+  },
+  "19-gs-loading": {
+    "messages": {
+      "display001": "Gaussian 공분산 투영 장면",
+      "display002": "교육용 CPU Gaussian 투영 · ",
+      "display003": " splats\n정렬 ",
+      "display004": " · DPR ",
+      "display005": " · 관찰 FPS ",
+      "display006": " · draw ",
+      "display007": "ms\n실제 3DGS GPU 렌더러 성능이 아닙니다.",
+      "display008": "작은 GS 파일 선택",
+      "display009": "직접 생성한 예시 데이터 · 서버 업로드 없음",
+      "display010": "loading ",
+      "display011": "ready ",
+      "display012": " splats · SH DC만 사용",
+      "display013": "error: "
+    },
+    "comments": {
+      "comment001": "작은 실제 파일을 파싱하고 공분산을 CPU Canvas로 투영합니다. 정식 GPU GS 뷰어가 아닙니다.",
+      "comment002": "교육용 CPU 투영기: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.",
+      "comment003": "실제 GPU tile rasterizer/고차 SH/LOD/GS picking은 구현하지 않습니다.",
+      "comment004": "일반 .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/행."
+    }
+  },
+  "20-gs-interaction": {
+    "messages": {
+      "display001": "카메라 초기화",
+      "display002": "GS picking 미구현: 타원 중심과 실제 표면 교차는 다릅니다.",
+      "display003": "Gaussian 공분산 투영 장면",
+      "display004": "교육용 CPU Gaussian 투영 · ",
+      "display005": " splats\n정렬 ",
+      "display006": " · DPR ",
+      "display007": " · 관찰 FPS ",
+      "display008": " · draw ",
+      "display009": "ms\n실제 3DGS GPU 렌더러 성능이 아닙니다.",
+      "display010": "작은 GS 파일 선택",
+      "display011": "직접 생성한 예시 데이터 · 서버 업로드 없음",
+      "display012": "loading ",
+      "display013": "ready ",
+      "display014": " splats · SH DC만 사용",
+      "display015": "error: "
+    },
+    "comments": {
+      "comment001": "작은 실제 파일을 파싱하고 공분산을 CPU Canvas로 투영합니다. 정식 GPU GS 뷰어가 아닙니다.",
+      "comment002": "교육용 CPU 투영기: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.",
+      "comment003": "실제 GPU tile rasterizer/고차 SH/LOD/GS picking은 구현하지 않습니다.",
+      "comment004": "일반 .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/행."
+    }
+  },
+  "21-gs-review": {
+    "messages": {
+      "display001": "<label><input type=\"checkbox\">정상 파일 확인</label><label><input type=\"checkbox\">잘못된 형식 오류 확인</label><label><input type=\"checkbox\">카메라 초기화 확인</label><p>후보 비교: Spark / GaussianSplats3D / huggingface gsplat.js의 지원 형식·정리 API·라이선스는 공식 문서에서 직접 확인하세요.</p>",
+      "display002": "초기화",
+      "display003": "Gaussian 공분산 투영 장면",
+      "display004": "교육용 CPU Gaussian 투영 · ",
+      "display005": " splats\n정렬 ",
+      "display006": " · DPR ",
+      "display007": " · 관찰 FPS ",
+      "display008": " · draw ",
+      "display009": "ms\n실제 3DGS GPU 렌더러 성능이 아닙니다.",
+      "display010": "작은 GS 파일 선택",
+      "display011": "직접 생성한 예시 데이터 · 서버 업로드 없음",
+      "display012": "loading ",
+      "display013": "ready ",
+      "display014": " splats · SH DC만 사용",
+      "display015": "error: "
+    },
+    "comments": {
+      "comment001": "작은 실제 파일을 파싱하고 공분산을 CPU Canvas로 투영합니다. 정식 GPU GS 뷰어가 아닙니다.",
+      "comment002": "교육용 CPU 투영기: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.",
+      "comment003": "실제 GPU tile rasterizer/고차 SH/LOD/GS picking은 구현하지 않습니다.",
+      "comment004": "일반 .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/행."
+    }
+  },
+  "22-react-viewer": {
+    "messages": {
+      "display001": "idle",
+      "display002": "loading ",
+      "display003": "ready ",
+      "display004": "느린 A",
+      "display005": "빠른 B"
+    },
+    "comments": {
+      "comment001": "React가 선택 상태를 소유하고 Three.js가 canvas를 소유합니다. 느린 A 로딩 중 B를 선택하세요.",
+      "comment002": "네트워크 대신 지연만 재현합니다. 실제 렌더러는 로딩 완료 후 생성됩니다."
+    }
+  },
+  "23-loading-ui": {
+    "messages": {
+      "display001": "<h2>로딩 상태 실험</h2><label><input type=\"checkbox\" id=\"known\" checked>전체 크기 알려짐</label><label><input type=\"checkbox\" id=\"fail\">실패 재현</label><button id=\"start\">로드/재시도</button><button id=\"cancel\">취소</button><progress max=\"100\"></progress><pre aria-live=\"polite\"></pre>",
+      "display002": "idle · 취소",
+      "display003": "loading",
+      "display004": "loading · ",
+      "display005": "전체 크기를 모릅니다",
+      "display006": "error · 재시도 가능",
+      "display007": "ready",
+      "display008": "idle"
+    },
+    "comments": {
+      "comment001": "실제 네트워크 없이 로딩 상태 전이와 취소 경계를 실험하는 지연 모델입니다."
+    }
+  },
+  "24-camera-controls": {
+    "messages": {
+      "display001": "카메라 초기화",
+      "display002": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "극단값에서 줌/회전/이동 후 초기화하세요. 카메라와 target을 함께 복원합니다.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "25-markers": {
+    "messages": {
+      "display001": "교차점 ",
+      "display002": "구 표면 클릭 → world-space 마커",
+      "display003": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "mesh raycast 교차점에 마커를 놓습니다. GS 선택 알고리즘으로 일반화하지 마세요.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "26-performance": {
+    "messages": {
+      "display001": "관찰 FPS ",
+      "display002": " · calls ",
+      "display003": " · triangles ",
+      "display004": "\ngeometries ",
+      "display005": " · textures ",
+      "display006": " (개수, VRAM 아님)\nINSTANCED=",
+      "display007": " / DPR=",
+      "display008": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "실측 값입니다. 다른 기기/백그라운드 탭과 직접 비교하지 마세요. renderer.info는 총 VRAM이 아닙니다.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "27-optimization": {
+    "messages": {
+      "display001": "관찰 FPS ",
+      "display002": " · calls ",
+      "display003": " · triangles ",
+      "display004": "\ngeometries ",
+      "display005": " · textures ",
+      "display006": " (개수, VRAM 아님)\nINSTANCED=",
+      "display007": " / DPR=",
+      "display008": "Three.js 학습 장면"
+    },
+    "comments": {
+      "comment001": "실측 값입니다. 다른 기기/백그라운드 탭과 직접 비교하지 마세요. renderer.info는 총 VRAM이 아닙니다.",
+      "comment002": "공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다."
+    }
+  },
+  "28-review": {
+    "messages": {
+      "display001": "<h2>실습 재현 카드</h2><label>제목<input id=\"title\" value=\"나의 WebGL 실험\"></label><label>바꾼 변수<input id=\"variable\" placeholder=\"예: DPR 2 → 1\"></label><label>실제 결과<textarea id=\"result\" placeholder=\"직접 측정한 값과 조건\"></textarea></label><label><input type=\"checkbox\" id=\"verified\">재현 확인</label><pre></pre>",
+      "display002": "\n\n## 바꾼 변수\n",
+      "display003": "\n\n## 실제 결과\n",
+      "display004": "] 재현 확인\n- [ ] 공개 자산 권한 확인\n- [ ] 배포는 별도 결정"
+    },
+    "comments": {
+      "comment001": "실행 가능한 결과 기록 폼입니다. 실제로 수행한 항목만 입력하세요. 배포는 수행하지 않습니다."
+    }
   }
 }

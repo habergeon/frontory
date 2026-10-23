@@ -1,7 +1,8 @@
 // 실측 값입니다. 다른 기기/백그라운드 탭과 직접 비교하지 마세요. renderer.info는 총 VRAM이 아닙니다.
-export function mount({THREE,OrbitControls,container}){
+export function mount({locale='ko',THREE,OrbitControls,container}){
+  const messages=locale==='en'?{"display001":"Observed FPS ","display002":" · calls ","display003":" · triangles ","display004":"\ngeometries ","display005":" · textures ","display006":" (counts, not VRAM)\nINSTANCED=","display007":" / DPR=","display008":"Three.js learning scene"}:{"display001":"관찰 FPS ","display002":" · calls ","display003":" · triangles ","display004":"\ngeometries ","display005":" · textures ","display006":" (개수, VRAM 아님)\nINSTANCED=","display007":" / DPR=","display008":"Three.js 학습 장면"};
   const COUNT=120, INSTANCED=true, DPR=1
-  const lab=setup(THREE,OrbitControls,container)
+  const lab=setup(THREE,OrbitControls,container, messages)
   const geometry=new THREE.BoxGeometry(0.25,0.25,0.25),material=new THREE.MeshNormalMaterial()
   let instance
   if(INSTANCED){instance=new THREE.InstancedMesh(geometry,material,COUNT);lab.scene.add(instance)}
@@ -14,18 +15,18 @@ export function mount({THREE,OrbitControls,container}){
   lab.animate(time=>{
     if(lab.renderer.getPixelRatio()!==Math.min(devicePixelRatio,DPR))lab.renderer.setPixelRatio(Math.min(devicePixelRatio,DPR))
     frames++
-    if(time-previous>1){lab.label.textContent='관찰 FPS '+(frames/(time-previous)).toFixed(1)+' · calls '+lab.renderer.info.render.calls+' · triangles '+lab.renderer.info.render.triangles+'\ngeometries '+lab.renderer.info.memory.geometries+' · textures '+lab.renderer.info.memory.textures+' (개수, VRAM 아님)\nINSTANCED='+INSTANCED+' / DPR='+DPR;previous=time;frames=0}
+    if(time-previous>1){lab.label.textContent=messages.display001+(frames/(time-previous)).toFixed(1)+messages.display002+lab.renderer.info.render.calls+messages.display003+lab.renderer.info.render.triangles+messages.display004+lab.renderer.info.memory.geometries+messages.display005+lab.renderer.info.memory.textures+messages.display006+INSTANCED+messages.display007+DPR;previous=time;frames=0}
   })
   return lab.dispose
 }
 // 공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다.
-function setup(THREE, OrbitControls, container) {
+function setup(THREE, OrbitControls, container, messages) {
   const scene = new THREE.Scene()
   scene.background = new THREE.Color('#edf2f7')
   const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100)
   camera.position.set(4, 3, 6)
   const renderer = new THREE.WebGLRenderer({ antialias: true })
-  renderer.domElement.setAttribute('aria-label', 'Three.js 학습 장면')
+  renderer.domElement.setAttribute('aria-label', messages.display008)
   container.appendChild(renderer.domElement)
   renderer.debug.onShaderError = (gl, program, vertex, fragment) => {
     const message = [gl.getProgramInfoLog(program), gl.getShaderInfoLog(vertex), gl.getShaderInfoLog(fragment)].filter(Boolean).join('\n')

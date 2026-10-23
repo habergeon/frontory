@@ -331,7 +331,8 @@
       "title": "WebGL·GPU와 첫 화면",
       "goal": "CPU와 GPU의 역할, 렌더링 파이프라인을 첫 장면 코드에 연결한다.",
       "docPath": "/docs/labs/graphics/webgl/01-scene/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/01-scene/example.js"
     },
     {
       "id": "02-camera",
@@ -340,7 +341,8 @@
       "title": "Scene·Camera·Renderer",
       "goal": "카메라 위치와 시야각의 효과를 구분한다.",
       "docPath": "/docs/labs/graphics/webgl/02-camera/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/02-camera/example.js"
     },
     {
       "id": "03-mesh",
@@ -349,7 +351,8 @@
       "title": "Geometry·Material·Mesh",
       "goal": "형상과 표면 표현을 분리하여 실험한다.",
       "docPath": "/docs/labs/graphics/webgl/03-mesh/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/03-mesh/example.js"
     },
     {
       "id": "04-coordinates",
@@ -358,7 +361,8 @@
       "title": "좌표계·Vector3·Matrix4",
       "goal": "local/world 좌표와 변환 순서를 예측한다.",
       "docPath": "/docs/labs/graphics/webgl/04-coordinates/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/04-coordinates/example.js"
     },
     {
       "id": "05-light",
@@ -367,7 +371,8 @@
       "title": "Light·Shadow·Texture",
       "goal": "빛·그림자·텍스처가 화면에 기여하는 경로를 구분한다.",
       "docPath": "/docs/labs/graphics/webgl/05-light/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/05-light/example.js"
     },
     {
       "id": "06-interaction",
@@ -376,7 +381,8 @@
       "title": "Raycaster·OrbitControls",
       "goal": "포인터를 공간 광선으로 바꾸고 카메라 조작과 선택을 구분한다.",
       "docPath": "/docs/labs/graphics/webgl/06-interaction/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/06-interaction/example.js"
     },
     {
       "id": "07-scene-review",
@@ -385,7 +391,8 @@
       "title": "인터랙티브 장면 복습",
       "goal": "카메라·선택·리사이즈·정리를 하나의 작은 장면으로 통합한다.",
       "docPath": "/docs/labs/graphics/webgl/07-scene-review/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/07-scene-review/example.js"
     },
     {
       "id": "08-shader-stages",
@@ -394,7 +401,8 @@
       "title": "Vertex·Fragment shader",
       "goal": "두 shader 단계의 입력과 출력을 구분한다.",
       "docPath": "/docs/labs/graphics/webgl/08-shader-stages/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/08-shader-stages/example.js"
     },
     {
       "id": "09-glsl-color",
@@ -403,7 +411,8 @@
       "title": "GLSL 문법과 색상",
       "goal": "GLSL 타입·벡터 연산으로 색을 만들고 컴파일 오류를 수정한다.",
       "docPath": "/docs/labs/graphics/webgl/09-glsl-color/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/09-glsl-color/example.js"
     },
     {
       "id": "10-shader-data",
@@ -412,7 +421,8 @@
       "title": "Uniform·Attribute·Varying와 시간",
       "goal": "JavaScript와 shader 사이 데이터 경로를 설명하고 시간 변화를 만든다.",
       "docPath": "/docs/labs/graphics/webgl/10-shader-data/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/10-shader-data/example.js"
     },
     {
       "id": "11-uv",
@@ -421,7 +431,8 @@
       "title": "UV와 Texture Sampling",
       "goal": "표면 UV와 화면 좌표를 구분하고 샘플링의 의미를 설명한다.",
       "docPath": "/docs/labs/graphics/webgl/11-uv/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/11-uv/example.js"
     },
     {
       "id": "12-waves",
@@ -430,7 +441,8 @@
       "title": "Noise·Sin·Cos 물결과 왜곡",
       "goal": "주기 함수와 noise의 차이를 설명하고 한 변수씩 파동을 실험한다.",
       "docPath": "/docs/labs/graphics/webgl/12-waves/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/12-waves/example.js"
     },
     {
       "id": "13-shader-material",
@@ -439,7 +451,8 @@
       "title": "ShaderMaterial 통합",
       "goal": "커스텀 shader의 입력·수명·오류를 Three.js 장면에 연결한다.",
       "docPath": "/docs/labs/graphics/webgl/13-shader-material/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/13-shader-material/example.js"
     },
     {
       "id": "14-shader-review",
@@ -448,7 +461,8 @@
       "title": "인터랙티브 셰이더 복습",
       "goal": "UI 입력과 uniform을 연결한 작은 효과를 완성하고 설명한다.",
       "docPath": "/docs/labs/graphics/webgl/14-shader-review/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/14-shader-review/example.js"
     },
     {
       "id": "15-nerf-gs",
@@ -457,7 +471,8 @@
       "title": "NeRF와 3DGS 비교",
       "goal": "두 표현의 입력·표현·렌더링 차이를 설명한다.",
       "docPath": "/docs/labs/graphics/webgl/15-nerf-gs/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/15-nerf-gs/example.js"
     },
     {
       "id": "16-gaussian",
@@ -466,7 +481,8 @@
       "title": "Gaussian 위치·크기·회전·불투명도",
       "goal": "가우시안의 공간 파라미터를 그림과 API 이름으로 연결한다.",
       "docPath": "/docs/labs/graphics/webgl/16-gaussian/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/16-gaussian/example.js"
     },
     {
       "id": "17-sh",
@@ -475,7 +491,8 @@
       "title": "Spherical Harmonics와 시점별 색상",
       "goal": "고정 RGB와 방향 의존 색 표현의 차이를 설명한다.",
       "docPath": "/docs/labs/graphics/webgl/17-sh/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/17-sh/example.js"
     },
     {
       "id": "18-gs-projection",
@@ -484,7 +501,8 @@
       "title": "Projection·Sorting·Alpha Blending",
       "goal": "화면 footprint와 순서 의존 합성을 설명한다.",
       "docPath": "/docs/labs/graphics/webgl/18-gs-projection/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/18-gs-projection/example.js"
     },
     {
       "id": "19-gs-loading",
@@ -493,7 +511,8 @@
       "title": ".ply·.splat 로딩",
       "goal": "입력 데이터 명세를 확인하고 정상·실패 로딩을 구현한다.",
       "docPath": "/docs/labs/graphics/webgl/19-gs-loading/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/19-gs-loading/example.js"
     },
     {
       "id": "20-gs-interaction",
@@ -502,7 +521,8 @@
       "title": "Three.js+GS 카메라와 인터랙션",
       "goal": "GS의 좌표·스케일·선택 의미를 장면 조작에 연결한다.",
       "docPath": "/docs/labs/graphics/webgl/20-gs-interaction/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/20-gs-interaction/example.js"
     },
     {
       "id": "21-gs-review",
@@ -511,7 +531,8 @@
       "title": "GS 뷰어 복습과 후보 비교",
       "goal": "작은 GS 뷰어의 범위와 라이브러리 선택 근거를 정리한다.",
       "docPath": "/docs/labs/graphics/webgl/21-gs-review/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/21-gs-review/example.js"
     },
     {
       "id": "22-react-viewer",
@@ -520,7 +541,8 @@
       "title": "React+Three.js 컴포넌트 설계",
       "goal": "UI 상태와 매 프레임 장면 상태를 나누고 실습 계약을 만든다.",
       "docPath": "/docs/labs/graphics/webgl/22-react-viewer/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/22-react-viewer/example.js"
     },
     {
       "id": "23-loading-ui",
@@ -529,7 +551,8 @@
       "title": "로딩 UI와 진행률",
       "goal": "실제 단계와 근거가 있는 진행 상태를 표시한다.",
       "docPath": "/docs/labs/graphics/webgl/23-loading-ui/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/23-loading-ui/example.js"
     },
     {
       "id": "24-camera-controls",
@@ -538,7 +561,8 @@
       "title": "카메라 이동·회전·줌",
       "goal": "조작 범위와 초기화 동작을 일관되게 만든다.",
       "docPath": "/docs/labs/graphics/webgl/24-camera-controls/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/24-camera-controls/example.js"
     },
     {
       "id": "25-markers",
@@ -547,7 +571,8 @@
       "title": "마커와 Raycasting",
       "goal": "선택 좌표의 의미를 정하고 마커를 배치한다.",
       "docPath": "/docs/labs/graphics/webgl/25-markers/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/25-markers/example.js"
     },
     {
       "id": "26-performance",
@@ -556,7 +581,8 @@
       "title": "FPS·Draw Calls·메모리 분석",
       "goal": "재현 가능한 조건에서 성능 기준선을 기록한다.",
       "docPath": "/docs/labs/graphics/webgl/26-performance/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/26-performance/example.js"
     },
     {
       "id": "27-optimization",
@@ -565,7 +591,8 @@
       "title": "해상도·데이터 최적화",
       "goal": "한 변수만 바꾼 전후 비교로 병목 가설을 검증한다.",
       "docPath": "/docs/labs/graphics/webgl/27-optimization/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/27-optimization/example.js"
     },
     {
       "id": "28-review",
@@ -574,7 +601,8 @@
       "title": "문서화와 선택적 배포 계획",
       "goal": "재현 가능한 결과와 남은 질문을 정리하고 배포 조건을 문서로 검토한다.",
       "docPath": "/docs/labs/graphics/webgl/28-review/README.md",
-      "seriesId": "webgl"
+      "seriesId": "webgl",
+      "exampleReadingSource": "/examples-en/28-review/example.js"
     },
     {
       "id": "javascript-01",

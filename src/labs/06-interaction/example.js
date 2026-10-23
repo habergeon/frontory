@@ -1,11 +1,12 @@
 // 과제: 물체를 클릭하고, 드래그 후에도 선택이 맞는지 확인하세요.
-export function mount({ THREE, OrbitControls, container }) {
-  const lab = setup(THREE, OrbitControls, container)
+export function mount({locale='ko', THREE, OrbitControls, container }) {
+  const messages=locale==='en'?{"display001":"Object ","display002":" · distance ","display003":"No selection","display004":"Click: Raycaster selection · drag: OrbitControls","display005":"Three.js learning scene"}:{"display001":"물체 ","display002":" · 거리 ","display003":"선택 없음","display004":"클릭: Raycaster 선택 · 드래그: OrbitControls","display005":"Three.js 학습 장면"};
+  const lab = setup(THREE, OrbitControls, container, messages)
   const targets = []
   for (let i = 0; i < 3; i++) {
     const mesh = new THREE.Mesh(new THREE.BoxGeometry(), new THREE.MeshStandardMaterial({ color: '#3179bf' }))
     mesh.position.x = (i - 1) * 2
-    mesh.name = '물체 ' + (i + 1)
+    mesh.name = messages.display001 + (i + 1)
     targets.push(mesh)
     lab.scene.add(mesh)
   }
@@ -17,21 +18,21 @@ export function mount({ THREE, OrbitControls, container }) {
     raycaster.setFromCamera(pointer, lab.camera)
     const hit = raycaster.intersectObjects(targets)[0]
     targets.forEach(mesh => mesh.material.color.set(mesh === hit?.object ? '#e97645' : '#3179bf'))
-    lab.label.textContent = hit ? hit.object.name + ' · 거리 ' + hit.distance.toFixed(2) : '선택 없음'
+    lab.label.textContent = hit ? hit.object.name + messages.display002 + hit.distance.toFixed(2) : messages.display003
   }
   lab.renderer.domElement.addEventListener('click', pick)
-  lab.label.textContent = '클릭: Raycaster 선택 · 드래그: OrbitControls'
+  lab.label.textContent = messages.display004
   return () => { lab.renderer.domElement.removeEventListener('click', pick); lab.dispose() }
 }
 
 // 공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다.
-function setup(THREE, OrbitControls, container) {
+function setup(THREE, OrbitControls, container, messages) {
   const scene = new THREE.Scene()
   scene.background = new THREE.Color('#edf2f7')
   const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100)
   camera.position.set(4, 3, 6)
   const renderer = new THREE.WebGLRenderer({ antialias: true })
-  renderer.domElement.setAttribute('aria-label', 'Three.js 학습 장면')
+  renderer.domElement.setAttribute('aria-label', messages.display005)
   container.appendChild(renderer.domElement)
   const controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = true

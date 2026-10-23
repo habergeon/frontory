@@ -1,9 +1,10 @@
 // 과제: FOV와 CAMERA_POSITION을 따로 바꾸며 원근과 크기를 비교하세요.
-export function mount({ THREE, OrbitControls, container }) {
+export function mount({locale='ko', THREE, OrbitControls, container }) {
+  const messages=locale==='en'?{"display001":"FOV ","display002":"° · camera ","display003":"\nResize the window and check that the aspect ratio is preserved.","display004":"Three.js learning scene"}:{"display001":"FOV ","display002":"° · 카메라 ","display003":"\n창 크기를 바꾸어 비율이 유지되는지 확인하세요.","display004":"Three.js 학습 장면"};
   const FOV = 50
   const CAMERA_POSITION = [4, 3, 6]
   const TARGET = [0, 0, 0]
-  const lab = setup(THREE, OrbitControls, container)
+  const lab = setup(THREE, OrbitControls, container, messages)
   lab.camera.fov = FOV
   lab.camera.position.set(...CAMERA_POSITION)
   lab.camera.updateProjectionMatrix()
@@ -14,18 +15,18 @@ export function mount({ THREE, OrbitControls, container }) {
     lab.scene.add(box)
   }
   lab.scene.add(new THREE.GridHelper(12, 12), new THREE.AxesHelper(2))
-  lab.label.textContent = 'FOV ' + FOV + '° · 카메라 ' + CAMERA_POSITION.join(', ') + '\n창 크기를 바꾸어 비율이 유지되는지 확인하세요.'
+  lab.label.textContent = messages.display001 + FOV + messages.display002 + CAMERA_POSITION.join(', ') + messages.display003
   return lab.dispose
 }
 
 // 공통 장면 초기화: 아래 코드도 편집한 내용 그대로 실행됩니다.
-function setup(THREE, OrbitControls, container) {
+function setup(THREE, OrbitControls, container, messages) {
   const scene = new THREE.Scene()
   scene.background = new THREE.Color('#edf2f7')
   const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100)
   camera.position.set(4, 3, 6)
   const renderer = new THREE.WebGLRenderer({ antialias: true })
-  renderer.domElement.setAttribute('aria-label', 'Three.js 학습 장면')
+  renderer.domElement.setAttribute('aria-label', messages.display004)
   container.appendChild(renderer.domElement)
   const controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = true

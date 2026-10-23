@@ -13,6 +13,7 @@ for (const unit of read('content/catalog-v2.json').units) {
   const source = fs.readFileSync(`src/labs/${unit.id}/example.js`, 'utf8')
   const commentLocations = {}
   const anchoredKeys = {
+    '01-scene': ['comment003'], '22-react-viewer': ['comment002'],
     'typescript-02': ['inlineExplanation'], 'typescript-03': ['inlineExplanation'], 'html-03': ['inlineExplanation'],
     'webgpu-02': ['comment002'], 'wgsl-02': ['comment002'],
     'react-03': ['comment01', 'comment02'], 'vue-02': ['comment01', 'comment02'], 'vue-03': ['comment01'],

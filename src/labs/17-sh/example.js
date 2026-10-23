@@ -1,15 +1,16 @@
 // 1차 실수 SH의 방향 항을 시각화합니다. 학습된 계수나 완전한 SH 색 복원이 아닙니다.
-export function mount({THREE,OrbitControls,container}){
-  const lab=splatLab(THREE,OrbitControls,container);let directional=true;lab.directionalColor=directional
-  lab.button('고정 색 / 1차 방향 색',()=>{directional=!directional;lab.directionalColor=directional})
-  const note=document.createElement('p');note.textContent='RGB = 0.5 + 0.488603 × (시선 x,y,z). 조명 없이 카메라만 회전하세요.';lab.panel.append(note)
+export function mount({locale='ko',THREE,OrbitControls,container}){
+  const messages=locale==='en'?{"display001":"Fixed color / order-1 directional color","display002":"RGB = 0.5 + 0.488603 × (view direction x,y,z). Rotate only the camera, without lighting.","display003":"Gaussian covariance projection scene","display004":"Educational CPU Gaussian projection · ","display005":" splats\nsorting ","display006":" · DPR ","display007":" · observed FPS ","display008":" · draw ","display009":"ms\nThese values do not measure the performance of an actual 3DGS GPU renderer.","display010":"Choose a small GS file","display011":"Procedurally generated sample data · no server upload","display012":"loading ","display013":"ready ","display014":" splats · SH DC only","display015":"error: "}:{"display001":"고정 색 / 1차 방향 색","display002":"RGB = 0.5 + 0.488603 × (시선 x,y,z). 조명 없이 카메라만 회전하세요.","display003":"Gaussian 공분산 투영 장면","display004":"교육용 CPU Gaussian 투영 · ","display005":" splats\n정렬 ","display006":" · DPR ","display007":" · 관찰 FPS ","display008":" · draw ","display009":"ms\n실제 3DGS GPU 렌더러 성능이 아닙니다.","display010":"작은 GS 파일 선택","display011":"직접 생성한 예시 데이터 · 서버 업로드 없음","display012":"loading ","display013":"ready ","display014":" splats · SH DC만 사용","display015":"error: "};
+  const lab=splatLab(THREE,OrbitControls,container,messages);let directional=true;lab.directionalColor=directional
+  lab.button(messages.display001,()=>{directional=!directional;lab.directionalColor=directional})
+  const note=document.createElement('p');note.textContent=messages.display002;lab.panel.append(note)
   return lab.dispose
 }
 
 // 교육용 CPU 투영기: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.
 // 실제 GPU tile rasterizer/고차 SH/LOD/GS picking은 구현하지 않습니다.
-function splatLab(THREE,OrbitControls,container,options={}) {
-  const canvas=document.createElement('canvas');canvas.setAttribute('aria-label','Gaussian 공분산 투영 장면');container.append(canvas)
+function splatLab(THREE,OrbitControls,container,messages,options={}) {
+  const canvas=document.createElement('canvas');canvas.setAttribute('aria-label',messages.display003);container.append(canvas)
   const ctx=canvas.getContext('2d'),camera=new THREE.PerspectiveCamera(50,1,0.1,100)
   camera.position.set(0,0,5)
   const controls=new OrbitControls(camera,canvas);controls.enableDamping=true;controls.minDistance=1.5;controls.maxDistance=12;controls.saveState()
@@ -52,7 +53,7 @@ function splatLab(THREE,OrbitControls,container,options={}) {
       ctx.fillStyle=gradient;ctx.fillRect(-3,-3,6,6);ctx.restore()
     }
     frames++;if(time-last>1000){fps=frames*1000/(time-last);last=time;frames=0}
-    info.textContent='교육용 CPU Gaussian 투영 · '+data.length+' splats\n정렬 '+sort+' · DPR '+dpr+' · 관찰 FPS '+fps.toFixed(1)+' · draw '+(performance.now()-begin).toFixed(2)+'ms\n실제 3DGS GPU 렌더러 성능이 아닙니다.'
+    info.textContent=messages.display004+data.length+messages.display005+sort+messages.display006+dpr+messages.display007+fps.toFixed(1)+messages.display008+(performance.now()-begin).toFixed(2)+messages.display009
     frame=requestAnimationFrame(draw)
   }
   const resize=()=>{width=Math.max(1,container.clientWidth);height=Math.max(1,container.clientHeight);canvas.width=width*dpr;canvas.height=height*dpr;camera.aspect=width/height;camera.updateProjectionMatrix()}
@@ -90,12 +91,12 @@ function parseSplats(THREE,buffer,name){
   }else throw new Error('.splat 또는 ASCII GS .ply를 선택하세요')
   return result
 }
-function addLoader(THREE,lab){
-  const input=document.createElement('input');input.type='file';input.accept='.splat,.ply';input.setAttribute('aria-label','작은 GS 파일 선택')
-  const status=document.createElement('p');status.textContent='직접 생성한 예시 데이터 · 서버 업로드 없음'
+function addLoader(THREE,lab,messages){
+  const input=document.createElement('input');input.type='file';input.accept='.splat,.ply';input.setAttribute('aria-label',messages.display010)
+  const status=document.createElement('p');status.textContent=messages.display011
   let request=0,closed=false
-  const read=async()=>{const file=input.files?.[0];if(!file)return;const current=++request;status.textContent='loading '+file.name
-    try{if(file.size>1024*1024)throw new Error('학습용 파일은 1 MiB 이하');const buffer=await file.arrayBuffer();if(closed||current!==request)return;const data=parseSplats(THREE,buffer,file.name);lab.data=data;const center=data.reduce((sum,s)=>sum.add(s.center),new THREE.Vector3()).divideScalar(data.length);lab.controls.target.copy(center);lab.camera.position.copy(center).add(new THREE.Vector3(0,0,5));lab.controls.update();lab.controls.saveState();status.textContent='ready '+file.name+' · '+file.size+' bytes · '+data.length+' splats · SH DC만 사용'}catch(error){if(!closed&&current===request)status.textContent='error: '+error.message}}
+  const read=async()=>{const file=input.files?.[0];if(!file)return;const current=++request;status.textContent=messages.display012+file.name
+    try{if(file.size>1024*1024)throw new Error('학습용 파일은 1 MiB 이하');const buffer=await file.arrayBuffer();if(closed||current!==request)return;const data=parseSplats(THREE,buffer,file.name);lab.data=data;const center=data.reduce((sum,s)=>sum.add(s.center),new THREE.Vector3()).divideScalar(data.length);lab.controls.target.copy(center);lab.camera.position.copy(center).add(new THREE.Vector3(0,0,5));lab.controls.update();lab.controls.saveState();status.textContent=messages.display013+file.name+' · '+file.size+' bytes · '+data.length+messages.display014}catch(error){if(!closed&&current===request)status.textContent=messages.display015+error.message}}
   input.addEventListener('change',read);lab.panel.append(input,status)
   return()=>{closed=true;request++;input.removeEventListener('change',read)}
 }

@@ -58,5 +58,17 @@
   "/docs/labs/graphics/webgl/08-shader-stages/README.md": {
     "sourceHash": "85bca56489b49a437996924cba5e0aba97cb4c73a1701c4f13da01299d248ccb",
     "translatedPath": "/docs/en/labs/graphics/webgl/08-shader-stages/README.md"
+  },
+  "/docs/labs/graphics/webgl/09-glsl-color/README.md": {
+    "sourceHash": "2ab67d6728345ef82dfc62bfd83d908844b6a36baf65b9c8e4ab812d2cdb8d8f",
+    "translatedPath": "/docs/en/labs/graphics/webgl/09-glsl-color/README.md"
+  },
+  "/docs/labs/graphics/webgl/10-shader-data/README.md": {
+    "sourceHash": "98c864efeabad0272afe4e1f556dc59794d14ec8593306bcee51c3b05a40f871",
+    "translatedPath": "/docs/en/labs/graphics/webgl/10-shader-data/README.md"
+  },
+  "/docs/labs/graphics/webgl/11-uv/README.md": {
+    "sourceHash": "70c1835d39de8edb411108ee6103be6c33cd3234f181ea9037f92f1495e96bbb",
+    "translatedPath": "/docs/en/labs/graphics/webgl/11-uv/README.md"
   }
 }

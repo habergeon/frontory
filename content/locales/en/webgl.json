@@ -55,6 +55,27 @@
         "title": "Vertex·Fragment shader",
         "goal": "Distinguish the inputs and outputs of the two shader stages."
       }
+    },
+    "09-glsl-color": {
+      "sourceHash": "a3e0d7ddafdc944a67624d73c7c2b1017d5440df183aea59aff22858a7491f4e",
+      "values": {
+        "title": "GLSL syntax and color",
+        "goal": "Create colors using GLSL types and vector operations, and fix compilation errors."
+      }
+    },
+    "10-shader-data": {
+      "sourceHash": "0aa3f53f078fc5a0a345fd0be85e55e4d0c22215afe88507538eedd4fa3f1624",
+      "values": {
+        "title": "Uniform·Attribute·Varying and time",
+        "goal": "Explain the data paths between JavaScript and shaders, and create changes over time."
+      }
+    },
+    "11-uv": {
+      "sourceHash": "946a14853385f8a3e06e1c4c6989b9f9f4e0633d95ee843363f0f0dfa247e055",
+      "values": {
+        "title": "UV and Texture Sampling",
+        "goal": "Distinguish surface UVs from screen coordinates and explain sampling."
+      }
     }
   }
 }

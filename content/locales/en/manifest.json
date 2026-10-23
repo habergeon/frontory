@@ -623,6 +623,9 @@
     "05-light",
     "06-interaction",
     "07-scene-review",
-    "08-shader-stages"
+    "08-shader-stages",
+    "09-glsl-color",
+    "10-shader-data",
+    "11-uv"
   ]
 }

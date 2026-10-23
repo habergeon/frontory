@@ -397,6 +397,33 @@
       "seriesId": "webgl"
     },
     {
+      "id": "09-glsl-color",
+      "day": 9,
+      "week": 2,
+      "title": "GLSL syntax and color",
+      "goal": "Create colors using GLSL types and vector operations, and fix compilation errors.",
+      "docPath": "/docs/en/labs/graphics/webgl/09-glsl-color/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "10-shader-data",
+      "day": 10,
+      "week": 2,
+      "title": "Uniform·Attribute·Varying and time",
+      "goal": "Explain the data paths between JavaScript and shaders, and create changes over time.",
+      "docPath": "/docs/en/labs/graphics/webgl/10-shader-data/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "11-uv",
+      "day": 11,
+      "week": 2,
+      "title": "UV and Texture Sampling",
+      "goal": "Distinguish surface UVs from screen coordinates and explain sampling.",
+      "docPath": "/docs/en/labs/graphics/webgl/11-uv/README.md",
+      "seriesId": "webgl"
+    },
+    {
       "id": "javascript-01",
       "day": 1,
       "week": 1,

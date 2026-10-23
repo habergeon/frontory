@@ -4,7 +4,7 @@
 
 Open **Browse series** in Frontory and choose a technology to study. Select a stage, read the learning document, complete the exercises, and take notes. If you are new, try changing the cube color or camera position in the first WebGL scene. You can learn in the browser without installation or login.
 
-See the [README](../../README.md) for local development and the [deployment guide (Korean)](../deployment.md) for web publishing. Use the same browser, profile, and address to restore the same saved records.
+See the [README](../../README.en.md) for local development and the [deployment guide (Korean)](../deployment.md) for web publishing. Use the same browser, profile, and address to restore the same saved records.
 
 ## Three areas and documents
 

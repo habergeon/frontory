@@ -473,9 +473,17 @@ for (const file of ['about.md', 'privacy.md', 'learning-workspace.md', 'roadmap.
     assert.equal(records[originalPath].sourceHash, sourceHash(original))
     assert.doesNotMatch(entry.text, /[가-힣]/)
     const links = text => [...text.matchAll(/\]\(([^)]+)\)/g)].map(match => match[1])
-    const sourceLinks = links(original).map(link => {
+    const companions = JSON.parse(fs.readFileSync(new URL('../content/locales/en/companions.json', import.meta.url))).entries
+    const sourceLinks = links(original).flatMap(link => {
       if (/^(https?:|mailto:)/.test(link)) return link
       const resolved = path.posix.normalize(path.posix.join(path.posix.dirname(originalPath), link))
+      if (file === 'learning-workspace.md' && resolved === '/README.md') return '/README.en.md'
+      const exampleId = file === 'examples.md' && resolved.match(/^\/src\/labs\/([^/]+)\/example\.js$/)?.[1]
+      if (exampleId) {
+        const companion = companions.find(item => item.unitId === exampleId)
+        assert.ok(result.exampleReadingSources[exampleId], exampleId)
+        return [resolved, '/public' + result.exampleReadingSources[exampleId], ...(companion ? ['/' + companion.guidancePath] : [])]
+      }
       const englishPath = `/docs/en/${resolved.slice(6)}`
       return resolved.startsWith('/docs/') && fs.existsSync(new URL(`..${englishPath}`, import.meta.url))
         ? englishPath : resolved

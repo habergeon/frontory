@@ -66,7 +66,7 @@ External HTTP example: actually loads first.js/second.js and records parsing/exe
 - [index.html](../../../../../../../src/labs/html-step-23/index.html)
 - [first.js](../../../../../../../src/labs/html-step-23/first.js)
 - [second.js](../../../../../../../src/labs/html-step-23/second.js)
-- [README.md](../../../../../../../src/labs/html-step-23/README.md)
+- [README.md (Korean original)](../../../../../../../src/labs/html-step-23/README.md) · [English reading](../../../../../../../src/labs/html-step-23/README.en.md)
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

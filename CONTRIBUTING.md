@@ -1,5 +1,7 @@
 # Frontory 콘텐츠 확장
 
+[한국어](CONTRIBUTING.md) · [English](CONTRIBUTING.en.md)
+
 1. WebGL 문서는 기존 `docs/labs/graphics/webgl/<단위>/README.md`에서 관리합니다. 다른 시리즈는 `content/curricula/<시리즈>.json`이 원본입니다. 목표·선수 지식·개념 설명·실습·변수·완료 조건·자가 점검·공식 참고를 작성합니다.
 2. `pnpm build:curricula`로 Markdown과 `src/app/catalog.json`을 함께 생성합니다. 생성된 문서만 직접 수정하면 원본과 불일치하므로 빌드 검사에서 실패합니다. 실험 기록의 실제 결과는 사용자의 필기이며 콘텐츠 생성에 포함하지 않습니다.
 3. 단위 ID는 브라우저 저장과 백업의 식별자이므로 바꾸지 않습니다. `content/catalog-v2.json`은 기존 94개 단위의 호환 기준으로 보존합니다. 새 단위를 추가하면 백업 버전과 관련 테스트를 함께 갱신합니다. `content/series.json`은 최초 설계 이력입니다.

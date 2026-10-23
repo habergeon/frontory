@@ -65,7 +65,7 @@ External HTTP example: switches between sandbox="" and allow-scripts on the same
 
 - [index.html](../../../../../../../src/labs/html-step-21/index.html)
 - [guide.html](../../../../../../../src/labs/html-step-21/guide.html)
-- [README.md](../../../../../../../src/labs/html-step-21/README.md)
+- [README.md (Korean original)](../../../../../../../src/labs/html-step-21/README.md) · [English reading](../../../../../../../src/labs/html-step-21/README.en.md)
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

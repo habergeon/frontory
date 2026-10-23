@@ -6,6 +6,7 @@ import { headings, messages } from '../src/i18n/messages.ts'
 const root = path.resolve(import.meta.dirname, '..')
 const read = file => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'))
 const baseline = read('content/catalog-v2.json')
+const companions = read('content/locales/en/companions.json').entries
 const categories = { fundamentals: '언어 및 기초', frameworks: 'UI 프레임워크', graphics: '그래픽스', shader: '셰이더', animation: '애니메이션', engineering: '엔지니어링', testing: '테스트' }
 const outputs = new Map()
 const catalog = { series: [], units: [] }
@@ -166,7 +167,11 @@ for (const series of englishCatalog.series.filter(series => series.id !== 'webgl
       '## Official references', '', ...unit.references.map(reference => `- [${reference.title}](${reference.url})`), '',
       '## Linked example and execution scope', '',
       hasExample(unit.id) ? `${link(entry.docPath, '/src/labs/' + unit.id + '/example.js', 'Example source')} · ${link(entry.docPath, '/docs/en/examples.md', 'Runtime environments and limits')}` : 'Documents and notes are provided.', '',
-      ...(entry.exampleNote ? [entry.exampleNote, '', ...(metadata[unit.id]?.files ?? []).map(file => '- ' + link(entry.docPath, '/' + file, path.posix.basename(file))), ''] : []),
+      ...(entry.exampleNote ? [entry.exampleNote, '', ...(metadata[unit.id]?.files ?? []).map(file => {
+        const companion = companions.find(item => item.path === file)
+        return '- ' + link(entry.docPath, '/' + file, path.posix.basename(file) + (file.endsWith('.md') ? ' (Korean original)' : '')) +
+          (file.endsWith('.md') && companion?.englishPath ? ' · ' + link(entry.docPath, '/' + companion.englishPath, 'English reading') : '')
+      }), ''] : []),
       'Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.', '',
       '## Next learning', '', [previous && link(entry.docPath, previous.docPath, 'Previous: ' + previous.title),
         next && link(entry.docPath, next.docPath, 'Next: ' + next.title)].filter(Boolean).join(' · '), '',
@@ -184,8 +189,10 @@ const englishExampleIndex = ['# Expanded learning unit examples', '',
 for (const series of englishCatalog.series.filter(item => item.id !== 'webgl')) {
   englishExampleIndex.push('## ' + series.title, '', '| Learning unit | Execution mode | Source and supported scope |', '| --- | --- | --- |')
   for (const unit of englishCatalog.units.filter(item => item.seriesId === series.id && !baseline.units.some(old => old.id === item.id))) {
-    const source = hasExample(unit.id) ? link(englishExampleIndexPath, '/src/labs/' + unit.id + '/example.js', 'Source code') : 'No built-in example'
-    englishExampleIndex.push(`| ${link(englishExampleIndexPath, unit.docPath, unit.day + '. ' + unit.title)} | ${englishExampleLabel(unit.id)} | ${source} — ${table(unit.exampleNote ?? 'Document-based practice')} |`)
+    const source = hasExample(unit.id) ? [link(englishExampleIndexPath, '/src/labs/' + unit.id + '/example.js', 'Source code'), ...(unit.exampleReadingSource ? [link(englishExampleIndexPath, '/public' + unit.exampleReadingSource, 'English reading-source download')] : [])].join(' · ') : 'No built-in example'
+    const companion = companions.find(item => item.unitId === unit.id)
+    const companionLink = companion ? ' · ' + link(englishExampleIndexPath, '/' + companion.guidancePath, 'Companion execution and English readings') : ''
+    englishExampleIndex.push(`| ${link(englishExampleIndexPath, unit.docPath, unit.day + '. ' + unit.title)} | ${englishExampleLabel(unit.id)} | ${source}${companionLink} — ${table(unit.exampleNote ?? 'Document-based practice')} |`)
   }
   englishExampleIndex.push('')
 }

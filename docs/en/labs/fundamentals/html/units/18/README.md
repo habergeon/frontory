@@ -66,7 +66,7 @@ External HTTP example: provides a 6-second synthetic MP4, Korean VTT, a transcri
 - [index.html](../../../../../../../src/labs/html-step-18/index.html)
 - [captions.vtt](../../../../../../../src/labs/html-step-18/captions.vtt)
 - [transcript.html](../../../../../../../src/labs/html-step-18/transcript.html)
-- [README.md](../../../../../../../src/labs/html-step-18/README.md)
+- [README.md (Korean original)](../../../../../../../src/labs/html-step-18/README.md) · [English reading](../../../../../../../src/labs/html-step-18/README.en.md)
 - [sample.mp4](../../../../../../../src/labs/html-step-18/sample.mp4)
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

@@ -2,11 +2,12 @@
 // 실험: 노드 위치: 고정 → 한 노드 80단위 이동
 // 해당 노드와 연결된 경로만 새 위치를 향합니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="연결선과 그래프 배치";
-const VARIABLE="노드 위치: 고정 ↔ 한 노드 80단위 이동";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Connectors and Graph Layout","display002":"Node position: Fixed ↔ Move one node by 80 units"}:{"display001":"연결선과 그래프 배치","display002":"노드 위치: 고정 ↔ 한 노드 80단위 이동"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);

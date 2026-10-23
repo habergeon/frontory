@@ -2823,7 +2823,8 @@
       "title": "viewBox와 벡터",
       "goal": "내부 좌표와 화면 크기를 구별한다. 크기 변경의 위치·굵기 차이를 설명한다.",
       "docPath": "/docs/labs/graphics/svg/01-foundations/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-01/example.js"
     },
     {
       "id": "svg-step-02",
@@ -2832,7 +2833,8 @@
       "title": "기본 도형과 속성",
       "goal": "선과 채우기를 독립적으로 변경한다. 두꺼운 선의 잘림을 확인한다.",
       "docPath": "/docs/labs/graphics/svg/units/02/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-02/example.js"
     },
     {
       "id": "svg-step-03",
@@ -2841,7 +2843,8 @@
       "title": "경로 명령과 닫기",
       "goal": "두 명령 방식으로 같은 화살표를 만든다. 닫힌 경로와 열린 경로를 구별한다.",
       "docPath": "/docs/labs/graphics/svg/units/03/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-03/example.js"
     },
     {
       "id": "svg-step-04",
@@ -2850,7 +2853,8 @@
       "title": "베지어 곡선 조절",
       "goal": "보조점과 실제 곡선을 구별한다. 제어점 이동이 접선에 주는 영향을 설명한다.",
       "docPath": "/docs/labs/graphics/svg/units/04/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-04/example.js"
     },
     {
       "id": "svg-step-05",
@@ -2859,7 +2863,8 @@
       "title": "호와 도넛 조각",
       "goal": "절반을 넘는 비율을 올바르게 그린다. 0과 100의 경계 사례를 처리한다.",
       "docPath": "/docs/labs/graphics/svg/units/05/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-05/example.js"
     },
     {
       "id": "svg-step-06",
@@ -2868,7 +2873,8 @@
       "title": "그룹과 변환 순서",
       "goal": "그룹을 이동해도 내부 배치가 유지된다. 회전 중심을 시각적으로 표시한다.",
       "docPath": "/docs/labs/graphics/svg/units/06/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-06/example.js"
     },
     {
       "id": "svg-step-07",
@@ -2877,7 +2883,8 @@
       "title": "심벌과 재사용",
       "goal": "하나의 정의 수정이 인스턴스에 반영된다. 두 SVG의 참조 id가 충돌하지 않는다.",
       "docPath": "/docs/labs/graphics/svg/units/07/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-07/example.js"
     },
     {
       "id": "svg-step-08",
@@ -2886,7 +2893,8 @@
       "title": "스타일과 테마",
       "goal": "테마 변경 시 아이콘이 함께 바뀐다. 최종 색의 출처를 개발자 도구로 찾는다.",
       "docPath": "/docs/labs/graphics/svg/units/08/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-08/example.js"
     },
     {
       "id": "svg-step-09",
@@ -2895,7 +2903,8 @@
       "title": "그라디언트 좌표",
       "goal": "두 좌표 방식의 결과를 비교한다. 단위 변경 때 좌표값도 맞춘다.",
       "docPath": "/docs/labs/graphics/svg/units/09/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-09/example.js"
     },
     {
       "id": "svg-step-10",
@@ -2904,7 +2913,8 @@
       "title": "클립과 마스크",
       "goal": "클립과 마스크 결과를 나란히 설명한다. 마스크 영역 밖의 잘림을 확인한다.",
       "docPath": "/docs/labs/graphics/svg/units/10/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-10/example.js"
     },
     {
       "id": "svg-step-11",
@@ -2913,7 +2923,8 @@
       "title": "필터 영역과 비용",
       "goal": "그림자 잘림을 영역 설정으로 해결한다. 블러 범위와 화면 품질을 기록한다.",
       "docPath": "/docs/labs/graphics/svg/units/11/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-11/example.js"
     },
     {
       "id": "svg-step-12",
@@ -2922,7 +2933,8 @@
       "title": "텍스트와 데이터 라벨",
       "goal": "라벨이 해당 데이터 점과 연결된다. 같은 데이터가 읽을 수 있는 표로 제공된다.",
       "docPath": "/docs/labs/graphics/svg/units/12/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-12/example.js"
     },
     {
       "id": "svg-step-13",
@@ -2931,7 +2943,8 @@
       "title": "화면 좌표를 SVG로",
       "goal": "확대 후에도 십자선이 포인터를 따라간다. 행렬을 얻지 못하는 숨김 상태를 처리한다.",
       "docPath": "/docs/labs/graphics/svg/units/13/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-13/example.js"
     },
     {
       "id": "svg-02",
@@ -2940,7 +2953,8 @@
       "title": "DOM 인터랙션",
       "goal": "키보드와 포인터로 같은 항목을 선택한다. 포커스 표시와 선택 표시를 구별한다.",
       "docPath": "/docs/labs/graphics/svg/02-experiments/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-02/example.js"
     },
     {
       "id": "svg-step-15",
@@ -2949,7 +2963,8 @@
       "title": "접근 가능한 이름과 설명",
       "goal": "정보용 SVG의 접근 가능한 이름이 확인된다. 장식과 데이터 그림을 근거로 구분한다.",
       "docPath": "/docs/labs/graphics/svg/units/15/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-15/example.js"
     },
     {
       "id": "svg-step-16",
@@ -2958,7 +2973,8 @@
       "title": "포인터 이벤트 영역",
       "goal": "선 주변에서도 연결선을 선택한다. 라벨 클릭도 올바른 그룹 id로 처리한다.",
       "docPath": "/docs/labs/graphics/svg/units/16/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-16/example.js"
     },
     {
       "id": "svg-step-17",
@@ -2967,7 +2983,8 @@
       "title": "드래그와 캡처",
       "goal": "영역 밖에서 놓아도 드래그가 끝난다. 확대 상태에서도 이동 비율이 맞는다.",
       "docPath": "/docs/labs/graphics/svg/units/17/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-17/example.js"
     },
     {
       "id": "svg-step-18",
@@ -2976,7 +2993,8 @@
       "title": "확대와 이동",
       "goal": "확대 중 관심 노드가 튀지 않는다. 최소·최대 배율과 초기화 버튼이 있다.",
       "docPath": "/docs/labs/graphics/svg/units/18/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-18/example.js"
     },
     {
       "id": "svg-step-19",
@@ -2985,7 +3003,8 @@
       "title": "데이터와 DOM 갱신",
       "goal": "재정렬 뒤 선택 id가 바뀌지 않는다. 삭제한 id의 DOM과 Map 참조를 정리한다.",
       "docPath": "/docs/labs/graphics/svg/units/19/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-19/example.js"
     },
     {
       "id": "svg-step-20",
@@ -2994,7 +3013,8 @@
       "title": "연결선과 그래프 배치",
       "goal": "없는 노드를 참조한 간선을 거부한다. 노드 이동 뒤 연결선 끝점이 일치한다.",
       "docPath": "/docs/labs/graphics/svg/units/20/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-20/example.js"
     },
     {
       "id": "svg-step-21",
@@ -3003,7 +3023,8 @@
       "title": "애니메이션과 동작 줄이기",
       "goal": "애니메이션을 끄더라도 정보가 남는다. 중복 전환 시 이전 프레임 요청을 정리한다.",
       "docPath": "/docs/labs/graphics/svg/units/21/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-21/example.js"
     },
     {
       "id": "svg-step-22",
@@ -3012,7 +3033,8 @@
       "title": "SVG 파일 내보내기",
       "goal": "내보낸 파일이 독립적으로 열린다. 임시 Object URL을 revoke한다.",
       "docPath": "/docs/labs/graphics/svg/units/22/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-22/example.js"
     },
     {
       "id": "svg-step-23",
@@ -3021,7 +3043,8 @@
       "title": "큰 데이터와 갱신 비용",
       "goal": "데이터 생성 시간과 DOM 반영 시간을 분리한다. 환경과 표본 조건을 기록한다.",
       "docPath": "/docs/labs/graphics/svg/units/23/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-23/example.js"
     },
     {
       "id": "svg-step-24",
@@ -3030,7 +3053,8 @@
       "title": "가시 영역과 세부 수준",
       "goal": "확대 후 숨긴 라벨이 복구된다. 가시성 최적화 후에도 선택 데이터가 남는다.",
       "docPath": "/docs/labs/graphics/svg/units/24/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-24/example.js"
     },
     {
       "id": "svg-step-25",
@@ -3039,7 +3063,8 @@
       "title": "Canvas 대조 렌더러",
       "goal": "두 화면의 점 좌표와 선택 id가 같다. 접근 가능한 HTML 목록을 양쪽에서 공유한다.",
       "docPath": "/docs/labs/graphics/svg/units/25/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-25/example.js"
     },
     {
       "id": "svg-step-26",
@@ -3048,7 +3073,8 @@
       "title": "지도 편집기 통합",
       "goal": "불완전한 데이터가 기존 장면을 덮지 않는다. 키보드로 가져오기 오류에서 복구할 수 있다.",
       "docPath": "/docs/labs/graphics/svg/units/26/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-26/example.js"
     },
     {
       "id": "svg-step-27",
@@ -3057,7 +3083,8 @@
       "title": "재현 가능한 비교 실험",
       "goal": "기능과 입력 조건을 맞춘 비교 표가 있다. 측정 범위와 확인하지 못한 부분을 명시한다.",
       "docPath": "/docs/labs/graphics/svg/units/27/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-27/example.js"
     },
     {
       "id": "svg-03",
@@ -3066,7 +3093,8 @@
       "title": "Canvas와 비교",
       "goal": "기능·접근성·성능의 장단점을 근거로 선택한다. 동일 데이터와 조건의 결과물·측정 기록을 제출한다.",
       "docPath": "/docs/labs/graphics/svg/03-project/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-03/example.js"
     },
     {
       "id": "threejs-01",

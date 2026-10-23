@@ -42,3 +42,16 @@ test('Canvas English mount keeps Korean width fixtures while localizing heading,
     assert.deepEqual(button.listeners, {})
   })
 })
+
+test('SVG English mount keeps Korean city and long-label fixtures after toggling', async () => {
+  const { mount } = await import('../src/labs/svg-step-12/example.js')
+  await withDOM(({ container, nodes }) => {
+    const dispose = mount({ container, locale: 'en' })
+    assert.equal(nodes.find(node => node.tag === 'strong').textContent, 'Text and Data Labels')
+    assert.deepEqual(nodes.filter(node => node.tag === 'tspan' && /[가-힣]/.test(node.textContent)).map(node => node.textContent), ['서울', '부산', '제주'])
+    nodes.find(node => node.tag === 'button').listeners.click()
+    for (const city of ['서울', '부산', '제주']) assert.ok(nodes.some(node => node.textContent === city + ' 지역의 아주 긴 이름'))
+    dispose()
+    assert.equal(nodes.find(node => node.tag === 'section').removed, true)
+  })
+})

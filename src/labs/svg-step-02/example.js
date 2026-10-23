@@ -2,11 +2,12 @@
 // 실험: stroke-width: 1 → 12
 // 윤곽이 도형 경계 양쪽으로 두꺼워집니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="기본 도형과 속성";
-const VARIABLE="stroke-width: 1 ↔ 12";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Basic Shapes and Attributes","display002":"stroke-width: 1 ↔ 12"}:{"display001":"기본 도형과 속성","display002":"stroke-width: 1 ↔ 12"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);

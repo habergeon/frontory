@@ -3023,7 +3023,8 @@
       "title": "viewBox and Vectors",
       "goal": "Distinguish internal coordinates from screen size. Explain differences in position and thickness when resizing.",
       "docPath": "/docs/en/labs/graphics/svg/01-foundations/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-01/example.js"
     },
     {
       "id": "svg-step-02",
@@ -3033,6 +3034,7 @@
       "goal": "Change stroke and fill independently. Check clipping of thick strokes.",
       "docPath": "/docs/en/labs/graphics/svg/units/02/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-02/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3043,6 +3045,7 @@
       "goal": "Create the same arrow with both command styles. Distinguish closed paths from open paths.",
       "docPath": "/docs/en/labs/graphics/svg/units/03/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-03/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3053,6 +3056,7 @@
       "goal": "Distinguish guide points from the actual curve. Explain how moving a control point affects the tangent.",
       "docPath": "/docs/en/labs/graphics/svg/units/04/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-04/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3063,6 +3067,7 @@
       "goal": "Draw proportions greater than half correctly. Handle the boundary cases of 0 and 100.",
       "docPath": "/docs/en/labs/graphics/svg/units/05/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-05/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3073,6 +3078,7 @@
       "goal": "Internal layout remains intact when moving the group. Visually mark the rotation center.",
       "docPath": "/docs/en/labs/graphics/svg/units/06/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-06/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3083,6 +3089,7 @@
       "goal": "Editing one definition updates its instances. Reference ids in the two SVGs do not collide.",
       "docPath": "/docs/en/labs/graphics/svg/units/07/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-07/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3093,6 +3100,7 @@
       "goal": "Icons change together with the theme. Find the source of the final color in developer tools.",
       "docPath": "/docs/en/labs/graphics/svg/units/08/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-08/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3103,6 +3111,7 @@
       "goal": "Compare the results of the two coordinate systems. Adjust coordinate values when changing units.",
       "docPath": "/docs/en/labs/graphics/svg/units/09/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-09/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3113,6 +3122,7 @@
       "goal": "Explain clip and mask results side by side. Check clipping outside the mask region.",
       "docPath": "/docs/en/labs/graphics/svg/units/10/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-10/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3123,6 +3133,7 @@
       "goal": "Resolve clipped shadows by setting the region. Record blur extent and visual quality.",
       "docPath": "/docs/en/labs/graphics/svg/units/11/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-11/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3133,6 +3144,7 @@
       "goal": "Labels are associated with their data points. The same data is available in a readable table.",
       "docPath": "/docs/en/labs/graphics/svg/units/12/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-12/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3143,6 +3155,7 @@
       "goal": "The crosshair follows the pointer even after zooming. Handle hidden states where a matrix cannot be obtained.",
       "docPath": "/docs/en/labs/graphics/svg/units/13/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-13/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3152,7 +3165,8 @@
       "title": "DOM Interaction",
       "goal": "Select the same item with keyboard and pointer. Distinguish focus indicators from selection indicators.",
       "docPath": "/docs/en/labs/graphics/svg/02-experiments/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-02/example.js"
     },
     {
       "id": "svg-step-15",
@@ -3162,6 +3176,7 @@
       "goal": "Verify the accessible name of an informational SVG. Distinguish decoration from data graphics with reasons.",
       "docPath": "/docs/en/labs/graphics/svg/units/15/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-15/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3172,6 +3187,7 @@
       "goal": "Select a connector near its stroke as well. Handle label clicks with the correct group id too.",
       "docPath": "/docs/en/labs/graphics/svg/units/16/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-16/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3182,6 +3198,7 @@
       "goal": "Dragging ends even when released outside the region. Movement has the correct ratio even while zoomed in.",
       "docPath": "/docs/en/labs/graphics/svg/units/17/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-17/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3192,6 +3209,7 @@
       "goal": "The node of interest does not jump during zooming. Provide minimum and maximum scales and a reset button.",
       "docPath": "/docs/en/labs/graphics/svg/units/18/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-18/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3202,6 +3220,7 @@
       "goal": "The selected id does not change after reordering. Clean up DOM and Map references for deleted ids.",
       "docPath": "/docs/en/labs/graphics/svg/units/19/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-19/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3212,6 +3231,7 @@
       "goal": "Reject edges that reference missing nodes. Connector endpoints match after moving a node.",
       "docPath": "/docs/en/labs/graphics/svg/units/20/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-20/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3222,6 +3242,7 @@
       "goal": "Information remains even with animation disabled. Clean up previous frame requests when transitions overlap.",
       "docPath": "/docs/en/labs/graphics/svg/units/21/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-21/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3232,6 +3253,7 @@
       "goal": "The exported file opens independently. Revoke temporary Object URLs.",
       "docPath": "/docs/en/labs/graphics/svg/units/22/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-22/example.js",
       "exampleNote": "Outputs standalone SVG source in a text area. To save a file, copy the source and save it as a .svg file."
     },
     {
@@ -3242,6 +3264,7 @@
       "goal": "Separate data generation time from DOM update time. Record the environment and sample conditions.",
       "docPath": "/docs/en/labs/graphics/svg/units/23/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-23/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3252,6 +3275,7 @@
       "goal": "Hidden labels return after zooming in. Selected data remains after visibility optimization.",
       "docPath": "/docs/en/labs/graphics/svg/units/24/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-24/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3262,6 +3286,7 @@
       "goal": "Point coordinates and selected ids match on both displays. Share an accessible HTML list between both renderers.",
       "docPath": "/docs/en/labs/graphics/svg/units/25/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-25/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3272,6 +3297,7 @@
       "goal": "Incomplete data does not overwrite the existing scene. You can recover from import errors using the keyboard.",
       "docPath": "/docs/en/labs/graphics/svg/units/26/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-26/example.js",
       "exampleNote": "An experiment with duplicate id validation, keyboard selection, movement, and serialization. You can combine free dragging from the Day 17 example."
     },
     {
@@ -3282,6 +3308,7 @@
       "goal": "Provide a comparison table with matching features and input conditions. State the measurement scope and what you could not verify.",
       "docPath": "/docs/en/labs/graphics/svg/units/27/README.md",
       "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-step-27/example.js",
       "exampleNote": "An editable browser experiment. Measurements vary with the current device and browser."
     },
     {
@@ -3291,7 +3318,8 @@
       "title": "Comparing with Canvas",
       "goal": "Choose based on the advantages and disadvantages of functionality, accessibility, and performance. Submit outputs and measurement records with the same data and conditions.",
       "docPath": "/docs/en/labs/graphics/svg/03-project/README.md",
-      "seriesId": "svg"
+      "seriesId": "svg",
+      "exampleReadingSource": "/examples-en/svg-03/example.js"
     },
     {
       "id": "threejs-01",

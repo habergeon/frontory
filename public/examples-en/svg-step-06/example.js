@@ -1,0 +1,25 @@
+// Groups and Transform Order
+// Experiment: Rotation center: 0,0 → 100,100
+// The reference point around which the needle rotates changes
+// Standalone example: edit the code and run it again to compare the results.
+/** @param {any} context */
+export function mount(context){
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Groups and Transform Order","display002":"Rotation center: 0,0 ↔ 100,100","display003":"Red ring: fixed hinge; orange: transformed local center"}:{"display001":"그룹과 변환 순서","display002":"회전 중심: 0,0 ↔ 100,100","display003":"Red ring: fixed hinge; orange: transformed local center"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
+  const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
+  const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
+  const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
+  let changed=false,closed=false;const disposers=[];
+  function on(target,type,fn){target.addEventListener(type,fn);disposers.push(()=>target.removeEventListener(type,fn));}
+  function button(text,fn){const b=document.createElement('button');b.textContent=text;b.style.margin='4px';on(b,'click',fn);ui.append(b);return b;}
+  const toggle=button(VARIABLE,()=>{changed=!changed;toggle.setAttribute('aria-pressed',String(changed));draw();});toggle.setAttribute('aria-pressed','false');
+  let frame=0;function loop(fn){let last=performance.now();const tick=now=>{if(closed)return;const dt=Math.min((now-last)/1000,.1);last=now;fn(dt,now/1000);frame=requestAnimationFrame(tick);};frame=requestAnimationFrame(tick);}
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 400 260');svg.setAttribute('xmlns','http://www.w3.org/2000/svg');svg.style.cssText='display:block;width:400px;max-width:100%;background:#edf2f7;touch-action:none';ui.append(svg);
+  /** @param {string} tag @param {any} attrs @param {any} [parent] @param {string} [text] @returns {any} */
+  function el(tag,attrs,parent=svg,text=''){const node=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [key,value] of Object.entries(attrs))node.setAttribute(key,String(value));if(text)node.textContent=text;parent.append(node);return node;}
+  function draw(){svg.replaceChildren();const g=el('g',{transform:'rotate(35 '+(changed?'100 100':'0 0')+')'});el('rect',{x:100,y:94,width:160,height:12,fill:'#2563eb'},g);el('circle',{cx:100,cy:100,r:6,fill:'#f97316'},g);el('circle',{cx:100,cy:100,r:8,fill:'none',stroke:'#e11d48'});status.textContent=messages.display003;}
+  draw();
+  return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
+}

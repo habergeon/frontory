@@ -1,152 +1,518 @@
 {
   "svg-step-02": {
-    "sourceHash": "ccdc896f015112eff804c4c194243ed39f444cdfd187a6440fdac33ee9101345",
+    "sourceHash": "f36a7bb0a98ec8ac06f0bf96de719e7b1ea639c65c0b440c029f76a7d0329ed6",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "3092ef70d69269984eef588e1d581097e1d929cf18735f498cc8555b33526fdb",
+      "values": {
+        "messages.display001": "Basic Shapes and Attributes",
+        "messages.display002": "stroke-width: 1 ↔ 12",
+        "comments.comment001": "Basic Shapes and Attributes",
+        "comments.comment002": "Experiment: stroke-width: 1 → 12",
+        "comments.comment003": "The outline becomes thicker on both sides of the shape boundary",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-03": {
-    "sourceHash": "84c55f176a5dbcd7d376af108c0853a1d970ed4dc4d1995f9a363c3e6f4c4d6f",
+    "sourceHash": "ec17441c034a1c2ef795de9525bd80a4249b9ed05b65ed3f8f6f26a7e14b4414",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "f83cb53ec39885505f74a96fc4fdab51c2cb55261588f1fcf8a92bde445b51bc",
+      "values": {
+        "messages.display001": "Path Commands and Closing Paths",
+        "messages.display002": "Starting point: 20,60 ↔ 80,60",
+        "messages.display003": "All commands after M are relative; Z closes the join",
+        "comments.comment001": "Path Commands and Closing Paths",
+        "comments.comment002": "Experiment: starting point: 20,60 → 80,60",
+        "comments.comment003": "The shape made with relative commands moves while preserving its overall form",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-04": {
-    "sourceHash": "bfe582d890cb9c417563056786f4d90fc71425e8a36415c7421d788849fcaad7",
+    "sourceHash": "89572ce5c95a1247a02b003b93c7b2828bd9e8bc0e4e015b3e92b6a0eab3c48c",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "7d7855064e2c01fc7030c8caeb7bd26f72a73747ddefb33b995a2275e74a27b2",
+      "values": {
+        "messages.display001": "Adjusting Bézier Curves",
+        "messages.display002": "Control point y: 20 ↔ 120",
+        "comments.comment001": "Adjusting Bézier Curves",
+        "comments.comment002": "Experiment: Control point y: 20 → 120",
+        "comments.comment003": "The curve's bend direction and height change",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-05": {
-    "sourceHash": "f12756a050ec38965022b4ff7203f167d287cb9611101fc11d245845fdad340e",
+    "sourceHash": "64acf56a831168c49514a37a53229eccfa2facc7cda04465003491ccfbfade43",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "3f7f060741e7d012094a3c6b44dc60a728ab9284ddbaf50a02981bd25043cb75",
+      "values": {
+        "messages.display001": "Arcs and Donut Segments",
+        "messages.display002": "Progress: 25% ↔ 75%",
+        "messages.display003": "large-arc-flag = ",
+        "comments.comment001": "Arcs and Donut Segments",
+        "comments.comment002": "Experiment: Progress: 25% → 75%",
+        "comments.comment003": "You need to change large-arc-flag to select the longer arc",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-06": {
-    "sourceHash": "8401bd83828104adafe55146953f2dbed93c9ee33924a71de252deb3699bccba",
+    "sourceHash": "61ec7040f2fcabd1682a2a8c6f04f4c72cc3c5f7cc5737b2f4283cdad5e3626c",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "e7fc14cf92d915f1cc564c5387f13cd396785dfdad0461a0229bce3697cce492",
+      "values": {
+        "messages.display001": "Groups and Transform Order",
+        "messages.display002": "Rotation center: 0,0 ↔ 100,100",
+        "messages.display003": "Red ring: fixed hinge; orange: transformed local center",
+        "comments.comment001": "Groups and Transform Order",
+        "comments.comment002": "Experiment: Rotation center: 0,0 → 100,100",
+        "comments.comment003": "The reference point around which the needle rotates changes",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-07": {
-    "sourceHash": "4bc036d14ce95ea9fdf384d91480a2a6bbdc28213e21f6faaf299b7a69166113",
+    "sourceHash": "96b19c9e17010e7b023d7d3b191c0c3c21b130ddadb304084168b69dd139e63a",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "dcc9492aea5df0cb01d3d95cfaef7ce99df699db13744cc0d3db3ab30dd2e463",
+      "values": {
+        "messages.display001": "Symbols and Reuse",
+        "messages.display002": "id convention: All use badge ↔ A prefix for each SVG",
+        "messages.display003": "Definition ID: ",
+        "messages.display004": "; unique prefix avoids document-wide collisions",
+        "comments.comment001": "Symbols and Reuse",
+        "comments.comment002": "Experiment: id convention: All use badge → A prefix for each SVG",
+        "comments.comment003": "Collisions that incorrectly reference another definition are avoided",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-08": {
-    "sourceHash": "54691de0fd35f64e04454cdeaec241b87b458e962c153b7e2b8eae816e674167",
+    "sourceHash": "98af62953b13e40671103a4069bd7597265e0049841b7c50a2081dc9e00f0a11",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "96629d5e7e3b529fde5559f1c4ff7bf35c23a30e86124c1d4ede7d36ea93a358",
+      "values": {
+        "messages.display001": "Styles and Themes",
+        "messages.display002": "Color specification: fill attribute only ↔ Add a CSS fill rule",
+        "messages.display003": "Attribute fill = #7c3aed; CSS rule ",
+        "messages.display004": "overrides",
+        "messages.display005": "absent",
+        "comments.comment001": "Styles and Themes",
+        "comments.comment002": "Experiment: Color specification: fill attribute only → Add a CSS fill rule",
+        "comments.comment003": "The cascade may make the displayed color differ from the attribute string",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-09": {
-    "sourceHash": "4babfd01e9092ad9720b08e9ee41bf122726ca0ff863bedcc41d91d21d7b1eb2",
+    "sourceHash": "8bb0842323894c54c93899e62317e68c0e21e99f1869f8ad9e5867076af66f7b",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "68d6dc2978424533072c5e9c6c7106b6d7d5ea08c2bdc1e4c74792543f947af7",
+      "values": {
+        "messages.display001": "Gradient Coordinates",
+        "messages.display002": "gradientUnits: objectBoundingBox ↔ userSpaceOnUse",
+        "comments.comment001": "Gradient Coordinates",
+        "comments.comment002": "Experiment: gradientUnits: objectBoundingBox → userSpaceOnUse",
+        "comments.comment003": "Color bands that stretched per shape align to common coordinates",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-10": {
-    "sourceHash": "51a56bc47f21522bd8bf17e0df982ee2f53da820c705b2f2e62f29b624a29d3a",
+    "sourceHash": "02c395678dec6c62bde303164bf502987ece1611b35016fda24b3ce4d25a0e65",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "50f0570a120d7de0b10b4db7a5f2564a5554592309e1895609230249762901b4",
+      "values": {
+        "messages.display001": "Clips and Masks",
+        "messages.display002": "Mask: Solid white ↔ White-to-black gradient",
+        "comments.comment001": "Clips and Masks",
+        "comments.comment002": "Experiment: Mask: Solid white → White-to-black gradient",
+        "comments.comment003": "Visibility gradually decreases with a luminance mask",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-11": {
-    "sourceHash": "990eb7bd2b102fa09487889de8629376e094bf4a25224d53e4ff41d690c60057",
+    "sourceHash": "9febe1520ccf56613d9d0d401f0966f0e5af6ac99f6865f536d6d743596b91b2",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "e6a1b36ce5897cc19442b70d86f18a260b5729ca9ea0054d83c7097ef903a1fb",
+      "values": {
+        "messages.display001": "Filter Regions and Cost",
+        "messages.display002": "stdDeviation: 2 ↔ 12",
+        "messages.display003": "Fixed filter region: wide blur can clip. Edit x/y/width/height to expand it.",
+        "comments.comment001": "Filter Regions and Cost",
+        "comments.comment002": "Experiment: stdDeviation: 2 → 12",
+        "comments.comment003": "The shadow spreads and may be clipped outside the existing filter region",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-12": {
-    "sourceHash": "60ee9052df64cdd2b34b064a6d6a14d79031b60e712b5f2da966dc46225bb0a5",
+    "sourceHash": "fcb28a74215ca1b00888c2456d4e019da723f8792d9e71019105d4839e06e677",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "ec91c6f0c7f03bcaa57ed25639cc3d21d3614c3ac29630a9edddeba0a70dcf47",
+      "values": {
+        "messages.display001": "Text and Data Labels",
+        "messages.display002": "Label length: Short name ↔ Long Korean name",
+        "messages.display003": "Long labels intentionally reveal overlap; edit spacing or wrapping policy.",
+        "comments.comment001": "Text and Data Labels",
+        "comments.comment002": "Experiment: Label length: Short name → Long Korean name",
+        "comments.comment003": "Fixed spacing causes overlap and requires a layout policy",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-13": {
-    "sourceHash": "4fc2591eed9903045081fa7af0fe261d41a0c0e490e75a1a46dee5282b27b8e9",
+    "sourceHash": "09d5a010ac5c836d5bac356d07ad8019263b2c8887ca0179b614ffc44d9bc003",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "7314607bc509accfa2b7bca8146f0af595cd9b7180ef00cdca22902153efcd2c",
+      "values": {
+        "messages.display001": "Screen Coordinates to SVG",
+        "messages.display002": "Group scale: 1 ↔ 2",
+        "messages.display003": "Group local: ",
+        "comments.comment001": "Screen Coordinates to SVG",
+        "comments.comment002": "Experiment: Group scale: 1 → 2",
+        "comments.comment003": "The group's local displacement is half the screen displacement",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-15": {
-    "sourceHash": "f28bc480ff1446ceebc0ad2eeea145f22b3e10037459c3de277d2f577617f857",
+    "sourceHash": "5ce2302d723787f1f0f46309de60f48d90c101358112dbe87cdeb793413506b5",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "95ae538539d8a840cfe2299b97d645f8e23c920a435f5a5fa4406f4f89ef5070",
+      "values": {
+        "messages.display001": "Accessible Names and Descriptions",
+        "messages.display002": "Graphic role: Informational, with a name ↔ Decorative aria-hidden",
+        "messages.display003": "Study progress",
+        "messages.display004": "Three out of four units completed.",
+        "messages.display005": "Decorative SVG excluded from accessibility tree",
+        "messages.display006": "Named image: Study progress; 3 of 4",
+        "comments.comment001": "Accessible Names and Descriptions",
+        "comments.comment002": "Experiment: Graphic role: Informational, with a name → Decorative aria-hidden",
+        "comments.comment003": "Decoration is excluded from navigation while the informational name remains",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-16": {
-    "sourceHash": "44cc259bddbdd1b5305a3447995d984822c0db67c0a236a92469f266733276fb",
+    "sourceHash": "d2108b75d1096103fee6c4adc1325875c032f2fa52010736bf5fc0232c4d16c4",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "4b57502fe59e2fc2fc99e9d49ac646a6bfe653299a1e107b85258bcbf1862bb8",
+      "values": {
+        "messages.display001": "Pointer Event Regions",
+        "messages.display002": "Selection width: 2px ↔ 16px",
+        "messages.display003": "Line selected ",
+        "messages.display004": " times",
+        "messages.display005": "Visible 2px; hit width ",
+        "messages.display006": "px",
+        "comments.comment001": "Pointer Event Regions",
+        "comments.comment002": "Experiment: Selection width: 2px → 16px",
+        "comments.comment003": "The operable region widens while the visible stroke stays the same",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-17": {
-    "sourceHash": "becf8f273b61bdcfeef551028f232f6518de1dd494e711457fa4a2fc68ae543f",
+    "sourceHash": "a34addaeef85cfc26c253e69d3050d903e316223278c4ad433c3623d6f796177",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "d240587bc48a14d9a9f19d741d3e6e43d9f49bcf007efde0b84a42f8b4fdb797",
+      "values": {
+        "messages.display001": "Dragging and Capture",
+        "messages.display002": "Starting position: Node center ↔ Node edge",
+        "messages.display003": "Drag an edge; offset retained at ",
+        "comments.comment001": "Dragging and Capture",
+        "comments.comment002": "Experiment: Starting position: Node center → Node edge",
+        "comments.comment003": "Keeping the offset prevents the node from jumping",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-18": {
-    "sourceHash": "43c28c8b2f4bdc1eadb6c623839ff8fb436f05962303abe98aebc68fa692608a",
+    "sourceHash": "e4b983ae762b755d9f268dadd26f46c0daa0cda6b1047cf5265662f6e01fff6f",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "fe6ee50b55626e8718c3563b622624db05926b2ac617182e9e1ad959a9a784aa",
+      "values": {
+        "messages.display001": "Zooming and Panning",
+        "messages.display002": "Zoom center: Origin ↔ Pointer position",
+        "messages.display003": "Reset zoom",
+        "messages.display004": "Wheel zoom ",
+        "messages.display005": "; anchor ",
+        "messages.display006": "pointer",
+        "messages.display007": "origin",
+        "comments.comment001": "Zooming and Panning",
+        "comments.comment002": "Experiment: Zoom center: Origin → Pointer position",
+        "comments.comment003": "The node under the pointer stays at the same screen point after zooming",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-19": {
-    "sourceHash": "ca951d63c5f20391ed26df3ae6a54aa57079e24000aa8b88cd7b1a2b09aeb2dd",
+    "sourceHash": "559322bf94b78d7ed177243e6e06e5b87fdf90ec766e45de9b533a4567575382",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "8049323627c593dadb2a168797501278644284661d408b1d5444f11b990937a1",
+      "values": {
+        "messages.display001": "Data and DOM Updates",
+        "messages.display002": "Update method: Full replacement ↔ id-based attribute updates",
+        "messages.display003": "Move B",
+        "messages.display004": "Updates ",
+        "messages.display005": "; identity ",
+        "messages.display006": "retained",
+        "messages.display007": "recreated",
+        "messages.display008": " — focus a circle before changing data",
+        "comments.comment001": "Data and DOM Updates",
+        "comments.comment002": "Experiment: Update method: Full replacement → id-based attribute updates",
+        "comments.comment003": "Unchanged elements retain their identity and focus",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-20": {
-    "sourceHash": "9eedd792a10c3757f3936df8abcd7a7c1606ba615f954d0fe24746071b93b546",
+    "sourceHash": "4977f2f0a12179c3798551ab53198ca24bb2c47990a9570a9e68cec4038c94c2",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "5861b82408a19de37ba83caac6b97d130ae947fd7f78950ac18720dd9e339936",
+      "values": {
+        "messages.display001": "Connectors and Graph Layout",
+        "messages.display002": "Node position: Fixed ↔ Move one node by 80 units",
+        "comments.comment001": "Connectors and Graph Layout",
+        "comments.comment002": "Experiment: Node position: Fixed → Move one node by 80 units",
+        "comments.comment003": "Only paths connected to that node point toward its new position",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-21": {
-    "sourceHash": "9116edd24923c2436d157b79b422e6997897d1d38cb0bbf6eeb2711ea3246214",
+    "sourceHash": "9568d994b11748a0976f4991cb3a14479ebcb4dc64fb681e0fd01dde31b2c462",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "92ce32a680e05236b3784b1f4676ee7d5ce73fe914b466c7a962a3c59a142179",
+      "values": {
+        "messages.display001": "Animation and Reduced Motion",
+        "messages.display002": "Motion setting: Normal ↔ reduced-motion",
+        "messages.display003": "Move",
+        "messages.display004": "Reduced motion: ",
+        "comments.comment001": "Animation and Reduced Motion",
+        "comments.comment002": "Experiment: Motion setting: Normal → reduced-motion",
+        "comments.comment003": "The dot appears at its final position without intermediate movement",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-22": {
-    "sourceHash": "5bc39e965edfa1c6f0d1c8fdea48d8a93ccfa62c56384e87bf7dd35bab7f678c",
+    "sourceHash": "6b25657e1b0c2ae0e5fea5c177d16352b0c1abf47b8e66a32b46d045dc9d3393",
     "values": {
       "note": "Outputs standalone SVG source in a text area. To save a file, copy the source and save it as a .svg file."
+    },
+    "presentation": {
+      "sourceHash": "7e7b4b96942393e84c4fd92b52fe4f9a769c90f3bb3796303c2db40efea05bd1",
+      "values": {
+        "messages.display001": "Exporting SVG Files",
+        "messages.display002": "Style location: Page CSS only ↔ style inside SVG",
+        "messages.display003": "Serialize standalone SVG",
+        "messages.display004": "Standalone SVG source; internal styles survive export.",
+        "comments.comment001": "Exporting SVG Files",
+        "comments.comment002": "Experiment: Style location: Page CSS only → style inside SVG",
+        "comments.comment003": "Specified colors and strokes persist in the standalone file",
+        "comments.comment004": "Outputs standalone SVG source in a text area. To save a file, copy the source and save it as a .svg file."
+      }
     }
   },
   "svg-step-23": {
-    "sourceHash": "8c60a1e9d1b38ed8904b95a8cce06fe70e1778cd25cef556194d6056215271f3",
+    "sourceHash": "61ecd8ef4dd04d1e63b40d16065f4ef3d9aa858637fbc050d801a06372863fd9",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "29f8b280d542abf89a66138697a34f82aea889db0f2b8899ab8860e33ea731ef",
+      "values": {
+        "messages.display001": "Large Datasets and Update Cost",
+        "messages.display002": "Point count: 100 ↔ 5000",
+        "messages.display003": " DOM circles created in ",
+        "messages.display004": "ms (CPU submission)",
+        "comments.comment001": "Large Datasets and Update Cost",
+        "comments.comment002": "Experiment: Point count: 100 → 5000",
+        "comments.comment003": "DOM creation and style update workloads may increase",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-24": {
-    "sourceHash": "ca3f47b4ebf1f25f7f66207e73a284581250b6dc0d27cb2efa7fb58eeac9d99a",
+    "sourceHash": "2992648cf11bd6729575eb2880614f9c7dcf4f7c295f67ba7ebb92011902d4b5",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "4aef18c6d2d87ca14ea511750f3081be3a545efd8749b3a742ff1b7b15b89557",
+      "values": {
+        "messages.display001": "Visible Regions and Level of Detail",
+        "messages.display002": "Scale: 1 ↔ 0.2",
+        "messages.display003": "Visible ",
+        "messages.display004": " / 1000; labels ",
+        "messages.display005": "; scale ",
+        "comments.comment001": "Visible Regions and Level of Detail",
+        "comments.comment002": "Experiment: Scale: 1 → 0.2",
+        "comments.comment003": "Reducing labels may ease overlap and reduce DOM work",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-25": {
-    "sourceHash": "ff495c4deb5bb5c61aa51e4e144bed76f158d8b3e96132c49ca2e06f102dcd3e",
+    "sourceHash": "c7eed771d05a87ae47e325380546f0e3ba27a57285a1cec1d99e6f15a82d0376",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "a35464f49c8177c5603b96329eeb06a710dd39509eda785006b3ea76924cb41c",
+      "values": {
+        "messages.display001": "Canvas Comparison Renderer",
+        "messages.display002": "Renderer: SVG ↔ Canvas 2D",
+        "messages.display003": "Selected ",
+        "messages.display004": "manual distance test",
+        "messages.display005": "DOM event target",
+        "comments.comment001": "Canvas Comparison Renderer",
+        "comments.comment002": "Experiment: Renderer: SVG → Canvas 2D",
+        "comments.comment003": "Responsibility for implementing selection and the DOM count differ",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
     }
   },
   "svg-step-26": {
-    "sourceHash": "fa46e1ffad1549b384c00b36c58c4e836a76a081e8f57b09981786701d301396",
+    "sourceHash": "2971a9c3de0abb72c21e1eec79994979e2c34e85c8c98de31afa09edb94e4251",
     "values": {
       "note": "An experiment with duplicate id validation, keyboard selection, movement, and serialization. You can combine free dragging from the Day 17 example."
+    },
+    "presentation": {
+      "sourceHash": "efed2b2fa6901344db0f78fe823882da1de22c50374d0a14426e9c2d45cd2834",
+      "values": {
+        "messages.display001": "Integrating the Map Editor",
+        "messages.display002": "Imported data: Valid graph ↔ Duplicate id",
+        "messages.display003": "Import",
+        "messages.display004": "Move selected",
+        "messages.display005": "SVG source",
+        "messages.display006": "Select ",
+        "messages.display007": "Selected ",
+        "comments.comment001": "Integrating the Map Editor",
+        "comments.comment002": "Experiment: Imported data: Valid graph → Duplicate id",
+        "comments.comment003": "Applying new data is rejected and the editing state is preserved",
+        "comments.comment004": "An experiment with duplicate id validation, keyboard selection, movement, and serialization. You can combine free dragging from the Day 17 example."
+      }
     }
   },
   "svg-step-27": {
-    "sourceHash": "6a9f318b8e6aee29b29c4cffd09e8042bcf65206fb6f7144c84c34ce7c4dd5b3",
+    "sourceHash": "84e4b08dcfc6cc325777a4f63c904cc1fb5b09417f089b432047f53a6d24fa34",
     "values": {
       "note": "An editable browser experiment. Measurements vary with the current device and browser."
+    },
+    "presentation": {
+      "sourceHash": "ab7c553a5597061855e3adfec0fbf04b81135d84a773eace02aaae6a1542c40b",
+      "values": {
+        "messages.display001": "Reproducible Comparison Experiments",
+        "messages.display002": "Scene size: 1000 points ↔ 5000 points",
+        "messages.display003": " fixed points — SVG construction ",
+        "messages.display004": "ms / Canvas submission ",
+        "messages.display005": "ms; excludes paint/GPU",
+        "comments.comment001": "Reproducible Comparison Experiments",
+        "comments.comment002": "Experiment: Scene size: 1000 points → 5000 points",
+        "comments.comment003": "Costs may grow differently for each renderer",
+        "comments.comment004": "Standalone example: edit the code and run it again to compare the results."
+      }
+    }
+  },
+  "svg-01": {
+    "presentation": {
+      "sourceHash": "dc42d7cda576a1bf520fda60b9c9aa441c13f30bf7258d6d5c3aacd5a55d5b0d",
+      "values": {
+        "messages.display001": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 150\" width=\"100%\" height=\"100%\" role=\"img\" aria-label=\"SVG vector shapes\"><rect width=\"300\" height=\"150\" fill=\"#edf2f7\"/><path d=\"M20 110 Q150 -30 280 110\" fill=\"none\" stroke=\"#3179bf\" stroke-width=\"4\"/><circle cx=\"150\" cy=\"70\" r=\"24\" fill=\"#e97645\"/><text x=\"20\" y=\"140\" font-size=\"12\">viewBox = 0 0 300 150</text></svg>",
+        "comments.comment001": "Change viewBox to 0 0 600 300 and compare the shapes’ size on screen."
+      }
+    }
+  },
+  "svg-02": {
+    "presentation": {
+      "sourceHash": "87b8868cb23f6538f685a331feb32b8b83397db57299fa2fc2561503e9d49eee",
+      "values": {
+        "messages.display001": "<p>Tab to a node; Enter/Space or click selects it.</p><div></div><svg viewBox=\"0 0 500 230\" role=\"group\" aria-label=\"Learning route\" style=\"width:100%;max-height:65%\"></svg><p role=\"status\"></p>",
+        "messages.display002": "Selected: ",
+        "messages.display003": "Input",
+        "messages.display004": "Transform",
+        "messages.display005": "Render",
+        "messages.display006": "Inspect",
+        "comments.comment001": "Native buttons and SVG nodes share one selection function and accessible names."
+      }
+    }
+  },
+  "svg-03": {
+    "presentation": {
+      "sourceHash": "4be1ee20699f14301b3cece903178c34d30beeb9e761f9ee4d423ac31aa4b514",
+      "values": {
+        "messages.display001": "<label>Points <select><option>100</option><option>1000</option><option>5000</option></select></label> <label>Zoom <input type=\"range\" min=\"1\" max=\"3\" step=\".25\" value=\"1\"></label><p role=\"status\"></p><div style=\"display:flex;gap:8px\"></div><pre></pre>",
+        "messages.display002": "SVG points",
+        "messages.display003": "Canvas points: use SVG dots for keyboard selection",
+        "messages.display004": "Point ",
+        "messages.display005": " points · zoom ",
+        "messages.display006": "\nSVG DOM ",
+        "messages.display007": " ms · Canvas draw ",
+        "messages.display008": " ms\nSVG has per-dot DOM/keyboard targets; Canvas uses manual hit testing. Timings exclude browser paint.",
+        "messages.display009": "Selected point ",
+        "comments.comment001": "Identical seeded points. Times measure synchronous construction/draw, NOT GPU paint."
+      }
     }
   }
 }

@@ -2,11 +2,12 @@
 // 실험: gradientUnits: objectBoundingBox → userSpaceOnUse
 // 도형마다 늘어나던 색 띠가 공통 좌표에 정렬됩니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="그라디언트 좌표";
-const VARIABLE="gradientUnits: objectBoundingBox ↔ userSpaceOnUse";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Gradient Coordinates","display002":"gradientUnits: objectBoundingBox ↔ userSpaceOnUse"}:{"display001":"그라디언트 좌표","display002":"gradientUnits: objectBoundingBox ↔ userSpaceOnUse"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);

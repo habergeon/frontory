@@ -1,12 +1,13 @@
 // 애니메이션과 동작 줄이기
 // 실험: 동작 설정: 일반 → reduced-motion
-// 중간 이동 없이 최종 배치와 선택 상태가 표시됩니다
+// 중간 이동 없이 점이 최종 위치에 표시됩니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="애니메이션과 동작 줄이기";
-const VARIABLE="동작 설정: 일반 ↔ reduced-motion";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Animation and Reduced Motion","display002":"Motion setting: Normal ↔ reduced-motion","display003":"Move","display004":"Reduced motion: "}:{"display001":"애니메이션과 동작 줄이기","display002":"동작 설정: 일반 ↔ reduced-motion","display003":"Move","display004":"Reduced motion: "};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);
@@ -18,7 +19,7 @@ export function mount(context){
   const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 400 260');svg.setAttribute('xmlns','http://www.w3.org/2000/svg');svg.style.cssText='display:block;width:400px;max-width:100%;background:#edf2f7;touch-action:none';ui.append(svg);
   /** @param {string} tag @param {any} attrs @param {any} [parent] @param {string} [text] @returns {any} */
   function el(tag,attrs,parent=svg,text=''){const node=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [key,value] of Object.entries(attrs))node.setAttribute(key,String(value));if(text)node.textContent=text;parent.append(node);return node;}
-  let x=40,target=360;const dot=el('circle',{cy:130,r:22,fill:'#2563eb'});const reduced=matchMedia('(prefers-reduced-motion: reduce)');button('Move',()=>{target=target===360?40:360;});function draw(){if(changed||reduced.matches)x=target;dot.setAttribute('cx',String(x));status.textContent='Reduced motion: '+(changed||reduced.matches);}loop(dt=>{x+=(target-x)*(1-Math.exp(-dt*5));draw();});
+  let x=40,target=360;const dot=el('circle',{cy:130,r:22,fill:'#2563eb'});const reduced=matchMedia('(prefers-reduced-motion: reduce)');button(messages.display003,()=>{target=target===360?40:360;});function draw(){if(changed||reduced.matches)x=target;dot.setAttribute('cx',String(x));status.textContent=messages.display004+(changed||reduced.matches);}loop(dt=>{x+=(target-x)*(1-Math.exp(-dt*5));draw();});
   draw();
   return ()=>{closed=true;cancelAnimationFrame(frame);disposers.reverse().forEach(fn=>fn());ui.remove();};
 }

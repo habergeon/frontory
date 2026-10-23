@@ -3514,5 +3514,393 @@
     "comments": {
       "comment001": "Compare CPU drawing time with the SAME deterministic particles and background."
     }
+  },
+  "svg-01": {
+    "messages": {
+      "display001": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 150\" width=\"100%\" height=\"100%\" role=\"img\" aria-label=\"SVG 벡터 도형\"><rect width=\"300\" height=\"150\" fill=\"#edf2f7\"/><path d=\"M20 110 Q150 -30 280 110\" fill=\"none\" stroke=\"#3179bf\" stroke-width=\"4\"/><circle cx=\"150\" cy=\"70\" r=\"24\" fill=\"#e97645\"/><text x=\"20\" y=\"140\" font-size=\"12\">viewBox = 0 0 300 150</text></svg>"
+    },
+    "comments": {
+      "comment001": "viewBox를 0 0 600 300으로 바꾸어 도형의 화면 크기를 비교하세요."
+    }
+  },
+  "svg-step-02": {
+    "messages": {
+      "display001": "기본 도형과 속성",
+      "display002": "stroke-width: 1 ↔ 12"
+    },
+    "comments": {
+      "comment001": "기본 도형과 속성",
+      "comment002": "실험: stroke-width: 1 → 12",
+      "comment003": "윤곽이 도형 경계 양쪽으로 두꺼워집니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-03": {
+    "messages": {
+      "display001": "경로 명령과 닫기",
+      "display002": "시작점: 20,60 ↔ 80,60",
+      "display003": "All commands after M are relative; Z closes the join"
+    },
+    "comments": {
+      "comment001": "경로 명령과 닫기",
+      "comment002": "실험: 시작점: 20,60 → 80,60",
+      "comment003": "상대 명령 도형은 전체 모양을 유지하며 이동합니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-04": {
+    "messages": {
+      "display001": "베지어 곡선 조절",
+      "display002": "제어점 y: 20 ↔ 120"
+    },
+    "comments": {
+      "comment001": "베지어 곡선 조절",
+      "comment002": "실험: 제어점 y: 20 → 120",
+      "comment003": "곡선의 휘어지는 방향과 높이가 달라집니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-05": {
+    "messages": {
+      "display001": "호와 도넛 조각",
+      "display002": "진행률: 25% ↔ 75%",
+      "display003": "large-arc-flag = "
+    },
+    "comments": {
+      "comment001": "호와 도넛 조각",
+      "comment002": "실험: 진행률: 25% → 75%",
+      "comment003": "large-arc-flag를 바꿔 더 긴 호를 선택해야 합니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-06": {
+    "messages": {
+      "display001": "그룹과 변환 순서",
+      "display002": "회전 중심: 0,0 ↔ 100,100",
+      "display003": "Red ring: fixed hinge; orange: transformed local center"
+    },
+    "comments": {
+      "comment001": "그룹과 변환 순서",
+      "comment002": "실험: 회전 중심: 0,0 → 100,100",
+      "comment003": "바늘이 도는 기준점이 달라집니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-07": {
+    "messages": {
+      "display001": "심벌과 재사용",
+      "display002": "id 규칙: 모두 badge ↔ 각 SVG별 접두사",
+      "display003": "Definition ID: ",
+      "display004": "; unique prefix avoids document-wide collisions"
+    },
+    "comments": {
+      "comment001": "심벌과 재사용",
+      "comment002": "실험: id 규칙: 모두 badge → 각 SVG별 접두사",
+      "comment003": "다른 정의를 잘못 참조하는 충돌을 피합니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-08": {
+    "messages": {
+      "display001": "스타일과 테마",
+      "display002": "색 지정: fill 속성만 ↔ CSS fill 규칙 추가",
+      "display003": "Attribute fill = #7c3aed; CSS rule ",
+      "display004": "overrides",
+      "display005": "absent"
+    },
+    "comments": {
+      "comment001": "스타일과 테마",
+      "comment002": "실험: 색 지정: fill 속성만 → CSS fill 규칙 추가",
+      "comment003": "캐스케이드에 따라 화면 색이 속성 문자열과 달라질 수 있습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-09": {
+    "messages": {
+      "display001": "그라디언트 좌표",
+      "display002": "gradientUnits: objectBoundingBox ↔ userSpaceOnUse"
+    },
+    "comments": {
+      "comment001": "그라디언트 좌표",
+      "comment002": "실험: gradientUnits: objectBoundingBox → userSpaceOnUse",
+      "comment003": "도형마다 늘어나던 색 띠가 공통 좌표에 정렬됩니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-10": {
+    "messages": {
+      "display001": "클립과 마스크",
+      "display002": "마스크: 단색 흰색 ↔ 흰색에서 검정 그라디언트"
+    },
+    "comments": {
+      "comment001": "클립과 마스크",
+      "comment002": "실험: 마스크: 단색 흰색 → 흰색에서 검정 그라디언트",
+      "comment003": "휘도 마스크에서 가시성이 점진적으로 줄어듭니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-11": {
+    "messages": {
+      "display001": "필터 영역과 비용",
+      "display002": "stdDeviation: 2 ↔ 12",
+      "display003": "Fixed filter region: wide blur can clip. Edit x/y/width/height to expand it."
+    },
+    "comments": {
+      "comment001": "필터 영역과 비용",
+      "comment002": "실험: stdDeviation: 2 → 12",
+      "comment003": "그림자가 넓어져 기존 필터 영역 밖에서 잘릴 수 있습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-12": {
+    "messages": {
+      "display001": "텍스트와 데이터 라벨",
+      "display002": "라벨 길이: 짧은 이름 ↔ 긴 한글 이름",
+      "display003": "Long labels intentionally reveal overlap; edit spacing or wrapping policy."
+    },
+    "comments": {
+      "comment001": "텍스트와 데이터 라벨",
+      "comment002": "실험: 라벨 길이: 짧은 이름 → 긴 한글 이름",
+      "comment003": "고정 간격에서는 겹침이 생겨 배치 정책이 필요합니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-13": {
+    "messages": {
+      "display001": "화면 좌표를 SVG로",
+      "display002": "그룹 scale: 1 ↔ 2",
+      "display003": "Group local: "
+    },
+    "comments": {
+      "comment001": "화면 좌표를 SVG로",
+      "comment002": "실험: 그룹 scale: 1 → 2",
+      "comment003": "화면 이동량의 절반이 그룹 로컬 이동량이 됩니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-02": {
+    "messages": {
+      "display001": "<p>Tab to a node; Enter/Space or click selects it.</p><div></div><svg viewBox=\"0 0 500 230\" role=\"group\" aria-label=\"Learning route\" style=\"width:100%;max-height:65%\"></svg><p role=\"status\"></p>",
+      "display002": "Selected: ",
+      "display003": "Input",
+      "display004": "Transform",
+      "display005": "Render",
+      "display006": "Inspect"
+    },
+    "comments": {
+      "comment001": "Native buttons and SVG nodes share one selection function and accessible names."
+    }
+  },
+  "svg-step-15": {
+    "messages": {
+      "display001": "접근 가능한 이름과 설명",
+      "display002": "그림 역할: 정보용 이름 있음 ↔ 장식용 aria-hidden",
+      "display003": "Study progress",
+      "display004": "Three out of four units completed.",
+      "display005": "Decorative SVG excluded from accessibility tree",
+      "display006": "Named image: Study progress; 3 of 4"
+    },
+    "comments": {
+      "comment001": "접근 가능한 이름과 설명",
+      "comment002": "실험: 그림 역할: 정보용 이름 있음 → 장식용 aria-hidden",
+      "comment003": "장식은 탐색에서 제외되고 정보용 이름은 남습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-16": {
+    "messages": {
+      "display001": "포인터 이벤트 영역",
+      "display002": "선택 폭: 2px ↔ 16px",
+      "display003": "Line selected ",
+      "display004": " times",
+      "display005": "Visible 2px; hit width ",
+      "display006": "px"
+    },
+    "comments": {
+      "comment001": "포인터 이벤트 영역",
+      "comment002": "실험: 선택 폭: 2px → 16px",
+      "comment003": "보이는 선은 그대로 두면서 조작 가능한 범위가 넓어집니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-17": {
+    "messages": {
+      "display001": "드래그와 캡처",
+      "display002": "시작 위치: 노드 중앙 ↔ 노드 가장자리",
+      "display003": "Drag an edge; offset retained at "
+    },
+    "comments": {
+      "comment001": "드래그와 캡처",
+      "comment002": "실험: 시작 위치: 노드 중앙 → 노드 가장자리",
+      "comment003": "오프셋을 유지하면 노드가 갑자기 이동하지 않습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-18": {
+    "messages": {
+      "display001": "확대와 이동",
+      "display002": "확대 중심: 원점 ↔ 포인터 위치",
+      "display003": "Reset zoom",
+      "display004": "Wheel zoom ",
+      "display005": "; anchor ",
+      "display006": "pointer",
+      "display007": "origin"
+    },
+    "comments": {
+      "comment001": "확대와 이동",
+      "comment002": "실험: 확대 중심: 원점 → 포인터 위치",
+      "comment003": "포인터 아래 노드가 확대 후에도 같은 화면 점에 머뭅니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-19": {
+    "messages": {
+      "display001": "데이터와 DOM 갱신",
+      "display002": "갱신 방식: 전체 교체 ↔ id 기반 속성 수정",
+      "display003": "Move B",
+      "display004": "Updates ",
+      "display005": "; identity ",
+      "display006": "retained",
+      "display007": "recreated",
+      "display008": " — focus a circle before changing data"
+    },
+    "comments": {
+      "comment001": "데이터와 DOM 갱신",
+      "comment002": "실험: 갱신 방식: 전체 교체 → id 기반 속성 수정",
+      "comment003": "변경되지 않은 요소의 정체성과 포커스가 유지됩니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-20": {
+    "messages": {
+      "display001": "연결선과 그래프 배치",
+      "display002": "노드 위치: 고정 ↔ 한 노드 80단위 이동"
+    },
+    "comments": {
+      "comment001": "연결선과 그래프 배치",
+      "comment002": "실험: 노드 위치: 고정 → 한 노드 80단위 이동",
+      "comment003": "해당 노드와 연결된 경로만 새 위치를 향합니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-21": {
+    "messages": {
+      "display001": "애니메이션과 동작 줄이기",
+      "display002": "동작 설정: 일반 ↔ reduced-motion",
+      "display003": "Move",
+      "display004": "Reduced motion: "
+    },
+    "comments": {
+      "comment001": "애니메이션과 동작 줄이기",
+      "comment002": "실험: 동작 설정: 일반 → reduced-motion",
+      "comment003": "중간 이동 없이 점이 최종 위치에 표시됩니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-22": {
+    "messages": {
+      "display001": "SVG 파일 내보내기",
+      "display002": "스타일 위치: 페이지 CSS만 ↔ SVG 내부 style",
+      "display003": "Serialize standalone SVG",
+      "display004": "Standalone SVG source; internal styles survive export."
+    },
+    "comments": {
+      "comment001": "SVG 파일 내보내기",
+      "comment002": "실험: 스타일 위치: 페이지 CSS만 → SVG 내부 style",
+      "comment003": "독립 파일에서도 지정한 색과 선이 유지됩니다",
+      "comment004": "독립 SVG 소스를 입력란에 출력합니다. 파일 저장은 복사한 소스를 .svg 파일로 저장하세요."
+    }
+  },
+  "svg-step-23": {
+    "messages": {
+      "display001": "큰 데이터와 갱신 비용",
+      "display002": "점 수: 100 ↔ 5000",
+      "display003": " DOM circles created in ",
+      "display004": "ms (CPU submission)"
+    },
+    "comments": {
+      "comment001": "큰 데이터와 갱신 비용",
+      "comment002": "실험: 점 수: 100 → 5000",
+      "comment003": "DOM 생성과 스타일 갱신 부담이 증가할 가능성이 있습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-24": {
+    "messages": {
+      "display001": "가시 영역과 세부 수준",
+      "display002": "축척: 1 ↔ 0.2",
+      "display003": "Visible ",
+      "display004": " / 1000; labels ",
+      "display005": "; scale "
+    },
+    "comments": {
+      "comment001": "가시 영역과 세부 수준",
+      "comment002": "실험: 축척: 1 → 0.2",
+      "comment003": "라벨을 줄이면 겹침이 완화되고 DOM 작업이 줄 수 있습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-25": {
+    "messages": {
+      "display001": "Canvas 대조 렌더러",
+      "display002": "렌더러: SVG ↔ Canvas 2D",
+      "display003": "Selected ",
+      "display004": "manual distance test",
+      "display005": "DOM event target"
+    },
+    "comments": {
+      "comment001": "Canvas 대조 렌더러",
+      "comment002": "실험: 렌더러: SVG → Canvas 2D",
+      "comment003": "선택 기능의 구현 책임과 DOM 수가 달라집니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-step-26": {
+    "messages": {
+      "display001": "지도 편집기 통합",
+      "display002": "가져오기 데이터: 정상 그래프 ↔ 중복 id",
+      "display003": "Import",
+      "display004": "Move selected",
+      "display005": "SVG source",
+      "display006": "Select ",
+      "display007": "Selected "
+    },
+    "comments": {
+      "comment001": "지도 편집기 통합",
+      "comment002": "실험: 가져오기 데이터: 정상 그래프 → 중복 id",
+      "comment003": "새 데이터 적용을 거부하고 편집 상태를 유지합니다",
+      "comment004": "중복 id 검증·키보드 선택·이동·직렬화 실험입니다. 자유 드래그는 17일 예제에서 결합할 수 있습니다."
+    }
+  },
+  "svg-step-27": {
+    "messages": {
+      "display001": "재현 가능한 비교 실험",
+      "display002": "장면 크기: 1000점 ↔ 5000점",
+      "display003": " fixed points — SVG construction ",
+      "display004": "ms / Canvas submission ",
+      "display005": "ms; excludes paint/GPU"
+    },
+    "comments": {
+      "comment001": "재현 가능한 비교 실험",
+      "comment002": "실험: 장면 크기: 1000점 → 5000점",
+      "comment003": "렌더러별 비용 증가 양상이 다를 수 있습니다",
+      "comment004": "독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요."
+    }
+  },
+  "svg-03": {
+    "messages": {
+      "display001": "<label>Points <select><option>100</option><option>1000</option><option>5000</option></select></label> <label>Zoom <input type=\"range\" min=\"1\" max=\"3\" step=\".25\" value=\"1\"></label><p role=\"status\"></p><div style=\"display:flex;gap:8px\"></div><pre></pre>",
+      "display002": "SVG points",
+      "display003": "Canvas points: use SVG dots for keyboard selection",
+      "display004": "Point ",
+      "display005": " points · zoom ",
+      "display006": "\nSVG DOM ",
+      "display007": " ms · Canvas draw ",
+      "display008": " ms\nSVG has per-dot DOM/keyboard targets; Canvas uses manual hit testing. Timings exclude browser paint.",
+      "display009": "Selected point "
+    },
+    "comments": {
+      "comment001": "Identical seeded points. Times measure synchronous construction/draw, NOT GPU paint."
+    }
   }
 }

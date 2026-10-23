@@ -2,11 +2,12 @@
 // 실험: 제어점 y: 20 → 120
 // 곡선의 휘어지는 방향과 높이가 달라집니다
 // 독립 실행 예제: 코드를 수정하고 다시 실행해 결과를 비교하세요.
-const TITLE="베지어 곡선 조절";
-const VARIABLE="제어점 y: 20 ↔ 120";
 /** @param {any} context */
 export function mount(context){
-  const {container,THREE,OrbitControls,PIXI}=context;
+  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;
+const messages=locale==='en'?{"display001":"Adjusting Bézier Curves","display002":"Control point y: 20 ↔ 120"}:{"display001":"베지어 곡선 조절","display002":"제어점 y: 20 ↔ 120"};
+const TITLE=messages.display001;
+const VARIABLE=messages.display002;
   const ui=document.createElement('section');ui.style.cssText='font:13px system-ui;color:#16324a;background:#f8fafc;padding:12px;box-sizing:border-box;max-height:100%;overflow:auto';container.append(ui);
   const heading=document.createElement('strong');heading.textContent=TITLE;ui.append(heading);
   const status=document.createElement('output');status.style.cssText='display:block;margin:8px 0;white-space:pre-wrap';status.setAttribute('aria-live','polite');ui.append(status);

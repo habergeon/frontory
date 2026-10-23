@@ -39,7 +39,7 @@ The linked example is a starting point. It does not implement every task below. 
 
 | Variable | Baseline | Change | Expected change / hypothesis |
 | --- | --- | --- | --- |
-| media Condition | Below 600px | 600px or above | Pre-run hypothesis: A different composition that preserves the information will be selected. Keep other conditions fixed and record the actual result separately after running. |
+| media Condition | 600px or below | Above 600px | Pre-run hypothesis: A different composition that preserves the information will be selected. Keep other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

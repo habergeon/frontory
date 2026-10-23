@@ -61,7 +61,7 @@ charset은 문자의 해석을 지정하고 lang은 문서 언어를 알립니�
 
 [예제 원본](../../../../../../src/labs/html-step-02/example.js) · [실행 환경과 제한](../../../../../examples.md)
 
-lang을 en으로 바꾸고 접근성 언어를 확인하세요. srcdoc 문자열은 이미 유니코드이므로 실제 HTTP charset 오인코딩은 별도 파일로 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다.
+lang을 en으로 바꾸고 접근성 언어를 확인하세요. HTML 문자열은 이미 유니코드이므로 실제 HTTP charset 오인코딩은 별도 파일로 검사합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다.
 
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.

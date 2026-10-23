@@ -1143,7 +1143,8 @@
       "title": "의미와 문서 구조",
       "goal": "접근성 트리에 주 영역과 탐색 영역이 구분된다. 영역 3개의 제목 단계와 이동·동작 요소를 설명한다.",
       "docPath": "/docs/labs/fundamentals/html/01-foundations/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-01/example.js"
     },
     {
       "id": "html-step-02",
@@ -1152,7 +1153,8 @@
       "title": "문서 골격과 문자 인코딩",
       "goal": "document.compatMode가 CSS1Compat인지 확인한다. 한글 본문과 탭 제목을 확인하고 인코딩 값을 남긴다.",
       "docPath": "/docs/labs/fundamentals/html/units/02/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-02/example.js"
     },
     {
       "id": "html-step-03",
@@ -1161,7 +1163,8 @@
       "title": "메타데이터와 문서 제목",
       "goal": "두 페이지의 탭 제목이 서로 구분된다. 모바일 에뮬레이션에서 설정 전후 화면 폭을 기록한다.",
       "docPath": "/docs/labs/fundamentals/html/units/03/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-03/example.js"
     },
     {
       "id": "html-step-04",
@@ -1170,7 +1173,8 @@
       "title": "문단과 텍스트 의미",
       "goal": "본문 3문단이 p 3개로 구성된다. strong과 em의 선택 이유를 각 1개 적는다.",
       "docPath": "/docs/labs/fundamentals/html/units/04/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-04/example.js"
     },
     {
       "id": "html-step-05",
@@ -1179,7 +1183,8 @@
       "title": "목록과 용어 설명",
       "goal": "항목 수가 각각 4·3·2개인지 DOM에서 확인한다. 용어 두 개에 대응하는 설명이 연결된다.",
       "docPath": "/docs/labs/fundamentals/html/units/05/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-05/example.js"
     },
     {
       "id": "html-step-06",
@@ -1188,7 +1193,8 @@
       "title": "링크 경로와 페이지 내 이동",
       "goal": "세 목차 링크가 서로 다른 제목으로 이동한다. 네트워크에서 정상 경로와 실패 경로를 구분한다.",
       "docPath": "/docs/labs/fundamentals/html/units/06/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-06/example.js"
     },
     {
       "id": "html-step-07",
@@ -1197,7 +1203,8 @@
       "title": "이미지와 대체 텍스트",
       "goal": "정보·장식·링크 이미지의 alt 정책 3개를 기록한다. 이미지 실패 상태에서도 링크 목적과 본문 내용을 이해한다.",
       "docPath": "/docs/labs/fundamentals/html/units/07/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-07/example.js"
     },
     {
       "id": "html-step-08",
@@ -1206,7 +1213,8 @@
       "title": "figure와 복합 설명",
       "goal": "자료 2개와 공통 비교 조건을 확인한다. 이미지 차이 설명과 캡션의 역할을 구분해 적는다.",
       "docPath": "/docs/labs/fundamentals/html/units/08/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-08/example.js"
     },
     {
       "id": "html-step-09",
@@ -1215,7 +1223,8 @@
       "title": "표의 행과 열 관계",
       "goal": "3행의 각 값이 어떤 헤더에 속하는지 확인한다. caption에 표 목적과 단위를 명시한다.",
       "docPath": "/docs/labs/fundamentals/html/units/09/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-09/example.js"
     },
     {
       "id": "html-step-10",
@@ -1224,7 +1233,8 @@
       "title": "인용과 기계 판독 날짜",
       "goal": "인용 범위와 출처 링크를 구분한다. 표시 날짜와 datetime이 같은 날짜를 뜻한다.",
       "docPath": "/docs/labs/fundamentals/html/units/10/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-10/example.js"
     },
     {
       "id": "html-step-11",
@@ -1233,7 +1243,8 @@
       "title": "폼의 제출 계약",
       "goal": "검색 후 URL에 q 값이 나타난다. 보조 버튼이 의도치 않은 제출을 하지 않는다.",
       "docPath": "/docs/labs/fundamentals/html/units/11/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-11/example.js"
     },
     {
       "id": "html-step-12",
@@ -1242,7 +1253,8 @@
       "title": "입력 종류와 자동 완성",
       "goal": "세 필드의 label과 name이 각각 연결된다. 올바른 이메일과 잘못된 이메일의 validity를 비교한다.",
       "docPath": "/docs/labs/fundamentals/html/units/12/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-12/example.js"
     },
     {
       "id": "html-step-13",
@@ -1251,7 +1263,8 @@
       "title": "그룹 입력과 선택 의미",
       "goal": "올바른 그룹에서 radio 한 개만 선택된다. checkbox 두 개 선택 시 제출 값 두 개를 확인한다.",
       "docPath": "/docs/labs/fundamentals/html/units/13/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-13/example.js"
     },
     {
       "id": "html-02",
@@ -1260,7 +1273,8 @@
       "title": "폼과 키보드",
       "goal": "Tab과 Enter만으로 정상 제목을 저장한다. 실패 필드의 이름과 설명을 접근성 트리에서 확인한다.",
       "docPath": "/docs/labs/fundamentals/html/02-experiments/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-02/example.js"
     },
     {
       "id": "html-step-15",
@@ -1269,7 +1283,8 @@
       "title": "disabled와 readonly의 차이",
       "goal": "세 입력의 제출 포함 여부를 기록한다. 키보드 이동에서 도달하는 입력을 기록한다.",
       "docPath": "/docs/labs/fundamentals/html/units/15/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-15/example.js"
     },
     {
       "id": "html-step-16",
@@ -1278,7 +1293,8 @@
       "title": "details로 접히는 목차",
       "goal": "키보드로 두 번 토글해 원래 상태로 돌아간다. 열린 상태에서 목차 링크 4개에 도달한다.",
       "docPath": "/docs/labs/fundamentals/html/units/16/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-16/example.js"
     },
     {
       "id": "html-step-17",
@@ -1287,7 +1303,8 @@
       "title": "dialog와 모달 흐름",
       "goal": "모달 안에서 키보드 조작과 Escape 종료를 확인한다. 닫은 뒤 열기 버튼으로 포커스가 돌아오는지 기록한다.",
       "docPath": "/docs/labs/fundamentals/html/units/17/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-17/example.js"
     },
     {
       "id": "html-step-18",
@@ -1296,7 +1313,8 @@
       "title": "미디어 자막과 대체 경로",
       "goal": "자막 큐 2개가 정한 시점에 표시된다. 영상 로딩 실패 때 대본 링크에 접근한다.",
       "docPath": "/docs/labs/fundamentals/html/units/18/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-18/example.js"
     },
     {
       "id": "html-step-19",
@@ -1305,7 +1323,8 @@
       "title": "반응형 이미지 선택",
       "goal": "두 화면의 currentSrc와 실제 표시 폭을 기록한다. 모든 후보에 동일한 의미의 alt를 유지한다.",
       "docPath": "/docs/labs/fundamentals/html/units/19/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-19/example.js"
     },
     {
       "id": "html-step-20",
@@ -1314,7 +1333,8 @@
       "title": "picture와 형식 대체",
       "goal": "두 폭에서 선택 이미지와 구도를 기록한다. source 조건에 맞지 않아도 img가 표시된다.",
       "docPath": "/docs/labs/fundamentals/html/units/20/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-20/example.js"
     },
     {
       "id": "html-step-21",
@@ -1323,7 +1343,8 @@
       "title": "iframe과 포함 콘텐츠 경계",
       "goal": "프레임 목적을 접근성 이름으로 확인한다. 두 정책에서 버튼 실행 여부를 기록한다.",
       "docPath": "/docs/labs/fundamentals/html/units/21/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-21/example.js"
     },
     {
       "id": "html-step-22",
@@ -1332,7 +1353,8 @@
       "title": "template과 반복 콘텐츠",
       "goal": "카드 3개가 표시되고 중복 id가 없다. 각 label 클릭이 해당 카드 입력에 포커스를 준다.",
       "docPath": "/docs/labs/fundamentals/html/units/22/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-22/example.js"
     },
     {
       "id": "html-step-23",
@@ -1341,7 +1363,8 @@
       "title": "스크립트 로딩과 문서 파싱",
       "goal": "세 로딩 방식의 실행 로그와 요소 존재 여부를 기록한다. 의존하는 스크립트가 안정적으로 순서대로 실행되는 구성을 고른다.",
       "docPath": "/docs/labs/fundamentals/html/units/23/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-23/example.js"
     },
     {
       "id": "html-step-24",
@@ -1350,7 +1373,8 @@
       "title": "접근성 이름과 설명",
       "goal": "세 조작의 이름과 설명을 표로 남긴다. 버튼의 화면 문구와 접근성 이름이 일치한다.",
       "docPath": "/docs/labs/fundamentals/html/units/24/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-24/example.js"
     },
     {
       "id": "html-step-25",
@@ -1359,7 +1383,8 @@
       "title": "읽기 순서와 건너뛰기 링크",
       "goal": "첫 키보드 조작에서 바로가기 링크를 사용할 수 있다. 본문 이동 전후 포커스와 스크롤 위치를 기록한다.",
       "docPath": "/docs/labs/fundamentals/html/units/25/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-25/example.js"
     },
     {
       "id": "html-step-26",
@@ -1368,7 +1393,8 @@
       "title": "HTML 오류와 브라우저 복구",
       "goal": "오류 2개의 복구된 DOM을 기록한다. 수정본에서 해당 검증 오류가 0개다.",
       "docPath": "/docs/labs/fundamentals/html/units/26/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-26/example.js"
     },
     {
       "id": "html-step-27",
@@ -1377,7 +1403,8 @@
       "title": "이미지 실패와 확대 점검",
       "goal": "실패 이미지 6개에서도 카드 제목과 동작 목적이 남는다. 두 확대 배율에서 모든 조작에 도달한 기록이 있다.",
       "docPath": "/docs/labs/fundamentals/html/units/27/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-27/example.js"
     },
     {
       "id": "html-03",
@@ -1386,7 +1413,8 @@
       "title": "접근 가능한 학습 카드",
       "goal": "이미지 없이 카드 6개의 주제와 이동 목적을 식별한다. 키보드로 목차 열기와 모든 카드 이동을 수행하고 순서를 기록한다.",
       "docPath": "/docs/labs/fundamentals/html/03-project/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-03/example.js"
     },
     {
       "id": "css-01",

@@ -1193,7 +1193,8 @@
       "title": "Meaning and Document Structure",
       "goal": "The accessibility tree distinguishes the main region from the navigation region. Explain the heading levels and navigation/action elements in 3 regions.",
       "docPath": "/docs/en/labs/fundamentals/html/01-foundations/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-01/example.js"
     },
     {
       "id": "html-step-02",
@@ -1203,7 +1204,8 @@
       "goal": "Check that document.compatMode is CSS1Compat. Check the Korean body text and tab title, and record the encoding value.",
       "docPath": "/docs/en/labs/fundamentals/html/units/02/README.md",
       "seriesId": "html",
-      "exampleNote": "Change lang to en and check the accessibility language. The srcdoc string is already Unicode, so test actual HTTP charset misencoding with a separate file. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+      "exampleReadingSource": "/examples-en/html-step-02/example.js",
+      "exampleNote": "Change lang to en and check the accessibility language. The HTML string is already Unicode, so test actual HTTP charset misencoding with a separate file. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
       "id": "html-step-03",
@@ -1213,6 +1215,7 @@
       "goal": "The tab titles of the two pages are distinguishable. Record the screen width before and after applying the settings in mobile emulation.",
       "docPath": "/docs/en/labs/fundamentals/html/units/03/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-03/example.js",
       "exampleNote": "Inspect the document title and meta. Check mobile viewport effects on a standalone page and an actual mobile device. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1223,6 +1226,7 @@
       "goal": "The 3 body paragraphs consist of 3 p elements. Write 1 reason each for choosing strong and em.",
       "docPath": "/docs/en/labs/fundamentals/html/units/04/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-04/example.js",
       "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1233,6 +1237,7 @@
       "goal": "Check in the DOM that the item counts are 4·3·2 respectively. Descriptions are associated with the two terms.",
       "docPath": "/docs/en/labs/fundamentals/html/units/05/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-05/example.js",
       "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1243,7 +1248,8 @@
       "goal": "The three table-of-contents links navigate to different headings. Distinguish successful and failing paths in the Network panel.",
       "docPath": "/docs/en/labs/fundamentals/html/units/06/README.md",
       "seriesId": "html",
-      "exampleNote": "The example.test links are for examining path resolution; actual documents are not provided. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+      "exampleReadingSource": "/examples-en/html-step-06/example.js",
+      "exampleNote": "The inspection results in this preview show the original href attributes from the current DOM. The base element in head is not copied into Shadow DOM. Check absolute URL resolution with base in a separate HTTP document. Actual documents at example.test are not provided. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, and the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
       "id": "html-step-07",
@@ -1253,6 +1259,7 @@
       "goal": "Record 3 alt policies for informative, decorative, and linked images. The link purpose and body content remain understandable when images fail.",
       "docPath": "/docs/en/labs/fundamentals/html/units/07/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-07/example.js",
       "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1263,6 +1270,7 @@
       "goal": "Check the 2 pieces of material and their shared comparison conditions. Write down the distinct roles of image-difference descriptions and the caption.",
       "docPath": "/docs/en/labs/fundamentals/html/units/08/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-08/example.js",
       "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1273,6 +1281,7 @@
       "goal": "Check which headers each value in the 3 rows belongs to. State the table’s purpose and units in caption.",
       "docPath": "/docs/en/labs/fundamentals/html/units/09/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-09/example.js",
       "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1283,6 +1292,7 @@
       "goal": "Distinguish the quotation’s extent from the source link. The displayed date and datetime refer to the same date.",
       "docPath": "/docs/en/labs/fundamentals/html/units/10/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-10/example.js",
       "exampleNote": "Change datetime to a natural-language value, then compare the inspection result with an HTML validator. The quotation is an example sentence. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1293,7 +1303,8 @@
       "goal": "The q value appears in the URL after a search. The auxiliary button does not submit the form unintentionally.",
       "docPath": "/docs/en/labs/fundamentals/html/units/11/README.md",
       "seriesId": "html",
-      "exampleNote": "Submitting navigates inside the iframe. The inspect button displays FormData from the current source before submission. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+      "exampleReadingSource": "/examples-en/html-step-11/example.js",
+      "exampleNote": "This preview calls preventDefault() in the submit event, so the iframe does not navigate. The inspection button and submit handler display validity and FormData from the current DOM. Complete the assignment to inspect the URL after a GET submission on a separate HTTP page. Scope body/html selectors inside Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
       "id": "html-step-12",
@@ -1303,6 +1314,7 @@
       "goal": "Each of the three fields has the corresponding label association and name. Compare the validity of valid and invalid email addresses.",
       "docPath": "/docs/en/labs/fundamentals/html/units/12/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-12/example.js",
       "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1313,6 +1325,7 @@
       "goal": "Only one radio input can be selected in the appropriate group. Check the two submitted values when two checkbox inputs are selected.",
       "docPath": "/docs/en/labs/fundamentals/html/units/13/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-13/example.js",
       "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1322,7 +1335,8 @@
       "title": "Forms and the Keyboard",
       "goal": "Save a valid title using only Tab and Enter. Check the failing field’s name and description in the accessibility tree.",
       "docPath": "/docs/en/labs/fundamentals/html/02-experiments/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-02/example.js"
     },
     {
       "id": "html-step-15",
@@ -1332,6 +1346,7 @@
       "goal": "Record whether each of the three inputs is included in submission. Record which inputs are reachable through keyboard navigation.",
       "docPath": "/docs/en/labs/fundamentals/html/units/15/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-15/example.js",
       "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1342,6 +1357,7 @@
       "goal": "Toggle twice with the keyboard to return to the original state. Reach the 4 table-of-contents links while it is open.",
       "docPath": "/docs/en/labs/fundamentals/html/units/16/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-16/example.js",
       "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1352,6 +1368,7 @@
       "goal": "Check keyboard operation inside the modal and closing with Escape. Record whether focus returns to the open button after closing.",
       "docPath": "/docs/en/labs/fundamentals/html/units/17/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-17/example.js",
       "exampleNote": "Dedicated helper code connects the open button to showModal. Compare the dialog open attribute with modal focus behavior. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1362,6 +1379,7 @@
       "goal": "The 2 caption cues appear at their specified times. Access the transcript link when the video fails to load.",
       "docPath": "/docs/en/labs/fundamentals/html/units/18/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-18/example.js",
       "exampleNote": "External HTTP example: provides a 6-second synthetic MP4, Korean VTT, a transcript, and switching between success/failure cases. This is a silent synthetic fixture; evaluate accessibility for actual speech with a separate video."
     },
     {
@@ -1372,6 +1390,7 @@
       "goal": "Record currentSrc and the actual display width on two screens. Keep alt text with the same meaning for every candidate.",
       "docPath": "/docs/en/labs/fundamentals/html/units/19/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-19/example.js",
       "exampleNote": "300/600/1200w SVG candidates are selected through actual srcset behavior. sizes, DPR, and the preview viewport affect selection. The data URLs are not for comparing network transfer sizes. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1382,6 +1401,7 @@
       "goal": "Record the selected image and composition at two widths. img is displayed even when the source conditions do not match.",
       "docPath": "/docs/en/labs/fundamentals/html/units/20/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-20/example.js",
       "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1392,6 +1412,7 @@
       "goal": "Check the frame’s purpose through its accessible name. Record whether the button runs under the two policies.",
       "docPath": "/docs/en/labs/fundamentals/html/units/21/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-21/example.js",
       "exampleNote": "External HTTP example: switches between sandbox=\"\" and allow-scripts on the same guide.html and observes button·postMessage behavior."
     },
     {
@@ -1402,6 +1423,7 @@
       "goal": "3 cards are displayed with no duplicate ids. Clicking each label focuses the input in the corresponding card.",
       "docPath": "/docs/en/labs/fundamentals/html/units/22/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-22/example.js",
       "exampleNote": "Helper code clones the template 3 times and associates for/id with unique suffixes. Try changing the template content in the source. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1412,6 +1434,7 @@
       "goal": "Record execution logs and whether the element exists for the three loading methods. Choose a configuration that reliably executes dependent scripts in order.",
       "docPath": "/docs/en/labs/fundamentals/html/units/23/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-23/example.js",
       "exampleNote": "External HTTP example: actually loads first.js/second.js and records parsing/execution order for classic/defer/async scripts."
     },
     {
@@ -1422,6 +1445,7 @@
       "goal": "Record the names and descriptions of the three controls in a table. The button’s visible text and accessible name match.",
       "docPath": "/docs/en/labs/fundamentals/html/units/24/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-24/example.js",
       "exampleNote": "Change aria-label to differ from the visible text, and inspect the actual computed name in the browser accessibility panel. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1432,6 +1456,7 @@
       "goal": "The shortcut link is available on the first keyboard interaction. Record focus and scroll positions before and after moving to the main content.",
       "docPath": "/docs/en/labs/fundamentals/html/units/25/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-25/example.js",
       "exampleNote": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1442,6 +1467,7 @@
       "goal": "Record the recovered DOM for 2 errors. The corrected version has 0 of the relevant validation errors.",
       "docPath": "/docs/en/labs/fundamentals/html/units/26/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-26/example.js",
       "exampleNote": "The inspection result displays the body tree recovered by the browser. Change p/div into siblings and compare the result with HTML validator diagnostics. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1452,6 +1478,7 @@
       "goal": "Card titles and action purposes remain with 6 failed images. There is a record of reaching every control at both zoom levels.",
       "docPath": "/docs/en/labs/fundamentals/html/units/27/README.md",
       "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-step-27/example.js",
       "exampleNote": "Reduce preview width to check reflow, and separately test actual browser zoom at 200%·400%. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1461,7 +1488,8 @@
       "title": "Accessible Learning Cards",
       "goal": "Identify the topics and navigation purposes of 6 cards without images. Use the keyboard to open the table of contents and navigate all cards, and record the order.",
       "docPath": "/docs/en/labs/fundamentals/html/03-project/README.md",
-      "seriesId": "html"
+      "seriesId": "html",
+      "exampleReadingSource": "/examples-en/html-03/example.js"
     },
     {
       "id": "css-01",

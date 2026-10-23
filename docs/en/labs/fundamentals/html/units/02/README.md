@@ -61,7 +61,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/html-step-02/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-Change lang to en and check the accessibility language. The srcdoc string is already Unicode, so test actual HTTP charset misencoding with a separate file. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted.
+Change lang to en and check the accessibility language. The HTML string is already Unicode, so test actual HTTP charset misencoding with a separate file. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

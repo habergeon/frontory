@@ -61,7 +61,7 @@ id를 가리키는 링크는 문서 내부 위치로 이동합니다. 중복 id�
 
 [예제 원본](../../../../../../src/labs/html-step-06/example.js) · [실행 환경과 제한](../../../../../examples.md)
 
-example.test 링크는 경로 해석용이며 실제 문서는 제공하지 않습니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다.
+이 미리보기의 검사 결과는 현재 DOM의 원래 href 속성을 표시합니다. head의 base는 Shadow DOM에 복사되지 않습니다. base를 포함한 절대 URL 해석은 별도 HTTP 문서에서 확인하세요. example.test의 실제 문서는 제공하지 않습니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다.
 
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.

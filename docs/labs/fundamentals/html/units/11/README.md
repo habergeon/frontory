@@ -61,7 +61,7 @@ name은 제출 데이터의 키가 됩니다. id는 label 연결 등에 쓰이�
 
 [예제 원본](../../../../../../src/labs/html-step-11/example.js) · [실행 환경과 제한](../../../../../examples.md)
 
-제출 시 iframe 내부가 이동합니다. 검사 버튼은 현재 소스의 FormData를 제출 전에 표시합니다. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다.
+이 미리보기는 submit 이벤트에서 preventDefault()를 호출하므로 iframe이 이동하지 않습니다. 검사 버튼과 제출 핸들러는 현재 DOM의 유효성과 FormData를 표시합니다. GET 제출 뒤 URL을 확인하는 과제는 별도 HTTP 페이지에서 수행하세요. Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다.
 
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.

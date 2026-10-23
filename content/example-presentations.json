@@ -747,5 +747,538 @@
     "comments": {
       "inlineExplanation": "멱등성: 중복 호출은 아무 효과가 없습니다."
     }
+  },
+  "html-01": {
+    "messages": {
+      "display001": "Tab으로 이동할 수 있나요? 제목과 문단의 역할은 무엇인가요?",
+      "display002": "HTML 구조를 편집해 보세요.",
+      "display003": "의미 있는 문서 구조",
+      "display004": "나의 학습 카드",
+      "display005": "오늘의 목표",
+      "display006": "자가 점검",
+      "display007": "주제"
+    },
+    "comments": {
+      "title": "아래 문자열이 실제 HTML로 삽입됩니다. heading 순서와 label 연결을 확인하세요."
+    }
+  },
+  "html-step-02": {
+    "messages": {
+      "title": "문서 골격과 문자 인코딩",
+      "note": "lang을 en으로 바꾸고 접근성 언어를 확인하세요. HTML 문자열은 이미 유니코드이므로 실제 HTTP charset 오인코딩은 별도 파일로 검사합니다. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "문자 인코딩 실험",
+      "display006": "HTML 소스",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "한글 문서",
+      "display010": "적용"
+    },
+    "comments": {
+      "title": "문서 골격과 문자 인코딩: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-03": {
+    "messages": {
+      "title": "메타데이터와 문서 제목",
+      "note": "문서 title과 meta를 검사합니다. 모바일 viewport 효과는 독립 페이지와 실제 모바일 장치에서 확인하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "head의 title, description, viewport를 편집하세요.",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "Grid 레이아웃 실험 기록",
+      "display007": "Grid 연구 기록",
+      "display008": "HTML 소스",
+      "display009": "CSS 소스",
+      "display010": "컨테이너 폭",
+      "display011": "적용"
+    },
+    "comments": {
+      "title": "메타데이터와 문서 제목: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-04": {
+    "messages": {
+      "title": "문단과 텍스트 의미",
+      "note": "br 반복 → p 요소를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": " 결과를 저장하기 전에 조건을 확인하세요.",
+      "display004": "한 개와 문단 간격을 비교합니다.",
+      "display005": "외부 환경에서 실행할 요소: ",
+      "display006": "현재 DOM / 스타일 검사",
+      "display007": "첫 번째 실험은 ",
+      "display008": "HTML 소스",
+      "display009": "만 바꿉니다.",
+      "display010": "CSS 소스",
+      "display011": "컨테이너 폭",
+      "display012": "변수 한 개",
+      "display013": "실험 노트",
+      "display014": "주의:",
+      "display015": "줄바꿈",
+      "display016": "적용"
+    },
+    "comments": {
+      "title": "문단과 텍스트 의미: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-05": {
+    "messages": {
+      "title": "목록과 용어 설명",
+      "note": "ul → ol를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "실제로 확인한 결과",
+      "display006": "HTML 소스",
+      "display007": "실행 전 예상",
+      "display008": "CSS 소스",
+      "display009": "컨테이너 폭",
+      "display010": "준비와 순서",
+      "display011": "조건 고정",
+      "display012": "결과 기록",
+      "display013": "브라우저",
+      "display014": "편집기",
+      "display015": "적용",
+      "display016": "실행",
+      "display017": "가설",
+      "display018": "관찰"
+    },
+    "comments": {
+      "title": "목록과 용어 설명: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-06": {
+    "messages": {
+      "title": "링크 경로와 페이지 내 이동",
+      "note": "이 미리보기의 검사 결과는 현재 DOM의 원래 href 속성을 표시합니다. head의 base는 Shadow DOM에 복사되지 않습니다. base를 포함한 절대 URL 해석은 별도 HTTP 문서에서 확인하세요. example.test의 실제 문서는 제공하지 않습니다. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "href를 바꾸고 검사 결과의 원래 href 속성을 비교하세요. base를 포함한 절대 URL 해석은 별도 HTTP 문서에서 확인하세요.",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "현재 폴더 상세",
+      "display007": "부모 폴더 상세",
+      "display008": "HTML 소스",
+      "display009": "CSS 소스",
+      "display010": "컨테이너 폭",
+      "display011": "결과로 이동",
+      "display012": "상대 경로",
+      "display013": "적용",
+      "display014": "결과"
+    },
+    "comments": {
+      "title": "링크 경로와 페이지 내 이동: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-07": {
+    "messages": {
+      "title": "이미지와 대체 텍스트",
+      "note": "정상 src → 없는 경로를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "src를 missing.png로 바꾸고 대체 텍스트를 확인하세요.",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "파란 배경 중앙의 노란 원",
+      "display007": "색상 실험 상세 보기",
+      "display008": "HTML 소스",
+      "display009": "CSS 소스",
+      "display010": "컨테이너 폭",
+      "display011": "이미지 목적",
+      "display012": "설명 ",
+      "display013": "장식 ",
+      "display014": "적용"
+    },
+    "comments": {
+      "title": "이미지와 대체 텍스트: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-08": {
+    "messages": {
+      "title": "figure와 복합 설명",
+      "note": "일반 p → figcaption를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "같은 이미지에서 grayscale만 0에서 1로 변경했습니다.",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "기준: 파란 배경 노란 원",
+      "display007": "HTML 소스",
+      "display008": "CSS 소스",
+      "display009": "컨테이너 폭",
+      "display010": "변경: 흑백",
+      "display011": "적용"
+    },
+    "comments": {
+      "title": "figure와 복합 설명: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-09": {
+    "messages": {
+      "title": "표의 행과 열 관계",
+      "note": "td → th scope를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "동일 조건 렌더링 실험",
+      "display006": "HTML 소스",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "시간(ms)",
+      "display010": "적용",
+      "display011": "방법",
+      "display012": "기준",
+      "display013": "변경"
+    },
+    "comments": {
+      "title": "표의 행과 열 관계: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-10": {
+    "messages": {
+      "title": "인용과 기계 판독 날짜",
+      "note": "datetime을 자연어로 바꾼 뒤 검사 결과와 HTML validator를 비교하세요. 인용은 예시 문장입니다. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "출처: ",
+      "display009": "학습일 ",
+      "display010": "적용"
+    },
+    "comments": {
+      "title": "인용과 기계 판독 날짜: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-11": {
+    "messages": {
+      "title": "폼의 제출 계약",
+      "note": "이 미리보기는 submit 이벤트에서 preventDefault()를 호출하므로 iframe이 이동하지 않습니다. 검사 버튼과 제출 핸들러는 현재 DOM의 유효성과 FormData를 표시합니다. GET 제출 뒤 URL을 확인하는 과제는 별도 HTTP 페이지에서 수행하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "검색 제출",
+      "display009": "일반 버튼",
+      "display010": "적용",
+      "display011": "검색"
+    },
+    "comments": {
+      "title": "폼의 제출 계약: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-12": {
+    "messages": {
+      "title": "입력 종류와 자동 완성",
+      "note": "text → email를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "유효성 검사",
+      "display009": "학습 분 ",
+      "display010": "이메일 ",
+      "display011": "전화 ",
+      "display012": "적용"
+    },
+    "comments": {
+      "title": "입력 종류와 자동 완성: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-13": {
+    "messages": {
+      "title": "그룹 입력과 선택 의미",
+      "note": "모두 level → 각각 다른 name를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "관심 주제",
+      "display009": "난이도",
+      "display010": "적용",
+      "display011": "초급",
+      "display012": "고급"
+    },
+    "comments": {
+      "title": "그룹 입력과 선택 의미: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-02": {
+    "messages": {
+      "display001": "Tab으로 이동하고 제목 입력 중 Enter로 제출해 보세요. 데이터는 이번 실행에서만 유지됩니다.",
+      "display002": "공백을 제외하고 3~60자로 작성하세요.",
+      "display003": "필기 제목 (필수, 3자 이상)",
+      "display004": "제목을 3자 이상 입력하세요.",
+      "display005": "키보드로 작성하는 필기 폼",
+      "display006": "필기를 추가했습니다.",
+      "display007": "필기 저장",
+      "display008": "초기화",
+      "display009": "내용"
+    },
+    "comments": {}
+  },
+  "html-step-15": {
+    "messages": {
+      "title": "disabled와 readonly의 차이",
+      "note": "readonly → disabled를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "읽기 전용 ",
+      "display009": "비활성 ",
+      "display010": "일반 ",
+      "display011": "적용"
+    },
+    "comments": {
+      "title": "disabled와 readonly의 차이: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-16": {
+    "messages": {
+      "title": "details로 접히는 목차",
+      "note": "없음 → 있음를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 학습 목차",
+      "display006": "HTML 소스",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "문서 구조",
+      "display010": "이미지",
+      "display011": "접근성",
+      "display012": "적용",
+      "display013": "폼"
+    },
+    "comments": {
+      "title": "details로 접히는 목차: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-17": {
+    "messages": {
+      "title": "dialog와 모달 흐름",
+      "note": "전용 보조 코드가 열기 버튼을 showModal에 연결합니다. dialog의 open 속성과 모달 초점 동작을 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "Tab, Escape와 닫기 뒤 포커스를 확인하세요.",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "HTML 소스",
+      "display007": "대화상자 열기",
+      "display008": "CSS 소스",
+      "display009": "컨테이너 폭",
+      "display010": "실험 저장",
+      "display011": "적용",
+      "display012": "닫기"
+    },
+    "comments": {
+      "title": "dialog와 모달 흐름: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-18": {
+    "messages": {
+      "title": "미디어 자막과 대체 경로",
+      "note": "첨부 companion 폴더에 index.html, 6초 합성 sample.mp4, captions.vtt, transcript.html, README.md를 제공합니다. 실제 재생·자막·실패 전환은 해당 폴더를 로컬 HTTP 서버로 열어 검사하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "영상 재생을 지원하지 않습니다.",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "HTML 소스",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "대본 읽기",
+      "display010": "적용",
+      "display011": "대본"
+    },
+    "comments": {
+      "title": "미디어 자막과 대체 경로: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-19": {
+    "messages": {
+      "title": "반응형 이미지 선택",
+      "note": "300/600/1200w SVG 후보가 실제 srcset으로 선택됩니다. sizes와 DPR 및 미리보기 viewport가 선택에 영향을 줍니다. data URL은 네트워크 전송량 비교용이 아닙니다. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "검사에서 currentSrc를 확인하세요.",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "선택된 후보의 너비와 색",
+      "display007": "HTML 소스",
+      "display008": "CSS 소스",
+      "display009": "컨테이너 폭",
+      "display010": "적용"
+    },
+    "comments": {
+      "title": "반응형 이미지 선택: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-20": {
+    "messages": {
+      "title": "picture와 형식 대체",
+      "note": "600px 이하 → 600px 초과를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "좁은 화면은 산호색 정사각, 넓은 화면은 노란 원",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "HTML 소스",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "적용"
+    },
+    "comments": {
+      "title": "picture와 형식 대체: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-21": {
+    "messages": {
+      "title": "iframe과 포함 콘텐츠 경계",
+      "note": "sandbox에 allow-scripts를 추가해 비교하세요. 상위 미리보기 CSP도 적용되므로 스크립트 차단이 sandbox만의 결과라고 단정하지 마세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "스크립트 권한이 없는 내부 문서입니다.",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "분리된 안내 문서",
+      "display007": "HTML 소스",
+      "display008": "CSS 소스",
+      "display009": "컨테이너 폭",
+      "display010": "적용",
+      "display011": "안내"
+    },
+    "comments": {
+      "title": "iframe과 포함 콘텐츠 경계: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-22": {
+    "messages": {
+      "title": "template과 반복 콘텐츠",
+      "note": "보조 코드가 template을 3회 복제하고 for/id를 고유 접미사로 연결합니다. 소스의 template 내용을 바꿔보세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "CSS 소스",
+      "display007": "컨테이너 폭",
+      "display008": "적용",
+      "display009": "제목"
+    },
+    "comments": {
+      "title": "template과 반복 콘텐츠: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-23": {
+    "messages": {
+      "title": "스크립트 로딩과 문서 파싱",
+      "note": "첨부 index.html, first.js, second.js, README.md로 실제 로딩 실험을 제공합니다. 이 미리보기는 소스 구조를 검사하며 일반/defer/async의 실행 순서는 companion 폴더의 로컬 HTTP 페이지에서 관찰하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "Network 지연을 적용하고 두 실제 JS 파일에서 target 존재와 실행 시점을 기록하세요.",
+      "display004": "외부 환경에서 실행할 요소: ",
+      "display005": "현재 DOM / 스타일 검사",
+      "display006": "파싱과 스크립트",
+      "display007": "HTML 소스",
+      "display008": "CSS 소스",
+      "display009": "컨테이너 폭",
+      "display010": "적용"
+    },
+    "comments": {
+      "title": "스크립트 로딩과 문서 파싱: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-24": {
+    "messages": {
+      "title": "접근성 이름과 설명",
+      "note": "aria-label을 보이는 텍스트와 다르게 바꾸고 브라우저 접근성 패널에서 실제 계산된 이름을 검사하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "최대 40자입니다.",
+      "display006": "HTML 소스",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "메모 삭제",
+      "display010": "기록 제목",
+      "display011": "적용",
+      "display012": "저장"
+    },
+    "comments": {
+      "title": "접근성 이름과 설명: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-25": {
+    "messages": {
+      "title": "읽기 순서와 건너뛰기 링크",
+      "note": "Tab 반복 → 건너뛰기 링크를 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "HTML 소스",
+      "display006": "본문 바로가기",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "설정 열기",
+      "display010": "둘째 카드",
+      "display011": "첫 카드",
+      "display012": "적용",
+      "display013": "소개",
+      "display014": "기록",
+      "display015": "설정",
+      "display016": "본문"
+    },
+    "comments": {
+      "title": "읽기 순서와 건너뛰기 링크: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-26": {
+    "messages": {
+      "title": "HTML 오류와 브라우저 복구",
+      "note": "검사 결과에 브라우저가 복구한 body 트리를 표시합니다. p/div를 형제로 수정하고 HTML validator의 진단과 비교하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "외부 환경에서 실행할 요소: ",
+      "display004": "현재 DOM / 스타일 검사",
+      "display005": "잘못 중첩된 블록",
+      "display006": "HTML 소스",
+      "display007": "CSS 소스",
+      "display008": "컨테이너 폭",
+      "display009": "문단 시작",
+      "display010": "문단 끝",
+      "display011": "적용",
+      "display012": "바깥",
+      "display013": "안쪽"
+    },
+    "comments": {
+      "title": "HTML 오류와 브라우저 복구: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-step-27": {
+    "messages": {
+      "title": "이미지 실패와 확대 점검",
+      "note": "미리보기 폭을 줄여 reflow를 확인하고 실제 브라우저 200%·400% 확대도 별도로 검사하세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.",
+      "display003": "텍스트 내용과 설명 링크를 이미지 밖에 유지합니다.",
+      "display004": "키보드 접근과 확대 시 가로 넘침을 점검하세요.",
+      "display005": "변수 하나를 변경하는 실험 흐름",
+      "display006": "외부 환경에서 실행할 요소: ",
+      "display007": "현재 DOM / 스타일 검사",
+      "display008": "실패해도 읽을 수 있는 카드",
+      "display009": "실험 상세 설명",
+      "display010": "HTML 소스",
+      "display011": "CSS 소스",
+      "display012": "컨테이너 폭",
+      "display013": "적용",
+      "display014": "저장"
+    },
+    "comments": {
+      "title": "이미지 실패와 확대 점검: 실제 HTML/CSS 실험"
+    }
+  },
+  "html-03": {
+    "messages": {
+      "display001": "응답 순서는 요청 순서와 다를 수 있습니다. 최신 요청 ID를 확인하여 이전 응답을 무시합니다.",
+      "display002": "생성, 사용, 정리의 세 단계가 왼쪽에서 오른쪽으로 이어지는 그림",
+      "display003": "요청 A보다 나중에 보낸 요청 B의 응답이 먼저 도착하는 순서도",
+      "display004": "브라우저 확대 200%와 Tab/Enter를 시험하세요.",
+      "display005": "이미지 실패: 대체 텍스트와 본문으로 의미를 확인하세요.",
+      "display006": "타이머와 이벤트는 화면을 제거할 때 함께 정리합니다.",
+      "display007": "이미지 없이도 읽히는 학습 카드",
+      "display008": "지연 Promise 만들기",
+      "display009": "요청 ID 비교하기",
+      "display010": "이전 요청 취소하기",
+      "display011": "반복 정리의 안전성",
+      "display012": "이미지 실패 재현",
+      "display013": "1. 요청과 응답",
+      "display014": "2. 자원 수명",
+      "display015": "이미지 복구됨",
+      "display016": "타이머 취소",
+      "display017": "이벤트 해제",
+      "display018": "학습 단위",
+      "display019": "학습 목차",
+      "display020": "점검 항목"
+    },
+    "comments": {
+      "inlineExplanation": "잘못된 로컬 data URI로 네트워크 없이 이미지 실패를 만듭니다."
+    }
   }
 }

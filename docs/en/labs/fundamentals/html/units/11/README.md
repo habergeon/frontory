@@ -61,7 +61,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/html-step-11/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-Submitting navigates inside the iframe. The inspect button displays FormData from the current source before submission. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted.
+This preview calls preventDefault() in the submit event, so the iframe does not navigate. The inspection button and submit handler display validity and FormData from the current DOM. Complete the assignment to inspect the URL after a GET submission on a separate HTTP page. Scope body/html selectors inside Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

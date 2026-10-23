@@ -510,7 +510,7 @@
       }
     },
     "html-step-20": {
-      "sourceHash": "904b20da61542965c749a2c20fe1115d9a61baa0735c1dde590f07b22b2d5aa3",
+      "sourceHash": "1fcec3945313fa534997dcc83fe9436e4d57a4379a2c1ed1ba061765c20433c1",
       "values": {
         "title": "picture and Format Fallbacks",
         "prerequisites": "The work and experiment records from Unit 19, “Responsive Image Selection”.",
@@ -529,8 +529,8 @@
         "questions.0": "Is picture essential if only the resolution differs?",
         "questions.1": "Does the alt text remain valid when the composition changes?",
         "variables.0.name": "media Condition",
-        "variables.0.baseline": "Below 600px",
-        "variables.0.change": "600px or above",
+        "variables.0.baseline": "600px or below",
+        "variables.0.change": "Above 600px",
         "variables.0.expected": "Pre-run hypothesis: A different composition that preserves the information will be selected. Keep other conditions fixed and record the actual result separately after running.",
         "references.0.title": "MDN HTML"
       }

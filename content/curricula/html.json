@@ -964,8 +964,8 @@
       "variables": [
         {
           "name": "media 조건",
-          "baseline": "600px 미만",
-          "change": "600px 이상",
+          "baseline": "600px 이하",
+          "change": "600px 초과",
           "expected": "실행 전 가설: 정보를 유지한 다른 구도가 선택될 것이다. 다른 조건은 고정하고 실행 후 실제 결과를 따로 기록합니다."
         }
       ],

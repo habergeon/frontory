@@ -1,152 +1,664 @@
 {
   "html-step-02": {
-    "sourceHash": "898ed085a0e75cee7e7657178f352463f7ee080f4074241da44a7e4717c114c1",
+    "sourceHash": "47165fd47b8233aceed2a16a5fd0eb82634871f3d86bfc6f8aacb8b61a14db5e",
     "values": {
-      "note": "Change lang to en and check the accessibility language. The srcdoc string is already Unicode, so test actual HTTP charset misencoding with a separate file. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+      "note": "Change lang to en and check the accessibility language. The HTML string is already Unicode, so test actual HTTP charset misencoding with a separate file. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "ecf48c5545aa0b7e7c777b0d40b715d8fb2ecf2fa16c25aaab09ac4aee8036eb",
+      "values": {
+        "comments.title": "Document Skeleton and Character Encoding: actual HTML/CSS experiment",
+        "messages.title": "Document Skeleton and Character Encoding",
+        "messages.note": "Change lang to en and check the accessibility language. The HTML string is already Unicode, so test actual HTTP charset misencoding with a separate file. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Element to run in an external environment: ",
+        "messages.display004": "Inspect current DOM / styles",
+        "messages.display005": "Character encoding experiment",
+        "messages.display006": "HTML source",
+        "messages.display007": "CSS source",
+        "messages.display008": "Container width",
+        "messages.display009": "Korean document",
+        "messages.display010": "Apply"
+      }
     }
   },
   "html-step-03": {
-    "sourceHash": "de1a77570110be897da2eb73313e62cd3ba5f93ccc804fe1991779eadad0e412",
+    "sourceHash": "64f3c6057eff4f27d9d394e4a802a249d76d437a970374739936684cd00bee1d",
     "values": {
       "note": "Inspect the document title and meta. Check mobile viewport effects on a standalone page and an actual mobile device. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "724322e9bae5791ee257ea3df4dc894127bd56bef83755775f32aea3aa6b9376",
+      "values": {
+        "comments.title": "Metadata and Document Titles: actual HTML/CSS experiment",
+        "messages.title": "Metadata and Document Titles",
+        "messages.note": "Inspect the document title and meta. Check mobile viewport effects on a standalone page and an actual mobile device. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Edit title, description, and viewport in head.",
+        "messages.display004": "Element to run in an external environment: ",
+        "messages.display005": "Inspect current DOM / styles",
+        "messages.display006": "Grid layout experiment notes",
+        "messages.display007": "Grid research notes",
+        "messages.display008": "HTML source",
+        "messages.display009": "CSS source",
+        "messages.display010": "Container width",
+        "messages.display011": "Apply"
+      }
     }
   },
   "html-step-04": {
-    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "sourceHash": "49930976fe18d4173af36a10eb46fe4c1305bf52054c184d475f759a47698507",
     "values": {
       "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "920d197180aec22ff8d2de5bc9c51f04c0a5e7c1a4b5b4550b5b979b1fa8a260",
+      "values": {
+        "comments.title": "Paragraphs and Text Semantics: actual HTML/CSS experiment",
+        "messages.title": "Paragraphs and Text Semantics",
+        "messages.note": "Compare Repeated br → p elements. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": " Check the conditions before saving the results.",
+        "messages.display004": " is compared with paragraph spacing.",
+        "messages.display005": "Element to run in an external environment: ",
+        "messages.display006": "Inspect current DOM / styles",
+        "messages.display007": "The first experiment changes ",
+        "messages.display008": "HTML source",
+        "messages.display009": " only.",
+        "messages.display010": "CSS source",
+        "messages.display011": "Container width",
+        "messages.display012": "one variable",
+        "messages.display013": "Experiment notes",
+        "messages.display014": "Caution:",
+        "messages.display015": "A line break",
+        "messages.display016": "Apply"
+      }
     }
   },
   "html-step-05": {
-    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "sourceHash": "01fc6f5bcd267980c127fea3ac98f4f100986a85a920330d536df38e8c919595",
     "values": {
       "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "706737b5754ef35d6fc1e4bd84cad73acba69b8ff6e3eccebc1ab0d5f234c308",
+      "values": {
+        "comments.title": "Lists and Term Descriptions: actual HTML/CSS experiment",
+        "messages.title": "Lists and Term Descriptions",
+        "messages.note": "Compare ul → ol. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Element to run in an external environment: ",
+        "messages.display004": "Inspect current DOM / styles",
+        "messages.display005": "Actual observed result",
+        "messages.display006": "HTML source",
+        "messages.display007": "Prediction before running",
+        "messages.display008": "CSS source",
+        "messages.display009": "Container width",
+        "messages.display010": "Preparation and order",
+        "messages.display011": "Keep conditions fixed",
+        "messages.display012": "Record results",
+        "messages.display013": "Browser",
+        "messages.display014": "Editor",
+        "messages.display015": "Apply",
+        "messages.display016": "Run",
+        "messages.display017": "Hypothesis",
+        "messages.display018": "Observation"
+      }
     }
   },
   "html-step-06": {
-    "sourceHash": "e6c41a1a925ddd4a0eec4ba300f327ed7a1597052e5b7420c69fa472ffc86426",
+    "sourceHash": "a44fd18d8591d661899d040ef0431083c5fd73b6d6704a596521d776dbed5bb3",
     "values": {
-      "note": "The example.test links are for examining path resolution; actual documents are not provided. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+      "note": "The inspection results in this preview show the original href attributes from the current DOM. The base element in head is not copied into Shadow DOM. Check absolute URL resolution with base in a separate HTTP document. Actual documents at example.test are not provided. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, and the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "ba2176b961f3615c0a15d9cc328681988a938575eedf10024d101268cb24adcb",
+      "values": {
+        "comments.title": "Link Paths and In-page Navigation: actual HTML/CSS experiment",
+        "messages.title": "Link Paths and In-page Navigation",
+        "messages.note": "The inspection results in this preview show the original href attributes from the current DOM. The base element in head is not copied into Shadow DOM. Check absolute URL resolution with base in a separate HTTP document. Actual documents at example.test are not provided. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Change href and compare the original href attributes in the inspection results. Check absolute URL resolution with base in a separate HTTP document.",
+        "messages.display004": "Element to run in an external environment: ",
+        "messages.display005": "Inspect current DOM / styles",
+        "messages.display006": "Details in the current folder",
+        "messages.display007": "Details in the parent folder",
+        "messages.display008": "HTML source",
+        "messages.display009": "CSS source",
+        "messages.display010": "Container width",
+        "messages.display011": "Go to results",
+        "messages.display012": "Relative paths",
+        "messages.display013": "Apply",
+        "messages.display014": "Results"
+      }
     }
   },
   "html-step-07": {
-    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "sourceHash": "369896859531dc6de0f7d0323958cfc188116aadf12e10fc34c98e3e133ca502",
     "values": {
       "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "a5cfffaaca8132104ff13ff54b633ff2f97563f092f689d8b968bad7f34fcd13",
+      "values": {
+        "comments.title": "Images and Alternative Text: actual HTML/CSS experiment",
+        "messages.title": "Images and Alternative Text",
+        "messages.note": "Compare Valid src → Nonexistent path. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Change src to missing.png and check the alternative text.",
+        "messages.display004": "Element to run in an external environment: ",
+        "messages.display005": "Inspect current DOM / styles",
+        "messages.display006": "A yellow circle centered on a blue background",
+        "messages.display007": "View color experiment details",
+        "messages.display008": "HTML source",
+        "messages.display009": "CSS source",
+        "messages.display010": "Container width",
+        "messages.display011": "Image purpose",
+        "messages.display012": "Informative ",
+        "messages.display013": "Decorative ",
+        "messages.display014": "Apply"
+      }
     }
   },
   "html-step-08": {
-    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "sourceHash": "4bd3d6c3395d11e506cf8929fe24d0790d7cc863dad67f7208538967f1afe5e8",
     "values": {
       "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "d246d7cde5d1b853d95b96cf23c72a8a0b78190dfb1b9d6c8d1f0fe391919926",
+      "values": {
+        "comments.title": "figure and Combined Descriptions: actual HTML/CSS experiment",
+        "messages.title": "figure and Combined Descriptions",
+        "messages.note": "Compare Regular p → figcaption. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Only grayscale was changed from 0 to 1 on the same image.",
+        "messages.display004": "Element to run in an external environment: ",
+        "messages.display005": "Inspect current DOM / styles",
+        "messages.display006": "Baseline: yellow circle on a blue background",
+        "messages.display007": "HTML source",
+        "messages.display008": "CSS source",
+        "messages.display009": "Container width",
+        "messages.display010": "Changed: grayscale",
+        "messages.display011": "Apply"
+      }
     }
   },
   "html-step-09": {
-    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "sourceHash": "07ccc6086c2581d2e2b80cf43eea6d7435a45431d7a6ec10b9bf10d6085ccfab",
     "values": {
       "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "fe575d2df226418da100744c1d62f2c3d8365ae74cd181d8cc23c04487a36679",
+      "values": {
+        "comments.title": "Table Row and Column Relationships: actual HTML/CSS experiment",
+        "messages.title": "Table Row and Column Relationships",
+        "messages.note": "Compare td → th scope. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Element to run in an external environment: ",
+        "messages.display004": "Inspect current DOM / styles",
+        "messages.display005": "Rendering experiment under the same conditions",
+        "messages.display006": "HTML source",
+        "messages.display007": "CSS source",
+        "messages.display008": "Container width",
+        "messages.display009": "Time (ms)",
+        "messages.display010": "Apply",
+        "messages.display011": "Method",
+        "messages.display012": "Baseline",
+        "messages.display013": "Changed"
+      }
     }
   },
   "html-step-10": {
-    "sourceHash": "d6f663f13d467b1a25a8cb5a77478b6c3c128a325a4039098785f7b1ba0125bf",
+    "sourceHash": "26d391b77acdeb8f33bd52220e4474d0806d4aa34dc75050d28fda75bad01e71",
     "values": {
       "note": "Change datetime to a natural-language value, then compare the inspection result with an HTML validator. The quotation is an example sentence. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "e75c27e4bdcb68db89ff1ffef69eed75bcb25835bc6992f8b227c5cdf8868086",
+      "values": {
+        "comments.title": "Quotations and Machine-readable Dates: actual HTML/CSS experiment",
+        "messages.title": "Quotations and Machine-readable Dates",
+        "messages.note": "Change datetime to a natural-language value, then compare the inspection result with an HTML validator. The quotation is an example sentence. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Element to run in an external environment: ",
+        "messages.display004": "Inspect current DOM / styles",
+        "messages.display005": "HTML source",
+        "messages.display006": "CSS source",
+        "messages.display007": "Container width",
+        "messages.display008": "Source: ",
+        "messages.display009": "Study date ",
+        "messages.display010": "Apply"
+      }
     }
   },
   "html-step-11": {
-    "sourceHash": "840cd08d5939e80dedfa3cfd1e1ef937d85b1aa55d88ddefe62cdf5f3d07c5ee",
+    "sourceHash": "5a5314c2b90700c22fa61a71342da2e6e7964e5ac1a70521353946d755971675",
     "values": {
-      "note": "Submitting navigates inside the iframe. The inspect button displays FormData from the current source before submission. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+      "note": "This preview calls preventDefault() in the submit event, so the iframe does not navigate. The inspection button and submit handler display validity and FormData from the current DOM. Complete the assignment to inspect the URL after a GET submission on a separate HTTP page. Scope body/html selectors inside Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "63687f95235d3cad23a950a51f3f2a4b98bffac037bf2d64c084fba653657874",
+      "values": {
+        "comments.title": "The Form Submission Contract: actual HTML/CSS experiment",
+        "messages.title": "The Form Submission Contract",
+        "messages.note": "This preview calls preventDefault() in the submit event, so the iframe does not navigate. The inspection button and submit handler display validity and FormData from the current DOM. Complete the assignment to inspect the URL after a GET submission on a separate HTTP page. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Element to run in an external environment: ",
+        "messages.display004": "Inspect current DOM / styles",
+        "messages.display005": "HTML source",
+        "messages.display006": "CSS source",
+        "messages.display007": "Container width",
+        "messages.display008": "Submit search",
+        "messages.display009": "Regular button",
+        "messages.display010": "Apply",
+        "messages.display011": "Search"
+      }
     }
   },
   "html-step-12": {
-    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "sourceHash": "b285565a0dde716c5dd7cfe1dbbde5bc9addad3a682a819044ffad6fd78853f0",
     "values": {
       "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "6943f327ff5559069f1c516dffe701490cbf497f06a3e88a93887467e78f798f",
+      "values": {
+        "comments.title": "Input Types and Autocomplete: actual HTML/CSS experiment",
+        "messages.title": "Input Types and Autocomplete",
+        "messages.note": "Compare text → email. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Element to run in an external environment: ",
+        "messages.display004": "Inspect current DOM / styles",
+        "messages.display005": "HTML source",
+        "messages.display006": "CSS source",
+        "messages.display007": "Container width",
+        "messages.display008": "Validate",
+        "messages.display009": "Study minutes ",
+        "messages.display010": "Email ",
+        "messages.display011": "Phone ",
+        "messages.display012": "Apply"
+      }
     }
   },
   "html-step-13": {
-    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "sourceHash": "6e32bd889efb2d0b38a2fb9a1f0132b82cf51bd213a86bbcdf740649762efda5",
     "values": {
       "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "3f3db35df7861fe89fcbbdadad9dd354d7066555fff4c895f200ad312e6db96d",
+      "values": {
+        "comments.title": "Grouped Inputs and Selection Semantics: actual HTML/CSS experiment",
+        "messages.title": "Grouped Inputs and Selection Semantics",
+        "messages.note": "Compare All use level → A different name for each. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Element to run in an external environment: ",
+        "messages.display004": "Inspect current DOM / styles",
+        "messages.display005": "HTML source",
+        "messages.display006": "CSS source",
+        "messages.display007": "Container width",
+        "messages.display008": "Topics of interest",
+        "messages.display009": "Difficulty",
+        "messages.display010": "Apply",
+        "messages.display011": "Beginner",
+        "messages.display012": "Advanced"
+      }
     }
   },
   "html-step-15": {
-    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "sourceHash": "35656385d2886400361b25c3cbb88b1d0d1d675dcf34a3baa27bb694b27f9162",
     "values": {
       "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "d26ea8102b4aed884384b7b35e68fa6f84fb871703fe20d45ee364c6985eee6d",
+      "values": {
+        "comments.title": "The Difference Between disabled and readonly: actual HTML/CSS experiment",
+        "messages.title": "The Difference Between disabled and readonly",
+        "messages.note": "Compare readonly → disabled. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Element to run in an external environment: ",
+        "messages.display004": "Inspect current DOM / styles",
+        "messages.display005": "HTML source",
+        "messages.display006": "CSS source",
+        "messages.display007": "Container width",
+        "messages.display008": "Read-only ",
+        "messages.display009": "Disabled ",
+        "messages.display010": "Normal ",
+        "messages.display011": "Apply"
+      }
     }
   },
   "html-step-16": {
-    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "sourceHash": "ae8fcb28bec35d177c103f269aaa8291b3e49e1848d68fba5752fbabac9c696e",
     "values": {
       "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "a34bf6c9bc34a907fd5995f2c12eaa517ffe530664deb37b1af1fc3b8639a011",
+      "values": {
+        "comments.title": "A Collapsible Table of Contents with details: actual HTML/CSS experiment",
+        "messages.title": "A Collapsible Table of Contents with details",
+        "messages.note": "Compare Absent → Present. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Element to run in an external environment: ",
+        "messages.display004": "Inspect current DOM / styles",
+        "messages.display005": "HTML learning outline",
+        "messages.display006": "HTML source",
+        "messages.display007": "CSS source",
+        "messages.display008": "Container width",
+        "messages.display009": "Document structure",
+        "messages.display010": "Images",
+        "messages.display011": "Accessibility",
+        "messages.display012": "Apply",
+        "messages.display013": "Forms"
+      }
     }
   },
   "html-step-17": {
-    "sourceHash": "497f9775273da72684cc27f6371cf55b46455b99c64e7a89f1dca1f63c75ce81",
+    "sourceHash": "0a2eae9e8eab3c7b1413343084cc0c42cedb7b2dd131fd9c923fccbcbeb0eaa2",
     "values": {
       "note": "Dedicated helper code connects the open button to showModal. Compare the dialog open attribute with modal focus behavior. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "d267dd2ba1f2d9bf1197050b147aa2292d095183987653d9d23c680f74cc38a2",
+      "values": {
+        "comments.title": "dialog and Modal Flow: actual HTML/CSS experiment",
+        "messages.title": "dialog and Modal Flow",
+        "messages.note": "Dedicated helper code connects the open button to showModal. Compare the dialog open attribute with modal focus behavior. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Check Tab, Escape, and focus after closing.",
+        "messages.display004": "Element to run in an external environment: ",
+        "messages.display005": "Inspect current DOM / styles",
+        "messages.display006": "HTML source",
+        "messages.display007": "Open dialog",
+        "messages.display008": "CSS source",
+        "messages.display009": "Container width",
+        "messages.display010": "Save experiment",
+        "messages.display011": "Apply",
+        "messages.display012": "Close"
+      }
     }
   },
   "html-step-18": {
-    "sourceHash": "b96f0b42ba65b15683dabdb4afae451223170046eeb8b89e0ed3d774fc673e92",
+    "sourceHash": "25204a4bf3d1bfc3dedb03521ffa86976b1bc77c46eaaf7cfe083b0a0819791f",
     "values": {
       "note": "External HTTP example: provides a 6-second synthetic MP4, Korean VTT, a transcript, and switching between success/failure cases. This is a silent synthetic fixture; evaluate accessibility for actual speech with a separate video."
+    },
+    "presentation": {
+      "sourceHash": "a6a1fb633c991ce53a40207049dda3b683904912a0fe9e4b463fc37bf0598eb2",
+      "values": {
+        "comments.title": "Media Captions and Alternatives: actual HTML/CSS experiment",
+        "messages.title": "Media Captions and Alternatives",
+        "messages.note": "The companion folder includes index.html, a 6-second synthetic sample.mp4, captions.vtt, transcript.html, and README.md. Open that folder on a local HTTP server to test actual playback, captions, and switching to failure conditions. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Video playback is not supported.",
+        "messages.display004": "Element to run in an external environment: ",
+        "messages.display005": "Inspect current DOM / styles",
+        "messages.display006": "HTML source",
+        "messages.display007": "CSS source",
+        "messages.display008": "Container width",
+        "messages.display009": "Read transcript",
+        "messages.display010": "Apply",
+        "messages.display011": "Transcript"
+      }
     }
   },
   "html-step-19": {
-    "sourceHash": "e42f8bd9cb311c01b0236a520591c8f473e86c57754afe89db62539cd2076ebf",
+    "sourceHash": "83abc8b1fee1e0e46c38d4c82619669db9a82092895f4f661cc4480dd4889844",
     "values": {
       "note": "300/600/1200w SVG candidates are selected through actual srcset behavior. sizes, DPR, and the preview viewport affect selection. The data URLs are not for comparing network transfer sizes. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "36fcaea8634873a0aef19f0297ea4092241749728d19b6cd9a24c4965b6d3121",
+      "values": {
+        "comments.title": "Responsive Image Selection: actual HTML/CSS experiment",
+        "messages.title": "Responsive Image Selection",
+        "messages.note": "300/600/1200w SVG candidates are selected through actual srcset behavior. sizes, DPR, and the preview viewport affect selection. The data URLs are not for comparing network transfer sizes. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Check currentSrc in the inspection results.",
+        "messages.display004": "Element to run in an external environment: ",
+        "messages.display005": "Inspect current DOM / styles",
+        "messages.display006": "Width and color of the selected candidate",
+        "messages.display007": "HTML source",
+        "messages.display008": "CSS source",
+        "messages.display009": "Container width",
+        "messages.display010": "Apply"
+      }
     }
   },
   "html-step-20": {
-    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "sourceHash": "8b945239979bddb52a84395425e034c8498ba410ce01be868a98944f98a70fc3",
     "values": {
       "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "f70018386ac6258e6b453a4ccce6e336e9e232abac6a8a5c4e03ddea3ceda5f1",
+      "values": {
+        "comments.title": "picture and Format Fallbacks: actual HTML/CSS experiment",
+        "messages.title": "picture and Format Fallbacks",
+        "messages.note": "Compare 600px or below → Above 600px. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "A coral square on narrow screens and a yellow circle on wide screens",
+        "messages.display004": "Element to run in an external environment: ",
+        "messages.display005": "Inspect current DOM / styles",
+        "messages.display006": "HTML source",
+        "messages.display007": "CSS source",
+        "messages.display008": "Container width",
+        "messages.display009": "Apply"
+      }
     }
   },
   "html-step-21": {
-    "sourceHash": "9098feac7b37df30cc8f971fea1fb38a8191cda5d0411a40611697ec6cd7e3a9",
+    "sourceHash": "10aecda6529fd4c71dc9f45c732daa3a3edc087686afef845de7ae822483b0ad",
     "values": {
       "note": "External HTTP example: switches between sandbox=\"\" and allow-scripts on the same guide.html and observes button·postMessage behavior."
+    },
+    "presentation": {
+      "sourceHash": "3199a3bd25e267986e4bab431aa8ba07e3c67f98848b0f26c03eb196f6643191",
+      "values": {
+        "comments.title": "iframe and Embedded Content Boundaries: actual HTML/CSS experiment",
+        "messages.title": "iframe and Embedded Content Boundaries",
+        "messages.note": "Add allow-scripts to sandbox and compare. The outer preview CSP also applies, so do not conclude that sandbox alone caused script blocking. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "This embedded document has no script permission.",
+        "messages.display004": "Element to run in an external environment: ",
+        "messages.display005": "Inspect current DOM / styles",
+        "messages.display006": "Separate guide document",
+        "messages.display007": "HTML source",
+        "messages.display008": "CSS source",
+        "messages.display009": "Container width",
+        "messages.display010": "Apply",
+        "messages.display011": "Guide"
+      }
     }
   },
   "html-step-22": {
-    "sourceHash": "3a4364a95f88593a66ff7acd72c66aea3fb640893391c5d8ef278fd220556efa",
+    "sourceHash": "18b1fe5fb47f5df53e83f7b0dade175b11a57158cde6154d4c97d8b2f68d0b69",
     "values": {
       "note": "Helper code clones the template 3 times and associates for/id with unique suffixes. Try changing the template content in the source. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "8b3ffbe52c1d94c71eb3a6e4d6a267a7393a9d094239a26a32860d0d80bc6374",
+      "values": {
+        "comments.title": "template and Repeated Content: actual HTML/CSS experiment",
+        "messages.title": "template and Repeated Content",
+        "messages.note": "Helper code clones the template 3 times and associates for/id with unique suffixes. Try changing the template content in the source. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Element to run in an external environment: ",
+        "messages.display004": "Inspect current DOM / styles",
+        "messages.display005": "HTML source",
+        "messages.display006": "CSS source",
+        "messages.display007": "Container width",
+        "messages.display008": "Apply",
+        "messages.display009": "Title"
+      }
     }
   },
   "html-step-23": {
-    "sourceHash": "0fb9d8695ca59345a3099bfac3dadfb2519485f1613b2ecf5d366869135a1ffc",
+    "sourceHash": "b09d6a516e5e92256439d891759bdbf48ddf4032df33d9992374245290f31269",
     "values": {
       "note": "External HTTP example: actually loads first.js/second.js and records parsing/execution order for classic/defer/async scripts."
+    },
+    "presentation": {
+      "sourceHash": "cb0715badb0a0e8bf4687f73c5faa92fdd8ba74a6723689c42cbe0ee516d83d3",
+      "values": {
+        "comments.title": "Script Loading and Document Parsing: actual HTML/CSS experiment",
+        "messages.title": "Script Loading and Document Parsing",
+        "messages.note": "The attached index.html, first.js, second.js, and README.md provide an actual loading experiment. This preview inspects the source structure; observe normal/defer/async execution order on the companion folder’s local HTTP page. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Apply Network throttling and record target availability and execution timing in both actual JS files.",
+        "messages.display004": "Element to run in an external environment: ",
+        "messages.display005": "Inspect current DOM / styles",
+        "messages.display006": "Parsing and scripts",
+        "messages.display007": "HTML source",
+        "messages.display008": "CSS source",
+        "messages.display009": "Container width",
+        "messages.display010": "Apply"
+      }
     }
   },
   "html-step-24": {
-    "sourceHash": "2f80b12060f5140e4a17d9f2b7e20a3174f3f01958a932903937d88156bbc23d",
+    "sourceHash": "c1dd3c320799aacc18ef71d451c37363d94fd927e3cc72844deb40a97d1e618a",
     "values": {
       "note": "Change aria-label to differ from the visible text, and inspect the actual computed name in the browser accessibility panel. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "d46a8421c16106ce100c0fb17a3ece898a61158ec985f13277e6646035704ffb",
+      "values": {
+        "comments.title": "Accessible Names and Descriptions: actual HTML/CSS experiment",
+        "messages.title": "Accessible Names and Descriptions",
+        "messages.note": "Change aria-label to differ from the visible text, and inspect the actual computed name in the browser accessibility panel. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Element to run in an external environment: ",
+        "messages.display004": "Inspect current DOM / styles",
+        "messages.display005": "Maximum 40 characters.",
+        "messages.display006": "HTML source",
+        "messages.display007": "CSS source",
+        "messages.display008": "Container width",
+        "messages.display009": "Delete note",
+        "messages.display010": "Note title",
+        "messages.display011": "Apply",
+        "messages.display012": "Save"
+      }
     }
   },
   "html-step-25": {
-    "sourceHash": "1c74c0fe9fd037d35a88eb836e155925eb615035b32ff2dfe78e6ade46128610",
+    "sourceHash": "af2736b79a95e570e63b05111f0305809baa4d3fef73ca426d259aad6e812918",
     "values": {
       "note": "Compare the editable input with actual browser execution results. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "5df2a8a14b7b1547bec993904c166feb8557ef0810ad6ff8e78814be071ccdc4",
+      "values": {
+        "comments.title": "Reading Order and Skip Links: actual HTML/CSS experiment",
+        "messages.title": "Reading Order and Skip Links",
+        "messages.note": "Compare Repeated Tab → Skip link. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Element to run in an external environment: ",
+        "messages.display004": "Inspect current DOM / styles",
+        "messages.display005": "HTML source",
+        "messages.display006": "Skip to main content",
+        "messages.display007": "CSS source",
+        "messages.display008": "Container width",
+        "messages.display009": "Open settings",
+        "messages.display010": "Second card",
+        "messages.display011": "First card",
+        "messages.display012": "Apply",
+        "messages.display013": "Introduction",
+        "messages.display014": "Notes",
+        "messages.display015": "Settings",
+        "messages.display016": "Main content"
+      }
     }
   },
   "html-step-26": {
-    "sourceHash": "fba7c83f9a495c316eb8026fee8ec65552db1c0cd8bbd566a545c306c2758e35",
+    "sourceHash": "6929648b20cceb0b8911019d7e22d5068d2933b858f6ee7c987bfe6930e660bf",
     "values": {
       "note": "The inspection result displays the body tree recovered by the browser. Change p/div into siblings and compare the result with HTML validator diagnostics. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "eef199ca689c01f8b9f88717df08ce2ffc61f2720fd145f87b570462e1685146",
+      "values": {
+        "comments.title": "HTML Errors and Browser Recovery: actual HTML/CSS experiment",
+        "messages.title": "HTML Errors and Browser Recovery",
+        "messages.note": "The inspection result displays the body tree recovered by the browser. Change p/div into siblings and compare the result with HTML validator diagnostics. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Element to run in an external environment: ",
+        "messages.display004": "Inspect current DOM / styles",
+        "messages.display005": "Incorrectly nested block",
+        "messages.display006": "HTML source",
+        "messages.display007": "CSS source",
+        "messages.display008": "Container width",
+        "messages.display009": "Paragraph start",
+        "messages.display010": "Paragraph end",
+        "messages.display011": "Apply",
+        "messages.display012": "Outer",
+        "messages.display013": "Inner"
+      }
     }
   },
   "html-step-27": {
-    "sourceHash": "e63f87516369064fb3d50e214f77a4249e0e8d14213dd09aa66dbf6883b44bf7",
+    "sourceHash": "54ea514b1d7160f2a4829c9f7ba9bf8dd080c7a36ee59b9c5cf87d731c547cc0",
     "values": {
       "note": "Reduce preview width to check reflow, and separately test actual browser zoom at 200%·400%. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
+    },
+    "presentation": {
+      "sourceHash": "cef7caa1e168ddd41de9e26d19970f587622080ab48f1dd8e59d31eaadddb860",
+      "values": {
+        "comments.title": "Checking Image Failure and Zoom: actual HTML/CSS experiment",
+        "messages.title": "Checking Image Failure and Zoom",
+        "messages.note": "Reduce preview width to check reflow, and separately test actual browser zoom at 200%·400%. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.",
+        "messages.display003": "Keep text content and explanatory links outside the image.",
+        "messages.display004": "Check keyboard access and horizontal overflow when zoomed in.",
+        "messages.display005": "Experiment flow with one variable changed",
+        "messages.display006": "Element to run in an external environment: ",
+        "messages.display007": "Inspect current DOM / styles",
+        "messages.display008": "A card that remains readable when resources fail",
+        "messages.display009": "Detailed experiment description",
+        "messages.display010": "HTML source",
+        "messages.display011": "CSS source",
+        "messages.display012": "Container width",
+        "messages.display013": "Apply",
+        "messages.display014": "Save"
+      }
+    }
+  },
+  "html-01": {
+    "presentation": {
+      "sourceHash": "eb2ca2224b6f5addc1544adbb4ea4bd83a32aeb32184c818b826fb501eab3381",
+      "values": {
+        "comments.title": "The string below is inserted as actual HTML. Check heading order and label associations.",
+        "messages.display001": "Can you navigate with Tab? What roles do headings and paragraphs play?",
+        "messages.display002": "Try editing the HTML structure.",
+        "messages.display003": "Meaningful document structure",
+        "messages.display004": "My learning card",
+        "messages.display005": "Today's goal",
+        "messages.display006": "Self-check",
+        "messages.display007": "Topic"
+      }
+    }
+  },
+  "html-02": {
+    "presentation": {
+      "sourceHash": "87cc04bc1291db0236b8ff41550839062ce16097750e47436ffc9e4985ef6b51",
+      "values": {
+        "messages.display001": "Navigate with Tab and submit with Enter while entering a title. Data is kept only for this run.",
+        "messages.display002": "Enter 3–60 characters excluding surrounding whitespace.",
+        "messages.display003": "Note title (required, at least 3 characters)",
+        "messages.display004": "Enter a title with at least 3 characters.",
+        "messages.display005": "A note form operated with the keyboard",
+        "messages.display006": "Note added.",
+        "messages.display007": "Save note",
+        "messages.display008": "Reset",
+        "messages.display009": "Content"
+      }
+    }
+  },
+  "html-03": {
+    "presentation": {
+      "sourceHash": "2ab4ff66b5262d8304a2354967f606fbbbdb05b128e9f184fe4a6ea7aee6d753",
+      "values": {
+        "messages.display001": "Responses may arrive in a different order from requests. Check the latest request ID to ignore earlier responses.",
+        "messages.display002": "A diagram showing creation, use, and cleanup from left to right",
+        "messages.display003": "A flowchart where the response to request B, sent after request A, arrives first",
+        "messages.display004": "Try 200% browser zoom and Tab/Enter.",
+        "messages.display005": "Image failure: use the alternative text and body text to understand the content.",
+        "messages.display006": "Clean up timers and events when removing the view.",
+        "messages.display007": "Learning cards readable without images",
+        "messages.display008": "Create a delayed Promise",
+        "messages.display009": "Compare request IDs",
+        "messages.display010": "Cancel the previous request",
+        "messages.display011": "Safe repeated cleanup",
+        "messages.display012": "Reproduce image failure",
+        "messages.display013": "1. Requests and responses",
+        "messages.display014": "2. Resource lifetime",
+        "messages.display015": "Images restored",
+        "messages.display016": "Cancel timers",
+        "messages.display017": "Remove event listeners",
+        "messages.display018": "Learning units",
+        "messages.display019": "Learning outline",
+        "messages.display020": "Checklist",
+        "comments.inlineExplanation": "Use an invalid local data URI to trigger image failure without network access."
+      }
     }
   }
 }

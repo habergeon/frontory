@@ -61,7 +61,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/html-step-06/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-The example.test links are for examining path resolution; actual documents are not provided. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted.
+The inspection results in this preview show the original href attributes from the current DOM. The base element in head is not copied into Shadow DOM. Check absolute URL resolution with base in a separate HTTP document. Actual documents at example.test are not provided. Scope document body/html selectors within Shadow DOM. @media responds to the outer preview viewport, and the width slider changes only the container. Network access, form navigation, and iframe execution are restricted.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

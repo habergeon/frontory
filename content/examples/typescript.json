@@ -1,5 +1,6 @@
 {
   "typescript-step-02": {
+    "readingSource": "/examples-en/typescript-step-02/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -8,6 +9,7 @@
     ]
   },
   "typescript-step-03": {
+    "readingSource": "/examples-en/typescript-step-03/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -16,6 +18,7 @@
     ]
   },
   "typescript-step-04": {
+    "readingSource": "/examples-en/typescript-step-04/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -24,6 +27,7 @@
     ]
   },
   "typescript-step-05": {
+    "readingSource": "/examples-en/typescript-step-05/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -32,6 +36,7 @@
     ]
   },
   "typescript-step-06": {
+    "readingSource": "/examples-en/typescript-step-06/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -40,6 +45,7 @@
     ]
   },
   "typescript-step-07": {
+    "readingSource": "/examples-en/typescript-step-07/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -48,6 +54,7 @@
     ]
   },
   "typescript-step-08": {
+    "readingSource": "/examples-en/typescript-step-08/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -56,6 +63,7 @@
     ]
   },
   "typescript-step-09": {
+    "readingSource": "/examples-en/typescript-step-09/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -64,6 +72,7 @@
     ]
   },
   "typescript-step-10": {
+    "readingSource": "/examples-en/typescript-step-10/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -72,6 +81,7 @@
     ]
   },
   "typescript-step-11": {
+    "readingSource": "/examples-en/typescript-step-11/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -80,6 +90,7 @@
     ]
   },
   "typescript-step-12": {
+    "readingSource": "/examples-en/typescript-step-12/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -88,6 +99,7 @@
     ]
   },
   "typescript-step-13": {
+    "readingSource": "/examples-en/typescript-step-13/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -96,6 +108,7 @@
     ]
   },
   "typescript-step-15": {
+    "readingSource": "/examples-en/typescript-step-15/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -104,6 +117,7 @@
     ]
   },
   "typescript-step-16": {
+    "readingSource": "/examples-en/typescript-step-16/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -112,6 +126,7 @@
     ]
   },
   "typescript-step-17": {
+    "readingSource": "/examples-en/typescript-step-17/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -120,6 +135,7 @@
     ]
   },
   "typescript-step-18": {
+    "readingSource": "/examples-en/typescript-step-18/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -128,6 +144,7 @@
     ]
   },
   "typescript-step-19": {
+    "readingSource": "/examples-en/typescript-step-19/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -136,6 +153,7 @@
     ]
   },
   "typescript-step-20": {
+    "readingSource": "/examples-en/typescript-step-20/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -144,6 +162,7 @@
     ]
   },
   "typescript-step-21": {
+    "readingSource": "/examples-en/typescript-step-21/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -152,6 +171,7 @@
     ]
   },
   "typescript-step-22": {
+    "readingSource": "/examples-en/typescript-step-22/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -160,6 +180,7 @@
     ]
   },
   "typescript-step-23": {
+    "readingSource": "/examples-en/typescript-step-23/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -168,6 +189,7 @@
     ]
   },
   "typescript-step-24": {
+    "readingSource": "/examples-en/typescript-step-24/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -176,6 +198,7 @@
     ]
   },
   "typescript-step-25": {
+    "readingSource": "/examples-en/typescript-step-25/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -184,6 +207,7 @@
     ]
   },
   "typescript-step-26": {
+    "readingSource": "/examples-en/typescript-step-26/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [
@@ -192,6 +216,7 @@
     ]
   },
   "typescript-step-27": {
+    "readingSource": "/examples-en/typescript-step-27/example.js",
     "mode": "browser",
     "note": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
     "files": [

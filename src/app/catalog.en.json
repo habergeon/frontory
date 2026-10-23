@@ -888,7 +888,8 @@
       "title": "Types and Narrowing",
       "goal": "Check the returned strings for all four states. Record the compiler diagnostic for invalid access and a correction.",
       "docPath": "/docs/en/labs/fundamentals/typescript/01-foundations/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-01/example.js"
     },
     {
       "id": "typescript-step-02",
@@ -898,6 +899,7 @@
       "goal": "Record the installed tsc version and diagnostics for both configurations. After correction, tsc --noEmit reports 0 errors.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/02/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-02/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -908,6 +910,7 @@
       "goal": "Record the inferred types of the three declarations. A call with an invalid state string fails to compile.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/03/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-03/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -918,6 +921,7 @@
       "goal": "Display an object without tag safely. Record the diagnostic location for the misspelled object and the corrected result.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/04/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-04/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -928,6 +932,7 @@
       "goal": "Calculate the distance between two valid coordinates. Record the compiler diagnostic for an incorrect tuple length.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/05/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-05/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -938,6 +943,7 @@
       "goal": "Results for valid and empty titles follow the same contract. An invalid callback argument type is rejected.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/06/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-06/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -948,6 +954,7 @@
       "goal": "Record success or failure for all four inputs. Pass tsc checking without any or unconditional assertions.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/07/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-07/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -958,6 +965,7 @@
       "goal": "Record the state order for success and failure paths. Compilation fails if an error field is incorrectly added to loading.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/08/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-08/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -968,6 +976,7 @@
       "goal": "Record error locations when a new member is added. After handling cancelled, tsc reports 0 diagnostics.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/09/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-09/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -978,6 +987,7 @@
       "goal": "Record the diagnostic for direct assignment. After the update, the original completion value and length remain the same.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/10/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-10/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -988,6 +998,7 @@
       "goal": "title is inferred as string and done as boolean. Record the compiler error for the missing key.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/11/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-11/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -998,6 +1009,7 @@
       "goal": "Preserve the returned element types of both arrays. Check for undefined where the empty array result is used.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/12/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-12/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1008,6 +1020,7 @@
       "goal": "Additional field types are preserved for two kinds of objects. Record the diagnostic for input without id.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/13/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-13/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1017,7 +1030,8 @@
       "title": "Generics and Boundary Validation",
       "goal": "Record acceptance or rejection for all four inputs. Use Note fields on a valid return value without assertions.",
       "docPath": "/docs/en/labs/fundamentals/typescript/02-experiments/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-02/example.js"
     },
     {
       "id": "typescript-step-15",
@@ -1027,6 +1041,7 @@
       "goal": "Create a results table in which only the 1 valid input passes. Compare the runtime failure of a false guard with the corrected result.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/15/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-15/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1037,6 +1052,7 @@
       "goal": "The success value is inferred as Note. Distinguish the two kinds of failure by code.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/16/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-16/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1047,6 +1063,7 @@
       "goal": "Both valid patches preserve the existing id. Record the compiler error for an id patch.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/17/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-17/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1057,6 +1074,7 @@
       "goal": "The invalid key is rejected during compilation. Record literal inference for the valid configuration.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/18/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-18/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1067,6 +1085,7 @@
       "goal": "Every configuration key has a corresponding message. Record the missing-new-key diagnostic and the corrected result.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/19/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-19/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1077,6 +1096,7 @@
       "goal": "Record example result types for the three inputs. Compare accepted and rejected assignments with and without distribution.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/20/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-20/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1087,6 +1107,7 @@
       "goal": "Distinguish payload types for 2 different events. Record name typos and payload errors separately.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/21/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-21/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1097,6 +1118,7 @@
       "goal": "Record handling results for all three targets. Pass tsc checking without non-null assertions.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/22/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-22/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1107,6 +1129,7 @@
       "goal": "Use a valid Note without assertions. Neither exception form leaves an unhandled failure.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/23/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-23/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1117,6 +1140,7 @@
       "goal": "Record differences in emitted code for type-only import. Load the modules in the actual environment and check for errors.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/24/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-24/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1127,6 +1151,7 @@
       "goal": "Record the diagnostic for a call with an invalid argument. Keep logs comparing the declared and actual return types.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/25/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-25/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1137,6 +1162,7 @@
       "goal": "The 3 valid cases compile. Document reasons for the 3 rejected cases in comments and verify them with expected errors.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/26/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-26/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1147,6 +1173,7 @@
       "goal": "The event handler runs 0 times after cleanup. The remounted button handles a click 1 time.",
       "docPath": "/docs/en/labs/fundamentals/typescript/units/27/README.md",
       "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-27/example.js",
       "exampleNote": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
     },
     {
@@ -1156,7 +1183,8 @@
       "title": "Plugin Contracts",
       "goal": "Both implementations pass strict type checking. After 5 swaps, there are no duplicate events and calling dispose 2 times is safe.",
       "docPath": "/docs/en/labs/fundamentals/typescript/03-project/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-03/example.js"
     },
     {
       "id": "html-01",

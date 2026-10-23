@@ -863,7 +863,8 @@
       "title": "타입과 좁히기",
       "goal": "네 상태의 반환 문자열을 확인한다. 잘못된 접근의 컴파일 진단과 수정안을 남긴다.",
       "docPath": "/docs/labs/fundamentals/typescript/01-foundations/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-01/example.js"
     },
     {
       "id": "typescript-step-02",
@@ -872,7 +873,8 @@
       "title": "strict 설정과 실행 코드",
       "goal": "설치한 tsc 버전과 두 설정의 진단을 남긴다. 수정 후 tsc --noEmit 오류가 0개다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/02/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-02/example.js"
     },
     {
       "id": "typescript-step-03",
@@ -881,7 +883,8 @@
       "title": "추론과 리터럴 타입",
       "goal": "세 선언의 추론 타입을 기록한다. 잘못된 상태 문자열 호출은 컴파일에 실패한다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/03/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-03/example.js"
     },
     {
       "id": "typescript-step-04",
@@ -890,7 +893,8 @@
       "title": "객체 계약과 선택 필드",
       "goal": "tag 없는 객체를 안전하게 표시한다. 오타 객체의 진단 위치와 수정 결과를 남긴다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/04/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-04/example.js"
     },
     {
       "id": "typescript-step-05",
@@ -899,7 +903,8 @@
       "title": "배열과 튜플의 위치 의미",
       "goal": "정상 좌표 두 개의 거리를 계산한다. 잘못된 튜플 길이의 컴파일 진단을 남긴다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/05/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-05/example.js"
     },
     {
       "id": "typescript-step-06",
@@ -908,7 +913,8 @@
       "title": "함수 인수와 반환 계약",
       "goal": "정상·빈 제목 결과가 같은 계약을 따른다. 잘못된 콜백 인수 타입이 거부된다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/06/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-06/example.js"
     },
     {
       "id": "typescript-step-07",
@@ -917,7 +923,8 @@
       "title": "unknown과 안전한 접근",
       "goal": "네 입력의 성공·실패 결과를 기록한다. any와 무조건 단언 없이 tsc 검사를 통과한다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/07/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-07/example.js"
     },
     {
       "id": "typescript-step-08",
@@ -926,7 +933,8 @@
       "title": "판별 유니온으로 비동기 상태 표현",
       "goal": "성공과 실패 경로의 상태 순서를 남긴다. loading에 error 필드를 잘못 넣으면 컴파일에 실패한다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/08/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-08/example.js"
     },
     {
       "id": "typescript-step-09",
@@ -935,7 +943,8 @@
       "title": "never로 분기 누락 찾기",
       "goal": "새 멤버 추가 시 오류 위치를 기록한다. cancelled 처리 후 tsc 진단이 0개다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/09/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-09/example.js"
     },
     {
       "id": "typescript-step-10",
@@ -944,7 +953,8 @@
       "title": "readonly와 변경 범위",
       "goal": "직접 대입 진단을 기록한다. 갱신 뒤 원본 완료 값과 길이가 같다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/10/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-10/example.js"
     },
     {
       "id": "typescript-step-11",
@@ -953,7 +963,8 @@
       "title": "keyof와 속성 조회 함수",
       "goal": "title은 string, done은 boolean으로 추론된다. missing 키의 컴파일 오류를 남긴다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/11/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-11/example.js"
     },
     {
       "id": "typescript-step-12",
@@ -962,7 +973,8 @@
       "title": "제네릭 함수와 추론",
       "goal": "두 배열의 반환 원소 타입을 보존한다. 빈 배열 사용처에서 undefined 검사를 한다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/12/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-12/example.js"
     },
     {
       "id": "typescript-step-13",
@@ -971,7 +983,8 @@
       "title": "제약 조건과 최소 계약",
       "goal": "두 종류의 객체에서 추가 필드 타입이 유지된다. id 없는 입력의 진단을 기록한다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/13/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-13/example.js"
     },
     {
       "id": "typescript-02",
@@ -980,7 +993,8 @@
       "title": "제네릭과 경계 검증",
       "goal": "네 입력의 허용·거부 결과를 남긴다. 유효한 반환값에서 Note 필드를 단언 없이 사용한다.",
       "docPath": "/docs/labs/fundamentals/typescript/02-experiments/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-02/example.js"
     },
     {
       "id": "typescript-step-15",
@@ -989,7 +1003,8 @@
       "title": "타입 가드와 거짓 보장",
       "goal": "정상 1개만 통과하는 결과표를 만든다. 거짓 가드의 런타임 실패와 수정 결과를 비교한다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/15/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-15/example.js"
     },
     {
       "id": "typescript-step-16",
@@ -998,7 +1013,8 @@
       "title": "Result 타입으로 실패 전달",
       "goal": "성공값은 Note로 추론된다. 두 실패 종류를 코드로 구분한다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/16/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-16/example.js"
     },
     {
       "id": "typescript-step-17",
@@ -1007,7 +1023,8 @@
       "title": "Utility Types로 편집 모델 만들기",
       "goal": "두 정상 패치가 기존 id를 보존한다. id 패치의 컴파일 오류를 남긴다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/17/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-17/example.js"
     },
     {
       "id": "typescript-step-18",
@@ -1016,7 +1033,8 @@
       "title": "satisfies로 설정 검사",
       "goal": "잘못된 키가 컴파일에서 거부된다. 올바른 설정의 리터럴 추론을 기록한다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/18/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-18/example.js"
     },
     {
       "id": "typescript-step-19",
@@ -1025,7 +1043,8 @@
       "title": "Mapped Types로 상태 표 만들기",
       "goal": "모든 설정 키에 메시지가 대응한다. 새 키의 누락 진단과 수정 결과를 남긴다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/19/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-19/example.js"
     },
     {
       "id": "typescript-step-20",
@@ -1034,7 +1053,8 @@
       "title": "조건부 타입과 분배",
       "goal": "세 입력의 결과 타입을 예제로 남긴다. 분배 여부에 따른 허용·거부 대입을 비교한다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/20/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-20/example.js"
     },
     {
       "id": "typescript-step-21",
@@ -1043,7 +1063,8 @@
       "title": "템플릿 리터럴 이벤트 이름",
       "goal": "서로 다른 이벤트 2개의 payload 타입을 구분한다. 이름 오타와 payload 오류를 각각 기록한다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/21/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-21/example.js"
     },
     {
       "id": "typescript-step-22",
@@ -1052,7 +1073,8 @@
       "title": "DOM 타입과 null 검사",
       "goal": "세 대상 모두 처리 결과를 남긴다. non-null 단언 없이 tsc 검사를 통과한다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/22/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-22/example.js"
     },
     {
       "id": "typescript-step-23",
@@ -1061,7 +1083,8 @@
       "title": "비동기 함수와 오류 타입",
       "goal": "정상 Note를 단언 없이 사용한다. 두 예외 형태에서 처리되지 않은 실패가 없다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/23/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-23/example.js"
     },
     {
       "id": "typescript-step-24",
@@ -1070,7 +1093,8 @@
       "title": "모듈과 type-only import",
       "goal": "타입 전용 import의 출력 코드 차이를 남긴다. 실제 환경에서 모듈을 로드하고 오류가 없는지 확인한다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/24/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-24/example.js"
     },
     {
       "id": "typescript-step-25",
@@ -1079,7 +1103,8 @@
       "title": "선언 파일과 외부 경계",
       "goal": "잘못된 인수 호출의 진단을 남긴다. 선언과 실제 반환 타입을 비교한 로그가 있다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/25/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-25/example.js"
     },
     {
       "id": "typescript-step-26",
@@ -1088,7 +1113,8 @@
       "title": "컴파일 실패를 검증하는 사례",
       "goal": "정상 3건은 컴파일된다. 거부 3건은 이유를 주석으로 기록하고 기대 오류로 검증한다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/26/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-26/example.js"
     },
     {
       "id": "typescript-step-27",
@@ -1097,7 +1123,8 @@
       "title": "플러그인 소유권과 정리 계약",
       "goal": "정리 후 이벤트 처리 횟수가 0회다. 재마운트한 버튼의 클릭 처리 횟수는 1회다.",
       "docPath": "/docs/labs/fundamentals/typescript/units/27/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-step-27/example.js"
     },
     {
       "id": "typescript-03",
@@ -1106,7 +1133,8 @@
       "title": "플러그인 계약",
       "goal": "두 구현이 strict 타입 검사를 통과한다. 5회 교체 후 중복 이벤트가 없고 dispose 2회가 안전하다.",
       "docPath": "/docs/labs/fundamentals/typescript/03-project/README.md",
-      "seriesId": "typescript"
+      "seriesId": "typescript",
+      "exampleReadingSource": "/examples-en/typescript-03/example.js"
     },
     {
       "id": "html-01",

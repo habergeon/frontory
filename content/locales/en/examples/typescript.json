@@ -1,152 +1,478 @@
 {
   "typescript-step-02": {
-    "sourceHash": "6f3f927105c995e6c5773690b08b9d7d6c26ece733c583950f340dba9711e4e7",
+    "sourceHash": "af68e4621a639dc0b055e4cfae70cd440f4f093e147e7e2c266cac037eb371e6",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "b0035cbf336b71e2a055765eb2f9562210396b56c4239b1d3e7bdd7242bd97b6",
+      "values": {
+        "comments.title": "strict Settings and Executable Code",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "strict Settings and Executable Code",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-03": {
-    "sourceHash": "e688197be41b5e0b19e4fd5d1d67d00a8e697d1921ce172e182b4cfb2f050256",
+    "sourceHash": "433d54b38138009a3344d3e966c87f49b4328e20a7a55362989f0015f1ae7fe9",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "d1345404972d9d34ac52e37cd0e182ecf687ab5a18390d2beaaa590cc9f58990",
+      "values": {
+        "comments.title": "Inference and Literal Types",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Inference and Literal Types",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-04": {
-    "sourceHash": "ddb837b1e45b1763c8549824cbc9a81dcec5c8316f1d40c8f7a52c9fc0f0deb0",
+    "sourceHash": "c324d63331b4dccb27af3100dd526f5469b08132409d401561aba2535ddeb911",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "a7745445e328b7963862dc10571f212d8ab45403c3ae24b8c473d67b6c17d213",
+      "values": {
+        "comments.title": "Object Contracts and Optional Fields",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Object Contracts and Optional Fields",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-05": {
-    "sourceHash": "83d09bdc353fd4be310a828f94f7b5ddb701c38f23138dad77b0a313dfa29c10",
+    "sourceHash": "3c2d2e76364a633171b0ebea726078d8b2bd00cda40b8d4e1a9aa8c7ab3c1def",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "9544ee43866b352dea080b2d5869a86a33d913e9370346319e34e7fa0046f140",
+      "values": {
+        "comments.title": "Positional Meaning in Arrays and Tuples",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Positional Meaning in Arrays and Tuples",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Swapping coordinates with the same number type is not a type error.",
+        "messages.display004": "Experiment JSON input",
+        "messages.display005": "Run experiment"
+      }
     }
   },
   "typescript-step-06": {
-    "sourceHash": "2457b7cf868d085ef668c4abc72b4e4f4435507e0ead1eb022ece5becf2ee676",
+    "sourceHash": "16be8a58e7d5772c6a66d6708940c97dee0acd633603c8fd3ec582ec80afa307",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "e43ecd138150c3e4b965b62800b4c144d81cf687f801930ca9555822b0368a72",
+      "values": {
+        "comments.title": "Function Arguments and Return Contracts",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Function Arguments and Return Contracts",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-07": {
-    "sourceHash": "9cf6ff754a12018aaf557f8b058940c52e8f39e898b275fb37bbbeefa8fe1fdd",
+    "sourceHash": "18f7904460b9fa7a9fa717d44ccef1becd4c623163b0fdfb4a5b39c687c9c87b",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "8da7d0d01826643d131d60b98987d09b5e46e82acb4e616e0520c7eb263cd9ed",
+      "values": {
+        "comments.title": "unknown and Safe Access",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "unknown and Safe Access",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-08": {
-    "sourceHash": "508935d1a69bafe031e0e8cfcae4959a66815432df20df5b03a4137032f65955",
+    "sourceHash": "1c8be069a4843af696c33d5bf72b1cf2ad52eb96e983b88cb4f9ac05c16f2daa",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "cf7a41edbbcb79d305df27308bcc3ba82a81799bf521137f99e144413ca85284",
+      "values": {
+        "comments.title": "Modeling Async State with Discriminated Unions",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Modeling Async State with Discriminated Unions",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-09": {
-    "sourceHash": "8826b8cf390af7ef54729a8f4daa6b0105e9b0181834fd645f6f7a57f2e50c47",
+    "sourceHash": "18dec4fa9332d786279de01f45741be65b75fa5671819ce3cbaa56cc1ac78a6c",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "00ee736da8d60aa91d975b769c164c7cc7269273052196c053c41fd230d2729d",
+      "values": {
+        "comments.title": "Finding Missing Branches with never",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Finding Missing Branches with never",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment",
+        "messages.display005": "Idle",
+        "messages.display006": "Loading",
+        "messages.display007": "Done"
+      }
     }
   },
   "typescript-step-10": {
-    "sourceHash": "f4a4ae6bc22a2ba32a66be700c734822f3b7b481ea34005f332bd070867dda3e",
+    "sourceHash": "04b880363d9bf9463693dd8d0cba4df6d649baf5fa1bbdb68661ce2320877099",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "21fc8f7553f3c428035460dfb0fbdc8d19052fa9ac63bbf84c4ac6f15d499994",
+      "values": {
+        "comments.title": "readonly and the Scope of Mutation",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "readonly and the Scope of Mutation",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "readonly does not freeze values at runtime.",
+        "messages.display004": "Experiment JSON input",
+        "messages.display005": "Run experiment"
+      }
     }
   },
   "typescript-step-11": {
-    "sourceHash": "11d7a046ad42869af31ce6eda686ae4b4b64ffdfd384f42c4cdafe75ff29029f",
+    "sourceHash": "323bad7e9b35a017fdc46acc6232b8e97bed65bfa981d42723debc38cfeeb881",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "7a3829b8530d67e3677129a3f432d4363b1678b184663cb4ebe0b74810445cf8",
+      "values": {
+        "comments.title": "keyof and Property Lookup Functions",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "keyof and Property Lookup Functions",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-12": {
-    "sourceHash": "5d7927e055dcebb78366a3bc52811a14daba3b7c2754275da6fe7cde4887815c",
+    "sourceHash": "164fb9635476644ce6fda849a315085f81d23e34ebb0b5202d05d49515345b44",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "58aeecdfee6c67079114be7af261e5459332a7bdcdb52a1457cc84d41261af78",
+      "values": {
+        "comments.title": "Generic Functions and Inference",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Generic Functions and Inference",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-13": {
-    "sourceHash": "5f0ff0b3c0771b2448a157c0e9a131cee8e0e372ee5e8a65e2c16c6d6334ab85",
+    "sourceHash": "d2387d7b9f7e91b5833015f3a16a0e7f28f6c94972f52d4e06ecc43a0bf574e7",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "8c24403299a8da047f8da7d0969cf017d21d8770a707244c1b6c4d69fbcd21db",
+      "values": {
+        "comments.title": "Constraints and Minimal Contracts",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Constraints and Minimal Contracts",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-15": {
-    "sourceHash": "da469d92fa0bf878e73ec2b8c7e96723ce19a7d59567981d72da2fdeeb883e0a",
+    "sourceHash": "90ad137a79c30e2f16153ddc31cb18639071875386fb88e46afe11a9f3e04e42",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "204ddbc3dd300133d9a85e42e3bb9597a0762afa21b70851338f33b6f9110ce5",
+      "values": {
+        "comments.title": "Type Guards and False Guarantees",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Type Guards and False Guarantees",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-16": {
-    "sourceHash": "0c2af5999ff617c2ccbdc6bf6f0928bbf4bdec1de088aa889f60f1f1a56c160f",
+    "sourceHash": "e3ac68b738d54f642d9d3ede1c2b53a5d1608234b38e84af0f32df1249c0e927",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "19e622928b8b79c04555acf2497fce61d14f58e6b7da840ed35406e3f46ef7eb",
+      "values": {
+        "comments.title": "Passing Failures with Result Types",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Passing Failures with Result Types",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-17": {
-    "sourceHash": "313c119edfd7ba62aca53b25bd9aba99a7d69818bde8cb8baa6e96fb953118aa",
+    "sourceHash": "395c51ec1131c56ea7d324622f1a15a412c1576a5a57695c504932d76dbf85e4",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "95baad879fbcf7422e34c949bee9b9e474c9b4cc58244f50f02011775627d8f6",
+      "values": {
+        "comments.title": "Editing Models with Utility Types",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Editing Models with Utility Types",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-18": {
-    "sourceHash": "d09e0e4d3584c8d9c052aa74b3bd0e35334c074693e3ab46bac6abd220542023",
+    "sourceHash": "464e0a188a273440dc3982a698cf6e443e35628c4082cf1979419cfdcfe88e26",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "a00ea135c93b3708f6096da59fde859ec12ba1adc246eabe703174160b7d9305",
+      "values": {
+        "comments.title": "Checking Configuration with satisfies",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Checking Configuration with satisfies",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-19": {
-    "sourceHash": "4df62ab2ad6cc175e2bcff9c23df0260ed081fd3f9252f53dea71b99f92bee36",
+    "sourceHash": "a7c2bce61f6860973256c498e82c99b4db2e577d628e77edaddba03312a7a734",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "8b0e031916a3eae542627da639f753d09984969b4728013207bb4108955c93b2",
+      "values": {
+        "comments.title": "State Tables with Mapped Types",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "State Tables with Mapped Types",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-20": {
-    "sourceHash": "3202b54e8c6699aaebad8b1879a568359e43f86006aa938fd818aa1990fd4eab",
+    "sourceHash": "885b5be4d1e7de041344514d0e6b91e809c2dcbaf052837bd44d8ca5403567f1",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "49a4e9b90de25cd6c10420ad8353df9d0b284f89fec065155aba5e4d511c28a2",
+      "values": {
+        "comments.title": "Conditional Types and Distribution",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Conditional Types and Distribution",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "This is a runtime analogy. Check actual conditional types in lesson.ts with tsc.",
+        "messages.display004": "Experiment JSON input",
+        "messages.display005": "Run experiment"
+      }
     }
   },
   "typescript-step-21": {
-    "sourceHash": "83dc9ec41cd2369ac3d12e81c44ce2f30b838773b110fa62a9d828f69a60ffce",
+    "sourceHash": "00ebf3ea2b45d5b064ca63cfefdfa10e422408a19a47a7e8183e96b3a8c801c5",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "8ea7681805a15295386ce1c9e2eee94ab7ad8bc15e162776962984a290055baf",
+      "values": {
+        "comments.title": "Template Literal Event Names",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Template Literal Event Names",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-22": {
-    "sourceHash": "e2355a52c4b5d3057afd943f4e5455216dfe8c56cc0acf57d990fbb7bcb8dd00",
+    "sourceHash": "6b18851cbae8e5fefd92f4efb580ef2f5a2dfc61e3689f3c300f12ea295c3be1",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "81e03085f0c7475bf81ad18ea01b787b87071b28e4d0549cf2407ca5719460a6",
+      "values": {
+        "comments.title": "DOM Types and null Checks",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "DOM Types and null Checks",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Not an input element",
+        "messages.display005": "Run experiment"
+      }
     }
   },
   "typescript-step-23": {
-    "sourceHash": "df5834920ffa9689eddaaca050bbfc26b0aca4a153d22cb01480516fc25dee9b",
+    "sourceHash": "a7cca4ac81bbdefa81df86d84bd8fe152781a9700e749dfa173144c7ec0e312f",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "012075f877891ee4092464b0a0678d4b2d01166b05ca3a9b607cf2ee7fd8de54",
+      "values": {
+        "comments.title": "Async Functions and Error Types",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Async Functions and Error Types",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-24": {
-    "sourceHash": "2c3c909d1bebdca93d5f9a4a6b8af26c5b6fd53601ca2e5193124f0cd43898aa",
+    "sourceHash": "a3ffddfc5d288b72f75a334d2900e8ed8fbd83ccfc0a9d4caaa840f0dfe16634",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "8d061e08e6c720239e0e00c28b9edb97670324fb5f0d9735c3bc8b3d3391616e",
+      "values": {
+        "comments.title": "Modules and type-only import",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Modules and type-only import",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-25": {
-    "sourceHash": "0959cb61314dd4a9398a310e3e62428523d13fc2a32367b48a26aa5ccf13f911",
+    "sourceHash": "f2232e161a8159cb9d831271323122927eabb6101ea8ffd2b7771c6f9b370e46",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "88e681484fb573d10b470a8ead509d37c624c0488a8f53ace43e52498a23d3df",
+      "values": {
+        "comments.title": "Declaration Files and External Boundaries",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Declaration Files and External Boundaries",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-26": {
-    "sourceHash": "ab356a0354f32dd02c607c983ea03a1720e4fd83240ef6cd62291235c4345dd3",
+    "sourceHash": "9e9b6c3fe996047dc1f1e9a9cf1e2b18b22b02c3c3ac35a457ace0be657986da",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "daf3926bb392c1d302b563e07bba1eef74cc5a4e31af3517793c27e7fbb9d8f1",
+      "values": {
+        "comments.title": "Cases That Verify Compilation Failures",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Cases That Verify Compilation Failures",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
     }
   },
   "typescript-step-27": {
-    "sourceHash": "7669de549390fc22e7b11636dfbc4d4b1dd0c3f595d080ae4c4a15f1a00c9cdc",
+    "sourceHash": "2a20e303bad3827746b0daf3688dca30a587679690dd370e59f30913a51e8c5e",
     "values": {
       "note": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM."
+    },
+    "presentation": {
+      "sourceHash": "0bcede8685e87159c4a0e9909ec1d3126f5a7949190927c6459d4cd06a470865",
+      "values": {
+        "comments.title": "Plugin Ownership and Cleanup Contracts",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Plugin Ownership and Cleanup Contracts",
+        "messages.help": "The preview is a JavaScript runtime boundary experiment. It does not run TypeScript diagnostics. Check lesson.ts locally with tsc --strict --noEmit --lib ES2023,DOM.",
+        "messages.display003": "Experiment JSON input",
+        "messages.display004": "Run experiment"
+      }
+    }
+  },
+  "typescript-01": {
+    "presentation": {
+      "sourceHash": "09c277f7bd8b9866a2fabcc6da32883a0b62f5ee6af4f76d77f0c466bb8de13c",
+      "values": {
+        "comments.title": "JSDoc types are checked in JavaScript too. In TS mode, try replacing them with type declarations.",
+        "messages.display001": "Narrowed number × 2 = ",
+        "messages.display002": "Enter a finite number.",
+        "messages.display003": "Value to check"
+      }
+    }
+  },
+  "typescript-02": {
+    "presentation": {
+      "sourceHash": "04e5bf81b1a63f1201d61c44e0b5421feb7a4ef30c77501929d894629dae1a98",
+      "values": {
+        "messages.display001": "JSDoc @template expresses type relationships in the JavaScript editor too. Type assertions do not replace runtime validation.",
+        "messages.display002": "Rejected: expected an array of objects with a finite number id and a string title.",
+        "messages.display003": "Validation passed: the array is empty, so first is undefined",
+        "messages.display004": "unknown → guard → generic",
+        "messages.display005": "JSON syntax error: ",
+        "messages.display006": "Validation passed: ",
+        "messages.display007": "Invalid fields",
+        "messages.display008": "Empty array",
+        "messages.display009": "Valid",
+        "messages.display010": "Validate",
+        "comments.inlineExplanation": "Lesson | undefined: the generic preserves the input element type."
+      }
+    }
+  },
+  "typescript-03": {
+    "presentation": {
+      "sourceHash": "cfc125168ce4087b75a6fbc3242108a8d68ecfc611381f45f8bb51330cff50d5",
+      "values": {
+        "messages.display001": "Plugin contract: mount / dispose",
+        "messages.display002": "DOM plugin tick ",
+        "messages.display003": "Call dispose twice",
+        "messages.display004": "Mount Canvas",
+        "messages.display005": " / actual releases ",
+        "messages.display006": "Mount DOM",
+        "messages.display007": " / active ",
+        "comments.inlineExplanation": "Idempotence: repeated calls have no effect."
+      }
     }
   }
 }

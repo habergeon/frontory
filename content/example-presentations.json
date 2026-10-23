@@ -399,5 +399,353 @@
     "comments": {
       "help": "데이터 변경, 렌더, 이벤트 연결을 분리합니다. 저장은 이 실행의 메모리 범위입니다."
     }
+  },
+  "typescript-01": {
+    "messages": {
+      "display001": "좁힌 number × 2 = ",
+      "display002": "유한한 숫자를 입력하세요.",
+      "display003": "검사할 값"
+    },
+    "comments": {
+      "title": "JavaScript에서도 JSDoc 타입을 검사합니다. TS 모드에서는 type 선언으로 바꿔 보세요."
+    }
+  },
+  "typescript-step-02": {
+    "messages": {
+      "title": "strict 설정과 실행 코드",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "strict 설정과 실행 코드",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-03": {
+    "messages": {
+      "title": "추론과 리터럴 타입",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "추론과 리터럴 타입",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-04": {
+    "messages": {
+      "title": "객체 계약과 선택 필드",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "객체 계약과 선택 필드",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-05": {
+    "messages": {
+      "title": "배열과 튜플의 위치 의미",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "동일 number 타입 좌표 교환은 타입 오류가 아닙니다.",
+      "display004": "실험 JSON 입력",
+      "display005": "실험 실행"
+    },
+    "comments": {
+      "title": "배열과 튜플의 위치 의미",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-06": {
+    "messages": {
+      "title": "함수 인수와 반환 계약",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "함수 인수와 반환 계약",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-07": {
+    "messages": {
+      "title": "unknown과 안전한 접근",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "unknown과 안전한 접근",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-08": {
+    "messages": {
+      "title": "판별 유니온으로 비동기 상태 표현",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "판별 유니온으로 비동기 상태 표현",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-09": {
+    "messages": {
+      "title": "never로 분기 누락 찾기",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행",
+      "display005": "대기",
+      "display006": "진행",
+      "display007": "완료"
+    },
+    "comments": {
+      "title": "never로 분기 누락 찾기",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-10": {
+    "messages": {
+      "title": "readonly와 변경 범위",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "readonly는 런타임 freeze가 아닙니다.",
+      "display004": "실험 JSON 입력",
+      "display005": "실험 실행"
+    },
+    "comments": {
+      "title": "readonly와 변경 범위",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-11": {
+    "messages": {
+      "title": "keyof와 속성 조회 함수",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "keyof와 속성 조회 함수",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-12": {
+    "messages": {
+      "title": "제네릭 함수와 추론",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "제네릭 함수와 추론",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-13": {
+    "messages": {
+      "title": "제약 조건과 최소 계약",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "제약 조건과 최소 계약",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-02": {
+    "messages": {
+      "display001": "JSDoc의 @template은 JavaScript 편집기에서도 타입 관계를 표현합니다. 타입 단언은 런타임 검증을 대신하지 않습니다.",
+      "display002": "거부: 유한한 number id와 string title을 가진 객체 배열이어야 합니다.",
+      "display003": "검증 통과: 빈 배열이므로 first는 undefined",
+      "display004": "unknown → 가드 → 제네릭",
+      "display005": "JSON 구문 오류: ",
+      "display006": "검증 통과: ",
+      "display007": "잘못된 필드",
+      "display008": "빈 배열",
+      "display009": "정상",
+      "display010": "검증"
+    },
+    "comments": {
+      "inlineExplanation": "Lesson | undefined: 제네릭이 입력 요소의 타입을 보존합니다."
+    }
+  },
+  "typescript-step-15": {
+    "messages": {
+      "title": "타입 가드와 거짓 보장",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "타입 가드와 거짓 보장",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-16": {
+    "messages": {
+      "title": "Result 타입으로 실패 전달",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "Result 타입으로 실패 전달",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-17": {
+    "messages": {
+      "title": "Utility Types로 편집 모델 만들기",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "Utility Types로 편집 모델 만들기",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-18": {
+    "messages": {
+      "title": "satisfies로 설정 검사",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "satisfies로 설정 검사",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-19": {
+    "messages": {
+      "title": "Mapped Types로 상태 표 만들기",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "Mapped Types로 상태 표 만들기",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-20": {
+    "messages": {
+      "title": "조건부 타입과 분배",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "런타임 비유입니다. 실제 조건부 타입은 lesson.ts에서 tsc로 검사합니다.",
+      "display004": "실험 JSON 입력",
+      "display005": "실험 실행"
+    },
+    "comments": {
+      "title": "조건부 타입과 분배",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-21": {
+    "messages": {
+      "title": "템플릿 리터럴 이벤트 이름",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "템플릿 리터럴 이벤트 이름",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-22": {
+    "messages": {
+      "title": "DOM 타입과 null 검사",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "입력 요소 아님",
+      "display005": "실험 실행"
+    },
+    "comments": {
+      "title": "DOM 타입과 null 검사",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-23": {
+    "messages": {
+      "title": "비동기 함수와 오류 타입",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "비동기 함수와 오류 타입",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-24": {
+    "messages": {
+      "title": "모듈과 type-only import",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "모듈과 type-only import",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-25": {
+    "messages": {
+      "title": "선언 파일과 외부 경계",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "선언 파일과 외부 경계",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-26": {
+    "messages": {
+      "title": "컴파일 실패를 검증하는 사례",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "컴파일 실패를 검증하는 사례",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-step-27": {
+    "messages": {
+      "title": "플러그인 소유권과 정리 계약",
+      "help": "미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.",
+      "display003": "실험 JSON 입력",
+      "display004": "실험 실행"
+    },
+    "comments": {
+      "title": "플러그인 소유권과 정리 계약",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "typescript-03": {
+    "messages": {
+      "display001": "플러그인 계약: mount / dispose",
+      "display002": "DOM 플러그인 tick ",
+      "display003": "dispose 두 번",
+      "display004": "Canvas 장착",
+      "display005": " / 실제 해제 ",
+      "display006": "DOM 장착",
+      "display007": " / 활성 "
+    },
+    "comments": {
+      "inlineExplanation": "멱등성: 중복 호출은 아무 효과가 없습니다."
+    }
   }
 }

@@ -61,7 +61,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/glsl-step-27/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time.
+Runs WebGL ShaderMaterial in the browser. Comparisons use 640×360/320×180 sizes; frame intervals are different from GPU time. The provided selections change both full/half resolution and the noise interpolation expression while retaining 4 octaves. This is not a controlled comparison of resolution alone. Comparing with fixed interpolation is a separate assignment.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

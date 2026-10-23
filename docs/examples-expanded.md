@@ -433,7 +433,7 @@
 | [4. Attribute와 보간](labs/shader/glsl/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-04/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
 | [5. 좌표 공간 추적](labs/shader/glsl/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-05/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
 | [6. Uniform 조회와 갱신](labs/shader/glsl/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-06/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
-| [7. 디버그 출력과 최소 재현](labs/shader/glsl/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-07/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [7. 디버그 출력과 최소 재현](labs/shader/glsl/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-07/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. 제공된 최종 색 식의 smoothstep(.5,.1,...)은 edge0 >= edge1이므로 결과가 정의되지 않습니다. 정상 기준 화면으로 해석하지 마세요. 브라우저 실패를 실행으로 확인한 것은 아닙니다. UV 직접 출력과 진단 과제는 별도로 관찰하세요. |
 | [8. UV와 종횡비](labs/shader/glsl/units/08/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-08/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
 | [9. Step과 Smoothstep 마스크](labs/shader/glsl/units/09/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-09/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
 | [10. 타일링과 반복 좌표](labs/shader/glsl/units/10/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-10/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
@@ -442,7 +442,7 @@
 | [13. 시간과 주기](labs/shader/glsl/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-13/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
 | [15. 2D 거리장 도형](labs/shader/glsl/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-15/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
 | [16. Value noise의 구성](labs/shader/glsl/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-16/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
-| [17. 옥타브와 대역 제한](labs/shader/glsl/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-17/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [17. 옥타브와 대역 제한](labs/shader/glsl/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-17/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. 제공된 선택은 octave 수 1/5와 noise 보간식을 함께 바꿉니다. 이 비교만으로 octave 수의 효과를 분리해 판단할 수 없습니다. 보간식을 고정한 비교는 별도 과제입니다. |
 | [18. 법선과 확산 조명](labs/shader/glsl/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-18/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
 | [19. 반사광과 시선 벡터](labs/shader/glsl/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-19/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
 | [20. 변형 표면의 법선](labs/shader/glsl/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-20/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
@@ -451,8 +451,8 @@
 | [23. Texel 크기와 필터](labs/shader/glsl/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-23/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
 | [24. 포인터 좌표와 입력 완화](labs/shader/glsl/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-24/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
 | [25. 분기와 반복의 비용](labs/shader/glsl/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-25/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
-| [26. 편집 실패와 Context 복구](labs/shader/glsl/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-26/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
-| [27. 품질 기준과 회귀 기록](labs/shader/glsl/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-27/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. |
+| [26. 편집 실패와 Context 복구](labs/shader/glsl/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-26/example.js) — 브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. 제공된 예제는 독립 fragment shader만 compile하고 원문 compiler log를 표시하며 기존 ShaderMaterial 화면을 유지합니다. 성공한 candidate program 설치·교체나 context 복구는 구현하지 않습니다. |
+| [27. 품질 기준과 회귀 기록](labs/shader/glsl/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/glsl-step-27/example.js) — 브라우저 WebGL ShaderMaterial 실행. 640×360/320×180 비교이며 프레임 간격은 GPU 시간과 다릅니다. 제공된 선택은 전체/절반 해상도와 noise 보간식을 함께 바꾸며 4 octave는 유지합니다. 해상도만 바꾼 통제 비교로 해석할 수 없습니다. 보간식을 고정한 비교는 별도 과제입니다. |
 
 ## WGSL
 

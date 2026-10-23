@@ -61,7 +61,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/glsl-step-26/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time.
+Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. The provided example only compiles an independent fragment shader, displays the raw compiler log, and retains the existing ShaderMaterial display. It does not install or replace a successful candidate program or implement context recovery.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

@@ -1,152 +1,540 @@
 {
   "glsl-step-02": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "7d062fa11d977aff3eedca6392a12af16690688265914d0742f98f2d752db591",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "e9ebfdadc35450e1573d962758d0803700008109a5aef40652b227446c2a7567",
+      "values": {
+        "messages.display001": "Scalar and Vector Types",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Calculation method",
+        "messages.display004": "color*color",
+        "messages.display005": "vec3(dot(color,color))",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect per-channel values from the former and identical gray channels from the latter.",
+        "comments.comment001": "glsl-step-02: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-03": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "4311be2421b5dcbdd00383b202e7a7cb05543595b06aea0938404833fabd4d3a",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "c4b570ccb1308914083cd3589b26f03541d77f780c33555ef8ee064306e0e9d6",
+      "values": {
+        "messages.display001": "Precision and Numeric Range",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Coordinate offset",
+        "messages.display004": "0",
+        "messages.display005": "100000",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect possible jitter or clumping in the pattern because small differences may be difficult to represent.",
+        "comments.comment001": "glsl-step-03: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-04": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "dfa7655d7a71f1cd8b2a83942e85650a6a4fae1803dfc48ffd3f06386c2a6a4e",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "95dce05b07c8a40bc2f44db3cb2511c4c220705948475dc3c53aa30cf2ee14d1",
+      "values": {
+        "messages.display001": "Attributes and Interpolation",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Vertex colors",
+        "messages.display004": "all red",
+        "messages.display005": "red, green, and blue",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect mixed colors inside the triangle.",
+        "comments.comment001": "glsl-step-04: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-05": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "2ee0aa561b205622531f4e590bb5886a3fc3a53dc927fd784c28f41814813a92",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "9bc9ca9194ae55383297c91ff0dc790885c2aecb75cfc4b496a6ea929b7fca11",
+      "values": {
+        "messages.display001": "Tracking Coordinate Spaces",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "model translation",
+        "messages.display004": "x=0",
+        "messages.display005": "x=1",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect world and clip positions to change while the original vertex data remains unchanged.",
+        "comments.comment001": "glsl-step-05: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-06": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "09f1e36573078618da5f031f724e2ff366aab469808af33df6ded5bc3a5cf20a",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "e950eccf46f6937227a04ac3fc0feb3acac1b2d7ef4bf8d1d509168635b7265e",
+      "values": {
+        "messages.display001": "Looking Up and Updating Uniforms",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "uGain",
+        "messages.display004": "0.5",
+        "messages.display005": "1.0",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect linear color output to double when other conditions stay the same.",
+        "comments.comment001": "glsl-step-06: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-07": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "f780b6e9af460d2449ea74bbf6677127b01a701649054c50fa1236b4cbbecae8",
     "values": {
-      "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+      "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. The provided final-color expression smoothstep(.5,.1,...) has edge0 >= edge1, so its result is undefined. Do not interpret it as a valid baseline display. A browser failure has not been observed by running this example. Inspect direct UV output and the diagnostic assignment separately."
+    },
+    "presentation": {
+      "sourceHash": "74465e4266e1dcf21fad3febc567ebfd0b58456ffedcb38d95a412d9f0d2f4e8",
+      "values": {
+        "messages.display001": "Debug Output and Minimal Reproductions",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution. The provided final-color expression smoothstep(.5,.1,...) has edge0 >= edge1, so its result is undefined. Do not interpret it as a valid baseline display. A browser failure has not been observed by running this example. Inspect direct UV output and the diagnostic assignment separately.",
+        "messages.display003": "debug mode",
+        "messages.display004": "final color",
+        "messages.display005": "direct UV output",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect coordinate errors hidden by lighting or color compositing to become visible.",
+        "comments.comment001": "glsl-step-07: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-08": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "449d637e77187693424c92082d222ea49c3fe4951b2d5d768cc110bdb3a63f77",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "81bd4cbadd7d25f808806a7ad0b6268da8fb8a9fb89cdac13eb9e7cc8ff760b1",
+      "values": {
+        "messages.display001": "UVs and Aspect Ratio",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "aspect correction",
+        "messages.display004": "none",
+        "messages.display005": "apply width/height",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect equal horizontal and vertical pixel diameters even on a wide or tall screen.",
+        "comments.comment001": "glsl-step-08: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-09": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "a01e0829e3b206e40d53da8ed30b880e8859154cdfbf6ba1a58b02d2b1d48e92",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "73c86b9b89a76a212c85ba0753c5ac52fcbfe1f7a62f94e7aa09c2dd06cd91ed",
+      "values": {
+        "messages.display001": "Step and Smoothstep Masks",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Boundary width",
+        "messages.display004": "0.001",
+        "messages.display005": "0.03",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect a wider transition region while retaining the center and outer radius.",
+        "comments.comment001": "glsl-step-09: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-10": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "3410d757500ed85613df69a45ad71a323beec0987dfcd6614c3eebb2559e36c1",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "b6e8bc8afe9360e1d0d84f6c256d435acfd25fdf42d6d762ee82b1c43f046b04",
+      "values": {
+        "messages.display001": "Tiling and Repeating Coordinates",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Tile count",
+        "messages.display004": "4",
+        "messages.display005": "16",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect denser repetition that may increase aliasing on a small screen.",
+        "comments.comment001": "glsl-step-10: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-11": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "2b745e21c75940562dd0cd104c6135c912ebb13791b37a9f00d06a246a44d30d",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "dccab5b03c1b5f0df9612c9adfe462114e99c9f132acc5d5220e9a9f5aa1b1f0",
+      "values": {
+        "messages.display001": "Texture Sampling",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "wrap",
+        "messages.display004": "CLAMP_TO_EDGE",
+        "messages.display005": "REPEAT",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect pattern repetition instead of edge extension at out-of-range UVs.",
+        "comments.comment001": "glsl-step-11: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-12": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "f7ba37882e7dfc6a10e6481f5330995be8896b097ba8c56a6ab81068795382d7",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "1262afe6ed8041a729a0cddb04e46d52d00fc30a298fa6af15e506bbd25dbf17",
+      "values": {
+        "messages.display001": "Derivatives and Edge Smoothing",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Transition width",
+        "messages.display004": "fixed 0.01",
+        "messages.display005": "based on fwidth(d)",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect boundaries to remain roughly matched to pixel size as resolution changes.",
+        "comments.comment001": "glsl-step-12: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-13": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "0ac974ba43f9287b67ffed149078052c8bfd7687518e39b802b0b52c717365ab",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "a558cbaaf53790de2a94cc101c00813a181039d2083ae20c48f76d716642ae31",
+      "values": {
+        "messages.display001": "Time and Periods",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Time speed",
+        "messages.display004": "1",
+        "messages.display005": "2",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect the same spatial wavelength with twice the phase shift over the same duration.",
+        "comments.comment001": "glsl-step-13: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-15": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "d1d985ac0b116bb823a34f3b79a28f3fb6f480710de6d2d9bfecb53c5281fc52",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "9471eb37592aea28e27e6f92099ed600a7043dabef483ccf446060e57ea5d0f7",
+      "values": {
+        "messages.display001": "2D Distance-Field Shapes",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Box position",
+        "messages.display004": "circle center",
+        "messages.display005": "move 0.2 along x",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect the overlap region and the cut boundary of the difference to move.",
+        "comments.comment001": "glsl-step-15: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-16": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "4bff5a53ab33d4b7dd690ca5a597edf5e7dcb76edab6173c7e394260ac616458",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "5109c91533a3301df939ccd2e28a9cedcfffe82ca31aea7f1e2997b8762ee596",
+      "values": {
+        "messages.display001": "Building Value Noise",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Interpolation",
+        "messages.display004": "linear",
+        "messages.display005": "smooth polynomial curve",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect changes in slope at cell boundaries to become less prominent.",
+        "comments.comment001": "glsl-step-16: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-17": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "4672586aa9ff889eb990815b0d8ff3217526bd8482ad897167fe1bca250a3857",
     "values": {
-      "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+      "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. The provided selections change both the octave count 1/5 and the noise interpolation expression. This comparison alone cannot isolate the effect of octave count. Comparing with fixed interpolation is a separate assignment."
+    },
+    "presentation": {
+      "sourceHash": "fda6e26e8346de068ce37d41b17f9c5e1bb7a53ad5346324d54a5dd5556f2b07",
+      "values": {
+        "messages.display001": "Octaves and Band Limiting",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution. The provided selections change both the octave count 1/5 and the noise interpolation expression. This comparison alone cannot isolate the effect of octave count. Comparing with fixed interpolation is a separate assignment.",
+        "messages.display003": "Octave count",
+        "messages.display004": "1",
+        "messages.display005": "5",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect more detail and computation, with possible aliasing on a small screen.",
+        "comments.comment001": "glsl-step-17: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-18": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "cc8c9378598ec265e743c3230b8fbae11ad40a7c97e18ce99e841dc74439b425",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "56b13e8f6ec93aae0a323bf321fb7cc20b90b988f6b40c59c70d94febdad13d1",
+      "values": {
+        "messages.display001": "Normals and Diffuse Lighting",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "scale",
+        "messages.display004": "[1,1,1]",
+        "messages.display005": "[2,1,0.5]",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect the direction of the bright region to be incorrect with the wrong normal transform.",
+        "comments.comment001": "glsl-step-18: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-19": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "244b5910f75e791cd1fd29ee2b79c77f035dd0bb0d2bce86240c78b4ec6f1e53",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "299d104c2e18e5f9c5987db926e9776bac92d24a90d96cfc5bbcefb0c0aa7a44",
+      "values": {
+        "messages.display001": "Specular Lighting and View Vectors",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "shininess",
+        "messages.display004": "8",
+        "messages.display005": "64",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect narrower highlights, while recognizing that this does not describe every physical property of the material.",
+        "comments.comment001": "glsl-step-19: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-20": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "49d679a857a1877c8367238cc56125e9596e4bd965cc51cd8670c317f1ca15ea",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "810e186af1f1c7f823ba56d291f321d00d205ace5e93465524b25b3846736715",
+      "values": {
+        "messages.display001": "Normals on Deformed Surfaces",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Normals",
+        "messages.display004": "original plane normals",
+        "messages.display005": "wave-slope normals",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect the same silhouette, with light and dark lighting bands following the wave.",
+        "comments.comment001": "glsl-step-20: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-21": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "eb7bf1349d748ec340fcb8805f562067f6774453c4831987a3ae5a8151ee2f5c",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "234790aeb021520c55fb1ca2a213e08f211c8eed3d983bb1c88334f4b5f3f750",
+      "values": {
+        "messages.display001": "Alpha and Compositing State",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Draw order",
+        "messages.display004": "front plane first",
+        "messages.display005": "back plane first",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect colors in the overlapping semitransparent region to differ.",
+        "comments.comment001": "glsl-step-21: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-22": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "35425036ed1f51e4d232c085da4a0b1908a55a3aeefd93d6d836a286a5b07be1",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "fac50d7999fd7cc51a675ef30925755232fd4071c549e84cc0d4378a47ba69e7",
+      "values": {
+        "messages.display001": "Framebuffers and Screen Passes",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Intermediate resolution",
+        "messages.display004": "same as screen",
+        "messages.display005": "half width and height",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect reduced detail in the postprocessing input and fewer pixels to process.",
+        "comments.comment001": "glsl-step-22: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-23": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "558e46ae776493c7f6771c829edc40dd420c12670bed8e9dc0523ec76831dd1b",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "3d5ed3ec281459accb13b5c3bc49499be1a09933f51355a7a5b85bcdb8cc6465",
+      "values": {
+        "messages.display001": "Texel Size and Filters",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Sample spacing",
+        "messages.display004": "1 texel",
+        "messages.display005": "3 texel",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect a wider blur radius and more mixing of fine patterns.",
+        "comments.comment001": "glsl-step-23: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-24": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "23d54819dc6d5bef5d1101bb6d654c27018cbaadf82dcb1b597d9a4f1d7be46d",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "9fc05f1ffd01c2cce084cd32c46653b6c9fa06462221c25797674bef47e81f87",
+      "values": {
+        "messages.display001": "Pointer Coordinates and Input Smoothing",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Smoothing coefficient",
+        "messages.display004": "lambda=4",
+        "messages.display005": "lambda=16",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect the same final position with a faster response toward the target.",
+        "comments.comment001": "glsl-step-24: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-25": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "5fcc8d81a34de8734d506e9f58c9628de8573ff22ceaaa1a2c7d8c9c65a04dd4",
     "values": {
       "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+    },
+    "presentation": {
+      "sourceHash": "b7d66035caf250031b63123d996a29f356d2679167d42e6a83238548ae67e3ce",
+      "values": {
+        "messages.display001": "The Cost of Branches and Loops",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution.",
+        "messages.display003": "Iteration count",
+        "messages.display004": "1",
+        "messages.display005": "8",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect additional computation, while actual frame differences depend on the bottleneck.",
+        "messages.display009": "Mean rAF interval: ",
+        "messages.display010": " ms; not GPU time. Iterations ",
+        "comments.comment001": "glsl-step-25: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-26": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "e57b4a4b917098b075356245aac6602744053c9604fd3e23206b7369022dd4dd",
     "values": {
-      "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+      "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. The provided example only compiles an independent fragment shader, displays the raw compiler log, and retains the existing ShaderMaterial display. It does not install or replace a successful candidate program or implement context recovery."
+    },
+    "presentation": {
+      "sourceHash": "a49760e8fe9a7cb12fe37584760f9878f1f9e0147ba0f83f6ba1e8506e0525a6",
+      "values": {
+        "messages.display001": "Editing Failures and Context Recovery",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution. The provided example only compiles an independent fragment shader, displays the raw compiler log, and retains the existing ShaderMaterial display. It does not install or replace a successful candidate program or implement context recovery.",
+        "messages.display003": "New source",
+        "messages.display004": "valid source",
+        "messages.display005": "contains a syntax error",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Independent fragment shader compilation succeeded — existing ShaderMaterial retained",
+        "messages.display008": "\nLast working ShaderMaterial retained",
+        "messages.display009": ": ",
+        "messages.display010": "Expect an error display while retaining the last working image.",
+        "comments.comment001": "glsl-step-26: real GLSL ShaderMaterial experiment."
+      }
     }
   },
   "glsl-step-27": {
-    "sourceHash": "dbec503e80ad6d3d90af5e9c9921aa03ace8ae105af1beaebfead05ada4d2fc7",
+    "sourceHash": "8856d29039471d3d48abe8bd0609882a9684b2dea8ea046f4867534edf5e2eb5",
     "values": {
-      "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+      "note": "Runs WebGL ShaderMaterial in the browser. Comparisons use 640×360/320×180 sizes; frame intervals are different from GPU time. The provided selections change both full/half resolution and the noise interpolation expression while retaining 4 octaves. This is not a controlled comparison of resolution alone. Comparing with fixed interpolation is a separate assignment."
+    },
+    "presentation": {
+      "sourceHash": "910b896604bc2c38fb7cf1d1ff79e55a9b673f5e7f3bffd35aaecfb2e294f1b9",
+      "values": {
+        "messages.display001": "Quality Criteria and Regression Records",
+        "messages.display002": "This uses an actual WebGL ShaderMaterial. Change conditions and edit expressions in the GLSL source. Numerical and timing results vary with the device and resolution. The provided selections change both full/half resolution and the noise interpolation expression while retaining 4 octaves. This is not a controlled comparison of resolution alone. Comparing with fixed interpolation is a separate assignment.",
+        "messages.display003": "Quality setting",
+        "messages.display004": "full resolution and 4 octaves",
+        "messages.display005": "half resolution and the same octave count",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": ": ",
+        "messages.display008": "Expect lower pixel cost but greater loss of boundaries and high-frequency detail.",
+        "comments.comment001": "glsl-step-27: real GLSL ShaderMaterial experiment."
+      }
+    }
+  },
+  "glsl-01": {
+    "presentation": {
+      "sourceHash": "52c48328f157cfa708de95ba8fc4dcc999357f2e0d7b741a84e2c39d8ec2ba2b",
+      "values": {
+        "comments.comment001": "Edit position in vertexShader and the color in fragmentShader directly."
+      }
+    }
+  },
+  "glsl-02": {
+    "presentation": {
+      "sourceHash": "5568ab5787319c4bf0c25d2b030087f45825f9f46b60d818a667c85d6f416c96",
+      "values": {
+        "messages.display001": "<label>Stage <select><option value=\"0\">UV</option><option value=\"1\">Time color</option><option value=\"2\">Vertex wave</option></select></label> <label>Amplitude <input type=\"range\" min=\"0\" max=\".8\" step=\".05\" value=\".3\"></label> <label>Frequency <input type=\"range\" min=\"1\" max=\"16\" value=\"6\"></label> <label>Speed <input type=\"range\" min=\"0\" max=\"3\" step=\".1\" value=\"1\"></label>",
+        "comments.comment001": "GLSL ES 1 ShaderMaterial: UV → time color → vertex wave, controlled independently."
+      }
+    }
+  },
+  "glsl-03": {
+    "presentation": {
+      "sourceHash": "8fc7a841d114ca6a38f81dec935b00904acba78db34a8f5b9e825c91cfb1a7c9",
+      "values": {
+        "messages.display001": "<label>Iterations <input type=\"range\" min=\"1\" max=\"32\" value=\"8\"></label> <label>Resolution <select><option value=\"1\">1x</option><option value=\".5\">0.5x</option><option value=\"2\">2x</option></select></label> <button>Try broken shader</button> <button>Restore shader</button> <button>Record</button><pre></pre>",
+        "messages.display002": "WebGL unavailable",
+        "messages.display003": "Shader compiled and linked. Move pointer.",
+        "messages.display004": "Compile/link failed; previous program retained:\n",
+        "messages.display005": " iterations · ",
+        "messages.display006": "×",
+        "messages.display007": " · ",
+        "messages.display008": " rAF samples: ",
+        "messages.display009": " ms (not GPU time)",
+        "comments.comment001": "Raw WebGL allows a compile-error experiment without discarding the working program."
+      }
     }
   }
 }

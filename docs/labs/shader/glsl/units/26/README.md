@@ -61,7 +61,7 @@ WebGL context가 복구되면 이전 GPU 자원은 다시 만들어야 합니다
 
 [예제 원본](../../../../../../src/labs/glsl-step-26/example.js) · [실행 환경과 제한](../../../../../examples.md)
 
-브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.
+브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. 제공된 예제는 독립 fragment shader만 compile하고 원문 compiler log를 표시하며 기존 ShaderMaterial 화면을 유지합니다. 성공한 candidate program 설치·교체나 context 복구는 구현하지 않습니다.
 
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.

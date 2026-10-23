@@ -61,7 +61,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/glsl-step-07/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time.
+Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. The provided final-color expression smoothstep(.5,.1,...) has edge0 >= edge1, so its result is undefined. Do not interpret it as a valid baseline display. A browser failure has not been observed by running this example. Inspect direct UV output and the diagnostic assignment separately.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

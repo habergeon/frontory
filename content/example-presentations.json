@@ -5855,5 +5855,414 @@
       "comment001": "Extra invocations MUST exit.",
       "comment002": "Actual compute dispatch and GPU readback. Timings are wall-clock, not GPU timestamp queries."
     }
+  },
+  "glsl-01": {
+    "messages": {},
+    "comments": {
+      "comment001": "vertexShader의 position과 fragmentShader의 색상을 직접 편집하세요."
+    }
+  },
+  "glsl-step-02": {
+    "messages": {
+      "display001": "스칼라와 벡터 타입",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "계산 방식",
+      "display004": "color*color",
+      "display005": "vec3(dot(color,color))",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "전자는 채널별 값이고 후자는 같은 회색 채널이 될 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-02: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-03": {
+    "messages": {
+      "display001": "정밀도와 수치 범위",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "좌표 offset",
+      "display004": "0",
+      "display005": "100000",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "작은 차이를 표현하기 어려워 패턴이 흔들리거나 뭉칠 수 있다고 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-03: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-04": {
+    "messages": {
+      "display001": "Attribute와 보간",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "정점 색",
+      "display004": "모두 빨강",
+      "display005": "빨강·초록·파랑",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "삼각형 내부에 혼합색이 생길 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-04: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-05": {
+    "messages": {
+      "display001": "좌표 공간 추적",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "model 이동",
+      "display004": "x=0",
+      "display005": "x=1",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "월드 위치와 clip 위치가 바뀌지만 원래 정점 데이터는 유지될 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-05: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-06": {
+    "messages": {
+      "display001": "Uniform 조회와 갱신",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "uGain",
+      "display004": "0.5",
+      "display005": "1.0",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "다른 조건이 같으면 선형 색 출력이 두 배가 될 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-06: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-07": {
+    "messages": {
+      "display001": "디버그 출력과 최소 재현",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다. 제공된 최종 색 식의 smoothstep(.5,.1,...)은 edge0 >= edge1이므로 결과가 정의되지 않습니다. 정상 기준 화면으로 해석하지 마세요. 브라우저 실패를 실행으로 확인한 것은 아닙니다. UV 직접 출력과 진단 과제는 별도로 관찰하세요.",
+      "display003": "debug mode",
+      "display004": "최종 색",
+      "display005": "UV 직접 출력",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "조명이나 색 합성에 가려진 좌표 오류가 보일 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-07: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-08": {
+    "messages": {
+      "display001": "UV와 종횡비",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "aspect 보정",
+      "display004": "없음",
+      "display005": "width/height 적용",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "긴 화면에서도 원의 픽셀 가로세로 지름이 같아질 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-08: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-09": {
+    "messages": {
+      "display001": "Step과 Smoothstep 마스크",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "경계 폭",
+      "display004": "0.001",
+      "display005": "0.03",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "중심과 외곽 반경은 유지하면서 전이 구간이 넓어질 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-09: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-10": {
+    "messages": {
+      "display001": "타일링과 반복 좌표",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "타일 수",
+      "display004": "4",
+      "display005": "16",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "반복이 촘촘해져 작은 화면에서 aliasing이 늘 수 있다고 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-10: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-11": {
+    "messages": {
+      "display001": "Texture sampling",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "wrap",
+      "display004": "CLAMP_TO_EDGE",
+      "display005": "REPEAT",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "범위 밖 UV에서 가장자리 연장 대신 패턴 반복이 보일 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-11: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-12": {
+    "messages": {
+      "display001": "미분과 가장자리 완화",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "전이 폭",
+      "display004": "고정 0.01",
+      "display005": "fwidth(d) 기반",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "해상도가 바뀌어도 경계가 대략 픽셀 크기에 맞춰질 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-12: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-13": {
+    "messages": {
+      "display001": "시간과 주기",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "시간 속도",
+      "display004": "1",
+      "display005": "2",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "공간 파장은 같고 같은 시간 동안 위상 이동이 두 배가 될 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-13: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-02": {
+    "messages": {
+      "display001": "<label>Stage <select><option value=\"0\">UV</option><option value=\"1\">Time color</option><option value=\"2\">Vertex wave</option></select></label> <label>Amplitude <input type=\"range\" min=\"0\" max=\".8\" step=\".05\" value=\".3\"></label> <label>Frequency <input type=\"range\" min=\"1\" max=\"16\" value=\"6\"></label> <label>Speed <input type=\"range\" min=\"0\" max=\"3\" step=\".1\" value=\"1\"></label>"
+    },
+    "comments": {
+      "comment001": "GLSL ES 1 ShaderMaterial: UV → time color → vertex wave, controlled independently."
+    }
+  },
+  "glsl-step-15": {
+    "messages": {
+      "display001": "2D 거리장 도형",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "상자 위치",
+      "display004": "원 중심",
+      "display005": "x 방향 0.2 이동",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "겹침 영역과 차집합의 잘린 경계가 이동할 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-15: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-16": {
+    "messages": {
+      "display001": "Value noise의 구성",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "보간",
+      "display004": "선형",
+      "display005": "완만한 다항 곡선",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "셀 경계의 기울기 변화가 덜 두드러질 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-16: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-17": {
+    "messages": {
+      "display001": "옥타브와 대역 제한",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다. 제공된 선택은 octave 수 1/5와 noise 보간식을 함께 바꿉니다. 이 비교만으로 octave 수의 효과를 분리해 판단할 수 없습니다. 보간식을 고정한 비교는 별도 과제입니다.",
+      "display003": "octave 수",
+      "display004": "1",
+      "display005": "5",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "세부와 계산량이 늘지만 작은 화면에서는 aliasing이 생길 수 있다고 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-17: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-18": {
+    "messages": {
+      "display001": "법선과 확산 조명",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "scale",
+      "display004": "[1,1,1]",
+      "display005": "[2,1,0.5]",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "잘못된 법선 변환에서 밝은 영역 방향이 어긋날 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-18: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-19": {
+    "messages": {
+      "display001": "반사광과 시선 벡터",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "shininess",
+      "display004": "8",
+      "display005": "64",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "하이라이트가 좁아지지만 재질의 모든 물리 특성을 설명하지는 못할 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-19: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-20": {
+    "messages": {
+      "display001": "변형 표면의 법선",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "법선",
+      "display004": "원래 평면 법선",
+      "display005": "파동 기울기 법선",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "실루엣은 같고 조명의 밝고 어두운 띠가 파동을 따를 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-20: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-21": {
+    "messages": {
+      "display001": "Alpha와 합성 상태",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "draw 순서",
+      "display004": "앞 평면 먼저",
+      "display005": "뒤 평면 먼저",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "겹친 반투명 영역의 색이 달라질 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-21: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-22": {
+    "messages": {
+      "display001": "Framebuffer와 화면 패스",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "중간 해상도",
+      "display004": "화면과 같음",
+      "display005": "가로세로 절반",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "후처리 입력 세부가 줄고 픽셀 처리량도 줄 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-22: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-23": {
+    "messages": {
+      "display001": "Texel 크기와 필터",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "샘플 간격",
+      "display004": "1 texel",
+      "display005": "3 texel",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "흐림 반경이 넓어지며 미세한 패턴이 더 섞일 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-23: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-24": {
+    "messages": {
+      "display001": "포인터 좌표와 입력 완화",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "완화 계수",
+      "display004": "lambda=4",
+      "display005": "lambda=16",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "최종 위치는 같고 목표에 도달하는 반응이 빨라질 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-24: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-25": {
+    "messages": {
+      "display001": "분기와 반복의 비용",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다.",
+      "display003": "반복 수",
+      "display004": "1",
+      "display005": "8",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "추가 연산이 늘지만 실제 프레임 차이는 병목에 따라 달라질 것으로 예상합니다.",
+      "display009": "rAF 간격 평균: ",
+      "display010": " ms; GPU 시간 아님. 반복 수 "
+    },
+    "comments": {
+      "comment001": "glsl-step-25: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-26": {
+    "messages": {
+      "display001": "편집 실패와 Context 복구",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다. 제공된 예제는 독립 fragment shader만 compile하고 원문 compiler log를 표시하며 기존 ShaderMaterial 화면을 유지합니다. 성공한 candidate program 설치·교체나 context 복구는 구현하지 않습니다.",
+      "display003": "새 소스",
+      "display004": "유효한 소스",
+      "display005": "문법 오류 포함",
+      "display006": "실행 / 다시 초기화",
+      "display007": "독립 fragment shader compile 성공 — 기존 ShaderMaterial 유지",
+      "display008": "\n마지막 정상 ShaderMaterial 유지",
+      "display009": ": ",
+      "display010": "오류를 표시하면서 마지막 정상 화면을 유지할 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-26: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-step-27": {
+    "messages": {
+      "display001": "품질 기준과 회귀 기록",
+      "display002": "실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의 식을 편집하세요. 수치·시간 결과는 장치와 해상도에 따라 달라집니다. 제공된 선택은 전체/절반 해상도와 noise 보간식을 함께 바꾸며 4 octave는 유지합니다. 해상도만 바꾼 통제 비교로 해석할 수 없습니다. 보간식을 고정한 비교는 별도 과제입니다.",
+      "display003": "품질 설정",
+      "display004": "전체 해상도와 4 octave",
+      "display005": "절반 해상도와 같은 octave",
+      "display006": "실행 / 다시 초기화",
+      "display007": ": ",
+      "display008": "픽셀 비용이 줄지만 경계와 고주파 세부 손실이 늘 것으로 예상합니다."
+    },
+    "comments": {
+      "comment001": "glsl-step-27: real GLSL ShaderMaterial experiment."
+    }
+  },
+  "glsl-03": {
+    "messages": {
+      "display001": "<label>Iterations <input type=\"range\" min=\"1\" max=\"32\" value=\"8\"></label> <label>Resolution <select><option value=\"1\">1x</option><option value=\".5\">0.5x</option><option value=\"2\">2x</option></select></label> <button>Try broken shader</button> <button>Restore shader</button> <button>Record</button><pre></pre>",
+      "display002": "WebGL unavailable",
+      "display003": "Shader compiled and linked. Move pointer.",
+      "display004": "Compile/link failed; previous program retained:\n",
+      "display005": " iterations · ",
+      "display006": "×",
+      "display007": " · ",
+      "display008": " rAF samples: ",
+      "display009": " ms (not GPU time)"
+    },
+    "comments": {
+      "comment001": "Raw WebGL allows a compile-error experiment without discarding the working program."
+    }
   }
 }

@@ -225,7 +225,7 @@ ${ui(u,'실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의
     ${d===18?'mesh.scale.set(v?2:1,1,v?.5:1);':''}
     ${d===21?'mesh.renderOrder=v?2:1;back.renderOrder=v?1:2;':''}
     ${d===22?'target.setSize(v?320:640,v?180:360);':''}
-    ${d===26?`const gl=renderer.getContext();const shader=gl.createShader(gl.FRAGMENT_SHADER);gl.shaderSource(shader,v?'precision mediump float;void main(){gl_FragColor = ;}':'precision mediump float;void main(){gl_FragColor=vec4(1.);}');gl.compileShader(shader);const ok=gl.getShaderParameter(shader,gl.COMPILE_STATUS);output.textContent=ok?'새 소스 검증 성공 — 정상 화면 유지':gl.getShaderInfoLog(shader)+'\\n마지막 정상 ShaderMaterial 유지';gl.deleteShader(shader);return;`:''}
+    ${d===26?`const gl=renderer.getContext();const shader=gl.createShader(gl.FRAGMENT_SHADER);gl.shaderSource(shader,v?'precision mediump float;void main(){gl_FragColor = ;}':'precision mediump float;void main(){gl_FragColor=vec4(1.);}');gl.compileShader(shader);const ok=gl.getShaderParameter(shader,gl.COMPILE_STATUS);output.textContent=ok?messages.display007:gl.getShaderInfoLog(shader)+messages.display008;gl.deleteShader(shader);return;`:''}
     ${d===27?'renderer.setSize(v?320:640,v?180:360,false);uniforms.uResolution.value.set(v?320:640,v?180:360);':''}
     output.textContent=messages.display003+messages.${d===26?'display009':'display007'}+choice.options[v].text+'\\n'+messages.${d===26?'display010':'display008'};
   }
@@ -233,7 +233,7 @@ ${ui(u,'실제 WebGL ShaderMaterial입니다. 조건을 바꾸고 GLSL 소스의
   function tick(now){if(!active)return;const dt=Math.min(.1,(now-last)/1000);last=now;uniforms.uTime.value=now/1000;uniforms.uPointer.value.lerp(pointer,1-Math.exp(-${d===24?'(choice.selectedIndex?16:4)':'12'}*dt));
     ${d===22?'renderer.setRenderTarget(target);renderer.render(firstScene,camera);renderer.setRenderTarget(null);':''}
     renderer.render(scene,camera);frames++;
-    ${d===25?"if(now-sampleStart>1500){output.textContent='rAF 간격 평균: '+((now-sampleStart)/frames).toFixed(2)+' ms; GPU 시간 아님. 반복 수 '+(choice.selectedIndex?8:1);sampleStart=now;frames=0;}":''}
+    ${d===25?"if(now-sampleStart>1500){output.textContent=messages.display009+((now-sampleStart)/frames).toFixed(2)+messages.display010+(choice.selectedIndex?8:1);sampleStart=now;frames=0;}":''}
     frame=requestAnimationFrame(tick);
   }frame=requestAnimationFrame(tick);
   return ()=>{active=false;cancelAnimationFrame(frame);canvas.removeEventListener('pointermove',onPointer);button.onclick=null;choice.onchange=null;${d===21?'backMaterial.dispose();':''}${d===22?'target.dispose();firstMaterial.dispose();':''}geometry.dispose();material.dispose();texture.dispose();renderer.dispose();renderer.forceContextLoss();container.replaceChildren();};

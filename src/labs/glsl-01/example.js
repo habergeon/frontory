@@ -1,5 +1,6 @@
 // vertexShader의 position과 fragmentShader의 색상을 직접 편집하세요.
-export function mount({ THREE, OrbitControls, container }) {
+export function mount({locale='ko', THREE, OrbitControls, container }) {
+  const messages=locale==='en'?{}:{};
   const scene = new THREE.Scene()
   const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100); camera.position.z = 3
   const renderer = new THREE.WebGLRenderer(); container.append(renderer.domElement)

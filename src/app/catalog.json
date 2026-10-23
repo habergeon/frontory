@@ -4475,7 +4475,8 @@
       "title": "Vertex와 Fragment",
       "goal": "셰이더 단계의 책임을 설명한다. 버전별 문법과 오류를 구분한다.",
       "docPath": "/docs/labs/shader/glsl/01-foundations/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-01/example.js"
     },
     {
       "id": "glsl-step-02",
@@ -4484,7 +4485,8 @@
       "title": "스칼라와 벡터 타입",
       "goal": "타입과 생성자를 사용한다. 벡터 연산의 결과를 예측한다.",
       "docPath": "/docs/labs/shader/glsl/units/02/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-02/example.js"
     },
     {
       "id": "glsl-step-03",
@@ -4493,7 +4495,8 @@
       "title": "정밀도와 수치 범위",
       "goal": "정밀도 정보를 확인한다. 큰 좌표의 수치 문제를 탐색한다.",
       "docPath": "/docs/labs/shader/glsl/units/03/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-03/example.js"
     },
     {
       "id": "glsl-step-04",
@@ -4502,7 +4505,8 @@
       "title": "Attribute와 보간",
       "goal": "정점 데이터를 shader에 연결한다. 보간으로 생성되는 값을 설명한다.",
       "docPath": "/docs/labs/shader/glsl/units/04/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-04/example.js"
     },
     {
       "id": "glsl-step-05",
@@ -4511,7 +4515,8 @@
       "title": "좌표 공간 추적",
       "goal": "좌표 공간을 구분한다. 변환 행렬의 역할을 추적한다.",
       "docPath": "/docs/labs/shader/glsl/units/05/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-05/example.js"
     },
     {
       "id": "glsl-step-06",
@@ -4520,7 +4525,8 @@
       "title": "Uniform 조회와 갱신",
       "goal": "draw 공통 입력을 갱신한다. uniform location 수명을 관리한다.",
       "docPath": "/docs/labs/shader/glsl/units/06/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-06/example.js"
     },
     {
       "id": "glsl-step-07",
@@ -4529,7 +4535,8 @@
       "title": "디버그 출력과 최소 재현",
       "goal": "중간값을 시각화한다. 최소 재현으로 오류 위치를 좁힌다.",
       "docPath": "/docs/labs/shader/glsl/units/07/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-07/example.js"
     },
     {
       "id": "glsl-step-08",
@@ -4538,7 +4545,8 @@
       "title": "UV와 종횡비",
       "goal": "UV를 화면 좌표와 구분한다. 종횡비를 보정한다.",
       "docPath": "/docs/labs/shader/glsl/units/08/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-08/example.js"
     },
     {
       "id": "glsl-step-09",
@@ -4547,7 +4555,8 @@
       "title": "Step과 Smoothstep 마스크",
       "goal": "구간 마스크를 구성한다. 안전한 경계 조건을 설정한다.",
       "docPath": "/docs/labs/shader/glsl/units/09/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-09/example.js"
     },
     {
       "id": "glsl-step-10",
@@ -4556,7 +4565,8 @@
       "title": "타일링과 반복 좌표",
       "goal": "반복 좌표를 구성한다. 셀별 정보와 내부 패턴을 분리한다.",
       "docPath": "/docs/labs/shader/glsl/units/10/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-10/example.js"
     },
     {
       "id": "glsl-step-11",
@@ -4565,7 +4575,8 @@
       "title": "Texture sampling",
       "goal": "Texture를 shader에 연결한다. 샘플링 상태의 효과를 비교한다.",
       "docPath": "/docs/labs/shader/glsl/units/11/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-11/example.js"
     },
     {
       "id": "glsl-step-12",
@@ -4574,7 +4585,8 @@
       "title": "미분과 가장자리 완화",
       "goal": "화면 변화율을 활용한다. 미분의 실행 조건을 지킨다.",
       "docPath": "/docs/labs/shader/glsl/units/12/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-12/example.js"
     },
     {
       "id": "glsl-step-13",
@@ -4583,7 +4595,8 @@
       "title": "시간과 주기",
       "goal": "시간을 안정적으로 전달한다. 공간 주기와 시간 속도를 분리한다.",
       "docPath": "/docs/labs/shader/glsl/units/13/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-13/example.js"
     },
     {
       "id": "glsl-02",
@@ -4592,7 +4605,8 @@
       "title": "UV·Uniform·파동",
       "goal": "파동 변수를 독립적으로 조절한다. 색 왜곡과 기하 변형을 구분한다.",
       "docPath": "/docs/labs/shader/glsl/02-experiments/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-02/example.js"
     },
     {
       "id": "glsl-step-15",
@@ -4601,7 +4615,8 @@
       "title": "2D 거리장 도형",
       "goal": "기본 거리 함수를 작성한다. 거리 기반 도형을 조합한다.",
       "docPath": "/docs/labs/shader/glsl/units/15/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-15/example.js"
     },
     {
       "id": "glsl-step-16",
@@ -4610,7 +4625,8 @@
       "title": "Value noise의 구성",
       "goal": "Noise의 격자와 보간을 구현한다. 결정성과 경계 연속성을 확인한다.",
       "docPath": "/docs/labs/shader/glsl/units/16/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-16/example.js"
     },
     {
       "id": "glsl-step-17",
@@ -4619,7 +4635,8 @@
       "title": "옥타브와 대역 제한",
       "goal": "다중 주파수 noise를 구성한다. 추가 세부의 비용과 한계를 판단한다.",
       "docPath": "/docs/labs/shader/glsl/units/17/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-17/example.js"
     },
     {
       "id": "glsl-step-18",
@@ -4628,7 +4645,8 @@
       "title": "법선과 확산 조명",
       "goal": "법선을 올바른 공간으로 변환한다. 확산 조명을 계산한다.",
       "docPath": "/docs/labs/shader/glsl/units/18/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-18/example.js"
     },
     {
       "id": "glsl-step-19",
@@ -4637,7 +4655,8 @@
       "title": "반사광과 시선 벡터",
       "goal": "시선 의존 반사광을 구현한다. 교육용 조명 모형의 한계를 설명한다.",
       "docPath": "/docs/labs/shader/glsl/units/19/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-19/example.js"
     },
     {
       "id": "glsl-step-20",
@@ -4646,7 +4665,8 @@
       "title": "변형 표면의 법선",
       "goal": "변형에 맞는 법선을 계산한다. 미분을 수치 기준으로 검증한다.",
       "docPath": "/docs/labs/shader/glsl/units/20/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-20/example.js"
     },
     {
       "id": "glsl-step-21",
@@ -4655,7 +4675,8 @@
       "title": "Alpha와 합성 상태",
       "goal": "알파 출력과 합성 상태를 맞춘다. 투명 가림 문제를 진단한다.",
       "docPath": "/docs/labs/shader/glsl/units/21/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-21/example.js"
     },
     {
       "id": "glsl-step-22",
@@ -4664,7 +4685,8 @@
       "title": "Framebuffer와 화면 패스",
       "goal": "다중 pass를 구성한다. 읽기와 쓰기 대상을 분리한다.",
       "docPath": "/docs/labs/shader/glsl/units/22/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-22/example.js"
     },
     {
       "id": "glsl-step-23",
@@ -4673,7 +4695,8 @@
       "title": "Texel 크기와 필터",
       "goal": "Texel 기준 필터를 작성한다. 커널 밝기 보존을 검증한다.",
       "docPath": "/docs/labs/shader/glsl/units/23/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-23/example.js"
     },
     {
       "id": "glsl-step-24",
@@ -4682,7 +4705,8 @@
       "title": "포인터 좌표와 입력 완화",
       "goal": "입력을 shader 좌표로 변환한다. 시간 기반으로 반응을 조절한다.",
       "docPath": "/docs/labs/shader/glsl/units/24/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-24/example.js"
     },
     {
       "id": "glsl-step-25",
@@ -4691,7 +4715,8 @@
       "title": "분기와 반복의 비용",
       "goal": "비용 변수를 분리한다. 최적화 가설을 측정으로 검토한다.",
       "docPath": "/docs/labs/shader/glsl/units/25/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-25/example.js"
     },
     {
       "id": "glsl-step-26",
@@ -4700,7 +4725,8 @@
       "title": "편집 실패와 Context 복구",
       "goal": "셰이더 편집을 안전하게 적용한다. GPU 자원 복구를 설계한다.",
       "docPath": "/docs/labs/shader/glsl/units/26/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-26/example.js"
     },
     {
       "id": "glsl-step-27",
@@ -4709,7 +4735,8 @@
       "title": "품질 기준과 회귀 기록",
       "goal": "재현 가능한 시각 기준을 만든다. 국소 품질 손실을 기록한다.",
       "docPath": "/docs/labs/shader/glsl/units/27/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-27/example.js"
     },
     {
       "id": "glsl-03",
@@ -4718,7 +4745,8 @@
       "title": "상호작용과 비용",
       "goal": "상호작용 셰이더를 통합한다. 품질과 비용에 근거해 설정을 선택한다.",
       "docPath": "/docs/labs/shader/glsl/03-project/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-03/example.js"
     },
     {
       "id": "wgsl-01",

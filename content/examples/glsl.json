@@ -1,102 +1,127 @@
 {
   "glsl-step-02": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-02/example.js"
   },
   "glsl-step-03": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-03/example.js"
   },
   "glsl-step-04": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-04/example.js"
   },
   "glsl-step-05": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-05/example.js"
   },
   "glsl-step-06": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-06/example.js"
   },
   "glsl-step-07": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. 제공된 최종 색 식의 smoothstep(.5,.1,...)은 edge0 >= edge1이므로 결과가 정의되지 않습니다. 정상 기준 화면으로 해석하지 마세요. 브라우저 실패를 실행으로 확인한 것은 아닙니다. UV 직접 출력과 진단 과제는 별도로 관찰하세요.",
+    "readingSource": "/examples-en/glsl-step-07/example.js"
   },
   "glsl-step-08": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-08/example.js"
   },
   "glsl-step-09": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-09/example.js"
   },
   "glsl-step-10": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-10/example.js"
   },
   "glsl-step-11": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-11/example.js"
   },
   "glsl-step-12": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-12/example.js"
   },
   "glsl-step-13": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-13/example.js"
   },
   "glsl-step-15": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-15/example.js"
   },
   "glsl-step-16": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-16/example.js"
   },
   "glsl-step-17": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. 제공된 선택은 octave 수 1/5와 noise 보간식을 함께 바꿉니다. 이 비교만으로 octave 수의 효과를 분리해 판단할 수 없습니다. 보간식을 고정한 비교는 별도 과제입니다.",
+    "readingSource": "/examples-en/glsl-step-17/example.js"
   },
   "glsl-step-18": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-18/example.js"
   },
   "glsl-step-19": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-19/example.js"
   },
   "glsl-step-20": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-20/example.js"
   },
   "glsl-step-21": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-21/example.js"
   },
   "glsl-step-22": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-22/example.js"
   },
   "glsl-step-23": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-23/example.js"
   },
   "glsl-step-24": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-24/example.js"
   },
   "glsl-step-25": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.",
+    "readingSource": "/examples-en/glsl-step-25/example.js"
   },
   "glsl-step-26": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다. 제공된 예제는 독립 fragment shader만 compile하고 원문 compiler log를 표시하며 기존 ShaderMaterial 화면을 유지합니다. 성공한 candidate program 설치·교체나 context 복구는 구현하지 않습니다.",
+    "readingSource": "/examples-en/glsl-step-26/example.js"
   },
   "glsl-step-27": {
     "mode": "browser",
-    "note": "브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다."
+    "note": "브라우저 WebGL ShaderMaterial 실행. 640×360/320×180 비교이며 프레임 간격은 GPU 시간과 다릅니다. 제공된 선택은 전체/절반 해상도와 noise 보간식을 함께 바꾸며 4 octave는 유지합니다. 해상도만 바꾼 통제 비교로 해석할 수 없습니다. 보간식을 고정한 비교는 별도 과제입니다.",
+    "readingSource": "/examples-en/glsl-step-27/example.js"
   }
 }

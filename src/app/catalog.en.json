@@ -4825,7 +4825,8 @@
       "title": "Vertex and Fragment",
       "goal": "Explain the responsibilities of shader stages. Distinguish version-specific syntax and errors.",
       "docPath": "/docs/en/labs/shader/glsl/01-foundations/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-01/example.js"
     },
     {
       "id": "glsl-step-02",
@@ -4835,6 +4836,7 @@
       "goal": "Use types and constructors. Predict the results of vector operations.",
       "docPath": "/docs/en/labs/shader/glsl/units/02/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-02/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -4845,6 +4847,7 @@
       "goal": "Inspect precision information. Explore numeric problems with large coordinates.",
       "docPath": "/docs/en/labs/shader/glsl/units/03/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-03/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -4855,6 +4858,7 @@
       "goal": "Connect vertex data to shaders. Explain values produced by interpolation.",
       "docPath": "/docs/en/labs/shader/glsl/units/04/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-04/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -4865,6 +4869,7 @@
       "goal": "Distinguish coordinate spaces. Trace the roles of transformation matrices.",
       "docPath": "/docs/en/labs/shader/glsl/units/05/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-05/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -4875,6 +4880,7 @@
       "goal": "Update inputs shared by a draw. Manage the lifetime of uniform locations.",
       "docPath": "/docs/en/labs/shader/glsl/units/06/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-06/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -4885,7 +4891,8 @@
       "goal": "Visualize intermediate values. Narrow down errors with a minimal reproduction.",
       "docPath": "/docs/en/labs/shader/glsl/units/07/README.md",
       "seriesId": "glsl",
-      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+      "exampleReadingSource": "/examples-en/glsl-step-07/example.js",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. The provided final-color expression smoothstep(.5,.1,...) has edge0 >= edge1, so its result is undefined. Do not interpret it as a valid baseline display. A browser failure has not been observed by running this example. Inspect direct UV output and the diagnostic assignment separately."
     },
     {
       "id": "glsl-step-08",
@@ -4895,6 +4902,7 @@
       "goal": "Distinguish UVs from screen coordinates. Correct for aspect ratio.",
       "docPath": "/docs/en/labs/shader/glsl/units/08/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-08/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -4905,6 +4913,7 @@
       "goal": "Build interval masks. Set safe boundary conditions.",
       "docPath": "/docs/en/labs/shader/glsl/units/09/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-09/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -4915,6 +4924,7 @@
       "goal": "Build repeating coordinates. Separate per-cell information from local patterns.",
       "docPath": "/docs/en/labs/shader/glsl/units/10/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-10/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -4925,6 +4935,7 @@
       "goal": "Connect a texture to a shader. Compare the effects of sampling state.",
       "docPath": "/docs/en/labs/shader/glsl/units/11/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-11/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -4935,6 +4946,7 @@
       "goal": "Use screen-space rates of change. Respect the execution conditions for derivatives.",
       "docPath": "/docs/en/labs/shader/glsl/units/12/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-12/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -4945,6 +4957,7 @@
       "goal": "Pass time consistently. Separate spatial periods from time speed.",
       "docPath": "/docs/en/labs/shader/glsl/units/13/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-13/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -4954,7 +4967,8 @@
       "title": "UVs, Uniforms, and Waves",
       "goal": "Control wave variables independently. Distinguish color distortion from geometry deformation.",
       "docPath": "/docs/en/labs/shader/glsl/02-experiments/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-02/example.js"
     },
     {
       "id": "glsl-step-15",
@@ -4964,6 +4978,7 @@
       "goal": "Write basic distance functions. Combine distance-based shapes.",
       "docPath": "/docs/en/labs/shader/glsl/units/15/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-15/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -4974,6 +4989,7 @@
       "goal": "Implement the grid and interpolation of noise. Check determinism and boundary continuity.",
       "docPath": "/docs/en/labs/shader/glsl/units/16/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-16/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -4984,7 +5000,8 @@
       "goal": "Build noise with multiple frequencies. Assess the cost and limits of added detail.",
       "docPath": "/docs/en/labs/shader/glsl/units/17/README.md",
       "seriesId": "glsl",
-      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+      "exampleReadingSource": "/examples-en/glsl-step-17/example.js",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. The provided selections change both the octave count 1/5 and the noise interpolation expression. This comparison alone cannot isolate the effect of octave count. Comparing with fixed interpolation is a separate assignment."
     },
     {
       "id": "glsl-step-18",
@@ -4994,6 +5011,7 @@
       "goal": "Transform normals into the correct space. Calculate diffuse lighting.",
       "docPath": "/docs/en/labs/shader/glsl/units/18/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-18/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -5004,6 +5022,7 @@
       "goal": "Implement view-dependent specular lighting. Explain the limits of an educational lighting model.",
       "docPath": "/docs/en/labs/shader/glsl/units/19/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-19/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -5014,6 +5033,7 @@
       "goal": "Calculate normals that match deformation. Validate derivatives against a numeric reference.",
       "docPath": "/docs/en/labs/shader/glsl/units/20/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-20/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -5024,6 +5044,7 @@
       "goal": "Match alpha output to compositing state. Diagnose transparent occlusion problems.",
       "docPath": "/docs/en/labs/shader/glsl/units/21/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-21/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -5034,6 +5055,7 @@
       "goal": "Build multiple passes. Separate read and write targets.",
       "docPath": "/docs/en/labs/shader/glsl/units/22/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-22/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -5044,6 +5066,7 @@
       "goal": "Write texel-based filters. Verify brightness preservation by the kernel.",
       "docPath": "/docs/en/labs/shader/glsl/units/23/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-23/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -5054,6 +5077,7 @@
       "goal": "Convert input to shader coordinates. Control response based on time.",
       "docPath": "/docs/en/labs/shader/glsl/units/24/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-24/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -5064,6 +5088,7 @@
       "goal": "Separate cost variables. Assess optimization hypotheses through measurement.",
       "docPath": "/docs/en/labs/shader/glsl/units/25/README.md",
       "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-step-25/example.js",
       "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
     },
     {
@@ -5074,7 +5099,8 @@
       "goal": "Apply shader edits safely. Design GPU resource recovery.",
       "docPath": "/docs/en/labs/shader/glsl/units/26/README.md",
       "seriesId": "glsl",
-      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+      "exampleReadingSource": "/examples-en/glsl-step-26/example.js",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. The provided example only compiles an independent fragment shader, displays the raw compiler log, and retains the existing ShaderMaterial display. It does not install or replace a successful candidate program or implement context recovery."
     },
     {
       "id": "glsl-step-27",
@@ -5084,7 +5110,8 @@
       "goal": "Create reproducible visual references. Record local quality losses.",
       "docPath": "/docs/en/labs/shader/glsl/units/27/README.md",
       "seriesId": "glsl",
-      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time."
+      "exampleReadingSource": "/examples-en/glsl-step-27/example.js",
+      "exampleNote": "Runs WebGL ShaderMaterial in the browser. Comparisons use 640×360/320×180 sizes; frame intervals are different from GPU time. The provided selections change both full/half resolution and the noise interpolation expression while retaining 4 octaves. This is not a controlled comparison of resolution alone. Comparing with fixed interpolation is a separate assignment."
     },
     {
       "id": "glsl-03",
@@ -5093,7 +5120,8 @@
       "title": "Interaction and Cost",
       "goal": "Integrate an interactive shader. Choose settings based on quality and cost.",
       "docPath": "/docs/en/labs/shader/glsl/03-project/README.md",
-      "seriesId": "glsl"
+      "seriesId": "glsl",
+      "exampleReadingSource": "/examples-en/glsl-03/example.js"
     },
     {
       "id": "wgsl-01",

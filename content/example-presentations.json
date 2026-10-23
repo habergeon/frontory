@@ -2769,5 +2769,364 @@
       "comment01": "세 구현은 같은 카드 데이터/완료 토글/미완료 필터 계약을 사용합니다.",
       "comment02": "Svelte 열만 writable + DOM 어댑터이며, 컴파일된 컴포넌트는 App.svelte로 제공합니다."
     }
+  },
+  "react-three-fiber-01": {
+    "messages": {},
+    "comments": {
+      "comment01": "실제 React Three Fiber Canvas입니다. props로 장면을 선언하고 클릭으로 상태를 변경합니다."
+    }
+  },
+  "react-three-fiber-step-02": {
+    "messages": {
+      "display01": "Canvas 크기와 카메라",
+      "display02": "FOV 50 / 75",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "Canvas 크기와 카메라",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-03": {
+    "messages": {
+      "display01": "args와 객체 재생성",
+      "display02": "Scale / geometry args",
+      "display03": "Size 1 / 1.5",
+      "display04": "Use controls or interact with the scene",
+      "display05": "Renderer metrics",
+      "display06": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "args와 객체 재생성",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-04": {
+    "messages": {
+      "display01": "group과 로컬 좌표",
+      "display02": "Parent rotation 0 / PI/2",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "group과 로컬 좌표",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-05": {
+    "messages": {
+      "display01": "재질과 조명",
+      "display02": "Light 0 / 3",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "재질과 조명",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-06": {
+    "messages": {
+      "display01": "ref로 Three.js 객체 읽기",
+      "display02": "Ref only / prop rotation",
+      "display03": "Prop rotation 0 / 1",
+      "display04": "Use controls or interact with the scene",
+      "display05": "Renderer metrics",
+      "display06": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "ref로 Three.js 객체 읽기",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-07": {
+    "messages": {
+      "display01": "useFrame과 시간 기반 회전",
+      "display02": "Speed 1 / 2 rad/s",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "useFrame과 시간 기반 회전",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-08": {
+    "messages": {
+      "display01": "useThree의 범위와 선택",
+      "display02": "Width 400 / 800",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "useThree의 범위와 선택",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-09": {
+    "messages": {
+      "display01": "카메라 조작과 projection 갱신",
+      "display02": "FOV 40 / 70",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "카메라 조작과 projection 갱신",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-10": {
+    "messages": {
+      "display01": "포인터 교차와 선택",
+      "display02": "Select left / right",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "포인터 교차와 선택",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-11": {
+    "messages": {
+      "display01": "이벤트 전파와 가림",
+      "display02": "Propagation allow / stop",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "이벤트 전파와 가림",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-12": {
+    "messages": {
+      "display01": "드래그와 포인터 캡처",
+      "display02": "Pointer capture off / on",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "드래그와 포인터 캡처",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-13": {
+    "messages": {
+      "display01": "UI 상태와 프레임 목표",
+      "display02": "Target left / right",
+      "display03": "Interpolation k 2 / 8",
+      "display04": "Use controls or interact with the scene",
+      "display05": "Renderer metrics",
+      "display06": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "UI 상태와 프레임 목표",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-02": {
+    "messages": {
+      "display01": "none",
+      "display02": "Selected ",
+      "display03": " · hover ",
+      "display04": " · click overlap: stopPropagation"
+    },
+    "comments": {
+      "comment01": "Fast frame state lives in refs. React state changes only on pointer events."
+    }
+  },
+  "react-three-fiber-step-15": {
+    "messages": {
+      "display01": "모델 로딩과 Suspense",
+      "display02": "Loaded JSON model rotation",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "모델 로딩과 Suspense",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-16": {
+    "messages": {
+      "display01": "캐시 모델의 복제와 공유",
+      "display02": "Same object / clone hierarchy",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "캐시 모델의 복제와 공유",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-17": {
+    "messages": {
+      "display01": "텍스처 입력과 갱신",
+      "display02": "Texture 256 / 1024",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "텍스처 입력과 갱신",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-18": {
+    "messages": {
+      "display01": "공유 geometry와 material",
+      "display02": "Per-mesh / shared resources",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "공유 geometry와 material",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-19": {
+    "messages": {
+      "display01": "프레임 중 할당 줄이기",
+      "display02": "Allocate / reuse Vector3",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "프레임 중 할당 줄이기",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-20": {
+    "messages": {
+      "display01": "instancedMesh로 반복 객체 그리기",
+      "display02": "100 shared mesh / instancedMesh",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "instancedMesh로 반복 객체 그리기",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-21": {
+    "messages": {
+      "display01": "인스턴스 선택과 경계",
+      "display02": "Move instance 0 outside grid",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "인스턴스 선택과 경계",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-22": {
+    "messages": {
+      "display01": "demand 렌더링",
+      "display02": "Frameloop always / demand",
+      "display03": "Manual rotation + invalidate",
+      "display04": "Use controls or interact with the scene",
+      "display05": "Renderer metrics",
+      "display06": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "demand 렌더링",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-23": {
+    "messages": {
+      "display01": "demand와 움직임의 종료",
+      "display02": "Stop epsilon 0 / .001",
+      "display03": "Target left / right",
+      "display04": "Use controls or interact with the scene",
+      "display05": "Renderer metrics",
+      "display06": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "demand와 움직임의 종료",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-24": {
+    "messages": {
+      "display01": "DPR과 그림자 비용",
+      "display02": "DPR 1 / 2",
+      "display03": "Shadows off / on",
+      "display04": "Use controls or interact with the scene",
+      "display05": "Renderer metrics",
+      "display06": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "DPR과 그림자 비용",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-25": {
+    "messages": {
+      "display01": "장면 전환과 자원 감사",
+      "display02": "Hide / unmount policy",
+      "display03": "Toggle scene",
+      "display04": "Use controls or interact with the scene",
+      "display05": "Renderer metrics",
+      "display06": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "장면 전환과 자원 감사",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-26": {
+    "messages": {
+      "display01": "3D UI의 대체 조작과 오류",
+      "display02": "Accessible DOM selection left / right",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "3D UI의 대체 조작과 오류",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-step-27": {
+    "messages": {
+      "display01": "통합 장면의 성능 실험",
+      "display02": "Instance count 100 / 1000",
+      "display03": "Use controls or interact with the scene",
+      "display04": "Renderer metrics",
+      "display05": "WebGL을 사용할 수 없습니다. DOM 컨트롤로 예제 설정을 확인하세요."
+    },
+    "comments": {
+      "comment01": "통합 장면의 성능 실험",
+      "comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+    }
+  },
+  "react-three-fiber-03": {
+    "messages": {
+      "display01": "Mode: ",
+      "display02": "Rotate + invalidate",
+      "display03": " frames in last second · 36 meshes share 1 geometry/material; instancing can reduce calls."
+    },
+    "comments": {
+      "comment01": "Shared resources are owned by mount, not individual meshes (dispose:null)."
+    }
   }
 }

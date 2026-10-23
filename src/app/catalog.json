@@ -3803,7 +3803,8 @@
       "title": "선언적 장면",
       "goal": "큐브·카메라·조명의 대응 코드가 기록된다. scale 변경 뒤 큐브 크기가 달라진다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/01-foundations/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-01/example.js"
     },
     {
       "id": "react-three-fiber-step-02",
@@ -3812,7 +3813,8 @@
       "title": "Canvas 크기와 카메라",
       "goal": "부모 크기 변경에도 Canvas 영역이 갱신된다. 두 fov의 화면 점유 크기를 같은 viewport에서 기록한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/02/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-02/example.js"
     },
     {
       "id": "react-three-fiber-step-03",
@@ -3821,7 +3823,8 @@
       "title": "args와 객체 재생성",
       "goal": "scale 변경만으로 geometry uuid가 바뀌지 않는다. args 변경 전후 uuid를 기록한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/03/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-03/example.js"
     },
     {
       "id": "react-three-fiber-step-04",
@@ -3830,7 +3833,8 @@
       "title": "group과 로컬 좌표",
       "goal": "자식 position.x가 2로 유지된다. 월드 위치와 화면 이동 방향을 대응해 기록한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/04/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-04/example.js"
     },
     {
       "id": "react-three-fiber-step-05",
@@ -3839,7 +3843,8 @@
       "title": "재질과 조명",
       "goal": "두 재질의 조명 반응 차이를 기록한다. 동일 카메라에서 roughness 두 조건도 구분한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/05/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-05/example.js"
     },
     {
       "id": "react-three-fiber-step-06",
@@ -3848,7 +3853,8 @@
       "title": "ref로 Three.js 객체 읽기",
       "goal": "ref.current의 객체 타입과 uuid가 기록된다. 최종 구현은 rotation을 한 경로에서만 갱신한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/06/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-06/example.js"
     },
     {
       "id": "react-three-fiber-step-07",
@@ -3857,7 +3863,8 @@
       "title": "useFrame과 시간 기반 회전",
       "goal": "회전량이 speed × 누적 delta와 허용 오차 안에서 맞는다. 프레임 콜백에 React setState가 없다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/07/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-07/example.js"
     },
     {
       "id": "react-three-fiber-step-08",
@@ -3866,7 +3873,8 @@
       "title": "useThree의 범위와 선택",
       "goal": "useThree 호출이 Canvas 자식 안에 있다. size와 viewport를 서로 다른 단위로 기록한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/08/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-08/example.js"
     },
     {
       "id": "react-three-fiber-step-09",
@@ -3875,7 +3883,8 @@
       "title": "카메라 조작과 projection 갱신",
       "goal": "입력 fov와 camera.fov가 일치한다. 행렬 갱신 호출 전후 결과를 구분해 기록한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/09/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-09/example.js"
     },
     {
       "id": "react-three-fiber-step-10",
@@ -3884,7 +3893,8 @@
       "title": "포인터 교차와 선택",
       "goal": "선택 강조가 정확히 1개다. DOM 상세 id와 클릭한 mesh id가 일치한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/10/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-10/example.js"
     },
     {
       "id": "react-three-fiber-step-11",
@@ -3893,7 +3903,8 @@
       "title": "이벤트 전파와 가림",
       "goal": "차단 모드에서 뒤 큐브가 선택되지 않는다. 허용·차단 각각의 이벤트 순서를 기록한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/11/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-11/example.js"
     },
     {
       "id": "react-three-fiber-step-12",
@@ -3902,7 +3913,8 @@
       "title": "드래그와 포인터 캡처",
       "goal": "객체 밖에서 놓아도 dragging 상태가 false다. 드래그 중 매 이벤트 React setState를 사용하지 않는다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/12/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-12/example.js"
     },
     {
       "id": "react-three-fiber-step-13",
@@ -3911,7 +3923,8 @@
       "title": "UI 상태와 프레임 목표",
       "goal": "목표가 고정되면 각도 오차가 감소한다. 프레임 경로에 setState가 없다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/13/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-13/example.js"
     },
     {
       "id": "react-three-fiber-02",
@@ -3920,7 +3933,8 @@
       "title": "프레임과 이벤트",
       "goal": "클릭 10회에 의도한 선택 변경 10회만 발생한다. 회전 중 React 상태가 프레임마다 갱신되지 않는다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/02-experiments/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-02/example.js"
     },
     {
       "id": "react-three-fiber-step-15",
@@ -3929,7 +3943,8 @@
       "title": "모델 로딩과 Suspense",
       "goal": "정상 URL에서 모델이 표시된다. 잘못된 URL에서 흰 화면 대신 오류 안내가 있다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/15/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-15/example.js"
     },
     {
       "id": "react-three-fiber-step-16",
@@ -3938,7 +3953,8 @@
       "title": "캐시 모델의 복제와 공유",
       "goal": "두 인스턴스가 서로 다른 위치에 동시에 보인다. 객체와 geometry/material의 공유 여부를 기록한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/16/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-16/example.js"
     },
     {
       "id": "react-three-fiber-step-17",
@@ -3947,7 +3963,8 @@
       "title": "텍스처 입력과 갱신",
       "goal": "텍스처 종류와 색 공간 설정을 기록한다. 같은 카메라에서 두 해상도 비교 이미지가 있다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/17/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-17/example.js"
     },
     {
       "id": "react-three-fiber-step-18",
@@ -3956,7 +3973,8 @@
       "title": "공유 geometry와 material",
       "goal": "36개 mesh의 geometry uuid가 같다. 전체 종료 때 소유자가 각 자원을 한 번 해제한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/18/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-18/example.js"
     },
     {
       "id": "react-three-fiber-step-19",
@@ -3965,7 +3983,8 @@
       "title": "프레임 중 할당 줄이기",
       "goal": "재사용 경로의 프레임 내부 new Vector3가 0개다. 동일 조건 두 성능 기록에 평균과 긴 프레임을 남긴다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/19/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-19/example.js"
     },
     {
       "id": "react-three-fiber-step-20",
@@ -3974,7 +3993,8 @@
       "title": "instancedMesh로 반복 객체 그리기",
       "goal": "100개 객체가 같은 배치로 보인다. 두 표현의 draw call을 동일 패스 조건에서 기록한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/20/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-20/example.js"
     },
     {
       "id": "react-three-fiber-step-21",
@@ -3983,7 +4003,8 @@
       "title": "인스턴스 선택과 경계",
       "goal": "클릭 id와 DOM 선택 패널이 일치한다. 새 위치에서도 선택·표시 동작을 확인한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/21/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-21/example.js"
     },
     {
       "id": "react-three-fiber-step-22",
@@ -3992,7 +4013,8 @@
       "title": "demand 렌더링",
       "goal": "demand 정지 구간에서 불필요한 연속 프레임이 없다. 버튼 클릭 뒤 각도가 화면에 반영된다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/22/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-22/example.js"
     },
     {
       "id": "react-three-fiber-step-23",
@@ -4001,7 +4023,8 @@
       "title": "demand와 움직임의 종료",
       "goal": "최종 각도 오차가 0.001 이하이다. 수렴 후 3초 동안 연속 프레임이 누적되지 않는다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/23/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-23/example.js"
     },
     {
       "id": "react-three-fiber-step-24",
@@ -4010,7 +4033,8 @@
       "title": "DPR과 그림자 비용",
       "goal": "CSS 크기를 고정한 버퍼 치수 기록이 있다. DPR와 그림자 변수를 각각 따로 비교한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/24/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-24/example.js"
     },
     {
       "id": "react-three-fiber-step-25",
@@ -4019,7 +4043,8 @@
       "title": "장면 전환과 자원 감사",
       "goal": "10회 전환의 자원 수 추세를 기록한다. 공유·외부 primitive·선언 자원의 해제 주체가 명시된다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/25/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-25/example.js"
     },
     {
       "id": "react-three-fiber-step-26",
@@ -4028,7 +4053,8 @@
       "title": "3D UI의 대체 조작과 오류",
       "goal": "키보드만으로 모든 객체를 선택한다. 지원 실패와 모델 실패 안내가 서로 구분된다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/26/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-26/example.js"
     },
     {
       "id": "react-three-fiber-step-27",
@@ -4037,7 +4063,8 @@
       "title": "통합 장면의 성능 실험",
       "goal": "각 조건의 정지·조작 10초 기록이 있다. 초안 보존과 선택 정확성이 모든 조건에서 확인된다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/units/27/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-27/example.js"
     },
     {
       "id": "react-three-fiber-03",
@@ -4046,7 +4073,8 @@
       "title": "자원 공유와 프레임 정책",
       "goal": "정지·클릭·애니메이션 종료가 demand에서 모두 정상이다. 같은 조건의 draw call·프레임·해제 기록으로 최종 정책을 설명한다.",
       "docPath": "/docs/labs/graphics/react-three-fiber/03-project/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-03/example.js"
     },
     {
       "id": "pixijs-01",

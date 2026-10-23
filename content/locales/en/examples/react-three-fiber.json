@@ -1,152 +1,490 @@
 {
   "react-three-fiber-step-02": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "af0088d3d23c98971c01517fc831d2f53515d78e1ab8304575111bdede3b3eb2",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "4ba26fdbaea8c65f07b80d9bc3d77472fd730a45c5c9f132d9c7f3b304a7bfc7",
+      "values": {
+        "messages.display01": "Canvas Size and Camera",
+        "messages.display02": "FOV 50 / 75",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Canvas Size and Camera",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-03": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "0299b6e280b70caed8171016964e85d5442820c3ad10fd8405011c2f126b09f4",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "b22838e34452cdb88172b404e874901179526758d578f6ae07f309afb2557d0c",
+      "values": {
+        "messages.display01": "args and Object Recreation",
+        "messages.display02": "Scale / geometry args",
+        "messages.display03": "Size 1 / 1.5",
+        "messages.display04": "Use controls or interact with the scene",
+        "messages.display05": "Renderer metrics",
+        "messages.display06": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "args and Object Recreation",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-04": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "22286ddd159ca92a58e9a1ca272137703fe7d26fe5ade91d2f844db12bfff6cb",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "b1318ea95cc57c194beb047b61c5db698b5a20f3108b8040c628229e2811a9f1",
+      "values": {
+        "messages.display01": "group and Local Coordinates",
+        "messages.display02": "Parent rotation 0 / PI/2",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "group and Local Coordinates",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-05": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "822f6c67c216438adbe3de1cb5a0ffed690e6cb27f0e962fce542b6dcaa53a9f",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "9f8a5dac134b0a287855628a0616116e8c0cc67a2ad9e802cbb82b30ba7bb2df",
+      "values": {
+        "messages.display01": "Materials and Lighting",
+        "messages.display02": "Light 0 / 3",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Materials and Lighting",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-06": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "8e9b972c5ba7f16ce949f6b0c1822e96639fc131ee06555d1f2b631c42bd14a1",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "4746b581072d46e670da4ca8b2eb872008f3c66638cad1bb22a17ef032d86acd",
+      "values": {
+        "messages.display01": "Reading Three.js Objects through ref",
+        "messages.display02": "Ref only / prop rotation",
+        "messages.display03": "Prop rotation 0 / 1",
+        "messages.display04": "Use controls or interact with the scene",
+        "messages.display05": "Renderer metrics",
+        "messages.display06": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Reading Three.js Objects through ref",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-07": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "b4b0aee75a4af31900c8a5c2b737541923396d0ea55cd70c3422b3f9637f185b",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "51f146f69704a5e246ec0c3c231e5788639d6be943016f8f526db39abb860c72",
+      "values": {
+        "messages.display01": "useFrame and Time-based Rotation",
+        "messages.display02": "Speed 1 / 2 rad/s",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "useFrame and Time-based Rotation",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-08": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "c2cf6f75bf4a5a7846c43d014f8cff78931369869915bc6b606ab0e7e085d34b",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "dccd9e95c84d93fa566afb484ea18698ca12f5ace1ab00be04ff573dbb1858e2",
+      "values": {
+        "messages.display01": "useThree Scope and Selection",
+        "messages.display02": "Width 400 / 800",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "useThree Scope and Selection",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-09": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "82e100700ca93260908f2a7948429e1f3a54b3af1fd3aa3e075a4a3a8fbd22c2",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "4093ac743167b031b1cc71066f6bf1816b3cddaff967fd55db4efca502d1cf7f",
+      "values": {
+        "messages.display01": "Camera Control and projection Updates",
+        "messages.display02": "FOV 40 / 70",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Camera Control and projection Updates",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-10": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "4648f213f2cef1d7ee817301bab7b5362994ec5f7aeff712853eafd35d56f2e3",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "bed6f8ec63cafd7849d9f9aa6370358e359c5da0880c721b85565ce0aebccbb1",
+      "values": {
+        "messages.display01": "Pointer Intersections and Selection",
+        "messages.display02": "Select left / right",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Pointer Intersections and Selection",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-11": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "a8731049ed44158c17127e709a6edcbf32f3119f3385aecdd06d7505b7b5e666",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "87a3c64eedcc9fd57aadb7fd18908f88a8a16f4cc4a7fd6e187e51046a7b1295",
+      "values": {
+        "messages.display01": "Event Propagation and Occlusion",
+        "messages.display02": "Propagation allow / stop",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Event Propagation and Occlusion",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-12": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "b0f4ee81b6be3377ec70613bd38cb53b14f183dae63c10e792a15c6cb442801d",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "75f94f06b1bd98fad6cabac278229a167e963c853268b39e1220af57cb05bcd8",
+      "values": {
+        "messages.display01": "Dragging and Pointer Capture",
+        "messages.display02": "Pointer capture off / on",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Dragging and Pointer Capture",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-13": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "25d1034c9ea99bd4b5fb1054e9743be6f87416c4364024cd68fd3bdbb96fc673",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "1e8eef41647a4e514089e6d382577415d8b022af00f40cf5b99651e590233111",
+      "values": {
+        "messages.display01": "UI State and Frame Targets",
+        "messages.display02": "Target left / right",
+        "messages.display03": "Interpolation k 2 / 8",
+        "messages.display04": "Use controls or interact with the scene",
+        "messages.display05": "Renderer metrics",
+        "messages.display06": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "UI State and Frame Targets",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-15": {
-    "sourceHash": "98468b154d5b47bc6892cf85bbd2722c2a89767bae66d396c96581b37b341e01",
+    "sourceHash": "360b7a00d17a6cb9ecb4fb3892c9e74af582fbb91b4024abfcf7d136855225af",
     "values": {
       "note": "The preview performs actual JSON model loading with Three ObjectLoader. GLB, Suspense, and error boundary experiments require the external App.jsx and a valid /model.glb."
+    },
+    "presentation": {
+      "sourceHash": "7b1a8f9e3a2d6c618ab787e230f49af6378d3bb1678eb0bc852f705ebbceca25",
+      "values": {
+        "messages.display01": "Model Loading and Suspense",
+        "messages.display02": "Loaded JSON model rotation",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Model Loading and Suspense",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-16": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "5b3ec4900ee8c018fe015c4731cf89a93810d8321033401fe3fd6b0ca575ce4b",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "94eaf0d457eda91bdf768b3e9d74b52aa59d784f5b98607dc33924da4e8412ee",
+      "values": {
+        "messages.display01": "Cloning and Sharing Cached Models",
+        "messages.display02": "Same object / clone hierarchy",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Cloning and Sharing Cached Models",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-17": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "8782443ec6299ce1cee18a02d42d64f7cfd407bf406b737c6b7e86bfc33f4212",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "dffd65209a2918974ab45a273b0c90dc427e894e9ea67739fcbe0da6f38cbd1c",
+      "values": {
+        "messages.display01": "Texture Inputs and Updates",
+        "messages.display02": "Texture 256 / 1024",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Texture Inputs and Updates",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-18": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "9ed28b330fb3d850d741454f0af2ac542566f1ed63cfdaf399a6fdc54fc9c550",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "c847718e97cebb7a780267ca39ccdf2d4cc4d1e563538baeed35aa655cdf852e",
+      "values": {
+        "messages.display01": "Shared geometry and material",
+        "messages.display02": "Per-mesh / shared resources",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Shared geometry and material",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-19": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "cf74312669ceca3966a982bb8418a2385860a54af8d317d4420f507bab6d0118",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "58b743af804a40c7e7eab3adf6dbf9956d9bab1c5b842aee3e7ed3e23970686b",
+      "values": {
+        "messages.display01": "Reducing Allocations during Frames",
+        "messages.display02": "Allocate / reuse Vector3",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Reducing Allocations during Frames",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-20": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "3e460de1a71db0dfef8db2e470e1f108dfb2a0d58ecc228a7e4c63d095a71403",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "ad97e3dbeb982adf2f8b4a7257dd9f2dbd6cd148a7a30c476bb99316094a2fa5",
+      "values": {
+        "messages.display01": "Drawing Repeated Objects with instancedMesh",
+        "messages.display02": "100 shared mesh / instancedMesh",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Drawing Repeated Objects with instancedMesh",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-21": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "c279519fe93d58a257209d0917e8f2c22de16cc40b0a4d2340008dcd9de5aa50",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "3d9359eefaa12e2c846ec4264fee95685c7641e08a59a4571528f1ff5e1df371",
+      "values": {
+        "messages.display01": "Instance Selection and Bounds",
+        "messages.display02": "Move instance 0 outside grid",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Instance Selection and Bounds",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-22": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "b34451a2b14471230a51bebfcd00edd5d1e89d7d01fc1e5fc8e8ea2e0f71b980",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "ed764714417917726c8c4dcdb2b953b7a608b38ac5a000bc414315103906ede2",
+      "values": {
+        "messages.display01": "demand Rendering",
+        "messages.display02": "Frameloop always / demand",
+        "messages.display03": "Manual rotation + invalidate",
+        "messages.display04": "Use controls or interact with the scene",
+        "messages.display05": "Renderer metrics",
+        "messages.display06": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "demand Rendering",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-23": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "10937f8a6e8bd85645dff6d923223b99a62593d1501ed5de0586e2233dfdcfce",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "8a2f7e59097ecc8fb8da7713b2bae44891e2bb78b521b5959a7c4c03c91b0b00",
+      "values": {
+        "messages.display01": "demand and Ending Motion",
+        "messages.display02": "Stop epsilon 0 / .001",
+        "messages.display03": "Target left / right",
+        "messages.display04": "Use controls or interact with the scene",
+        "messages.display05": "Renderer metrics",
+        "messages.display06": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "demand and Ending Motion",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-24": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "19762f85556f704459e7f3da65815b5dcc6e64ca576f6ce93e60c6035926e6d5",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "d48d6f3e9fbde863aae2265d11095e2ae2af56792704a64b05217d5b2adc1e6e",
+      "values": {
+        "messages.display01": "DPR and Shadow Cost",
+        "messages.display02": "DPR 1 / 2",
+        "messages.display03": "Shadows off / on",
+        "messages.display04": "Use controls or interact with the scene",
+        "messages.display05": "Renderer metrics",
+        "messages.display06": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "DPR and Shadow Cost",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-25": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "ab3fe175b376e0665196bf7d98e900390a04ee6f968bf02a297db9441fa36279",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "07307136045d8ba0682d4e4473702bcb03131695578b40df878ece4e44013fe7",
+      "values": {
+        "messages.display01": "Scene Switching and Resource Audits",
+        "messages.display02": "Hide / unmount policy",
+        "messages.display03": "Toggle scene",
+        "messages.display04": "Use controls or interact with the scene",
+        "messages.display05": "Renderer metrics",
+        "messages.display06": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Scene Switching and Resource Audits",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-26": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "ca1e2eb1b3566a2071f07efa5c9dd8a816e4f75fcb107966c3359443de80789a",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "0477b2df59a5804aac2d5abbbfcaad75b7423a6b62970b787acbb59eaee05e83",
+      "values": {
+        "messages.display01": "Alternative Controls and Errors in 3D UI",
+        "messages.display02": "Accessible DOM selection left / right",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Alternative Controls and Errors in 3D UI",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
     }
   },
   "react-three-fiber-step-27": {
-    "sourceHash": "7152c4b8d616994ee6e187561b4c329cca600f729e8cb8e748f702d378a37e57",
+    "sourceHash": "e9db8eb23e39d4d80d456b7d1754ca66d2ceef3da8a72f6b4241e200c54e009a",
     "values": {
       "note": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
+    },
+    "presentation": {
+      "sourceHash": "f7ca66400f296e951005357dbf118ec02e6ac3beea0b96afeb354bac38c35e5b",
+      "values": {
+        "messages.display01": "Performance Experiments for the Integrated Scene",
+        "messages.display02": "Instance count 100 / 1000",
+        "messages.display03": "Use controls or interact with the scene",
+        "messages.display04": "Renderer metrics",
+        "messages.display05": "WebGL unavailable; use the DOM controls to inspect the example settings.",
+        "comments.comment01": "Performance Experiments for the Integrated Scene",
+        "comments.comment02": "Real React Three Fiber / Three.js objects; no JSX compilation is needed."
+      }
+    }
+  },
+  "react-three-fiber-01": {
+    "presentation": {
+      "sourceHash": "4205db7334df7241cdf25cdcde6f9768ab5aefcea75338bc8e43a923c286e51b",
+      "values": {
+        "comments.comment01": "This is an actual React Three Fiber Canvas. Declare the scene with props and change state by clicking."
+      }
+    }
+  },
+  "react-three-fiber-02": {
+    "presentation": {
+      "sourceHash": "7952f33620149d9d72c6396d18ad4cc525351c18bc5f7eba0f9e477532a5fcee",
+      "values": {
+        "messages.display01": "none",
+        "messages.display02": "Selected ",
+        "messages.display03": " · hover ",
+        "messages.display04": " · click overlap: stopPropagation",
+        "comments.comment01": "Fast frame state lives in refs. React state changes only on pointer events."
+      }
+    }
+  },
+  "react-three-fiber-03": {
+    "presentation": {
+      "sourceHash": "94860464a485dc050fe11c9d96696ced281d3da85359dd24536d51801381f3b1",
+      "values": {
+        "messages.display01": "Mode: ",
+        "messages.display02": "Rotate + invalidate",
+        "messages.display03": " frames in last second · 36 meshes share 1 geometry/material; instancing can reduce calls.",
+        "comments.comment01": "Shared resources are owned by mount, not individual meshes (dispose:null)."
+      }
     }
   }
 }

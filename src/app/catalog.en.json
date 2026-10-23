@@ -4103,7 +4103,8 @@
       "title": "Declarative Scenes",
       "goal": "The corresponding code for the cube, camera, and lights is recorded. Changing scale changes the cube size.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/01-foundations/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-01/example.js"
     },
     {
       "id": "react-three-fiber-step-02",
@@ -4113,6 +4114,7 @@
       "goal": "The Canvas area updates when the parent size changes. Record the screen coverage at two fov values in the same viewport.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/02/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-02/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4123,6 +4125,7 @@
       "goal": "Changing only scale does not change the geometry uuid. Record the uuid before and after changing args.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/03/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-03/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4133,6 +4136,7 @@
       "goal": "The child's position.x remains 2. Record how the world position corresponds to the direction of movement on screen.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/04/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-04/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4143,6 +4147,7 @@
       "goal": "Record how the two materials respond differently to lighting. Also distinguish two roughness settings with the same camera.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/05/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-05/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4153,6 +4158,7 @@
       "goal": "Record the object type and uuid of ref.current. The final implementation updates rotation through only one path.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/06/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-06/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4163,6 +4169,7 @@
       "goal": "Rotation matches speed × accumulated delta within the allowed tolerance. There is no React setState in the frame callback.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/07/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-07/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4173,6 +4180,7 @@
       "goal": "The useThree call is inside a Canvas child. Record size and viewport in their different units.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/08/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-08/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4183,6 +4191,7 @@
       "goal": "The input fov matches camera.fov. Record the results before and after updating the matrix separately.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/09/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-09/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4193,6 +4202,7 @@
       "goal": "Exactly 1 object is highlighted as selected. The DOM detail id matches the clicked mesh id.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/10/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-10/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4203,6 +4213,7 @@
       "goal": "The back cube is not selected in blocking mode. Record the event order with propagation allowed and blocked.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/11/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-11/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4213,6 +4224,7 @@
       "goal": "The dragging state is false even when released outside the object. React setState is not used on every event during dragging.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/12/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-12/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4223,6 +4235,7 @@
       "goal": "Angle error decreases when the target is fixed. There is no setState in the frame path.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/13/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-13/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4232,7 +4245,8 @@
       "title": "Frames and Events",
       "goal": "10 clicks produce only the intended 10 selection changes. React state is not updated every frame during rotation.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/02-experiments/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-02/example.js"
     },
     {
       "id": "react-three-fiber-step-15",
@@ -4242,6 +4256,7 @@
       "goal": "The model appears at a valid URL. An invalid URL shows error guidance instead of a blank screen.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/15/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-15/example.js",
       "exampleNote": "The preview performs actual JSON model loading with Three ObjectLoader. GLB, Suspense, and error boundary experiments require the external App.jsx and a valid /model.glb."
     },
     {
@@ -4252,6 +4267,7 @@
       "goal": "Two instances appear simultaneously at different positions. Record whether objects and geometry/material are shared.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/16/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-16/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4262,6 +4278,7 @@
       "goal": "Record texture types and color space settings. Provide comparison images at two resolutions with the same camera.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/17/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-17/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4272,6 +4289,7 @@
       "goal": "All 36 mesh objects have the same geometry uuid. At final shutdown, the owner disposes each resource once.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/18/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-18/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4282,6 +4300,7 @@
       "goal": "There are 0 new Vector3 calls inside frames on the reuse path. Record averages and long frames in both performance records under the same conditions.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/19/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-19/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4292,6 +4311,7 @@
       "goal": "100 objects appear in the same layout. Record draw calls for both representations under the same pass conditions.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/20/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-20/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4302,6 +4322,7 @@
       "goal": "The clicked id matches the DOM selection panel. Check selection and display at the new position too.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/21/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-21/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4312,6 +4333,7 @@
       "goal": "No unnecessary continuous frames occur during stationary demand periods. The angle change appears on screen after a button click.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/22/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-22/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4322,6 +4344,7 @@
       "goal": "The final angle error is at most 0.001. Continuous frames do not accumulate for 3 seconds after convergence.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/23/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-23/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4332,6 +4355,7 @@
       "goal": "Record buffer dimensions with a fixed CSS size. Compare DPR and shadow variables separately.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/24/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-24/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4342,6 +4366,7 @@
       "goal": "Record resource-count trends over 10 switches. Specify who disposes shared resources, external primitive resources, and declarative resources.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/25/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-25/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4352,6 +4377,7 @@
       "goal": "Select every object using only the keyboard. Distinguish unsupported-environment guidance from model failure guidance.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/26/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-26/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4362,6 +4388,7 @@
       "goal": "Provide 10-second stationary and interaction records for each condition. Check draft preservation and selection accuracy under every condition.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/units/27/README.md",
       "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-step-27/example.js",
       "exampleNote": "This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required."
     },
     {
@@ -4371,7 +4398,8 @@
       "title": "Resource Sharing and Frame Policy",
       "goal": "Stationary display, clicks, and animation completion all work in demand mode. Explain the final policy with draw call, frame, and disposal records under the same conditions.",
       "docPath": "/docs/en/labs/graphics/react-three-fiber/03-project/README.md",
-      "seriesId": "react-three-fiber"
+      "seriesId": "react-three-fiber",
+      "exampleReadingSource": "/examples-en/react-three-fiber-03/example.js"
     },
     {
       "id": "pixijs-01",

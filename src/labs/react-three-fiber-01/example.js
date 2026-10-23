@@ -1,5 +1,6 @@
 // 실제 React Three Fiber Canvas입니다. props로 장면을 선언하고 클릭으로 상태를 변경합니다.
-export function mount({ React, createRoot, Fiber, container }) {
+export function mount({locale='ko', React, createRoot, Fiber, container }) {
+  const messages=locale==='en'?{}:{};
   const h = React.createElement
   function Cube() {
     const ref = React.useRef()

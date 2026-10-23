@@ -38,9 +38,9 @@ export function App() {
     window.scrollTo(0, 0)
   }
   return <main className={'app-shell' + (!selected ? ' home-shell' : '')}>
-    <header className="app-header">
+    <header className={'app-header' + (selected ? ' learning-header' : '')}>
       <a className="brand home-brand" href="#" aria-label={copy.brandHome}><span className="brand-mark" aria-hidden="true">F<span>↗</span></span><div><strong>Frontory</strong>{selected && <p>{copy.tagline}</p>}</div></a>
-      <nav aria-label={copy.learningNavigation}>{selected ? <a href="#">{copy.home}</a> : <a href="#series">{copy.exploreSeries}</a>}<button onClick={() => setDocumentPath(localizedDocPath(locale, '/docs/learning-workspace.md'))}>{copy.usage}</button>{!selected && <a className="home-github" href="https://github.com/habergeon/frontory" target="_blank" rel="noreferrer">GitHub ↗</a>}<span className="interface-language" role="group" aria-label={copy.interfaceLanguage}><button onClick={() => setLocale(locale === 'ko' ? 'en' : 'ko')} lang={locale === 'ko' ? 'en' : 'ko'}>{locale === 'ko' ? 'English' : '한국어'}</button></span></nav>
+      <nav className="header-navigation" aria-label={copy.learningNavigation}>{selected ? <a className="header-action" href="#">{copy.home}</a> : <a className="header-action" href="#series">{copy.exploreSeries}</a>}<button className="header-action" onClick={() => setDocumentPath(localizedDocPath(locale, '/docs/learning-workspace.md'))}>{copy.usage}</button>{!selected && <a className="home-github header-action" href="https://github.com/habergeon/frontory" target="_blank" rel="noreferrer">GitHub ↗</a>}<span className="interface-language" role="group" aria-label={copy.interfaceLanguage}><button className="header-action" onClick={() => setLocale(locale === 'ko' ? 'en' : 'ko')} lang={locale === 'ko' ? 'en' : 'ko'}>{locale === 'ko' ? 'English' : '한국어'}</button></span></nav>
     </header>
     {!selected ? <Home onSelect={select} /> : <>
     <LearningNavigator selected={selected} onSelect={select} onDocument={setDocumentPath} />

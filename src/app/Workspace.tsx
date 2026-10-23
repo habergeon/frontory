@@ -1,20 +1,22 @@
 import { useLocale } from '../i18n/LocaleProvider'
 import { message, messages } from '../i18n/messages'
 import { getLocalizedUnit } from './curriculum'
-import { lazy, Suspense, useState } from 'react'
+import { lazy, Suspense, useRef, useState } from 'react'
 import { draftStore, restoreCode, type Draft, type CodeLanguage, type LearningProgress } from '../shared/drafts'
 import type { Compilation } from '../editor/CodeEditor'
 import { MarkdownView } from '../shared/MarkdownView'
 import { Preview } from '../preview/Preview'
 import type { Unit } from './curriculum'
 
-type Panel = 'result' | 'code' | 'notes'
+const panels = ['result', 'code', 'notes'] as const
+type Panel = typeof panels[number]
 const CodeEditor = lazy(() => import('../editor/CodeEditor'))
 export function Workspace({ unit, onProgressChange }: { unit: Unit; onProgressChange: () => void }) {
   const { locale } = useLocale()
   const text = messages[locale]
   const [saved, setSaved] = useState(() => draftStore.begin(unit.id, unit.source ?? '', locale))
   const [panel, setPanel] = useState<Panel>('result')
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([])
   const [notePreview, setNotePreview] = useState(false)
   const [revision, setRevision] = useState(0)
   const [confirmReset, setConfirmReset] = useState(false)
@@ -58,19 +60,28 @@ export function Workspace({ unit, onProgressChange }: { unit: Unit; onProgressCh
     {!!unit.exampleFiles?.length && <details className="example-note"><summary>{text.downloadExampleFiles}</summary><p>{text.originalFilesHint}</p><ul>{unit.exampleFiles.map(file => <li key={file}><a href={'/examples/' + file.slice('src/labs/'.length)} download>{file.split('/').pop()}</a></li>)}</ul></details>}
     {unit.source && draft.code === '' && <p className="example-note">{text.emptyCodePreserved}</p>}
     <div className="mobile-tabs" role="tablist" aria-label={text.workspace}>
-      {(['result', 'code', 'notes'] as const).map((value, index) =>
-        <button key={value} role="tab" id={'tab-' + value} aria-selected={panel === value} aria-controls={'panel-' + value}
+      {panels.map((value, index) =>
+        <button key={value} ref={element => { tabRefs.current[index] = element }} role="tab" id={'tab-' + value} aria-selected={panel === value} aria-controls={'panel-' + value}
+          tabIndex={panel === value ? 0 : -1} onKeyDown={event => {
+            const next = event.key === 'ArrowRight' ? (index + 1) % panels.length
+              : event.key === 'ArrowLeft' ? (index + panels.length - 1) % panels.length
+              : event.key === 'Home' ? 0 : event.key === 'End' ? panels.length - 1 : null
+            if (next === null) return
+            event.preventDefault()
+            setPanel(panels[next])
+            tabRefs.current[next]?.focus()
+          }}
           onClick={() => setPanel(value)}>{[text.practiceScreen, text.sourceCode, text.markdownNotes][index]}</button>)}
     </div>
     <div className="workspace">
-      <section id="panel-result" className={'panel ' + (panel === 'result' ? 'mobile-active' : '')} aria-label={text.practiceScreen}>
+      <section id="panel-result" role="tabpanel" aria-labelledby="tab-result" tabIndex={0} className={'panel ' + (panel === 'result' ? 'mobile-active' : '')}>
         <header className="panel-header"><div><span className="eyebrow">01 / PREVIEW</span><h2>{text.practiceScreen}</h2></div>
           {unit.source !== undefined && <button onClick={() => setRevision(value => value + 1)}>{text.rerun}</button>}
         </header>
         {unit.source !== undefined ? (executable !== null ? <Preview locale={locale} code={executable} revision={revision} notice={notice} /> : <div className="empty-state"><p>{compilation?.error ? text.fixCodeToRun : text.preparingEditor}</p></div>) :
           <div className="empty-state"><span>{text.documentPractice}</span><h3>{text.implementTask}</h3><p>{text.documentPracticeHint}</p></div>}
       </section>
-      <section id="panel-code" className={'panel ' + (panel === 'code' ? 'mobile-active' : '')} aria-label={text.editSourceCode}>
+      <section id="panel-code" role="tabpanel" aria-labelledby="tab-code" tabIndex={0} className={'panel ' + (panel === 'code' ? 'mobile-active' : '')}>
         <header className="panel-header"><div><span className="eyebrow">02 / SOURCE</span><h2>{text.sourceCode}</h2></div>
           <button disabled={unit.source === undefined} onClick={() => setConfirmReset(true)}>{text.restoreOriginal}</button>
         </header>
@@ -80,7 +91,7 @@ export function Workspace({ unit, onProgressChange }: { unit: Unit; onProgressCh
           onChange={code => save({ ...draft, code })} onCompile={result => { setCompilation(result); if (result.output !== null) setExecutable(result.output) }} /></Suspense> : <div className="empty-state">{text.separateProjectHint}</div>}
         <p className="panel-hint">{unit.source !== undefined ? text.mountHint : text.separateCodeHint}</p>
       </section>
-      <section id="panel-notes" className={'panel ' + (panel === 'notes' ? 'mobile-active' : '')} aria-label={text.markdownNotes}>
+      <section id="panel-notes" role="tabpanel" aria-labelledby="tab-notes" tabIndex={0} className={'panel ' + (panel === 'notes' ? 'mobile-active' : '')}>
         <header className="panel-header"><div><span className="eyebrow">03 / NOTES</span><h2>{text.markdownNotes}</h2></div>
           <button onClick={download} title={text.downloadNotesTitle}>{text.downloadMarkdown}</button>
         </header>

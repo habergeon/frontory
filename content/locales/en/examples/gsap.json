@@ -14,147 +14,419 @@
     }
   },
   "gsap-step-03": {
-    "sourceHash": "32451d478bee044451a4c03bc664bd23b057a24a75290daacc74b848bf6d4cfd",
+    "sourceHash": "16a2209741bbc115d5e6589da9150c6a17074e5983064f109fb314e398ed2f48",
     "values": {
       "note": "This is an experiment on The Time Curve of Ease. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "6ae2088c67df11d31cd461877713cb3ff375d3a55d743580817cf0c65818d94b",
+      "values": {
+        "messages.display001": "<h3>The Time Curve of Ease</h3><p>Normalized Time / Speed Distribution</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "comments.comment001": "gsap-step-03: The Time Curve of Ease"
+      }
     }
   },
   "gsap-step-04": {
-    "sourceHash": "bfe58857ac56f10ecf64c032af3f8eb184bd5f697ea219890c2a67b0942d9965",
+    "sourceHash": "b51b9e4b237f4205e90b0070d9bfef65b3ec8251e22eb3a183cfec83f1f36bd0",
     "values": {
       "note": "This is an experiment on Transform and Layout. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "7c46cd4a083eb912403e371ea1f2d3c0c7c4171abf6fc7f439923b506e9fb4a6",
+      "values": {
+        "messages.display001": "<h3>Transform and Layout</h3><p>Transform / Measurement</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "Layout offsetLeft ",
+        "messages.display004": "; visual left ",
+        "messages.display005": " → ",
+        "comments.comment001": "gsap-step-04: Transform and Layout"
+      }
     }
   },
   "gsap-step-05": {
-    "sourceHash": "4b7a9530d8bb01bd6c78709946718a2856c70d872082f1e262632a5df316eb55",
+    "sourceHash": "c60631c0dd399eb6f050469e4e467c29ce91342450f4bac15da84662f83cc579",
     "values": {
       "note": "This is an experiment on Stagger Order. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "d53c5f154527ffc29833a08b69ecbc9b4c7225b6cae4b608c62656f18508f80a",
+      "values": {
+        "messages.display001": "<h3>Stagger Order</h3><p>Start Interval / Order</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "Stagger from ",
+        "comments.comment001": "gsap-step-05: Stagger Order"
+      }
     }
   },
   "gsap-step-06": {
-    "sourceHash": "ad5521279d0ec9ce9ae06bb4124bd9f09aee0cd5fa9034eff4a7634cc8cecff5",
+    "sourceHash": "8b45cb0355f010e9917dd0865b1cbc5a3b664eed4dca69573774acba950e9f60",
     "values": {
       "note": "This is an experiment on Labels and Overlap. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "d20b19a02e94340b1273db84f3b723ae4c60b53f208f4f7670d37a86efaafeed",
+      "values": {
+        "messages.display001": "<h3>Labels and Overlap</h3><p>Label / Relative Position</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "rotation starts at label turn (0.5 s), scale overlaps last 0.2 s",
+        "comments.comment001": "gsap-step-06: Labels and Overlap"
+      }
     }
   },
   "gsap-step-07": {
-    "sourceHash": "df86c86c2273391ea044b6c48b19af8b62cdda16f7d81739ca36f7bd112fb9fd",
+    "sourceHash": "2987d4a10126df394e3105422080f056210cfce61ece99628f26f7629632ad57",
     "values": {
       "note": "This is an experiment on Playback Controls. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "10d4f1e3c89767ede8cbd1beeeb80ac92f71dc65bdb675a4000fb5a96bcaa3e3",
+      "values": {
+        "messages.display001": "<h3>Playback Controls</h3><p>Progress / Synchronization</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "comments.comment001": "gsap-step-07: Playback Controls"
+      }
     }
   },
   "gsap-step-08": {
-    "sourceHash": "a72152407caac308f386c1777bbf7abc3afb7f94ba7934454e60afd5ffeb2913",
+    "sourceHash": "b856206fb64a501e4afc58473bd1fe789491e1d0a1d51a9d1e6d8bc56c04729b",
     "values": {
       "note": "This is an experiment on Context and Restoration. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "cc677e58bfe16c44e1a103420c4cbabb504a27bef35e0ba6ac603bb5f9127266",
+      "values": {
+        "messages.display001": "<h3>Context and Restoration</h3><p>Context / Revert</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "revert restored original inline styles",
+        "messages.display004": "Context active",
+        "comments.comment001": "gsap-step-08: Context and Restoration"
+      }
     }
   },
   "gsap-step-09": {
-    "sourceHash": "f9dd67f0b6e0c275671b75984b0fb49fbc2a4b14dd5c52ab0e6d4f382bdd45a2",
+    "sourceHash": "931d35dc369eaa902b50eb2e5a4277f4929f3cc70d50a594b6c029f8d9c807da",
     "values": {
       "note": "This is an experiment on Connecting Native Scroll. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "e2ebce32e86d24636e10f600cad9a9693fa39e09fe05daca7ad71ad4498de255",
+      "values": {
+        "messages.display001": "<h3>Connecting Native Scroll</h3><p>Progress / Manual Connection</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "comments.comment001": "gsap-step-09: Connecting Native Scroll"
+      }
     }
   },
   "gsap-step-10": {
-    "sourceHash": "e8ad549b5756ba3c889ba8a4f1791030cb3592eb68bd0bf9ada9b00a4632ca2a",
+    "sourceHash": "197120649230ffef445698fc2a4bd5395cdf23db4ea16a9788364e50ca27ec3e",
     "values": {
       "note": "This is an experiment on Registering ScrollTrigger. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "934162a67194dedb981dcc5dece10be628421daded0fd85326fbd5b3c7684eca",
+      "values": {
+        "messages.display001": "<h3>Registering ScrollTrigger</h3><p>Plugin / Boundaries</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "ScrollTrigger ",
+        "comments.comment001": "gsap-step-10: Registering ScrollTrigger"
+      }
     }
   },
   "gsap-step-11": {
-    "sourceHash": "db6566b54904fb78afc90588233a5d1b9d32b7e9e436ce6dd59c6208210dc08e",
+    "sourceHash": "44dd2b81dc0102229cd82cb53ad9b23709e884c4b8f4fb21b3ffc580ceb6f17e",
     "values": {
       "note": "This is an experiment on Scrub Following. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "a34eecd072b1e0622f7d2462be6a8f571fd7d1e8860f946f6f914820dde48429",
+      "values": {
+        "messages.display001": "<h3>Scrub Following</h3><p>Scrub / Readability</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "ScrollTrigger ",
+        "comments.comment001": "gsap-step-11: Scrub Following"
+      }
     }
   },
   "gsap-step-12": {
-    "sourceHash": "cff9b9ef082e74ed030529811267adef353de2ba601db2e2d792d321e8f59195",
+    "sourceHash": "6a5ddcb0c032e232045e736602f74f58a43363ebd9d65582b89295716efc446e",
     "values": {
       "note": "This is an experiment on Pin and Document Flow. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "13c3c9323257abbc73906d9dfc7bd33e9112077708187fc4a37456ead93ceb7f",
+      "values": {
+        "messages.display001": "<h3>Pin and Document Flow</h3><p>Pin / Focus</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "ScrollTrigger ",
+        "comments.comment001": "gsap-step-12: Pin and Document Flow"
+      }
     }
   },
   "gsap-step-13": {
-    "sourceHash": "b71c2f5dd205be1f796aa29590a602d17d20a4a7c4ccfa7f7e97243a4c7621fc",
+    "sourceHash": "f511a1416dac9ad77c2ec2d906e9be46f1941474c8302c1f1396092c3b1612c6",
     "values": {
       "note": "This is an experiment on Refresh and Measurement Timing. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "0bd913d37cb77769898c2f27eff75c3518c9c5b9c5b7d7eb3c5b93ba4e199d3a",
+      "values": {
+        "messages.display001": "<h3>Refresh and Measurement Timing</h3><p>Layout Changes / Refresh</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "ScrollTrigger ",
+        "messages.display004": "Layout changed; refresh recalculated boundaries",
+        "comments.comment001": "gsap-step-13: Refresh and Measurement Timing"
+      }
     }
   },
   "gsap-step-15": {
-    "sourceHash": "8138d25f50227a431014584d16b004ff6ec536b93ec3994eae22c95943a1eb3b",
+    "sourceHash": "8ec5a036b8caa0a18169334ef34987d3400ea49ab804e8359746d9fa09a5fd98",
     "values": {
       "note": "This is an experiment on MatchMedia Branches. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "c4d5566f5d6b90484754fdd437503320fa48c79a9d4193d0468616f994f4e5ec",
+      "values": {
+        "messages.display001": "<h3>MatchMedia Branches</h3><p>Responsive Motion / Distance Units</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "comments.comment001": "gsap-step-15: MatchMedia Branches"
+      }
     }
   },
   "gsap-step-16": {
-    "sourceHash": "329b94753b1558398742cb52356f74804b82949b63f1c26ba241bb25e155ebd1",
+    "sourceHash": "aef01706bea76ea31cfa3b92789d87d1f0e034410723ed79b38e5c0e71d615b9",
     "values": {
       "note": "This is an experiment on Repeated Input and Overwrite. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "e0203c9e6702e2cb9b1b5358742f4e8dd38d2931c5b1184730e72222c47b1ebd",
+      "values": {
+        "messages.display001": "<h3>Repeated Input and Overwrite</h3><p>Contention / Overwrite</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "Latest target ",
+        "messages.display004": "; click rapidly",
+        "comments.comment001": "gsap-step-16: Repeated Input and Overwrite"
+      }
     }
   },
   "gsap-step-17": {
-    "sourceHash": "a7eb0d00507ddb77e4575c33a17e81767a319178c0b5eea17b13c07a6865ba0f",
+    "sourceHash": "94209b65b6eae335fc7294d71bb19997c69a8b11b8903ab7a497ab88ba376f01",
     "values": {
       "note": "This is an experiment on Pointer and QuickTo. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "c4727e52e9b622accaf0b7ec77f2cfda5408ea7a510d7b8edc06b50126a0bcee",
+      "values": {
+        "messages.display001": "<h3>Pointer and QuickTo</h3><p>Input Frequency / QuickTo</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "One reusable tween follows pointer",
+        "comments.comment001": "gsap-step-17: Pointer and QuickTo"
+      }
     }
   },
   "gsap-step-18": {
-    "sourceHash": "159c7809eb9dd7c95121118f478c2e4780f3cb0dfc52b7c426a8c6051d810689",
+    "sourceHash": "7dc5679ca46b1e694149afad082bfba671ac2ea39b51ca7f3fd62954992b19cc",
     "values": {
       "note": "This is an experiment on Keyboard Step Navigation. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "3e83e35f941ba67c217afb42a3c114a1472f4a18b94ac31f39cecd2f941ff734",
+      "values": {
+        "messages.display001": "<h3>Keyboard Step Navigation</h3><p>Equivalent Operation / Focus</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "Step ",
+        "messages.display004": " / 5",
+        "messages.display005": "Next step",
+        "comments.comment001": "gsap-step-18: Keyboard Step Navigation"
+      }
     }
   },
   "gsap-step-19": {
-    "sourceHash": "37481667829f799be540cc401dd0b8cce39d2398640e7eab07e4aad939da5a9c",
+    "sourceHash": "443b796f18f286439a6932e793b5b74b1d3c7cc2b65eb11d5aa3c48b913c7470",
     "values": {
       "note": "This is an experiment on Reduced-Motion Alternatives. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "34c78572696c59ad24b1af600c9ac85a6d4b0c0a2d0ca8f77c892a8d6ba29a85",
+      "values": {
+        "messages.display001": "<h3>Reduced-Motion Alternatives</h3><p>User Preference / Immediate State</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "Content arrives with ",
+        "messages.display004": "zero",
+        "messages.display005": "animated",
+        "messages.display006": " duration",
+        "comments.comment001": "gsap-step-19: Reduced-Motion Alternatives"
+      }
     }
   },
   "gsap-step-20": {
-    "sourceHash": "ddf2b0c56e070e7bf0232ede991677e901176b59cc652c9cd19d9b4c76761489",
+    "sourceHash": "dc3e0b576aa3c65b1790fc01d0c5ee8712cdfb424563806a8f331cfd7bb8c1d7",
     "values": {
       "note": "This is an experiment on Completion Callbacks and Interruption. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "1179bd106037406beb9dd6c9dd7ca7c62756ccd9cbe2a2d03f49b21a84e53db7",
+      "values": {
+        "messages.display001": "<h3>Completion Callbacks and Interruption</h3><p>Meaning of Completion / Request Generation</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "Request ",
+        "messages.display004": " pending",
+        "messages.display005": " completed",
+        "comments.comment001": "gsap-step-20: Completion Callbacks and Interruption"
+      }
     }
   },
   "gsap-step-21": {
-    "sourceHash": "ed41c3b5469ccb98c9fc21a535d07fa4b1b49d2fe433f363d204010f20a0d1e1",
+    "sourceHash": "f6391e6c2f736fc5f3fce30114523171c0e7ea4ac48268cfa690b3b28ff83aed",
     "values": {
       "note": "This is an experiment on Nested Timelines. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "dc39921b7fb5919803adef8291b61b10e80cb98a13b891aee9e352f364daf8d2",
+      "values": {
+        "messages.display001": "<h3>Nested Timelines</h3><p>Composition / Defaults</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "comments.comment001": "gsap-step-21: Nested Timelines"
+      }
     }
   },
   "gsap-step-22": {
-    "sourceHash": "349ae511bf71e96432fa75e0b3c1bc1d0a91aab881f6ecbcb92ead3e2d051c84",
+    "sourceHash": "99dfc9cb44dade3d32c5100cabd6d997ecb48e198b530ac6a65901d8b37ee160",
     "values": {
       "note": "This is an experiment on Controlling SVG Attributes. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "25674433c22eab03c15d8c7f25271f9f387479bed0fd68ac2ebce56257e51cc6",
+      "values": {
+        "messages.display001": "<h3>Controlling SVG Attributes</h3><p>Attr / ViewBox</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "<svg viewBox=\"0 0 300 140\" width=\"300\"><circle cx=\"40\" cy=\"70\" r=\"20\" fill=\"#168ca0\"/></svg>",
+        "comments.comment001": "gsap-step-22: Controlling SVG Attributes"
+      }
     }
   },
   "gsap-step-23": {
-    "sourceHash": "11be6e00cc924336e86d7b2e39c33f94f48d7f036c439c699579207f141a9839",
+    "sourceHash": "251381403c1eff43ba489f7d245e7c77c7a890115185b8f55e5a7754a00950e7",
     "values": {
       "note": "This is an experiment on Interpolating Canvas Objects. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "1f02c09d462b79639476b8a63a3382d6be8131e04f6c00f2170967eedfc0521a",
+      "values": {
+        "messages.display001": "<h3>Interpolating Canvas Objects</h3><p>Object Values / Ticker</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "<canvas width=\"320\" height=\"160\"></canvas>",
+        "comments.comment001": "gsap-step-23: Interpolating Canvas Objects"
+      }
     }
   },
   "gsap-step-24": {
-    "sourceHash": "742ea0385815bfcb4a1b8a87c9e1ffbce4f22965f210e21ab86059cc3f018785",
+    "sourceHash": "bb67fcc4bf604af75cc37cbbd3aef0e4c641ee678be544fcb87acabe1d8b709c",
     "values": {
       "note": "This is an experiment on Measuring Frame Cost. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "c763c94367ca4908e6399688394bf7796fbb6626e487ef989a91d29e4e024750",
+      "values": {
+        "messages.display001": "<h3>Measuring Frame Cost</h3><p>Long Frames / Recording Conditions</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "Last ",
+        "messages.display004": " frames; >32ms: ",
+        "comments.comment001": "gsap-step-24: Measuring Frame Cost"
+      }
     }
   },
   "gsap-step-25": {
-    "sourceHash": "00d90b3102319514ab9af5b2efd128b9fc3a5488cd7d9ae7c105ef973c356c11",
+    "sourceHash": "115a8cacc292a8eea500ac194f0c41a7c7fa52055f2a58a1d1cf24734c743ff6",
     "values": {
       "note": "This is an experiment on Hiding and Returning. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "146e5be39f4ab2414ee34c47399cecadb16c9f5d5407850477a090b6a02d28c2",
+      "values": {
+        "messages.display001": "<h3>Hiding and Returning</h3><p>Background / Resume Policy</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "Paused",
+        "messages.display004": "Resumed without catch-up",
+        "comments.comment001": "gsap-step-25: Hiding and Returning"
+      }
     }
   },
   "gsap-step-26": {
-    "sourceHash": "78ca1049a04ac15ba5be157031f3b330e6190ff64ae864fe6f40d306a061c1fc",
+    "sourceHash": "7627a8fd6283b796026ed067a377699746436c9c98b161d8fba75220ed69e718",
     "values": {
       "note": "This is an experiment on Motion Tokens. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "ce970ecdb8b8baa0aee9c1a491afc4a930bc3f3b29eb02148175a03d91408096",
+      "values": {
+        "messages.display001": "<h3>Motion Tokens</h3><p>Meaning / Impact of Changes</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": " token = ",
+        "messages.display004": " seconds",
+        "comments.comment001": "gsap-step-26: Motion Tokens"
+      }
     }
   },
   "gsap-step-27": {
-    "sourceHash": "6bf72686bb269bf68c5e6be98b161cdc11515cb174ca3c66a4421d17e5f31868",
+    "sourceHash": "fc7953081b44e5c480841a02051268694c7b95e81a457ca4e335ac78758cfc17",
     "values": {
       "note": "This is an experiment on Cleanup on Failure Paths. It supports direct interaction and cleans up the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "41c42ea83db50ec48874a4c2320026c7c296b2e4e7fcff75fd05d3d8dd4258dd",
+      "values": {
+        "messages.display001": "<h3>Cleanup on Failure Paths</h3><p>Resource Inventory / Repeated Disposal</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "GSAP",
+        "messages.display003": "Disposed safely (repeatable)",
+        "messages.display004": "; context reverted",
+        "comments.comment001": "gsap-step-27: Cleanup on Failure Paths",
+        "messages.displayFix1001": "Injected setup failure"
+      }
+    }
+  },
+  "gsap-01": {
+    "presentation": {
+      "sourceHash": "b5a80979338513111d5bdd99e71ecf5344acca9f105ea7a02842f6046600c761",
+      "values": {
+        "comments.comment001": "Change the timeline duration, ease, and sequence."
+      }
+    }
+  },
+  "gsap-02": {
+    "presentation": {
+      "sourceHash": "ef10e3facc04a67159c9d338ae98e61fa54e9bcbe964342f22239704eb505979",
+      "values": {
+        "messages.display001": "<div style=\"position:sticky;top:0;background:#edf2f7;padding:12px;z-index:1\"><strong>Scroll → GSAP timeline</strong><div style=\"height:8px;background:#d4e0eb;margin:10px 0\"><div data-bar style=\"height:100%;background:#3179bf;transform-origin:left\"></div></div><output></output></div><section style=\"min-height:70%;padding:32px\"><h2>1. Input</h2><p>Scroll position is normalized by scrollHeight − clientHeight.</p></section><section style=\"min-height:70%;padding:32px\"><h2>2. Transform</h2><p>ResizeObserver recalculates the same progress after viewport changes.</p></section><section style=\"min-height:70%;padding:32px\"><h2>3. Render</h2><p>All explanations remain readable with reduced motion.</p></section>",
+        "messages.display002": "reduced motion: static indicator",
+        "messages.display003": "scroll-scrubbed indicator",
+        "messages.display004": "% · ",
+        "messages.display005": " · section ",
+        "comments.comment001": "Native scroll drives a paused GSAP timeline; no ScrollTrigger plugin required."
+      }
+    }
+  },
+  "gsap-03": {
+    "presentation": {
+      "sourceHash": "a530ad4d47681362910782e6a7c74b0b2284158a99982c42ad07b8105ca70420",
+      "values": {
+        "messages.display001": "<p>Use buttons or Left/Right arrows. Try rapid repeated input.</p><button>Previous</button> <button>Next</button> <label>Duration <input type=\"range\" min=\"0.1\" max=\"1.2\" step=\".1\" value=\".4\"></label><article style=\"margin:28px 12px;padding:28px;background:#edf2f7;border-radius:14px\"><h2></h2><p></p></article><output role=\"status\"></output>",
+        "messages.display002": ". ",
+        "messages.display003": "reduced motion",
+        "messages.display004": "motion enabled",
+        "messages.display005": "Step ",
+        "messages.display006": "/4 · ",
+        "messages.display007": " inputs · ",
+        "comments.comment001": "Inputs remain enabled. New transitions kill old tweens and target the latest state.",
+        "messages.displayFix1001": "Observe",
+        "messages.displayFix1002": "Describe what changes before adjusting a variable.",
+        "messages.displayFix1003": "Predict",
+        "messages.displayFix1004": "Write one expected outcome and keep other conditions fixed.",
+        "messages.displayFix1005": "Experiment",
+        "messages.displayFix1006": "Change one variable and record the actual result.",
+        "messages.displayFix1007": "Explain",
+        "messages.displayFix1008": "Compare the result with the prediction."
+      }
     }
   }
 }

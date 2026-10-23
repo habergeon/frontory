@@ -5,98 +5,122 @@
     "note": "시작값과 목표값 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-03": {
+    "readingSource": "/examples-en/gsap-step-03/example.js",
     "mode": "browser",
     "note": "Ease의 시간 곡선 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-04": {
+    "readingSource": "/examples-en/gsap-step-04/example.js",
     "mode": "browser",
     "note": "Transform과 배치 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-05": {
+    "readingSource": "/examples-en/gsap-step-05/example.js",
     "mode": "browser",
     "note": "Stagger 순서 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-06": {
+    "readingSource": "/examples-en/gsap-step-06/example.js",
     "mode": "browser",
     "note": "Label과 겹침 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-07": {
+    "readingSource": "/examples-en/gsap-step-07/example.js",
     "mode": "browser",
     "note": "재생 제어판 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-08": {
+    "readingSource": "/examples-en/gsap-step-08/example.js",
     "mode": "browser",
     "note": "Context와 복원 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-09": {
+    "readingSource": "/examples-en/gsap-step-09/example.js",
     "mode": "browser",
     "note": "기본 스크롤 연결 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-10": {
+    "readingSource": "/examples-en/gsap-step-10/example.js",
     "mode": "browser",
     "note": "ScrollTrigger 등록 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-11": {
+    "readingSource": "/examples-en/gsap-step-11/example.js",
     "mode": "browser",
     "note": "Scrub 추종 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-12": {
+    "readingSource": "/examples-en/gsap-step-12/example.js",
     "mode": "browser",
     "note": "Pin과 문서 흐름 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-13": {
+    "readingSource": "/examples-en/gsap-step-13/example.js",
     "mode": "browser",
     "note": "Refresh와 측정 시점 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-15": {
+    "readingSource": "/examples-en/gsap-step-15/example.js",
     "mode": "browser",
     "note": "MatchMedia 분기 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-16": {
+    "readingSource": "/examples-en/gsap-step-16/example.js",
     "mode": "browser",
     "note": "연속 입력과 Overwrite 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-17": {
+    "readingSource": "/examples-en/gsap-step-17/example.js",
     "mode": "browser",
     "note": "Pointer와 QuickTo 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-18": {
+    "readingSource": "/examples-en/gsap-step-18/example.js",
     "mode": "browser",
     "note": "키보드 단계 이동 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-19": {
+    "readingSource": "/examples-en/gsap-step-19/example.js",
     "mode": "browser",
     "note": "모션 감소 대체 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-20": {
+    "readingSource": "/examples-en/gsap-step-20/example.js",
     "mode": "browser",
     "note": "완료 콜백과 중단 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-21": {
+    "readingSource": "/examples-en/gsap-step-21/example.js",
     "mode": "browser",
     "note": "중첩 타임라인 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-22": {
+    "readingSource": "/examples-en/gsap-step-22/example.js",
     "mode": "browser",
     "note": "SVG 속성 제어 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-23": {
+    "readingSource": "/examples-en/gsap-step-23/example.js",
     "mode": "browser",
     "note": "Canvas 객체 보간 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-24": {
+    "readingSource": "/examples-en/gsap-step-24/example.js",
     "mode": "browser",
     "note": "프레임 비용 측정 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-25": {
+    "readingSource": "/examples-en/gsap-step-25/example.js",
     "mode": "browser",
     "note": "숨김과 복귀 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-26": {
+    "readingSource": "/examples-en/gsap-step-26/example.js",
     "mode": "browser",
     "note": "모션 토큰 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   },
   "gsap-step-27": {
+    "readingSource": "/examples-en/gsap-step-27/example.js",
     "mode": "browser",
     "note": "실패 경로의 해제 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다."
   }

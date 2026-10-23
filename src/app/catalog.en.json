@@ -5463,7 +5463,8 @@
       "title": "Tween and Timeline",
       "goal": "Learning outcome: explain the role of Tween. Input case: 3 cards and playback buttons. Deliverable: a position table at progress 0·0.5·1. Explain the rationale for handling Playhead, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/01-foundations/README.md",
-      "seriesId": "gsap"
+      "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-01/example.js"
     },
     {
       "id": "gsap-step-02",
@@ -5484,6 +5485,7 @@
       "goal": "Learning outcome: explain the role of Normalized Time. Input case: 0·0.25·0.5·0.75·1. Deliverable: a table of positions at each progress value. Explain the rationale for handling Speed Distribution, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/03/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-03/example.js",
       "exampleNote": "This is an experiment on The Time Curve of Ease. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5494,6 +5496,7 @@
       "goal": "Learning outcome: explain the role of Transform. Input case: 10 adjacent cards. Deliverable: a record of neighboring positions and layout events. Explain the rationale for handling Measurement, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/04/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-04/example.js",
       "exampleNote": "This is an experiment on Transform and Layout. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5504,6 +5507,7 @@
       "goal": "Learning outcome: explain the role of Start Interval. Input case: 5 ID cards. Deliverable: a table of the start order for each card. Explain the rationale for handling Order, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/05/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-05/example.js",
       "exampleNote": "This is an experiment on Stagger Order. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5514,6 +5518,7 @@
       "goal": "Learning outcome: explain the role of Label. Input case: intro·ready labels. Deliverable: a schedule of start and end times for each action. Explain the rationale for handling Relative Position, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/06/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-06/example.js",
       "exampleNote": "This is an experiment on Labels and Overlap. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5524,6 +5529,7 @@
       "goal": "Learning outcome: explain the role of Progress. Input case: seeking to 0·50·100%. Deliverable: results from revisiting positions and the tween count. Explain the rationale for handling Synchronization, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/07/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-07/example.js",
       "exampleNote": "This is an experiment on Playback Controls. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5534,6 +5540,7 @@
       "goal": "Learning outcome: explain the role of Context. Input case: a card with an existing inline transform. Deliverable: a style table before and after mounting. Explain the rationale for handling Revert, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/08/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-08/example.js",
       "exampleNote": "This is an experiment on Context and Restoration. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5544,6 +5551,7 @@
       "goal": "Learning outcome: explain the role of Progress. Input case: a long document and a short document. Deliverable: progress at the top, middle, and bottom and the NaN count. Explain the rationale for handling Manual Connection, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/09/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-09/example.js",
       "exampleNote": "This is an experiment on Connecting Native Scroll. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5554,6 +5562,7 @@
       "goal": "Learning outcome: explain the role of Plugin. Input case: two section elements. Deliverable: a table of start/end pixel values. Explain the rationale for handling Boundaries, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/10/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-10/example.js",
       "exampleNote": "This is an experiment on Registering ScrollTrigger. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5564,6 +5573,7 @@
       "goal": "Learning outcome: explain the role of Scrub. Input case: a short scroll followed by a stop. Deliverable: the times when input stops and motion stops. Explain the rationale for handling Readability, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/11/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-11/example.js",
       "exampleNote": "This is an experiment on Scrub Following. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5574,6 +5584,7 @@
       "goal": "Learning outcome: explain the role of Pin. Input case: scrolling and Tab. Deliverable: a table of subsequent section positions and obscured focus. Explain the rationale for handling Focus, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/12/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-12/example.js",
       "exampleNote": "This is an experiment on Pin and Document Flow. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5584,6 +5595,7 @@
       "goal": "Learning outcome: explain the role of Layout Changes. Input case: an image that loads late. Deliverable: a table of boundary errors before and after loading. Explain the rationale for handling Refresh, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/13/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-13/example.js",
       "exampleNote": "This is an experiment on Refresh and Measurement Timing. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5593,7 +5605,8 @@
       "title": "Scroll and Lifecycle",
       "goal": "Learning outcome: explain the role of Scope of the Existing Example. Input case: 5 remounts and resize. Deliverable: event counts and a record of all explanations being displayed. Explain the rationale for handling Cleanup, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/02-experiments/README.md",
-      "seriesId": "gsap"
+      "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-02/example.js"
     },
     {
       "id": "gsap-step-15",
@@ -5603,6 +5616,7 @@
       "goal": "Learning outcome: explain the role of Responsive Motion. Input case: widths of 375·1024px. Deliverable: final positions and cleanup counts for each width. Explain the rationale for handling Distance Units, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/15/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-15/example.js",
       "exampleNote": "This is an experiment on MatchMedia Branches. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5613,6 +5627,7 @@
       "goal": "Learning outcome: explain the role of Contention. Input case: 10 alternating clicks. Deliverable: the latest target and final x value. Explain the rationale for handling Overwrite, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/16/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-16/example.js",
       "exampleNote": "This is an experiment on Repeated Input and Overwrite. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5623,6 +5638,7 @@
       "goal": "Learning outcome: explain the role of Input Frequency. Input case: input at the center and corners. Deliverable: a table of target and final coordinates. Explain the rationale for handling QuickTo, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/17/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-17/example.js",
       "exampleNote": "This is an experiment on Pointer and QuickTo. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5633,6 +5649,7 @@
       "goal": "Learning outcome: explain the role of Equivalent Operation. Input case: mouse and keyboard navigation. Deliverable: a table of the current step and activeElement. Explain the rationale for handling Focus, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/18/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-18/example.js",
       "exampleNote": "This is an experiment on Keyboard Step Navigation. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5643,6 +5660,7 @@
       "goal": "Learning outcome: explain the role of User Preference. Input case: three step transitions. Deliverable: a table of step content and button operation. Explain the rationale for handling Immediate State, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/19/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-19/example.js",
       "exampleNote": "This is an experiment on Reduced-Motion Alternatives. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5653,6 +5671,7 @@
       "goal": "Learning outcome: explain the role of Meaning of Completion. Input case: selecting C during A→B. Deliverable: a log of callback IDs and the final step. Explain the rationale for handling Request Generation, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/20/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-20/example.js",
       "exampleNote": "This is an experiment on Completion Callbacks and Interruption. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5663,6 +5682,7 @@
       "goal": "Learning outcome: explain the role of Composition. Input case: 3 cards and 6 cards. Deliverable: child start times and the total length. Explain the rationale for handling Defaults, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/21/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-21/example.js",
       "exampleNote": "This is an experiment on Nested Timelines. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5673,6 +5693,7 @@
       "goal": "Learning outcome: explain the role of Attr. Input case: viewBox 0 0 200 100. Deliverable: a table of endpoint attributes and displayed positions. Explain the rationale for handling ViewBox, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/22/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-22/example.js",
       "exampleNote": "This is an experiment on Controlling SVG Attributes. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5683,6 +5704,7 @@
       "goal": "Learning outcome: explain the role of Object Values. Input case: start·stop·dispose. Deliverable: draw call counts and final coordinates. Explain the rationale for handling Ticker, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/23/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-23/example.js",
       "exampleNote": "This is an experiment on Interpolating Canvas Objects. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5693,6 +5715,7 @@
       "goal": "Learning outcome: explain the role of Long Frames. Input case: 20 cards and 200 cards. Deliverable: frame distribution and input response records. Explain the rationale for handling Recording Conditions, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/24/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-24/example.js",
       "exampleNote": "This is an experiment on Measuring Frame Cost. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5703,6 +5726,7 @@
       "goal": "Learning outcome: explain the role of Background. Input case: returning after hiding the tab. Deliverable: progress logs before and after returning. Explain the rationale for handling Resume Policy, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/25/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-25/example.js",
       "exampleNote": "This is an experiment on Hiding and Returning. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5713,6 +5737,7 @@
       "goal": "Learning outcome: explain the role of Meaning. Input case: the same button input across three steps. Deliverable: a table of token uses and settings. Explain the rationale for handling Impact of Changes, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/26/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-26/example.js",
       "exampleNote": "This is an experiment on Motion Tokens. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5723,6 +5748,7 @@
       "goal": "Learning outcome: explain the role of Resource Inventory. Input case: normal execution·exceptions·duplicate dispose. Deliverable: remaining registration counts for each path. Explain the rationale for handling Repeated Disposal, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/27/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-27/example.js",
       "exampleNote": "This is an experiment on Cleanup on Failure Paths. It supports direct interaction and cleans up the resources it uses."
     },
     {
@@ -5732,7 +5758,8 @@
       "title": "Motion Design and Verification",
       "goal": "Learning outcome: explain the role of Information Hierarchy. Input case: keyboard·10 rapid inputs·5 remounts. Deliverable: an input·accessibility·cleanup·frame verification report. Explain the rationale for handling Combined Verification, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/03-project/README.md",
-      "seriesId": "gsap"
+      "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-03/example.js"
     },
     {
       "id": "motion-01",

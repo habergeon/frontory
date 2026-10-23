@@ -1,0 +1,9 @@
+// gsap-step-10: Registering ScrollTrigger
+export function mount({locale='ko',container,gsap,animate,React,createRoot,Motion,ScrollTrigger}) {
+const messages=locale==='en'?{"display001":"<h3>Registering ScrollTrigger</h3><p>Plugin / Boundaries</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>","display002":"GSAP","display003":"ScrollTrigger "}:{"display001":"<h3>ScrollTrigger 등록</h3><p>플러그인 / 경계</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>","display002":"GSAP","display003":"ScrollTrigger "};
+ const root=document.createElement('section');root.style.cssText='padding:18px;font:14px system-ui;color:#172b46';container.append(root);root.innerHTML=messages.display001;
+ const button=root.querySelector('button'),out=root.querySelector('output'),stage=/** @type {HTMLDivElement} */ (root.querySelector('.stage'));let dead=false;const stops=[];
+ const box=document.createElement('div');box.textContent='GSAP';box.style.cssText='width:64px;height:48px;background:#76d3de;display:grid;place-items:center';stage.append(box);stops.push(()=>gsap.killTweensOf(box));
+ gsap.registerPlugin(ScrollTrigger);stage.style.cssText+=';height:200px;overflow:auto';const space=document.createElement('div');space.style.height='700px';stage.append(space);const tween=gsap.to(box,{x:220,rotation:180,scrollTrigger:{trigger:box,scroller:stage,start:'top top',end:'+=400',scrub:true,pin:false,onUpdate:self=>out.textContent='ScrollTrigger '+self.progress.toFixed(2)}});button.onclick=()=>{stage.scrollTo({top:400,behavior:'smooth'})};stops.push(()=>{tween.scrollTrigger?.kill();tween.kill()});
+ return()=>{dead=true;stops.reverse().forEach(fn=>fn());root.remove()};
+}

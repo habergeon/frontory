@@ -6742,5 +6742,297 @@
       "comment003": "실제 GPU tile rasterizer/고차 SH/LOD/GS picking은 구현하지 않습니다.",
       "comment004": "일반 .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/행."
     }
+  },
+  "gsap-01": {
+    "messages": {},
+    "comments": {
+      "comment001": "timeline의 duration, ease와 순서를 바꾸어 보세요."
+    }
+  },
+  "gsap-step-03": {
+    "messages": {
+      "display001": "<h3>Ease의 시간 곡선</h3><p>정규화 시간 / 속도 분포</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP"
+    },
+    "comments": {
+      "comment001": "gsap-step-03: Ease의 시간 곡선"
+    }
+  },
+  "gsap-step-04": {
+    "messages": {
+      "display001": "<h3>Transform과 배치</h3><p>Transform / 측정</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "Layout offsetLeft ",
+      "display004": "; visual left ",
+      "display005": " → "
+    },
+    "comments": {
+      "comment001": "gsap-step-04: Transform과 배치"
+    }
+  },
+  "gsap-step-05": {
+    "messages": {
+      "display001": "<h3>Stagger 순서</h3><p>시작 간격 / 순서</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "Stagger from "
+    },
+    "comments": {
+      "comment001": "gsap-step-05: Stagger 순서"
+    }
+  },
+  "gsap-step-06": {
+    "messages": {
+      "display001": "<h3>Label과 겹침</h3><p>Label / 상대 위치</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "rotation starts at label turn (0.5 s), scale overlaps last 0.2 s"
+    },
+    "comments": {
+      "comment001": "gsap-step-06: Label과 겹침"
+    }
+  },
+  "gsap-step-07": {
+    "messages": {
+      "display001": "<h3>재생 제어판</h3><p>Progress / 동기화</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP"
+    },
+    "comments": {
+      "comment001": "gsap-step-07: 재생 제어판"
+    }
+  },
+  "gsap-step-08": {
+    "messages": {
+      "display001": "<h3>Context와 복원</h3><p>Context / Revert</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "revert restored original inline styles",
+      "display004": "Context active"
+    },
+    "comments": {
+      "comment001": "gsap-step-08: Context와 복원"
+    }
+  },
+  "gsap-step-09": {
+    "messages": {
+      "display001": "<h3>기본 스크롤 연결</h3><p>진행도 / 수동 연결</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP"
+    },
+    "comments": {
+      "comment001": "gsap-step-09: 기본 스크롤 연결"
+    }
+  },
+  "gsap-step-10": {
+    "messages": {
+      "display001": "<h3>ScrollTrigger 등록</h3><p>플러그인 / 경계</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "ScrollTrigger "
+    },
+    "comments": {
+      "comment001": "gsap-step-10: ScrollTrigger 등록"
+    }
+  },
+  "gsap-step-11": {
+    "messages": {
+      "display001": "<h3>Scrub 추종</h3><p>Scrub / 읽기</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "ScrollTrigger "
+    },
+    "comments": {
+      "comment001": "gsap-step-11: Scrub 추종"
+    }
+  },
+  "gsap-step-12": {
+    "messages": {
+      "display001": "<h3>Pin과 문서 흐름</h3><p>Pin / 포커스</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "ScrollTrigger "
+    },
+    "comments": {
+      "comment001": "gsap-step-12: Pin과 문서 흐름"
+    }
+  },
+  "gsap-step-13": {
+    "messages": {
+      "display001": "<h3>Refresh와 측정 시점</h3><p>레이아웃 변경 / Refresh</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "ScrollTrigger ",
+      "display004": "Layout changed; refresh recalculated boundaries"
+    },
+    "comments": {
+      "comment001": "gsap-step-13: Refresh와 측정 시점"
+    }
+  },
+  "gsap-02": {
+    "messages": {
+      "display001": "<div style=\"position:sticky;top:0;background:#edf2f7;padding:12px;z-index:1\"><strong>Scroll → GSAP timeline</strong><div style=\"height:8px;background:#d4e0eb;margin:10px 0\"><div data-bar style=\"height:100%;background:#3179bf;transform-origin:left\"></div></div><output></output></div><section style=\"min-height:70%;padding:32px\"><h2>1. Input</h2><p>Scroll position is normalized by scrollHeight − clientHeight.</p></section><section style=\"min-height:70%;padding:32px\"><h2>2. Transform</h2><p>ResizeObserver recalculates the same progress after viewport changes.</p></section><section style=\"min-height:70%;padding:32px\"><h2>3. Render</h2><p>All explanations remain readable with reduced motion.</p></section>",
+      "display002": "reduced motion: static indicator",
+      "display003": "scroll-scrubbed indicator",
+      "display004": "% · ",
+      "display005": " · section "
+    },
+    "comments": {
+      "comment001": "Native scroll drives a paused GSAP timeline; no ScrollTrigger plugin required."
+    }
+  },
+  "gsap-step-15": {
+    "messages": {
+      "display001": "<h3>MatchMedia 분기</h3><p>반응형 모션 / 거리 단위</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP"
+    },
+    "comments": {
+      "comment001": "gsap-step-15: MatchMedia 분기"
+    }
+  },
+  "gsap-step-16": {
+    "messages": {
+      "display001": "<h3>연속 입력과 Overwrite</h3><p>경합 / Overwrite</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "Latest target ",
+      "display004": "; click rapidly"
+    },
+    "comments": {
+      "comment001": "gsap-step-16: 연속 입력과 Overwrite"
+    }
+  },
+  "gsap-step-17": {
+    "messages": {
+      "display001": "<h3>Pointer와 QuickTo</h3><p>입력 빈도 / QuickTo</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "One reusable tween follows pointer"
+    },
+    "comments": {
+      "comment001": "gsap-step-17: Pointer와 QuickTo"
+    }
+  },
+  "gsap-step-18": {
+    "messages": {
+      "display001": "<h3>키보드 단계 이동</h3><p>동등한 조작 / 포커스</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "Step ",
+      "display004": " / 5",
+      "display005": "Next step"
+    },
+    "comments": {
+      "comment001": "gsap-step-18: 키보드 단계 이동"
+    }
+  },
+  "gsap-step-19": {
+    "messages": {
+      "display001": "<h3>모션 감소 대체</h3><p>사용자 선호 / 즉시 상태</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "Content arrives with ",
+      "display004": "zero",
+      "display005": "animated",
+      "display006": " duration"
+    },
+    "comments": {
+      "comment001": "gsap-step-19: 모션 감소 대체"
+    }
+  },
+  "gsap-step-20": {
+    "messages": {
+      "display001": "<h3>완료 콜백과 중단</h3><p>완료 의미 / 요청 세대</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "Request ",
+      "display004": " pending",
+      "display005": " completed"
+    },
+    "comments": {
+      "comment001": "gsap-step-20: 완료 콜백과 중단"
+    }
+  },
+  "gsap-step-21": {
+    "messages": {
+      "display001": "<h3>중첩 타임라인</h3><p>합성 / Defaults</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP"
+    },
+    "comments": {
+      "comment001": "gsap-step-21: 중첩 타임라인"
+    }
+  },
+  "gsap-step-22": {
+    "messages": {
+      "display001": "<h3>SVG 속성 제어</h3><p>Attr / ViewBox</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "<svg viewBox=\"0 0 300 140\" width=\"300\"><circle cx=\"40\" cy=\"70\" r=\"20\" fill=\"#168ca0\"/></svg>"
+    },
+    "comments": {
+      "comment001": "gsap-step-22: SVG 속성 제어"
+    }
+  },
+  "gsap-step-23": {
+    "messages": {
+      "display001": "<h3>Canvas 객체 보간</h3><p>객체 값 / Ticker</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "<canvas width=\"320\" height=\"160\"></canvas>"
+    },
+    "comments": {
+      "comment001": "gsap-step-23: Canvas 객체 보간"
+    }
+  },
+  "gsap-step-24": {
+    "messages": {
+      "display001": "<h3>프레임 비용 측정</h3><p>긴 프레임 / 조건 기록</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "Last ",
+      "display004": " frames; >32ms: "
+    },
+    "comments": {
+      "comment001": "gsap-step-24: 프레임 비용 측정"
+    }
+  },
+  "gsap-step-25": {
+    "messages": {
+      "display001": "<h3>숨김과 복귀</h3><p>백그라운드 / 재개 정책</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "Paused",
+      "display004": "Resumed without catch-up"
+    },
+    "comments": {
+      "comment001": "gsap-step-25: 숨김과 복귀"
+    }
+  },
+  "gsap-step-26": {
+    "messages": {
+      "display001": "<h3>모션 토큰</h3><p>의미 / 변경 영향</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": " token = ",
+      "display004": " seconds"
+    },
+    "comments": {
+      "comment001": "gsap-step-26: 모션 토큰"
+    }
+  },
+  "gsap-step-27": {
+    "messages": {
+      "display001": "<h3>실패 경로의 해제</h3><p>자원 목록 / 반복 해제</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "GSAP",
+      "display003": "Disposed safely (repeatable)",
+      "display004": "; context reverted",
+      "displayFix1001": "Injected setup failure"
+    },
+    "comments": {
+      "comment001": "gsap-step-27: 실패 경로의 해제"
+    }
+  },
+  "gsap-03": {
+    "messages": {
+      "display001": "<p>Use buttons or Left/Right arrows. Try rapid repeated input.</p><button>Previous</button> <button>Next</button> <label>Duration <input type=\"range\" min=\"0.1\" max=\"1.2\" step=\".1\" value=\".4\"></label><article style=\"margin:28px 12px;padding:28px;background:#edf2f7;border-radius:14px\"><h2></h2><p></p></article><output role=\"status\"></output>",
+      "display002": ". ",
+      "display003": "reduced motion",
+      "display004": "motion enabled",
+      "display005": "Step ",
+      "display006": "/4 · ",
+      "display007": " inputs · ",
+      "displayFix1001": "Observe",
+      "displayFix1002": "Describe what changes before adjusting a variable.",
+      "displayFix1003": "Predict",
+      "displayFix1004": "Write one expected outcome and keep other conditions fixed.",
+      "displayFix1005": "Experiment",
+      "displayFix1006": "Change one variable and record the actual result.",
+      "displayFix1007": "Explain",
+      "displayFix1008": "Compare the result with the prediction."
+    },
+    "comments": {
+      "comment001": "Inputs remain enabled. New transitions kill old tweens and target the latest state."
+    }
   }
 }

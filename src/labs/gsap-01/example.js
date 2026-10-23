@@ -1,5 +1,6 @@
 // timeline의 duration, ease와 순서를 바꾸어 보세요.
-export function mount({ gsap, container }) {
+export function mount({locale='ko', gsap, container }) {
+const messages=locale==='en'?{}:{};
   const box = document.createElement('div')
   box.style.cssText = 'width:70px;height:70px;background:#3179bf;border-radius:12px;margin:60px 20px'
   container.append(box)

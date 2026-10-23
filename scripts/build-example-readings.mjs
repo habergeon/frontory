@@ -23,6 +23,14 @@ for (const unit of read('content/catalog-v2.json').units) {
     if (matches.length !== 1) throw Error(`Expected one manual comment anchor: ${unit.id}.${key}`)
     commentLocations[key] = { line: matches[0], column: matches[0].indexOf(text), kind: 'line' }
   }
+  // Engineering identity comments include inline and serialized Worker/spec text.
+  // Preserve those exact bytes; translate only the reviewed non-identity comments.
+  if (['gsap', 'motion', 'web-workers', 'offscreen-canvas', 'webassembly', 'playwright'].includes(unit.seriesId)) {
+    const comments = Object.fromEntries(Object.entries(original.comments).filter(([key, value]) => value !== english.comments[key]))
+    const translated = Object.fromEntries(Object.keys(comments).map(key => [key, english.comments[key]]))
+    writeEnglishReadingSource(unit.id, source, { ...original, comments }, { ...english, comments: translated })
+    continue
+  }
   // These approved identity entries describe an existing nested shader comment.
   // Its source has no trailing period; preserve the actual shader bytes exactly.
   if (['webgpu-03', 'wgsl-03'].includes(unit.id)) {

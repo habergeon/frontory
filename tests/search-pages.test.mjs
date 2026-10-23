@@ -164,17 +164,11 @@ test('only actual English pages are published with reciprocal locale metadata', 
       assert.equal(html.includes(label), !!adjacent, unit.id + ': ' + label)
       if (adjacent) assert.ok(html.includes(`href="/en/learn/${unit.seriesId}/${adjacent.id}/"`))
     }
-    const metadata = unit.seriesId === 'webgl' ? undefined
-      : JSON.parse(fs.readFileSync(`content/examples/${unit.seriesId}.json`, 'utf8'))[unit.id]
-    if (metadata?.readingSource) {
-      assert.ok(html.includes(`href="${metadata.readingSource}" download`))
-      assert.ok(fs.existsSync('public' + metadata.readingSource))
-      assert.match(html, /Download source with English comments · for reading/)
-    } else {
-      assert.doesNotMatch(html, /Download source with English comments|href="\/examples-en\//)
-      assert.ok(html.includes(`href="/examples/${unit.id}/example.js" download`))
-      assert.ok(fs.existsSync(`src/labs/${unit.id}/example.js`))
-    }
+    assert.ok(html.includes(`href="${unit.exampleReadingSource}" download`))
+    assert.ok(fs.existsSync('public' + unit.exampleReadingSource))
+    assert.match(html, /Download source with English comments · for reading/)
+    assert.ok(html.includes(`href="/examples/${unit.id}/example.js" download`))
+    assert.ok(fs.existsSync(`src/labs/${unit.id}/example.js`))
   }
   for (const id of ['javascript-step-02', 'css-step-04', 'react-step-03', 'gsap-step-02']) {
     assert.ok(pages.get(`en/learn/${translated.units.find(unit => unit.id === id).seriesId}/${id}/index.html`).includes(`href="/examples-en/${id}/example.js" download`))
@@ -247,6 +241,62 @@ test('built English app entry shares real Vite assets and localized head, with l
     assert.match(html, /hreflang="en" href="https:\/\/frontory.pages.dev\/en\/"/)
   }
   assert.match(fs.readFileSync('dist/en/404.html', 'utf8'), /<h1>Page not found<\/h1>/)
+  // Check actual build output as well as the in-memory generator: every public
+  // page and source download must survive Vite and the static publishing step.
+  const { generateSearchPages } = await import('../scripts/search-pages.mjs')
+  for (const [file, expected] of generateSearchPages()) {
+    const actual = fs.readFileSync('dist/' + file, 'utf8')
+    if (file !== 'en/index.html') assert.equal(actual, expected, file)
+    for (const [, href] of actual.matchAll(/href="(\/examples(?:-en)?\/[^"#]+)(?:#[^"]*)?"/g)) {
+      const source = href.startsWith('/examples-en/') ? 'public' + href : 'src/labs/' + href.slice('/examples/'.length)
+      assert.deepEqual(fs.readFileSync('dist' + href), fs.readFileSync(source), file + ': ' + href)
+    }
+  }
+  const metadataFiles = fs.readdirSync('content/examples').filter(file => file.endsWith('.json'))
+  for (const file of metadataFiles) {
+    for (const details of Object.values(JSON.parse(fs.readFileSync('content/examples/' + file, 'utf8')))) {
+      for (const source of details.files ?? []) {
+        assert.deepEqual(fs.readFileSync('dist/examples/' + source.slice('src/labs/'.length)), fs.readFileSync(source), source)
+      }
+    }
+  }
+  const { globSync } = await import('node:fs')
+  const { pathToFileURL } = await import('node:url')
+  const path = await import('node:path')
+  const canonicalUrls = [...globSync('dist/**/*.html')]
+    .filter(file => !['examples', 'examples-en'].includes(path.relative('dist', file).split(path.sep)[0]))
+    .map(file => fs.readFileSync(file, 'utf8'))
+    .filter(html => !html.includes('content="noindex,follow"'))
+    .map(html => html.match(/rel="canonical" href="([^"]+)"/)[1])
+  const sitemapUrls = [...fs.readFileSync('dist/sitemap.xml', 'utf8').matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1])
+  assert.equal(new Set(canonicalUrls).size, 1342)
+  assert.deepEqual(canonicalUrls.sort(), sitemapUrls.sort())
+  const markdownFiles = [...globSync('docs/**/*.md')]
+  const builtJs = [...globSync('dist/assets/*.js')].map(file => ({ file: path.resolve(file), text: fs.readFileSync(file, 'utf8') }))
+  const initialFiles = new Set(assets(ko).filter(file => file.endsWith('.js')).map(file => path.resolve('dist' + file)))
+  // Follow static imports too, so an eagerly imported Markdown chunk cannot pass.
+  for (const file of initialFiles) {
+    const text = fs.readFileSync(file, 'utf8')
+    for (const [, target] of text.matchAll(/(?:^|;)import(?:[^"'();]*from)?["']([^"']+)["']/g)) {
+      if (target.startsWith('.')) initialFiles.add(path.resolve(path.dirname(file), target))
+    }
+  }
+  const initialText = [...initialFiles].map(file => fs.readFileSync(file, 'utf8')).join(String.fromCharCode(10))
+  const lazyMarkdown = new Set()
+  for (const entry of builtJs) {
+    // Vite raw modules contain only a string assignment and its default export.
+    if (!/^var [A-Za-z_$]+=[\s\S]*;export\{[A-Za-z_$]+ as default\};?\s*$/.test(entry.text)) continue
+    const value = (await import(pathToFileURL(entry.file).href)).default
+    if (typeof value !== 'string') continue
+    assert.ok(!initialFiles.has(entry.file), entry.file + ': eager raw document')
+    const literal = entry.text.slice(entry.text.indexOf('=') + 1, entry.text.lastIndexOf(';export'))
+    assert.ok(!initialText.includes(literal), entry.file + ': raw document duplicated in initial JS')
+    lazyMarkdown.add(value)
+  }
+  for (const file of markdownFiles) {
+    assert.ok(lazyMarkdown.has(fs.readFileSync(file, 'utf8')), file + ': missing lazy Markdown asset')
+  }
+
   const { preview } = await import('vite')
   const previousNodeEnv = process.env.NODE_ENV
   const server = await preview({ preview: { host: '127.0.0.1', port: 0 } })

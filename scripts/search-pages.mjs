@@ -39,16 +39,15 @@ const documentRoutes = new Map([
 ])
 const translatedRoutes = new Set(['/', ...[...documentRoutes.values()].filter(route => route.startsWith('/en/')).map(route => route.slice(3))])
 const downloads = new Map()
-const readingSources = new Map()
+const readingSources = new Map(Object.entries(englishContent.exampleReadingSources))
 for (const unit of catalog.units) {
   const file = `/src/labs/${unit.id}/example.js`
   if (fs.existsSync(path.join(root, file))) downloads.set(file, `/examples/${unit.id}/example.js`)
 }
 for (const entry of fs.readdirSync(path.join(root, 'content/examples')).filter(file => file.endsWith('.json'))) {
   const metadata = JSON.parse(fs.readFileSync(path.join(root, 'content/examples', entry), 'utf8'))
-  for (const [id, details] of Object.entries(metadata)) {
+  for (const details of Object.values(metadata)) {
     for (const file of details.files ?? []) downloads.set('/' + file, '/examples/' + file.slice('src/labs/'.length))
-    if (englishContent.publishedUnitIds.includes(id) && details.readingSource) readingSources.set(id, details.readingSource)
   }
 }
 export const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;')

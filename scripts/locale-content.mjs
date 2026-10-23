@@ -145,7 +145,7 @@ export function readEnglishContent({ complete = false, root = defaultRoot, revie
   const files = fs.existsSync(directory) ? fs.readdirSync(directory) : []
   const expectedFiles = seriesIds.filter(id => id !== 'webgl').map(id => `${id}.json`)
   for (const file of files) if (!expectedFiles.includes(file)) fail(`Unknown curriculum file: ${file}`)
-  const result = { catalog: { series: [], units: [] }, documents: new Map(), publishedUnitIds: [...ids], curricula: {}, exampleNotes: {}, examplePresentations: {} }
+  const result = { catalog: { series: [], units: [] }, documents: new Map(), publishedUnitIds: [...ids], curricula: {}, exampleNotes: {}, examplePresentations: {}, exampleReadingSources: {} }
   for (const sourceSeries of baseline.series.filter(series => seriesIds.includes(series.id))) {
     const metadata = { title: sourceSeries.title, prerequisites: sourceSeries.prerequisites }
     if (sourceSeries.id === 'webgl') metadata.stages = sourceSeries.stages
@@ -188,13 +188,15 @@ export function readEnglishContent({ complete = false, root = defaultRoot, revie
   }
   const presentationFile = path.join(root, 'content/example-presentations.json')
   const presentations = fs.existsSync(presentationFile) ? read('content/example-presentations.json') : {}
+  if (!object(presentations)) fail('Expected presentations object')
+  for (const id of Object.keys(presentations)) if (!unitMap.has(id)) fail(`Unknown presentation ID: ${id}`)
   const exampleDirectory = path.join(root, 'content/locales/en/examples')
   const exampleSources = new Map(seriesIds.map(id => {
     const file = `content/examples/${id}.json`
     return [id, fs.existsSync(path.join(root, file)) ? read(file) : {}]
   }))
   const exampleSeriesIds = seriesIds.filter(id => ids.some(unitId =>
-    unitMap.get(unitId).seriesId === id && own(exampleSources.get(id), unitId)))
+    unitMap.get(unitId).seriesId === id && (own(exampleSources.get(id), unitId) || own(presentations, unitId))))
   if (fs.existsSync(exampleDirectory)) {
     for (const file of fs.readdirSync(exampleDirectory)) {
       if (!exampleSeriesIds.some(id => file === `${id}.json`)) fail(`Unknown example file: ${file}`)
@@ -202,17 +204,21 @@ export function readEnglishContent({ complete = false, root = defaultRoot, revie
   }
   for (const seriesId of exampleSeriesIds) {
     const sources = exampleSources.get(seriesId)
-    const requiredIds = ids.filter(id => unitMap.get(id).seriesId === seriesId && own(sources, id))
+    const requiredIds = ids.filter(id => unitMap.get(id).seriesId === seriesId && (own(sources, id) || own(presentations, id)))
     const records = read(`content/locales/en/examples/${seriesId}.json`)
     keys(records, requiredIds, `examples.${seriesId}`)
     for (const id of requiredIds) {
       const record = records[id]
-      keys(record, ['sourceHash', 'values', ...(own(presentations, id) ? ['presentation'] : [])], `examples.${id}`)
-      if (record.sourceHash !== sourceHash(sources[id])) fail(`Stale example source hash: ${id}`)
-      keys(record.values, ['note'], `examples.${id}.values`)
-      if (typeof record.values.note !== 'string' || !record.values.note.trim()) fail(`Expected nonempty note string: ${id}`)
-      if (typeof sources[id].note !== 'string' || !sources[id].note.trim()) fail(`Expected nonempty source note: ${id}`)
-      if (review) collectReview(sources[id].note, record.values.note, `example:${id}.note`, review)
+      const hasMetadata = own(sources, id)
+      keys(record, [...(hasMetadata ? ['sourceHash', 'values'] : []), ...(own(presentations, id) ? ['presentation'] : [])], `examples.${id}`)
+      if (hasMetadata) {
+        if (record.sourceHash !== sourceHash(sources[id])) fail(`Stale example source hash: ${id}`)
+        keys(record.values, ['note'], `examples.${id}.values`)
+        if (typeof record.values.note !== 'string' || !record.values.note.trim()) fail(`Expected nonempty note string: ${id}`)
+        if (typeof sources[id].note !== 'string' || !sources[id].note.trim()) fail(`Expected nonempty source note: ${id}`)
+        if (review) collectReview(sources[id].note, record.values.note, `example:${id}.note`, review)
+        result.exampleNotes[id] = record.values.note
+      }
       if (own(presentations, id)) {
         result.examplePresentations[id] = validateExamplePresentation(presentations[id], record.presentation)
         if (review) for (const group of ['messages', 'comments']) {
@@ -221,11 +227,12 @@ export function readEnglishContent({ complete = false, root = defaultRoot, revie
             `presentation:${id}.${group}.${key}`, review)
         }
       }
-      if (own(sources[id], 'readingSource')) {
+      if (own(presentations, id) || (hasMetadata && own(sources[id], 'readingSource'))) {
         const expected = `/examples-en/${id}/example.js`
-        if (sources[id].readingSource !== expected || !fs.existsSync(path.join(root, 'public', expected))) fail(`Invalid or missing reading source: ${id}`)
+        if ((hasMetadata && own(sources[id], 'readingSource') && sources[id].readingSource !== expected) ||
+          !fs.statSync(path.join(root, 'public', expected), { throwIfNoEntry: false })?.isFile()) fail(`Invalid or missing reading source: ${id}`)
+        if (own(presentations, id)) result.exampleReadingSources[id] = expected
       }
-      result.exampleNotes[id] = record.values.note
     }
   }
   const documentFile = path.join(root, 'content/locales/en/documents.json')
@@ -244,6 +251,10 @@ export function readEnglishContent({ complete = false, root = defaultRoot, revie
     result.documents.set(docPath, { translatedPath: record.translatedPath, text })
   }
   if (complete) {
+    const missingPresentations = catalog.units.filter(unit => !own(result.examplePresentations, unit.id)).map(unit => unit.id)
+    if (missingPresentations.length) fail(`Missing complete example presentations: ${missingPresentations.join(', ')}`)
+    const missingReadings = catalog.units.filter(unit => !own(result.exampleReadingSources, unit.id)).map(unit => unit.id)
+    if (missingReadings.length) fail(`Missing complete example reading sources: ${missingReadings.join(', ')}`)
     const requiredDocs = ['/docs/about.md', '/docs/privacy.md', '/docs/learning-workspace.md',
       '/docs/roadmap.md', '/docs/examples.md', '/docs/labs/README.md',
       ...catalog.series.filter(series => series.id === 'webgl').map(series => series.docPath),

@@ -227,6 +227,9 @@ test('complete mode accepts 23 translated series and 644 units only with all req
   const baseline = { series: [], units: [] }
   const metadata = {}
   const documents = {}
+  const presentations = {}
+  const legacyUnits = []
+  const presentationSource = { messages: { run: '실행' }, comments: {} }
   for (let index = 0; index < 23; index++) {
     const id = index === 0 ? 'webgl' : `series-${index}`
     const entry = { ...series, id, docPath: `/docs/${id}/README.md` }
@@ -251,10 +254,13 @@ test('complete mode accepts 23 translated series and 644 units only with all req
       const examplePath = `src/labs/${unitId}/example.js`
       fs.mkdirSync(path.dirname(path.join(root, examplePath)), { recursive: true })
       fs.writeFileSync(path.join(root, examplePath), 'export function mount() {}')
-      if (unitId !== 'webgl-1') {
+      presentations[unitId] = presentationSource
+      englishExamples[unitId] = { presentation: record(presentationSource, { 'messages.run': 'Run' }) }
+      write(`public/examples-en/${unitId}/example.js`, '// Reading')
+      if (id !== 'webgl' && day > 3) {
         examples[unitId] = { mode: 'browser', note: '기준 15' }
-        englishExamples[unitId] = record(examples[unitId], { note: 'Baseline 15' })
-      }
+        Object.assign(englishExamples[unitId], record(examples[unitId], { note: 'Baseline 15' }))
+      } else legacyUnits.push(catalogUnit)
       if (id === 'webgl') {
         baseline.units.push(catalogUnit)
         records[unitId] = record(catalogUnit, { title: 'Input', goal: 'Check types' })
@@ -273,16 +279,18 @@ test('complete mode accepts 23 translated series and 644 units only with all req
       write(`content/locales/en/curricula/${id}.json`, { series: record(sourceSeries, curriculum.series.values), units: records })
     }
   }
+  write('content/example-presentations.json', presentations)
+  baseline.units = legacyUnits
   write('src/app/catalog.json', catalog)
   write('content/catalog-v2.json', baseline)
   write('content/locales/en/series.json', metadata)
   write('content/locales/en/manifest.json', { publishedUnitIds: catalog.units.map(item => item.id) })
   const required = ['/docs/about.md', '/docs/privacy.md', '/docs/learning-workspace.md', '/docs/roadmap.md',
-    '/docs/examples.md', '/docs/labs/README.md', '/docs/webgl/README.md', ...baseline.units.map(item => item.docPath)]
-  const legacyRow = '| webgl | [1. Scene](webgl/1.md) | [webgl-1](../src/labs/webgl-1/example.js) — Run the scene. |'
+    '/docs/examples.md', '/docs/labs/README.md', '/docs/webgl/README.md', ...baseline.units.filter(item => item.seriesId === 'webgl').map(item => item.docPath)]
+  const legacyRow = legacyUnits.map(item => `| ${item.seriesId} | [Scene](${item.docPath.slice(6)}) | [${item.id}](../src/labs/${item.id}/example.js) — Run the scene. |`).join('\n')
   for (const docPath of required) {
     const original = docPath === '/docs/examples.md' ? legacyRow : '# 원문'
-    const english = docPath === '/docs/examples.md' ? legacyRow.replace('(webgl/1.md)', '(../webgl/1.md)').replace('(../src/', '(../../src/') : '# English'
+    const english = docPath === '/docs/examples.md' ? legacyRow.replaceAll('](', '](../') : '# English'
     const translatedPath = '/docs/en/' + docPath.slice(6)
     for (const [file, text] of [[docPath, original], [translatedPath, english]]) {
       fs.mkdirSync(path.dirname(path.join(root, file.slice(1))), { recursive: true })
@@ -295,6 +303,22 @@ test('complete mode accepts 23 translated series and 644 units only with all req
   assert.equal(result.catalog.series.length, 23)
   assert.equal(result.catalog.units.length, 644)
   assert.equal(result.documents.size, 35)
+  assert.equal(Object.keys(result.exampleNotes).length, 550)
+  assert.equal(Object.keys(result.examplePresentations).length, 644)
+  assert.equal(Object.keys(result.exampleReadingSources).length, 644)
+  const withoutPresentation = { ...presentations }
+  delete withoutPresentation['webgl-1']
+  const webglExamples = JSON.parse(fs.readFileSync(path.join(root, 'content/locales/en/examples/webgl.json')))
+  const withoutLegacy = { ...webglExamples }
+  delete withoutLegacy['webgl-1']
+  write('content/locales/en/examples/webgl.json', withoutLegacy)
+  write('content/example-presentations.json', withoutPresentation)
+  assert.throws(() => readEnglishContent({ complete: true, root }), /presentation/i)
+  write('content/example-presentations.json', presentations)
+  write('content/locales/en/examples/webgl.json', webglExamples)
+  fs.unlinkSync(path.join(root, 'public/examples-en/webgl-1/example.js'))
+  assert.throws(() => readEnglishContent({ complete: true, root }), /reading source: webgl-1/i)
+  write('public/examples-en/webgl-1/example.js', '// Reading')
   const guidePath = path.join(root, 'docs/en/examples.md')
   const guide = fs.readFileSync(guidePath, 'utf8')
   for (const broken of [guide.replace('webgl-1/example.js', 'wrong/example.js'),
@@ -498,6 +522,7 @@ test('reader validates required example notes against whole metadata and only tr
   assert.throws(() => readEnglishContent({ root }), /example|note|ENOENT/i)
   write('content/locales/en/examples/javascript.json', { [unit.id]: translated })
   assert.deepEqual(readEnglishContent({ root }).exampleNotes, { [unit.id]: 'Run separately.' })
+  assert.deepEqual(readEnglishContent({ root }).exampleReadingSources, {})
   write('content/examples/javascript.json', { [unit.id]: { ...metadata, mode: 'browser' } })
   assert.throws(() => readEnglishContent({ root }), /hash/i)
   write('content/examples/javascript.json', { [unit.id]: metadata })
@@ -530,6 +555,7 @@ test('reader validates independent presentation hashes, exact flat keys and read
   fs.mkdirSync(path.join(root, 'public/examples-en/javascript-step-02'), { recursive: true })
   fs.writeFileSync(path.join(root, 'public/examples-en/javascript-step-02/example.js'), '// Input\n')
   assert.deepEqual(readEnglishContent({ root }).examplePresentations[unit.id], { messages: { run: 'Run' }, comments: { title: 'Input' } })
+  assert.deepEqual(readEnglishContent({ root }).exampleReadingSources, { [unit.id]: '/examples-en/javascript-step-02/example.js' })
   for (const presentation of [
     { ...translated.presentation, sourceHash: 'stale' },
     record(source, { 'messages.run': 'Run' }),
@@ -547,6 +573,61 @@ test('reader validates independent presentation hashes, exact flat keys and read
   write('content/examples/javascript.json', { [unit.id]: wrong })
   write('content/locales/en/examples/javascript.json', { [unit.id]: { ...translated, sourceHash: sourceHash(wrong) } })
   assert.throws(() => readEnglishContent({ root }), /reading/i)
+})
+
+test('legacy presentation-only records return canonical readings without inventing notes', t => {
+  const { root, write, catalog, series, manifest, seriesRecords, curriculum } = fixture(t)
+  const legacy = { ...unit, id: 'javascript-01', day: 1 }
+  catalog.units.push({ ...catalog.units[0], id: legacy.id, day: 1 })
+  const webgl = { ...series, id: 'webgl' }
+  const scene = { id: '01-scene', day: 1, title: '장면', goal: '그린다.', seriesId: 'webgl', docPath: '/docs/labs/01-scene.md' }
+  catalog.series.push(webgl)
+  catalog.units.push(scene)
+  write('src/app/catalog.json', catalog)
+  write('content/catalog-v2.json', { series: [series, webgl], units: [scene] })
+  write('content/curricula/javascript.json', { seriesId: 'javascript', goal: '변환을 이해한다.', capstone: '기록장', stages: series.stages, units: [unit, legacy] })
+  curriculum.units[legacy.id] = record(legacy, values)
+  write('content/locales/en/curricula/javascript.json', curriculum)
+  write('content/locales/en/manifest.json', { publishedUnitIds: [...manifest.publishedUnitIds, legacy.id, scene.id] })
+  write('content/locales/en/series.json', { ...seriesRecords, webgl: record({ title: webgl.title, prerequisites: webgl.prerequisites, stages: webgl.stages },
+    { title: 'WebGL', prerequisites: 'HTML', 'stages.0': 'Scene', 'stages.1': 'Shaders', 'stages.2': 'Splats', 'stages.3': 'Integration' }) })
+  write('content/locales/en/webgl.json', { units: { [scene.id]: record(scene, { title: 'Scene', goal: 'Draw.' }) } })
+  const source = { messages: { run: '실행' }, comments: {} }
+  const presentation = record(source, { 'messages.run': 'Run' })
+  const sources = { [legacy.id]: source, [scene.id]: source, 'javascript-03': source }
+  write('content/example-presentations.json', sources)
+  const records = { [legacy.id]: { presentation } }
+  write('content/locales/en/examples/javascript.json', records)
+  write('content/locales/en/examples/webgl.json', { [scene.id]: { presentation } })
+  for (const id of [legacy.id, scene.id]) write(`public/examples-en/${id}/example.js`, '// Reading')
+  const result = readEnglishContent({ root })
+  assert.deepEqual(result.exampleNotes, {})
+  assert.deepEqual(result.examplePresentations, {
+    'javascript-01': { messages: { run: 'Run' }, comments: {} },
+    '01-scene': { messages: { run: 'Run' }, comments: {} },
+  })
+  assert.deepEqual(result.exampleReadingSources, {
+    'javascript-01': '/examples-en/javascript-01/example.js',
+    '01-scene': '/examples-en/01-scene/example.js',
+  })
+  for (const invalid of [
+    { presentation, sourceHash: 'invented' }, { presentation, values: { note: 'Invented' } },
+    { presentation, readingSource: '/examples-en/01-scene/example.js' },
+    { presentation: { ...presentation, sourceHash: 'stale' } },
+    { presentation: record(source, {}) },
+    { presentation: record(source, { 'messages.run': 'Run', 'messages.extra': 'Extra' }) },
+  ]) {
+    write('content/locales/en/examples/javascript.json', { [legacy.id]: invalid })
+    assert.throws(() => readEnglishContent({ root }), /key|hash|presentation/i)
+  }
+  write('content/locales/en/examples/javascript.json', { ...records, 'javascript-03': { presentation } })
+  assert.throws(() => readEnglishContent({ root }), /Unknown key/)
+  write('content/locales/en/examples/javascript.json', records)
+  write('content/example-presentations.json', { ...sources, unknown: source })
+  assert.throws(() => readEnglishContent({ root }), /Unknown.*presentation.*unknown/i)
+  write('content/example-presentations.json', sources)
+  fs.unlinkSync(path.join(root, 'public/examples-en/01-scene/example.js'))
+  assert.throws(() => readEnglishContent({ root }), /reading source: 01-scene/i)
 })
 
 test('reader reports numeric and code evidence independently of fresh hashes without changing source', t => {
@@ -589,17 +670,19 @@ test('translation CLI emits review evidence and enforces complete publication', 
   assert.ok(report.review.some(item => item.kind === 'numbers' && item.source.includes('244')))
   assert.match(report.reviewNotice, /human review/i)
   const complete = spawnSync(process.execPath, [script, '--complete'], { encoding: 'utf8' })
-  if (manifest.publishedUnitIds.length === 644) {
+  let content
+  let failure
+  try { content = readEnglishContent({ complete: true }) } catch (error) { failure = error }
+  if (failure) {
+    assert.equal(complete.status, 1)
+    assert.equal(complete.stderr.trim(), failure.message)
+    assert.equal(complete.stdout, '')
+  } else {
     assert.equal(complete.status, 0, complete.stderr)
     assert.deepEqual(JSON.parse(complete.stdout), { ...report, mode: 'complete' })
+    assert.deepEqual(content.publishedUnitIds, manifest.publishedUnitIds)
     assert.equal(report.series, 23)
     assert.equal(report.documents, 35)
-  } else {
-    assert.equal(complete.status, 1)
-    const catalog = JSON.parse(fs.readFileSync(new URL('../src/app/catalog.json', import.meta.url)))
-    const missing = catalog.units.filter(unit => !manifest.publishedUnitIds.includes(unit.id)).map(unit => unit.id)
-    assert.ok(complete.stderr.includes('Missing approved unit IDs: ' + missing.join(', ')))
-    assert.doesNotMatch(complete.stderr, /at readEnglishContent/)
   }
   const unknown = spawnSync(process.execPath, [script, '--typo'], { encoding: 'utf8' })
   assert.equal(unknown.status, 1)
@@ -622,6 +705,7 @@ test('review evidence includes example notes, runtime presentation and manual do
   write('content/locales/en/documents.json', { '/docs/guide.md': {
     sourceHash: sourceHash('값 30: `run(30)`'), translatedPath: '/docs/en/guide.md',
   } })
+  write(`public/examples-en/${unit.id}/example.js`, '// Reading')
   const review = []
   const normal = readEnglishContent({ root })
   assert.deepEqual(readEnglishContent({ root, review }), normal)

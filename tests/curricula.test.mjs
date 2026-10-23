@@ -186,7 +186,7 @@ test('published English WebGL units retain the 28 legacy identities and manual d
 
 test('complete English archive includes all 29 manual WebGL documents and their link targets', async () => {
   const { readEnglishContent } = await import('../scripts/locale-content.mjs')
-  const content = readEnglishContent({ complete: true })
+  const content = readEnglishContent()
   const english = read('src/app/catalog.en.json')
   const originals = previous.units.filter(unit => unit.seriesId === 'webgl')
   assert.equal(english.units.length, 644)

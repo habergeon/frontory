@@ -34,6 +34,27 @@
         "title": "Light·Shadow·Texture",
         "goal": "Distinguish how light, shadows, and textures contribute to the image."
       }
+    },
+    "06-interaction": {
+      "sourceHash": "10c89e4edbd8dcfac60fab4a1c852cdcdcc6b4f2dfc1eb7dda5c35f2e009ba58",
+      "values": {
+        "title": "Raycaster·OrbitControls",
+        "goal": "Turn a pointer position into a spatial ray and distinguish camera controls from selection."
+      }
+    },
+    "07-scene-review": {
+      "sourceHash": "b0f88dd98e0b73127f116ca8e4eabf2567d3d7efe3a94cd0c88a1f4698d1379d",
+      "values": {
+        "title": "Interactive scene review",
+        "goal": "Integrate the camera, selection, resizing, and cleanup into one small scene."
+      }
+    },
+    "08-shader-stages": {
+      "sourceHash": "1e0d0890328cd0c2c5bc548c353cf771a20e994ceef453ff0daaa3994ce70965",
+      "values": {
+        "title": "Vertex·Fragment shader",
+        "goal": "Distinguish the inputs and outputs of the two shader stages."
+      }
     }
   }
 }

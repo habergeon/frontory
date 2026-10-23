@@ -46,5 +46,17 @@
   "/docs/labs/graphics/webgl/05-light/README.md": {
     "sourceHash": "386cb3dc3ae56f7e30b7dd6960675415c47a2828e1d4b16dce6176b9c1494410",
     "translatedPath": "/docs/en/labs/graphics/webgl/05-light/README.md"
+  },
+  "/docs/labs/graphics/webgl/06-interaction/README.md": {
+    "sourceHash": "14e70fa949dd2a344a2724340f98d3919fbe0cf5fa724774b280126ca5fd1125",
+    "translatedPath": "/docs/en/labs/graphics/webgl/06-interaction/README.md"
+  },
+  "/docs/labs/graphics/webgl/07-scene-review/README.md": {
+    "sourceHash": "ee86073f5677657ab6e6a7ce6a6a701a71d2d94a1b5d6062f169b283d73532bf",
+    "translatedPath": "/docs/en/labs/graphics/webgl/07-scene-review/README.md"
+  },
+  "/docs/labs/graphics/webgl/08-shader-stages/README.md": {
+    "sourceHash": "85bca56489b49a437996924cba5e0aba97cb4c73a1701c4f13da01299d248ccb",
+    "translatedPath": "/docs/en/labs/graphics/webgl/08-shader-stages/README.md"
   }
 }

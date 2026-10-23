@@ -370,6 +370,33 @@
       "seriesId": "webgl"
     },
     {
+      "id": "06-interaction",
+      "day": 6,
+      "week": 1,
+      "title": "Raycaster·OrbitControls",
+      "goal": "Turn a pointer position into a spatial ray and distinguish camera controls from selection.",
+      "docPath": "/docs/en/labs/graphics/webgl/06-interaction/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "07-scene-review",
+      "day": 7,
+      "week": 1,
+      "title": "Interactive scene review",
+      "goal": "Integrate the camera, selection, resizing, and cleanup into one small scene.",
+      "docPath": "/docs/en/labs/graphics/webgl/07-scene-review/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "08-shader-stages",
+      "day": 8,
+      "week": 2,
+      "title": "Vertex·Fragment shader",
+      "goal": "Distinguish the inputs and outputs of the two shader stages.",
+      "docPath": "/docs/en/labs/graphics/webgl/08-shader-stages/README.md",
+      "seriesId": "webgl"
+    },
+    {
       "id": "javascript-01",
       "day": 1,
       "week": 1,

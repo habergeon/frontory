@@ -620,6 +620,9 @@
     "02-camera",
     "03-mesh",
     "04-coordinates",
-    "05-light"
+    "05-light",
+    "06-interaction",
+    "07-scene-review",
+    "08-shader-stages"
   ]
 }

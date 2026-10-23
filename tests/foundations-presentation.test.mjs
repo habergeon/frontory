@@ -26,6 +26,9 @@ test('document input localization preserves attributes, FormData names, media co
   assert.ok(en.HTML.includes('type="submit"'))
   const picture = documentInput('html-step-20', 'en')
   assert.ok(picture.HTML.includes('(max-width:600px)'))
+  const narrowSource = picture.HTML.match(/srcset="data:image\/svg\+xml,([^"]+)"/)[1]
+  assert.doesNotMatch(narrowSource, /\s/)
+  assert.equal(decodeURIComponent(narrowSource), "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><rect width='200' height='200' fill='coral'/></svg>")
   assert.equal(picture.CSS, 'img{max-width:100%;height:auto}')
 })
 

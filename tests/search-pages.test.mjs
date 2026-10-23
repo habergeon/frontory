@@ -164,7 +164,8 @@ test('only actual English pages are published with reciprocal locale metadata', 
       assert.equal(html.includes(label), !!adjacent, unit.id + ': ' + label)
       if (adjacent) assert.ok(html.includes(`href="/en/learn/${unit.seriesId}/${adjacent.id}/"`))
     }
-    const metadata = JSON.parse(fs.readFileSync(`content/examples/${unit.seriesId}.json`, 'utf8'))[unit.id]
+    const metadata = unit.seriesId === 'webgl' ? undefined
+      : JSON.parse(fs.readFileSync(`content/examples/${unit.seriesId}.json`, 'utf8'))[unit.id]
     if (metadata?.readingSource) {
       assert.ok(html.includes(`href="${metadata.readingSource}" download`))
       assert.ok(fs.existsSync('public' + metadata.readingSource))

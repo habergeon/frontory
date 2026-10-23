@@ -3383,7 +3383,8 @@
       "title": "3DGS 표현과 데이터",
       "goal": "세 장면 표현의 차이를 설명한다. Gaussian 속성의 역할을 분류한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/01-foundations/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-01/example.js"
     },
     {
       "id": "gaussian-splatting-step-02",
@@ -3392,7 +3393,8 @@
       "title": "출처와 파일 계약",
       "goal": "데이터 사용 근거를 기록한다. 입력 크기 계약을 검증한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/02/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-02/example.js"
     },
     {
       "id": "gaussian-splatting-step-03",
@@ -3401,7 +3403,8 @@
       "title": "좌표계와 단위",
       "goal": "데이터 좌표계를 명시한다. 축 변환을 수치로 검증한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/03/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-03/example.js"
     },
     {
       "id": "gaussian-splatting-step-04",
@@ -3410,7 +3413,8 @@
       "title": "Quaternion과 비등방성",
       "goal": "회전 성분을 안전하게 해석한다. scale과 회전의 결합을 설명한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/04/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-04/example.js"
     },
     {
       "id": "gaussian-splatting-step-05",
@@ -3419,7 +3423,8 @@
       "title": "공분산으로 형태 읽기",
       "goal": "공분산 행렬을 구성한다. 형태 입력의 유효성을 검사한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/05/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-05/example.js"
     },
     {
       "id": "gaussian-splatting-step-06",
@@ -3428,7 +3433,8 @@
       "title": "카메라 투영과 화면 타원",
       "goal": "월드 크기와 화면 크기를 구분한다. 투영 경계 사례를 처리한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/06/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-06/example.js"
     },
     {
       "id": "gaussian-splatting-step-07",
@@ -3437,7 +3443,8 @@
       "title": "가우시안 커널과 알파",
       "goal": "픽셀 알파를 계산한다. 커널과 불투명도를 구분한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/07/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-07/example.js"
     },
     {
       "id": "gaussian-splatting-step-08",
@@ -3446,7 +3453,8 @@
       "title": "알파 합성과 순서",
       "goal": "투명 합성을 수치로 추적한다. 알파 규칙을 일관되게 적용한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/08/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-08/example.js"
     },
     {
       "id": "gaussian-splatting-step-09",
@@ -3455,7 +3463,8 @@
       "title": "깊이 정렬의 한계",
       "goal": "깊이 정렬을 구현한다. 정렬 근사의 한계를 관찰한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/09/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-09/example.js"
     },
     {
       "id": "gaussian-splatting-step-10",
@@ -3464,7 +3473,8 @@
       "title": "PLY 헤더 검사",
       "goal": "PLY와 GS 데이터를 구분한다. 헤더 계약을 검증한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/10/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-10/example.js"
     },
     {
       "id": "gaussian-splatting-step-11",
@@ -3473,7 +3483,8 @@
       "title": "값 디코딩과 유효성",
       "goal": "저장값과 렌더값을 구분한다. 디코딩 오류를 위치와 함께 보고한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/11/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-11/example.js"
     },
     {
       "id": "gaussian-splatting-step-12",
@@ -3482,7 +3493,8 @@
       "title": "구면조화 색상",
       "goal": "SH의 시점 의존성을 설명한다. 차수와 품질 주장을 구분한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/12/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-12/example.js"
     },
     {
       "id": "gaussian-splatting-step-13",
@@ -3491,7 +3503,8 @@
       "title": "로더 상태와 취소",
       "goal": "로딩 상태를 모델링한다. 늦게 도착한 결과를 차단한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/13/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-13/example.js"
     },
     {
       "id": "gaussian-splatting-02",
@@ -3500,7 +3513,8 @@
       "title": "로딩과 카메라 통합",
       "goal": "로더와 카메라 상태를 통합한다. GS picking의 의미를 명시한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/02-experiments/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-02/example.js"
     },
     {
       "id": "gaussian-splatting-step-15",
@@ -3509,7 +3523,8 @@
       "title": "화면 공간 선택 근사",
       "goal": "선택 근사를 구현한다. 선택 모호성을 사용자에게 보여 준다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/15/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-15/example.js"
     },
     {
       "id": "gaussian-splatting-step-16",
@@ -3518,7 +3533,8 @@
       "title": "가시 범위와 보수적 제외",
       "goal": "화면 범위로 안전하게 제외한다. 처리량과 누락을 함께 비교한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/16/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-16/example.js"
     },
     {
       "id": "gaussian-splatting-step-17",
@@ -3527,7 +3543,8 @@
       "title": "정렬 갱신 간격",
       "goal": "정렬 결과를 재사용한다. 갱신 지연을 시각적으로 평가한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/17/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-17/example.js"
     },
     {
       "id": "gaussian-splatting-step-18",
@@ -3536,7 +3553,8 @@
       "title": "해상도와 픽셀 작업량",
       "goal": "해상도 비용을 분리한다. 품질 손실을 같은 시점에서 비교한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/18/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-18/example.js"
     },
     {
       "id": "gaussian-splatting-step-19",
@@ -3545,7 +3563,8 @@
       "title": "Gaussian 수 줄이기",
       "goal": "재현 가능한 부분집합을 만든다. 감축 전략의 시각 영향을 평가한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/19/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-19/example.js"
     },
     {
       "id": "gaussian-splatting-step-20",
@@ -3554,7 +3573,8 @@
       "title": "색 공간과 배경",
       "goal": "합성과 표시 공간을 구분한다. 배경 조건을 통제한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/20/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-20/example.js"
     },
     {
       "id": "gaussian-splatting-step-21",
@@ -3563,7 +3583,8 @@
       "title": "품질 평가 기준 만들기",
       "goal": "비교 기준을 고정한다. 수치와 시각 증거를 함께 해석한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/21/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-21/example.js"
     },
     {
       "id": "gaussian-splatting-step-22",
@@ -3572,7 +3593,8 @@
       "title": "프로파일 구간 분리",
       "goal": "처리 단계별 비용을 측정한다. CPU와 GPU 시간 주장을 구분한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/22/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-22/example.js"
     },
     {
       "id": "gaussian-splatting-step-23",
@@ -3581,7 +3603,8 @@
       "title": "자원 수명과 반복 로딩",
       "goal": "자원 소유권을 관리한다. 반복 교체 후 정리 상태를 검증한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/23/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-23/example.js"
     },
     {
       "id": "gaussian-splatting-step-24",
@@ -3590,7 +3613,8 @@
       "title": "키보드와 카메라 복구",
       "goal": "여러 입력 수단을 제공한다. 카메라 복구 상태를 완전하게 저장한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/24/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-24/example.js"
     },
     {
       "id": "gaussian-splatting-step-25",
@@ -3599,7 +3623,8 @@
       "title": "실패 상태 통합 시험",
       "goal": "실패 원인을 분류한다. 오류 이후 복구를 검증한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/25/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-25/example.js"
     },
     {
       "id": "gaussian-splatting-step-26",
@@ -3608,7 +3633,8 @@
       "title": "재현 가능한 카메라 벤치마크",
       "goal": "고정 경로 벤치마크를 구성한다. 프레임 분포를 해석한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/26/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-26/example.js"
     },
     {
       "id": "gaussian-splatting-step-27",
@@ -3617,7 +3643,8 @@
       "title": "결과물 설명과 인수 조건",
       "goal": "실제 제공 범위를 문서화한다. 재현 가능한 인수 절차를 만든다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/units/27/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-27/example.js"
     },
     {
       "id": "gaussian-splatting-03",
@@ -3626,7 +3653,8 @@
       "title": "정렬·품질·성능",
       "goal": "품질과 비용을 함께 비교한다. 근거를 갖춘 GS 뷰어 결과물을 완성한다.",
       "docPath": "/docs/labs/graphics/gaussian-splatting/03-project/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-03/example.js"
     },
     {
       "id": "webgpu-01",

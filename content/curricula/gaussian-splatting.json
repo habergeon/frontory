@@ -59,7 +59,7 @@
           "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
         }
       ],
-      "environment": "기존 gaussian-splatting-01 미리보기는 출발점입니다. 이후 과제 전체의 구현이나 검증을 대신하지 않습니다. 별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. 기존 미리보기는 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어이며 Spark GPU 렌더러가 아닙니다."
+      "environment": "기존 gaussian-splatting-01 미리보기는 출발점입니다. 이후 과제 전체의 구현이나 검증을 대신하지 않습니다. 별도 로컬 프로젝트의 문서 안내 실습입니다. 직접 만든 소형 데이터 또는 사용 허가를 확인한 로컬 파일만 사용합니다. gaussian-splatting-01은 2D 타원 Gaussian의 radial-gradient 원리 시각화이며 파일 로더나 3DGS 모델 뷰어가 아닙니다. 1 MiB·512개 이하 .splat/ASCII GS PLY를 다루는 CPU 교육 뷰어는 gaussian-splatting-02/03에 있습니다. Spark GPU 렌더러는 제공하지 않습니다."
     },
     {
       "day": 2,

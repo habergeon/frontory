@@ -62,7 +62,7 @@
 
 [예제 원본](../../../../../../src/labs/gaussian-splatting-step-21/example.js) · [실행 환경과 제한](../../../../../examples.md)
 
-CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.
+CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. 제공된 예제는 동일 카메라의 256/128 synthetic splat 이미지에서 byte RGB의 평균제곱오차(byteRGB_MSE)를 계산합니다. 과제의 평균절대오차와 여러 시점 비교는 별도로 구현해야 합니다.
 
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.

@@ -1,17 +1,18 @@
 // gaussian-splatting-step-17: deliberately small CPU teaching experiment, not a trained GS renderer.
-export function mount({container}) {
+export function mount({container,locale='ko'}) {
+const messages=locale==='en'?{"display001":"Sorting Update Intervals","display002":"CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.","display003":"Sorting interval","display004":"1 frame","display005":"4 frames","display006":"Run / reinitialize","display007":"Canvas2D unavailable"}:{"display001":"정렬 갱신 간격","display002":"CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.","display003":"정렬 주기","display004":"1프레임","display005":"4프레임","display006":"실행 / 다시 초기화","display007":"Canvas2D unavailable"};
 
   container.style.cssText = 'overflow:auto;background:#101827;color:#e5edf8;font:14px system-ui;padding:12px;box-sizing:border-box';
-  const title=document.createElement('h3'); title.textContent="정렬 갱신 간격";
-  const help=document.createElement('p'); help.textContent="CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.";
-  const choice=document.createElement('select'); choice.setAttribute('aria-label',"정렬 주기");
-  for(const text of ["1프레임","4프레임"]) { const o=document.createElement('option');o.textContent=text;choice.append(o); }
-  const button=document.createElement('button'); button.textContent='실행 / 다시 초기화';
+  const title=document.createElement('h3'); title.textContent=messages.display001;
+  const help=document.createElement('p'); help.textContent=messages.display002;
+  const choice=document.createElement('select'); choice.setAttribute('aria-label',messages.display003);
+  for(const text of [messages.display004,messages.display005]) { const o=document.createElement('option');o.textContent=text;choice.append(o); }
+  const button=document.createElement('button'); button.textContent=messages.display006;
   const output=document.createElement('pre'); output.style.cssText='white-space:pre-wrap;overflow-wrap:anywhere'; output.setAttribute('aria-live','polite');
   const canvas=document.createElement('canvas'); canvas.width=640;canvas.height=360;canvas.style.cssText='width:100%;height:auto;max-height:360px;object-fit:contain';
   container.append(title,help,choice,button,canvas,output);
 
-  const ctx=canvas.getContext('2d');if(!ctx)throw new Error('Canvas2D unavailable');
+  const ctx=canvas.getContext('2d');if(!ctx)throw new Error(messages.display007);
   let active=true,generation=0,raf=0;const timers=new Set();
   function clear(background='#07111f'){ctx.globalCompositeOperation='source-over';ctx.fillStyle=background;ctx.fillRect(0,0,canvas.width,canvas.height);}
   function draw(p){ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.angle);ctx.scale(p.sx,p.sy);const gradient=ctx.createRadialGradient(0,0,0,0,0,3);for(let i=0;i<=24;i++){const r=i/8;gradient.addColorStop(i/24,'rgba('+p.color.map(x=>Math.round(x)).join(',')+','+(i===24?0:p.opacity*Math.exp(-.5*r*r))+')');}ctx.fillStyle=gradient;ctx.fillRect(-3,-3,6,6);ctx.restore();}

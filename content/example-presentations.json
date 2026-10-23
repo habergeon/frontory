@@ -6264,5 +6264,483 @@
     "comments": {
       "comment001": "Raw WebGL allows a compile-error experiment without discarding the working program."
     }
+  },
+  "gaussian-splatting-01": {
+    "messages": {
+      "display001": "原理 실험: exp(-0.5 × r²), 실제 3DGS 모델 아님"
+    },
+    "comments": {
+      "comment001": "원리 시각화: 학습된 3DGS 로더가 아니라 2D 타원 Gaussian의 밀도 단면입니다.",
+      "comment002": "SCALE_X, SCALE_Y, ANGLE, OPACITY를 바꾸어 이방성과 합성을 관찰하세요."
+    }
+  },
+  "gaussian-splatting-step-02": {
+    "messages": {
+      "display001": "출처와 파일 계약",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "파일 크기",
+      "display004": "1 KiB",
+      "display005": "1 MiB 초과",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable"
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-02: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-03": {
+    "messages": {
+      "display001": "좌표계와 단위",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "up 축",
+      "display004": "Y-up",
+      "display005": "Z-up 데이터를 변환 없이 입력",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "Z-up supplied without conversion",
+      "display009": "고정 Y-up 카메라에서는 Z축 표식이 화면 세로가 아닙니다. 변환 (x,z,-y)을 적용해 보세요."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-03: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-04": {
+    "messages": {
+      "display001": "Quaternion과 비등방성",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "회전각",
+      "display004": "0도",
+      "display005": "Z축 90도",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "왼쪽 비등방성, 오른쪽 등방성. 단위 quaternion의 Z 회전."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-04: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-05": {
+    "messages": {
+      "display001": "공분산으로 형태 읽기",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "긴 축 scale",
+      "display004": "0.1",
+      "display005": "0.2",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable"
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-05: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-06": {
+    "messages": {
+      "display001": "카메라 투영과 화면 타원",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "카메라 거리",
+      "display004": "2",
+      "display005": "4",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "작은 타원·고정 깊이의 1차 투영 근사. 전체 3D 공분산 투영은 별도 확장이 필요합니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-06: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-07": {
+    "messages": {
+      "display001": "가우시안 커널과 알파",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "opacity",
+      "display004": "0.5",
+      "display005": "1.0",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "Canvas gradient의 24개 stop으로 exp(-r²/2)를 근사합니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-07: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-08": {
+    "messages": {
+      "display001": "알파 합성과 순서",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "그리기 순서",
+      "display004": "빨강 다음 파랑",
+      "display005": "파랑 다음 빨강",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "blue then red",
+      "display009": "red then blue",
+      "display010": "CPU canvas source-over. 두 splat 순서만 비교합니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-08: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-09": {
+    "messages": {
+      "display001": "깊이 정렬의 한계",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "카메라 각도",
+      "display004": "0도",
+      "display005": "90도",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "중심 깊이 정렬은 교차·큰 타원에 대해 픽셀별 정확한 순서를 보장하지 않습니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-09: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-10": {
+    "messages": {
+      "display001": "PLY 헤더 검사",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "속성 집합",
+      "display004": "위치와 GS 필수 속성",
+      "display005": "위치 x/y/z만 유지",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "point cloud; GS rejected",
+      "display009": "GS property contract accepted",
+      "display010": "ASCII 헤더 검사만 수행합니다. binary/endian 해석은 제공하지 않습니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-10: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-11": {
+    "messages": {
+      "display001": "값 디코딩과 유효성",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "scale 인코딩",
+      "display004": "raw 0.1",
+      "display005": "log(0.1)와 log 설정",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable"
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-11: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-12": {
+    "messages": {
+      "display001": "구면조화 색상",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "사용 SH 항",
+      "display004": "상수항만",
+      "display005": "합성 1차 항 포함",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "상수 + 합성 1차 SH 항. 학습 데이터·재구성 품질 증거가 아닙니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-12: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-13": {
+    "messages": {
+      "display001": "로더 상태와 취소",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "완료 순서",
+      "display004": "A 다음 B",
+      "display005": "B 다음 A",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": " ignored",
+      "display009": " ready",
+      "display010": "네트워크가 아닌 로컬 지연 fixture. 취소된 결과는 commit하지 않습니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-13: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-02": {
+    "messages": {
+      "display001": "카메라 reset",
+      "display002": "이 구현: .splat / ASCII GS PLY, 512개 이하. binary PLY·SPZ·고차 SH 미지원.",
+      "display003": "Gaussian 공분산 투영 장면",
+      "display004": "교육용 CPU Gaussian 투영 · ",
+      "display005": " splats\n정렬 ",
+      "display006": " · DPR ",
+      "display007": " · 관찰 FPS ",
+      "display008": " · draw ",
+      "display009": "ms\n실제 3DGS GPU 렌더러 성능이 아닙니다.",
+      "display010": "유효하지 않은 Gaussian 값",
+      "display011": "회전 quaternion이 0입니다",
+      "display012": ".splat 길이는 32 bytes의 배수여야 합니다",
+      "display013": "CPU 학습용 로더는 최대 512 splats를 지원합니다",
+      "display014": "PLY header 없음",
+      "display015": "학습용 로더는 ASCII GS PLY만 지원합니다. binary PLY는 전용 렌더러가 필요합니다.",
+      "display016": "vertex 개수는 1~512여야 합니다",
+      "display017": "vertex list 속성 미지원",
+      "display018": "GS 속성이 없는 일반 PLY입니다. position만으로 GS 데이터를 만들 수 없습니다.",
+      "display019": "PLY 데이터 행 부족",
+      "display020": "PLY 속성 개수 불일치",
+      "display021": ".splat 또는 ASCII GS .ply를 선택하세요",
+      "display022": "작은 GS 파일 선택",
+      "display023": "직접 생성한 예시 데이터 · 서버 업로드 없음",
+      "display024": "loading ",
+      "display025": "학습용 파일은 1 MiB 이하",
+      "display026": "ready ",
+      "display027": " · ",
+      "display028": " bytes · ",
+      "display029": " splats · SH DC만 사용",
+      "display030": "error: "
+    },
+    "comments": {
+      "comment001": "작은 실제 파일을 파싱하고 공분산을 CPU Canvas로 투영합니다. 정식 GPU GS 뷰어가 아닙니다.",
+      "comment002": "교육용 CPU 투영기: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.",
+      "comment003": "실제 GPU tile rasterizer/고차 SH/LOD/GS picking은 구현하지 않습니다.",
+      "comment004": "일반 .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/행."
+    }
+  },
+  "gaussian-splatting-step-15": {
+    "messages": {
+      "display001": "화면 공간 선택 근사",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "선택 반경",
+      "display004": "8px",
+      "display005": "24px",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "화면 중심 거리 선택 근사; 실제 3D 표면 교차가 아닙니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-15: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-16": {
+    "messages": {
+      "display001": "가시 범위와 보수적 제외",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "제외 기준",
+      "display004": "중심만",
+      "display005": "타원 bounding box",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "3 sigma bounding box",
+      "display009": "center only",
+      "display010": "축 정렬 보수적 경계. 회전 타원에서는 공분산에서 bounding box를 계산해야 합니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-16: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-17": {
+    "messages": {
+      "display001": "정렬 갱신 간격",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "정렬 주기",
+      "display004": "1프레임",
+      "display005": "4프레임",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable"
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-17: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-18": {
+    "messages": {
+      "display001": "해상도와 픽셀 작업량",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "render scale",
+      "display004": "1.0",
+      "display005": "0.5",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "출력 CSS 크기는 같으며 drawing buffer 픽셀은 1/4입니다. GPU 성능 측정은 아닙니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-18: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-19": {
+    "messages": {
+      "display001": "Gaussian 수 줄이기",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다. 제공된 예제는 data.slice(0,count)로 앞의 N개를 유지합니다. seed 기반 선택과 opacity 선택 정책은 별도 과제이며 화면 기여도 기반 pruning은 구현하지 않습니다.",
+      "display003": "유지 수",
+      "display004": "256",
+      "display005": "128",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "deterministic first-N",
+      "display009": "화면 기여도 기반 pruning이 아닙니다. 삭제된 구조가 회복되지는 않습니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-19: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-20": {
+    "messages": {
+      "display001": "색 공간과 배경",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "배경",
+      "display004": "검정",
+      "display005": "흰색",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "Canvas source-over in default canvas color space",
+      "display009": "linear-light 합성을 구현한 렌더러가 아닙니다. 배경에 따른 투과색만 비교합니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-20: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-21": {
+    "messages": {
+      "display001": "품질 평가 기준 만들기",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다. 제공된 예제는 동일 카메라의 256/128 synthetic splat 이미지에서 byte RGB의 평균제곱오차(byteRGB_MSE)를 계산합니다. 과제의 평균절대오차와 여러 시점 비교는 별도로 구현해야 합니다.",
+      "display003": "평가 영역",
+      "display004": "전체 화면",
+      "display005": "얇은 구조 ROI",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "256 synthetic splats",
+      "display009": "128 synthetic splats",
+      "display010": "동일 카메라 CPU canvas 이미지 차이. 학습·사진 품질 지표가 아닙니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-21: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-22": {
+    "messages": {
+      "display001": "프로파일 구간 분리",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "데이터 수",
+      "display004": "64",
+      "display005": "512",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "performance.now 호스트 구간. 실제 raster 완료나 GPU 시간과 같지 않습니다. 단일 표본입니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-22: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-23": {
+    "messages": {
+      "display001": "자원 수명과 반복 로딩",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "교체 횟수",
+      "display004": "1회",
+      "display005": "10회",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "참조 소유권 검사. GC 시점·브라우저 전체 메모리 감소를 보장하는 측정은 아닙니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-23: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-24": {
+    "messages": {
+      "display001": "키보드와 카메라 복구",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "이동 속도",
+      "display004": "경계 크기의 1%",
+      "display005": "10%",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "← → 이동, Home 초기화. canvas 클릭 후 키보드 사용"
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-24: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-25": {
+    "messages": {
+      "display001": "실패 상태 통합 시험",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "입력 순서",
+      "display004": "정상만",
+      "display005": "오류 후 정상",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "오류 후 정상 fixture가 ready 상태로 복구됩니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-25: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-26": {
+    "messages": {
+      "display001": "재현 가능한 카메라 벤치마크",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다. 제공된 예제는 frame index 기준 카메라 tick 61개와 rAF 간격 60개를 한 번 수집합니다. 과제의 시간 기반 경로와 설정별 3회 반복은 별도 구현이며 GPU 시간 측정이 아닙니다.",
+      "display003": "설정",
+      "display004": "해상도 1.0",
+      "display005": "해상도 0.5",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "angle = frame / 60 * 2pi",
+      "display009": "실제 rAF 간격; GPU 시간 아님. 백그라운드 탭·브라우저 동기화 영향을 받습니다."
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-26: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-step-27": {
+    "messages": {
+      "display001": "결과물 설명과 인수 조건",
+      "display002": "CPU Canvas2D 합성 fixture · 학습 데이터 없음 · Spark/GPU 렌더러 아님. 3D Gaussian의 일부 수학과 로더 계약만 작은 입력으로 실험합니다.",
+      "display003": "검증 시작 상태",
+      "display004": "현재 세션",
+      "display005": "초기화한 새 세션",
+      "display006": "실행 / 다시 초기화",
+      "display007": "Canvas2D unavailable",
+      "display008": "512 points maximum in this teaching path",
+      "display009": "no Spark GPU rendering",
+      "display010": "no learned reconstruction",
+      "display011": "no production benchmark"
+    },
+    "comments": {
+      "comment001": "gaussian-splatting-step-27: deliberately small CPU teaching experiment, not a trained GS renderer."
+    }
+  },
+  "gaussian-splatting-03": {
+    "messages": {
+      "display001": "정렬 켜기/끄기",
+      "display002": "DPR 1/2",
+      "display003": "생성 데이터 80/320",
+      "display004": "Gaussian 공분산 투영 장면",
+      "display005": "교육용 CPU Gaussian 투영 · ",
+      "display006": " splats\n정렬 ",
+      "display007": " · DPR ",
+      "display008": " · 관찰 FPS ",
+      "display009": " · draw ",
+      "display010": "ms\n실제 3DGS GPU 렌더러 성능이 아닙니다.",
+      "display011": "유효하지 않은 Gaussian 값",
+      "display012": "회전 quaternion이 0입니다",
+      "display013": ".splat 길이는 32 bytes의 배수여야 합니다",
+      "display014": "CPU 학습용 로더는 최대 512 splats를 지원합니다",
+      "display015": "PLY header 없음",
+      "display016": "학습용 로더는 ASCII GS PLY만 지원합니다. binary PLY는 전용 렌더러가 필요합니다.",
+      "display017": "vertex 개수는 1~512여야 합니다",
+      "display018": "vertex list 속성 미지원",
+      "display019": "GS 속성이 없는 일반 PLY입니다. position만으로 GS 데이터를 만들 수 없습니다.",
+      "display020": "PLY 데이터 행 부족",
+      "display021": "PLY 속성 개수 불일치",
+      "display022": ".splat 또는 ASCII GS .ply를 선택하세요",
+      "display023": "작은 GS 파일 선택",
+      "display024": "직접 생성한 예시 데이터 · 서버 업로드 없음",
+      "display025": "loading ",
+      "display026": "학습용 파일은 1 MiB 이하",
+      "display027": "ready ",
+      "display028": " · ",
+      "display029": " bytes · ",
+      "display030": " splats · SH DC만 사용",
+      "display031": "error: "
+    },
+    "comments": {
+      "comment001": "작은 실제 파일을 파싱하고 공분산을 CPU Canvas로 투영합니다. 정식 GPU GS 뷰어가 아닙니다.",
+      "comment002": "교육용 CPU 투영기: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.",
+      "comment003": "실제 GPU tile rasterizer/고차 SH/LOD/GS picking은 구현하지 않습니다.",
+      "comment004": "일반 .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/행."
+    }
   }
 }

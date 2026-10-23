@@ -6,18 +6,21 @@ async function withDOM(run) {
   const keys = ['document', 'navigator', 'isSecureContext', 'requestAnimationFrame', 'cancelAnimationFrame', 'ResizeObserver', 'devicePixelRatio']
   const saved = keys.map(key => [key, Object.getOwnPropertyDescriptor(globalThis, key)])
   const nodes = [], drawn = []
+  let nextFrame
   const ctx = new Proxy({ createRadialGradient: () => ({ addColorStop() {} }), fillText: text => drawn.push(text) }, { get: (target, key) => target[key] ?? (() => {}) })
   function element(tag) {
-    const node = { tag, style: {}, children: [], attributes: {}, selectedIndex: 0, clientWidth: 640, clientHeight: 360,
+    const node = { tag, style: {}, children: [], attributes: {}, listeners: {}, selectedIndex: 0, clientWidth: 640, clientHeight: 360,
       append(...children) { this.children.push(...children) },
+      addEventListener(type, listener) { this.listeners[type] = listener },
+      removeEventListener(type) { delete this.listeners[type] },
       setAttribute(key, value) { this.attributes[key] = value },
       replaceChildren() { this.children = [] },
       getContext() { return ctx }, remove() { this.removed = true },
     }
     nodes.push(node); return node
   }
-  for (const [key, value] of Object.entries({ document: { createElement: element }, navigator: {}, isSecureContext: true, requestAnimationFrame: () => 1, cancelAnimationFrame() {}, ResizeObserver: class { observe() {} disconnect() {} }, devicePixelRatio: 1 })) Object.defineProperty(globalThis, key, { configurable: true, writable: true, value })
-  try { await run({ container: element('container'), nodes, drawn }) }
+  for (const [key, value] of Object.entries({ document: { createElement: element }, navigator: {}, isSecureContext: true, requestAnimationFrame: fn => { nextFrame = fn; return 1 }, cancelAnimationFrame() {}, ResizeObserver: class { observe() {} disconnect() {} }, devicePixelRatio: 1 })) Object.defineProperty(globalThis, key, { configurable: true, writable: true, value })
+  try { await run({ container: element('container'), nodes, drawn, frame: now => nextFrame(now), ctx }) }
   finally { for (const [key, descriptor] of saved) if (descriptor) Object.defineProperty(globalThis, key, descriptor); else delete globalThis[key] }
 }
 
@@ -89,5 +92,99 @@ test('manual GLSL markup, live record values and raw failure logs preserve the w
     iterations.value = '13'; buttons[2].onclick()
     assert.match(log.textContent, /\n13 iterations · 640×360 · 0 rAF samples: 0\.00 ms \(not GPU time\)$/)
     dispose(); assert.equal(deletedPrograms.length, 2)
+  })
+})
+
+test('Gaussian first-N selection and 61 camera ticks keep original numeric output fields', async () => {
+  const firstN = await import('../src/labs/gaussian-splatting-step-19/example.js')
+  await withDOM(({ container, nodes }) => {
+    const dispose = firstN.mount({ container, locale: 'en' })
+    const output = nodes.find(n => n.tag === 'pre'), choice = nodes.find(n => n.tag === 'select')
+    assert.equal(JSON.parse(output.textContent).kept, 256)
+    choice.selectedIndex = 1; choice.onchange()
+    const reduced = JSON.parse(output.textContent)
+    assert.equal(reduced.kept, 128); assert.equal(reduced.sourceCount, 256)
+    assert.equal(reduced.policy, 'deterministic first-N')
+    dispose()
+  })
+  const collection = await import('../src/labs/gaussian-splatting-step-26/example.js')
+  await withDOM(({ container, nodes, frame }) => {
+    const dispose = collection.mount({ container, locale: 'en' })
+    for (let index = 0; index < 61; index++) frame(100 + index * 16)
+    const report = JSON.parse(nodes.find(n => n.tag === 'pre').textContent)
+    assert.deepEqual([report.frames, report.renderScale, report.medianRafMs, report.p95RafMs], [60, 1, 16, 16])
+    assert.equal(report.fixture, 'synthetic-seed-17-v1')
+    dispose()
+  })
+})
+
+test('Gaussian byte RGB MSE uses RGB squared differences and preserves the ROI', async () => {
+  const { mount } = await import('../src/labs/gaussian-splatting-step-21/example.js')
+  await withDOM(({ container, nodes, ctx }) => {
+    let reads = 0
+    ctx.getImageData = () => ({ data: new Uint8ClampedArray(640 * 360 * 4).fill(reads++ % 2 ? 2 : 0) })
+    const dispose = mount({ container, locale: 'en' }), output = nodes.find(n => n.tag === 'pre'), choice = nodes.find(n => n.tag === 'select')
+    assert.equal(JSON.parse(output.textContent).byteRGB_MSE, 4)
+    choice.selectedIndex = 1; choice.onchange()
+    assert.deepEqual(JSON.parse(output.textContent).roi, { x: 300, y: 60, w: 40, h: 240 })
+    assert.equal(JSON.parse(output.textContent).byteRGB_MSE, 4)
+    dispose()
+  })
+})
+
+test('manual Gaussian loader passes English messages through parsing and preserves raw file errors', async () => {
+  const THREE = await import('three'), { mount } = await import('../src/labs/gaussian-splatting-02/example.js')
+  class Controls { constructor() { this.target = new THREE.Vector3() } update() {} saveState() {} dispose() {} }
+  await withDOM(async ({ container, nodes }) => {
+    const dispose = mount({ container, locale: 'en', THREE, OrbitControls: Controls })
+    const input = nodes.find(n => n.tag === 'input'), status = nodes.find(n => n.tag === 'p' && n.textContent === 'Locally generated example data · no server upload')
+    assert.equal(input.attributes['aria-label'], 'Choose a small GS file')
+    const buffer = new ArrayBuffer(32), floats = new Float32Array(buffer, 0, 6)
+    floats.set([0, 0, 0, -1, 1, 1])
+    input.files = [{ name: 'test.splat', size: 32, arrayBuffer: async () => buffer }]
+    await input.listeners.change()
+    assert.equal(status.textContent, 'error: Invalid Gaussian value')
+    floats[3] = 1; new Uint8Array(buffer)[28] = 255
+    await input.listeners.change()
+    assert.equal(status.textContent, 'ready test.splat · 32 bytes · 1 splats · SH DC only')
+    input.files[0].arrayBuffer = async () => { throw Error('한글 café 日本語 file error') }
+    await input.listeners.change()
+    assert.equal(status.textContent, 'error: 한글 café 日本語 file error')
+    dispose(); assert.deepEqual(input.listeners, {}); assert.deepEqual(container.children, [])
+  })
+})
+
+test('WebGPU vertex-layout and winding notes evaluate their English dictionary slots', async () => {
+  for (const [id, note] of [
+    ['webgpu-step-06', 'Keep offsets 0/8 and change stride and padding together.'],
+    ['webgpu-step-07', 'Opposite winding in two viewports. With back culling, only one remains.'],
+  ]) {
+    const { mount } = await import(`../src/labs/${id}/example.js`)
+    await withDOM(async ({ container, nodes, ctx }) => {
+      const pass = new Proxy({}, { get: () => () => {} })
+      const device = {
+        lost: new Promise(() => {}), addEventListener() {}, destroy() {},
+        queue: { writeBuffer() {}, submit() {} }, createBuffer: () => ({ destroy() {} }),
+        createShaderModule: () => ({ getCompilationInfo: async () => ({ messages: [] }) }),
+        createRenderPipelineAsync: async () => ({}), createCommandEncoder: () => ({ beginRenderPass: () => pass, finish: () => ({}) }),
+      }
+      ctx.getCurrentTexture = () => ({ createView: () => ({}) })
+      navigator.gpu = { requestAdapter: async () => ({ requestDevice: async () => device }), getPreferredCanvasFormat: () => 'bgra8unorm' }
+      const dispose = mount({ container, locale: 'en' })
+      await new Promise(resolve => setImmediate(resolve))
+      assert.deepEqual(JSON.parse(nodes.find(n => n.tag === 'pre').textContent), { stride: 20, vertices: 3, note })
+      dispose()
+    })
+  }
+})
+
+test('Gaussian coordinate output and option share the approved Y-up slot', async () => {
+  const { mount } = await import('../src/labs/gaussian-splatting-step-03/example.js')
+  await withDOM(({ container, nodes }) => {
+    const dispose = mount({ container, locale: 'en' })
+    const report = JSON.parse(nodes.find(n => n.tag === 'pre').textContent)
+    assert.equal(nodes.find(n => n.tag === 'option').textContent, 'Y-up')
+    assert.ok(Object.values(report).includes('Y-up'))
+    dispose()
   })
 })

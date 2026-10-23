@@ -48,7 +48,7 @@ const module=await compile('struct Out{@builtin(position) p:vec4f,@location(0) c
 const p=await device.createRenderPipelineAsync({layout:'auto',vertex:{module,entryPoint:'vs',buffers:[{arrayStride:stride,attributes:[{shaderLocation:0,offset:0,format:'float32x2'},{shaderLocation:1,offset:8,format:'float32x3'}]}]},fragment:{module,entryPoint:'fs',targets:[{format}]},primitive:{cullMode:variant?'back':'none'}});if(!current())throw new Error('Cancelled');
 const e=device.createCommandEncoder();const pass=e.beginRenderPass({colorAttachments:[{view:context.getCurrentTexture().createView(),clearValue:[.03,.04,.07,1],loadOp:'clear',storeOp:'store'}]});pass.setPipeline(p);pass.setVertexBuffer(0,vertices);
 pass.setIndexBuffer(indices,'uint16');pass.setViewport(0,0,320,360,0,1);pass.drawIndexed(3,1,0);pass.setViewport(320,0,320,360,0,1);pass.drawIndexed(3,1,3);
-pass.end();device.queue.submit([e.finish()]);log({stride,vertices:3,note:"두 viewport에 반대 winding. back cull이면 한쪽만 남습니다."});
+pass.end();device.queue.submit([e.finish()]);log({stride,vertices:3,note:messages.display013});
     } catch(error){if(current()){log(error instanceof Error?error.message:String(error));dispose();release=()=>{};}}
     finally{if(current())button.disabled=false;}
   }

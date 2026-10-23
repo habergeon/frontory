@@ -48,7 +48,7 @@ const module=await compile('struct Out{@builtin(position) p:vec4f,@location(0) c
 const p=await device.createRenderPipelineAsync({layout:'auto',vertex:{module,entryPoint:'vs',buffers:[{arrayStride:stride,attributes:[{shaderLocation:0,offset:0,format:'float32x2'},{shaderLocation:1,offset:8,format:'float32x3'}]}]},fragment:{module,entryPoint:'fs',targets:[{format}]},primitive:{cullMode:'none'}});if(!current())throw new Error('Cancelled');
 const e=device.createCommandEncoder();const pass=e.beginRenderPass({colorAttachments:[{view:context.getCurrentTexture().createView(),clearValue:[.03,.04,.07,1],loadOp:'clear',storeOp:'store'}]});pass.setPipeline(p);pass.setVertexBuffer(0,vertices);
 pass.draw(3);
-pass.end();device.queue.submit([e.finish()]);log({stride,vertices:3,note:"offset 0/8은 유지하고 stride와 padding을 함께 바꿉니다."});
+pass.end();device.queue.submit([e.finish()]);log({stride,vertices:3,note:messages.display013});
     } catch(error){if(current()){log(error instanceof Error?error.message:String(error));dispose();release=()=>{};}}
     finally{if(current())button.disabled=false;}
   }

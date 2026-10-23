@@ -62,7 +62,7 @@
 
 [예제 원본](../../../../../../src/labs/gaussian-splatting-step-26/example.js) · [실행 환경과 제한](../../../../../examples.md)
 
-CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.
+CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. 제공된 예제는 frame index 기준 카메라 tick 61개와 rAF 간격 60개를 한 번 수집합니다. 과제의 시간 기반 경로와 설정별 3회 반복은 별도 구현이며 GPU 시간 측정이 아닙니다.
 
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.

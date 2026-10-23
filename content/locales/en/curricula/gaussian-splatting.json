@@ -12,11 +12,11 @@
   },
   "units": {
     "gaussian-splatting-01": {
-      "sourceHash": "6cd4f25d1e35768559ec5bee75e41b6261da087f8d83713082a05f9f8c532d72",
+      "sourceHash": "15d053cc2954176b5bc3029ebba7f5089a7941cf3d876b7dad673b712756ea41",
       "values": {
         "title": "3DGS Representations and Data",
         "prerequisites": "Three.js cameras and projection, and alpha blending",
-        "environment": "The existing gaussian-splatting-01 preview is a starting point. It does not replace implementation or verification of the full subsequent assignment. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.",
+        "environment": "The existing gaussian-splatting-01 preview is a starting point. It does not replace implementation or verification of the full subsequent assignment. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. gaussian-splatting-01 visualizes the radial-gradient principle of a 2D elliptical Gaussian; it is not a file loader or a 3DGS model viewer. The CPU teaching viewers for .splat/ASCII GS PLY files up to 1 MiB and 512 splats are gaussian-splatting-02/03. No Spark GPU renderer is provided.",
         "concepts.0.title": "Representation primitives",
         "concepts.0.explanation": "A mesh stores surface connectivity, while a Gaussian stores a distribution in space. Their storage and rendering paths also differ from NeRF neural network queries.",
         "concepts.1.title": "Parameters",

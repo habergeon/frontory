@@ -25,7 +25,7 @@ Position alone cannot reconstruct a Gaussian's shape and color. Examine the mean
 
 ## Practice setup
 
-The existing gaussian-splatting-01 preview is a starting point. It does not replace implementation or verification of the full subsequent assignment. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. The existing preview is a CPU teaching viewer for .splat/ASCII GS PLY files of at most 1 MiB and 512 items; it is not a Spark GPU renderer.
+The existing gaussian-splatting-01 preview is a starting point. It does not replace implementation or verification of the full subsequent assignment. This is a document-guided exercise in a separate local project. Use only small data you create or local files whose usage permission you have checked. gaussian-splatting-01 visualizes the radial-gradient principle of a 2D elliptical Gaussian; it is not a file loader or a 3DGS model viewer. The CPU teaching viewers for .splat/ASCII GS PLY files up to 1 MiB and 512 splats are gaussian-splatting-02/03. No Spark GPU renderer is provided.
 
 The linked example is a starting point. It does not implement every task below. Complete work beyond its supported scope in a separate project.
 

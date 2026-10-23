@@ -62,7 +62,7 @@
 
 [예제 원본](../../../../../../src/labs/gaussian-splatting-step-19/example.js) · [실행 환경과 제한](../../../../../examples.md)
 
-CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.
+CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. 제공된 예제는 data.slice(0,count)로 앞의 N개를 유지합니다. seed 기반 선택과 opacity 선택 정책은 별도 과제이며 화면 기여도 기반 pruning은 구현하지 않습니다.
 
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.

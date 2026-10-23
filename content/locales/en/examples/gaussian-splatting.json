@@ -1,152 +1,608 @@
 {
   "gaussian-splatting-step-02": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "f073cd322297c7215668011f97b451a50cc28dd830e492ffdb4b99322f2071c2",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "fbcd0ab713cc56b539d8195a2b3467be68ac6b81ec3417ee26103cf1927c11fe",
+      "values": {
+        "messages.display001": "Provenance and File Contracts",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "File size",
+        "messages.display004": "1 KiB",
+        "messages.display005": "Over 1 MiB",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "comments.comment001": "gaussian-splatting-step-02: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-03": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "c7c32207636014076693529024ae029d167be1b423117754affe90ace97b6149",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "ac8a6ddfbd04fce4bbf7ff75028c21036ca42f3e0e159417bfa6b01fa3dfe994",
+      "values": {
+        "messages.display001": "Coordinate Systems and Units",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "up axis",
+        "messages.display004": "Y-up",
+        "messages.display005": "Supply Z-up data without conversion",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "Z-up supplied without conversion",
+        "messages.display009": "With the fixed Y-up camera, the Z-axis marker is not vertical on screen. Try applying the (x,z,-y) conversion.",
+        "comments.comment001": "gaussian-splatting-step-03: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-04": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "9e03386bb02d39769923e1f62c87174aef3113e52a3b54873de4bd6fcc0e7763",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "ebf2c0a2b47f54c8ef03893e8a64246f88b82c7da6dd1288dcd0e67c2f993a04",
+      "values": {
+        "messages.display001": "Quaternions and Anisotropy",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Rotation angle",
+        "messages.display004": "0 degrees",
+        "messages.display005": "90 degrees about the Z axis",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "Anisotropic on the left, isotropic on the right. Z rotation using a unit quaternion.",
+        "comments.comment001": "gaussian-splatting-step-04: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-05": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "e193230868c056e4eb17416edabe325507b63ade2634f91a8ae98210361dce71",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "d635bb391a242ee59c5c3c0d6ed5d17ca4829ebe706e007bee19b6d52e564b64",
+      "values": {
+        "messages.display001": "Reading Shape from Covariance",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Long-axis scale",
+        "messages.display004": "0.1",
+        "messages.display005": "0.2",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "comments.comment001": "gaussian-splatting-step-05: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-06": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "592f9c3ee1b3a9422703ae3d768dfb12549c2b9bb39290c87e710c611c139ebd",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "211486c7426f4e5289a3a74d6d034cf391d49f26963e6896a2b4487b13dc6bd7",
+      "values": {
+        "messages.display001": "Camera Projection and Screen Ellipses",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Camera distance",
+        "messages.display004": "2",
+        "messages.display005": "4",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "A 1st-order projection approximation for a small ellipse at a fixed depth. Full 3D covariance projection requires a separate extension.",
+        "comments.comment001": "gaussian-splatting-step-06: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-07": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "902fbf1842ae7e09831bede6f4493ad95acc3bd8befe3f2a361034f2a870efca",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "e2f5f345147aa558fd0c5b473d478bca0efd50360d4af297edb13fbcec45f883",
+      "values": {
+        "messages.display001": "Gaussian Kernels and Alpha",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "opacity",
+        "messages.display004": "0.5",
+        "messages.display005": "1.0",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "Use 24 stops in a Canvas gradient to approximate exp(-r²/2).",
+        "comments.comment001": "gaussian-splatting-step-07: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-08": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "26bef5a86a601985be9c8bb338306f7e43fea9de1b63022857bb54cecaef2476",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "e4e320a6ba9781374769b205d8e90a50f3bf8cd79fc67aaa529962055940cae3",
+      "values": {
+        "messages.display001": "Alpha Compositing and Order",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Draw order",
+        "messages.display004": "Red, then blue",
+        "messages.display005": "Blue, then red",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "blue then red",
+        "messages.display009": "red then blue",
+        "messages.display010": "CPU canvas source-over. Compare only the order of two splats.",
+        "comments.comment001": "gaussian-splatting-step-08: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-09": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "445c54cfcfc76c55482c9f2fcf0fe725700352a336fbe2bce6a762f155db8efc",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "5c9065924ee6b0bd772e733f392c73c50f54e81a0f41b2be8cd22dc51c420ae2",
+      "values": {
+        "messages.display001": "Limits of Depth Sorting",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Camera angle",
+        "messages.display004": "0 degrees",
+        "messages.display005": "90 degrees",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "Center-depth sorting does not guarantee the correct per-pixel order for intersecting or large ellipses.",
+        "comments.comment001": "gaussian-splatting-step-09: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-10": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "4d8ebd97140dba969335c998fc9048e59c59e1f84819ce044d1e64a9e1be703b",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "29f3d5ea6321a5f6b70f4a8bf8453f2dfd986079094bb9a68fd00aba4e2b3d64",
+      "values": {
+        "messages.display001": "Checking PLY Headers",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Attribute set",
+        "messages.display004": "Position and required GS attributes",
+        "messages.display005": "Keep only position x/y/z",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "point cloud; GS rejected",
+        "messages.display009": "GS property contract accepted",
+        "messages.display010": "Checks only the ASCII header. Binary/endian decoding is not provided.",
+        "comments.comment001": "gaussian-splatting-step-10: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-11": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "5044bb388412d22b2c1b880cdfdbbd0e4ca1b0dc1f72b1f7a1c1d6a9605252a2",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "38ee18a1695f7a256f2f8586af3045b50ab639ca12bcc7fe4148571e9ab6db68",
+      "values": {
+        "messages.display001": "Value Decoding and Validation",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "scale encoding",
+        "messages.display004": "raw 0.1",
+        "messages.display005": "log(0.1) with the log setting",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "comments.comment001": "gaussian-splatting-step-11: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-12": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "b5696ec38da873c2b20d7ad73f44fb1d36aaa77c5dd7cb72e47231dd300ab221",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "52a04ba4f48a981cfae5ee101b75327dfe87c9ffb1e5094cae04c6863b24edb8",
+      "values": {
+        "messages.display001": "Spherical Harmonic Color",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "SH terms used",
+        "messages.display004": "Constant term only",
+        "messages.display005": "Include synthetic terms of order 1",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "A constant plus a synthetic 1st-order SH term. This is not evidence of trained data or reconstruction quality.",
+        "comments.comment001": "gaussian-splatting-step-12: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-13": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "3b64d6c2cc9193df526345848139006e823f3f9daa918c3ee57c32da3b2be4eb",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "24281aadca7f188089731ff349f031768182bffd34255321a00b81cdc03f48cc",
+      "values": {
+        "messages.display001": "Loader States and Cancellation",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Completion order",
+        "messages.display004": "A, then B",
+        "messages.display005": "B, then A",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": " ignored",
+        "messages.display009": " ready",
+        "messages.display010": "A local delay fixture, without network requests. Cancelled results are not committed.",
+        "comments.comment001": "gaussian-splatting-step-13: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-15": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "b0ed2518cfb000a3c3113be0322ac08f307aa48a6aa7c4fd747d9cd03f6e99be",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "e1eb4b890aa5deb5fc7fd4a3add186a05b3f55bca62ddf34b49950d7e136cecf",
+      "values": {
+        "messages.display001": "Screen-Space Selection Approximation",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Selection radius",
+        "messages.display004": "8px",
+        "messages.display005": "24px",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "Approximate selection by screen-center distance; not an actual 3D surface intersection.",
+        "comments.comment001": "gaussian-splatting-step-15: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-16": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "b9b85be8c63ffe41d107c8feae71931b5b57b3a38b722e007e0dc7c08288fe25",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "edd809a1513e9b02138c84e8e07ffd4140cebe8cf1d82f42aff3f8a6974eee46",
+      "values": {
+        "messages.display001": "Visibility Bounds and Conservative Culling",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Culling criterion",
+        "messages.display004": "Center only",
+        "messages.display005": "Ellipse bounding box",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "3 sigma bounding box",
+        "messages.display009": "center only",
+        "messages.display010": "Conservative axis-aligned bounds. For rotated ellipses, calculate the bounding box from the covariance.",
+        "comments.comment001": "gaussian-splatting-step-16: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-17": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "742b5514347cf4eb791772aeb8b9ac74f78bdf22a67b292db3ea811a4054d3c3",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "4508fe1f96c6e1a2a5286bbe3d335f2db89d90bd12f4f99996a7a38951b323e2",
+      "values": {
+        "messages.display001": "Sorting Update Intervals",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Sorting interval",
+        "messages.display004": "1 frame",
+        "messages.display005": "4 frames",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "comments.comment001": "gaussian-splatting-step-17: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-18": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "e23e40268d0708967041023c422ec076631d651d098f6ee288c424c77e0a602e",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "72140a1e929b15d14c8b3af59e250043c1b7703b189440073b706007d32130e2",
+      "values": {
+        "messages.display001": "Resolution and Pixel Workload",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "render scale",
+        "messages.display004": "1.0",
+        "messages.display005": "0.5",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "The CSS display size stays the same, and the drawing buffer has 1/4 as many pixels. This is not a GPU performance measurement.",
+        "comments.comment001": "gaussian-splatting-step-18: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-19": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "779cbb5c9323e7a1b6670419ccae2bb5c8abb0864cbac73e2b88dabc8cdf79c2",
     "values": {
-      "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+      "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance. The provided example keeps the first N entries using data.slice(0,count). Seed-based selection and opacity selection policies are separate assignments; screen-contribution pruning is not implemented."
+    },
+    "presentation": {
+      "sourceHash": "dd6c68a54478c472a441cda1f9193e2256abbf26a60f99be75cffa27e0726735",
+      "values": {
+        "messages.display001": "Reducing Gaussian Count",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs. The provided example keeps the first N entries using data.slice(0,count). Seed-based selection and opacity selection policies are separate assignments; screen-contribution pruning is not implemented.",
+        "messages.display003": "Retained count",
+        "messages.display004": "256",
+        "messages.display005": "128",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "deterministic first-N",
+        "messages.display009": "This is not screen-contribution pruning. Removed structure is not recovered.",
+        "comments.comment001": "gaussian-splatting-step-19: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-20": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "6959cadc22fdbd890a307f8073e3e50637e8730c7295080b8d6ba8ff34019117",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "92bbac0a23c78788f0b223c195343c01337c11437da2a94850ed2d78e8775f4b",
+      "values": {
+        "messages.display001": "Color Space and Background",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Background",
+        "messages.display004": "Black",
+        "messages.display005": "White",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "Canvas source-over in default canvas color space",
+        "messages.display009": "This renderer does not implement linear-light compositing. Compare only the transmitted color over different backgrounds.",
+        "comments.comment001": "gaussian-splatting-step-20: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-21": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "70a9107af8c2d629967c89042921ac9968c8ac3fe7f263592ce99d3b800977c5",
     "values": {
-      "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+      "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance. The provided example calculates byte-RGB mean squared error (byteRGB_MSE) between 256/128 synthetic splat images from the same camera. The assignment’s mean absolute error and multiple-view comparison require separate implementation."
+    },
+    "presentation": {
+      "sourceHash": "fd663a86c911ab142a9bbf055fa1f22e7bf435f2812acb787cf4d1ef2bc6f323",
+      "values": {
+        "messages.display001": "Defining Quality Evaluation Criteria",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs. The provided example calculates byte-RGB mean squared error (byteRGB_MSE) between 256/128 synthetic splat images from the same camera. The assignment’s mean absolute error and multiple-view comparison require separate implementation.",
+        "messages.display003": "Evaluation region",
+        "messages.display004": "Full screen",
+        "messages.display005": "Thin-structure ROI",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "256 synthetic splats",
+        "messages.display009": "128 synthetic splats",
+        "messages.display010": "CPU canvas image differences from the same camera. This is not a training or photographic-quality metric.",
+        "comments.comment001": "gaussian-splatting-step-21: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-22": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "205d7bfa50a25bda385560a574cd7e065db450f1ac5659a23abcf13a7a620bb9",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "c0833f8bd75ac7669dfa7a0ab6925e21329bd802c5568f11edfc41e94693328e",
+      "values": {
+        "messages.display001": "Separating Profiling Intervals",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Data count",
+        "messages.display004": "64",
+        "messages.display005": "512",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "Host intervals measured with performance.now. These are not raster-completion or GPU timings. This is a single sample.",
+        "comments.comment001": "gaussian-splatting-step-22: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-23": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "266b167b7034ae38f5c591e9772e8a608cd67722c0e96c35cd27b24394a2938f",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "850bb71b88585aee3521b47dda84a5beddab394eee62362864a89096c0888fef",
+      "values": {
+        "messages.display001": "Resource Lifetimes and Repeated Loading",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Replacement count",
+        "messages.display004": "1 time",
+        "messages.display005": "10 times",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "A reference-ownership check. This measurement does not guarantee GC timing or a reduction in total browser memory.",
+        "comments.comment001": "gaussian-splatting-step-23: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-24": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "2dbea9a9adf2ff3064479fafb105dcbbc83f7e66b46ddf0c3328ddedccc80d49",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "b201416f838600c3075ee3ef3da24ec516066d58fbe139c48abf70c867a8d0ff",
+      "values": {
+        "messages.display001": "Keyboard Controls and Camera Recovery",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Movement speed",
+        "messages.display004": "1% of the bounds size",
+        "messages.display005": "10%",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "← → to move, Home to reset. Click the canvas before using the keyboard",
+        "comments.comment001": "gaussian-splatting-step-24: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-25": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "628aa78eaea3c325e5dd8dc8142240bf7efe02cbd970b9efb32c7d5ded2f466d",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "27673a7c5f85b202716d89db78893ae37a41b3bffea997fec5fbe37213a8529c",
+      "values": {
+        "messages.display001": "Integrated Failure-State Tests",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Input order",
+        "messages.display004": "Valid inputs only",
+        "messages.display005": "Valid input after an error",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "After the error, the valid fixture recovers to the ready state.",
+        "comments.comment001": "gaussian-splatting-step-25: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-26": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "c64c66a9f163ca9ffc8bb63701d23095c07f3061b4e9bc2711e5a2c5b267f436",
     "values": {
-      "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+      "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance. The provided example collects 61 frame-index camera ticks and 60 rAF intervals once. The assignment’s time-based path and 3 runs per configuration require separate implementation; this does not measure GPU time."
+    },
+    "presentation": {
+      "sourceHash": "c557102d595b67f5a778257788d8ec03250424c0ec31b97c54d830cb8af8a3ee",
+      "values": {
+        "messages.display001": "Reproducible Camera Benchmarks",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs. The provided example collects 61 frame-index camera ticks and 60 rAF intervals once. The assignment’s time-based path and 3 runs per configuration require separate implementation; this does not measure GPU time.",
+        "messages.display003": "Setting",
+        "messages.display004": "Resolution 1.0",
+        "messages.display005": "Resolution 0.5",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "angle = frame / 60 * 2pi",
+        "messages.display009": "Actual rAF intervals, not GPU time. Background tabs and browser synchronization affect the results.",
+        "comments.comment001": "gaussian-splatting-step-26: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
     }
   },
   "gaussian-splatting-step-27": {
-    "sourceHash": "ba70e41db80baacd7a813fc66853f232aec4a3df69a446333d1edc0a4de810ea",
+    "sourceHash": "4f503fb85a61155037bce38806fcb350aa0f1d049443d157316b2f0a4694bdcb",
     "values": {
       "note": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+    },
+    "presentation": {
+      "sourceHash": "a3e4f92647432f0704d0a23f67c019e0e9ed7eb6683b080d1ce5d862bbc3d5d1",
+      "values": {
+        "messages.display001": "Describing the Deliverable and Acceptance Conditions",
+        "messages.display002": "CPU Canvas2D compositing fixture · no trained data · not a Spark/GPU renderer. Experiment with selected 3D Gaussian mathematics and loader contracts using small inputs.",
+        "messages.display003": "Initial verification state",
+        "messages.display004": "Current session",
+        "messages.display005": "A fresh reset session",
+        "messages.display006": "Run / reinitialize",
+        "messages.display007": "Canvas2D unavailable",
+        "messages.display008": "512 points maximum in this teaching path",
+        "messages.display009": "no Spark GPU rendering",
+        "messages.display010": "no learned reconstruction",
+        "messages.display011": "no production benchmark",
+        "comments.comment001": "gaussian-splatting-step-27: deliberately small CPU teaching experiment, not a trained GS renderer."
+      }
+    }
+  },
+  "gaussian-splatting-01": {
+    "presentation": {
+      "sourceHash": "00ee9e7393ef88318f07423575923fdbecc1a9353a58c1a800abdc9c31946128",
+      "values": {
+        "messages.display001": "Principle experiment: exp(-0.5 × r²), not an actual 3DGS model",
+        "comments.comment001": "Principle visualization: not a trained 3DGS loader, but a density cross-section of a 2D elliptical Gaussian.",
+        "comments.comment002": "Change SCALE_X, SCALE_Y, ANGLE, OPACITY to observe anisotropy and compositing."
+      }
+    }
+  },
+  "gaussian-splatting-02": {
+    "presentation": {
+      "sourceHash": "5e5e671ea6feb7999fd1368e76bb8138518c1e62de347b317f349331d1fc444c",
+      "values": {
+        "messages.display001": "Reset camera",
+        "messages.display002": "This implementation: .splat / ASCII GS PLY, up to 512 splats. Binary PLY, SPZ, and higher-order SH are unsupported.",
+        "messages.display003": "Gaussian covariance projection scene",
+        "messages.display004": "Educational CPU Gaussian projection · ",
+        "messages.display005": " splats\nsorting ",
+        "messages.display006": " · DPR ",
+        "messages.display007": " · observed FPS ",
+        "messages.display008": " · draw ",
+        "messages.display009": "ms\nThis is not the performance of an actual 3DGS GPU renderer.",
+        "messages.display010": "Invalid Gaussian value",
+        "messages.display011": "The rotation quaternion is 0",
+        "messages.display012": ".splat length must be a multiple of 32 bytes",
+        "messages.display013": "The CPU teaching loader supports at most 512 splats",
+        "messages.display014": "Missing PLY header",
+        "messages.display015": "The teaching loader supports only ASCII GS PLY. Binary PLY requires a dedicated renderer.",
+        "messages.display016": "The vertex count must be 1~512",
+        "messages.display017": "Vertex list properties are unsupported",
+        "messages.display018": "This is an ordinary PLY without GS properties. Position alone cannot produce GS data.",
+        "messages.display019": "Insufficient PLY data rows",
+        "messages.display020": "PLY property count mismatch",
+        "messages.display021": "Choose a .splat or ASCII GS .ply file",
+        "messages.display022": "Choose a small GS file",
+        "messages.display023": "Locally generated example data · no server upload",
+        "messages.display024": "loading ",
+        "messages.display025": "Teaching files must be at most 1 MiB",
+        "messages.display026": "ready ",
+        "messages.display027": " · ",
+        "messages.display028": " bytes · ",
+        "messages.display029": " splats · SH DC only",
+        "messages.display030": "error: ",
+        "comments.comment001": "Parse small real files and project covariance onto a CPU Canvas. This is not a full GPU GS viewer.",
+        "comments.comment002": "Educational CPU projector: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.",
+        "comments.comment003": "Does not implement an actual GPU tile rasterizer, higher-order SH, LOD, or GS picking.",
+        "comments.comment004": "Standard .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/row."
+      }
+    }
+  },
+  "gaussian-splatting-03": {
+    "presentation": {
+      "sourceHash": "634bc0234a6f87b1165587180f8317c2cb24e939a0ef7d2b5d1db5d118a7b73a",
+      "values": {
+        "messages.display001": "Toggle sorting",
+        "messages.display002": "DPR 1/2",
+        "messages.display003": "Generated data 80/320",
+        "messages.display004": "Gaussian covariance projection scene",
+        "messages.display005": "Educational CPU Gaussian projection · ",
+        "messages.display006": " splats\nsorting ",
+        "messages.display007": " · DPR ",
+        "messages.display008": " · observed FPS ",
+        "messages.display009": " · draw ",
+        "messages.display010": "ms\nThis is not the performance of an actual 3DGS GPU renderer.",
+        "messages.display011": "Invalid Gaussian value",
+        "messages.display012": "The rotation quaternion is 0",
+        "messages.display013": ".splat length must be a multiple of 32 bytes",
+        "messages.display014": "The CPU teaching loader supports at most 512 splats",
+        "messages.display015": "Missing PLY header",
+        "messages.display016": "The teaching loader supports only ASCII GS PLY. Binary PLY requires a dedicated renderer.",
+        "messages.display017": "The vertex count must be 1~512",
+        "messages.display018": "Vertex list properties are unsupported",
+        "messages.display019": "This is an ordinary PLY without GS properties. Position alone cannot produce GS data.",
+        "messages.display020": "Insufficient PLY data rows",
+        "messages.display021": "PLY property count mismatch",
+        "messages.display022": "Choose a .splat or ASCII GS .ply file",
+        "messages.display023": "Choose a small GS file",
+        "messages.display024": "Locally generated example data · no server upload",
+        "messages.display025": "loading ",
+        "messages.display026": "Teaching files must be at most 1 MiB",
+        "messages.display027": "ready ",
+        "messages.display028": " · ",
+        "messages.display029": " bytes · ",
+        "messages.display030": " splats · SH DC only",
+        "messages.display031": "error: ",
+        "comments.comment001": "Parse small real files and project covariance onto a CPU Canvas. This is not a full GPU GS viewer.",
+        "comments.comment002": "Educational CPU projector: Σworld=R S² Rᵀ, Σscreen=J V Σworld Vᵀ Jᵀ.",
+        "comments.comment003": "Does not implement an actual GPU tile rasterizer, higher-order SH, LOD, or GS picking.",
+        "comments.comment004": "Standard .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/row."
+      }
     }
   }
 }

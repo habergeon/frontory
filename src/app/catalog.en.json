@@ -3633,7 +3633,8 @@
       "title": "3DGS Representations and Data",
       "goal": "Explain the differences between the three scene representations. Classify the roles of Gaussian attributes.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/01-foundations/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-01/example.js"
     },
     {
       "id": "gaussian-splatting-step-02",
@@ -3643,6 +3644,7 @@
       "goal": "Record the basis for using the data. Verify the input size contract.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/02/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-02/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3653,6 +3655,7 @@
       "goal": "Specify the data coordinate system. Verify axis conversion numerically.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/03/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-03/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3663,6 +3666,7 @@
       "goal": "Interpret rotation components safely. Explain how scale and rotation combine.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/04/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-04/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3673,6 +3677,7 @@
       "goal": "Construct a covariance matrix. Validate shape inputs.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/05/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-05/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3683,6 +3688,7 @@
       "goal": "Distinguish world-space size from screen-space size. Handle projection boundary cases.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/06/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-06/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3693,6 +3699,7 @@
       "goal": "Calculate pixel alpha. Distinguish the kernel from opacity.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/07/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-07/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3703,6 +3710,7 @@
       "goal": "Trace transparent compositing numerically. Apply a consistent alpha convention.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/08/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-08/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3713,6 +3721,7 @@
       "goal": "Implement depth sorting. Observe the limits of the sorting approximation.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/09/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-09/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3723,6 +3732,7 @@
       "goal": "Distinguish PLY from GS data. Validate the header contract.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/10/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-10/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3733,6 +3743,7 @@
       "goal": "Distinguish stored values from rendering values. Report decoding errors with their locations.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/11/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-11/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3743,6 +3754,7 @@
       "goal": "Explain the view dependence of SH. Distinguish degree from claims about quality.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/12/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-12/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3753,6 +3765,7 @@
       "goal": "Model loading states. Block results that arrive late.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/13/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-13/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3762,7 +3775,8 @@
       "title": "Integrating Loading and Camera State",
       "goal": "Integrate loader and camera state. Specify the meaning of GS picking.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/02-experiments/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-02/example.js"
     },
     {
       "id": "gaussian-splatting-step-15",
@@ -3772,6 +3786,7 @@
       "goal": "Implement a selection approximation. Show selection ambiguity to users.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/15/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-15/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3782,6 +3797,7 @@
       "goal": "Cull safely using screen bounds. Compare both workload and omissions.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/16/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-16/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3792,6 +3808,7 @@
       "goal": "Reuse sorting results. Visually evaluate update delay.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/17/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-17/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3802,6 +3819,7 @@
       "goal": "Isolate the cost of resolution. Compare quality loss at identical viewpoints.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/18/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-18/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3812,7 +3830,8 @@
       "goal": "Create a reproducible subset. Evaluate the visual impact of reduction strategies.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/19/README.md",
       "seriesId": "gaussian-splatting",
-      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-19/example.js",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance. The provided example keeps the first N entries using data.slice(0,count). Seed-based selection and opacity selection policies are separate assignments; screen-contribution pruning is not implemented."
     },
     {
       "id": "gaussian-splatting-step-20",
@@ -3822,6 +3841,7 @@
       "goal": "Distinguish compositing space from display space. Control background conditions.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/20/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-20/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3832,7 +3852,8 @@
       "goal": "Fix the comparison reference. Interpret numerical and visual evidence together.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/21/README.md",
       "seriesId": "gaussian-splatting",
-      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-21/example.js",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance. The provided example calculates byte-RGB mean squared error (byteRGB_MSE) between 256/128 synthetic splat images from the same camera. The assignment’s mean absolute error and multiple-view comparison require separate implementation."
     },
     {
       "id": "gaussian-splatting-step-22",
@@ -3842,6 +3863,7 @@
       "goal": "Measure costs by processing stage. Distinguish CPU and GPU timing claims.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/22/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-22/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3852,6 +3874,7 @@
       "goal": "Manage resource ownership. Verify cleanup after repeated replacement.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/23/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-23/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3862,6 +3885,7 @@
       "goal": "Provide multiple input methods. Save the complete camera recovery state.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/24/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-24/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3872,6 +3896,7 @@
       "goal": "Classify failure causes. Verify recovery after errors.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/25/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-25/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3882,7 +3907,8 @@
       "goal": "Build a benchmark with a fixed path. Interpret frame distributions.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/26/README.md",
       "seriesId": "gaussian-splatting",
-      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-26/example.js",
+      "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance. The provided example collects 61 frame-index camera ticks and 60 rAF intervals once. The assignment’s time-based path and 3 runs per configuration require separate implementation; this does not measure GPU time."
     },
     {
       "id": "gaussian-splatting-step-27",
@@ -3892,6 +3918,7 @@
       "goal": "Document the actual delivered scope. Create a reproducible acceptance procedure.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/units/27/README.md",
       "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-step-27/example.js",
       "exampleNote": "CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance."
     },
     {
@@ -3901,7 +3928,8 @@
       "title": "Sorting, Quality, and Performance",
       "goal": "Compare quality and cost together. Complete a GS viewer deliverable with supporting evidence.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/03-project/README.md",
-      "seriesId": "gaussian-splatting"
+      "seriesId": "gaussian-splatting",
+      "exampleReadingSource": "/examples-en/gaussian-splatting-03/example.js"
     },
     {
       "id": "webgpu-01",

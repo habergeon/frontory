@@ -1,102 +1,127 @@
 {
   "gaussian-splatting-step-02": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-02/example.js"
   },
   "gaussian-splatting-step-03": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-03/example.js"
   },
   "gaussian-splatting-step-04": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-04/example.js"
   },
   "gaussian-splatting-step-05": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-05/example.js"
   },
   "gaussian-splatting-step-06": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-06/example.js"
   },
   "gaussian-splatting-step-07": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-07/example.js"
   },
   "gaussian-splatting-step-08": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-08/example.js"
   },
   "gaussian-splatting-step-09": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-09/example.js"
   },
   "gaussian-splatting-step-10": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-10/example.js"
   },
   "gaussian-splatting-step-11": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-11/example.js"
   },
   "gaussian-splatting-step-12": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-12/example.js"
   },
   "gaussian-splatting-step-13": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-13/example.js"
   },
   "gaussian-splatting-step-15": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-15/example.js"
   },
   "gaussian-splatting-step-16": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-16/example.js"
   },
   "gaussian-splatting-step-17": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-17/example.js"
   },
   "gaussian-splatting-step-18": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-18/example.js"
   },
   "gaussian-splatting-step-19": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. 제공된 예제는 data.slice(0,count)로 앞의 N개를 유지합니다. seed 기반 선택과 opacity 선택 정책은 별도 과제이며 화면 기여도 기반 pruning은 구현하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-19/example.js"
   },
   "gaussian-splatting-step-20": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-20/example.js"
   },
   "gaussian-splatting-step-21": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. 제공된 예제는 동일 카메라의 256/128 synthetic splat 이미지에서 byte RGB의 평균제곱오차(byteRGB_MSE)를 계산합니다. 과제의 평균절대오차와 여러 시점 비교는 별도로 구현해야 합니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-21/example.js"
   },
   "gaussian-splatting-step-22": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-22/example.js"
   },
   "gaussian-splatting-step-23": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-23/example.js"
   },
   "gaussian-splatting-step-24": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-24/example.js"
   },
   "gaussian-splatting-step-25": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-25/example.js"
   },
   "gaussian-splatting-step-26": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다. 제공된 예제는 frame index 기준 카메라 tick 61개와 rAF 간격 60개를 한 번 수집합니다. 과제의 시간 기반 경로와 설정별 3회 반복은 별도 구현이며 GPU 시간 측정이 아닙니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-26/example.js"
   },
   "gaussian-splatting-step-27": {
     "mode": "browser",
-    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다."
+    "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",
+    "readingSource": "/examples-en/gaussian-splatting-step-27/example.js"
   }
 }

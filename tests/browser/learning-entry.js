@@ -41,7 +41,7 @@ async (page, baseUrl = 'http://127.0.0.1:4187') => {
     await assertCodeFocus('practice CTA from notes')
     await assertCodeFocus('practice CTA from code')
     await page.locator('.current-lesson-actions button').first().click()
-    await page.waitForSelector('.document-dialog[open]')
+    await page.waitForSelector('.document-reader')
     await page.keyboard.press('Escape')
     check('document close returns focus to read CTA', await page.locator('.current-lesson-actions button').first().evaluate(element => document.activeElement === element))
     await page.locator('.journey-outline summary').click()
@@ -51,7 +51,7 @@ async (page, baseUrl = 'http://127.0.0.1:4187') => {
       const before = window.l02
       return before.editor.getModel() === before.model && before.model.getVersionId() === before.version && JSON.stringify(before.editor.getSelection()) === before.selection && document.querySelector('.workspace iframe') === before.iframe && document.querySelector('.notes-editor') === before.notes && JSON.stringify({ ...localStorage }) === before.storage
     }))
-    await page.locator('.app-shell>.unit-pagination button').last().click()
+    await page.locator('.practice-pane>.unit-pagination button').last().click()
     await page.waitForFunction(() => location.hash === '#javascript-step-02')
     check('bottom next keeps locale and query', page.url().includes((locale === 'en' ? '/en/' : '/') + '?l02=entry#javascript-step-02'))
     await page.goBack()
@@ -59,7 +59,7 @@ async (page, baseUrl = 'http://127.0.0.1:4187') => {
     check('history back restores first-unit disabled boundary', await page.locator('.unit-pagination button:first-child:disabled').count() === 2)
     await page.goForward()
     await page.waitForFunction(() => location.hash === '#javascript-step-02')
-    await page.locator('.app-shell>.unit-pagination button').first().click()
+    await page.locator('.practice-pane>.unit-pagination button').first().click()
     await page.waitForFunction(() => location.hash === '#javascript-01')
     check('saved progress still completed after history', await page.locator('.learning-status button[aria-pressed="true"]').textContent() === (locale === 'ko' ? '완료' : 'Completed'))
   }

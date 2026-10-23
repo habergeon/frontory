@@ -1,16 +1,18 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, type RefObject } from 'react'
 import { MarkdownView } from '../shared/MarkdownView'
 import type { Locale } from '../i18n/locale'
 import { messages } from '../i18n/messages'
 import { DocumentNotFoundError, loadDocument, localizedDocPath, parseDocumentPath } from './documents'
 
-interface Props { initialPath: string; unitPath: string; onClose: () => void; locale?: Locale }
-export function DocumentDialog({ initialPath, unitPath, onClose, locale = 'ko' }: Props) {
+interface Props { path: string; unitPath: string; onNavigate: (path: string) => void; onClose: () => void; locale?: Locale; requestedLocale: Locale; inline?: boolean; active?: boolean; readerRef?: RefObject<HTMLElement | null>; onRestoreFocus?: () => void }
+export function DocumentDialog({ path: requestedPath, unitPath, onNavigate, onClose, locale = 'ko', requestedLocale, inline = false, active = true, readerRef, onRestoreFocus }: Props) {
   const dialog = useRef<HTMLDialogElement>(null)
+  const localReader = useRef<HTMLElement>(null)
+  const pane = readerRef ?? localReader
+  const revealPending = useRef(true)
   const previousFocus = useRef(document.activeElement)
   const article = useRef<HTMLElement>(null)
-  const [selection, setSelection] = useState({ path: initialPath, locale })
-  const path = selection.locale === locale ? selection.path : localizedDocPath(locale, parseDocumentPath(selection.path).koDocPath)
+  const path = requestedLocale === locale ? requestedPath : localizedDocPath(locale, parseDocumentPath(requestedPath).koDocPath)
   const request = parseDocumentPath(path)
   const [content, setContent] = useState<{ key: string; text: string; error?: 'missing' | 'failed' } | null>(null)
   const key = request.locale + ':' + request.koDocPath
@@ -18,19 +20,23 @@ export function DocumentDialog({ initialPath, unitPath, onClose, locale = 'ko' }
   const copy = messages[locale]
   useEffect(() => {
     const element = dialog.current
-    element?.showModal()
+    if (!inline) element?.showModal()
     return () => {
       // Restore after React removes the modal and its inert background.
       queueMicrotask(() => {
-        if (!element?.isConnected && previousFocus.current instanceof HTMLElement) previousFocus.current.focus()
+        if (element?.isConnected || pane.current?.isConnected) return
+        if (previousFocus.current instanceof HTMLElement && previousFocus.current.isConnected) previousFocus.current.focus()
+        else onRestoreFocus?.()
       })
     }
   }, [])
-  useEffect(() => {
-    setSelection(current => current.locale === locale ? current : {
-      path: localizedDocPath(locale, parseDocumentPath(current.path).koDocPath), locale,
-    })
-  }, [locale])
+  useLayoutEffect(() => {
+    if (!active) revealPending.current = true
+    if (!inline || !active || !current || !revealPending.current) return
+    revealPending.current = false
+    pane.current?.focus({ preventScroll: true })
+    pane.current?.scrollIntoView({ block: 'start' })
+  }, [inline, active, !!current])
   useEffect(() => {
     let cancelled = false
     loadDocument(request.locale, request.koDocPath).then(text => {
@@ -41,13 +47,13 @@ export function DocumentDialog({ initialPath, unitPath, onClose, locale = 'ko' }
     return () => { cancelled = true }
   }, [request.locale, request.koDocPath, key])
   const navigate = (next: string) => {
-    setSelection({ path: next, locale })
+    onNavigate(next)
     article.current?.scrollTo({ top: 0 })
   }
-  return <dialog ref={dialog} className="document-dialog" onCancel={onClose} onClose={onClose} aria-labelledby="document-title">
+  const contents = <>
     <header className="dialog-header">
       <h2 id="document-title">{copy.learningDocument}</h2>
-      <button onClick={onClose} autoFocus>{copy.close}</button>
+      <button onClick={onClose} autoFocus={!inline}>{copy.close}</button>
     </header>
     <nav className="document-nav" aria-label={copy.documentNavigation}>
       <button onClick={() => navigate(localizedDocPath(locale, parseDocumentPath(unitPath).koDocPath))}>{copy.currentUnitDocument}</button>
@@ -60,5 +66,8 @@ export function DocumentDialog({ initialPath, unitPath, onClose, locale = 'ko' }
         : <MarkdownView locale={locale} text={current.error === 'missing' ? copy.documentNotFound : current.text}
           documentPath={path} onDocument={navigate} />}
     </article>
-  </dialog>
+  </>
+  return inline ? <aside ref={pane} className="document-reader" tabIndex={-1} aria-labelledby="document-title" onKeyDown={event => {
+    if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); onClose() }
+  }}>{contents}</aside> : <dialog ref={dialog} className="document-dialog" onCancel={onClose} onClose={onClose} aria-labelledby="document-title">{contents}</dialog>
 }

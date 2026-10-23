@@ -97,11 +97,11 @@ try {
   }
   check('Navigator full series set', dialog.querySelectorAll('.series-card').length, englishCatalog.series.length)
   await click(dialog.querySelector('.dialog-header button'))
-  await click(doc().querySelector('.current-lesson button'))
-  await wait(() => doc().querySelector('.document-dialog article h1'))
-  check('Navigator requests actual English document', /[A-Za-z]/.test(doc().querySelector('.document-dialog article h1').textContent), true)
-  check('English document has no Korean lesson fallback', /[가-힣]/.test(doc().querySelector('.document-dialog article h1').textContent), false)
-  await click(doc().querySelector('.document-dialog .dialog-header button'))
+  await click(doc().querySelector('.current-lesson-actions button:first-child'))
+  await wait(() => doc().querySelector('.document-reader article h1'))
+  check('Navigator requests actual English document', /[A-Za-z]/.test(doc().querySelector('.document-reader article h1').textContent), true)
+  check('English document has no Korean lesson fallback', /[가-힣]/.test(doc().querySelector('.document-reader article h1').textContent), false)
+  await click(doc().querySelector('.document-reader .dialog-header button'))
   await click(language())
   const unknownId = 'e09-does-not-exist'
   win().location.hash = '#' + unknownId

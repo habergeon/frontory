@@ -216,6 +216,7 @@ test('English worksheets use shared headings and preserve every written field', 
 
 test('built English app entry shares real Vite assets and localized head, with localized static errors', { timeout: 120000 }, async () => {
   const { execFileSync } = await import('node:child_process')
+  execFileSync(process.execPath, ['scripts/build-preview.mjs'], { encoding: 'utf8' })
   execFileSync(process.execPath, ['node_modules/vite/bin/vite.js', 'build'], { encoding: 'utf8' })
   execFileSync(process.execPath, ['scripts/build-search.mjs'], { encoding: 'utf8' })
   const ko = fs.readFileSync('dist/index.html', 'utf8')

@@ -583,7 +583,8 @@
       "title": "Values and State",
       "goal": "Extract 2 incomplete task titles. Record 2 pairs of reference equality and original value comparisons.",
       "docPath": "/docs/en/labs/fundamentals/javascript/01-foundations/README.md",
-      "seriesId": "javascript"
+      "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-01/example.js"
     },
     {
       "id": "javascript-step-02",
@@ -604,6 +605,7 @@
       "goal": "Record 8 default-value outputs. Explain the comparison results for the same reference and different references.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/03/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-03/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -614,6 +616,7 @@
       "goal": "Record outputs for 3 normal cases and 2 error cases. Every returned object has an ok field.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/04/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-04/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -624,6 +627,7 @@
       "goal": "Neither NaN nor Infinity is displayed for the three inputs. Record 3 calculation results obtained without the DOM.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/05/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-05/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -634,6 +638,7 @@
       "goal": "Verify A=2 and B=1 in the independent implementation. Compare logs from the shared and independent implementations.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/06/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-06/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -644,6 +649,7 @@
       "goal": "Only the selected topic remains in the results, and the 5 original records are preserved. The sum for an empty array is 0, and the title list is an empty array.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/07/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-07/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -654,6 +660,7 @@
       "goal": "Display the information without exceptions whether contact details are present or absent. A missing name is not saved as a valid name.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/08/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-08/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -664,6 +671,7 @@
       "goal": "Record the tag counts before and after removing duplicates. Verify a lookup for a missing id and an update to an existing id separately.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/09/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-09/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -674,6 +682,7 @@
       "goal": "The busy state ends after both success and failure. Read valid input again after a failure.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/10/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-10/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -684,6 +693,7 @@
       "goal": "There are 3 li elements corresponding to 3 notes. The tag input does not create a strong element.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/11/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-11/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -694,6 +704,7 @@
       "goal": "Newly added items can also be deleted without individual listeners. A single click on a span leaves one processing log line.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/12/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-12/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -704,6 +715,7 @@
       "goal": "Record the actual order of the three types of logs. A reject is handled once in the final catch.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/13/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-13/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -713,7 +725,8 @@
       "title": "Asynchrony and Cancellation",
       "goal": "The second search term remains on screen even when responses finish in reverse order. Distinguish cancellation logs from ordinary failure logs.",
       "docPath": "/docs/en/labs/fundamentals/javascript/02-experiments/README.md",
-      "seriesId": "javascript"
+      "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-02/example.js"
     },
     {
       "id": "javascript-step-15",
@@ -723,6 +736,7 @@
       "goal": "Check both the successful list and the 404 message. Record HTTP errors and JSON parsing errors separately.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/15/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-15/example.js",
       "exampleNote": "Because preview network access is restricted, this example runs 200/404 fixtures using real Response objects. Test fetch and HTTP requests on a local server."
     },
     {
@@ -733,6 +747,7 @@
       "goal": "Distinguish completion order from the order of the returned array. The partial-failure screen retains 2 successful items.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/16/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-16/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -743,6 +758,7 @@
       "goal": "With the 300ms setting, there is 1 search call. There are 0 pending search calls after dispose.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/17/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-17/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -753,6 +769,7 @@
       "goal": "Call the calculations in state.js without the DOM. The initial list is displayed after the path is restored.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/18/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-18/example.js",
       "exampleNote": "This example runs the public interface of a Blob ES module. Test actual separation into relative files and Network paths in an HTTP project."
     },
     {
@@ -763,6 +780,7 @@
       "goal": "The 3 note id values are the same before and after a refresh. The guidance differs for corrupted data and a valid empty list.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/19/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-19/example.js",
       "exampleNote": "The practice-only key is removed after execution. SecurityError caused by the iframe storage policy is also displayed."
     },
     {
@@ -773,6 +791,7 @@
       "goal": "The address and selected filter match after a refresh. Restore the previous list after navigating back.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/20/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-20/example.js",
       "exampleNote": "This example runs a URLSearchParams encoding round trip. Test the actual address bar and back navigation with popstate on a separate HTTP page."
     },
     {
@@ -783,6 +802,7 @@
       "goal": "A whitespace-only title is not added to the list. Record 2 pairs of collected entries for checked and unchecked states.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/21/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-21/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -793,6 +813,7 @@
       "goal": "The exported file contains 3 notes and a version value. Every generated object URL has a cleanup path.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/22/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-22/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -803,6 +824,7 @@
       "goal": "Restore exactly the number of items in a valid file. The existing id array is unchanged after rejection.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/23/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-23/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -813,6 +835,7 @@
       "goal": "After 3 undo operations, id and completion values match the initial state. State is preserved for an unknown action.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/24/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-24/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -823,6 +846,7 @@
       "goal": "Record the two display values and the identical epoch value. Invalid dates are not saved.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/25/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-25/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -833,6 +857,7 @@
       "goal": "Measure each of the two paths 3 times using the same data. Record total time and input responsiveness as separate items.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/26/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-26/example.js",
       "exampleNote": "Times are observations on the current device and do not establish performance superiority. Compare count and batch under the same conditions."
     },
     {
@@ -843,6 +868,7 @@
       "goal": "After 5 remounts, there is 1 processing log entry. Calling dispose twice causes no exceptions and leaves no timers.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/27/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-27/example.js",
       "exampleNote": "Compare the editable inputs with actual browser execution results."
     },
     {
@@ -852,7 +878,8 @@
       "title": "Modular Experiment Journal",
       "goal": "Record the four flows: add, filter, export, and restore. A single click adds only one item, and a failed import preserves existing state.",
       "docPath": "/docs/en/labs/fundamentals/javascript/03-project/README.md",
-      "seriesId": "javascript"
+      "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-03/example.js"
     },
     {
       "id": "typescript-01",

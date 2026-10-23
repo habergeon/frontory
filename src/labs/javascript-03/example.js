@@ -1,7 +1,8 @@
 // 데이터 변경, 렌더, 이벤트 연결을 분리합니다. 저장은 이 실행의 메모리 범위입니다.
-export function mount({ container }) {
-  container.innerHTML = `<h2>메모 모듈</h2><form><label>새 메모 <input name="note" required maxlength="120"></label><button>추가</button></form>
-    <label>필터 <input id="filter"></label><button id="rebind">이벤트 재연결</button><button id="export">JSON 보기</button><ul></ul><output></output><pre></pre>`
+export function mount({ container ,locale='ko'}) {
+const messages=locale==='en'?{"display01":" times (1 active listener set)","display02":"Rebind events","display03":"View JSON","display04":" notes · Handled ","display05":" times · Bound ","display06":"Note module","display07":"New note ","display08":"Filter ","display09":"Add","display10":"Total "}:{"display01":"회 (활성 리스너 세트 1개)","display02":"이벤트 재연결","display03":"JSON 보기","display04":"개 · 처리 ","display05":"회 · 연결 ","display06":"메모 모듈","display07":"새 메모 ","display08":"필터 ","display09":"추가","display10":"총 "};
+  container.innerHTML = `<h2>${messages.display06}</h2><form><label>${messages.display07}<input name="note" required maxlength="120"></label><button>${messages.display09}</button></form>
+    <label>${messages.display08}<input id="filter"></label><button id="rebind">${messages.display02}</button><button id="export">${messages.display03}</button><ul></ul><output></output><pre></pre>`
   let notes = [{ id: 1, text: '이벤트는 한 번만 연결', done: false }], nextId = 2, handled = 0, bindings = 0, events
   const list = container.querySelector('ul'), status = container.querySelector('output')
   function render() {
@@ -12,7 +13,7 @@ export function mount({ container }) {
       button.textContent = `${note.done ? '✓' : '○'} ${note.text}`; button.dataset.id = String(note.id)
       button.setAttribute('aria-pressed', String(note.done)); li.append(button); list.append(li)
     })
-    status.textContent = `총 ${notes.length}개 · 처리 ${handled}회 · 연결 ${bindings}회 (활성 리스너 세트 1개)`
+    status.textContent = `${messages.display10}${notes.length}${messages.display04}${handled}${messages.display05}${bindings}${messages.display01}`
   }
   function bind() {
     events?.abort(); events = new AbortController(); bindings++

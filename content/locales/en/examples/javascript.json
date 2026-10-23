@@ -17,147 +17,479 @@
     }
   },
   "javascript-step-03": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "ea65d04f7fad1acf945d3d2d9cd081eb8af2ec79b55b6a032d01879aba2d24c7",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "a7ca82ffcd09e8b0ffbe061fea5a7d535b8d5695645d2979912a23a446fb9651",
+      "values": {
+        "comments.title": "Equality comparisons and default values",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Equality comparisons and default values",
+        "messages.help": "Change the input from logical OR to ?? and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-04": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "3b5d926d2df4616f10b76d4764a70782b664af4f29e70519b10893d438dc826b",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "0ed828554e7e6cc73d7174d364e22604e869a211bdae349947b6f3df542dd94b",
+      "values": {
+        "comments.title": "Branches and early returns",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Branches and early returns",
+        "messages.help": "Change the input from running to paused and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment",
+        "messages.display05": "Unknown status: ",
+        "messages.display06": "A string is required",
+        "messages.display07": "Idle",
+        "messages.display08": "Running",
+        "messages.display09": "Done"
+      }
     }
   },
   "javascript-step-05": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "42d74734f657bd81d3c37d7539f7933fae6a84e361a93e5c1358ab3ed09c28ab",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "ae9a60ea079e048834899a032d13a7f0ee8346daecd5fc91bc18f0d0bb08586e",
+      "values": {
+        "comments.title": "Functions and pure calculations",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Functions and pure calculations",
+        "messages.help": "Change the input from 4 to 0 and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-06": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "acf7e979424ff4835ca722739bfd4c6200dc408e445c5c307feaa73a67d2a755",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "f61286d2b5869c40a22eb384cd6843f0cbc63699f314a6d1651efca23b278194",
+      "values": {
+        "comments.title": "Scope and closures",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Scope and closures",
+        "messages.help": "Change the input from inside the factory to module scope and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-07": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "3c8e3312554e0d696cc3b6438c12a50a5b8e842a3eb78ccb9f7fae7c664c29eb",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "5d78ff9b59a5f098f54fee4b9a1ce0270dee9ada26bfacc74abf6ad3ab3afd0f",
+      "values": {
+        "comments.title": "Array aggregation and empty input",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Array aggregation and empty input",
+        "messages.help": "Change the input from 5 to 0 and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-08": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "82e62ce71c252bb48b7a7f6898703d28f43d61d891a5992cd917c90e1cc0bd10",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "d5cb497f46ddd792323352c1b1d0f0b37b49441b9470c748e3167200eec2be5c",
+      "values": {
+        "comments.title": "Object destructuring and optional access",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Object destructuring and optional access",
+        "messages.help": "Change the input from an existing object to a missing object and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment",
+        "messages.display05": "No contact information"
+      }
     }
   },
   "javascript-step-09": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "8a029f0b412084c2ca1e02e5f9a7ad739a621a9fd83cda96a0c7fef7a008b13b",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "36de730f440a1e7775a39f5b5d7d6eabcfa5ff23615e9a9c5058129e20d6ffec",
+      "values": {
+        "comments.title": "Indexing with Map and Set",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Indexing with Map and Set",
+        "messages.help": "Change the input from new id 4 to existing id 2 and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-10": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "9c7f0633cfdb7c09267778b19ca312eb303f391d1c892de0d0731033c5192b6a",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "0c2775b7b01428a42a86ce6fa524ef597e5707c2efd0aeb4d728e1662b6f984f",
+      "values": {
+        "comments.title": "Exceptions and recovery paths",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Exceptions and recovery paths",
+        "messages.help": "Change the input from valid JSON to JSON with a missing bracket and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-11": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "08e5946f7e65508fde9a895a6b058836300b45e63262dc6bd07f8c470e66992d",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "86472042d3aa64a7ee8bf706aa3e2805482f3424a3d853002bfc6691b4421cc1",
+      "values": {
+        "comments.title": "DOM creation and text insertion",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "DOM creation and text insertion",
+        "messages.help": "Change the input from plain text to a string resembling a tag and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-12": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "2979b790bfae25b878e6e02d4dc70a74a70d22d9703eed1cde854647e99df3d9",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "5857c43b136c22305bae952f16d0ac5ae073ba474d36391ad613ea09dba80372",
+      "values": {
+        "comments.title": "Event propagation and delegation",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Event propagation and delegation",
+        "messages.help": "Change the click target from the button to its inner span and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment",
+        "messages.display05": "The delegated handler removes the item even when you click the span inside the button.",
+        "messages.display06": " Remove"
+      }
     }
   },
   "javascript-step-13": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "ae159e8e98a132836d5c8b30acce44be635797d4fdb2ae45288641c2b8ebfd78",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "8337817b09e28b78913c196c5d138bf643c3af8edd866edb460e517f8d869c40",
+      "values": {
+        "comments.title": "Promises and execution order",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Promises and execution order",
+        "messages.help": "Change the input from returning the Promise to omitting the return and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-15": {
-    "sourceHash": "88921ba4600ce1e07671afb25a78eb5893c5d0140782dde401fd33a4770d62a8",
+    "sourceHash": "f8f4014245af36fd54f5c760101975aa39b32400aa7d7027bf0916d885383a3f",
     "values": {
       "note": "Because preview network access is restricted, this example runs 200/404 fixtures using real Response objects. Test fetch and HTTP requests on a local server."
+    },
+    "presentation": {
+      "sourceHash": "0eb861dc931b15fa8d7487a0a0c81b50029efebcd23f65a2851249ace81f87c0",
+      "values": {
+        "comments.title": "Fetch responses and HTTP errors",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Fetch responses and HTTP errors",
+        "messages.help": "Because the preview restricts network access, this runs 200/404 fixtures using actual Response objects. Test fetch and HTTP requests on a local server.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-16": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "4adcff006ac8dfa1ce79020ec1aa6c8e72f5d5ac93d63c79ed02d4875cfde1c2",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "bc80256020f61f0a07c3b25ca46c14e783c665326e66704c9e1d0c8ff95000ad",
+      "values": {
+        "comments.title": "Parallel tasks and partial failures",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Parallel tasks and partial failures",
+        "messages.help": "Change the input from 0 to 1 and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-17": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "07f7469ca29caf0fe9493317f849d05a1b2981297acd1292b45772fd81f4de93",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "8da59bfb5e9c7e174ff050edd3d39456728d389c2936aafc304d29a3b0f20ac0",
+      "values": {
+        "comments.title": "Debouncing and timer cleanup",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Debouncing and timer cleanup",
+        "messages.help": "Change the input from 0ms to 300ms and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment",
+        "messages.display05": "Type quickly. Execution occurs ",
+        "messages.display06": "Search executed: ",
+        "messages.display07": "ms after the last input."
+      }
     }
   },
   "javascript-step-18": {
-    "sourceHash": "bf7f0f0ce627135786a15684b73fc060da5389f8b5e5a5783abd3c8559d80e67",
+    "sourceHash": "65f93bfd707556d97972624ee69a94cb384b8c58ce95cd6cbca27d759669ade3",
     "values": {
       "note": "This example runs the public interface of a Blob ES module. Test actual separation into relative files and Network paths in an HTTP project."
+    },
+    "presentation": {
+      "sourceHash": "fde75e00e1ae0bf29e664aa14400f39fd1c650bdb3c6e8e8a7e6f99e14b51f10",
+      "values": {
+        "comments.title": "Public boundaries of ES modules",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Public boundaries of ES modules",
+        "messages.help": "This runs the public boundary of a Blob ES module. Test actual relative-file separation and Network paths in an HTTP project.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-19": {
-    "sourceHash": "55ab5da8abf0f14eb0b2916b54ae5c84bd193fa165fa55393a5456a9fff34dbf",
+    "sourceHash": "977e39c7ea88b4bd21bbec40c3515ff755a408c0535de7fbad10a4593fd837a9",
     "values": {
       "note": "The practice-only key is removed after execution. SecurityError caused by the iframe storage policy is also displayed."
+    },
+    "presentation": {
+      "sourceHash": "ccc4f571aba48ba68fc4fbed2508a8c6877a88923c9b19c72e3e8e7a7c3ab0de",
+      "values": {
+        "comments.title": "Storage and restore failures",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Storage and restore failures",
+        "messages.help": "The experiment-specific key is removed after execution. SecurityError from the iframe storage policy is also displayed.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-20": {
-    "sourceHash": "5a8d7cfcd1393383d12eca295132c81c4c935efa7f71b6007179ef6bef89d48c",
+    "sourceHash": "17e40cc50468cd6378e63bd4f7eae2c695f64a16a2cb0bcff10751db02b66f8a",
     "values": {
       "note": "This example runs a URLSearchParams encoding round trip. Test the actual address bar and back navigation with popstate on a separate HTTP page."
+    },
+    "presentation": {
+      "sourceHash": "fdb9a4fd3cc6509e3bfefd4c19661d5a0ab48d17e1937b2f2673a48ecc70e7c2",
+      "values": {
+        "comments.title": "URL filters and back navigation",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "URL filters and back navigation",
+        "messages.help": "This runs a URLSearchParams encoding round trip. Test the actual address bar and back navigation with popstate on a separate HTTP page.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-21": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "f85be345d23d0cecb285dac445155456f091523cc9a2e8e2ece99490804250a2",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "f461da427a0ebef61e5d27253050b5cd8cb95d508b6ccfb125362a93b53e8f84",
+      "values": {
+        "comments.title": "FormData and domain validation",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "FormData and domain validation",
+        "messages.help": "Change the input from checked to unchecked and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment",
+        "messages.display05": "Submit the form to inspect the domain validation result.",
+        "messages.display06": "Title ",
+        "messages.display07": "Done ",
+        "messages.display08": "Minutes ",
+        "messages.display09": "Save"
+      }
     }
   },
   "javascript-step-22": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "464a06607102b33c7b8bcfe09df817db44e1978398f2df7b3d28b7ff8aaa94ca",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "6d9d8c290048f0a16b140384efadcd296f8fe90ffb227781e46540bcb55686b7",
+      "values": {
+        "comments.title": "Exporting JSON with Blob",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Exporting JSON with Blob",
+        "messages.help": "Change the input from English text to Korean text with line breaks and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment",
+        "messages.display05": "Download notes.json"
+      }
     }
   },
   "javascript-step-23": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "da850a81c1979aad35b6638f312014f4a745b01a95bac1a5213bb11f7a590c2c",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "bb243161663d54ac80571e9852e26c174fe85fafad8e5e5e032f60056e9d4602",
+      "values": {
+        "comments.title": "File import and structure validation",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "File import and structure validation",
+        "messages.help": "Change the input from a string to a number and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment",
+        "messages.display05": "Apply only when the entire array passes validation"
+      }
     }
   },
   "javascript-step-24": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "06fe67c3ebc856ffa343b633023c81b55c568b3845eebe956b7730f148e80c4b",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "c63f9efb2d280f35e8fd7cc8246fc0a16a64496fc4847760eeba087449e45b5e",
+      "values": {
+        "comments.title": "State transitions and undo",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "State transitions and undo",
+        "messages.help": "Change the input from modifying the nested object to creating a new object and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-25": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "2910965becf8339732fb0872c806e5ce72885cd8d55ed53915b5a3cc4898c9dc",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "02cc5f06a596a497529aab5c74c4f5a1ee0c44bf5b8820128f160c743a9f8bad",
+      "values": {
+        "comments.title": "Date storage and localized display",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Date storage and localized display",
+        "messages.help": "Change the input from UTC to Asia/Seoul and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
     }
   },
   "javascript-step-26": {
-    "sourceHash": "9b6eac2384a6b9a1579c202c7acb448955d8129369deb3e39932480165f4f805",
+    "sourceHash": "93906fe90644ed0a625c41d6c67207fa1019acba36332d3a82869e85073cfcb7",
     "values": {
       "note": "Times are observations on the current device and do not establish performance superiority. Compare count and batch under the same conditions."
+    },
+    "presentation": {
+      "sourceHash": "4bcff5f82eb71db963868f4d8aefd53621328c1de3182160ac0cc4097c296038",
+      "values": {
+        "comments.title": "Computation cost and task splitting",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Computation cost and task splitting",
+        "messages.help": "Times are observations on the current device and do not establish a performance ranking. Compare count and batch under the same conditions.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment",
+        "messages.display05": "Click handled",
+        "messages.display06": "Check responsiveness"
+      }
     }
   },
   "javascript-step-27": {
-    "sourceHash": "6ec8177454f578b3f3266f6ba3cc74d7ace14066e8c7f2e4101ea7cc8c78e82b",
+    "sourceHash": "39b92eaa938072a3ffef2dd6fe3d193e4481988582aaec53e2436dea5edf8278",
     "values": {
       "note": "Compare the editable inputs with actual browser execution results."
+    },
+    "presentation": {
+      "sourceHash": "711095ceaff3b6b2a021a5140a858df0d536c5655c9f6a7fc5c3cf9dabc3c39d",
+      "values": {
+        "comments.title": "Listener cleanup and repeated mounts",
+        "comments.help": "Editable experiment input and algorithm.",
+        "messages.title": "Listener cleanup and repeated mounts",
+        "messages.help": "Change the input from 1 mount to 5 mounts and run the experiment.",
+        "messages.input": "Experiment JSON input",
+        "messages.run": "Run experiment"
+      }
+    }
+  },
+  "javascript-01": {
+    "presentation": {
+      "sourceHash": "e56aa0ed45ca1e2ea001447449c6e4cbc9b6090f82d607e253b514f3be6b333d",
+      "values": {
+        "comments.help": "Change STEP and explain why a const object can still have mutable properties.",
+        "messages.display01": "Increment state"
+      }
+    }
+  },
+  "javascript-02": {
+    "presentation": {
+      "sourceHash": "40884f9fa7c3aa89d453043909232f7860269f2f7ce2ca9bfe68b81290a89035",
+      "values": {
+        "comments.help": "Reproduce out-of-order responses with delayed Promises and no network access.",
+        "messages.display01": "Shorter search terms take longer. Quickly type “r” followed by “react”.",
+        "messages.display02": "Mode changed: existing requests cleaned up",
+        "messages.display03": "Asynchronous search and cancellation",
+        "messages.display04": "No protection (comparison)",
+        "messages.display05": " Ignored stale result",
+        "messages.display06": "Reproduce out-of-order responses",
+        "messages.display07": " Applied result: ",
+        "messages.display08": " Searching: ",
+        "messages.display09": "Protection mode ",
+        "messages.display10": "ms delay)",
+        "messages.display11": "Request ID",
+        "messages.display12": " Result: ",
+        "messages.display13": "Search "
+      }
+    }
+  },
+  "javascript-03": {
+    "presentation": {
+      "sourceHash": "73398647c91d3f6a1fb1f3fddf98f011d5e2133a86a40c04d900855bac15af7f",
+      "values": {
+        "comments.help": "Separate data changes, rendering, and event binding. Storage is limited to memory for this run.",
+        "messages.display01": " times (1 active listener set)",
+        "messages.display02": "Rebind events",
+        "messages.display03": "View JSON",
+        "messages.display04": " notes · Handled ",
+        "messages.display05": " times · Bound ",
+        "messages.display06": "Note module",
+        "messages.display07": "New note ",
+        "messages.display08": "Filter ",
+        "messages.display09": "Add",
+        "messages.display10": "Total "
+      }
     }
   }
 }

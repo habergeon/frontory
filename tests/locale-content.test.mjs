@@ -369,7 +369,11 @@ test('actual English content publishes exactly the approved lessons with complet
       assert.ok(note.values.note.trim())
       assert.doesNotMatch(note.values.note, /[가-힣]/)
     } else {
-      assert.equal(note, undefined)
+      if (note) {
+        assert.deepEqual(Object.keys(note), ['presentation'])
+        assert.ok(result.examplePresentations[id], id + ': validated legacy presentation')
+        assert.equal(result.exampleReadingSources[id], `/examples-en/${id}/example.js`)
+      }
       const legacy = JSON.parse(fs.readFileSync(new URL('../content/catalog-v2.json', import.meta.url))).units.find(unit => unit.id === id)
       assert.ok(legacy, id + ': legacy guidance required')
       const guide = result.documents.get('/docs/examples.md').text

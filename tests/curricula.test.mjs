@@ -65,7 +65,7 @@ test('English generated catalog and lessons match approved content without unpub
     assert.equal(unit.docPath, original.docPath.replace('/docs/', '/docs/en/'))
     assert.equal(unit.goal, translated.outcomes.join(' '))
     const note = read('content/locales/en/examples/' + unit.seriesId + '.json')[unit.id]
-    assert.equal(unit.exampleNote, note?.values.note)
+    assert.equal(unit.exampleNote, note?.values?.note)
     const markdown = fs.readFileSync('.' + unit.docPath, 'utf8')
     let proseWithoutCode = markdown.replace(/```[\s\S]*?```/g, '')
     if (unit.id === 'javascript-step-11') {
@@ -121,7 +121,7 @@ test('English generated catalog and lessons match approved content without unpub
     assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
     for (const name of ['tasks', 'variables', 'criteria', 'notes']) assert.ok(markdown.includes('## ' + headings.en[name]), name)
     for (const step of translated.steps) assert.ok(markdown.includes(step), unit.id)
-    if (note) assert.ok(markdown.includes(unit.exampleNote))
+    if (note?.values) assert.ok(markdown.includes(unit.exampleNote))
     else {
       assert.ok(previous.units.some(legacy => legacy.id === unit.id), unit.id + ': legacy guidance required')
       assert.ok(markdown.includes('Runtime environments and limits'))
@@ -212,6 +212,8 @@ test('complete English archive includes all 29 manual WebGL documents and their 
 test('localized catalog lookup preserves shared executable identity and has no Korean fallback', async () => {
   const { transformSync } = await import('esbuild')
   const { createRequire } = await import('node:module')
+  const { readEnglishContent } = await import('../scripts/locale-content.mjs')
+  const readingSources = readEnglishContent().exampleReadingSources
   const source = fs.readFileSync('src/app/curriculum.ts', 'utf8')
   const details = Object.assign({}, ...fs.readdirSync('content/examples').map(file => read('content/examples/' + file)))
   details['javascript-step-02'].files = ['src/labs/javascript-step-02/fixture.js']
@@ -237,7 +239,8 @@ test('localized catalog lookup preserves shared executable identity and has no K
     assert.equal(unit.exampleMode, common.exampleMode)
     assert.equal(unit.exampleMode, details[unit.id]?.mode)
     assert.equal(unit.exampleReadingSource, common.exampleReadingSource)
-    assert.equal(unit.exampleReadingSource, details[unit.id]?.readingSource)
+    assert.equal(unit.exampleReadingSource, readingSources[unit.id])
+    if (details[unit.id]?.readingSource) assert.equal(unit.exampleReadingSource, details[unit.id].readingSource)
     assert.equal(unit.exampleFiles, common.exampleFiles)
     if (details[unit.id]) {
       if (/[가-힣]/.test(common.exampleNote)) assert.notEqual(unit.exampleNote, common.exampleNote)

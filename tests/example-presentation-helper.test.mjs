@@ -135,11 +135,11 @@ test('approved foundations and framework inline/indented source forms translate 
 
 test('actual CSS26 JSON-encoded block changes only the approved embedded comment', () => {
   const source = fs.readFileSync('src/labs/css-step-26/example.js', 'utf8')
-  const line = source.split(/\r?\n/)[2]
+  const line = source.split(/\r?\n/).find(line => line.startsWith('const HTML='))
   const from = '비교: width 대신 transform:translateX(20px)'
   const to = 'Compare: use transform:translateX(20px) instead of width'
   const reading = helper.translateExampleComments('css-step-26', source, { comments: { css: from } }, { comments: { css: to } }, { css: { line, column: line.indexOf('/*'), kind: 'css-block-json' } })
   assert.equal(reading.replace('/* ' + to + ' */', '/* ' + from + ' */'), source)
-  const extractCSS = text => JSON.parse(text.split(/\r?\n/)[2].split(',CSS=')[1].slice(0, -1))
+  const extractCSS = text => JSON.parse(text.split(/\r?\n/).find(line => line.startsWith('const HTML=')).split(',CSS=')[1].slice(0, -1))
   assert.equal(extractCSS(reading).replace('/* ' + to + ' */', ''), extractCSS(source).replace('/* ' + from + ' */', ''))
 })

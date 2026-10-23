@@ -10,16 +10,20 @@ for (const [id, original] of Object.entries(sources)) {
     const common = fs.readFileSync(`src/labs/${id}/example.js`, 'utf8').replaceAll('\r\n', '\n')
     const reading = fs.readFileSync(`public/examples-en/${id}/example.js`, 'utf8').replaceAll('\r\n', '\n')
     const translated = readEnglishContent().examplePresentations[id]
-    const lines = reading.split('\n')
+    let restored = reading
     for (const [key, value] of Object.entries(translated.comments)) {
       assert.doesNotMatch(value, /[가-힣]/)
-      const index = lines.indexOf('// ' + value)
-      assert.notEqual(index, -1)
-      lines[index] = '// ' + original.comments[key]
+      const css = id === 'css-step-26' && key === 'cssComparison'
+      const from = css ? JSON.stringify('/* ' + value + ' */').slice(1, -1) : '// ' + value
+      const to = css ? JSON.stringify('/* ' + original.comments[key] + ' */').slice(1, -1) : '// ' + original.comments[key]
+      assert.equal(restored.split(from).length, 2, `${id}.${key}: unique approved comment`)
+      restored = restored.replace(from, () => to)
     }
-    assert.equal(lines.join('\n'), common)
+    assert.equal(restored, common)
     const parsed = source => transformSync(source, { loader: 'js', legalComments: 'none' }).code
-    assert.equal(parsed(reading), parsed(common))
+    // CSS26 changes an embedded CSS comment inside a JS string value. Reverse
+    // that exact approved span before comparing executable JavaScript output.
+    assert.equal(parsed(id === 'css-step-26' ? restored : reading), parsed(common))
     assert.match(common, /locale='ko'/)
     assert.ok(Object.values(translated.messages).every(value => !/[가-힣]/.test(value)))
   })

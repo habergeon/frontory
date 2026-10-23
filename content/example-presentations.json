@@ -46,5 +46,358 @@
     "comments": {
       "title": "gsap-step-02: 시작값과 목표값"
     }
+  },
+  "javascript-01": {
+    "messages": {
+      "display01": "상태 증가"
+    },
+    "comments": {
+      "help": "STEP을 바꿔 보고 const 객체의 내부 값이 변할 수 있는 이유를 설명하세요."
+    }
+  },
+  "javascript-step-03": {
+    "messages": {
+      "title": "동등 비교와 기본값",
+      "help": "논리 OR → ?? 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "동등 비교와 기본값",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-04": {
+    "messages": {
+      "title": "분기와 조기 반환",
+      "help": "running → paused 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행",
+      "display05": "알 수 없는 상태: ",
+      "display06": "문자열 필요",
+      "display07": "대기",
+      "display08": "진행",
+      "display09": "완료"
+    },
+    "comments": {
+      "title": "분기와 조기 반환",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-05": {
+    "messages": {
+      "title": "함수와 순수 계산",
+      "help": "4 → 0 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "함수와 순수 계산",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-06": {
+    "messages": {
+      "title": "스코프와 클로저",
+      "help": "팩토리 내부 → 모듈 최상위 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "스코프와 클로저",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-07": {
+    "messages": {
+      "title": "배열 집계와 빈 입력",
+      "help": "5 → 0 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "배열 집계와 빈 입력",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-08": {
+    "messages": {
+      "title": "객체 구조 분해와 선택적 접근",
+      "help": "객체 있음 → 없음 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행",
+      "display05": "연락처 없음"
+    },
+    "comments": {
+      "title": "객체 구조 분해와 선택적 접근",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-09": {
+    "messages": {
+      "title": "Map과 Set 색인",
+      "help": "새 id 4 → 기존 id 2 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "Map과 Set 색인",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-10": {
+    "messages": {
+      "title": "예외와 복구 경로",
+      "help": "정상 → 괄호 누락 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "예외와 복구 경로",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-11": {
+    "messages": {
+      "title": "DOM 생성과 텍스트 삽입",
+      "help": "일반 문자 → 태그 형태 문자열 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "DOM 생성과 텍스트 삽입",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-12": {
+    "messages": {
+      "title": "이벤트 전파와 위임",
+      "help": "버튼 → 내부 span 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행",
+      "display05": "버튼 내부 span을 눌러도 위임된 핸들러가 항목을 삭제합니다.",
+      "display06": " 삭제"
+    },
+    "comments": {
+      "title": "이벤트 전파와 위임",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-13": {
+    "messages": {
+      "title": "Promise와 실행 순서",
+      "help": "Promise 반환 → 반환 생략 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "Promise와 실행 순서",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-02": {
+    "messages": {
+      "display01": "짧은 검색어일수록 느립니다. “r” 다음 “react”를 빠르게 입력하세요.",
+      "display02": "모드 변경: 기존 요청 정리",
+      "display03": "비동기 검색과 취소",
+      "display04": "보호 없음 (비교)",
+      "display05": " 이전 결과 무시",
+      "display06": "응답 역전 재현",
+      "display07": " 결과 반영: ",
+      "display08": " 검색 중: ",
+      "display09": "보호 방식 ",
+      "display10": "ms 지연)",
+      "display11": "요청 ID",
+      "display12": " 결과: ",
+      "display13": "검색 "
+    },
+    "comments": {
+      "help": "네트워크 없이 지연 Promise로 응답 역전을 재현합니다."
+    }
+  },
+  "javascript-step-15": {
+    "messages": {
+      "title": "Fetch 응답과 HTTP 오류",
+      "help": "미리보기 네트워크 제한 때문에 실제 Response 객체의 200/404 fixture를 실행합니다. fetch·HTTP 요청은 로컬 서버에서 검사하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "Fetch 응답과 HTTP 오류",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-16": {
+    "messages": {
+      "title": "병렬 작업과 부분 실패",
+      "help": "0 → 1 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "병렬 작업과 부분 실패",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-17": {
+    "messages": {
+      "title": "디바운스와 타이머 정리",
+      "help": "0ms → 300ms 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행",
+      "display05": "빠르게 입력하세요. 실행 시점은 마지막 입력 이후 ",
+      "display06": "검색 실행: ",
+      "display07": "ms입니다."
+    },
+    "comments": {
+      "title": "디바운스와 타이머 정리",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-18": {
+    "messages": {
+      "title": "ES 모듈의 공개 경계",
+      "help": "Blob ES 모듈의 공개 경계를 실행합니다. 실제 상대 파일 분리와 Network 경로 검증은 HTTP 프로젝트에서 수행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "ES 모듈의 공개 경계",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-19": {
+    "messages": {
+      "title": "저장소와 복원 실패",
+      "help": "실습 전용 키는 실행 후 제거됩니다. iframe 저장소 정책에 따른 SecurityError도 표시합니다.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "저장소와 복원 실패",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-20": {
+    "messages": {
+      "title": "URL 필터와 뒤로 가기",
+      "help": "URLSearchParams 인코딩 왕복을 실행합니다. 실제 주소 표시줄 및 popstate 뒤로 가기 검증은 별도 HTTP 페이지에서 진행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "URL 필터와 뒤로 가기",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-21": {
+    "messages": {
+      "title": "FormData와 도메인 검증",
+      "help": "체크 → 해제 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행",
+      "display05": "폼을 제출해 도메인 검증 결과를 확인하세요.",
+      "display06": "제목 ",
+      "display07": "완료 ",
+      "display08": "분 ",
+      "display09": "저장"
+    },
+    "comments": {
+      "title": "FormData와 도메인 검증",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-22": {
+    "messages": {
+      "title": "Blob으로 JSON 내보내기",
+      "help": "영문 → 한글과 줄바꿈 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행",
+      "display05": "notes.json 다운로드"
+    },
+    "comments": {
+      "title": "Blob으로 JSON 내보내기",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-23": {
+    "messages": {
+      "title": "파일 가져오기와 구조 검사",
+      "help": "문자열 → 숫자 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행",
+      "display05": "전체 배열 통과 시에만 반영"
+    },
+    "comments": {
+      "title": "파일 가져오기와 구조 검사",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-24": {
+    "messages": {
+      "title": "상태 전이와 실행 취소",
+      "help": "내부 객체 수정 → 새 객체 생성 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "상태 전이와 실행 취소",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-25": {
+    "messages": {
+      "title": "날짜 저장과 지역 표시",
+      "help": "UTC → Asia/Seoul 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "날짜 저장과 지역 표시",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-26": {
+    "messages": {
+      "title": "계산 비용과 작업 분할",
+      "help": "시간은 현재 기기의 관찰값이며 성능 우열을 단정하지 않습니다. count와 batch를 같은 조건으로 비교하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행",
+      "display05": "클릭 처리됨",
+      "display06": "응답 확인"
+    },
+    "comments": {
+      "title": "계산 비용과 작업 분할",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-step-27": {
+    "messages": {
+      "title": "리스너 정리와 반복 마운트",
+      "help": "1회 → 5회 조건으로 입력을 바꿔 실행하세요.",
+      "input": "실험 JSON 입력",
+      "run": "실험 실행"
+    },
+    "comments": {
+      "title": "리스너 정리와 반복 마운트",
+      "help": "편집할 실험 입력과 알고리즘입니다."
+    }
+  },
+  "javascript-03": {
+    "messages": {
+      "display01": "회 (활성 리스너 세트 1개)",
+      "display02": "이벤트 재연결",
+      "display03": "JSON 보기",
+      "display04": "개 · 처리 ",
+      "display05": "회 · 연결 ",
+      "display06": "메모 모듈",
+      "display07": "새 메모 ",
+      "display08": "필터 ",
+      "display09": "추가",
+      "display10": "총 "
+    },
+    "comments": {
+      "help": "데이터 변경, 렌더, 이벤트 연결을 분리합니다. 저장은 이 실행의 메모리 범위입니다."
+    }
   }
 }

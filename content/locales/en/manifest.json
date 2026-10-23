@@ -615,6 +615,8 @@
     "playwright-step-25",
     "playwright-step-26",
     "playwright-step-27",
-    "playwright-03"
+    "playwright-03",
+    "01-scene",
+    "02-camera"
   ]
 }

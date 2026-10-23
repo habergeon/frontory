@@ -1,6 +1,20 @@
 {
   "series": [
     {
+      "id": "webgl",
+      "title": "WebGL Journey",
+      "category": "graphics",
+      "priority": 5,
+      "prerequisites": "React·TypeScript experience",
+      "docPath": "/docs/en/labs/graphics/webgl/README.md",
+      "stages": [
+        "Scenes and interaction",
+        "GLSL experiments",
+        "Gaussian Splatting",
+        "Integration and performance"
+      ]
+    },
+    {
       "id": "javascript",
       "title": "JavaScript",
       "category": "fundamentals",
@@ -310,6 +324,24 @@
     }
   ],
   "units": [
+    {
+      "id": "01-scene",
+      "day": 1,
+      "week": 1,
+      "title": "WebGL·GPU and the first image",
+      "goal": "Connect the roles of the CPU and GPU and the rendering pipeline to the code for your first scene.",
+      "docPath": "/docs/en/labs/graphics/webgl/01-scene/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "02-camera",
+      "day": 2,
+      "week": 1,
+      "title": "Scene·Camera·Renderer",
+      "goal": "Distinguish the effects of camera position and field of view.",
+      "docPath": "/docs/en/labs/graphics/webgl/02-camera/README.md",
+      "seriesId": "webgl"
+    },
     {
       "id": "javascript-01",
       "day": 1,

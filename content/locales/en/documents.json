@@ -22,5 +22,17 @@
   "/docs/labs/README.md": {
     "sourceHash": "a739003bc60112198d687015cd6bbc3c84f0f902b572b9a6c02e29d3954d65dd",
     "translatedPath": "/docs/en/labs/README.md"
+  },
+  "/docs/labs/graphics/webgl/README.md": {
+    "sourceHash": "c738641db444c2e71ddb8b729c5851467d3b99c64f283b1d14e40eb5ed3bf883",
+    "translatedPath": "/docs/en/labs/graphics/webgl/README.md"
+  },
+  "/docs/labs/graphics/webgl/01-scene/README.md": {
+    "sourceHash": "188916cb9e024adf182083ae28554c787a1c42afc9803ad2aa64f1129c6cefbe",
+    "translatedPath": "/docs/en/labs/graphics/webgl/01-scene/README.md"
+  },
+  "/docs/labs/graphics/webgl/02-camera/README.md": {
+    "sourceHash": "cc400ad9b6e08a734d5867d2a00ea37d72f114bc7e454d87b035d4d0804238ba",
+    "translatedPath": "/docs/en/labs/graphics/webgl/02-camera/README.md"
   }
 }

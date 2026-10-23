@@ -326,7 +326,7 @@ test('actual English content publishes exactly the approved lessons with complet
   const result = readEnglishContent()
   assert.deepEqual(result.publishedUnitIds, ids)
   assert.deepEqual(result.catalog.units.map(unit => unit.id).sort(), [...ids].sort())
-  for (const id of ids) {
+  for (const id of ids.filter(id => result.catalog.units.find(unit => unit.id === id).seriesId !== 'webgl')) {
     const { seriesId } = result.catalog.units.find(unit => unit.id === id)
     const source = JSON.parse(fs.readFileSync(new URL(`../content/curricula/${seriesId}.json`, import.meta.url)))
     const original = source.units.find(unit => unit.id === id)
@@ -579,7 +579,7 @@ test('reader identifies missing English manuscripts by filename', t => {
   assert.throws(() => readEnglishContent({ root }), error => error.path === path.join(root, 'content/locales/en/curricula/javascript.json'))
 })
 
-test('translation CLI emits review evidence and fails complete with missing IDs', () => {
+test('translation CLI emits review evidence and enforces complete publication', () => {
   const script = fileURLToPath(new URL('../scripts/check-translations.mjs', import.meta.url))
   const partial = spawnSync(process.execPath, [script], { encoding: 'utf8' })
   assert.equal(partial.status, 0, partial.stderr)
@@ -589,10 +589,18 @@ test('translation CLI emits review evidence and fails complete with missing IDs'
   assert.ok(report.review.some(item => item.kind === 'numbers' && item.source.includes('244')))
   assert.match(report.reviewNotice, /human review/i)
   const complete = spawnSync(process.execPath, [script, '--complete'], { encoding: 'utf8' })
-  assert.equal(complete.status, 1)
-  assert.match(complete.stderr, /Missing approved unit IDs:/)
-  assert.match(complete.stderr, /01-scene/)
-  assert.doesNotMatch(complete.stderr, /at readEnglishContent/)
+  if (manifest.publishedUnitIds.length === 644) {
+    assert.equal(complete.status, 0, complete.stderr)
+    assert.deepEqual(JSON.parse(complete.stdout), { ...report, mode: 'complete' })
+    assert.equal(report.series, 23)
+    assert.equal(report.documents, 35)
+  } else {
+    assert.equal(complete.status, 1)
+    const catalog = JSON.parse(fs.readFileSync(new URL('../src/app/catalog.json', import.meta.url)))
+    const missing = catalog.units.filter(unit => !manifest.publishedUnitIds.includes(unit.id)).map(unit => unit.id)
+    assert.ok(complete.stderr.includes('Missing approved unit IDs: ' + missing.join(', ')))
+    assert.doesNotMatch(complete.stderr, /at readEnglishContent/)
+  }
   const unknown = spawnSync(process.execPath, [script, '--typo'], { encoding: 'utf8' })
   assert.equal(unknown.status, 1)
   assert.match(unknown.stderr, /Unknown argument/)

@@ -152,5 +152,16 @@
       "title": "Playwright",
       "prerequisites": "DOM roles and asynchronous behavior, testing basics"
     }
+  },
+  "webgl": {
+    "sourceHash": "363186bb9b7c49f59bab4e5023b1373f0ff39c4b9c7263a0f8333591531dbe72",
+    "values": {
+      "title": "WebGL Journey",
+      "prerequisites": "React·TypeScript experience",
+      "stages.0": "Scenes and interaction",
+      "stages.1": "GLSL experiments",
+      "stages.2": "Gaussian Splatting",
+      "stages.3": "Integration and performance"
+    }
   }
 }

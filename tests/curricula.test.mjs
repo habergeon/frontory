@@ -59,7 +59,7 @@ test('English generated catalog and lessons match approved content without unpub
   const english = read('src/app/catalog.en.json')
   assert.deepEqual(english.units.map(unit => unit.id).sort(), [...approved.publishedUnitIds].sort())
   assert.deepEqual(english.series.map(series => series.id), approved.catalog.series.map(series => series.id))
-  for (const unit of english.units) {
+  for (const unit of english.units.filter(unit => unit.seriesId !== 'webgl')) {
     const original = catalog.units.find(item => item.id === unit.id)
     const translated = approved.curricula[unit.seriesId].units.find(item => item.id === unit.id)
     assert.equal(unit.docPath, original.docPath.replace('/docs/', '/docs/en/'))
@@ -140,6 +140,47 @@ test('English generated catalog and lessons match approved content without unpub
   const index = fs.readFileSync('docs/en/examples-expanded.md', 'utf8')
   for (const unit of english.units.filter(unit => !previous.units.some(legacy => legacy.id === unit.id))) {
     assert.ok(index.includes(unit.exampleNote), unit.id)
+  }
+})
+
+test('published English WebGL units retain the 28 legacy identities and manual documents', async () => {
+  const { readEnglishContent, sourceHash } = await import('../scripts/locale-content.mjs')
+  const approved = readEnglishContent()
+  const records = read('content/locales/en/webgl.json').units
+  const originals = previous.units.filter(unit => unit.seriesId === 'webgl')
+  const english = read('src/app/catalog.en.json').units.filter(unit => unit.seriesId === 'webgl')
+  assert.equal(originals.length, 28)
+  assert.deepEqual(catalog.units.filter(unit => unit.seriesId === 'webgl'), originals)
+  assert.deepEqual(english.map(unit => unit.id).sort(), Object.keys(records).sort())
+  assert.equal(approved.curricula.webgl, undefined)
+  assert.ok(!fs.existsSync('content/locales/en/curricula/webgl.json'))
+  const intro = approved.documents.get('/docs/labs/graphics/webgl/README.md')
+  assert.ok(intro)
+  assert.equal(fs.readFileSync('.' + intro.translatedPath, 'utf8'), intro.text)
+  for (const unit of english) {
+    const source = originals.find(item => item.id === unit.id)
+    assert.ok(source, unit.id)
+    assert.equal(records[unit.id].sourceHash, sourceHash(source))
+    assert.deepEqual(Object.keys(records[unit.id].values).sort(), ['goal', 'title'])
+    assert.deepEqual(unit, { ...source, ...records[unit.id].values,
+      docPath: source.docPath.replace('/docs/', '/docs/en/') })
+    const document = approved.documents.get(source.docPath)
+    assert.equal(document.translatedPath, unit.docPath)
+    const text = fs.readFileSync('.' + unit.docPath, 'utf8')
+    assert.equal(text, document.text)
+    assert.ok(text.includes(unit.title), unit.id)
+    assert.ok(text.includes(unit.goal), unit.id)
+    assert.ok(text.includes('## Exercises'))
+    assert.ok(text.includes('## Variables to observe'))
+    assert.ok(text.includes('## Completion criteria'))
+    assert.ok(text.includes('/' + unit.id + '/example.js'))
+    let prose = text.replace(/`[^`\n]+`/g, '')
+    const formula = 'C=alpha*C앞+(1-alpha)*C뒤'
+    if (unit.id === '18-gs-projection') {
+      assert.equal(prose.split(formula).length - 1, 1)
+      prose = prose.replace(formula, '')
+    }
+    assert.doesNotMatch(prose, /[가-힣]/)
   }
 })
 

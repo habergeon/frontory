@@ -1,6 +1,6 @@
 # Frontory roadmap
 
-[Technology map of 23 series](labs/README.md) · [WebGL: 28 units in progress (Korean)](../labs/graphics/webgl/README.md) · [Practice and storage guide](learning-workspace.md)
+[Technology map of 23 series](labs/README.md) · [WebGL: 28 units in progress](labs/graphics/webgl/README.md) · [Practice and storage guide](learning-workspace.md)
 
 ## Choosing a learning path
 

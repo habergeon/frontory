@@ -1,0 +1,18 @@
+{
+  "units": {
+    "01-scene": {
+      "sourceHash": "febaf07c0aedbe51f96e6f1ed8b2b0cde6c5cc2358b56dbc6f515d13288eb8c6",
+      "values": {
+        "title": "WebGL·GPU and the first image",
+        "goal": "Connect the roles of the CPU and GPU and the rendering pipeline to the code for your first scene."
+      }
+    },
+    "02-camera": {
+      "sourceHash": "2611bb6c05144084ce0a3553e3de52e7c8d9fbe1bca27f245284eaccd56e5ae0",
+      "values": {
+        "title": "Scene·Camera·Renderer",
+        "goal": "Distinguish the effects of camera position and field of view."
+      }
+    }
+  }
+}

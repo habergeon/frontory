@@ -11,7 +11,7 @@ export function practiceGuide(markdown: string, locale: Locale = 'ko') {
     return lines.slice(start + 1, end < 0 ? undefined : end).join('\n').trim()
   }
   return {
-    steps: section(headings[locale].tasks).split('\n').filter(line => /^\d+\. /.test(line)).join('\n'),
+    steps: (section(headings[locale].tasks) || (locale === 'en' ? section('Exercises') : '')).split('\n').filter(line => /^\d+\. /.test(line)).join('\n'),
     variables: section(headings[locale].variables),
     criteria: section(headings[locale].criteria).replace(/^- \[ \] /gm, '- '),
   }

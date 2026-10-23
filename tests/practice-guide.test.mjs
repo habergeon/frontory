@@ -3,6 +3,18 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { practiceGuide } from '../src/app/guideContent.ts'
 
+test('English task extraction accepts generated and manual headings with section boundaries', () => {
+  for (const heading of ['Practice tasks', 'Exercises']) {
+    const text = '## ' + heading + '\n\n1. Change one variable.\n2. Record the result.\n\n## Variables to observe\n\nDPR\n\n## Completion criteria\n\n- [ ] Compared results.\n\n## Next learning\n\n1. Keep this out of the tasks.'
+    assert.deepEqual(practiceGuide(text, 'en'), {
+      steps: '1. Change one variable.\n2. Record the result.',
+      variables: 'DPR',
+      criteria: '- Compared results.',
+    })
+    assert.equal(practiceGuide(text).steps, '')
+  }
+})
+
 test('every lesson exposes tasks, observation variables and completion criteria from its document', () => {
   const catalog = JSON.parse(readFileSync(new URL('../src/app/catalog.json', import.meta.url), 'utf8'))
   for (const unit of catalog.units) {

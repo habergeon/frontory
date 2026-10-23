@@ -9,7 +9,7 @@
     "dev": "pnpm prepare:preview && vite --host 127.0.0.1 --port 5173 --strictPort",
     "test": "node --test tests/*.test.mjs",
     "typecheck": "tsc --noEmit",
-    "build": "pnpm check:curricula && pnpm prepare:preview && pnpm typecheck && pnpm check:examples && vite build && pnpm build:search",
+    "build": "pnpm check:curricula && pnpm check:translations --complete && pnpm prepare:preview && pnpm typecheck && pnpm check:examples && vite build && pnpm build:search",
     "build:search": "node scripts/build-search.mjs",
     "build:curricula": "node scripts/build-curricula.mjs",
     "check:translations": "node scripts/check-translations.mjs",

@@ -306,6 +306,37 @@ test('complete mode accepts 23 translated series and 644 units only with all req
   assert.equal(Object.keys(result.exampleNotes).length, 550)
   assert.equal(Object.keys(result.examplePresentations).length, 644)
   assert.equal(Object.keys(result.exampleReadingSources).length, 644)
+  const packageJson = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url)))
+  const gate = 'pnpm check:translations --complete'
+  assert.ok(packageJson.scripts.build.split(' && ').includes(gate), 'build must require complete translations')
+  const workflow = fs.readFileSync(new URL('../.github/workflows/ci.yml', import.meta.url), 'utf8')
+  assert.ok(workflow.includes(`- run: ${gate}`), 'CI must require complete translations')
+  fs.mkdirSync(path.join(root, 'scripts'), { recursive: true })
+  for (const file of ['check-translations.mjs', 'locale-content.mjs']) {
+    fs.copyFileSync(new URL(`../scripts/${file}`, import.meta.url), path.join(root, 'scripts', file))
+  }
+  const [runtime, ...args] = packageJson.scripts['check:translations'].split(' ')
+  assert.equal(runtime, 'node')
+  const runGate = () => spawnSync(process.execPath, [...args, '--complete'], { cwd: root, encoding: 'utf8' })
+  const valid = runGate()
+  assert.equal(valid.status, 0, valid.stderr)
+  assert.equal(JSON.parse(valid.stdout).mode, 'complete')
+  const englishDocument = path.join(root, 'docs/en/about.md')
+  const englishText = fs.readFileSync(englishDocument, 'utf8')
+  fs.unlinkSync(englishDocument)
+  const missingDocument = runGate()
+  assert.equal(missingDocument.status, 1)
+  assert.match(missingDocument.stderr, /ENOENT.*about\.md/)
+  assert.equal(missingDocument.stdout, '')
+  fs.writeFileSync(englishDocument, englishText)
+  write('content/locales/en/documents.json', { ...documents,
+    '/docs/about.md': { ...documents['/docs/about.md'], sourceHash: '0'.repeat(64) },
+  })
+  const staleDocument = runGate()
+  assert.equal(staleDocument.status, 1)
+  assert.match(staleDocument.stderr, /Stale document source hash: \/docs\/about\.md/)
+  assert.equal(staleDocument.stdout, '')
+  write('content/locales/en/documents.json', documents)
   const withoutPresentation = { ...presentations }
   delete withoutPresentation['webgl-1']
   const webglExamples = JSON.parse(fs.readFileSync(path.join(root, 'content/locales/en/examples/webgl.json')))
@@ -682,20 +713,12 @@ test('translation CLI emits review evidence and enforces complete publication', 
   assert.ok(report.review.some(item => item.kind === 'numbers' && item.source.includes('244')))
   assert.match(report.reviewNotice, /human review/i)
   const complete = spawnSync(process.execPath, [script, '--complete'], { encoding: 'utf8' })
-  let content
-  let failure
-  try { content = readEnglishContent({ complete: true }) } catch (error) { failure = error }
-  if (failure) {
-    assert.equal(complete.status, 1)
-    assert.equal(complete.stderr.trim(), failure.message)
-    assert.equal(complete.stdout, '')
-  } else {
-    assert.equal(complete.status, 0, complete.stderr)
-    assert.deepEqual(JSON.parse(complete.stdout), { ...report, mode: 'complete' })
-    assert.deepEqual(content.publishedUnitIds, manifest.publishedUnitIds)
-    assert.equal(report.series, 23)
-    assert.equal(report.documents, 35)
-  }
+  assert.equal(complete.status, 0, complete.stderr)
+  assert.deepEqual(JSON.parse(complete.stdout), { ...report, mode: 'complete' })
+  assert.deepEqual(readEnglishContent({ complete: true }).publishedUnitIds, manifest.publishedUnitIds)
+  assert.equal(report.publishedUnits, 644)
+  assert.equal(report.series, 23)
+  assert.equal(report.documents, 35)
   const unknown = spawnSync(process.execPath, [script, '--typo'], { encoding: 'utf8' })
   assert.equal(unknown.status, 1)
   assert.match(unknown.stderr, /Unknown argument/)

@@ -184,6 +184,31 @@ test('published English WebGL units retain the 28 legacy identities and manual d
   }
 })
 
+test('complete English archive includes all 29 manual WebGL documents and their link targets', async () => {
+  const { readEnglishContent } = await import('../scripts/locale-content.mjs')
+  const content = readEnglishContent({ complete: true })
+  const english = read('src/app/catalog.en.json')
+  const originals = previous.units.filter(unit => unit.seriesId === 'webgl')
+  assert.equal(english.units.length, 644)
+  assert.equal(english.series.length, 23)
+  assert.equal(english.units.filter(unit => unit.seriesId === 'webgl').length, 28)
+  assert.deepEqual(Object.keys(read('content/locales/en/webgl.json').units), originals.map(unit => unit.id))
+  const paths = ['/docs/labs/graphics/webgl/README.md', ...originals.map(unit => unit.docPath)]
+  assert.equal(paths.length, 29)
+  let links = 0
+  for (const sourcePath of paths) {
+    const document = content.documents.get(sourcePath)
+    assert.ok(document, sourcePath)
+    const base = new URL('..' + document.translatedPath, import.meta.url)
+    for (const match of document.text.matchAll(/\]\(([^)]+)\)/g)) {
+      links++
+      if (/^https?:/.test(match[1])) continue
+      assert.ok(fs.existsSync(new URL(match[1], base)), sourcePath + ': ' + match[1])
+    }
+  }
+  assert.equal(links, 258)
+})
+
 test('localized catalog lookup preserves shared executable identity and has no Korean fallback', async () => {
   const { transformSync } = await import('esbuild')
   const { createRequire } = await import('node:module')

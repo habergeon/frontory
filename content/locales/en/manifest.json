@@ -641,6 +641,8 @@
     "23-loading-ui",
     "24-camera-controls",
     "25-markers",
-    "26-performance"
+    "26-performance",
+    "27-optimization",
+    "28-review"
   ]
 }

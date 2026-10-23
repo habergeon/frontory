@@ -559,6 +559,24 @@
       "seriesId": "webgl"
     },
     {
+      "id": "27-optimization",
+      "day": 27,
+      "week": 4,
+      "title": "Resolution·data optimization",
+      "goal": "Test a bottleneck hypothesis by comparing before and after changing just one variable.",
+      "docPath": "/docs/en/labs/graphics/webgl/27-optimization/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "28-review",
+      "day": 28,
+      "week": 4,
+      "title": "Documentation and optional deployment planning",
+      "goal": "Summarize reproducible results and remaining questions, and review deployment conditions in a document.",
+      "docPath": "/docs/en/labs/graphics/webgl/28-review/README.md",
+      "seriesId": "webgl"
+    },
+    {
       "id": "javascript-01",
       "day": 1,
       "week": 1,

@@ -181,6 +181,20 @@
         "title": "FPS·Draw Calls·memory analysis",
         "goal": "Record a performance baseline under reproducible conditions."
       }
+    },
+    "27-optimization": {
+      "sourceHash": "f72f9ac1debdfed647a1a5a9b2cfd2531941115028d638ddf07e4cc526144a0c",
+      "values": {
+        "title": "Resolution·data optimization",
+        "goal": "Test a bottleneck hypothesis by comparing before and after changing just one variable."
+      }
+    },
+    "28-review": {
+      "sourceHash": "ff29aa2f0ba895a6e0827b1329814d73e41f6611c2824a1ad434335a445813af",
+      "values": {
+        "title": "Documentation and optional deployment planning",
+        "goal": "Summarize reproducible results and remaining questions, and review deployment conditions in a document."
+      }
     }
   }
 }

@@ -130,5 +130,13 @@
   "/docs/labs/graphics/webgl/26-performance/README.md": {
     "sourceHash": "01278900b99b2d640cc57a42471dafd168c96aaa971009eff48fc76ec18c45f3",
     "translatedPath": "/docs/en/labs/graphics/webgl/26-performance/README.md"
+  },
+  "/docs/labs/graphics/webgl/27-optimization/README.md": {
+    "sourceHash": "b2de5c55ad899468e98f4c305e4f3ad97d7bad0f798658f3c0831605291b5870",
+    "translatedPath": "/docs/en/labs/graphics/webgl/27-optimization/README.md"
+  },
+  "/docs/labs/graphics/webgl/28-review/README.md": {
+    "sourceHash": "e03e6f4db16182852a916c2d2534a1a78959826ba250ccf98594b7b70c46af34",
+    "translatedPath": "/docs/en/labs/graphics/webgl/28-review/README.md"
   }
 }

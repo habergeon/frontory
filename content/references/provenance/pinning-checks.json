@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-10-23",
+  "method": "official GitHub connector read-only + web official sources; no browser and no GitHub CLI",
+  "three": {
+    "repo": "mrdoob/three.js",
+    "tag": "r186",
+    "tagObject": "48dd7be01263658aad497fd72e09d1e4c6213461",
+    "commit": "9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8",
+    "packageVersion": "0.186.1",
+    "license": "MIT",
+    "manualPath": "manual/pages/creating-text.html",
+    "manualBlobSha": "7242825fac0f4359e521a43a5cd8ec48447e566f",
+    "tagSignature": "unsigned",
+    "refApi": "https://api.github.com/repos/mrdoob/three.js/git/ref/tags/r186",
+    "tagApi": "https://api.github.com/repos/mrdoob/three.js/git/tags/48dd7be01263658aad497fd72e09d1e4c6213461"
+  },
+  "pixiWebsite": {
+    "repo": "pixijs/pixijs.com",
+    "commit": "1d37277374ca92c3fb2c3f04b91c80e311ff5412",
+    "repositoryLicense": null,
+    "recursiveTreeTruncated": false,
+    "licenseFileFound": false,
+    "packageLicenseField": false,
+    "rights": "unverified-link-only",
+    "treeApi": "https://api.github.com/repos/pixijs/pixijs.com/git/trees/1d37277374ca92c3fb2c3f04b91c80e311ff5412?recursive=1"
+  },
+  "pixiLibrary": {
+    "version": "8.22.0",
+    "tag": "v8.22.0",
+    "commit": "5b41ee37fd36c61e089113345a8f12cf1c3323cf",
+    "license": "MIT",
+    "scope": "library repository; not pixijs.com guide"
+  },
+  "motion": {
+    "version": "14.5.0",
+    "tag": "v14.5.0",
+    "commit": "f87b9ed597b2c031d41b2a13354c1ed20e401885",
+    "license": "MIT",
+    "scope": "library repository; website text republication not confirmed",
+    "machineReadableIndex": "https://motion.dev/llms.txt",
+    "rights": "website-unverified-link-only"
+  },
+  "gsap": {
+    "version": "3.15.0",
+    "documentationVersion": "v3",
+    "index": "https://gsap.com/llms.txt",
+    "markdownSample": "https://gsap.com/docs/v3/GSAP/gsap.to().md",
+    "licenseUrl": "https://gsap.com/standard-license",
+    "termsUrl": "https://gsap.com/community/terms-of-use/",
+    "observedRedirect": "https://gsap.com/offline/",
+    "rights": "website-unverified-link-only"
+  }
+}

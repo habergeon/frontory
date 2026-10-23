@@ -1,0 +1,1281 @@
+{
+  "version": 1,
+  "series": [
+    {
+      "id": "webgl",
+      "runtime": [
+        {
+          "kind": "package",
+          "name": "three",
+          "version": "0.186.1",
+          "scope": "preview"
+        },
+        {
+          "kind": "package",
+          "name": "react",
+          "version": "19.3.1",
+          "scope": "preview"
+        },
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "three-r186",
+        "webgl-specs",
+        "glsl-specs"
+      ]
+    },
+    {
+      "id": "javascript",
+      "runtime": [
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "ecmascript",
+        "whatwg-html"
+      ]
+    },
+    {
+      "id": "typescript",
+      "runtime": [
+        {
+          "kind": "package",
+          "name": "typescript",
+          "version": "7.0.2",
+          "scope": "repository-typecheck"
+        },
+        {
+          "kind": "package",
+          "name": "monaco-editor",
+          "version": "0.55.1",
+          "scope": "editor-language-service"
+        },
+        {
+          "kind": "bundled",
+          "name": "typescript",
+          "version": "5.9.3",
+          "package": "monaco-editor",
+          "packageVersion": "0.55.1",
+          "evidencePath": "esm/vs/language/typescript/lib/typescriptServices.js",
+          "scope": "editor-diagnostics-and-emit",
+          "reason": {
+            "ko": "설치된 Monaco 서비스 원본의 버전 상수입니다. 저장소 타입 검사의 TypeScript 7.0.2와 다르며 브라우저에서 ts.version을 직접 측정한 값은 아닙니다.",
+            "en": "This is the version constant in the installed Monaco service source. It differs from TypeScript 7.0.2 used for repository checks and was not measured directly as ts.version in the browser."
+          }
+        },
+        {
+          "kind": "external",
+          "name": "learner TypeScript compiler",
+          "version": null,
+          "reason": {
+            "ko": "학습자가 별도 설치하는 도구입니다. 실제 프로젝트의 설치 버전과 실행 환경은 아직 고정하지 않았습니다.",
+            "en": "This tool is installed separately by the learner. Its version and execution environment in the actual project have not yet been pinned."
+          }
+        }
+      ],
+      "sourceIds": [
+        "typescript-docs"
+      ]
+    },
+    {
+      "id": "html",
+      "runtime": [
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "whatwg-html"
+      ]
+    },
+    {
+      "id": "css",
+      "runtime": [
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "css-specs"
+      ]
+    },
+    {
+      "id": "react",
+      "runtime": [
+        {
+          "kind": "package",
+          "name": "react",
+          "version": "19.3.1",
+          "scope": "preview"
+        },
+        {
+          "kind": "package",
+          "name": "react-dom",
+          "version": "19.3.1",
+          "scope": "preview"
+        }
+      ],
+      "sourceIds": [
+        "react-docs"
+      ]
+    },
+    {
+      "id": "vue",
+      "runtime": [
+        {
+          "kind": "package",
+          "name": "vue",
+          "version": "3.5.44",
+          "scope": "preview"
+        }
+      ],
+      "sourceIds": [
+        "vue-docs"
+      ]
+    },
+    {
+      "id": "svelte",
+      "runtime": [
+        {
+          "kind": "package",
+          "name": "svelte",
+          "version": "5.57.2",
+          "scope": "preview-store"
+        },
+        {
+          "kind": "external",
+          "name": "Svelte compiler/project",
+          "version": null,
+          "reason": {
+            "ko": "학습자가 별도 설치하는 도구입니다. 실제 프로젝트의 설치 버전과 실행 환경은 아직 고정하지 않았습니다.",
+            "en": "This tool is installed separately by the learner. Its version and execution environment in the actual project have not yet been pinned."
+          }
+        }
+      ],
+      "sourceIds": [
+        "svelte-docs"
+      ]
+    },
+    {
+      "id": "canvas-2d",
+      "runtime": [
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "whatwg-html"
+      ]
+    },
+    {
+      "id": "svg",
+      "runtime": [
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "svg-spec"
+      ]
+    },
+    {
+      "id": "threejs",
+      "runtime": [
+        {
+          "kind": "package",
+          "name": "three",
+          "version": "0.186.1",
+          "scope": "preview"
+        },
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "three-r186"
+      ]
+    },
+    {
+      "id": "gaussian-splatting",
+      "runtime": [
+        {
+          "kind": "self",
+          "version": null,
+          "reason": {
+            "ko": "앱의 자체 CPU 교육 예제입니다. 원 논문 학습 코드·Spark 등 외부 구현의 실행 버전을 갖지 않습니다.",
+            "en": "This is the app's own CPU teaching example. It has no execution version of the paper's training code, Spark, or another external implementation."
+          }
+        },
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "gaussian-splatting-paper"
+      ]
+    },
+    {
+      "id": "webgpu",
+      "runtime": [
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "webgpu-spec"
+      ]
+    },
+    {
+      "id": "react-three-fiber",
+      "runtime": [
+        {
+          "kind": "package",
+          "name": "@react-three/fiber",
+          "version": "9.8.2",
+          "scope": "preview"
+        },
+        {
+          "kind": "package",
+          "name": "react",
+          "version": "19.3.1",
+          "scope": "preview"
+        },
+        {
+          "kind": "package",
+          "name": "react-dom",
+          "version": "19.3.1",
+          "scope": "preview"
+        },
+        {
+          "kind": "package",
+          "name": "three",
+          "version": "0.186.1",
+          "scope": "preview"
+        },
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "r3f-docs",
+        "react-docs",
+        "three-r186"
+      ]
+    },
+    {
+      "id": "pixijs",
+      "runtime": [
+        {
+          "kind": "package",
+          "name": "pixi.js",
+          "version": "8.22.0",
+          "scope": "preview"
+        },
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "pixijs-docs"
+      ]
+    },
+    {
+      "id": "glsl",
+      "runtime": [
+        {
+          "kind": "package",
+          "name": "three",
+          "version": "0.186.1",
+          "scope": "preview"
+        },
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "glsl-specs",
+        "three-r186"
+      ]
+    },
+    {
+      "id": "wgsl",
+      "runtime": [
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "wgsl-spec"
+      ]
+    },
+    {
+      "id": "gsap",
+      "runtime": [
+        {
+          "kind": "package",
+          "name": "gsap",
+          "version": "3.15.0",
+          "scope": "preview"
+        }
+      ],
+      "sourceIds": [
+        "gsap-docs"
+      ]
+    },
+    {
+      "id": "motion",
+      "runtime": [
+        {
+          "kind": "package",
+          "name": "motion",
+          "version": "14.5.0",
+          "scope": "preview"
+        }
+      ],
+      "sourceIds": [
+        "motion-docs"
+      ]
+    },
+    {
+      "id": "web-workers",
+      "runtime": [
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "whatwg-html"
+      ]
+    },
+    {
+      "id": "offscreen-canvas",
+      "runtime": [
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        }
+      ],
+      "sourceIds": [
+        "whatwg-html"
+      ]
+    },
+    {
+      "id": "webassembly",
+      "runtime": [
+        {
+          "kind": "browser",
+          "version": null,
+          "reason": {
+            "ko": "실제 브라우저 빌드·GPU·지원 기능을 이 manifest에서 실행 확인하지 않았습니다.",
+            "en": "This manifest has not verified the actual browser build, GPU, or supported features by execution."
+          }
+        },
+        {
+          "kind": "external",
+          "name": "Node.js and WABT wat2wasm",
+          "version": null,
+          "reason": {
+            "ko": "학습자가 별도 설치하는 도구입니다. 실제 프로젝트의 설치 버전과 실행 환경은 아직 고정하지 않았습니다.",
+            "en": "This tool is installed separately by the learner. Its version and execution environment in the actual project have not yet been pinned."
+          }
+        }
+      ],
+      "sourceIds": [
+        "wasm-spec"
+      ]
+    },
+    {
+      "id": "playwright",
+      "runtime": [
+        {
+          "kind": "external",
+          "name": "@playwright/test and matching browser revision",
+          "version": null,
+          "reason": {
+            "ko": "학습자가 별도 설치하는 도구입니다. 실제 프로젝트의 설치 버전과 실행 환경은 아직 고정하지 않았습니다.",
+            "en": "This tool is installed separately by the learner. Its version and execution environment in the actual project have not yet been pinned."
+          }
+        }
+      ],
+      "sourceIds": [
+        "playwright-docs"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ecmascript",
+      "title": "ECMAScript 명세 / ECMAScript specification",
+      "url": "https://tc39.es/ecma262/multipage/",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "confirmed",
+        "license": "Ecma document and software notice",
+        "licenseUrl": "https://tc39.es/ecma262/multipage/copyright-and-software-license.html",
+        "reason": {
+          "ko": "기존 공식 출처 조사에서 문서 라이선스를 확인했습니다. 선택 파일별 고지와 범위는 수집 전에 다시 확인합니다.",
+          "en": "The earlier official-source research identified the document license. File-specific notices and scope will be checked before acquisition."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "아직 선택 본문과 해당 revision의 고지를 함께 보관하지 않았으므로 공식 원문 링크만 제공합니다.",
+          "en": "Only the official source link is provided because selected text and notices from the same revision have not yet been archived."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "typescript-docs",
+      "title": "TypeScript Handbook·Reference",
+      "url": "https://www.typescriptlang.org/docs/",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "confirmed",
+        "license": "CC-BY-4.0",
+        "licenseUrl": "https://raw.githubusercontent.com/microsoft/TypeScript-Website/v2/LICENSE",
+        "reason": {
+          "ko": "기존 공식 출처 조사에서 문서 라이선스를 확인했습니다. 선택 파일별 고지와 범위는 수집 전에 다시 확인합니다.",
+          "en": "The earlier official-source research identified the document license. File-specific notices and scope will be checked before acquisition."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "아직 선택 본문과 해당 revision의 고지를 함께 보관하지 않았으므로 공식 원문 링크만 제공합니다.",
+          "en": "Only the official source link is provided because selected text and notices from the same revision have not yet been archived."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "whatwg-html",
+      "title": "HTML Living Standard",
+      "url": "https://html.spec.whatwg.org/multipage/",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "confirmed",
+        "license": "CC-BY-4.0",
+        "licenseUrl": "https://whatwg.org/ipr-policy",
+        "reason": {
+          "ko": "기존 공식 출처 조사에서 문서 라이선스를 확인했습니다. 선택 파일별 고지와 범위는 수집 전에 다시 확인합니다.",
+          "en": "The earlier official-source research identified the document license. File-specific notices and scope will be checked before acquisition."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "아직 선택 본문과 해당 revision의 고지를 함께 보관하지 않았으므로 공식 원문 링크만 제공합니다.",
+          "en": "Only the official source link is provided because selected text and notices from the same revision have not yet been archived."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "css-specs",
+      "title": "CSS 모듈별 명세 / CSS module specifications",
+      "url": "https://www.w3.org/Style/CSS/specs.en.html",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "CSS는 단일 버전이 아닙니다. 선택 모듈별 dated TR·고지와 실제 브라우저 지원의 대응을 아직 고정하지 않았습니다.",
+          "en": "CSS has no single version. Dated TRs and notices for selected modules have not yet been pinned or matched to actual browser support."
+        }
+      },
+      "rights": {
+        "status": "needs-review",
+        "license": null,
+        "licenseUrl": "https://www.w3.org/copyright/document-license-2023/",
+        "reason": {
+          "ko": "선택 사이트 본문의 재배포 허가를 아직 확보하지 못했습니다. 라이브러리 사용 허가로 문서 복제를 허용했다고 보지 않습니다.",
+          "en": "Permission to redistribute the selected website text has not been established. A library license is not treated as permission to copy its documentation website."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "선택 사이트 본문의 재배포 허가를 아직 확보하지 못했습니다. 라이브러리 사용 허가로 문서 복제를 허용했다고 보지 않습니다.",
+          "en": "Permission to redistribute the selected website text has not been established. A library license is not treated as permission to copy its documentation website."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "react-docs",
+      "title": "React Learn·API",
+      "url": "https://react.dev/learn",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "공식 문서는 major 단위로 유지됩니다. React 19.3.1 patch 전용 문서나 해당 commit을 확보한 것으로 표시하지 않습니다.",
+          "en": "Official documentation is maintained by major version. It is not presented as a React 19.3.1 patch-specific archive or an acquired matching commit."
+        }
+      },
+      "rights": {
+        "status": "confirmed",
+        "license": "CC-BY-4.0",
+        "licenseUrl": "https://github.com/reactjs/react.dev/blob/main/LICENSE-DOCS.md",
+        "reason": {
+          "ko": "기존 공식 출처 조사에서 문서 라이선스를 확인했습니다. 선택 파일별 고지와 범위는 수집 전에 다시 확인합니다.",
+          "en": "The earlier official-source research identified the document license. File-specific notices and scope will be checked before acquisition."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "아직 선택 본문과 해당 revision의 고지를 함께 보관하지 않았으므로 공식 원문 링크만 제공합니다.",
+          "en": "Only the official source link is provided because selected text and notices from the same revision have not yet been archived."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "vue-docs",
+      "title": "Vue Guide·API",
+      "url": "https://vuejs.org/guide/introduction.html",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "confirmed",
+        "license": "CC-BY-4.0",
+        "licenseUrl": "https://github.com/vuejs/docs/blob/main/LICENSE",
+        "reason": {
+          "ko": "기존 공식 출처 조사에서 문서 라이선스를 확인했습니다. 선택 파일별 고지와 범위는 수집 전에 다시 확인합니다.",
+          "en": "The earlier official-source research identified the document license. File-specific notices and scope will be checked before acquisition."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "아직 선택 본문과 해당 revision의 고지를 함께 보관하지 않았으므로 공식 원문 링크만 제공합니다.",
+          "en": "Only the official source link is provided because selected text and notices from the same revision have not yet been archived."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "svelte-docs",
+      "title": "Svelte Docs",
+      "url": "https://svelte.dev/docs/svelte/overview",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "needs-review",
+        "license": null,
+        "licenseUrl": "https://raw.githubusercontent.com/sveltejs/svelte/main/LICENSE.md",
+        "reason": {
+          "ko": "Svelte core MIT는 확인했지만 svelte.dev 사이트 전체·별도 자산의 허가는 미확정입니다. 소유권이 확인된 core 문서만 수집 후보입니다.",
+          "en": "Svelte core MIT was identified, but permission for the whole svelte.dev website and separate assets is unconfirmed. Only core documents with verified ownership are acquisition candidates."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "Svelte core MIT는 확인했지만 svelte.dev 사이트 전체·별도 자산의 허가는 미확정입니다. 소유권이 확인된 core 문서만 수집 후보입니다.",
+          "en": "Svelte core MIT was identified, but permission for the whole svelte.dev website and separate assets is unconfirmed. Only core documents with verified ownership are acquisition candidates."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "svg-spec",
+      "title": "SVG 2",
+      "url": "https://www.w3.org/TR/SVG2/",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "confirmed",
+        "license": "W3C Software and Document License",
+        "licenseUrl": "https://www.w3.org/copyright/software-license-2023/",
+        "reason": {
+          "ko": "기존 공식 출처 조사에서 문서 라이선스를 확인했습니다. 선택 파일별 고지와 범위는 수집 전에 다시 확인합니다.",
+          "en": "The earlier official-source research identified the document license. File-specific notices and scope will be checked before acquisition."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "아직 선택 본문과 해당 revision의 고지를 함께 보관하지 않았으므로 공식 원문 링크만 제공합니다.",
+          "en": "Only the official source link is provided because selected text and notices from the same revision have not yet been archived."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "webgl-specs",
+      "title": "WebGL 1·2 명세 / WebGL 1 and 2 specifications",
+      "url": "https://registry.khronos.org/webgl/specs/latest/2.0/",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "needs-review",
+        "license": null,
+        "licenseUrl": null,
+        "reason": {
+          "ko": "선택 사이트 본문의 재배포 허가를 아직 확보하지 못했습니다. 라이브러리 사용 허가로 문서 복제를 허용했다고 보지 않습니다.",
+          "en": "Permission to redistribute the selected website text has not been established. A library license is not treated as permission to copy its documentation website."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "선택 사이트 본문의 재배포 허가를 아직 확보하지 못했습니다. 라이브러리 사용 허가로 문서 복제를 허용했다고 보지 않습니다.",
+          "en": "Permission to redistribute the selected website text has not been established. A library license is not treated as permission to copy its documentation website."
+        }
+      },
+      "files": [],
+      "relatedUrls": [
+        {
+          "title": "WebGL 1 specification",
+          "url": "https://registry.khronos.org/webgl/specs/latest/1.0/"
+        }
+      ]
+    },
+    {
+      "id": "gaussian-splatting-paper",
+      "title": "3D Gaussian Splatting 저자 프로젝트 / author project",
+      "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "needs-review",
+        "license": null,
+        "licenseUrl": "https://raw.githubusercontent.com/graphdeco-inria/gaussian-splatting/main/LICENSE.md",
+        "reason": {
+          "ko": "논문·이미지·데이터와 구현 코드는 권리가 서로 다릅니다. 구현의 연구·평가 제한 허가를 다른 자산의 복제 허가로 사용하지 않습니다.",
+          "en": "The paper, images, data, and implementation have separate rights. The implementation research-and-evaluation license is not used as permission to copy other assets."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "논문·이미지·데이터와 구현 코드는 권리가 서로 다릅니다. 구현의 연구·평가 제한 허가를 다른 자산의 복제 허가로 사용하지 않습니다.",
+          "en": "The paper, images, data, and implementation have separate rights. The implementation research-and-evaluation license is not used as permission to copy other assets."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "webgpu-spec",
+      "title": "WebGPU 명세 / WebGPU specification",
+      "url": "https://www.w3.org/TR/webgpu/",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "confirmed",
+        "license": "W3C Software and Document License",
+        "licenseUrl": "https://raw.githubusercontent.com/gpuweb/gpuweb/main/LICENSE.md",
+        "reason": {
+          "ko": "기존 공식 출처 조사에서 문서 라이선스를 확인했습니다. 선택 파일별 고지와 범위는 수집 전에 다시 확인합니다.",
+          "en": "The earlier official-source research identified the document license. File-specific notices and scope will be checked before acquisition."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "아직 선택 본문과 해당 revision의 고지를 함께 보관하지 않았으므로 공식 원문 링크만 제공합니다.",
+          "en": "Only the official source link is provided because selected text and notices from the same revision have not yet been archived."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "r3f-docs",
+      "title": "React Three Fiber Guide·API",
+      "url": "https://r3f.docs.pmnd.rs/getting-started/introduction",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "confirmed",
+        "license": "MIT",
+        "licenseUrl": "https://github.com/pmndrs/react-three-fiber/blob/master/LICENSE",
+        "reason": {
+          "ko": "기존 공식 출처 조사에서 문서 라이선스를 확인했습니다. 선택 파일별 고지와 범위는 수집 전에 다시 확인합니다.",
+          "en": "The earlier official-source research identified the document license. File-specific notices and scope will be checked before acquisition."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "아직 선택 본문과 해당 revision의 고지를 함께 보관하지 않았으므로 공식 원문 링크만 제공합니다.",
+          "en": "Only the official source link is provided because selected text and notices from the same revision have not yet been archived."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "pixijs-docs",
+      "title": "PixiJS 8.x Guide",
+      "url": "https://pixijs.com/8.x/guides/",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "needs-review",
+        "license": null,
+        "licenseUrl": null,
+        "reason": {
+          "ko": "사이트 저장소 조사에서 문서 재배포 허가를 찾지 못했습니다. PixiJS 라이브러리의 MIT 허가를 가이드에 적용하지 않습니다.",
+          "en": "The website repository review did not establish documentation redistribution permission. The PixiJS library MIT license is not applied to the guide."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "사이트 저장소 조사에서 문서 재배포 허가를 찾지 못했습니다. PixiJS 라이브러리의 MIT 허가를 가이드에 적용하지 않습니다.",
+          "en": "The website repository review did not establish documentation redistribution permission. The PixiJS library MIT license is not applied to the guide."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "glsl-specs",
+      "title": "GLSL ES 1.00·3.00 명세 / specifications",
+      "url": "https://registry.khronos.org/OpenGL/specs/es/2.0/GLSL_ES_Specification_1.00.pdf",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "restricted",
+        "license": null,
+        "licenseUrl": "https://registry.khronos.org/OpenGL/specs/es/2.0/GLSL_ES_Specification_1.00.pdf",
+        "reason": {
+          "ko": "선택 GLSL PDF는 일반 복제·재배포를 제한합니다. 별도 허가를 가정하지 않고 원문 링크만 제공합니다.",
+          "en": "The selected GLSL PDF restricts general copying and redistribution. Only the source link is provided without assuming separate permission."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "선택 GLSL PDF는 일반 복제·재배포를 제한합니다. 별도 허가를 가정하지 않고 원문 링크만 제공합니다.",
+          "en": "The selected GLSL PDF restricts general copying and redistribution. Only the source link is provided without assuming separate permission."
+        }
+      },
+      "files": [],
+      "relatedUrls": [
+        {
+          "title": "GLSL ES 3.00 specification",
+          "url": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf"
+        }
+      ]
+    },
+    {
+      "id": "wgsl-spec",
+      "title": "WGSL 명세 / WGSL specification",
+      "url": "https://gpuweb.github.io/gpuweb/wgsl/",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "confirmed",
+        "license": "W3C Software and Document License",
+        "licenseUrl": "https://raw.githubusercontent.com/gpuweb/gpuweb/main/LICENSE.md",
+        "reason": {
+          "ko": "기존 공식 출처 조사에서 문서 라이선스를 확인했습니다. 선택 파일별 고지와 범위는 수집 전에 다시 확인합니다.",
+          "en": "The earlier official-source research identified the document license. File-specific notices and scope will be checked before acquisition."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "아직 선택 본문과 해당 revision의 고지를 함께 보관하지 않았으므로 공식 원문 링크만 제공합니다.",
+          "en": "Only the official source link is provided because selected text and notices from the same revision have not yet been archived."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "gsap-docs",
+      "title": "GSAP v3 Docs",
+      "url": "https://gsap.com/docs/v3/",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "needs-review",
+        "license": null,
+        "licenseUrl": "https://gsap.com/standard-license",
+        "reason": {
+          "ko": "공식 약관·license 주소가 offline 페이지로 이동해 사이트 본문의 재배포 허가를 확인하지 못했습니다.",
+          "en": "The official terms and license URLs redirected to an offline page, so redistribution permission for website text could not be verified."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "공식 약관·license 주소가 offline 페이지로 이동해 사이트 본문의 재배포 허가를 확인하지 못했습니다.",
+          "en": "The official terms and license URLs redirected to an offline page, so redistribution permission for website text could not be verified."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "motion-docs",
+      "title": "Motion Docs",
+      "url": "https://motion.dev/docs",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "needs-review",
+        "license": null,
+        "licenseUrl": null,
+        "reason": {
+          "ko": "공식 문서의 14.5.0 표시는 확인했지만 motion.dev 본문 재배포 허가는 미확정입니다. 라이브러리 MIT와 구분합니다.",
+          "en": "The official documentation displayed 14.5.0, but redistribution permission for motion.dev text remains unconfirmed. It is separate from the library MIT license."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "공식 문서의 14.5.0 표시는 확인했지만 motion.dev 본문 재배포 허가는 미확정입니다. 라이브러리 MIT와 구분합니다.",
+          "en": "The official documentation displayed 14.5.0, but redistribution permission for motion.dev text remains unconfirmed. It is separate from the library MIT license."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "wasm-spec",
+      "title": "WebAssembly Core 명세 / specification",
+      "url": "https://webassembly.github.io/spec/core/",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "confirmed",
+        "license": "W3C Software and Document License",
+        "licenseUrl": "https://raw.githubusercontent.com/WebAssembly/spec/main/document/LICENSE",
+        "reason": {
+          "ko": "기존 공식 출처 조사에서 문서 라이선스를 확인했습니다. 선택 파일별 고지와 범위는 수집 전에 다시 확인합니다.",
+          "en": "The earlier official-source research identified the document license. File-specific notices and scope will be checked before acquisition."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "아직 선택 본문과 해당 revision의 고지를 함께 보관하지 않았으므로 공식 원문 링크만 제공합니다.",
+          "en": "Only the official source link is provided because selected text and notices from the same revision have not yet been archived."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "playwright-docs",
+      "title": "Playwright Guide·API",
+      "url": "https://playwright.dev/docs/intro",
+      "locale": "en",
+      "revision": {
+        "kind": "live",
+        "reviewedOn": "2026-10-23",
+        "basis": "prior-official-research"
+      },
+      "compatibility": {
+        "status": "unverified",
+        "reason": {
+          "ko": "문서의 불변 revision과 실제 실행 환경의 대응을 아직 확인하지 않았습니다.",
+          "en": "The correspondence between an immutable document revision and the actual execution environment has not yet been verified."
+        }
+      },
+      "rights": {
+        "status": "confirmed",
+        "license": "CC-BY-4.0",
+        "licenseUrl": "https://raw.githubusercontent.com/microsoft/playwright.dev/main/LICENSE",
+        "reason": {
+          "ko": "기존 공식 출처 조사에서 문서 라이선스를 확인했습니다. 선택 파일별 고지와 범위는 수집 전에 다시 확인합니다.",
+          "en": "The earlier official-source research identified the document license. File-specific notices and scope will be checked before acquisition."
+        }
+      },
+      "body": {
+        "status": "link-only",
+        "reason": {
+          "ko": "아직 선택 본문과 해당 revision의 고지를 함께 보관하지 않았으므로 공식 원문 링크만 제공합니다.",
+          "en": "Only the official source link is provided because selected text and notices from the same revision have not yet been archived."
+        }
+      },
+      "files": []
+    },
+    {
+      "id": "three-r186",
+      "title": "Three.js r186 Creating Text·선택 API / selected APIs",
+      "url": "https://threejs.org/manual/#creating-text",
+      "locale": "en",
+      "revision": {
+        "kind": "commit",
+        "repository": "mrdoob/three.js",
+        "tag": "r186",
+        "tagObject": "48dd7be01263658aad497fd72e09d1e4c6213461",
+        "commit": "9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8",
+        "tagSigned": false,
+        "reviewedOn": "2026-10-23",
+        "basis": "preserved-official-evidence"
+      },
+      "compatibility": {
+        "status": "exact",
+        "package": "three",
+        "version": "0.186.1",
+        "evidenceFile": "package.json",
+        "reason": {
+          "ko": "r186의 package.json이 실행 패키지 0.186.1과 일치합니다. npm tarball 전체와 Git tree의 동일성을 검증했다는 뜻은 아닙니다.",
+          "en": "The r186 package.json matches runtime package 0.186.1. This does not claim that the complete npm tarball and Git tree were verified as identical."
+        }
+      },
+      "rights": {
+        "status": "confirmed",
+        "license": "MIT",
+        "licenseUrl": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/LICENSE",
+        "evidenceFile": "LICENSE",
+        "excludedAssets": [
+          "images",
+          "fonts",
+          "videos",
+          "external-packages"
+        ],
+        "reason": {
+          "ko": "같은 commit의 선택 문서와 MIT 고지를 함께 보관합니다. 별도 외부 자산은 포함하지 않습니다.",
+          "en": "Selected documents and the MIT notice from the same commit are archived together. Separate external assets are excluded."
+        }
+      },
+      "body": {
+        "status": "raw-only",
+        "files": [
+          "manual/pages/creating-text.html",
+          "docs/pages/Object3D.html.md",
+          "docs/pages/PerspectiveCamera.html.md",
+          "docs/pages/TextGeometry.html.md"
+        ],
+        "reason": {
+          "ko": "원본 자료만 보관했습니다. script가 포함된 HTML은 실행·공개하지 않으며 내부 읽기용 변환과 검증은 R02에 남아 있습니다.",
+          "en": "Only raw evidence is archived. HTML containing scripts is neither executed nor published; conversion and validation for internal reading remain part of R02."
+        }
+      },
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/LICENSE",
+          "bytes": 1081,
+          "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+          "gitBlobSha": "8ada2a5f982916b0ba4b7a0aa7de347587e745d7",
+          "retrievedAt": "2026-10-23T05:20:18.846Z",
+          "localPath": "raw/three-r186/LICENSE.txt"
+        },
+        {
+          "path": "package.json",
+          "url": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/package.json",
+          "bytes": 3672,
+          "sha256": "f9c474a27c920b9435353a6235968f4453436bee0444fac7e5fd289c8fa463de",
+          "gitBlobSha": "30551776a5e57030344460e86294051c26cbf544",
+          "retrievedAt": "2026-10-23T05:20:19.092Z",
+          "localPath": "raw/three-r186/package.json.txt"
+        },
+        {
+          "path": "manual/pages/creating-text.html",
+          "url": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/manual/pages/creating-text.html",
+          "bytes": 7047,
+          "sha256": "420018e87775f792ac78e69d6f67fbc1aee0e6a536413d9512b7e74688b45447",
+          "gitBlobSha": "7242825fac0f4359e521a43a5cd8ec48447e566f",
+          "retrievedAt": "2026-10-23T05:20:19.328Z",
+          "localPath": "raw/three-r186/manual/pages/creating-text.html.txt"
+        },
+        {
+          "path": "manual/list.json",
+          "url": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/manual/list.json",
+          "bytes": 3001,
+          "sha256": "1e92bbca3f47c6cf52b3d0799ed89a6702de9f965ec041d7f47d7a191a9fcc88",
+          "gitBlobSha": "a8014fe1457e4ae5cf358f5eff754b11f358b342",
+          "retrievedAt": "2026-10-23T05:20:19.574Z",
+          "localPath": "raw/three-r186/manual/list.json.txt"
+        },
+        {
+          "path": "docs/pages/Object3D.html.md",
+          "url": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/docs/pages/Object3D.html.md",
+          "bytes": 21099,
+          "sha256": "d46f731faf4b6fdb5a7dbb9bf65e5ef5ad1f2f5d06b4ac685117e8be7ade125d",
+          "gitBlobSha": "f0c162a5e3d79c3ad44c2c46e4344e8b8034075c",
+          "retrievedAt": "2026-10-23T05:20:19.829Z",
+          "localPath": "raw/three-r186/docs/pages/Object3D.html.md.txt"
+        },
+        {
+          "path": "docs/pages/PerspectiveCamera.html.md",
+          "url": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/docs/pages/PerspectiveCamera.html.md",
+          "bytes": 6592,
+          "sha256": "93ca325bc3910f3e80284fad3363d94e10ed3a000f4cd36cb55a5b75dd99da9a",
+          "gitBlobSha": "daabe1d6a226f6c2d1385628f7156c322c6768cf",
+          "retrievedAt": "2026-10-23T05:20:20.067Z",
+          "localPath": "raw/three-r186/docs/pages/PerspectiveCamera.html.md.txt"
+        },
+        {
+          "path": "docs/pages/TextGeometry.html.md",
+          "url": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/docs/pages/TextGeometry.html.md",
+          "bytes": 2634,
+          "sha256": "d99e0c062ed7938e5ceac3776f75d1787ae98baa7110abd47e0eec6b4b435839",
+          "gitBlobSha": "9e3bda95a1b10ebd75a64fddc373f88e80d5d312",
+          "retrievedAt": "2026-10-23T05:20:41.676Z",
+          "localPath": "raw/three-r186/docs/pages/TextGeometry.html.md.txt"
+        }
+      ]
+    }
+  ]
+}

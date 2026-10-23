@@ -1,0 +1,87 @@
+{
+  "repo": "mrdoob/three.js",
+  "version": "0.186.1",
+  "tag": "r186",
+  "tagObject": "48dd7be01263658aad497fd72e09d1e4c6213461",
+  "commit": "9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8",
+  "tagSigned": false,
+  "files": [
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/LICENSE",
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+      "gitBlobSha": "8ada2a5f982916b0ba4b7a0aa7de347587e745d7",
+      "retrievedAt": "2026-10-23T05:20:18.846Z",
+      "license": "MIT",
+      "locale": "en",
+      "status": "raw-only"
+    },
+    {
+      "path": "package.json",
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/package.json",
+      "bytes": 3672,
+      "sha256": "f9c474a27c920b9435353a6235968f4453436bee0444fac7e5fd289c8fa463de",
+      "gitBlobSha": "30551776a5e57030344460e86294051c26cbf544",
+      "retrievedAt": "2026-10-23T05:20:19.092Z",
+      "license": "MIT",
+      "locale": "en",
+      "status": "raw-only"
+    },
+    {
+      "path": "manual/pages/creating-text.html",
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/manual/pages/creating-text.html",
+      "bytes": 7047,
+      "sha256": "420018e87775f792ac78e69d6f67fbc1aee0e6a536413d9512b7e74688b45447",
+      "gitBlobSha": "7242825fac0f4359e521a43a5cd8ec48447e566f",
+      "retrievedAt": "2026-10-23T05:20:19.328Z",
+      "license": "MIT",
+      "locale": "en",
+      "status": "raw-only"
+    },
+    {
+      "path": "manual/list.json",
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/manual/list.json",
+      "bytes": 3001,
+      "sha256": "1e92bbca3f47c6cf52b3d0799ed89a6702de9f965ec041d7f47d7a191a9fcc88",
+      "gitBlobSha": "a8014fe1457e4ae5cf358f5eff754b11f358b342",
+      "retrievedAt": "2026-10-23T05:20:19.574Z",
+      "license": "MIT",
+      "locale": "en",
+      "status": "raw-only"
+    },
+    {
+      "path": "docs/pages/Object3D.html.md",
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/docs/pages/Object3D.html.md",
+      "bytes": 21099,
+      "sha256": "d46f731faf4b6fdb5a7dbb9bf65e5ef5ad1f2f5d06b4ac685117e8be7ade125d",
+      "gitBlobSha": "f0c162a5e3d79c3ad44c2c46e4344e8b8034075c",
+      "retrievedAt": "2026-10-23T05:20:19.829Z",
+      "license": "MIT",
+      "locale": "en",
+      "status": "raw-only"
+    },
+    {
+      "path": "docs/pages/PerspectiveCamera.html.md",
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/docs/pages/PerspectiveCamera.html.md",
+      "bytes": 6592,
+      "sha256": "93ca325bc3910f3e80284fad3363d94e10ed3a000f4cd36cb55a5b75dd99da9a",
+      "gitBlobSha": "daabe1d6a226f6c2d1385628f7156c322c6768cf",
+      "retrievedAt": "2026-10-23T05:20:20.067Z",
+      "license": "MIT",
+      "locale": "en",
+      "status": "raw-only"
+    },
+    {
+      "path": "docs/pages/TextGeometry.html.md",
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/docs/pages/TextGeometry.html.md",
+      "bytes": 2634,
+      "sha256": "d99e0c062ed7938e5ceac3776f75d1787ae98baa7110abd47e0eec6b4b435839",
+      "gitBlobSha": "9e3bda95a1b10ebd75a64fddc373f88e80d5d312",
+      "retrievedAt": "2026-10-23T05:20:41.676Z",
+      "license": "MIT",
+      "locale": "en",
+      "status": "raw-only"
+    }
+  ]
+}

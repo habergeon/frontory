@@ -85,6 +85,10 @@ for (const series of baseline.series) {
 }
 if (new Set(catalog.units.map(unit => unit.id)).size !== 644) throw Error('Expected 644 unique units')
 for (const old of baseline.units) if (!catalog.units.some(unit => unit.id === old.id && unit.docPath === old.docPath)) throw Error('Missing historical unit: ' + old.id)
+const presentations = read('content/example-presentations.json')
+for (const unit of catalog.units) {
+  if (presentations[unit.id]) unit.exampleReadingSource = `/examples-en/${unit.id}/example.js`
+}
 outputs.set('src/app/catalog.json', JSON.stringify(catalog, null, 2) + '\n')
 const exampleIndexPath = '/docs/examples-expanded.md'
 const exampleIndex = ['# 확장 학습 단위 예제', '', '각 예제의 실행 범위를 확인하세요. 브라우저 미리보기와 별도 실행 파일의 역할은 다를 수 있습니다. 예제 연결은 과제 전체의 완성이나 학습 완료를 의미하지 않습니다.', '', link(exampleIndexPath, '/docs/examples.md', '기존 예제와 공통 실행 안내'), '']
@@ -101,7 +105,8 @@ const english = readEnglishContent()
 const englishPath = docPath => docPath.replace('/docs/', '/docs/en/')
 const englishCatalog = {
   series: english.catalog.series.map(series => ({ ...series, docPath: englishPath(series.docPath) })),
-  units: english.catalog.units.map(unit => ({ ...unit, docPath: englishPath(unit.docPath),
+  units: english.catalog.units.map(({ exampleReadingSource, ...unit }) => ({ ...unit, docPath: englishPath(unit.docPath),
+    ...(english.exampleReadingSources[unit.id] ? { exampleReadingSource: english.exampleReadingSources[unit.id] } : {}),
     ...(english.exampleNotes[unit.id] ? { exampleNote: english.exampleNotes[unit.id] } : {}) })),
 }
 const englishExampleLabel = id => !hasExample(id) ? 'Document-based implementation'

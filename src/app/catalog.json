@@ -592,7 +592,8 @@
       "title": "문자열 입력과 숫자 변환",
       "goal": "네 입력의 판정과 타입을 기록한다. 공백과 음수에서 저장 건수가 늘지 않는다.",
       "docPath": "/docs/labs/fundamentals/javascript/units/02/README.md",
-      "seriesId": "javascript"
+      "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-02/example.js"
     },
     {
       "id": "javascript-step-03",
@@ -1366,7 +1367,8 @@
       "title": "박스 모델과 실측 크기",
       "goal": "두 카드의 실제 너비를 기록한다. 콘텐츠·padding·border·margin 영역을 도구에서 구분한다.",
       "docPath": "/docs/labs/fundamentals/css/units/04/README.md",
-      "seriesId": "css"
+      "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-04/example.js"
     },
     {
       "id": "css-step-05",
@@ -1609,7 +1611,8 @@
       "title": "이벤트와 상태 스냅샷",
       "goal": "초기 0에서 함수형 갱신 후 3을 표시한다. 일반 값 갱신 대조군의 결과를 별도로 기록한다.",
       "docPath": "/docs/labs/frameworks/react/units/03/README.md",
-      "seriesId": "react"
+      "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-03/example.js"
     },
     {
       "id": "react-step-04",
@@ -4624,7 +4627,8 @@
       "title": "시작값과 목표값",
       "goal": "학습 결과: from과 to의 역할을 설명한다. 입력 사례: 초기 x=40 카드. 산출물: 생성 직후와 종료 후 transform 표. 초기 적용 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/animation/gsap/units/02/README.md",
-      "seriesId": "gsap"
+      "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-02/example.js"
     },
     {
       "id": "gsap-step-03",

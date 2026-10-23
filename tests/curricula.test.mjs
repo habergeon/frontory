@@ -254,3 +254,40 @@ test('localized catalog lookup preserves shared executable identity and has no K
   assert.equal(api.getLocalizedUnit('ko', 'javascript-01').id, 'javascript-01')
   assert.equal(api.getLocalizedUnit('ko', 'missing-id'), null)
 })
+
+test('catalog reading paths reach legacy downloads without metadata and reject disagreement', async () => {
+  const { transformSync } = await import('esbuild')
+  const { createRequire } = await import('node:module')
+  const common = { series: [], units: [{ id: 'javascript-01', seriesId: 'javascript', exampleReadingSource: '/examples-en/javascript-01/example.js' }] }
+  const english = { series: [], units: [{ id: 'javascript-01', seriesId: 'javascript', exampleReadingSource: '/examples-en/javascript-01/example.js' }] }
+  const load = details => {
+    let index = 0
+    const values = [{ fixture: details }, { '../labs/javascript-01/example.js': 'shared source' }]
+    const source = fs.readFileSync('src/app/curriculum.ts', 'utf8').replace(/import\.meta\.glob[\s\S]*?\)\r?\n/g, () => JSON.stringify(values[index++]) + '\n')
+    assert.equal(index, 2)
+    const compiled = transformSync(source, { loader: 'ts', format: 'cjs' }).code
+    const module = { exports: {} }
+    const actualRequire = createRequire(new URL('../src/app/curriculum.ts', import.meta.url))
+    new Function('require', 'exports', 'module', compiled)(file => file === './catalog.json' ? common : file === './catalog.en.json' ? english : actualRequire(file), module.exports, module)
+    return module.exports
+  }
+  const api = load({})
+  assert.equal(api.getLocalizedUnit('ko', 'javascript-01').exampleReadingSource, '/examples-en/javascript-01/example.js')
+  assert.equal(api.getLocalizedUnit('en', 'javascript-01').exampleReadingSource, '/examples-en/javascript-01/example.js')
+  assert.equal(api.getLocalizedUnit('en', 'javascript-01').exampleNote, undefined)
+  assert.equal(api.getLocalizedUnit('en', 'javascript-01').exampleMode, undefined)
+  delete english.units[0].exampleReadingSource
+  assert.equal(load({}).getLocalizedUnit('en', 'javascript-01').exampleReadingSource, undefined)
+  assert.throws(() => load({ 'javascript-01': { readingSource: '/examples-en/wrong/example.js' } }), /reading source/i)
+})
+
+test('generated catalogs project reading paths only from source presentations and validated English readings', async () => {
+  const { readEnglishContent } = await import('../scripts/locale-content.mjs')
+  const presentations = read('content/example-presentations.json')
+  const english = read('src/app/catalog.en.json')
+  const approved = readEnglishContent()
+  for (const unit of catalog.units) {
+    assert.equal(unit.exampleReadingSource, presentations[unit.id] ? `/examples-en/${unit.id}/example.js` : undefined, unit.id)
+  }
+  for (const unit of english.units) assert.equal(unit.exampleReadingSource, approved.exampleReadingSources[unit.id], unit.id)
+})

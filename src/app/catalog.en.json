@@ -593,6 +593,7 @@
       "goal": "Record the validation result and type of all four inputs. The saved count does not increase for whitespace or negative numbers.",
       "docPath": "/docs/en/labs/fundamentals/javascript/units/02/README.md",
       "seriesId": "javascript",
+      "exampleReadingSource": "/examples-en/javascript-step-02/example.js",
       "exampleNote": "Compare editable inputs with actual browser execution results."
     },
     {
@@ -1444,6 +1445,7 @@
       "goal": "Record the actual widths of both cards. Distinguish the content, padding, border, and margin regions in the tools.",
       "docPath": "/docs/en/labs/fundamentals/css/units/04/README.md",
       "seriesId": "css",
+      "exampleReadingSource": "/examples-en/css-step-04/example.js",
       "exampleNote": "Change box-sizing to border-box and compare the measured widths of 244px and 200px. Document body/html selectors are scoped inside the Shadow DOM. @media responds to the outer preview viewport, while the width slider changes only the container. Network access, form navigation, and iframe execution are restricted."
     },
     {
@@ -1711,6 +1713,7 @@
       "goal": "Display 3 after functional updates starting from 0. Record the results of the plain-value update control separately.",
       "docPath": "/docs/en/labs/frameworks/react/units/03/README.md",
       "seriesId": "react",
+      "exampleReadingSource": "/examples-en/react-step-03/example.js",
       "exampleNote": "This experiment uses the actual React API. It uses createElement instead of JSX."
     },
     {
@@ -5025,6 +5028,7 @@
       "goal": "Learning outcome: explain the roles of from and to. Input case: a card initially at x=40. Output: a transform table immediately after creation and after completion. Connect your explanation of initial application to the code.",
       "docPath": "/docs/en/labs/animation/gsap/units/02/README.md",
       "seriesId": "gsap",
+      "exampleReadingSource": "/examples-en/gsap-step-02/example.js",
       "exampleNote": "This experiment explores starting and target values. You can manipulate it directly, and it cleans up the resources it uses."
     },
     {

@@ -160,6 +160,27 @@
         "title": "Loading UI and progress",
         "goal": "Display progress based on actual stages and available evidence."
       }
+    },
+    "24-camera-controls": {
+      "sourceHash": "1c747580026b78dcc25ead0550cb54eb726756e63d65f67f9770b50d4fad3e7e",
+      "values": {
+        "title": "Camera movement·rotation·zoom",
+        "goal": "Make control limits and reset behavior consistent."
+      }
+    },
+    "25-markers": {
+      "sourceHash": "a8dc7ca631bb130e4d62809c270b49376ef2030dfd091abfe0d5b72309bbca5b",
+      "values": {
+        "title": "Markers and Raycasting",
+        "goal": "Define what selected coordinates mean and place markers."
+      }
+    },
+    "26-performance": {
+      "sourceHash": "b07360b253a73c65d3a51474bfe69c739d8b20d686762f490de3b9ec98beb499",
+      "values": {
+        "title": "FPS·Draw Calls·memory analysis",
+        "goal": "Record a performance baseline under reproducible conditions."
+      }
     }
   }
 }

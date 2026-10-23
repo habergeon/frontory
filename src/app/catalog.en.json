@@ -532,6 +532,33 @@
       "seriesId": "webgl"
     },
     {
+      "id": "24-camera-controls",
+      "day": 24,
+      "week": 4,
+      "title": "Camera movement·rotation·zoom",
+      "goal": "Make control limits and reset behavior consistent.",
+      "docPath": "/docs/en/labs/graphics/webgl/24-camera-controls/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "25-markers",
+      "day": 25,
+      "week": 4,
+      "title": "Markers and Raycasting",
+      "goal": "Define what selected coordinates mean and place markers.",
+      "docPath": "/docs/en/labs/graphics/webgl/25-markers/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "26-performance",
+      "day": 26,
+      "week": 4,
+      "title": "FPS·Draw Calls·memory analysis",
+      "goal": "Record a performance baseline under reproducible conditions.",
+      "docPath": "/docs/en/labs/graphics/webgl/26-performance/README.md",
+      "seriesId": "webgl"
+    },
+    {
       "id": "javascript-01",
       "day": 1,
       "week": 1,

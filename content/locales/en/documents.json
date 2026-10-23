@@ -118,5 +118,17 @@
   "/docs/labs/graphics/webgl/23-loading-ui/README.md": {
     "sourceHash": "98f944f321582ed2cce2d0435f8e1060b2880d7079cb0d9aa03f4cd842058cfd",
     "translatedPath": "/docs/en/labs/graphics/webgl/23-loading-ui/README.md"
+  },
+  "/docs/labs/graphics/webgl/24-camera-controls/README.md": {
+    "sourceHash": "8bd39803da35319e81961b336eab8b96fc163bf4f467327d21e72fc0ff8f34db",
+    "translatedPath": "/docs/en/labs/graphics/webgl/24-camera-controls/README.md"
+  },
+  "/docs/labs/graphics/webgl/25-markers/README.md": {
+    "sourceHash": "44a238c4c51950405aa4b1bf43a59928c22dbcda51d05e6d0e5ac647072e4bba",
+    "translatedPath": "/docs/en/labs/graphics/webgl/25-markers/README.md"
+  },
+  "/docs/labs/graphics/webgl/26-performance/README.md": {
+    "sourceHash": "01278900b99b2d640cc57a42471dafd168c96aaa971009eff48fc76ec18c45f3",
+    "translatedPath": "/docs/en/labs/graphics/webgl/26-performance/README.md"
   }
 }

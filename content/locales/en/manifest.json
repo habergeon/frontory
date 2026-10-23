@@ -638,6 +638,9 @@
     "20-gs-interaction",
     "21-gs-review",
     "22-react-viewer",
-    "23-loading-ui"
+    "23-loading-ui",
+    "24-camera-controls",
+    "25-markers",
+    "26-performance"
   ]
 }

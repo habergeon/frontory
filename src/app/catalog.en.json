@@ -451,6 +451,33 @@
       "seriesId": "webgl"
     },
     {
+      "id": "15-nerf-gs",
+      "day": 15,
+      "week": 3,
+      "title": "Comparing NeRF and 3DGS",
+      "goal": "Explain how the two approaches differ in input, representation, and rendering.",
+      "docPath": "/docs/en/labs/graphics/webgl/15-nerf-gs/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "16-gaussian",
+      "day": 16,
+      "week": 3,
+      "title": "Gaussian position·size·rotation·opacity",
+      "goal": "Connect Gaussian spatial parameters to diagrams and API names.",
+      "docPath": "/docs/en/labs/graphics/webgl/16-gaussian/README.md",
+      "seriesId": "webgl"
+    },
+    {
+      "id": "17-sh",
+      "day": 17,
+      "week": 3,
+      "title": "Spherical Harmonics and view-dependent color",
+      "goal": "Explain the difference between fixed RGB and direction-dependent color representations.",
+      "docPath": "/docs/en/labs/graphics/webgl/17-sh/README.md",
+      "seriesId": "webgl"
+    },
+    {
       "id": "javascript-01",
       "day": 1,
       "week": 1,

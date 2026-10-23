@@ -97,6 +97,27 @@
         "title": "Interactive shader review",
         "goal": "Complete and explain a small effect that connects UI input to uniforms."
       }
+    },
+    "15-nerf-gs": {
+      "sourceHash": "ce71859baa872675950474efc32605516d9be0a6ba19799aed87ad55556aa9c2",
+      "values": {
+        "title": "Comparing NeRF and 3DGS",
+        "goal": "Explain how the two approaches differ in input, representation, and rendering."
+      }
+    },
+    "16-gaussian": {
+      "sourceHash": "378b8f39961145fac52646a6bb4e5097e281d917c9e55d82edacafdd15cfa52b",
+      "values": {
+        "title": "Gaussian position·size·rotation·opacity",
+        "goal": "Connect Gaussian spatial parameters to diagrams and API names."
+      }
+    },
+    "17-sh": {
+      "sourceHash": "61dac0e32f7cf74438ba192fb123581ca3df987a2e572047dfb1ee35d709e93a",
+      "values": {
+        "title": "Spherical Harmonics and view-dependent color",
+        "goal": "Explain the difference between fixed RGB and direction-dependent color representations."
+      }
     }
   }
 }

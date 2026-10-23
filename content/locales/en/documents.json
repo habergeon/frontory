@@ -82,5 +82,17 @@
   "/docs/labs/graphics/webgl/14-shader-review/README.md": {
     "sourceHash": "821385399cb7782aacea3768a62fa398bcd483b8828ab50b7adb38e1c5bacaf4",
     "translatedPath": "/docs/en/labs/graphics/webgl/14-shader-review/README.md"
+  },
+  "/docs/labs/graphics/webgl/15-nerf-gs/README.md": {
+    "sourceHash": "8198f453518a16fe2ccc2b67ce832149298d4048c5cf1765b76e61ce524280a9",
+    "translatedPath": "/docs/en/labs/graphics/webgl/15-nerf-gs/README.md"
+  },
+  "/docs/labs/graphics/webgl/16-gaussian/README.md": {
+    "sourceHash": "871e0728d4c5543c5671faf0921487adf929246982cfd041081946d94e9c50bb",
+    "translatedPath": "/docs/en/labs/graphics/webgl/16-gaussian/README.md"
+  },
+  "/docs/labs/graphics/webgl/17-sh/README.md": {
+    "sourceHash": "cd7581ffde7be6d7001518b80ca1a32fcc3370ac5830170de2006db277b68869",
+    "translatedPath": "/docs/en/labs/graphics/webgl/17-sh/README.md"
   }
 }

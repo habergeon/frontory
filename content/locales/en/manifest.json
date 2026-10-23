@@ -629,6 +629,9 @@
     "11-uv",
     "12-waves",
     "13-shader-material",
-    "14-shader-review"
+    "14-shader-review",
+    "15-nerf-gs",
+    "16-gaussian",
+    "17-sh"
   ]
 }

@@ -62,7 +62,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/offscreen-canvas-step-27/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-An interactive Summarizing Experiment Results experiment with cleanup of the resources it uses.
+The example shows request-to-acknowledgment time and sample count for one x patch. Visible-display latency, medians, long frames, three-run comparisons, and JSON export are separate assignments.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

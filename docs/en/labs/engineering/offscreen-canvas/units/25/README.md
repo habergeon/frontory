@@ -62,7 +62,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/offscreen-canvas-step-25/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-An interactive Resolution and Workload experiment with cleanup of the resources it uses.
+The button changes DPR and particle count 40/800 together. A fixed-count resolution comparison is a separate assignment; these results do not isolate the two factors.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

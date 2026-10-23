@@ -62,7 +62,7 @@
 
 [예제 원본](../../../../../../src/labs/offscreen-canvas-step-23/example.js) · [실행 환경과 제한](../../../../../examples.md)
 
-Canvas Context 손실 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다.
+DOM Canvas에 합성 contextlost/contextrestored 이벤트를 보내 핸들러를 확인합니다. 실제 Worker/GPU Context 손실이나 자원 재생성을 검증하는 실험은 아닙니다.
 
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.

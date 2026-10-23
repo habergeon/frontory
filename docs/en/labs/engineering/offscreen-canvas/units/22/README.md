@@ -62,7 +62,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/offscreen-canvas-step-22/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-An interactive Transferring ImageBitmap Frames experiment with cleanup of the resources it uses.
+The button requests one ImageBitmap. The main thread draws it into a new preview Canvas and calls close. A continuous frame stream and bounded queue are not implemented.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

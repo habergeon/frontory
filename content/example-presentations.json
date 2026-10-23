@@ -7810,5 +7810,488 @@
     "comments": {
       "comment001": "Keep work bounded, but substantial enough to compare UI responsiveness."
     }
+  },
+  "offscreen-canvas-01": {
+    "messages": {
+      "display001": "이 브라우저는 OffscreenCanvas 이전을 지원하지 않습니다."
+    },
+    "comments": {
+      "comment001": "Canvas 소유권을 Worker로 넘깁니다. 색상과 SPEED를 수정해 보세요."
+    }
+  },
+  "offscreen-canvas-step-02": {
+    "messages": {
+      "display001": "<h3>렌더러 계약</h3><p>순수 상태 / 소유 범위</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "display008": "Serializable state patch owns color; renderer owns context",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-02: 렌더러 계약"
+    }
+  },
+  "offscreen-canvas-step-03": {
+    "messages": {
+      "display001": "<h3>초기화 핸드셰이크</h3><p>Ready / 대기 입력</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "display008": "Input queued until ready handshake",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-03: 초기화 핸드셰이크"
+    }
+  },
+  "offscreen-canvas-step-04": {
+    "messages": {
+      "display001": "<h3>Fallback 직접 호출</h3><p>Context / 복구 Canvas</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison",
+      "displayFix1004": "fallback 직접 호출: Canvas 교체"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-04: Context 생성 실패"
+    }
+  },
+  "offscreen-canvas-step-05": {
+    "messages": {
+      "display001": "<h3>좌표 단위의 기준</h3><p>CSS 크기 / DPR</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-05: 좌표 단위의 기준"
+    }
+  },
+  "offscreen-canvas-step-06": {
+    "messages": {
+      "display001": "<h3>프레임 시간</h3><p>Delta / 큰 간격</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "display008": "Delta is clamped to 50ms; pause/resume resets baseline",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-06: 프레임 시간"
+    }
+  },
+  "offscreen-canvas-step-07": {
+    "messages": {
+      "display001": "<h3>기초 렌더 검증</h3><p>동등성 / 검증 범위</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "display008": "Fixed deterministic state: compare identical main and worker paths with fallback button",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-07: 기초 렌더 검증"
+    }
+  },
+  "offscreen-canvas-step-08": {
+    "messages": {
+      "display001": "<h3>Resize 메시지</h3><p>측정 / 변경 비용</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-08: Resize 메시지"
+    }
+  },
+  "offscreen-canvas-step-09": {
+    "messages": {
+      "display001": "<h3>Resize 순서 번호</h3><p>최신 크기 / 응답 확인</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-09: Resize 순서 번호"
+    }
+  },
+  "offscreen-canvas-step-10": {
+    "messages": {
+      "display001": "<h3>DPR 변경 감지</h3><p>환경 변화 / 해상도 상한</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-10: DPR 변경 감지"
+    }
+  },
+  "offscreen-canvas-step-11": {
+    "messages": {
+      "display001": "<h3>포인터 좌표 변환</h3><p>로컬 좌표 / 스케일 일치</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "display008": "Pointer local CSS coordinates use bounding rect scale",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-11: 포인터 좌표 변환"
+    }
+  },
+  "offscreen-canvas-step-12": {
+    "messages": {
+      "display001": "<h3>입력 병합</h3><p>최신 값 / 이벤트 성격</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "display008": "50 intermediate moves coalesced into one next-frame patch",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-12: 입력 병합"
+    }
+  },
+  "offscreen-canvas-step-13": {
+    "messages": {
+      "display001": "<h3>Pointer Capture와 취소</h3><p>Capture / Cancel</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "display008": "Drag canvas; capture retains pointer until up/cancel",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-13: Pointer Capture와 취소"
+    }
+  },
+  "offscreen-canvas-02": {
+    "messages": {
+      "display001": "<h3>Resize + pointer protocol</h3><label>CSS width % <input type=\"range\" min=\"30\" max=\"100\" value=\"100\"></label> <label>DPR override <select><option value=\"1\">1</option><option value=\"2\">2</option><option value=\"3\">3</option></select></label><pre aria-live=\"polite\"></pre>",
+      "display002": "Worker unavailable: ",
+      "display003": ". Re-run in a supporting browser.",
+      "display004": "; revision=",
+      "display005": "; CSS=",
+      "display006": "×",
+      "display007": "; backing=",
+      "display008": "\nMove the pointer: CSS coordinates are independent of DPR. ResizeObserver updates are coalesced to one frame.",
+      "displayFix1001": "2D context unavailable"
+    },
+    "comments": {
+      "comment001": "This function runs unchanged in the worker or fallback. All coordinates use CSS pixels."
+    }
+  },
+  "offscreen-canvas-step-15": {
+    "messages": {
+      "display001": "<h3>장면 상태 갱신</h3><p>패치 / 버전</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-15: 장면 상태 갱신"
+    }
+  },
+  "offscreen-canvas-step-16": {
+    "messages": {
+      "display001": "<h3>입자 데이터 배치</h3><p>TypedArray / 소유권</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "display008": "Transferred ",
+      "display009": " sender bytes (detached in worker mode)",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-16: 입자 데이터 배치"
+    }
+  },
+  "offscreen-canvas-step-17": {
+    "messages": {
+      "display001": "<h3>정지와 재개</h3><p>Pause / 시간 기준</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-17: 정지와 재개"
+    }
+  },
+  "offscreen-canvas-step-18": {
+    "messages": {
+      "display001": "<h3>페이지 숨김 정책</h3><p>가시성 / 동기화</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "display008": "Switch browser tab: visibility handler pauses and resets time on resume",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-18: 페이지 숨김 정책"
+    }
+  },
+  "offscreen-canvas-step-19": {
+    "messages": {
+      "display001": "<h3>정리 프로토콜</h3><p>Dispose / 확인과 종료</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "display008": "Dispose requested; acknowledgment terminates worker",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-19: 정리 프로토콜"
+    }
+  },
+  "offscreen-canvas-step-20": {
+    "messages": {
+      "display001": "<h3>재시작 Canvas</h3><p>재이전 제한 / 재시작 상태</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "display008": "New canvas created; transferred DOM canvas never reused",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-20: 재시작 Canvas"
+    }
+  },
+  "offscreen-canvas-step-21": {
+    "messages": {
+      "display001": "<h3>Worker 장애 복구</h3><p>오류 구분 / 대체</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-21: Worker 장애 복구"
+    }
+  },
+  "offscreen-canvas-step-22": {
+    "messages": {
+      "display001": "<h3>ImageBitmap 전달</h3><p>프레임 전달 / 자원 수명</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "display008": "ImageBitmap transfer needs OffscreenCanvas worker path",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-22: ImageBitmap 전달"
+    }
+  },
+  "offscreen-canvas-step-23": {
+    "messages": {
+      "display001": "<h3>Canvas Context 손실</h3><p>손실 / 복구 자료</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "display008": "Synthetic contextlost tests recovery handler only; real GPU/context loss is browser-controlled",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-23: Canvas Context 손실"
+    }
+  },
+  "offscreen-canvas-step-24": {
+    "messages": {
+      "display001": "<h3>요청과 응답 시간</h3><p>요청→응답 / 표시 지연 제외</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-24: 요청과 화면 지연"
+    }
+  },
+  "offscreen-canvas-step-25": {
+    "messages": {
+      "display001": "<h3>해상도와 작업량</h3><p>픽셀 비용 / 측정</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-25: 해상도와 작업량"
+    }
+  },
+  "offscreen-canvas-step-26": {
+    "messages": {
+      "display001": "<h3>메인 스레드 경쟁 실험</h3><p>경쟁 작업 / 공정한 비교</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "display008": "Main blocked 100ms; worker paint acknowledgment waits for main event loop",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-26: 메인 스레드 경쟁 실험"
+    }
+  },
+  "offscreen-canvas-step-27": {
+    "messages": {
+      "display001": "<h3>실험 결과 정리</h3><p>분포 / 한계</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+      "display002": "Request→ack ms ",
+      "display003": "; samples ",
+      "display004": "; excludes display compositor latency",
+      "display005": "Context lost: saved state retained",
+      "display006": "Main-thread fallback: ",
+      "display007": "Use main-thread fallback",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "transferControlToOffscreen unavailable",
+      "displayFix1003": "manual comparison"
+    },
+    "comments": {
+      "comment001": "offscreen-canvas-step-27: 실험 결과 정리"
+    }
+  },
+  "offscreen-canvas-03": {
+    "messages": {
+      "display001": "<h3>Main thread versus OffscreenCanvas</h3><label>Particles <input type=\"number\" min=\"100\" max=\"40000\" value=\"5000\"></label> <button data-mode=\"main\">Start main</button> <button data-mode=\"worker\">Start worker</button> <button data-mode=\"stop\">Stop</button><label>UI response probe <input data-probe placeholder=\"Type during rendering\"></label><pre aria-live=\"polite\"></pre><div data-canvas></div><p>Same seeded positions and drawing loop. Frame interval includes scheduling; draw cost is CPU submission time, not isolated GPU time. Worker mode still does the rendering work.</p>",
+      "display002": "Stopped at reported frame ",
+      "display003": ". Worker terminated; main timer and heartbeat cleared.",
+      "display004": ": ",
+      "display005": " particles; frame ",
+      "display006": "\nFrame interval ",
+      "display007": " ms; draw CPU cost ",
+      "display008": " ms\nMain heartbeat max gap ",
+      "display009": " ms",
+      "displayFix1001": "2D context unavailable",
+      "displayFix1002": "OffscreenCanvas worker unsupported; choose Start main.",
+      "displayFix1003": "Input event dispatch age: ",
+      "displayFix1004": " ms"
+    },
+    "comments": {}
   }
 }

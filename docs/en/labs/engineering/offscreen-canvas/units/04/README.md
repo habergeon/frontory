@@ -62,7 +62,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/offscreen-canvas-step-04/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-An interactive Context Creation Failure experiment with cleanup of the resources it uses.
+The button calls fallback directly rather than injecting a getContext failure. The shared initialization path checks for a null Context and replaces the Canvas.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

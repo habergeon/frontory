@@ -1,152 +1,614 @@
 {
   "offscreen-canvas-step-02": {
-    "sourceHash": "8c31cf3f817b342e960def4075aa4d4c84810f070dc2c27abcbc214488c4b217",
+    "sourceHash": "1eecabdcdf3ce0e4946ba80d9b9854fe143579f3daa01797eab8557601b47d3d",
     "values": {
       "note": "An interactive Renderer Contract experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "658570556cf4c321703ee1a938a130559a2f717e31b764d11b863755a3f7fa9c",
+      "values": {
+        "messages.display001": "<h3>Renderer Contract</h3><p>Pure state / Ownership boundaries</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "messages.display008": "Serializable state patch owns color; renderer owns context",
+        "comments.comment001": "offscreen-canvas-step-02: Renderer Contract",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-03": {
-    "sourceHash": "778403b91f8b7e9dabbe8445bbe0d8524bf1aa05c3e75bea6b4858b6a1404ae7",
+    "sourceHash": "8d191ae28fd3a1250e364a4566d2da761c3d9d8d142c3332b2e47b8ea7086f2a",
     "values": {
       "note": "An interactive Initialization Handshake experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "22640a7bb728520cd1a4cba1f774fa1a9130848291b0ea237e194484f1e93cf3",
+      "values": {
+        "messages.display001": "<h3>Initialization Handshake</h3><p>Ready / Pending input</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "messages.display008": "Input queued until ready handshake",
+        "comments.comment001": "offscreen-canvas-step-03: Initialization Handshake",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-04": {
-    "sourceHash": "01d5bb110afe8f96ecb5997a7d5b32137ae2c035986d0117fc3ae44b3e6c334b",
+    "sourceHash": "d9d052389a7b1e2c0c6b1ab36005b998318a2254ff38b3199daeb185472d057f",
     "values": {
-      "note": "An interactive Context Creation Failure experiment with cleanup of the resources it uses."
+      "note": "The button calls fallback directly rather than injecting a getContext failure. The shared initialization path checks for a null Context and replaces the Canvas."
+    },
+    "presentation": {
+      "sourceHash": "fe643bcf20fbb9258a6e792d9411693695caf243d5bd403a1d4950ab21e40902",
+      "values": {
+        "messages.display001": "<h3>Calling fallback directly</h3><p>Context / Replacement Canvas</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "comments.comment001": "offscreen-canvas-step-04: Context Creation Failure",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison",
+        "messages.displayFix1004": "Direct fallback call: Canvas replaced"
+      }
     }
   },
   "offscreen-canvas-step-05": {
-    "sourceHash": "8784958381ffb206116c88c21af2f76e683a338203a98e1ae43be62a4e90d2dc",
+    "sourceHash": "4b3bfacb4a6b2ccd0a22483ae084a06a6ea14fdf1a24417e87943e066e205ded",
     "values": {
       "note": "An interactive Coordinate Units experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "f5483dc66d60cc369a714922123b036973487194de9e1749009df2657381f943",
+      "values": {
+        "messages.display001": "<h3>Coordinate Units</h3><p>CSS size / DPR</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "comments.comment001": "offscreen-canvas-step-05: Coordinate Units",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-06": {
-    "sourceHash": "69de5dfb4f93f08d4e3dda6fd71a9de88e8f722742ce5038599f6acaeb3e1b25",
+    "sourceHash": "c88c3870721550d532285a70598080e230a05eb9af3e18e8aae0f2114a7a0cdc",
     "values": {
       "note": "An interactive Frame Timing experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "00888d2a3b31297cb96782732cd4fe1ea92c8a4c30b4e302f643e67d1e6207d4",
+      "values": {
+        "messages.display001": "<h3>Frame Timing</h3><p>Delta / Long gaps</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "messages.display008": "Delta is clamped to 50ms; pause/resume resets baseline",
+        "comments.comment001": "offscreen-canvas-step-06: Frame Timing",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-07": {
-    "sourceHash": "27de8fdf2547eca2c9fdea807f4968572eb0f890cc4a8fe3b4b36f3fe99a532a",
+    "sourceHash": "83036a7b36e5d5296d01dc73640d5ad82b416240d820f00f91be3611ef66ec8c",
     "values": {
       "note": "An interactive Basic Rendering Validation experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "4b3f5d4cfd46ba655a3542d485e2de5dd7bff564725fee6ad73d00ba744c1bc7",
+      "values": {
+        "messages.display001": "<h3>Basic Rendering Validation</h3><p>Equivalence / Validation scope</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "messages.display008": "Fixed deterministic state: compare identical main and worker paths with fallback button",
+        "comments.comment001": "offscreen-canvas-step-07: Basic Rendering Validation",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-08": {
-    "sourceHash": "012497ebf05c74ec7ab3d4b5cea74c59f4a06e3338c1eeaaa586d36a1936cf0b",
+    "sourceHash": "4a79f83ada225f7bd788477397bb74b7ebe3cf62de63d2052737107c297b46e7",
     "values": {
       "note": "An interactive Resize Messages experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "420ae80e323d416abf5d98248f477c825c0f1b1625c4baca0295f54afc5815eb",
+      "values": {
+        "messages.display001": "<h3>Resize Messages</h3><p>Measurement / Cost of changes</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "comments.comment001": "offscreen-canvas-step-08: Resize Messages",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-09": {
-    "sourceHash": "312139a8f0102028ab362772d2a383bf1f3c0e0d4cfa55cc25519a533b3ca5bb",
+    "sourceHash": "5a6e6113b44855a0bcc14127d877593737ba086ad748feaa92a07b2e95ee1ab5",
     "values": {
       "note": "An interactive Resize Sequence Numbers experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "81a03d855d89bb8054658bf8f476eba5ef3c14c291df1b3ad2cd79543f505eec",
+      "values": {
+        "messages.display001": "<h3>Resize Sequence Numbers</h3><p>Latest size / Acknowledgment</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "comments.comment001": "offscreen-canvas-step-09: Resize Sequence Numbers",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-10": {
-    "sourceHash": "9d83faab6da358f12567d6472999bd84c5b26f5592fea9097adf5db100f4b75e",
+    "sourceHash": "6e0563a9f3875c212abd6c88c1e4e5122000eb0d668f6e74f24948b1548eb887",
     "values": {
       "note": "An interactive Detecting DPR Changes experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "d6e0bd5965cb413457df4869028878197d4c772910ce45fa365845295224587a",
+      "values": {
+        "messages.display001": "<h3>Detecting DPR Changes</h3><p>Environment changes / Resolution cap</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "comments.comment001": "offscreen-canvas-step-10: Detecting DPR Changes",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-11": {
-    "sourceHash": "e34aa644a25537998d37b3f61f1efa00f6d7815a37479fafcc827256e63df44f",
+    "sourceHash": "801bc5537506e692cf41dcd1f37ff01fe87ad58459f54d52d849d4e3b98ee3ae",
     "values": {
       "note": "An interactive Transforming Pointer Coordinates experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "c233a5ea1762868a56fadbcfa7b7b7b27f6cbe6314ef16caf4d31de5179c3c74",
+      "values": {
+        "messages.display001": "<h3>Transforming Pointer Coordinates</h3><p>Local coordinates / Matching scales</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "messages.display008": "Pointer local CSS coordinates use bounding rect scale",
+        "comments.comment001": "offscreen-canvas-step-11: Transforming Pointer Coordinates",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-12": {
-    "sourceHash": "622030b9d7dd8d084f1f887862542fb4ff123bcd3dd5a1f33c1cffc0be1fa0f2",
+    "sourceHash": "546700af74087f1a8a40feeda9b2e1a6bfb0a551d01828017bdc295c9fb214d9",
     "values": {
       "note": "An interactive Coalescing Input experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "0cca340858e50403abc8a7a09e81bf698c92c76a57de409cdcdeadf4d4dbbe8e",
+      "values": {
+        "messages.display001": "<h3>Coalescing Input</h3><p>Latest value / Event semantics</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "messages.display008": "50 intermediate moves coalesced into one next-frame patch",
+        "comments.comment001": "offscreen-canvas-step-12: Coalescing Input",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-13": {
-    "sourceHash": "95754f52f687c8dccd42090441cd07e5918db54edf990343c0eab0350e1ed956",
+    "sourceHash": "dbf2850511cb9ccac7304b6999777f3173262e3d8cbd58d2961dc21b2cba777f",
     "values": {
       "note": "An interactive Pointer Capture and Cancellation experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "01b3a125ede396ea69576a4ff88551698f04718bf7c9da20ccf7e465d1f28571",
+      "values": {
+        "messages.display001": "<h3>Pointer Capture and Cancellation</h3><p>Capture / Cancel</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "messages.display008": "Drag canvas; capture retains pointer until up/cancel",
+        "comments.comment001": "offscreen-canvas-step-13: Pointer Capture and Cancellation",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-15": {
-    "sourceHash": "52804db0c2bc8affa11c772cd0a953e03e32a0b0264ca6d22652eb9657e436bf",
+    "sourceHash": "475991e9ce83e217e7994860eeb7304e3b41b9ed57a52c12896ab2a27f79916b",
     "values": {
       "note": "An interactive Updating Scene State experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "057558346499fa852dc1acde2671630f7786e2283bedd080c4a1d66a6ab430ad",
+      "values": {
+        "messages.display001": "<h3>Updating Scene State</h3><p>Patches / Versions</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "comments.comment001": "offscreen-canvas-step-15: Updating Scene State",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-16": {
-    "sourceHash": "75ab721ba6c50ae0b25c659a728e21c5a297310baf10f4b245c673de775224e9",
+    "sourceHash": "6c112e6729cbedaec86d433e8dc21c98b0cf7a141e3506a7f3e0957ff184a2ec",
     "values": {
       "note": "An interactive Batching Particle Data experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "ead34e6188e4a8cf6a757baeb2a504a6c0475ac44a18fb98b7646d5a2424dbd6",
+      "values": {
+        "messages.display001": "<h3>Batching Particle Data</h3><p>TypedArray / Ownership</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "messages.display008": "Transferred ",
+        "messages.display009": " sender bytes (detached in worker mode)",
+        "comments.comment001": "offscreen-canvas-step-16: Batching Particle Data",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-17": {
-    "sourceHash": "b1dc372e5887731f91ff41d0c3044700c7e499f3ab377be62b23466dacda8e5e",
+    "sourceHash": "081472add2e193962f87ec9c7eaad47a92b58ae6979bb99bae60217a770cfbfe",
     "values": {
-      "note": "An interactive Pausing and Resuming experiment with cleanup of the resources it uses."
+      "note": "Pause suppresses drawing and resets the time baseline. It does not cancel every scheduled frame or interval."
+    },
+    "presentation": {
+      "sourceHash": "b628cfa901b685a4f1588fe87bf9dec482205f3687f3c58b69152817c5fbc440",
+      "values": {
+        "messages.display001": "<h3>Pausing and Resuming</h3><p>Pause / Time baseline</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "comments.comment001": "offscreen-canvas-step-17: Pausing and Resuming",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-18": {
-    "sourceHash": "93ed27dd08e8f56b1f20ab3a05e36686416d31bfbc7e4b5b6f723c63d7f062b0",
+    "sourceHash": "d8e65c8118b2b3b3edaf1fb43a1e0d3b3aa644b984b6a698b755c59c2be6e606",
     "values": {
-      "note": "An interactive Page Visibility Policy experiment with cleanup of the resources it uses."
+      "note": "Visibility changes send pause messages and reset the time baseline. Hidden state suppresses drawing; schedule cancellation and computation-count measurement are not implemented."
+    },
+    "presentation": {
+      "sourceHash": "24422e5df24a8bad2170367005e24c1b9b1fca387c2f7df5e36620e0f79d0ead",
+      "values": {
+        "messages.display001": "<h3>Page Visibility Policy</h3><p>Visibility / Synchronization</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "messages.display008": "Switch browser tab: visibility handler pauses and resets time on resume",
+        "comments.comment001": "offscreen-canvas-step-18: Page Visibility Policy",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-19": {
-    "sourceHash": "cdb5740f5e25339fbbad1fc81a4b59fe43f83bae47a9f4fe5bfbb6d2377f7749",
+    "sourceHash": "ec85adeda5730a767b7009828da7535fabdc3a1e3cd666a9ac49c36a97878824",
     "values": {
       "note": "An interactive Cleanup Protocol experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "65bca3f45c25b593ab1d98cd3a07cce8a9e7bdc03978370fb10e4acc1220710c",
+      "values": {
+        "messages.display001": "<h3>Cleanup Protocol</h3><p>Dispose / Acknowledgment and termination</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "messages.display008": "Dispose requested; acknowledgment terminates worker",
+        "comments.comment001": "offscreen-canvas-step-19: Cleanup Protocol",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-20": {
-    "sourceHash": "4b3b8bf2f3d9fbbe7361353e94077ff34593e100d73e7cd4209310db226d9e70",
+    "sourceHash": "5069da832ea1218f9f601816aea30e213c7cc3e08b0082aba10af4b8228d85db",
     "values": {
       "note": "An interactive Restarting with a New Canvas experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "242d68c41c26c40bdba6a71612bb864219f0f7ea2009381a9dacf1f821af5a68",
+      "values": {
+        "messages.display001": "<h3>Restarting with a New Canvas</h3><p>Retransfer limits / Restart state</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "messages.display008": "New canvas created; transferred DOM canvas never reused",
+        "comments.comment001": "offscreen-canvas-step-20: Restarting with a New Canvas",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-21": {
-    "sourceHash": "7ac563b8a3f89fa8c2add6e8df3561e4559e405109b37b44ebbf11998df2d453",
+    "sourceHash": "f2f18caede8b396bfdf8b34d05daf6c6798ba89bba251164eee334e56c6a6185",
     "values": {
       "note": "An interactive Recovering from Worker Failure experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "274385f02331d2dba91a3ce29e7d9ccbdff21b89fd38efeccc977a2f5230ff41",
+      "values": {
+        "messages.display001": "<h3>Recovering from Worker Failure</h3><p>Distinguishing errors / Fallback</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "comments.comment001": "offscreen-canvas-step-21: Recovering from Worker Failure",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-22": {
-    "sourceHash": "5fbf5514e6d29b39f495bfb49ce13ededdc9e220d19abfd26576f6a8a34adbec",
+    "sourceHash": "442a8fd283098b46e2b6d471db136b0a0726b5d3cdd02126e55b7fbc390f2b76",
     "values": {
-      "note": "An interactive Transferring ImageBitmap Frames experiment with cleanup of the resources it uses."
+      "note": "The button requests one ImageBitmap. The main thread draws it into a new preview Canvas and calls close. A continuous frame stream and bounded queue are not implemented."
+    },
+    "presentation": {
+      "sourceHash": "b809f9eefc3c360163411152f1ece5b6a098b04a13d97a0f8aa40c40495ccf96",
+      "values": {
+        "messages.display001": "<h3>Transferring ImageBitmap Frames</h3><p>Frame transfer / Resource lifetime</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "messages.display008": "ImageBitmap transfer needs OffscreenCanvas worker path",
+        "comments.comment001": "offscreen-canvas-step-22: Transferring ImageBitmap Frames",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-23": {
-    "sourceHash": "094083c0f752b0f1691be5fb80278d5960f801a2ce21f3d6efd53cce05c2c04e",
+    "sourceHash": "eff72d0a94d4841b72cb074fcf37c0e716f11d0745c7a752990f6236de53f1aa",
     "values": {
-      "note": "An interactive Canvas Context Loss experiment with cleanup of the resources it uses."
+      "note": "Synthetic contextlost/contextrestored events on the DOM Canvas exercise the handlers. This does not verify real Worker/GPU Context loss or resource recreation."
+    },
+    "presentation": {
+      "sourceHash": "0cded1b434959252188ee55384f750cba220b442888fe3653c33fa9f3eefab66",
+      "values": {
+        "messages.display001": "<h3>Canvas Context Loss</h3><p>Loss / Recovery data</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "messages.display008": "Synthetic contextlost tests recovery handler only; real GPU/context loss is browser-controlled",
+        "comments.comment001": "offscreen-canvas-step-23: Canvas Context Loss",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-24": {
-    "sourceHash": "eada49bc61372b36af42125a67cb5dce4af29afe98dafe48579c48b1a7d484ac",
+    "sourceHash": "11464af126661abe5db4f0b1498ac9e0c033b1e3fd3e8c750c1a75b2b4d3e39e",
     "values": {
-      "note": "An interactive Request and Display Latency experiment with cleanup of the resources it uses."
+      "note": "The measurement runs from main-thread request submission to handling the painted acknowledgment. It does not separately measure compositing, visible-display latency, or Worker processing time."
+    },
+    "presentation": {
+      "sourceHash": "6d5a90e94f4ed631e54b2594d429fa9d110de29d66cf475244295d7b8237f61f",
+      "values": {
+        "messages.display001": "<h3>Request-to-acknowledgment time</h3><p>Request-to-ack / Display latency excluded</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "comments.comment001": "offscreen-canvas-step-24: Request and Display Latency",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-25": {
-    "sourceHash": "3a969d5fd621156a65c75215ee890142d130180c7e5a93eded0a72ef78859533",
+    "sourceHash": "e0233e11c928e8b73f1802acc52eaea780d7e3bae736b0365c6ad4e1bf311160",
     "values": {
-      "note": "An interactive Resolution and Workload experiment with cleanup of the resources it uses."
+      "note": "The button changes DPR and particle count 40/800 together. A fixed-count resolution comparison is a separate assignment; these results do not isolate the two factors."
+    },
+    "presentation": {
+      "sourceHash": "cf5e1cd37065a9e46051f891375e0584461e3bd2fbfdbbb51eed30529b996387",
+      "values": {
+        "messages.display001": "<h3>Resolution and Workload</h3><p>Pixel cost / Measurement</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "comments.comment001": "offscreen-canvas-step-25: Resolution and Workload",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-26": {
-    "sourceHash": "dc2574ea191a623b0e3f90e2a2af0d8c55c017a328e9f23fb39e73c868ad52b7",
+    "sourceHash": "b17e24e9394c7eae5bca501f3ba3b388891ed04636363ddf9d049c71d7ab2fcf",
     "values": {
       "note": "An interactive Main-Thread Contention Experiment with cleanup of the resources it uses."
+    },
+    "presentation": {
+      "sourceHash": "2f4606206780dddb624405a659fd0ffc65f2dcc59a243b1c3202a83a49339814",
+      "values": {
+        "messages.display001": "<h3>Main-Thread Contention Experiment</h3><p>Competing work / Fair comparison</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "messages.display008": "Main blocked 100ms; worker paint acknowledgment waits for main event loop",
+        "comments.comment001": "offscreen-canvas-step-26: Main-Thread Contention Experiment",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
     }
   },
   "offscreen-canvas-step-27": {
-    "sourceHash": "188f7d936315ae1af275a512eae208ff140e7b3ffbf1bae8f41b06cfc6a329aa",
+    "sourceHash": "f6386eb857943a90410dd6f18662646c55839910823338c0ba2fdaddadf37a88",
     "values": {
-      "note": "An interactive Summarizing Experiment Results experiment with cleanup of the resources it uses."
+      "note": "The example shows request-to-acknowledgment time and sample count for one x patch. Visible-display latency, medians, long frames, three-run comparisons, and JSON export are separate assignments."
+    },
+    "presentation": {
+      "sourceHash": "e0efb1de74897a8863175d3d1b57c8b10fc3b69823786b65dd8b7f91a2c929d4",
+      "values": {
+        "messages.display001": "<h3>Summarizing Experiment Results</h3><p>Distributions / Limitations</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>",
+        "messages.display002": "Request→ack ms ",
+        "messages.display003": "; samples ",
+        "messages.display004": "; excludes display compositor latency",
+        "messages.display005": "Context lost: saved state retained",
+        "messages.display006": "Main-thread fallback: ",
+        "messages.display007": "Use main-thread fallback",
+        "comments.comment001": "offscreen-canvas-step-27: Summarizing Experiment Results",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "transferControlToOffscreen unavailable",
+        "messages.displayFix1003": "manual comparison"
+      }
+    }
+  },
+  "offscreen-canvas-01": {
+    "presentation": {
+      "sourceHash": "ebe3ec3f86f0d05bb43e749d6e6278ce3f22be83e5a5c600fe8b41168d6fddb4",
+      "values": {
+        "messages.display001": "This browser does not support transferring an OffscreenCanvas.",
+        "comments.comment001": "Transfer ownership of the Canvas to the Worker. Change the color and SPEED."
+      }
+    }
+  },
+  "offscreen-canvas-02": {
+    "presentation": {
+      "sourceHash": "2eaab1c92958c9ecf8478e21cc6ba383d3123d8d5d39db03758c895341554098",
+      "values": {
+        "messages.display001": "<h3>Resize + pointer protocol</h3><label>CSS width % <input type=\"range\" min=\"30\" max=\"100\" value=\"100\"></label> <label>DPR override <select><option value=\"1\">1</option><option value=\"2\">2</option><option value=\"3\">3</option></select></label><pre aria-live=\"polite\"></pre>",
+        "messages.display002": "Worker unavailable: ",
+        "messages.display003": ". Re-run in a supporting browser.",
+        "messages.display004": "; revision=",
+        "messages.display005": "; CSS=",
+        "messages.display006": "×",
+        "messages.display007": "; backing=",
+        "messages.display008": "\nMove the pointer: CSS coordinates are independent of DPR. ResizeObserver updates are coalesced to one frame.",
+        "comments.comment001": "This function runs unchanged in the worker or fallback. All coordinates use CSS pixels.",
+        "messages.displayFix1001": "2D context unavailable"
+      }
+    }
+  },
+  "offscreen-canvas-03": {
+    "presentation": {
+      "sourceHash": "400933b642c64690577ec12d2beba41d589a5de7b9a2e7ebd581347882f7992f",
+      "values": {
+        "messages.display001": "<h3>Main thread versus OffscreenCanvas</h3><label>Particles <input type=\"number\" min=\"100\" max=\"40000\" value=\"5000\"></label> <button data-mode=\"main\">Start main</button> <button data-mode=\"worker\">Start worker</button> <button data-mode=\"stop\">Stop</button><label>UI response probe <input data-probe placeholder=\"Type during rendering\"></label><pre aria-live=\"polite\"></pre><div data-canvas></div><p>Same seeded positions and drawing loop. Frame interval includes scheduling; draw cost is CPU submission time, not isolated GPU time. Worker mode still does the rendering work.</p>",
+        "messages.display002": "Stopped at reported frame ",
+        "messages.display003": ". Worker terminated; main timer and heartbeat cleared.",
+        "messages.display004": ": ",
+        "messages.display005": " particles; frame ",
+        "messages.display006": "\nFrame interval ",
+        "messages.display007": " ms; draw CPU cost ",
+        "messages.display008": " ms\nMain heartbeat max gap ",
+        "messages.display009": " ms",
+        "messages.displayFix1001": "2D context unavailable",
+        "messages.displayFix1002": "OffscreenCanvas worker unsupported; choose Start main.",
+        "messages.displayFix1003": "Input event dispatch age: ",
+        "messages.displayFix1004": " ms"
+      }
     }
   }
 }

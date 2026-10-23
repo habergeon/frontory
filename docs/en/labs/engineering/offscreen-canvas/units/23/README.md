@@ -62,7 +62,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/offscreen-canvas-step-23/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-An interactive Canvas Context Loss experiment with cleanup of the resources it uses.
+Synthetic contextlost/contextrestored events on the DOM Canvas exercise the handlers. This does not verify real Worker/GPU Context loss or resource recreation.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

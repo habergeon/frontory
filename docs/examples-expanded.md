@@ -580,7 +580,7 @@
 | --- | --- | --- |
 | [2. 렌더러 계약](labs/engineering/offscreen-canvas/units/02/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-02/example.js) — 렌더러 계약 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [3. 초기화 핸드셰이크](labs/engineering/offscreen-canvas/units/03/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-03/example.js) — 초기화 핸드셰이크 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
-| [4. Context 생성 실패](labs/engineering/offscreen-canvas/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-04/example.js) — Context 생성 실패 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [4. Context 생성 실패](labs/engineering/offscreen-canvas/units/04/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-04/example.js) — 버튼은 fallback을 직접 호출합니다. getContext 실패를 주입하는 실험은 아닙니다. 공통 초기화 경로는 null Context를 검사하고 새 Canvas로 대체합니다. |
 | [5. 좌표 단위의 기준](labs/engineering/offscreen-canvas/units/05/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-05/example.js) — 좌표 단위의 기준 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [6. 프레임 시간](labs/engineering/offscreen-canvas/units/06/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-06/example.js) — 프레임 시간 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [7. 기초 렌더 검증](labs/engineering/offscreen-canvas/units/07/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-07/example.js) — 기초 렌더 검증 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
@@ -592,17 +592,17 @@
 | [13. Pointer Capture와 취소](labs/engineering/offscreen-canvas/units/13/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-13/example.js) — Pointer Capture와 취소 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [15. 장면 상태 갱신](labs/engineering/offscreen-canvas/units/15/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-15/example.js) — 장면 상태 갱신 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [16. 입자 데이터 배치](labs/engineering/offscreen-canvas/units/16/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-16/example.js) — 입자 데이터 배치 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
-| [17. 정지와 재개](labs/engineering/offscreen-canvas/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-17/example.js) — 정지와 재개 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
-| [18. 페이지 숨김 정책](labs/engineering/offscreen-canvas/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-18/example.js) — 페이지 숨김 정책 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [17. 정지와 재개](labs/engineering/offscreen-canvas/units/17/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-17/example.js) — pause는 그리기를 억제하고 시간 기준을 초기화합니다. 모든 프레임·interval 예약을 취소하는 동작은 아닙니다. |
+| [18. 페이지 숨김 정책](labs/engineering/offscreen-canvas/units/18/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-18/example.js) — 가시성 변경은 pause 메시지를 보내고 시간 기준을 초기화합니다. 숨김 상태에서는 그리기를 억제하며 예약 취소나 계산 횟수 측정은 구현하지 않습니다. |
 | [19. 정리 프로토콜](labs/engineering/offscreen-canvas/units/19/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-19/example.js) — 정리 프로토콜 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [20. 재시작 Canvas](labs/engineering/offscreen-canvas/units/20/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-20/example.js) — 재시작 Canvas 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
 | [21. Worker 장애 복구](labs/engineering/offscreen-canvas/units/21/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-21/example.js) — Worker 장애 복구 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
-| [22. ImageBitmap 전달](labs/engineering/offscreen-canvas/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-22/example.js) — ImageBitmap 전달 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
-| [23. Canvas Context 손실](labs/engineering/offscreen-canvas/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-23/example.js) — Canvas Context 손실 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
-| [24. 요청과 화면 지연](labs/engineering/offscreen-canvas/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-24/example.js) — 요청과 화면 지연 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
-| [25. 해상도와 작업량](labs/engineering/offscreen-canvas/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-25/example.js) — 해상도와 작업량 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [22. ImageBitmap 전달](labs/engineering/offscreen-canvas/units/22/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-22/example.js) — 버튼은 ImageBitmap 하나를 요청합니다. 메인은 새 미리보기 Canvas에 그린 뒤 close를 호출합니다. 연속 프레임 스트림이나 제한된 큐는 구현하지 않습니다. |
+| [23. Canvas Context 손실](labs/engineering/offscreen-canvas/units/23/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-23/example.js) — DOM Canvas에 합성 contextlost/contextrestored 이벤트를 보내 핸들러를 확인합니다. 실제 Worker/GPU Context 손실이나 자원 재생성을 검증하는 실험은 아닙니다. |
+| [24. 요청과 화면 지연](labs/engineering/offscreen-canvas/units/24/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-24/example.js) — 측정값은 메인의 요청 전송부터 painted 응답 처리까지 걸린 시간입니다. 화면 합성·실제 표시 지연과 Worker 처리 시간을 따로 측정하지 않습니다. |
+| [25. 해상도와 작업량](labs/engineering/offscreen-canvas/units/25/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-25/example.js) — 버튼은 DPR과 입자 수 40/800을 함께 바꿉니다. 입자 수를 고정한 해상도 비교는 별도 과제이며 현재 결과로 두 요인의 영향을 분리할 수 없습니다. |
 | [26. 메인 스레드 경쟁 실험](labs/engineering/offscreen-canvas/units/26/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-26/example.js) — 메인 스레드 경쟁 실험 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
-| [27. 실험 결과 정리](labs/engineering/offscreen-canvas/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-27/example.js) — 실험 결과 정리 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다. |
+| [27. 실험 결과 정리](labs/engineering/offscreen-canvas/units/27/README.md) | 편집 가능한 예제 | [원본 코드](../src/labs/offscreen-canvas-step-27/example.js) — 한 번의 x 패치에 대한 요청→응답 시간과 표본 수를 표시합니다. 화면 표시 지연, 중앙값, 긴 프레임, 3회 비교나 JSON 내보내기는 별도 과제입니다. |
 
 ## WebAssembly
 

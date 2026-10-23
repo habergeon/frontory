@@ -62,7 +62,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/offscreen-canvas-step-18/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-An interactive Page Visibility Policy experiment with cleanup of the resources it uses.
+Visibility changes send pause messages and reset the time baseline. Hidden state suppresses drawing; schedule cancellation and computation-count measurement are not implemented.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

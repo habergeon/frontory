@@ -6378,7 +6378,8 @@
       "title": "Transferring Canvas Control",
       "goal": "Learning outcome: explain the role of Ownership. Input cases: Supported and forced-unsupported paths. Deliverable: A table of the selected mode, first frame, and error guidance. Explain the rationale for handling Fallback path, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/01-foundations/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-01/example.js"
     },
     {
       "id": "offscreen-canvas-step-02",
@@ -6388,6 +6389,7 @@
       "goal": "Learning outcome: explain the role of Pure state. Input cases: The same three circles. Deliverable: A table of coordinates and colors for both adapters. Explain the rationale for handling Ownership boundaries, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/02/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-02/example.js",
       "exampleNote": "An interactive Renderer Contract experiment with cleanup of the resources it uses."
     },
     {
@@ -6398,6 +6400,7 @@
       "goal": "Learning outcome: explain the role of Ready. Input cases: A color change immediately after initialization. Deliverable: Message order and the first applied color. Explain the rationale for handling Pending input, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/03/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-03/example.js",
       "exampleNote": "An interactive Initialization Handshake experiment with cleanup of the resources it uses."
     },
     {
@@ -6408,7 +6411,8 @@
       "goal": "Learning outcome: explain the role of Context. Input cases: Forced context failure. Deliverable: Failure guidance and rendering results from the replacement Canvas. Explain the rationale for handling Replacement Canvas, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/04/README.md",
       "seriesId": "offscreen-canvas",
-      "exampleNote": "An interactive Context Creation Failure experiment with cleanup of the resources it uses."
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-04/example.js",
+      "exampleNote": "The button calls fallback directly rather than injecting a getContext failure. The shared initialization path checks for a null Context and replaces the Canvas."
     },
     {
       "id": "offscreen-canvas-step-05",
@@ -6418,6 +6422,7 @@
       "goal": "Learning outcome: explain the role of CSS size. Input cases: A 100 CSS px square. Deliverable: CSS·buffer sizes and shape width. Explain the rationale for handling DPR, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/05/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-05/example.js",
       "exampleNote": "An interactive Coordinate Units experiment with cleanup of the resources it uses."
     },
     {
@@ -6428,6 +6433,7 @@
       "goal": "Learning outcome: explain the role of Delta. Input cases: Normal frames and input with a long gap. Deliverable: A table of positions at the same elapsed time. Explain the rationale for handling Long gaps, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/06/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-06/example.js",
       "exampleNote": "An interactive Frame Timing experiment with cleanup of the resources it uses."
     },
     {
@@ -6438,6 +6444,7 @@
       "goal": "Learning outcome: explain the role of Equivalence. Input cases: The same seed and 10 particles. Deliverable: Coordinate arrays and a record of the still image. Explain the rationale for handling Validation scope, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/07/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-07/example.js",
       "exampleNote": "An interactive Basic Rendering Validation experiment with cleanup of the resources it uses."
     },
     {
@@ -6448,6 +6455,7 @@
       "goal": "Learning outcome: explain the role of Measurement. Input cases: Changes to width and height. Deliverable: A table of backing-store sizes and shape styles. Explain the rationale for handling Cost of changes, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/08/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-08/example.js",
       "exampleNote": "An interactive Resize Messages experiment with cleanup of the resources it uses."
     },
     {
@@ -6458,6 +6466,7 @@
       "goal": "Learning outcome: explain the role of Latest size. Input cases: Input in seq 1·3·2 order. Deliverable: The applied seq and final size. Explain the rationale for handling Acknowledgment, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/09/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-09/example.js",
       "exampleNote": "An interactive Resize Sequence Numbers experiment with cleanup of the resources it uses."
     },
     {
@@ -6468,6 +6477,7 @@
       "goal": "Learning outcome: explain the role of Environment changes. Input cases: DPR 1·2·3 conditions. Deliverable: Actual·applied DPR and buffer pixel count. Explain the rationale for handling Resolution cap, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/10/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-10/example.js",
       "exampleNote": "An interactive Detecting DPR Changes experiment with cleanup of the resources it uses."
     },
     {
@@ -6478,6 +6488,7 @@
       "goal": "Learning outcome: explain the role of Local coordinates. Input cases: Clicks at the center and all four corners. Deliverable: Input coordinates and the selected particle ID. Explain the rationale for handling Matching scales, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/11/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-11/example.js",
       "exampleNote": "An interactive Transforming Pointer Coordinates experiment with cleanup of the resources it uses."
     },
     {
@@ -6488,6 +6499,7 @@
       "goal": "Learning outcome: explain the role of Latest value. Input cases: Rapid movement and clicks. Deliverable: Message counts and a record of down/up pairs. Explain the rationale for handling Event semantics, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/12/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-12/example.js",
       "exampleNote": "An interactive Coalescing Input experiment with cleanup of the resources it uses."
     },
     {
@@ -6498,6 +6510,7 @@
       "goal": "Learning outcome: explain the role of Capture. Input cases: Dragging inside, moving outside, and cancellation. Deliverable: The dragging value after input ends. Explain the rationale for handling Cancel, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/13/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-13/example.js",
       "exampleNote": "An interactive Pointer Capture and Cancellation experiment with cleanup of the resources it uses."
     },
     {
@@ -6507,7 +6520,8 @@
       "title": "Resize and Input Protocol",
       "goal": "Learning outcome: explain the role of Unit contract. Input cases: Selecting the center during rapid resize. Deliverable: Records of size seq, selected ID, and sharpness. Explain the rationale for handling Preserving order, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/02-experiments/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-02/example.js"
     },
     {
       "id": "offscreen-canvas-step-15",
@@ -6517,6 +6531,7 @@
       "goal": "Learning outcome: explain the role of Patches. Input cases: Valid and stale patches. Deliverable: Final scene values for each version. Explain the rationale for handling Versions, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/15/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-15/example.js",
       "exampleNote": "An interactive Updating Scene State experiment with cleanup of the resources it uses."
     },
     {
@@ -6527,6 +6542,7 @@
       "goal": "Learning outcome: explain the role of TypedArray. Input cases: 100 particles. Deliverable: byteLength and the range of particle coordinates. Explain the rationale for handling Ownership, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/16/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-16/example.js",
       "exampleNote": "An interactive Batching Particle Data experiment with cleanup of the resources it uses."
     },
     {
@@ -6537,7 +6553,8 @@
       "goal": "Learning outcome: explain the role of Pause. Input cases: Resume after pausing for 2 seconds. Deliverable: Frame count during the pause and position on resume. Explain the rationale for handling Time baseline, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/17/README.md",
       "seriesId": "offscreen-canvas",
-      "exampleNote": "An interactive Pausing and Resuming experiment with cleanup of the resources it uses."
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-17/example.js",
+      "exampleNote": "Pause suppresses drawing and resets the time baseline. It does not cancel every scheduled frame or interval."
     },
     {
       "id": "offscreen-canvas-step-18",
@@ -6547,7 +6564,8 @@
       "goal": "Learning outcome: explain the role of Visibility. Input cases: Hide the tab and return. Deliverable: Computation count while hidden and state on return. Explain the rationale for handling Synchronization, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/18/README.md",
       "seriesId": "offscreen-canvas",
-      "exampleNote": "An interactive Page Visibility Policy experiment with cleanup of the resources it uses."
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-18/example.js",
+      "exampleNote": "Visibility changes send pause messages and reset the time baseline. Hidden state suppresses drawing; schedule cancellation and computation-count measurement are not implemented."
     },
     {
       "id": "offscreen-canvas-step-19",
@@ -6557,6 +6575,7 @@
       "goal": "Learning outcome: explain the role of Dispose. Input cases: dispose during rendering. Deliverable: Counts of remaining frames, messages, and observers. Explain the rationale for handling Acknowledgment and termination, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/19/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-19/example.js",
       "exampleNote": "An interactive Cleanup Protocol experiment with cleanup of the resources it uses."
     },
     {
@@ -6567,6 +6586,7 @@
       "goal": "Learning outcome: explain the role of Retransfer limits. Input cases: 5 start·stop cycles. Deliverable: Canvas·Worker counts and first frame for each cycle. Explain the rationale for handling Restart state, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/20/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-20/example.js",
       "exampleNote": "An interactive Restarting with a New Canvas experiment with cleanup of the resources it uses."
     },
     {
@@ -6577,6 +6597,7 @@
       "goal": "Learning outcome: explain the role of Distinguishing errors. Input cases: Errors during initialization and rendering. Deliverable: A table of error guidance, selected mode, and scene preservation. Explain the rationale for handling Fallback, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/21/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-21/example.js",
       "exampleNote": "An interactive Recovering from Worker Failure experiment with cleanup of the resources it uses."
     },
     {
@@ -6587,7 +6608,8 @@
       "goal": "Learning outcome: explain the role of Frame transfer. Input cases: 30 consecutive frames. Deliverable: Counts of displayed·discarded bitmaps and close calls. Explain the rationale for handling Resource lifetime, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/22/README.md",
       "seriesId": "offscreen-canvas",
-      "exampleNote": "An interactive Transferring ImageBitmap Frames experiment with cleanup of the resources it uses."
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-22/example.js",
+      "exampleNote": "The button requests one ImageBitmap. The main thread draws it into a new preview Canvas and calls close. A continuous frame stream and bounded queue are not implemented."
     },
     {
       "id": "offscreen-canvas-step-23",
@@ -6597,7 +6619,8 @@
       "goal": "Learning outcome: explain the role of Loss. Input cases: Loss in a supported environment or explicit failure injection. Deliverable: Interruption guidance and a record of scene recreation. Explain the rationale for handling Recovery data, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/23/README.md",
       "seriesId": "offscreen-canvas",
-      "exampleNote": "An interactive Canvas Context Loss experiment with cleanup of the resources it uses."
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-23/example.js",
+      "exampleNote": "Synthetic contextlost/contextrestored events on the DOM Canvas exercise the handlers. This does not verify real Worker/GPU Context loss or resource recreation."
     },
     {
       "id": "offscreen-canvas-step-24",
@@ -6607,7 +6630,8 @@
       "goal": "Learning outcome: explain the role of Visible updates. Input cases: 20 color-change requests. Deliverable: Round-trip, processing, and observed latency records. Explain the rationale for handling Separating measurements, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/24/README.md",
       "seriesId": "offscreen-canvas",
-      "exampleNote": "An interactive Request and Display Latency experiment with cleanup of the resources it uses."
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-24/example.js",
+      "exampleNote": "The measurement runs from main-thread request submission to handling the painted acknowledgment. It does not separately measure compositing, visible-display latency, or Worker processing time."
     },
     {
       "id": "offscreen-canvas-step-25",
@@ -6617,7 +6641,8 @@
       "goal": "Learning outcome: explain the role of Pixel cost. Input cases: The same scene at two DPR values. Deliverable: A table of pixel counts and frame-time distributions. Explain the rationale for handling Measurement, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/25/README.md",
       "seriesId": "offscreen-canvas",
-      "exampleNote": "An interactive Resolution and Workload experiment with cleanup of the resources it uses."
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-25/example.js",
+      "exampleNote": "The button changes DPR and particle count 40/800 together. A fixed-count resolution comparison is a separate assignment; these results do not isolate the two factors."
     },
     {
       "id": "offscreen-canvas-step-26",
@@ -6627,6 +6652,7 @@
       "goal": "Learning outcome: explain the role of Competing work. Input cases: The same scene and a click counter. Deliverable: Input latency and frame-time distributions by mode. Explain the rationale for handling Fair comparison, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/26/README.md",
       "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-26/example.js",
       "exampleNote": "An interactive Main-Thread Contention Experiment with cleanup of the resources it uses."
     },
     {
@@ -6637,7 +6663,8 @@
       "goal": "Learning outcome: explain the role of Distributions. Input cases: 3 repeated runs. Deliverable: A comparison table including conditions and raw values. Explain the rationale for handling Limitations, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/units/27/README.md",
       "seriesId": "offscreen-canvas",
-      "exampleNote": "An interactive Summarizing Experiment Results experiment with cleanup of the resources it uses."
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-27/example.js",
+      "exampleNote": "The example shows request-to-acknowledgment time and sample count for one x patch. Visible-display latency, medians, long frames, three-run comparisons, and JSON export are separate assignments."
     },
     {
       "id": "offscreen-canvas-03",
@@ -6646,7 +6673,8 @@
       "title": "Evaluating Rendering Separation",
       "goal": "Learning outcome: explain the role of Effects of separation. Input cases: resize·input·stop·rerun·unsupported. Deliverable: An input-latency·frame·cleanup·fallback report. Explain the rationale for handling Completion criteria, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/offscreen-canvas/03-project/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-03/example.js"
     },
     {
       "id": "webassembly-01",

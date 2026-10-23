@@ -62,7 +62,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/offscreen-canvas-step-17/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-An interactive Pausing and Resuming experiment with cleanup of the resources it uses.
+Pause suppresses drawing and resets the time baseline. It does not cancel every scheduled frame or interval.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

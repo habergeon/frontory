@@ -62,7 +62,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../../src/labs/offscreen-canvas-step-24/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
-An interactive Request and Display Latency experiment with cleanup of the resources it uses.
+The measurement runs from main-thread request submission to handling the painted acknowledgment. It does not separately measure compositing, visible-display latency, or Worker processing time.
 
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.

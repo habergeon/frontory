@@ -5903,7 +5903,8 @@
       "title": "Canvas 제어권 이전",
       "goal": "학습 결과: 소유권의 역할을 설명한다. 입력 사례: 지원 경로와 강제 미지원 경로. 산출물: 선택 모드·첫 프레임·오류 안내 표. 대체 경로 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/01-foundations/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-01/example.js"
     },
     {
       "id": "offscreen-canvas-step-02",
@@ -5912,7 +5913,8 @@
       "title": "렌더러 계약",
       "goal": "학습 결과: 순수 상태의 역할을 설명한다. 입력 사례: 같은 원 세 개. 산출물: 두 어댑터의 좌표·색상 표. 소유 범위 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/02/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-02/example.js"
     },
     {
       "id": "offscreen-canvas-step-03",
@@ -5921,7 +5923,8 @@
       "title": "초기화 핸드셰이크",
       "goal": "학습 결과: Ready의 역할을 설명한다. 입력 사례: 초기화 직후 색 변경. 산출물: 메시지 순서와 첫 적용 색상. 대기 입력 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/03/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-03/example.js"
     },
     {
       "id": "offscreen-canvas-step-04",
@@ -5930,7 +5933,8 @@
       "title": "Context 생성 실패",
       "goal": "학습 결과: Context의 역할을 설명한다. 입력 사례: 강제 context 실패. 산출물: 실패 안내와 대체 Canvas 렌더 결과. 복구 Canvas 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/04/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-04/example.js"
     },
     {
       "id": "offscreen-canvas-step-05",
@@ -5939,7 +5943,8 @@
       "title": "좌표 단위의 기준",
       "goal": "학습 결과: CSS 크기의 역할을 설명한다. 입력 사례: 100 CSS px 정사각형. 산출물: CSS·buffer 크기와 도형 폭. DPR 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/05/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-05/example.js"
     },
     {
       "id": "offscreen-canvas-step-06",
@@ -5948,7 +5953,8 @@
       "title": "프레임 시간",
       "goal": "학습 결과: Delta의 역할을 설명한다. 입력 사례: 정상 프레임과 긴 간격 입력. 산출물: 동일 경과 시간의 위치 표. 큰 간격 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/06/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-06/example.js"
     },
     {
       "id": "offscreen-canvas-step-07",
@@ -5957,7 +5963,8 @@
       "title": "기초 렌더 검증",
       "goal": "학습 결과: 동등성의 역할을 설명한다. 입력 사례: 동일 seed와 입자 10개. 산출물: 좌표 배열과 정지 화면 기록. 검증 범위 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/07/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-07/example.js"
     },
     {
       "id": "offscreen-canvas-step-08",
@@ -5966,7 +5973,8 @@
       "title": "Resize 메시지",
       "goal": "학습 결과: 측정의 역할을 설명한다. 입력 사례: 가로·세로 크기 변경. 산출물: 저장소 크기와 도형 스타일 표. 변경 비용 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/08/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-08/example.js"
     },
     {
       "id": "offscreen-canvas-step-09",
@@ -5975,7 +5983,8 @@
       "title": "Resize 순서 번호",
       "goal": "학습 결과: 최신 크기의 역할을 설명한다. 입력 사례: seq 1·3·2 순서 입력. 산출물: 적용 seq와 최종 크기. 응답 확인 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/09/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-09/example.js"
     },
     {
       "id": "offscreen-canvas-step-10",
@@ -5984,7 +5993,8 @@
       "title": "DPR 변경 감지",
       "goal": "학습 결과: 환경 변화의 역할을 설명한다. 입력 사례: DPR 1·2·3 조건. 산출물: 실제·적용 DPR과 buffer 픽셀 수. 해상도 상한 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/10/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-10/example.js"
     },
     {
       "id": "offscreen-canvas-step-11",
@@ -5993,7 +6003,8 @@
       "title": "포인터 좌표 변환",
       "goal": "학습 결과: 로컬 좌표의 역할을 설명한다. 입력 사례: 중앙·네 모서리 클릭. 산출물: 입력 좌표와 선택 입자 ID. 스케일 일치 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/11/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-11/example.js"
     },
     {
       "id": "offscreen-canvas-step-12",
@@ -6002,7 +6013,8 @@
       "title": "입력 병합",
       "goal": "학습 결과: 최신 값의 역할을 설명한다. 입력 사례: 빠른 이동과 클릭. 산출물: 메시지 수와 down/up 짝 기록. 이벤트 성격 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/12/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-12/example.js"
     },
     {
       "id": "offscreen-canvas-step-13",
@@ -6011,7 +6023,8 @@
       "title": "Pointer Capture와 취소",
       "goal": "학습 결과: Capture의 역할을 설명한다. 입력 사례: 내부 드래그·외부 이동·취소. 산출물: 입력 종료 뒤 dragging 값. Cancel 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/13/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-13/example.js"
     },
     {
       "id": "offscreen-canvas-02",
@@ -6020,7 +6033,8 @@
       "title": "Resize와 입력 프로토콜",
       "goal": "학습 결과: 단위 계약의 역할을 설명한다. 입력 사례: 빠른 resize 중 중앙 선택. 산출물: 크기 seq·선택 ID·선명도 기록. 순서 보존 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/02-experiments/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-02/example.js"
     },
     {
       "id": "offscreen-canvas-step-15",
@@ -6029,7 +6043,8 @@
       "title": "장면 상태 갱신",
       "goal": "학습 결과: 패치의 역할을 설명한다. 입력 사례: 정상 패치와 오래된 패치. 산출물: 버전별 최종 장면 값. 버전 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/15/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-15/example.js"
     },
     {
       "id": "offscreen-canvas-step-16",
@@ -6038,7 +6053,8 @@
       "title": "입자 데이터 배치",
       "goal": "학습 결과: TypedArray의 역할을 설명한다. 입력 사례: 입자 100개. 산출물: byteLength와 입자 좌표 범위. 소유권 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/16/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-16/example.js"
     },
     {
       "id": "offscreen-canvas-step-17",
@@ -6047,7 +6063,8 @@
       "title": "정지와 재개",
       "goal": "학습 결과: Pause의 역할을 설명한다. 입력 사례: 2초 정지 후 재개. 산출물: 정지 중 프레임 수와 재개 위치. 시간 기준 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/17/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-17/example.js"
     },
     {
       "id": "offscreen-canvas-step-18",
@@ -6056,7 +6073,8 @@
       "title": "페이지 숨김 정책",
       "goal": "학습 결과: 가시성의 역할을 설명한다. 입력 사례: 탭 숨김과 복귀. 산출물: 숨김 동안 계산 수와 복귀 상태. 동기화 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/18/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-18/example.js"
     },
     {
       "id": "offscreen-canvas-step-19",
@@ -6065,7 +6083,8 @@
       "title": "정리 프로토콜",
       "goal": "학습 결과: Dispose의 역할을 설명한다. 입력 사례: 렌더 중 dispose. 산출물: 프레임·메시지·observer 잔여 수. 확인과 종료 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/19/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-19/example.js"
     },
     {
       "id": "offscreen-canvas-step-20",
@@ -6074,7 +6093,8 @@
       "title": "재시작 Canvas",
       "goal": "학습 결과: 재이전 제한의 역할을 설명한다. 입력 사례: 시작·종료 5회. 산출물: 회차별 Canvas·Worker 수와 첫 프레임. 재시작 상태 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/20/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-20/example.js"
     },
     {
       "id": "offscreen-canvas-step-21",
@@ -6083,7 +6103,8 @@
       "title": "Worker 장애 복구",
       "goal": "학습 결과: 오류 구분의 역할을 설명한다. 입력 사례: 초기 오류와 렌더 중 오류. 산출물: 오류 안내·선택 모드·장면 보존 표. 대체 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/21/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-21/example.js"
     },
     {
       "id": "offscreen-canvas-step-22",
@@ -6092,7 +6113,8 @@
       "title": "ImageBitmap 전달",
       "goal": "학습 결과: 프레임 전달의 역할을 설명한다. 입력 사례: 연속 프레임 30개. 산출물: 표시·폐기·close 횟수. 자원 수명 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/22/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-22/example.js"
     },
     {
       "id": "offscreen-canvas-step-23",
@@ -6101,7 +6123,8 @@
       "title": "Canvas Context 손실",
       "goal": "학습 결과: 손실의 역할을 설명한다. 입력 사례: 지원 환경의 손실 또는 명시적 실패 주입. 산출물: 중단 안내와 장면 재생성 기록. 복구 자료 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/23/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-23/example.js"
     },
     {
       "id": "offscreen-canvas-step-24",
@@ -6110,7 +6133,8 @@
       "title": "요청과 화면 지연",
       "goal": "학습 결과: 시각 반영의 역할을 설명한다. 입력 사례: 색 변경 요청 20회. 산출물: 왕복·처리·관찰 지연 기록. 측정 구분 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/24/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-24/example.js"
     },
     {
       "id": "offscreen-canvas-step-25",
@@ -6119,7 +6143,8 @@
       "title": "해상도와 작업량",
       "goal": "학습 결과: 픽셀 비용의 역할을 설명한다. 입력 사례: 동일 장면과 두 DPR. 산출물: 픽셀 수·프레임 분포 표. 측정 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/25/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-25/example.js"
     },
     {
       "id": "offscreen-canvas-step-26",
@@ -6128,7 +6153,8 @@
       "title": "메인 스레드 경쟁 실험",
       "goal": "학습 결과: 경쟁 작업의 역할을 설명한다. 입력 사례: 같은 장면과 클릭 카운터. 산출물: 모드별 입력 지연·프레임 분포. 공정한 비교 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/26/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-26/example.js"
     },
     {
       "id": "offscreen-canvas-step-27",
@@ -6137,7 +6163,8 @@
       "title": "실험 결과 정리",
       "goal": "학습 결과: 분포의 역할을 설명한다. 입력 사례: 반복 실행 3회. 산출물: 조건과 원시값을 포함한 비교 표. 한계 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/units/27/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-step-27/example.js"
     },
     {
       "id": "offscreen-canvas-03",
@@ -6146,7 +6173,8 @@
       "title": "렌더링 분리 평가",
       "goal": "학습 결과: 분리 효과의 역할을 설명한다. 입력 사례: resize·입력·종료·재실행·미지원. 산출물: 입력 지연·프레임·정리·fallback 보고서. 완료 조건 처리의 근거를 코드와 연결해 설명한다.",
       "docPath": "/docs/labs/engineering/offscreen-canvas/03-project/README.md",
-      "seriesId": "offscreen-canvas"
+      "seriesId": "offscreen-canvas",
+      "exampleReadingSource": "/examples-en/offscreen-canvas-03/example.js"
     },
     {
       "id": "webassembly-01",

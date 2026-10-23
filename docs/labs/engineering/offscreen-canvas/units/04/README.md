@@ -62,7 +62,7 @@ getContext는 요청한 종류를 만들지 못할 수 있다. null을 정상 �
 
 [예제 원본](../../../../../../src/labs/offscreen-canvas-step-04/example.js) · [실행 환경과 제한](../../../../../examples.md)
 
-Context 생성 실패 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다.
+버튼은 fallback을 직접 호출합니다. getContext 실패를 주입하는 실험은 아닙니다. 공통 초기화 경로는 null Context를 검사하고 새 Canvas로 대체합니다.
 
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.

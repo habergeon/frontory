@@ -62,6 +62,9 @@ gsap-02는 기본 scroll 이벤트와 timeline을 사용한다. ScrollTrigger를
 
 [예제 원본](../../../../../src/labs/gsap-02/example.js) · [실행 환경과 제한](../../../../examples.md)
 
+기본 scroll 이벤트를 GSAP timeline에 연결합니다. ScrollTrigger 플러그인은 사용하지 않습니다.
+
+
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 
 ## 다음 학습

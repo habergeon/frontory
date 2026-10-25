@@ -63,6 +63,9 @@ iframe 미리보기는 WebAssembly.Memory와 JS 기준 계산 실험이며 실�
 
 [예제 원본](../../../../../src/labs/webassembly-01/example.js) · [실행 환경과 제한](../../../../examples.md)
 
+미리보기는 WebAssembly.Memory 및 JS 경계 비용 실험입니다. CSP를 유지하므로 WASM 모듈 컴파일은 iframe 밖에서 실행합니다.
+
+
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 
 ## 다음 학습

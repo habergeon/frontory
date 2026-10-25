@@ -463,6 +463,10 @@
         "comments.comment01": "A basic example for observing the actual Svelte writable store API.",
         "comments.comment02": ".svelte component compilation and $state rune examples are covered in separate steps."
       }
+    },
+    "sourceHash": "785954257ffd0e3a87ae747e730e2029ce4ff5966a1aa048ce11b764eec01c20",
+    "values": {
+      "note": "The preview uses an actual Svelte writable store and a DOM adapter. It does not include the Svelte component compiler."
     }
   },
   "svelte-02": {
@@ -479,6 +483,10 @@
         "comments.comment01": "This runner does not inject the Svelte compiler. It uses actual writable stores and an explicit DOM adapter.",
         "comments.comment02": "Practice the onMount component lifecycle in PointerCanvas.svelte / App.svelte in the same folder."
       }
+    },
+    "sourceHash": "72713946e1d46d1a968b3216e638308b44c7a59e27d54349a420a956cd32d6b8",
+    "values": {
+      "note": "The preview uses an actual Svelte writable store and a DOM adapter. It does not include the Svelte component compiler. Run the .svelte files in the same example folder in a separate Svelte project to compare component lifecycles."
     }
   },
   "svelte-03": {
@@ -494,6 +502,10 @@
         "comments.comment01": "The three implementations use the same card data, completion toggle, and incomplete-only filter contract.",
         "comments.comment02": "The Svelte column uses writable stores and a DOM adapter; the compiled component is provided as App.svelte."
       }
+    },
+    "sourceHash": "6dd4eca99a94bf10f86d0d9db9cb4c7c3be4d46db8c9ba553f106dee78bf28b3",
+    "values": {
+      "note": "The preview uses an actual Svelte writable store and a DOM adapter. It does not include the Svelte component compiler. Run the .svelte files in the same example folder in a separate Svelte project to compare component lifecycles."
     }
   }
 }

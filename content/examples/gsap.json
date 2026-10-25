@@ -1,4 +1,9 @@
 {
+  "gsap-02": {
+    "mode": "browser",
+    "note": "기본 scroll 이벤트를 GSAP timeline에 연결합니다. ScrollTrigger 플러그인은 사용하지 않습니다.",
+    "readingSource": "/examples-en/gsap-02/example.js"
+  },
   "gsap-step-02": {
     "readingSource": "/examples-en/gsap-step-02/example.js",
     "mode": "browser",

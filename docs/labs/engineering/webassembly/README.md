@@ -38,7 +38,7 @@ JavaScript·TypedArray, 선택한 컴파일 언어 기초
 - [11. Memory Grow와 View 수명](units/11/README.md) — 외부 실행 예제 · 미리보기 안내
 - [12. 용량 한도와 실패](units/12/README.md) — 외부 실행 예제 · 미리보기 안내
 - [13. 스칼라와 배치 호출](units/13/README.md) — 외부 실행 예제 · 미리보기 안내
-- [14. 배열과 경계 비용](02-experiments/README.md) — 편집 가능한 예제
+- [14. 배열과 경계 비용](02-experiments/README.md) — 외부 실행 예제 · 미리보기 안내
 
 ### 3단계 · 배포와 실행 구조
 
@@ -58,7 +58,7 @@ JavaScript·TypedArray, 선택한 컴파일 언어 기초
 - [25. 복사 포함 총비용](units/25/README.md) — 외부 실행 예제 · 미리보기 안내
 - [26. 경계값 정확도](units/26/README.md) — 외부 실행 예제 · 미리보기 안내
 - [27. 환경과 채택 기준](units/27/README.md) — 외부 실행 예제 · 미리보기 안내
-- [28. 실제 병목 평가](03-project/README.md) — 편집 가능한 예제
+- [28. 실제 병목 평가](03-project/README.md) — 외부 실행 예제 · 미리보기 안내
 
 ## 통합 프로젝트와 제출물
 

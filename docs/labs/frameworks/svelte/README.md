@@ -38,7 +38,7 @@ JavaScript·HTML·CSS
 - [11. DOM 참조와 tick](units/11/README.md) — 외부 실행 예제 · 미리보기 안내
 - [12. $effect 의존성과 해제](units/12/README.md) — 외부 실행 예제 · 미리보기 안내
 - [13. onMount와 초기 자원](units/13/README.md) — 외부 실행 예제 · 미리보기 안내
-- [14. 이벤트와 자원 정리](02-experiments/README.md) — 편집 가능한 예제
+- [14. 이벤트와 자원 정리](02-experiments/README.md) — 외부 실행 예제 · 미리보기 안내
 
 ### 3단계 · store와 작업공간 상태
 
@@ -58,7 +58,7 @@ JavaScript·HTML·CSS
 - [25. 컴파일 결과와 성능 관찰](units/25/README.md) — 외부 실행 예제 · 미리보기 안내
 - [26. 동일 계약의 회귀 시나리오](units/26/README.md) — 외부 실행 예제 · 미리보기 안내
 - [27. 세 프레임워크 비교 준비](units/27/README.md) — 외부 실행 예제 · 미리보기 안내
-- [28. 프레임워크 비교](03-project/README.md) — 편집 가능한 예제
+- [28. 프레임워크 비교](03-project/README.md) — 외부 실행 예제 · 미리보기 안내
 
 ## 통합 프로젝트와 제출물
 

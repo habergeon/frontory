@@ -1,4 +1,19 @@
 {
+  "webgpu-01": {
+    "mode": "browser",
+    "note": "실제 WebGPU 파이프라인을 사용하며 지원 GPU·브라우저가 필요합니다. 미지원 환경에서는 안내를 표시합니다. WGSL 오류는 GPU 컴파일러에서 확인합니다.",
+    "readingSource": "/examples-en/webgpu-01/example.js"
+  },
+  "webgpu-02": {
+    "mode": "browser",
+    "note": "실제 WebGPU 파이프라인을 사용하며 지원 GPU·브라우저가 필요합니다. 미지원 환경에서는 안내를 표시합니다. WGSL 오류는 GPU 컴파일러에서 확인합니다.",
+    "readingSource": "/examples-en/webgpu-02/example.js"
+  },
+  "webgpu-03": {
+    "mode": "browser",
+    "note": "실제 WebGPU 파이프라인을 사용하며 지원 GPU·브라우저가 필요합니다. 미지원 환경에서는 안내를 표시합니다. WGSL 오류는 GPU 컴파일러에서 확인합니다.",
+    "readingSource": "/examples-en/webgpu-03/example.js"
+  },
   "webgpu-step-02": {
     "mode": "browser",
     "note": "실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.",

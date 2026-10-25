@@ -1,4 +1,9 @@
 {
+  "pixijs-02": {
+    "mode": "browser",
+    "note": "직접 생성한 atlas와 모의 로딩 실패를 사용합니다. 외부 Assets 서버 요청은 하지 않습니다.",
+    "readingSource": "/examples-en/pixijs-02/example.js"
+  },
   "pixijs-step-02": {
     "readingSource": "/examples-en/pixijs-step-02/example.js",
     "mode": "browser",

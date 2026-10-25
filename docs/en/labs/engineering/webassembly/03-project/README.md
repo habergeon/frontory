@@ -2,7 +2,7 @@
 
 [Series contents](../README.md) · [Technology map](../../../README.md)
 
-Stage: Correctness and Bottleneck Evaluation · Editable example · Storage ID: `webassembly-03`
+Stage: Correctness and Bottleneck Evaluation · External example · preview instructions · Storage ID: `webassembly-03`
 
 ## Goals and learning outcomes
 
@@ -62,6 +62,12 @@ Predictions in this table are not measured results. Change one condition at a ti
 ## Linked example and execution scope
 
 [Example source](../../../../../../src/labs/webassembly-03/example.js) · [Runtime environments and limits](../../../../examples.md)
+
+The preview experiments with WebAssembly.Memory and JS boundary costs. To preserve the CSP, compile WASM modules outside the iframe. Use kernel.wat, kernel.wasm, and benchmark.mjs in the same folder to compare actual WASM calculations with JS results.
+
+- [benchmark.mjs](../../../../../../src/labs/webassembly-03/benchmark.mjs)
+- [kernel.wasm](../../../../../../src/labs/webassembly-03/kernel.wasm)
+- [kernel.wat](../../../../../../src/labs/webassembly-03/kernel.wat)
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

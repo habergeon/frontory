@@ -659,6 +659,10 @@
         "messages.display003": "Failed to create a WebGPU canvas context",
         "comments.comment001": "Edit the WGSL vertices/colors directly. A supported GPU and a secure context are required."
       }
+    },
+    "sourceHash": "ace018554a45bc0e60db9147122978080727ac635c20a4de63899f9cab2c3b18",
+    "values": {
+      "note": "Uses an actual WebGPU pipeline and requires a supported GPU and browser. Unsupported environments display guidance. Check WGSL errors with the GPU compiler."
     }
   },
   "webgpu-02": {
@@ -678,6 +682,10 @@
         "comments.comment001": "Edit the WGSL and byte offsets together; actual GPU validation remains enabled.",
         "comments.comment002": "GPUBufferUsage.UNIFORM=64, COPY_DST=8. 32 bytes, 16-byte struct alignment."
       }
+    },
+    "sourceHash": "d0a9f14b0d7f0ad155c2b09f14b18b72da7a290cbc7d374e2440675849cdd0dd",
+    "values": {
+      "note": "Uses an actual WebGPU pipeline and requires a supported GPU and browser. Unsupported environments display guidance. Check WGSL errors with the GPU compiler."
     }
   },
   "webgpu-03": {
@@ -703,6 +711,10 @@
         "messages.display016": "Device lost: ",
         "comments.comment002": "Actual compute dispatch and GPU readback. Timings are wall-clock, not GPU timestamp queries."
       }
+    },
+    "sourceHash": "73f8cf7406832b24865d9a92da5f722bb505c7e477d61bfe696bef1bda0cb222",
+    "values": {
+      "note": "Uses an actual WebGPU pipeline and requires a supported GPU and browser. Unsupported environments display guidance. Check WGSL errors with the GPU compiler."
     }
   }
 }

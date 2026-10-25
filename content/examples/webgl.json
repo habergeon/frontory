@@ -1,0 +1,42 @@
+{
+  "15-nerf-gs": {
+    "mode": "browser",
+    "note": "해석적 밀도장의 ray 적분과 splat 합성 비교입니다. NeRF 학습이나 추론 모델을 실행하지 않습니다.",
+    "readingSource": "/examples-en/15-nerf-gs/example.js"
+  },
+  "16-gaussian": {
+    "mode": "browser",
+    "note": "CPU 기반 Gaussian 투영·합성 원리 시각화입니다. SH는 합성한 1차 계수를 사용하며 학습된 GS 모델의 품질 측정이 아닙니다.",
+    "readingSource": "/examples-en/16-gaussian/example.js"
+  },
+  "17-sh": {
+    "mode": "browser",
+    "note": "CPU 기반 Gaussian 투영·합성 원리 시각화입니다. SH는 합성한 1차 계수를 사용하며 학습된 GS 모델의 품질 측정이 아닙니다.",
+    "readingSource": "/examples-en/17-sh/example.js"
+  },
+  "18-gs-projection": {
+    "mode": "browser",
+    "note": "CPU 기반 Gaussian 투영·합성 원리 시각화입니다. SH는 합성한 1차 계수를 사용하며 학습된 GS 모델의 품질 측정이 아닙니다.",
+    "readingSource": "/examples-en/18-gs-projection/example.js"
+  },
+  "19-gs-loading": {
+    "mode": "browser",
+    "note": "소형 .splat 및 ASCII GS PLY를 읽는 CPU Canvas 교육용 뷰어입니다. 최대 1 MiB·512 splat이며 binary PLY와 일반 mesh PLY는 지원하지 않습니다. Spark, GPU tile 렌더링, 고차 SH, GS picking은 구현 범위 밖입니다. 기본 장면은 직접 생성한 데이터이며 측정값은 이 CPU 예제에만 해당합니다.",
+    "readingSource": "/examples-en/19-gs-loading/example.js"
+  },
+  "20-gs-interaction": {
+    "mode": "browser",
+    "note": "소형 .splat 및 ASCII GS PLY를 읽는 CPU Canvas 교육용 뷰어입니다. 최대 1 MiB·512 splat이며 binary PLY와 일반 mesh PLY는 지원하지 않습니다. Spark, GPU tile 렌더링, 고차 SH, GS picking은 구현 범위 밖입니다. 기본 장면은 직접 생성한 데이터이며 측정값은 이 CPU 예제에만 해당합니다.",
+    "readingSource": "/examples-en/20-gs-interaction/example.js"
+  },
+  "21-gs-review": {
+    "mode": "browser",
+    "note": "소형 .splat 및 ASCII GS PLY를 읽는 CPU Canvas 교육용 뷰어입니다. 최대 1 MiB·512 splat이며 binary PLY와 일반 mesh PLY는 지원하지 않습니다. Spark, GPU tile 렌더링, 고차 SH, GS picking은 구현 범위 밖입니다. 기본 장면은 직접 생성한 데이터이며 측정값은 이 CPU 예제에만 해당합니다.",
+    "readingSource": "/examples-en/21-gs-review/example.js"
+  },
+  "23-loading-ui": {
+    "mode": "browser",
+    "note": "지연과 진행률을 제어한 모의 로더입니다. 실제 네트워크 전송량을 측정하지 않습니다.",
+    "readingSource": "/examples-en/23-loading-ui/example.js"
+  }
+}

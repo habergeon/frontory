@@ -165,7 +165,8 @@ test('published English WebGL units retain the 28 legacy identities and manual d
     assert.equal(records[unit.id].sourceHash, sourceHash(source))
     assert.deepEqual(Object.keys(records[unit.id].values).sort(), ['goal', 'title'])
     assert.deepEqual(unit, { ...source, ...records[unit.id].values,
-      docPath: source.docPath.replace('/docs/', '/docs/en/'), exampleReadingSource: `/examples-en/${unit.id}/example.js` })
+      docPath: source.docPath.replace('/docs/', '/docs/en/'), exampleReadingSource: `/examples-en/${unit.id}/example.js`,
+      ...(approved.exampleNotes[unit.id] ? { exampleNote: approved.exampleNotes[unit.id] } : {}) })
     const document = approved.documents.get(source.docPath)
     assert.equal(document.translatedPath, unit.docPath)
     const text = fs.readFileSync('.' + unit.docPath, 'utf8')

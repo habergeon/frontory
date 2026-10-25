@@ -385,6 +385,10 @@
         "comments.comment001": "Inspect the real linear memory of WebAssembly.Memory through different TypedArray views.",
         "comments.comment002": "This example does not compile a module, so it does not relax the existing CSP."
       }
+    },
+    "sourceHash": "e077ed90a5111b9fbb0600fd8b73ee44898e487781a4c841193c4b31e2e15b10",
+    "values": {
+      "note": "The preview experiments with WebAssembly.Memory and JS boundary costs. To preserve the CSP, compile WASM modules outside the iframe."
     }
   },
   "webassembly-02": {
@@ -406,6 +410,10 @@
         "messages.displayFix1006": " elements / ",
         "messages.displayFix1007": " bytes"
       }
+    },
+    "sourceHash": "99fa4800497cfe021ee2b948b293b80526c15215d8c3067d075c4c54edba50b2",
+    "values": {
+      "note": "The preview experiments with WebAssembly.Memory and JS boundary costs. To preserve the CSP, compile WASM modules outside the iframe. Use kernel.wat, kernel.wasm, and benchmark.mjs in the same folder to compare actual WASM calculations with JS results."
     }
   },
   "webassembly-03": {
@@ -424,6 +432,10 @@
         "messages.displayFix1003": " ms\nRepeated JS total incl. reset + readback copy ",
         "messages.displayFix1004": " ms\nNo Wasm module was compiled or timed here."
       }
+    },
+    "sourceHash": "071c3e61af1b41c023040c09a6fc0419ca1c97eaceb11ecbe1f239547826ceb7",
+    "values": {
+      "note": "The preview experiments with WebAssembly.Memory and JS boundary costs. To preserve the CSP, compile WASM modules outside the iframe. Use kernel.wat, kernel.wasm, and benchmark.mjs in the same folder to compare actual WASM calculations with JS results."
     }
   }
 }

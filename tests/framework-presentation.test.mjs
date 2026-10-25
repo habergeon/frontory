@@ -31,12 +31,17 @@ test('generated React translates heading and input aria without translating card
   for (const fixture of ['State', 'Effects', 'Canvas']) assert.ok(en.includes(fixture))
 })
 
-test('Svelte external records retain the canonical reading after final metadata assignment', () => {
+test('Svelte generated external records retain the canonical reading after final metadata assignment', () => {
   const records = JSON.parse(fs.readFileSync('content/examples/svelte.json', 'utf8'))
-  for (const [id, record] of Object.entries(records)) {
+  for (const [id, record] of Object.entries(records).filter(([id]) => id.includes('-step-'))) {
     assert.equal(record.readingSource, `/examples-en/${id}/example.js`)
     assert.equal(record.mode, 'external')
     assert.ok(record.files.includes(`src/labs/${id}/App.svelte`))
+  }
+  assert.equal(records['svelte-01'].mode, 'browser')
+  for (const id of ['svelte-02', 'svelte-03']) {
+    assert.equal(records[id].mode, 'external')
+    assert.ok(records[id].files.includes(`src/labs/${id}/App.svelte`))
   }
 })
 

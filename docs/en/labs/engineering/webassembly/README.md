@@ -40,7 +40,7 @@ Only published English units are linked below. The full series has 28 units.
 - [11. Memory Grow and View Lifetime](units/11/README.md) — External example · preview instructions
 - [12. Capacity Limits and Failure](units/12/README.md) — External example · preview instructions
 - [13. Scalar and Batch Calls](units/13/README.md) — External example · preview instructions
-- [14. Arrays and Boundary Costs](02-experiments/README.md) — Editable example
+- [14. Arrays and Boundary Costs](02-experiments/README.md) — External example · preview instructions
 
 ### Stage 3 · Deployment and Execution Structure
 
@@ -60,7 +60,7 @@ Only published English units are linked below. The full series has 28 units.
 - [25. Total Cost Including Copies](units/25/README.md) — External example · preview instructions
 - [26. Boundary-value Correctness](units/26/README.md) — External example · preview instructions
 - [27. Environment and Adoption Criteria](units/27/README.md) — External example · preview instructions
-- [28. Evaluating Actual Bottlenecks](03-project/README.md) — Editable example
+- [28. Evaluating Actual Bottlenecks](03-project/README.md) — External example · preview instructions
 
 ## Capstone project and deliverables
 

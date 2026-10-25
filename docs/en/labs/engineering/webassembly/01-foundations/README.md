@@ -63,6 +63,9 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../src/labs/webassembly-01/example.js) · [Runtime environments and limits](../../../../examples.md)
 
+The preview experiments with WebAssembly.Memory and JS boundary costs. To preserve the CSP, compile WASM modules outside the iframe.
+
+
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 
 ## Next learning

@@ -381,6 +381,10 @@
         "messages.display001": "Run this in a separate Node environment. Editing the code on this screen also changes the test source below. See the lesson document for execution instructions.",
         "comments.comment001": "Playwright controls a separate browser from Node. This screen supplies the test source to run externally."
       }
+    },
+    "sourceHash": "6325eff32cc04a65f5f2fd9a825b3ed0f43f4c4ca035441d261cbd0ee781f093",
+    "values": {
+      "note": "The screen generates Playwright test source for separate execution. Run it in a Node environment; displaying the preview does not mean the E2E tests passed."
     }
   },
   "playwright-02": {
@@ -394,6 +398,10 @@
         "comments.nested003": "Serve a disposable checkout at this separate test origin. Do not connect to a personal browser profile.",
         "comments.nested004": "Arm events before their triggering click."
       }
+    },
+    "sourceHash": "e695e128de89dfebb292f6bca6f872a3f0faaa86d8fb3a728912607ac3fe6f37",
+    "values": {
+      "note": "The screen generates Playwright test source for separate execution. Run it in a Node environment; displaying the preview does not mean the E2E tests passed."
     }
   },
   "playwright-03": {
@@ -409,6 +417,10 @@
         "comments.nested005": "Never increase tolerance merely to silence a failure. Use trace to inspect inputs/network/errors.",
         "comments.nested006": "Cross-GPU scenes: verify numeric state and rendering availability separately; avoid pixel-exact portability claims."
       }
+    },
+    "sourceHash": "4f742accb2299e396821b748868e658079648a5e2ea08a526c3bdd24b491a9dc",
+    "values": {
+      "note": "The screen generates Playwright test source for separate execution. Run it in a Node environment; displaying the preview does not mean the E2E tests passed."
     }
   }
 }

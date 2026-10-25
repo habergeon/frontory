@@ -63,6 +63,9 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../src/labs/svelte-01/example.js) · [Runtime environments and limits](../../../../examples.md)
 
+The preview uses an actual Svelte writable store and a DOM adapter. It does not include the Svelte component compiler.
+
+
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 
 ## Next learning

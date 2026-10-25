@@ -40,7 +40,7 @@ Only published English units are linked below. The full series has 28 units.
 - [11. DOM References and tick](units/11/README.md) — External example · preview instructions
 - [12. $effect Dependencies and Cleanup](units/12/README.md) — External example · preview instructions
 - [13. onMount and Initial Resources](units/13/README.md) — External example · preview instructions
-- [14. Events and Resource Cleanup](02-experiments/README.md) — Editable example
+- [14. Events and Resource Cleanup](02-experiments/README.md) — External example · preview instructions
 
 ### Stage 3 · Stores and Workspace State
 
@@ -60,7 +60,7 @@ Only published English units are linked below. The full series has 28 units.
 - [25. Observing Compilation Output and Performance](units/25/README.md) — External example · preview instructions
 - [26. Regression Scenarios for the Same Contract](units/26/README.md) — External example · preview instructions
 - [27. Preparing a Three-Framework Comparison](units/27/README.md) — External example · preview instructions
-- [28. Framework Comparison](03-project/README.md) — Editable example
+- [28. Framework Comparison](03-project/README.md) — External example · preview instructions
 
 ## Capstone project and deliverables
 

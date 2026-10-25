@@ -24,7 +24,7 @@ Only published English units are linked below. The full series has 28 units.
 
 ### Stage 1 · User Flows and Locators
 
-- [01. Testing from the User’s Perspective](01-foundations/README.md) — Editable example
+- [01. Testing from the User’s Perspective](01-foundations/README.md) — External example · preview instructions
 - [02. Configuration and Execution Scope](units/02/README.md) — External example · preview instructions
 - [03. Role and Accessible Name](units/03/README.md) — External example · preview instructions
 - [04. Label and Input](units/04/README.md) — External example · preview instructions
@@ -40,7 +40,7 @@ Only published English units are linked below. The full series has 28 units.
 - [11. File Upload](units/11/README.md) — External example · preview instructions
 - [12. Invalid Files and Preservation](units/12/README.md) — External example · preview instructions
 - [13. Per-Item Storage Isolation](units/13/README.md) — External example · preview instructions
-- [14. Saving, Downloading, and Restoring](02-experiments/README.md) — Editable example
+- [14. Saving, Downloading, and Restoring](02-experiments/README.md) — External example · preview instructions
 
 ### Stage 3 · Asynchrony, Isolation, and Diagnosis
 
@@ -60,7 +60,7 @@ Only published English units are linked below. The full series has 28 units.
 - [25. Creating a Visual Baseline](units/25/README.md) — External example · preview instructions
 - [26. Allowed Differences and Review](units/26/README.md) — External example · preview instructions
 - [27. CI Execution and Artifacts](units/27/README.md) — External example · preview instructions
-- [28. Visual Regression and Flakiness](03-project/README.md) — Editable example
+- [28. Visual Regression and Flakiness](03-project/README.md) — External example · preview instructions
 
 ## Capstone project and deliverables
 

@@ -62,6 +62,9 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../src/labs/gaussian-splatting-01/example.js) · [Runtime environments and limits](../../../../examples.md)
 
+A visualization of 2D Gaussian density principles. It is not a 3DGS data loader.
+
+
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 
 ## Next learning

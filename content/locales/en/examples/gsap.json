@@ -404,6 +404,10 @@
         "messages.display005": " · section ",
         "comments.comment001": "Native scroll drives a paused GSAP timeline; no ScrollTrigger plugin required."
       }
+    },
+    "sourceHash": "8f74d759e43a3ba6d6f8af9f5b19f77e17a46bb4ae475e75f20b470b9e71af9f",
+    "values": {
+      "note": "Connects basic scroll events to a GSAP timeline. It does not use the ScrollTrigger plugin."
     }
   },
   "gsap-03": {

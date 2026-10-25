@@ -303,6 +303,8 @@ for(const series of ['webgpu','wgsl','glsl','gaussian-splatting']){
   const curriculum=JSON.parse(fs.readFileSync(path.join(root,'content/curricula',series+'.json'),'utf8'));
   if(process.argv[2] && process.argv[2]!==series)continue;
   const metadata={};let count=0;
+  const legacyIds=new Set(JSON.parse(fs.readFileSync('content/catalog-v2.json','utf8')).units.filter(unit=>unit.seriesId===series).map(unit=>unit.id))
+  Object.assign(metadata,Object.fromEntries(Object.entries(JSON.parse(fs.readFileSync('content/examples/'+series+'.json','utf8'))).filter(([id])=>legacyIds.has(id))))
   for(const u of curriculum.units){
     if(!u.id.includes('-step-'))continue;
     const note=noteOverrides[u.id]??(series==='gaussian-splatting'?'CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.':series==='glsl'?'브라우저 WebGL ShaderMaterial 실행. 고정 640×360 비교이며 프레임 간격은 GPU 시간과 다릅니다.':'실제 WebGPU/WGSL 실행. HTTPS/localhost와 지원 adapter 필요; 미지원 환경에는 사유를 표시하며 CPU 결과를 GPU로 대체하지 않습니다.');

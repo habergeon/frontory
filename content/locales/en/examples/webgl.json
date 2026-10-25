@@ -176,6 +176,10 @@
         "messages.display004": "\nNeRF: position/view direction → neural network density/color → integration\n3DGS: explicit Gaussians → screen projection → sorting/compositing\nThis example uses analytical Gaussian density instead of a neural network.",
         "comments.comment001": "This is an analytical 1D density example. It does not train NeRF or run actual neural network inference."
       }
+    },
+    "sourceHash": "ddec2358e3a2bbb1323aceedc2bab67958b2f8641133a8ad555fb1575c6e7711",
+    "values": {
+      "note": "Compares ray integration through an analytic density field with splat compositing. It does not train or run inference with a NeRF model."
     }
   },
   "16-gaussian": {
@@ -201,6 +205,10 @@
         "comments.comment003": "An actual GPU tile rasterizer, higher-order SH, LOD, and GS picking are not implemented.",
         "comments.comment004": "Standard .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/row."
       }
+    },
+    "sourceHash": "f294b5dc532a5b5c8d46f0d05a8b1863ee70dfbb037476911849915859546ae5",
+    "values": {
+      "note": "A CPU visualization of Gaussian projection and compositing principles. SH uses synthesized first-order coefficients; this is not a quality measurement of a trained GS model."
     }
   },
   "17-sh": {
@@ -227,6 +235,10 @@
         "comments.comment003": "An actual GPU tile rasterizer, higher-order SH, LOD, and GS picking are not implemented.",
         "comments.comment004": "Standard .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/row."
       }
+    },
+    "sourceHash": "db0bcc7e61cd753eb50797142a22680d717d51052556bd1111a3bf1667dd0823",
+    "values": {
+      "note": "A CPU visualization of Gaussian projection and compositing principles. SH uses synthesized first-order coefficients; this is not a quality measurement of a trained GS model."
     }
   },
   "18-gs-projection": {
@@ -239,6 +251,10 @@
         "messages.display004": "\nProjected 1σ radius f×scale/z = ",
         "comments.comment001": "Alpha compositing is not commutative. Change the red/blue order and depth."
       }
+    },
+    "sourceHash": "e78d5bab8b6cc76cdaa8bd6b8e65a317606bc07e7a3f36e197b49a41a3d5732a",
+    "values": {
+      "note": "A CPU visualization of Gaussian projection and compositing principles. SH uses synthesized first-order coefficients; this is not a quality measurement of a trained GS model."
     }
   },
   "19-gs-loading": {
@@ -263,6 +279,10 @@
         "comments.comment003": "An actual GPU tile rasterizer, higher-order SH, LOD, and GS picking are not implemented.",
         "comments.comment004": "Standard .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/row."
       }
+    },
+    "sourceHash": "e16bb3628f3d380ae97f772f6928574bf1db0022f552118ddb81dc0397f2c213",
+    "values": {
+      "note": "An educational CPU Canvas viewer for small .splat files and ASCII GS PLY files. The limits are 1 MiB and 512 splats; binary PLY and general mesh PLY are unsupported. Spark, GPU tile rendering, higher-order SH, and GS picking are outside the scope. The default scene uses generated data, and measurements apply only to this CPU example."
     }
   },
   "20-gs-interaction": {
@@ -289,6 +309,10 @@
         "comments.comment003": "An actual GPU tile rasterizer, higher-order SH, LOD, and GS picking are not implemented.",
         "comments.comment004": "Standard .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/row."
       }
+    },
+    "sourceHash": "b750fc04b1cac3052f025fe65786ab3ee974a0e861e188c6f440d6e1b8c2c734",
+    "values": {
+      "note": "An educational CPU Canvas viewer for small .splat files and ASCII GS PLY files. The limits are 1 MiB and 512 splats; binary PLY and general mesh PLY are unsupported. Spark, GPU tile rendering, higher-order SH, and GS picking are outside the scope. The default scene uses generated data, and measurements apply only to this CPU example."
     }
   },
   "21-gs-review": {
@@ -315,6 +339,10 @@
         "comments.comment003": "An actual GPU tile rasterizer, higher-order SH, LOD, and GS picking are not implemented.",
         "comments.comment004": "Standard .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/row."
       }
+    },
+    "sourceHash": "0cfcd320420f8b7d14c9de377ee050ae8b786e4708bd50601083060100de5d76",
+    "values": {
+      "note": "An educational CPU Canvas viewer for small .splat files and ASCII GS PLY files. The limits are 1 MiB and 512 splats; binary PLY and general mesh PLY are unsupported. Spark, GPU tile rendering, higher-order SH, and GS picking are outside the scope. The default scene uses generated data, and measurements apply only to this CPU example."
     }
   },
   "22-react-viewer": {
@@ -345,6 +373,10 @@
         "messages.display008": "idle",
         "comments.comment001": "A delay model for experimenting with loading state transitions and cancellation boundaries without actual network access."
       }
+    },
+    "sourceHash": "1275f9a4f3ec75b9cd141f71cf49efde3b6fdd84ea4bd7d72a16c4911e68b359",
+    "values": {
+      "note": "A simulated loader with adjustable delays and progress. It does not measure actual network transfer volume."
     }
   },
   "24-camera-controls": {

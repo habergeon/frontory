@@ -520,6 +520,10 @@
         "comments.comment001": "Principle visualization: not a trained 3DGS loader, but a density cross-section of a 2D elliptical Gaussian.",
         "comments.comment002": "Change SCALE_X, SCALE_Y, ANGLE, OPACITY to observe anisotropy and compositing."
       }
+    },
+    "sourceHash": "677e88cd530c8cb1611039b346870554c9ec19da1132be5ce73298d93d3f12a6",
+    "values": {
+      "note": "A visualization of 2D Gaussian density principles. It is not a 3DGS data loader."
     }
   },
   "gaussian-splatting-02": {
@@ -561,6 +565,10 @@
         "comments.comment003": "Does not implement an actual GPU tile rasterizer, higher-order SH, LOD, or GS picking.",
         "comments.comment004": "Standard .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/row."
       }
+    },
+    "sourceHash": "58a184ebf3c89a0a09e05eec6b70cc898dc774b190899284f24f5b26a1e7e44c",
+    "values": {
+      "note": "An educational CPU Canvas viewer for small .splat files and ASCII GS PLY files. The limits are 1 MiB and 512 splats; binary PLY and general mesh PLY are unsupported. Spark, GPU tile rendering, higher-order SH, and GS picking are outside the scope. The default scene uses generated data, and measurements apply only to this CPU example."
     }
   },
   "gaussian-splatting-03": {
@@ -603,6 +611,10 @@
         "comments.comment003": "Does not implement an actual GPU tile rasterizer, higher-order SH, LOD, or GS picking.",
         "comments.comment004": "Standard .splat: float32 position(3), scale(3), uint8 RGBA(4), uint8 quaternion WXYZ(4), 32 bytes/row."
       }
+    },
+    "sourceHash": "9fe11d4c72cc298121470cbd7756ee61d53cdeda091d0350320ed487d39f0197",
+    "values": {
+      "note": "An educational CPU Canvas viewer for small .splat files and ASCII GS PLY files. The limits are 1 MiB and 512 splats; binary PLY and general mesh PLY are unsupported. Spark, GPU tile rendering, higher-order SH, and GS picking are outside the scope. The default scene uses generated data, and measurements apply only to this CPU example."
     }
   }
 }

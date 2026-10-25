@@ -62,6 +62,9 @@ GS 선택은 사용할 렌더러의 picking 방식이나 별도 근사를 필요
 
 [예제 원본](../../../../../src/labs/gaussian-splatting-02/example.js) · [실행 환경과 제한](../../../../examples.md)
 
+소형 .splat 및 ASCII GS PLY를 읽는 CPU Canvas 교육용 뷰어입니다. 최대 1 MiB·512 splat이며 binary PLY와 일반 mesh PLY는 지원하지 않습니다. Spark, GPU tile 렌더링, 고차 SH, GS picking은 구현 범위 밖입니다. 기본 장면은 직접 생성한 데이터이며 측정값은 이 CPU 예제에만 해당합니다.
+
+
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 
 ## 다음 학습

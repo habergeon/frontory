@@ -2,7 +2,7 @@
 
 [Series contents](../README.md) · [Technology map](../../../README.md)
 
-Stage: Canvas Verification and Framework Comparison · Editable example · Storage ID: `svelte-03`
+Stage: Canvas Verification and Framework Comparison · External example · preview instructions · Storage ID: `svelte-03`
 
 ## Goals and learning outcomes
 
@@ -62,6 +62,11 @@ Predictions in this table are not measured results. Change one condition at a ti
 ## Linked example and execution scope
 
 [Example source](../../../../../../src/labs/svelte-03/example.js) · [Runtime environments and limits](../../../../examples.md)
+
+The preview uses an actual Svelte writable store and a DOM adapter. It does not include the Svelte component compiler. Run the .svelte files in the same example folder in a separate Svelte project to compare component lifecycles.
+
+- [App.svelte](../../../../../../src/labs/svelte-03/App.svelte)
+- [README.md (Korean original)](../../../../../../src/labs/svelte-03/README.md) · [English reading](../../../../../../src/labs/svelte-03/README.en.md)
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

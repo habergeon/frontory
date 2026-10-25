@@ -63,6 +63,9 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../src/labs/pixijs-02/example.js) · [Runtime environments and limits](../../../../examples.md)
 
+Uses a generated atlas and simulated loading failures. It does not request an external Assets server.
+
+
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 
 ## Next learning

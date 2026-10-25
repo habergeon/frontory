@@ -29,7 +29,7 @@ export function PracticeGuide({ unit, onDocument, locale = 'ko' }: { unit: Unit;
       <div><span className="eyebrow">PRACTICE GUIDE · {String(unit.day).padStart(2, '0')}</span><h2 id="practice-guide-title">{copy.practiceGuide}</h2></div>
       <button aria-expanded={expanded} aria-controls="practice-guide-body" onClick={() => setExpanded(value => !value)}>{expanded ? copy.collapseGuide : copy.expandGuide}</button>
     </header>
-    <p className="practice-guide-goal"><strong>{copy.goal}</strong> {unit.goal}</p>
+    <p className="practice-guide-scope" role="note"><strong>{copy.executionScope}</strong> {unit.source === undefined ? copy.documentPractice : unit.exampleMode === 'external' ? copy.externalExecutionScope : copy.browserExecutionScope}{unit.exampleNote && <> {unit.exampleNote}</>}</p>
     {expanded && <div id="practice-guide-body" aria-busy={!current}>
       {!current ? <p role="status">{locale === 'en' ? 'Loading practice guide…' : '실습 안내 불러오는 중…'}</p>
         : current.error ? <p role={current.error === 'failed' ? 'alert' : 'status'}>{locale === 'en'

@@ -301,6 +301,8 @@ for(const [series,examples] of Object.entries(all)){
  if(process.argv[2]&&process.argv[2]!==series)continue
  const curriculum=JSON.parse(fs.readFileSync(path.join(base,'content/curricula',series+'.json'),'utf8'))
  const manifest={}
+ const legacyIds=new Set(JSON.parse(fs.readFileSync('content/catalog-v2.json','utf8')).units.filter(unit=>unit.seriesId===series).map(unit=>unit.id))
+ Object.assign(manifest,Object.fromEntries(Object.entries(JSON.parse(fs.readFileSync('content/examples/'+series+'.json','utf8'))).filter(([id])=>legacyIds.has(id))))
  for(const unit of curriculum.units){
   if(!unit.id.includes('-step-'))continue
   const entry=examples[unit.day]

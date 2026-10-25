@@ -2,7 +2,7 @@
 
 [Series contents](../README.md) · [Technology map](../../../README.md)
 
-Stage: User Flows and Locators · Editable example · Storage ID: `playwright-01`
+Stage: User Flows and Locators · External example · preview instructions · Storage ID: `playwright-01`
 
 ## Goals and learning outcomes
 
@@ -64,6 +64,9 @@ Predictions in this table are not measured results. Change one condition at a ti
 ## Linked example and execution scope
 
 [Example source](../../../../../../src/labs/playwright-01/example.js) · [Runtime environments and limits](../../../../examples.md)
+
+The screen generates Playwright test source for separate execution. Run it in a Node environment; displaying the preview does not mean the E2E tests passed.
+
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

@@ -1,4 +1,19 @@
 {
+  "gaussian-splatting-01": {
+    "mode": "browser",
+    "note": "2D Gaussian 밀도 원리 시각화입니다. 3DGS 데이터 로더가 아닙니다.",
+    "readingSource": "/examples-en/gaussian-splatting-01/example.js"
+  },
+  "gaussian-splatting-02": {
+    "mode": "browser",
+    "note": "소형 .splat 및 ASCII GS PLY를 읽는 CPU Canvas 교육용 뷰어입니다. 최대 1 MiB·512 splat이며 binary PLY와 일반 mesh PLY는 지원하지 않습니다. Spark, GPU tile 렌더링, 고차 SH, GS picking은 구현 범위 밖입니다. 기본 장면은 직접 생성한 데이터이며 측정값은 이 CPU 예제에만 해당합니다.",
+    "readingSource": "/examples-en/gaussian-splatting-02/example.js"
+  },
+  "gaussian-splatting-03": {
+    "mode": "browser",
+    "note": "소형 .splat 및 ASCII GS PLY를 읽는 CPU Canvas 교육용 뷰어입니다. 최대 1 MiB·512 splat이며 binary PLY와 일반 mesh PLY는 지원하지 않습니다. Spark, GPU tile 렌더링, 고차 SH, GS picking은 구현 범위 밖입니다. 기본 장면은 직접 생성한 데이터이며 측정값은 이 CPU 예제에만 해당합니다.",
+    "readingSource": "/examples-en/gaussian-splatting-03/example.js"
+  },
   "gaussian-splatting-step-02": {
     "mode": "browser",
     "note": "CPU Canvas2D 합성 fixture와 계약 검사. Spark GPU·학습 데이터·재구성 품질·GPU 성능 주장을 제공하지 않습니다.",

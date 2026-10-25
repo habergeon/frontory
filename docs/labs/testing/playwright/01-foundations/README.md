@@ -2,7 +2,7 @@
 
 [시리즈 목차](../README.md) · [전체 기술 지도](../../../README.md)
 
-단계: 사용자 흐름과 Locator · 편집 가능한 예제 · 저장 ID: `playwright-01`
+단계: 사용자 흐름과 Locator · 외부 실행 예제 · 미리보기 안내 · 저장 ID: `playwright-01`
 
 ## 목표와 학습 후 역량
 
@@ -64,6 +64,9 @@ locator action과 재시도 assertion은 상태를 기다린다. 고정 sleep으
 ## 연결된 예제와 실행 범위
 
 [예제 원본](../../../../../src/labs/playwright-01/example.js) · [실행 환경과 제한](../../../../examples.md)
+
+화면은 별도 실행용 Playwright 테스트 소스를 생성합니다. Node 환경에서 실행해야 하며 미리보기 표시가 E2E 테스트 통과를 뜻하지 않습니다.
+
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 

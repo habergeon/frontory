@@ -63,6 +63,9 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../src/labs/react-03/example.js) · [Runtime environments and limits](../../../../examples.md)
 
+An actual React state and memo experiment. Observe Profiler timing with development React. The callback may be unavailable in production builds.
+
+
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 
 ## Next learning

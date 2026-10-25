@@ -1,4 +1,29 @@
 {
+  "webassembly-01": {
+    "mode": "browser",
+    "note": "미리보기는 WebAssembly.Memory 및 JS 경계 비용 실험입니다. CSP를 유지하므로 WASM 모듈 컴파일은 iframe 밖에서 실행합니다.",
+    "readingSource": "/examples-en/webassembly-01/example.js"
+  },
+  "webassembly-02": {
+    "mode": "external",
+    "note": "미리보기는 WebAssembly.Memory 및 JS 경계 비용 실험입니다. CSP를 유지하므로 WASM 모듈 컴파일은 iframe 밖에서 실행합니다. 같은 폴더의 kernel.wat, kernel.wasm, benchmark.mjs로 실제 WASM 계산과 JS 결과를 비교하세요.",
+    "files": [
+      "src/labs/webassembly-02/benchmark.mjs",
+      "src/labs/webassembly-02/kernel.wasm",
+      "src/labs/webassembly-02/kernel.wat"
+    ],
+    "readingSource": "/examples-en/webassembly-02/example.js"
+  },
+  "webassembly-03": {
+    "mode": "external",
+    "note": "미리보기는 WebAssembly.Memory 및 JS 경계 비용 실험입니다. CSP를 유지하므로 WASM 모듈 컴파일은 iframe 밖에서 실행합니다. 같은 폴더의 kernel.wat, kernel.wasm, benchmark.mjs로 실제 WASM 계산과 JS 결과를 비교하세요.",
+    "files": [
+      "src/labs/webassembly-03/benchmark.mjs",
+      "src/labs/webassembly-03/kernel.wasm",
+      "src/labs/webassembly-03/kernel.wat"
+    ],
+    "readingSource": "/examples-en/webassembly-03/example.js"
+  },
   "webassembly-step-02": {
     "readingSource": "/examples-en/webassembly-step-02/example.js",
     "mode": "external",

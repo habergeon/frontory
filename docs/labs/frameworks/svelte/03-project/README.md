@@ -2,7 +2,7 @@
 
 [시리즈 목차](../README.md) · [전체 기술 지도](../../../README.md)
 
-단계: Canvas 검증과 프레임워크 비교 · 편집 가능한 예제 · 저장 ID: `svelte-03`
+단계: Canvas 검증과 프레임워크 비교 · 외부 실행 예제 · 미리보기 안내 · 저장 ID: `svelte-03`
 
 ## 목표와 학습 후 역량
 
@@ -62,6 +62,11 @@ React의 렌더 계산·Vue의 반응성·Svelte의 컴파일 갱신은 같은 �
 ## 연결된 예제와 실행 범위
 
 [예제 원본](../../../../../src/labs/svelte-03/example.js) · [실행 환경과 제한](../../../../examples.md)
+
+미리보기는 실제 Svelte writable store와 DOM 어댑터를 사용합니다. Svelte 컴포넌트 컴파일러는 내장하지 않습니다. 같은 예제 폴더의 .svelte 파일을 별도 Svelte 프로젝트에서 실행하여 컴포넌트 수명주기도 비교하세요.
+
+- [App.svelte](../../../../../src/labs/svelte-03/App.svelte)
+- [README.md](../../../../../src/labs/svelte-03/README.md)
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 

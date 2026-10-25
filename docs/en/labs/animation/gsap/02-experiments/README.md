@@ -62,6 +62,9 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../src/labs/gsap-02/example.js) · [Runtime environments and limits](../../../../examples.md)
 
+Connects basic scroll events to a GSAP timeline. It does not use the ScrollTrigger plugin.
+
+
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 
 ## Next learning

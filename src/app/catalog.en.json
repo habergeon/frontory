@@ -472,7 +472,8 @@
       "goal": "Explain how the two approaches differ in input, representation, and rendering.",
       "docPath": "/docs/en/labs/graphics/webgl/15-nerf-gs/README.md",
       "seriesId": "webgl",
-      "exampleReadingSource": "/examples-en/15-nerf-gs/example.js"
+      "exampleReadingSource": "/examples-en/15-nerf-gs/example.js",
+      "exampleNote": "Compares ray integration through an analytic density field with splat compositing. It does not train or run inference with a NeRF model."
     },
     {
       "id": "16-gaussian",
@@ -482,7 +483,8 @@
       "goal": "Connect Gaussian spatial parameters to diagrams and API names.",
       "docPath": "/docs/en/labs/graphics/webgl/16-gaussian/README.md",
       "seriesId": "webgl",
-      "exampleReadingSource": "/examples-en/16-gaussian/example.js"
+      "exampleReadingSource": "/examples-en/16-gaussian/example.js",
+      "exampleNote": "A CPU visualization of Gaussian projection and compositing principles. SH uses synthesized first-order coefficients; this is not a quality measurement of a trained GS model."
     },
     {
       "id": "17-sh",
@@ -492,7 +494,8 @@
       "goal": "Explain the difference between fixed RGB and direction-dependent color representations.",
       "docPath": "/docs/en/labs/graphics/webgl/17-sh/README.md",
       "seriesId": "webgl",
-      "exampleReadingSource": "/examples-en/17-sh/example.js"
+      "exampleReadingSource": "/examples-en/17-sh/example.js",
+      "exampleNote": "A CPU visualization of Gaussian projection and compositing principles. SH uses synthesized first-order coefficients; this is not a quality measurement of a trained GS model."
     },
     {
       "id": "18-gs-projection",
@@ -502,7 +505,8 @@
       "goal": "Explain screen footprints and order-dependent compositing.",
       "docPath": "/docs/en/labs/graphics/webgl/18-gs-projection/README.md",
       "seriesId": "webgl",
-      "exampleReadingSource": "/examples-en/18-gs-projection/example.js"
+      "exampleReadingSource": "/examples-en/18-gs-projection/example.js",
+      "exampleNote": "A CPU visualization of Gaussian projection and compositing principles. SH uses synthesized first-order coefficients; this is not a quality measurement of a trained GS model."
     },
     {
       "id": "19-gs-loading",
@@ -512,7 +516,8 @@
       "goal": "Check input data specifications and implement successful and failed loading.",
       "docPath": "/docs/en/labs/graphics/webgl/19-gs-loading/README.md",
       "seriesId": "webgl",
-      "exampleReadingSource": "/examples-en/19-gs-loading/example.js"
+      "exampleReadingSource": "/examples-en/19-gs-loading/example.js",
+      "exampleNote": "An educational CPU Canvas viewer for small .splat files and ASCII GS PLY files. The limits are 1 MiB and 512 splats; binary PLY and general mesh PLY are unsupported. Spark, GPU tile rendering, higher-order SH, and GS picking are outside the scope. The default scene uses generated data, and measurements apply only to this CPU example."
     },
     {
       "id": "20-gs-interaction",
@@ -522,7 +527,8 @@
       "goal": "Connect the meaning of GS coordinates, scale, and selection to scene controls.",
       "docPath": "/docs/en/labs/graphics/webgl/20-gs-interaction/README.md",
       "seriesId": "webgl",
-      "exampleReadingSource": "/examples-en/20-gs-interaction/example.js"
+      "exampleReadingSource": "/examples-en/20-gs-interaction/example.js",
+      "exampleNote": "An educational CPU Canvas viewer for small .splat files and ASCII GS PLY files. The limits are 1 MiB and 512 splats; binary PLY and general mesh PLY are unsupported. Spark, GPU tile rendering, higher-order SH, and GS picking are outside the scope. The default scene uses generated data, and measurements apply only to this CPU example."
     },
     {
       "id": "21-gs-review",
@@ -532,7 +538,8 @@
       "goal": "Summarize the scope of a small GS viewer and the reasons for choosing a library.",
       "docPath": "/docs/en/labs/graphics/webgl/21-gs-review/README.md",
       "seriesId": "webgl",
-      "exampleReadingSource": "/examples-en/21-gs-review/example.js"
+      "exampleReadingSource": "/examples-en/21-gs-review/example.js",
+      "exampleNote": "An educational CPU Canvas viewer for small .splat files and ASCII GS PLY files. The limits are 1 MiB and 512 splats; binary PLY and general mesh PLY are unsupported. Spark, GPU tile rendering, higher-order SH, and GS picking are outside the scope. The default scene uses generated data, and measurements apply only to this CPU example."
     },
     {
       "id": "22-react-viewer",
@@ -552,7 +559,8 @@
       "goal": "Display progress based on actual stages and available evidence.",
       "docPath": "/docs/en/labs/graphics/webgl/23-loading-ui/README.md",
       "seriesId": "webgl",
-      "exampleReadingSource": "/examples-en/23-loading-ui/example.js"
+      "exampleReadingSource": "/examples-en/23-loading-ui/example.js",
+      "exampleNote": "A simulated loader with adjustable delays and progress. It does not measure actual network transfer volume."
     },
     {
       "id": "24-camera-controls",
@@ -2127,7 +2135,8 @@
       "goal": "The exact note string is restored after A→B→A. There are 10 before/after measurements under identical conditions and reasons for adoption or rejection.",
       "docPath": "/docs/en/labs/frameworks/react/03-project/README.md",
       "seriesId": "react",
-      "exampleReadingSource": "/examples-en/react-03/example.js"
+      "exampleReadingSource": "/examples-en/react-03/example.js",
+      "exampleNote": "An actual React state and memo experiment. Observe Profiler timing with development React. The callback may be unavailable in production builds."
     },
     {
       "id": "vue-01",
@@ -2442,7 +2451,8 @@
       "goal": "The list and total both change after a toggle. The record distinguishes the built-in adapter from execution of compiled .svelte components.",
       "docPath": "/docs/en/labs/frameworks/svelte/01-foundations/README.md",
       "seriesId": "svelte",
-      "exampleReadingSource": "/examples-en/svelte-01/example.js"
+      "exampleReadingSource": "/examples-en/svelte-01/example.js",
+      "exampleNote": "The preview uses an actual Svelte writable store and a DOM adapter. It does not include the Svelte component compiler."
     },
     {
       "id": "svelte-step-02",
@@ -2584,7 +2594,8 @@
       "goal": "After showing it again, one circle is drawn at the pointer position. Timer and listener handling stop after hiding.",
       "docPath": "/docs/en/labs/frameworks/svelte/02-experiments/README.md",
       "seriesId": "svelte",
-      "exampleReadingSource": "/examples-en/svelte-02/example.js"
+      "exampleReadingSource": "/examples-en/svelte-02/example.js",
+      "exampleNote": "The preview uses an actual Svelte writable store and a DOM adapter. It does not include the Svelte component compiler. Run the .svelte files in the same example folder in a separate Svelte project to compare component lifecycles."
     },
     {
       "id": "svelte-step-15",
@@ -2737,7 +2748,8 @@
       "goal": "Toggle, filter, and draft results from all three implementations are recorded against the same contract. Store adapter results are not confused with compiled Svelte results.",
       "docPath": "/docs/en/labs/frameworks/svelte/03-project/README.md",
       "seriesId": "svelte",
-      "exampleReadingSource": "/examples-en/svelte-03/example.js"
+      "exampleReadingSource": "/examples-en/svelte-03/example.js",
+      "exampleNote": "The preview uses an actual Svelte writable store and a DOM adapter. It does not include the Svelte component compiler. Run the .svelte files in the same example folder in a separate Svelte project to compare component lifecycles."
     },
     {
       "id": "canvas-2d-01",
@@ -3662,7 +3674,8 @@
       "goal": "Explain the differences between the three scene representations. Classify the roles of Gaussian attributes.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/01-foundations/README.md",
       "seriesId": "gaussian-splatting",
-      "exampleReadingSource": "/examples-en/gaussian-splatting-01/example.js"
+      "exampleReadingSource": "/examples-en/gaussian-splatting-01/example.js",
+      "exampleNote": "A visualization of 2D Gaussian density principles. It is not a 3DGS data loader."
     },
     {
       "id": "gaussian-splatting-step-02",
@@ -3804,7 +3817,8 @@
       "goal": "Integrate loader and camera state. Specify the meaning of GS picking.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/02-experiments/README.md",
       "seriesId": "gaussian-splatting",
-      "exampleReadingSource": "/examples-en/gaussian-splatting-02/example.js"
+      "exampleReadingSource": "/examples-en/gaussian-splatting-02/example.js",
+      "exampleNote": "An educational CPU Canvas viewer for small .splat files and ASCII GS PLY files. The limits are 1 MiB and 512 splats; binary PLY and general mesh PLY are unsupported. Spark, GPU tile rendering, higher-order SH, and GS picking are outside the scope. The default scene uses generated data, and measurements apply only to this CPU example."
     },
     {
       "id": "gaussian-splatting-step-15",
@@ -3957,7 +3971,8 @@
       "goal": "Compare quality and cost together. Complete a GS viewer deliverable with supporting evidence.",
       "docPath": "/docs/en/labs/graphics/gaussian-splatting/03-project/README.md",
       "seriesId": "gaussian-splatting",
-      "exampleReadingSource": "/examples-en/gaussian-splatting-03/example.js"
+      "exampleReadingSource": "/examples-en/gaussian-splatting-03/example.js",
+      "exampleNote": "An educational CPU Canvas viewer for small .splat files and ASCII GS PLY files. The limits are 1 MiB and 512 splats; binary PLY and general mesh PLY are unsupported. Spark, GPU tile rendering, higher-order SH, and GS picking are outside the scope. The default scene uses generated data, and measurements apply only to this CPU example."
     },
     {
       "id": "webgpu-01",
@@ -3967,7 +3982,8 @@
       "goal": "Check support requirements. Handle initialization failure as a recoverable state.",
       "docPath": "/docs/en/labs/graphics/webgpu/01-foundations/README.md",
       "seriesId": "webgpu",
-      "exampleReadingSource": "/examples-en/webgpu-01/example.js"
+      "exampleReadingSource": "/examples-en/webgpu-01/example.js",
+      "exampleNote": "Uses an actual WebGPU pipeline and requires a supported GPU and browser. Unsupported environments display guidance. Check WGSL errors with the GPU compiler."
     },
     {
       "id": "webgpu-step-02",
@@ -4109,7 +4125,8 @@
       "goal": "Integrate the rendering path. Diagnose and recover from validation failures.",
       "docPath": "/docs/en/labs/graphics/webgpu/02-experiments/README.md",
       "seriesId": "webgpu",
-      "exampleReadingSource": "/examples-en/webgpu-02/example.js"
+      "exampleReadingSource": "/examples-en/webgpu-02/example.js",
+      "exampleNote": "Uses an actual WebGPU pipeline and requires a supported GPU and browser. Unsupported environments display guidance. Check WGSL errors with the GPU compiler."
     },
     {
       "id": "webgpu-step-15",
@@ -4262,7 +4279,8 @@
       "goal": "Compare compute correctness and overall cost. Decide when to use the GPU based on evidence.",
       "docPath": "/docs/en/labs/graphics/webgpu/03-project/README.md",
       "seriesId": "webgpu",
-      "exampleReadingSource": "/examples-en/webgpu-03/example.js"
+      "exampleReadingSource": "/examples-en/webgpu-03/example.js",
+      "exampleNote": "Uses an actual WebGPU pipeline and requires a supported GPU and browser. Unsupported environments display guidance. Check WGSL errors with the GPU compiler."
     },
     {
       "id": "react-three-fiber-01",
@@ -4719,7 +4737,8 @@
       "goal": "Keep the UI available through failure and reruns. Keep sibling Sprites sharing the texture intact after removing the selected object.",
       "docPath": "/docs/en/labs/graphics/pixijs/02-experiments/README.md",
       "seriesId": "pixijs",
-      "exampleReadingSource": "/examples-en/pixijs-02/example.js"
+      "exampleReadingSource": "/examples-en/pixijs-02/example.js",
+      "exampleNote": "Uses a generated atlas and simulated loading failures. It does not request an external Assets server."
     },
     {
       "id": "pixijs-step-15",
@@ -5187,7 +5206,8 @@
       "goal": "Write the input and output contract for each stage. Diagnose interface errors.",
       "docPath": "/docs/en/labs/shader/wgsl/01-foundations/README.md",
       "seriesId": "wgsl",
-      "exampleReadingSource": "/examples-en/wgsl-01/example.js"
+      "exampleReadingSource": "/examples-en/wgsl-01/example.js",
+      "exampleNote": "Uses an actual WebGPU pipeline and requires a supported GPU and browser. Unsupported environments display guidance. Check WGSL errors with the GPU compiler."
     },
     {
       "id": "wgsl-step-02",
@@ -5329,7 +5349,8 @@
       "goal": "Implement a mixed uniform layout. Verify that field updates are independent.",
       "docPath": "/docs/en/labs/shader/wgsl/02-experiments/README.md",
       "seriesId": "wgsl",
-      "exampleReadingSource": "/examples-en/wgsl-02/example.js"
+      "exampleReadingSource": "/examples-en/wgsl-02/example.js",
+      "exampleNote": "Uses an actual WebGPU pipeline and requires a supported GPU and browser. Unsupported environments display guidance. Check WGSL errors with the GPU compiler."
     },
     {
       "id": "wgsl-step-15",
@@ -5482,7 +5503,8 @@
       "goal": "Apply a boundary strategy for each kernel. Verify layout, synchronization, and numeric correctness together.",
       "docPath": "/docs/en/labs/shader/wgsl/03-project/README.md",
       "seriesId": "wgsl",
-      "exampleReadingSource": "/examples-en/wgsl-03/example.js"
+      "exampleReadingSource": "/examples-en/wgsl-03/example.js",
+      "exampleNote": "Uses an actual WebGPU pipeline and requires a supported GPU and browser. Unsupported environments display guidance. Check WGSL errors with the GPU compiler."
     },
     {
       "id": "gsap-01",
@@ -5634,7 +5656,8 @@
       "goal": "Learning outcome: explain the role of Scope of the Existing Example. Input case: 5 remounts and resize. Deliverable: event counts and a record of all explanations being displayed. Explain the rationale for handling Cleanup, connecting it to the code.",
       "docPath": "/docs/en/labs/animation/gsap/02-experiments/README.md",
       "seriesId": "gsap",
-      "exampleReadingSource": "/examples-en/gsap-02/example.js"
+      "exampleReadingSource": "/examples-en/gsap-02/example.js",
+      "exampleNote": "Connects basic scroll events to a GSAP timeline. It does not use the ScrollTrigger plugin."
     },
     {
       "id": "gsap-step-15",
@@ -6712,7 +6735,8 @@
       "goal": "Learning outcome: explain the role of Module boundary. Input cases: [1,2,3] and an invalid file path. Deliverable: JS·Wasm sum 6 and a record of loading errors. Explain the rationale for handling Preview scope, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/01-foundations/README.md",
       "seriesId": "webassembly",
-      "exampleReadingSource": "/examples-en/webassembly-01/example.js"
+      "exampleReadingSource": "/examples-en/webassembly-01/example.js",
+      "exampleNote": "The preview experiments with WebAssembly.Memory and JS boundary costs. To preserve the CSP, compile WASM modules outside the iframe."
     },
     {
       "id": "webassembly-step-02",
@@ -6854,7 +6878,8 @@
       "goal": "Learning outcome: explain the role of Memory layout. Input cases: the existing 100003 inputs and a small array. Deliverable: matching sums·copyMs·batchMs·scalarMs·view lengths. Explain the rationale for handling View lifetime, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/02-experiments/README.md",
       "seriesId": "webassembly",
-      "exampleReadingSource": "/examples-en/webassembly-02/example.js"
+      "exampleReadingSource": "/examples-en/webassembly-02/example.js",
+      "exampleNote": "The preview experiments with WebAssembly.Memory and JS boundary costs. To preserve the CSP, compile WASM modules outside the iframe. Use kernel.wat, kernel.wasm, and benchmark.mjs in the same folder to compare actual WASM calculations with JS results."
     },
     {
       "id": "webassembly-step-15",
@@ -7007,7 +7032,8 @@
       "goal": "Learning outcome: explain the role of End-to-end latency. Input cases: multiple sizes and repeat counts. Deliverable: a report on cold·warm·copies·correctness·adoption rationale. Explain the rationale for handling Evidence-based decisions, linking it to the code.",
       "docPath": "/docs/en/labs/engineering/webassembly/03-project/README.md",
       "seriesId": "webassembly",
-      "exampleReadingSource": "/examples-en/webassembly-03/example.js"
+      "exampleReadingSource": "/examples-en/webassembly-03/example.js",
+      "exampleNote": "The preview experiments with WebAssembly.Memory and JS boundary costs. To preserve the CSP, compile WASM modules outside the iframe. Use kernel.wat, kernel.wasm, and benchmark.mjs in the same folder to compare actual WASM calculations with JS results."
     },
     {
       "id": "playwright-01",
@@ -7017,7 +7043,8 @@
       "goal": "Learning outcome: explain the role of User contract. Input cases: table of contents selection and the open-document button. Deliverable: assertion results for the selected title and dialog visibility. Explain the rationale for handling Auto-waiting, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/01-foundations/README.md",
       "seriesId": "playwright",
-      "exampleReadingSource": "/examples-en/playwright-01/example.js"
+      "exampleReadingSource": "/examples-en/playwright-01/example.js",
+      "exampleNote": "The screen generates Playwright test source for separate execution. Run it in a Node environment; displaying the preview does not mean the E2E tests passed."
     },
     {
       "id": "playwright-step-02",
@@ -7159,7 +7186,8 @@
       "goal": "Learning outcome: explain the role of Round-trip contract. Input cases: empty notes, Korean text, and error files. Deliverable: notes after the round trip and error-preservation results. Explain the rationale for handling Isolation, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/02-experiments/README.md",
       "seriesId": "playwright",
-      "exampleReadingSource": "/examples-en/playwright-02/example.js"
+      "exampleReadingSource": "/examples-en/playwright-02/example.js",
+      "exampleNote": "The screen generates Playwright test source for separate execution. Run it in a Node environment; displaying the preview does not mean the E2E tests passed."
     },
     {
       "id": "playwright-step-15",
@@ -7312,7 +7340,8 @@
       "goal": "Learning outcome: explain the role of Environment differences. Input cases: fixed viewport, stopped rotation, and font readiness. Deliverable: baseline image, functional report, failure trace, and limitations document. Explain the rationale for handling Combined verification, linking it to the code.",
       "docPath": "/docs/en/labs/testing/playwright/03-project/README.md",
       "seriesId": "playwright",
-      "exampleReadingSource": "/examples-en/playwright-03/example.js"
+      "exampleReadingSource": "/examples-en/playwright-03/example.js",
+      "exampleNote": "The screen generates Playwright test source for separate execution. Run it in a Node environment; displaying the preview does not mean the E2E tests passed."
     }
   ]
 }

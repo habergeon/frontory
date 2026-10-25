@@ -488,6 +488,10 @@
         "comments.comment01": "A teaching counter of render attempts, not a timing measurement.",
         "comments.comment02": "The callback is guaranteed only in development/profiling builds. Putting the result in state causes additional renders."
       }
+    },
+    "sourceHash": "020d04f5f331ae6dc3834de933eda4e8156b05115f31848f01d56c0a134a7ea3",
+    "values": {
+      "note": "An actual React state and memo experiment. Observe Profiler timing with development React. The callback may be unavailable in production builds."
     }
   }
 }

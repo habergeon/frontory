@@ -62,6 +62,9 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 [Example source](../../../../../../src/labs/gaussian-splatting-02/example.js) · [Runtime environments and limits](../../../../examples.md)
 
+An educational CPU Canvas viewer for small .splat files and ASCII GS PLY files. The limits are 1 MiB and 512 splats; binary PLY and general mesh PLY are unsupported. Spark, GPU tile rendering, higher-order SH, and GS picking are outside the scope. The default scene uses generated data, and measurements apply only to this CPU example.
+
+
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 
 ## Next learning

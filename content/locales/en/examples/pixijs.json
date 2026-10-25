@@ -521,6 +521,10 @@
         "messages.display007": " sprites still use the shared atlas.",
         "comments.comment001": "Procedural local atlas: two frames share ONE TextureSource, owned by mount."
       }
+    },
+    "sourceHash": "2b933870522834e206d8f39e57b1bc2f4508943e74d6eb4b954a7aac945d2abb",
+    "values": {
+      "note": "Uses a generated atlas and simulated loading failures. It does not request an external Assets server."
     }
   },
   "pixijs-03": {

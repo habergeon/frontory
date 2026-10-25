@@ -172,6 +172,8 @@ for(const [series,lessons] of Object.entries(bodies)){
   if(process.argv[2]&&process.argv[2]!==series)continue
   const curriculum=JSON.parse(fs.readFileSync(`content/curricula/${series}.json`,'utf8'))
   const manifest={}
+  const legacyIds=new Set(JSON.parse(fs.readFileSync('content/catalog-v2.json','utf8')).units.filter(unit=>unit.seriesId===series).map(unit=>unit.id))
+  Object.assign(manifest,Object.fromEntries(Object.entries(JSON.parse(fs.readFileSync('content/examples/'+series+'.json','utf8'))).filter(([id])=>legacyIds.has(id))))
   for(const unit of curriculum.units){
     const filename=`src/labs/${unit.id}/example.js`
     const body=lessons[unit.day]

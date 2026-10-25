@@ -2,7 +2,7 @@
 
 [Series contents](../README.md) · [Technology map](../../../README.md)
 
-Stage: Persistent Data and File Round Trips · Editable example · Storage ID: `playwright-02`
+Stage: Persistent Data and File Round Trips · External example · preview instructions · Storage ID: `playwright-02`
 
 ## Goals and learning outcomes
 
@@ -64,6 +64,10 @@ Predictions in this table are not measured results. Change one condition at a ti
 ## Linked example and execution scope
 
 [Example source](../../../../../../src/labs/playwright-02/example.js) · [Runtime environments and limits](../../../../examples.md)
+
+The screen generates Playwright test source for separate execution. Run it in a Node environment; displaying the preview does not mean the E2E tests passed.
+
+- [lesson.spec.mjs](../../../../../../src/labs/playwright-02/lesson.spec.mjs)
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

@@ -1,6 +1,5 @@
 import { useLocale } from '../i18n/LocaleProvider'
 import { message, messages } from '../i18n/messages'
-import { getLocalizedUnit } from './curriculum'
 import { lazy, Suspense, useImperativeHandle, useLayoutEffect, useRef, useState, type Ref } from 'react'
 import { draftStore, restoreCode, type Draft, type CodeLanguage, type LearningProgress } from '../shared/drafts'
 import type { Compilation } from '../editor/CodeEditor'
@@ -63,6 +62,10 @@ export function Workspace({ unit, onProgressChange, ref }: { unit: Unit; onProgr
     window.setTimeout(() => URL.revokeObjectURL(url), 1000)
   }
   return <>
+    {(unit.exampleReadingSource || !!unit.exampleFiles?.length) && <div className="learning-resources">
+    {unit.exampleReadingSource && <p><a href={unit.exampleReadingSource} download>{text.downloadEnglishReadingSource}</a></p>}
+    {!!unit.exampleFiles?.length && <details><summary>{text.downloadExampleFiles}</summary><p>{text.originalFilesHint}</p><ul>{unit.exampleFiles.map(file => <li key={file}><a href={'/examples/' + file.slice('src/labs/'.length)} download>{file.split('/').pop()}</a></li>)}</ul></details>}
+    </div>}
     <div className="learning-status" role="group" aria-label={text.learningStatus}>
       <span>{text.myLearningStatus}</span>
       {([['not-started',text.notStarted],['in-progress',text.inProgress],['completed',text.completed]] as const).map(([value,label]) => <button key={value} aria-pressed={(draft.progress ?? 'not-started') === value} onClick={() => { save({ ...draft, progress: value as LearningProgress }); onProgressChange() }}>{label}</button>)}
@@ -73,9 +76,6 @@ export function Workspace({ unit, onProgressChange, ref }: { unit: Unit; onProgr
       <span>{text.localStorageHint}</span>
     </div>
     {warning && <div className="storage-warning" role="alert"><p>{warning === 'read-failed' ? text.storageReadFailed : text.storageWriteFailed}</p><button onClick={() => save(draft)}>{text.retrySave}</button></div>}
-    {getLocalizedUnit(locale, unit.id)?.exampleNote && <p className="example-note" role="note">{getLocalizedUnit(locale, unit.id)?.exampleNote}</p>}
-    {unit.exampleReadingSource && <p className="example-note"><a href={unit.exampleReadingSource} download>{text.downloadEnglishReadingSource}</a></p>}
-    {!!unit.exampleFiles?.length && <details className="example-note"><summary>{text.downloadExampleFiles}</summary><p>{text.originalFilesHint}</p><ul>{unit.exampleFiles.map(file => <li key={file}><a href={'/examples/' + file.slice('src/labs/'.length)} download>{file.split('/').pop()}</a></li>)}</ul></details>}
     {unit.source && draft.code === '' && <p className="example-note">{text.emptyCodePreserved}</p>}
     <div className="mobile-tabs" role="tablist" aria-label={text.workspace}>
       {panels.map((value, index) =>

@@ -3156,6 +3156,8 @@
       "goal": "같은 장면을 두 투영으로 표시한다. near 바깥 물체가 잘리는 경우를 재현한다.",
       "docPath": "/docs/labs/graphics/threejs/units/03/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-03/example.js"
     },
     {

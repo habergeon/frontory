@@ -227,6 +227,158 @@
         "canvas-dimensions",
         "resize-observer"
       ]
+    },
+    {
+      "unitId": "threejs-step-03",
+      "prerequisiteIds": [
+        "threejs-01",
+        "threejs-step-02",
+        "javascript-step-02",
+        "javascript-step-12",
+        "javascript-step-18"
+      ],
+      "introduction": "Compare the same scene with perspective and orthographic cameras. Change distance, FOV, near/far, and viewing target one at a time and explain why objects become smaller or disappear. Each independent HTML starter includes the resizing already introduced. No external GUI is required; labeled inputs and buttons support the baseline experiments. Restore the baseline before comparisons and record camera type, position, target, and projection values.\n\nRecord conditions / prediction / actual image and numbers / reason in the site notes. Selecting a step or opening explanations keeps your code. Only confirmed loading replaces it.",
+      "steps": [
+        {
+          "id": "threejs-step-03-perspective-depth",
+          "title": "Two objects at different depths",
+          "explanation": "The starter contains A and B, both using BoxGeometry(1, 1, 1). A=(-1, 0, 2), B=(1, 0, -2); distinct colors and text names identify them. camera=(0, 0, 9), lookAt=(0, 0, 0), fov=50, near=.1, far=30. Neither cube is rotated.\n\nRead object and camera coordinates in output and predict which appears larger. A's center is at camera depth 7; B's is at depth 11. A world z value is not itself camera depth. This camera looks along -Z from z=9, so 9-2=7 and 9-(-2)=11.\n\nDo not resize B to match A. Observe the unmodified objects. Perspective projection makes closer objects appear larger. Both geometry widths remain 1; only projected widths differ. Keep the x positions so the objects do not obscure each other.\n\nquerySelector finds DOM elements and textContent displays strings. coords uses toFixed(2) for display strings without changing positions. Blue A is on the left, orange B on the right; use A/B names and coordinates as well as color. scene → A, B is the object tree. This step is observation; keep both geometries unchanged.\n\nSizing is supplied support code. resizeScene reads stage.clientWidth/clientHeight in CSS px and returns at zero. A continuous ResizeObserver redraws after hidden preview becomes visible or changes size. setPixelRatio(1) fixes experimental DPR; setSize(w,h,false) preserves CSS. Update perspective aspect and orthographic bounds separately, then updateProjectionMatrix and render. The 240×240 / 480×240 buttons change stage.style.width; max-width may reduce actual width in a narrow preview. Record actual CSS/buffer output. input.value is a string, read with Number. change/click listeners connect committed inputs and buttons; press Apply after editing numbers. HTML min/max/step and checkValidity check the input ranges.\n\nquerySelectorAll collects numeric inputs. [...collection] makes an array; the every callback checks each input.checkValidity(). Any invalid input displays an error and returns. event.target identifies the changed select or checkbox; value/checked read its selection. hidden controls zoom visibility; disabled prevents editing the unused FOV input in orthographic view. String converts the initial distance to the string used by input.value.",
+          "solutionExplanation": "this difference is caused by projected depth, not geometry size or material. If you rotate the camera, the simple 9-z calculation no longer generally applies. Restore the baseline before comparing.",
+          "starterPath": "src/labs/threejs-step-03/steps/perspective-depth.html",
+          "expected": "Of the two objects of width 1, A at camera depth 7 appears larger than B at depth 11. output shows actual object and camera coordinates.",
+          "hints": [
+            "Distinguish geometry width from projected width. Both geometries have width 1.",
+            "Use camera.z=9 and object z values to check the front-facing depths 7,11.",
+            "Restore A=(-1, 0, 2), B=(1, 0, -2), camera=(0, 0, 9) for the baseline where A appears larger."
+          ],
+          "solutionPath": "src/labs/threejs-step-03/solutions/perspective-depth.html",
+          "questions": [
+            "Why do equal geometries have different image sizes?",
+            "Does B at z=-2 have camera depth -2?"
+          ]
+        },
+        {
+          "id": "threejs-step-03-distance-fov",
+          "title": "Camera distance and FOV",
+          "explanation": "This starter contains the same cubes and a restore-baseline button. applyCameraSettings() converts inputs with Number before applying them. The baseline is camera.z=9, fov=50. Keep the two experiments separate.\n\nFirst hold fov=50 and change only camera.z from 9 to 13, retaining the origin as the lookAt target. Compare how both objects shrink. Their center depths become A=11, B=15. Restore the baseline, keep camera.z=9, and reduce only fov from 50 to 30. Call camera.updateProjectionMatrix() after assigning fov.\n\nFOV is the vertical viewing angle in degrees. A smaller FOV shows a narrower area at larger image scale from the same position. Moving the camera closer may look similar, but relative sizes at different depths are not always identical.\n\nAfter the input experiments, edit code too: change baselineDistance = 9 to 13 and run. Restore 9, then change baselineFov = 50 to 30. The solution starts at distance 9/FOV 30; inputs can restore the 9/50 reference.",
+          "solutionExplanation": "moving changes A/B center depths from 7/11 to 11/15. FOV changes projection scale while keeping position and depths fixed. Recording both only as zoom misses this difference. If FOV input has no effect, check the camera passed to render and its projection update.",
+          "starterPath": "src/labs/threejs-step-03/steps/distance-fov.html",
+          "expected": "At camera.z=13 both objects shrink and their relative size difference changes. After restoring, fov=30 enlarges both while position and depths remain 7/11.",
+          "hints": [
+            "Check output for fov=50 in the distance experiment and camera.z=9 in the FOV experiment.",
+            "Check updateProjectionMatrix after assigning camera.fov.",
+            "Restore the baseline and use camera.fov = 30; camera.updateProjectionMatrix(); for FOV only. The distance experiment uses camera.position.z = 13."
+          ],
+          "solutionPath": "src/labs/threejs-step-03/solutions/distance-fov.html",
+          "questions": [
+            "Do distance movement and FOV changes always match across multiple depths?",
+            "Does changing FOV also move camera.position?"
+          ]
+        },
+        {
+          "id": "threejs-step-03-orthographic",
+          "title": "Orthographic projection and magnification",
+          "explanation": "The starter has subjectCamera and ortho cameras, with only activeCamera passed to render. Both use position (0, 0, 9) and the origin as target. Perspective FOV and orthographic bounds are different settings, so the overall scene scale need not match exactly at the switch.\n\nThe orthographic settings are halfHeight=3, left=-halfHeight*aspect, right=halfHeight*aspect, top=halfHeight, bottom=-halfHeight, near=.1, far=30. Compare A/B sizes, then move ortho.position.z from 9 to 13. Keep orientation, bounds, and zoom=1 fixed, with objects inside the clipping range.\n\nRestore distance 9, change ortho.zoom from 1 to 2, and call ortho.updateProjectionMatrix(). Orthographic magnification is set by bounds or zoom rather than distance. On resize, retain halfHeight, recompute left/right from the new aspect, and update projection. Assigning ortho.aspect is not a solution.\n\nProjection selects activeCamera as subjectCamera or ortho. The zoom input appears only for orthographic view. The solution starts at orthographic distance 9/zoom 2. Reset restores perspective 9/50 and orthographic half-height 3/zoom 1 together. FOV is disabled in orthographic view; use zoom to magnify.",
+          "solutionExplanation": "under orthographic projection, equally sized objects with the same orientation do not shrink with depth. Moving the camera to change depth alone retains image size. zoom=2 narrows the visible range and enlarges objects. Orthographic images can still stretch if resizing is omitted.",
+          "starterPath": "src/labs/threejs-step-03/steps/orthographic.html",
+          "expected": "A and B appear equally sized in orthographic mode and keep their sizes as camera.z changes 9→13. zoom=1→2 enlarges both. Changing stage proportions preserves shape proportions.",
+          "hints": [
+            "Check that activeCamera is the selected ortho.",
+            "Compare the left/right versus top/bottom range ratio with stage w/h.",
+            "Keep halfHeight=3, set left/right=±halfHeight*aspect and top/bottom=±halfHeight, then call updateProjectionMatrix."
+          ],
+          "solutionPath": "src/labs/threejs-step-03/solutions/orthographic.html",
+          "questions": [
+            "How is orthographic magnification determined?",
+            "Why is assigning camera.aspect insufficient for an orthographic camera?"
+          ]
+        },
+        {
+          "id": "threejs-step-03-clipping",
+          "title": "Near and far clipping",
+          "explanation": "The starter restores the perspective baseline: camera=(0, 0, 9), A=(-1, 0, 2), B=(1, 0, -2), near=.1, far=30. Controls are off. near/far are front/back planes at camera-space depths, not spheres at distances from the origin. Keep .1>0 and far>near.\n\nChange near from .1 to 7 and then 8, calling updateProjectionMatrix each time. A's center depth is 7, but a cube is not a point. With side length 1 its surface depths span [6.5, 7.5]. near=7 clips part of A; near=8 puts all of A in front of the near plane so it disappears. B spans [10.5, 11.5] and remains.\n\nRestore the baseline, hold near=.1, and change only far from 30 to 9. Predict which cube disappears and record the actual image with its settings. Do not use only the center to claim that near=7 hides A completely.\n\nApply near/far inputs after editing. For an invalid range, read the inline error and restore near>0 and far>near. The solution starts at near=8, far=30; reset before comparing partial clipping.",
+          "solutionExplanation": "far=9 includes A's depth range but lies before B's range, so B disappears. Clipping does not delete an object from Scene. Restoring near/far shows it again. A perspective near value extremely close to 0 can reduce depth precision; choose a range that is needed. Do not use near=0 for this perspective camera.",
+          "starterPath": "src/labs/threejs-step-03/steps/clipping.html",
+          "expected": "near=7 clips part of A; near=8 hides A. After restoring near=.1, far=9 hides B. Restoring the settings shows both objects again.",
+          "hints": [
+            "Distinguish A center depth 7 from surface range [6.5, 7.5].",
+            "Check projection updates on the current activeCamera after near/far changes.",
+            "near=8, far=30 hides A but retains B. near=.1, far=9 retains A but hides B."
+          ],
+          "solutionPath": "src/labs/threejs-step-03/solutions/clipping.html",
+          "questions": [
+            "Why does near=7 not hide all of A?",
+            "Is an extremely small near always better?",
+            "Has a clipped object been deleted from Scene?"
+          ]
+        },
+        {
+          "id": "threejs-step-03-controls",
+          "title": "Camera target and OrbitControls",
+          "explanation": "This independent HTML explicitly imports { OrbitControls } from 'three/addons/controls/OrbitControls.js'. controls = new OrbitControls(activeCamera, canvas) connects a camera and the canvas receiving events. controls.target is a world-space target, initially (0, 0, 0). Apply target.set(0, 0, 0) with controls.update().\n\nFrom the baseline, use left drag and the wheel while comparing camera.position, controls.target, and object positions in output. Dragging orbits the camera rather than rotating the objects. The wheel primarily changes perspective camera distance or orthographic zoom. Inputs and buttons also support baseline distance/target/projection experiments, so required tasks do not rely only on mouse interaction.\n\nChange enableDamping from false to true and call controls.update() in the loop. Inertia needs updates each frame. In numeric comparison mode, disable interaction with controls.enabled=false and also guard loop updates with if (controls.enabled) controls.update(). On camera switches, dispose old controls, create controls for the new activeCamera, and apply target and update.\n\nEdit damping = false to true and run. The loop already includes if (controls.enabled) controls.update(). Numeric comparison sets enabled=false and stops loop updates. Apply disposes and reconnects controls to clear residual inertia, then applies numeric position/target. Camera X and target X allow keyboard comparison of position and viewing direction. Uncheck comparison to resume pointer interaction. setAnimationLoop receives the function called each frame. coords reads the three position numbers; output also reports object rotations.",
+          "solutionExplanation": "if lookAt and controls both set orientation each frame, the last call can overwrite the earlier one and make the view jump. Use target consistently while controls manage orientation. enabled=false does not cancel every explicit update call. If switching cameras still moves the old one, inspect which camera was passed to the controls constructor.",
+          "starterPath": "src/labs/threejs-step-03/steps/controls.html",
+          "expected": "Dragging changes camera.position while object positions stay the same. Output shows distance changes for perspective wheel interaction and zoom changes for orthographic interaction. With damping=true, loop updates continue the motion.",
+          "hints": [
+            "Read which changes in output: object position or camera.position.",
+            "Check update after target changes and every frame with damping.",
+            "On camera switches use controls.dispose(); controls = new OrbitControls(activeCamera, canvas); controls.target.set(0, 0, 0); controls.update();."
+          ],
+          "solutionPath": "src/labs/threejs-step-03/solutions/controls.html",
+          "questions": [
+            "Are controls.target and camera.position the same value?",
+            "Why can calling lookAt and controls.update every frame make the view jump?",
+            "What should you check if switching cameras still moves the old camera?"
+          ]
+        },
+        {
+          "id": "threejs-step-03-helper",
+          "title": "Observe the frustum from outside",
+          "explanation": "This starter has subjectCamera for the image and overviewCamera for outside observation. One canvas alternates between them without split viewports. subjectCamera=(0, 0, 9), near=.1, far=12, fov=50. overviewCamera observes from (10, 8, 16). far is reduced from 30 to 12 so the whole frustum can be observed; object depth ranges [6.5, 7.5], [10.5, 11.5] still fit.\n\nFind scene.add(subjectCamera), helper = new THREE.CameraHelper(subjectCamera), and scene.add(helper). The helper is a direct scene child, not a subjectCamera child. Set helper.visible=false in subject view and true in overview. visible hides lines without deleting the object.\n\nSelect overview and reduce subjectCamera.fov from 50 to 30. Call subjectCamera.updateProjectionMatrix() followed by helper.update(). Restore the FOV and change only near or far to observe the front/back planes. Check names so the inputs update subjectCamera rather than overviewCamera.\n\nAlso edit baselineFov = 50 to 30, run, then select overview. The solution has FOV 30; compare line width with 50. View changes only activeCamera, keeping subjectCamera as the input target. subjectCamera is added before helper, so its world transform updates first during overview rendering. resizeScene updates aspect for both subject and overview cameras.",
+          "solutionExplanation": "a frustum is the camera's visible volume; for perspective it resembles a pyramid with its tip cut off. A smaller FOV narrows it; near/far move its front/back planes. Do not expect the full frustum to be visible through the same camera. CameraHelper references subjectCamera.matrixWorld, so connecting subjectCamera to scene also updates its transform while overview is rendered. Omitting helper.update after camera settings change can leave lines showing the old projection.",
+          "starterPath": "src/labs/threejs-step-03/steps/helper.html",
+          "expected": "Overview displays the subject frustum. fov=30 is narrower than fov=50; near/far changes move front/back planes. Subject view lets you compare actual clipping.",
+          "hints": [
+            "Distinguish the current overview view from the input target subjectCamera.",
+            "Check that both subjectCamera and helper are added directly to scene.",
+            "Call subjectCamera.updateProjectionMatrix(); helper.update(); then renderer.render(scene, overviewCamera) to observe from outside."
+          ],
+          "solutionPath": "src/labs/threejs-step-03/solutions/helper.html",
+          "questions": [
+            "Why is it difficult to see the whole frustum through subjectCamera itself?",
+            "What do helper.update and camera.updateProjectionMatrix each update?",
+            "Why add subjectCamera to scene when rendering from overview?"
+          ]
+        }
+      ],
+      "apiIds": [
+        "scene",
+        "color",
+        "renderer",
+        "renderer-size",
+        "renderer-render",
+        "perspective-camera",
+        "box-geometry",
+        "basic-material",
+        "mesh",
+        "object-position",
+        "object-lookat",
+        "object-add",
+        "object-rotation",
+        "renderer-pixelratio",
+        "camera-projection",
+        "canvas-dimensions",
+        "resize-observer",
+        "orthographic-camera",
+        "camera-settings",
+        "orbit-controls",
+        "controls-state",
+        "controls-update",
+        "controls-dispose",
+        "renderer-loop",
+        "camera-helper",
+        "object-visible"
+      ]
     }
   ],
   "apis": [
@@ -727,9 +879,186 @@
       "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
       "packageVersion": "0.186.1",
       "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "orthographic-camera",
+      "symbol": "THREE.OrthographicCamera",
+      "description": "Constructor for an orthographic camera, where size does not change with depth. Bounds use camera-space units.",
+      "parameters": [
+        {
+          "name": "left",
+          "type": "number",
+          "description": "Left bound.",
+          "defaultValue": "-1"
+        },
+        {
+          "name": "right",
+          "type": "number",
+          "description": "Right bound.",
+          "defaultValue": "1"
+        },
+        {
+          "name": "top",
+          "type": "number",
+          "description": "Top bound.",
+          "defaultValue": "1"
+        },
+        {
+          "name": "bottom",
+          "type": "number",
+          "description": "Bottom bound.",
+          "defaultValue": "-1"
+        },
+        {
+          "name": "near",
+          "type": "number",
+          "description": "Near plane; 0 is allowed.",
+          "defaultValue": "0.1"
+        },
+        {
+          "name": "far",
+          "type": "number",
+          "description": "Far plane, greater than near.",
+          "defaultValue": "2000"
+        }
+      ],
+      "result": "Returns a new OrthographicCamera. zoom defaults to 1.",
+      "cautions": [
+        "Do not resize by setting an aspect property. Keep halfHeight and update left/right=±halfHeight*aspect.",
+        "Call updateProjectionMatrix after changing bounds or zoom."
+      ],
+      "example": "const halfHeight = 3;\nconst ortho = new THREE.OrthographicCamera(-halfHeight * aspect, halfHeight * aspect, halfHeight, -halfHeight, .1, 30);",
+      "sourceUrl": "https://threejs.org/docs/pages/OrthographicCamera.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "camera-settings",
+      "symbol": "camera.fov / aspect / near / far / zoom",
+      "description": "Numeric projection members: fov in degrees, aspect as width/height, near/far as depth, and zoom as magnification.",
+      "parameters": [],
+      "result": "PerspectiveCamera defaults are fov=50, aspect=1, near=.1, far=2000, zoom=1. Projection must be updated after assignment.",
+      "cautions": [
+        "near/far are planes at camera-space depths, not spheres of distance from the origin.",
+        "Orthographic cameras have no fov; zoom and left/right/top/bottom set their range. Use positive zoom in the experiments."
+      ],
+      "example": "perspective.fov = 30;\nperspective.near = .1;\nperspective.far = 30;\nperspective.updateProjectionMatrix();",
+      "sourceUrl": "https://threejs.org/docs/pages/PerspectiveCamera.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "orbit-controls",
+      "symbol": "OrbitControls",
+      "description": "Addon constructor for moving a camera around a target. It requires a separate import.",
+      "parameters": [
+        {
+          "name": "camera",
+          "type": "Camera",
+          "description": "The perspective or orthographic camera to control."
+        },
+        {
+          "name": "domElement",
+          "type": "HTMLElement",
+          "description": "The canvas receiving input events."
+        }
+      ],
+      "result": "Returns new controls, with target initially (0, 0, 0).",
+      "cautions": [
+        "Left drag orbits the camera; the wheel changes perspective distance or orthographic zoom.",
+        "On camera replacement, dispose old controls and create controls for the new camera."
+      ],
+      "example": "import { OrbitControls } from 'three/addons/controls/OrbitControls.js';\nconst controls = new OrbitControls(camera, canvas);",
+      "sourceUrl": "https://threejs.org/docs/pages/OrbitControls.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "controls-state",
+      "symbol": "controls.target / enabled / enableDamping",
+      "description": "target is a world-space Vector3; enabled permits input interaction; enableDamping enables inertia.",
+      "parameters": [],
+      "result": "Defaults are target=(0, 0, 0), enabled=true, enableDamping=false. Assignment changes the same controls instance.",
+      "cautions": [
+        "Call update after target.set and every frame when damping is enabled.",
+        "Even with enabled=false, an explicit update can perform calculations. Control those calls in comparison mode."
+      ],
+      "example": "controls.target.set(0, 0, 0);\ncontrols.enableDamping = true;\ncontrols.update();",
+      "sourceUrl": "https://threejs.org/docs/pages/OrbitControls.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "controls-update",
+      "symbol": "controls.update",
+      "description": "Instance method that applies camera and target state.",
+      "parameters": [
+        {
+          "name": "deltaTime",
+          "type": "number | null",
+          "description": "Optional elapsed time in seconds. These examples omit it because autoRotate is not used.",
+          "defaultValue": "null"
+        }
+      ],
+      "result": "Returns a boolean indicating change. May update camera position, orientation, or zoom.",
+      "cautions": [
+        "Call after manual camera/target changes.",
+        "Avoid overwriting orientation with lookAt each frame."
+      ],
+      "example": "if (controls.enabled) controls.update();\nrenderer.render(scene, activeCamera);",
+      "sourceUrl": "https://threejs.org/docs/pages/OrbitControls.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "controls-dispose",
+      "symbol": "controls.dispose",
+      "description": "Method that releases event connections owned by controls.",
+      "parameters": [],
+      "result": "No return value. Call when finished with the old controls.",
+      "cautions": ["It does not release geometry/material GPU resources."],
+      "example": "controls.dispose();\ncontrols = new OrbitControls(activeCamera, canvas);",
+      "sourceUrl": "https://threejs.org/docs/pages/OrbitControls.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "camera-helper",
+      "symbol": "THREE.CameraHelper / helper.update",
+      "description": "Constructor and update method for lines visualizing a camera frustum.",
+      "parameters": [
+        {
+          "name": "camera",
+          "type": "Camera",
+          "description": "The subjectCamera whose frustum is visualized."
+        }
+      ],
+      "result": "The constructor returns a helper; update has no return value and refreshes lines after projection changes.",
+      "cautions": [
+        "Place helper directly under scene. Add subjectCamera to scene so its world transform updates while rendering from overview.",
+        "Observe a camera frustum from a separate overviewCamera."
+      ],
+      "example": "scene.add(subjectCamera);\nconst helper = new THREE.CameraHelper(subjectCamera);\nscene.add(helper);\nsubjectCamera.updateProjectionMatrix();\nhelper.update();",
+      "sourceUrl": "https://threejs.org/docs/pages/CameraHelper.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "object-visible",
+      "symbol": "object.visible",
+      "description": "Boolean member controlling scene-object visibility, initially true.",
+      "parameters": [],
+      "result": "Assignment changes visibility without deleting the object.",
+      "cautions": [
+        "helper.visible=false hides helper lines without deleting subjectCamera."
+      ],
+      "example": "helper.visible = false;",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
     }
   ],
-  "sourceHash": "b4a539b279dd911df40bb0c2bb766b6c910b03c0c16d6f23e6ec020b092b38ab",
+  "sourceHash": "8e4f5aa2f432c1d085de0d55785e9988ac3e5eb98beb81e8b089ca08df3af05a",
   "codeSourceHashes": {
     "src/labs/threejs-01/example.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
     "src/labs/threejs-01/steps/canvas.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
@@ -750,6 +1079,19 @@
     "src/labs/threejs-step-02/solutions/dpr.html": "5135e0f9f85c75273188cff7e449c302464cc0fcfb397b70ef78625d2f686bc7",
     "src/labs/threejs-step-02/steps/zero-size.html": "19f2bb20763b41eb23455aa1ae0b6d5192c116c8d05eb9eb4798c0ddf98c9ea9",
     "src/labs/threejs-step-02/solutions/zero-size.html": "3725b002cf0016bd84b34fa03804f99f3a9370aa2e35bde57f4ba57b2b966719",
-    "src/labs/threejs-step-02/example.html": "d8c3b3cbf40d8f7848abd03fed56e122ba3c85227990bcbf278cdf8114a7030a"
+    "src/labs/threejs-step-02/example.html": "d8c3b3cbf40d8f7848abd03fed56e122ba3c85227990bcbf278cdf8114a7030a",
+    "src/labs/threejs-step-03/example.html": "c089b685dceee79146dab52e84fda6fb81763c813a21148ba32e7c1b8dca50aa",
+    "src/labs/threejs-step-03/steps/perspective-depth.html": "c089b685dceee79146dab52e84fda6fb81763c813a21148ba32e7c1b8dca50aa",
+    "src/labs/threejs-step-03/solutions/perspective-depth.html": "c089b685dceee79146dab52e84fda6fb81763c813a21148ba32e7c1b8dca50aa",
+    "src/labs/threejs-step-03/steps/distance-fov.html": "694d92dceb494559203bfb3b5b5cfab748501a919525e64ee4374316a96782c1",
+    "src/labs/threejs-step-03/solutions/distance-fov.html": "35b52a34b23662c96ee69601e05245e1af42715c77b1e33c3563c88518964b5b",
+    "src/labs/threejs-step-03/steps/orthographic.html": "d58fc29c3b65c5277a93ae659ed43d749a7f456f9e4c7535065c78de27d4263f",
+    "src/labs/threejs-step-03/solutions/orthographic.html": "8da98903d276e6913766be99b625f01acc03f484d724fe5b446636078e7d3215",
+    "src/labs/threejs-step-03/steps/clipping.html": "15d063633bb0373d3ff26b9ff3c6c92bbf55764f925c010dec0aafb1939f5c99",
+    "src/labs/threejs-step-03/solutions/clipping.html": "b2c2bb6d85c92341390815b25afb1fb854f9e1c420ad27a143216883523369d7",
+    "src/labs/threejs-step-03/steps/controls.html": "ccdc99953ceae659b21f935641d70ef425065526c8573937d85641a89ae4f11d",
+    "src/labs/threejs-step-03/solutions/controls.html": "8ca3a91a0b2d735fe30c173f3173acc6755f8f2d905b2e5a155a7c78b522188f",
+    "src/labs/threejs-step-03/steps/helper.html": "daa8435d56e130da42330f6e966a14c0fe7ae65b07ba78b4bbc128dd7bed1369",
+    "src/labs/threejs-step-03/solutions/helper.html": "e0426962a2f64eb77722350b6e10bf90709fab9dadf79a021257ccab0e63461d"
   }
 }

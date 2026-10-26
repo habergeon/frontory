@@ -19,9 +19,9 @@
     }
   },
   "threejs-step-03": {
-    "sourceHash": "a60c31a135601baaeaaa586595ec7b8364212db4e1203287ec7990572c580111",
+    "sourceHash": "968583db66d6527170e8a30d315a5bd015b0810c675457a1f9c979acee6efc06",
     "values": {
-      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "note": "Edit and run HTML starters inside the site. Read the steps and API reference, then record actual results in the site notes."
     },
     "presentation": {
       "sourceHash": "07328c6d2149d7c19286f4fe98d86af2c0bcd9a5b95972723bf5437d2b32fec9",

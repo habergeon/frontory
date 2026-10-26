@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>직교 투영과 확대</title>
+    <style>
+      body { margin: 0; padding: 12px; font: 14px/1.5 system-ui, sans-serif; background: #fff; color: #172554; }
+      #stage { width: 480px; max-width: 100%; height: 240px; padding: 0; border: 0; }
+      canvas { display: block; width: 100%; height: 100%; padding: 0; border: 0; touch-action: none; }
+      .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 8px; }
+      input[type=number] { width: 64px; }
+      output { display: block; white-space: pre-wrap; overflow-wrap: anywhere; margin-top: 8px; }
+      #error { color: #b91c1c; }
+      [hidden] { display: none; }
+    </style>
+  </head>
+  <body>
+    <div class="controls">
+      <button id="square">240 × 240</button><button id="wide">480 × 240</button>
+      <button id="reset">기준 복원</button>
+      <label
+        >투영
+        <select id="projection">
+          <option value="perspective">PerspectiveCamera</option>
+          <option value="ortho">OrthographicCamera</option>
+        </select></label
+      >
+
+      <label
+        >카메라 Z
+        <input
+          id="distance"
+          type="number"
+          value="9"
+          min="3"
+          max="20"
+          step="1"
+          required
+      /></label>
+      <label
+        >FOV (degree)
+        <input
+          id="fov"
+          type="number"
+          value="50"
+          min="10"
+          max="100"
+          step="1"
+          required
+      /></label>
+      <label
+        >near
+        <input
+          id="near"
+          type="number"
+          value="0.1"
+          min="0.1"
+          max="20"
+          step="0.1"
+          required
+      /></label>
+      <label
+        >far
+        <input
+          id="far"
+          type="number"
+          value="30"
+          min="1"
+          max="40"
+          step="0.1"
+          required
+      /></label>
+      <span id="zoom-field" hidden
+        ><label
+          >zoom
+          <input
+            id="zoom"
+            type="number"
+            value="1"
+            min="0.5"
+            max="3"
+            step="0.5"
+            required /></label
+      ></span>
+
+      <button id="apply">적용</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage">
+      <canvas aria-label="왼쪽 A와 오른쪽 B의 카메라 투영 비교"></canvas>
+    </div>
+    <output>미리보기 크기를 기다리는 중</output>
+    <script type="module">
+      import * as THREE from 'three';
+
+      const stage = document.querySelector('#stage');
+      const canvas = document.querySelector('canvas');
+      const output = document.querySelector('output');
+      const error = document.querySelector('#error');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const geometry = new THREE.BoxGeometry(1, 1, 1);
+      const cubeA = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: '#2563eb' }));
+      const cubeB = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: '#f97316' }));
+      cubeA.position.set(-1, 0, 2);
+      cubeB.position.set(1, 0, -2);
+      scene.add(cubeA, cubeB);
+      const baselineDistance = 9;
+      document.querySelector('#distance').value = String(baselineDistance);
+      const baselineFov = 50;
+      const subjectCamera = new THREE.PerspectiveCamera(baselineFov, 1, 0.1, 30);
+      subjectCamera.position.set(0, 0, baselineDistance);
+      subjectCamera.lookAt(0, 0, 0);
+      const halfHeight = 3;
+      const ortho = new THREE.OrthographicCamera(-3, 3, 3, -3, 0.1, 30);
+      ortho.position.set(0, 0, baselineDistance);
+      ortho.lookAt(0, 0, 0);
+      ortho.zoom = 1;
+
+      let activeCamera = subjectCamera;
+      document.querySelector('#fov').disabled = activeCamera !== subjectCamera;
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setPixelRatio(1);
+
+      function coords(position) {
+        return '(' + position.x.toFixed(2) + ', ' + position.y.toFixed(2) + ', ' + position.z.toFixed(2) + ')';
+      }
+      function report() {
+        output.textContent = '현재 보기: ' + (activeCamera === subjectCamera ? 'PerspectiveCamera' : 'OrthographicCamera')
+          + '\n카메라 위치: ' + coords(activeCamera.position)
+          + '\nA (파랑): ' + coords(cubeA.position) + ' / B (주황): ' + coords(cubeB.position)
+          + '\n물체 Y 회전: ' + cubeA.rotation.y.toFixed(2) + ' / ' + cubeB.rotation.y.toFixed(2)
+          + '\nsubject FOV: ' + subjectCamera.fov + ' / near: ' + subjectCamera.near + ' / far: ' + subjectCamera.far
+          + '\northo zoom: ' + ortho.zoom + ' / left/right: ' + ortho.left.toFixed(2) + ' / ' + ortho.right.toFixed(2)
+
+
+          + '\nCSS px: ' + stage.clientWidth + ' × ' + stage.clientHeight + ' / Buffer px: ' + canvas.width + ' × ' + canvas.height;
+      }
+      function draw() {
+        if (stage.clientWidth === 0 || stage.clientHeight === 0) return;
+        renderer.render(scene, activeCamera);
+        report();
+      }
+      // 지원 코드: 두 투영을 각각 갱신합니다. 여기서는 크기 실험을 새로 구현하지 않습니다.
+      function resizeScene() {
+        const w = stage.clientWidth, h = stage.clientHeight;
+        if (w === 0 || h === 0) return;
+        renderer.setSize(w, h, false);
+        subjectCamera.aspect = w / h;
+        subjectCamera.updateProjectionMatrix();
+        ortho.left = -halfHeight * w / h;
+        ortho.right = halfHeight * w / h;
+        ortho.top = halfHeight;
+        ortho.bottom = -halfHeight;
+        ortho.updateProjectionMatrix();
+
+        draw();
+      }
+      function applyCameraSettings() {
+        if (![...document.querySelectorAll('input[type=number]')].every(input => input.checkValidity())) {
+          error.textContent = '숫자 입력 범위와 간격을 확인하세요.'; return;
+        }
+        const near = Number(document.querySelector('#near').value);
+        const far = Number(document.querySelector('#far').value);
+        if (far <= near) { error.textContent = 'far는 near보다 커야 합니다.'; return; }
+        error.textContent = '';
+        const camera = activeCamera;
+        camera.position.set(0, 0, Number(document.querySelector('#distance').value));
+        if (camera === subjectCamera) camera.fov = Number(document.querySelector('#fov').value);
+        camera.near = near;
+        camera.far = far;
+        if (camera === ortho) camera.zoom = Number(document.querySelector('#zoom').value);
+        camera.updateProjectionMatrix();
+        camera.lookAt(0, 0, 0);
+
+        draw();
+      }
+      document.querySelector('#apply').addEventListener('click', applyCameraSettings);
+      document.querySelector('#square').addEventListener('click', () => { stage.style.width = '240px'; });
+      document.querySelector('#wide').addEventListener('click', () => { stage.style.width = '480px'; });
+      document.querySelector('#reset').addEventListener('click', () => {
+        document.querySelector('#distance').value = '9';
+        document.querySelector('#fov').value = '50';
+        document.querySelector('#near').value = '0.1';
+        document.querySelector('#far').value = '30';
+        subjectCamera.position.set(0, 0, 9);
+        subjectCamera.lookAt(0, 0, 0);
+        subjectCamera.fov = 50; subjectCamera.near = 0.1; subjectCamera.far = 30; subjectCamera.zoom = 1;
+        document.querySelector('#projection').value = 'perspective';
+        document.querySelector('#zoom').value = '1';
+        document.querySelector('#zoom-field').hidden = true;
+        document.querySelector('#fov').disabled = false;
+        ortho.position.set(0, 0, 9); ortho.lookAt(0, 0, 0); ortho.zoom = 1; ortho.near = 0.1; ortho.far = 30;
+        activeCamera = subjectCamera;
+
+
+        error.textContent = '';
+        resizeScene();
+      });
+      document.querySelector('#projection').addEventListener('change', event => {
+        activeCamera = event.target.value === 'ortho' ? ortho : subjectCamera;
+        document.querySelector('#zoom-field').hidden = activeCamera !== ortho;
+        document.querySelector('#fov').disabled = activeCamera === ortho;
+        document.querySelector('#distance').value = String(activeCamera.position.z);
+        document.querySelector('#near').value = String(activeCamera.near);
+        document.querySelector('#far').value = String(activeCamera.far);
+
+        resizeScene();
+      });
+
+
+      const observer = new ResizeObserver(resizeScene);
+      observer.observe(stage);
+      resizeScene();
+    </script>
+  </body>
+</html>

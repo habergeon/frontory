@@ -1470,9 +1470,11 @@ export async function runLearning(page, base) {
   return checks
 }
 
-// Restrict the shared rollout case to implemented 02 until 03/04 are delivered.
+// The shared rollout case can run a single implemented lesson while iterating.
 export async function runLessons0204(page, base) {
-  assert.equal(process.env.THREEJS_LESSON ?? '02', '02')
+  const selected = process.env.THREEJS_LESSON ?? 'all'
+  assert.ok(['02', '03', 'all'].includes(selected))
+  if (selected === '03') return runLesson03(page, base)
   const checks = []
   const prefix = (process.env.THREEJS_EVIDENCE ?? 'task-6b-browser').replace(
     /\.json$/,
@@ -1707,6 +1709,482 @@ export async function runLessons0204(page, base) {
       (code) =>
         localStorage.setItem(
           'web-gl-study:unit:v1:threejs-step-02',
+          JSON.stringify({
+            version: 1,
+            code,
+            notes: 'saved note',
+            progress: 'completed',
+            updatedAt: '2026-10-26T00:00:00.000Z',
+          }),
+        ),
+      code,
+    )
+    await page.reload()
+    await readyEditor(page, 'attached')
+    assert.equal((await editorState(page)).code, code)
+    assert.equal((await editorState(page)).language, 'javascript')
+    assert.equal(await page.locator('.notes-editor').inputValue(), 'saved note')
+    assert.equal(
+      await page
+        .locator('.learning-status button')
+        .nth(2)
+        .getAttribute('aria-pressed'),
+      'true',
+    )
+  }
+  return selected === 'all'
+    ? [...checks, ...(await runLesson03(page, base))]
+    : checks
+}
+
+async function runLesson03(page, base) {
+  const checks = []
+  const steps = [
+    'perspective-depth',
+    'distance-fov',
+    'orthographic',
+    'clipping',
+    'controls',
+    'helper',
+  ]
+  const selectedSteps = process.env.THREEJS_CAMERA_STEPS?.split(',') ?? steps
+  assert.ok(
+    selectedSteps.length > 0 &&
+      selectedSteps.every((step) => steps.includes(step)),
+  )
+  const prefix = (process.env.THREEJS_EVIDENCE ?? 'task-6c-browser').replace(
+    /\.json$/,
+    '',
+  )
+  let serial = 0
+  const tab = async (preview) => {
+    const w = await page.evaluate(() => innerWidth)
+    if (w < 768)
+      await page.locator(preview ? '#tab-result' : '#tab-reading').click()
+    else if (w < 1100)
+      await page
+        .locator('.tablet-learning-tabs button')
+        .nth(preview ? 1 : 0)
+        .click()
+  }
+  const load = async (step, solution = false) => {
+    await tab(false)
+    await page.selectOption('#learning-step', 'threejs-step-03-' + step)
+    const detail = page
+      .locator('.lesson-learning > details')
+      .nth(solution ? 2 : 0)
+    await detail.locator('summary').click()
+    await detail.getByRole('button').click()
+    await page.locator('.example-confirm button').first().click()
+    return (await editorState(page)).code
+  }
+  const run = async (source, hidden = false) => {
+    const tag = ++serial
+    // Observe only renders initiated by the product. snapshot never renders.
+    // Install after setup, before the first ResizeObserver/animation callback.
+    const hook = `\nconst productRender = renderer.render.bind(renderer);
+      let renderCalls = 0, lastPixels = null;
+      renderer.render = (...args) => {
+        productRender(...args); renderCalls++;
+        const gl=renderer.getContext(), pixels=new Uint8Array(canvas.width*canvas.height*4);
+        gl.readPixels(0,0,canvas.width,canvas.height,gl.RGBA,gl.UNSIGNED_BYTE,pixels);
+        const boxes=[0,1].map(kind=>{
+          let minX=canvas.width,minY=canvas.height,maxX=-1,maxY=-1,count=0;
+          for(let i=0;i<pixels.length;i+=4){const r=pixels[i],g=pixels[i+1],b=pixels[i+2];
+            if(kind===0 ? b>r+60&&g<180 : r>b+100&&g<180){
+              const x=(i/4)%canvas.width,y=Math.floor(i/4/canvas.width);count++;
+              minX=Math.min(minX,x);maxX=Math.max(maxX,x);minY=Math.min(minY,y);maxY=Math.max(maxY,y);
+            }}
+          return {count,width:count?maxX-minX+1:0,height:count?maxY-minY+1:0};
+        });
+        let colored=0; for(let i=0;i<pixels.length;i+=4)if(Math.max(pixels[i],pixels[i+1],pixels[i+2])-Math.min(pixels[i],pixels[i+1],pixels[i+2])>50)colored++;
+        lastPixels={boxes,colored};
+      };
+      globalThis.__cameraLesson={tag:${tag},snapshot(){return {
+        renderCalls,pixels:lastPixels,w:stage.clientWidth,h:stage.clientHeight,buffer:[canvas.width,canvas.height],
+        active:activeCamera.type,camera:activeCamera.position.toArray(),subject:subjectCamera.position.toArray(),
+        fov:subjectCamera.fov,aspect:subjectCamera.aspect,near:subjectCamera.near,far:subjectCamera.far,
+        a:cubeA.position.toArray(),b:cubeB.position.toArray(),rotation:[cubeA.rotation.y,cubeB.rotation.y],
+        ortho:typeof ortho==='undefined'?null:{position:ortho.position.toArray(),zoom:ortho.zoom,bounds:[ortho.left,ortho.right,ortho.top,ortho.bottom]},
+        controls:typeof controls==='undefined'?null:{target:controls.target.toArray(),enabled:controls.enabled,damping:controls.enableDamping,object:controls.object===activeCamera},
+        helper:typeof helper==='undefined'?null:{visible:helper.visible,subjectInScene:subjectCamera.parent===scene,direct:helper.parent===scene,matrix:subjectCamera.matrixWorld.elements.slice(),points:Array.from(helper.geometry.attributes.position.array)},
+        output:output.textContent
+      }}};`
+    await replaceText(page, source.replace('</script>', hook + '\n</script>'))
+    await page.waitForFunction(
+      (tag) =>
+        document
+          .querySelector('#panel-result iframe')
+          .srcdoc.includes('tag:' + tag + ','),
+      tag,
+    )
+    await page
+      .frameLocator('#panel-result iframe')
+      .locator('canvas')
+      .waitFor({ state: 'attached' })
+    const f = await (
+      await page.locator('#panel-result iframe').elementHandle()
+    ).contentFrame()
+    try {
+      await f.waitForFunction(
+        (tag) => globalThis.__cameraLesson?.tag === tag,
+        tag,
+        { polling: 50 },
+      )
+    } catch (error) {
+      console.log(
+        'camera runtime status',
+        await page.locator('.preview-error').allTextContents(),
+        await page.locator('.preview-status').allTextContents(),
+      )
+      console.log(
+        'camera hook failure',
+        await f.evaluate(() => ({
+          url: location.href,
+          html: document.documentElement.outerHTML.slice(-4000),
+          keys: Object.keys(globalThis).filter((k) => k.includes('camera')),
+        })),
+      )
+      throw error
+    }
+    if (!hidden) {
+      await tab(true)
+      await f.waitForFunction(
+        () => globalThis.__cameraLesson.snapshot().renderCalls > 0,
+      )
+    }
+    return f
+  }
+  const snap = (f) => f.evaluate(() => globalThis.__cameraLesson.snapshot())
+  const changed = async (f, action) => {
+    const before = await snap(f)
+    await action()
+    await f.waitForFunction(
+      (count) => globalThis.__cameraLesson.snapshot().renderCalls > count,
+      before.renderCalls,
+    )
+    const after = await snap(f)
+    assert.ok(after.pixels)
+    return after
+  }
+  const apply = async (f, values) =>
+    changed(f, async () => {
+      for (const [id, value] of Object.entries(values))
+        await f.locator('#' + id).fill(String(value))
+      await f.locator('#apply').click()
+    })
+  const reset = (f) => changed(f, () => f.locator('#reset').click())
+  const project = (f, kind) =>
+    changed(f, () => f.locator('#projection').selectOption(kind))
+  const sameObjects = (s) => {
+    assert.deepEqual(s.a, [-1, 0, 2])
+    assert.deepEqual(s.b, [1, 0, -2])
+    assert.deepEqual(s.rotation, [0, 0])
+  }
+  const squarePixels = (s) => {
+    for (const box of s.pixels.boxes) {
+      assert.ok(box.count > 0)
+      if (s.active === 'OrthographicCamera')
+        assert.ok(Math.abs(box.width - box.height) <= 2, JSON.stringify(s))
+    }
+  }
+  for (const locale of ['ko', 'en']) {
+    await page.setViewportSize({ width: 320, height: 900 })
+    await page.goto(base + fixture + '?learning#threejs-step-03')
+    await readyEditor(page, 'attached')
+    const localeButton = page.getByRole('button', {
+      name: locale === 'en' ? 'English' : '한국어',
+      exact: true,
+    })
+    if (await localeButton.count()) await localeButton.click()
+    await page.evaluate(() =>
+      localStorage.removeItem('web-gl-study:unit:v1:threejs-step-03'),
+    )
+    await page.reload()
+    await readyEditor(page, 'attached')
+    assert.equal((await editorState(page)).language, 'html')
+    assert.match(
+      (await editorState(page)).code,
+      new RegExp('lang="' + locale + '"'),
+    )
+    for (const step of selectedSteps) {
+      console.log('camera', locale, step)
+      await page.setViewportSize({ width: 320, height: 900 })
+      const source = await load(step)
+      assert.match(source, new RegExp('lang="' + locale + '"'))
+      const hiddenFrame = await run(source, true),
+        hidden = await snap(hiddenFrame)
+      assert.equal(hidden.w, 0)
+      assert.equal(hidden.renderCalls, 0)
+      await page.setViewportSize({ width: 360, height: 900 })
+      await tab(true)
+      await hiddenFrame.waitForFunction(
+        () => globalThis.__cameraLesson.snapshot().renderCalls > 0,
+      )
+      const displayed = await snap(hiddenFrame)
+      assert.deepEqual(displayed.buffer, [displayed.w, displayed.h])
+      assert.ok(displayed.pixels.colored > 0)
+      checks.push({ locale, step, hidden, displayed })
+      await page.setViewportSize({ width: 1920, height: 1000 })
+      let f = await run(source),
+        initial = await snap(f)
+      assert.equal(initial.w, 480)
+      assert.equal(initial.h, 240)
+      sameObjects(initial)
+      if (step === 'perspective-depth') {
+        assert.ok(initial.pixels.boxes[0].width > initial.pixels.boxes[1].width)
+        checks.push({ locale, depth: initial })
+      }
+      if (step === 'distance-fov') {
+        const distance = await apply(f, { distance: 13 })
+        assert.equal(distance.camera[2], 13)
+        assert.equal(distance.fov, 50)
+        assert.ok(
+          distance.pixels.boxes[0].width < initial.pixels.boxes[0].width,
+        )
+        await reset(f)
+        const narrow = await apply(f, { fov: 30 })
+        assert.equal(narrow.camera[2], 9)
+        assert.equal(narrow.fov, 30)
+        assert.ok(narrow.pixels.boxes[0].width > initial.pixels.boxes[0].width)
+        // A real source edit is run through the same editor/iframe pipeline.
+        f = await run(
+          source.replace('baselineDistance = 9', 'baselineDistance = 13'),
+        )
+        const studentDistance = await snap(f)
+        assert.equal(studentDistance.camera[2], 13)
+        assert.equal(await f.locator('#distance').inputValue(), '13')
+        assert.deepEqual(studentDistance.pixels.boxes, distance.pixels.boxes)
+        f = await run(source.replace('baselineFov = 50', 'baselineFov = 30'))
+        const studentFov = await snap(f)
+        assert.equal(studentFov.fov, 30)
+        assert.deepEqual(studentFov.pixels.boxes, narrow.pixels.boxes)
+        checks.push({ locale, distance, narrow, studentDistance, studentFov })
+      }
+      if (step === 'orthographic') {
+        const ortho = await project(f, 'ortho')
+        squarePixels(ortho)
+        assert.equal(await f.locator('#fov').isDisabled(), true)
+        assert.equal(ortho.pixels.boxes[0].width, ortho.pixels.boxes[1].width)
+        const distance = await apply(f, { distance: 13 })
+        assert.deepEqual(distance.pixels.boxes, ortho.pixels.boxes)
+        await apply(f, { distance: 9 })
+        const zoom = await apply(f, { zoom: 2 })
+        assert.ok(
+          zoom.pixels.boxes[0].width > ortho.pixels.boxes[0].width * 1.9,
+        )
+        await reset(f)
+        const sizes = []
+        for (const kind of ['perspective', 'ortho']) {
+          await project(f, kind)
+          const square = await changed(f, () => f.locator('#square').click())
+          squarePixels(square)
+          const wide = await changed(f, () => f.locator('#wide').click())
+          squarePixels(wide)
+          assert.deepEqual(wide.buffer, [480, 240])
+          assert.equal(wide.aspect, 2)
+          assert.deepEqual(wide.ortho.bounds, [-6, 6, 3, -3])
+          assert.ok(
+            Math.abs(
+              square.pixels.boxes[0].width - wide.pixels.boxes[0].width,
+            ) <= 2,
+          )
+          assert.ok(
+            Math.abs(
+              square.pixels.boxes[0].height - wide.pixels.boxes[0].height,
+            ) <= 2,
+          )
+          sizes.push({ kind, square, wide })
+        }
+        checks.push({ locale, orthographic: ortho, distance, zoom, sizes })
+      }
+      if (step === 'clipping') {
+        const partial = await apply(f, { near: 7 })
+        await page.screenshot({
+          path: prefix + '-' + locale + '-near-partial.png',
+        })
+        assert.ok(partial.pixels.boxes[0].count > 0)
+        assert.ok(partial.pixels.boxes[0].count < initial.pixels.boxes[0].count)
+        const whole = await apply(f, { near: 8 })
+        assert.equal(whole.pixels.boxes[0].count, 0)
+        assert.ok(whole.pixels.boxes[1].count > 0)
+        await reset(f)
+        const far = await apply(f, { far: 9 })
+        assert.ok(far.pixels.boxes[0].count > 0)
+        assert.equal(far.pixels.boxes[1].count, 0)
+        const restored = await reset(f)
+        assert.deepEqual(restored.pixels.boxes, initial.pixels.boxes)
+        await f.locator('#near').fill('10')
+        await f.locator('#far').fill('9')
+        await f.locator('#apply').click()
+        assert.match(
+          await f.locator('#error').textContent(),
+          locale === 'ko' ? /far는 near보다/ : /far must/,
+        )
+        checks.push({ locale, partial, whole, far, restored })
+      }
+      if (step === 'controls') {
+        assert.equal(initial.controls.damping, false)
+        // Numeric controls provide keyboard equivalents for position and target experiments.
+        await f.locator('#compare').check()
+        const numeric = await apply(f, { 'camera-x': 3, 'target-x': 1 })
+        numeric.camera.forEach((value, index) =>
+          assert.ok(Math.abs(value - [3, 0, 9][index]) < 1e-6),
+        )
+        assert.deepEqual(numeric.controls.target, [1, 0, 0])
+        sameObjects(numeric)
+        const frozen1 = await snap(f)
+        await f.waitForFunction(
+          (count) =>
+            globalThis.__cameraLesson.snapshot().renderCalls > count + 3,
+          frozen1.renderCalls,
+        )
+        const frozen2 = await snap(f)
+        assert.deepEqual(frozen2.camera, frozen1.camera)
+        f = await run(
+          source.replace('const damping = false', 'const damping = true'),
+        )
+        const damping = await snap(f)
+        assert.equal(damping.controls.damping, true)
+        const canvas = f.locator('canvas'),
+          box = await canvas.boundingBox()
+        await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2)
+        await page.mouse.down()
+        await page.mouse.move(
+          box.x + box.width / 2 + 25,
+          box.y + box.height / 2,
+          { steps: 2 },
+        )
+        await page.mouse.up()
+        const released = await snap(f)
+        await f.waitForFunction(
+          (count) =>
+            globalThis.__cameraLesson.snapshot().renderCalls > count + 3,
+          released.renderCalls,
+        )
+        const continued = await snap(f)
+        assert.notDeepEqual(continued.camera, released.camera)
+        sameObjects(continued)
+        const wheel = await changed(f, () => page.mouse.wheel(0, 100))
+        assert.notDeepEqual(wheel.camera, continued.camera)
+        await reset(f)
+        const ortho = await project(f, 'ortho')
+        assert.equal(ortho.controls.object, true)
+        await canvas.hover()
+        const orthoWheel = await changed(f, () => page.mouse.wheel(0, 100))
+        assert.notEqual(orthoWheel.ortho.zoom, ortho.ortho.zoom)
+        sameObjects(orthoWheel)
+        const restored = await reset(f)
+        assert.equal(restored.controls.object, true)
+        assert.equal(restored.ortho.zoom, 1)
+        assert.deepEqual(restored.controls.target, [0, 0, 0])
+        checks.push({
+          locale,
+          numeric,
+          frozen1,
+          frozen2,
+          damping,
+          released,
+          continued,
+          wheel,
+          orthoWheel,
+          restored,
+        })
+      }
+      if (step === 'helper') {
+        const overview = await changed(f, () =>
+          f.locator('#view').selectOption('overview'),
+        )
+        await page.screenshot({ path: prefix + '-' + locale + '-overview.png' })
+        assert.ok(
+          overview.helper.visible &&
+            overview.helper.direct &&
+            overview.helper.subjectInScene,
+        )
+        assert.deepEqual(overview.helper.matrix.slice(12, 15), [0, 0, 9])
+        assert.equal(overview.far, 12)
+        const narrow = await apply(f, { fov: 30 })
+        await page.screenshot({
+          path: prefix + '-' + locale + '-overview-fov30.png',
+        })
+        assert.notDeepEqual(narrow.helper.points, overview.helper.points)
+        assert.notEqual(narrow.pixels.colored, overview.pixels.colored)
+        assert.deepEqual(narrow.camera, [10, 8, 16])
+        assert.equal(narrow.fov, 30)
+        const near = await apply(f, { fov: 50, near: 7 })
+        const far = await apply(f, { near: 0.1, far: 9 })
+        assert.notDeepEqual(near.helper.points, overview.helper.points)
+        assert.notDeepEqual(far.helper.points, overview.helper.points)
+        const subject = await changed(f, () =>
+          f.locator('#view').selectOption('subject'),
+        )
+        assert.equal(subject.helper.visible, false)
+        assert.equal(subject.pixels.boxes[1].count, 0)
+        f = await run(source.replace('baselineFov = 50', 'baselineFov = 30'))
+        const edited = await changed(f, () =>
+          f.locator('#view').selectOption('overview'),
+        )
+        assert.deepEqual(edited.helper.points, narrow.helper.points)
+        checks.push({ locale, overview, narrow, near, far, subject, edited })
+      }
+      const solution = await load(step, true)
+      const sf = await run(solution),
+        completed = await snap(sf)
+      assert.ok(completed.pixels.colored > 0)
+      sameObjects(completed)
+      if (step === 'distance-fov' || step === 'helper')
+        assert.equal(completed.fov, 30)
+      if (step === 'orthographic') assert.equal(completed.ortho.zoom, 2)
+      if (step === 'clipping') assert.equal(completed.pixels.boxes[0].count, 0)
+      if (step === 'controls') assert.equal(completed.controls.damping, true)
+      checks.push({ locale, step, initial, completed })
+      await page.screenshot({
+        path: prefix + '-' + locale + '-' + step + '.png',
+      })
+    }
+    // Both camera modes survive hidden reading, resize, and preview return with inputs intact.
+    const resizeSource = await load('orthographic'),
+      rf = await run(resizeSource)
+    const recovery = []
+    for (const kind of ['perspective', 'ortho']) {
+      await page.setViewportSize({ width: 1920, height: 1000 })
+      await project(rf, kind)
+      await apply(rf, { distance: 13 })
+      await page.setViewportSize({ width: 320, height: 900 })
+      await tab(false)
+      await page.setViewportSize({ width: 768, height: 900 })
+      const before = await snap(rf)
+      await tab(true)
+      await rf.waitForFunction(
+        (count) => globalThis.__cameraLesson.snapshot().renderCalls > count,
+        before.renderCalls,
+      )
+      const restored = await snap(rf)
+      assert.equal(await rf.locator('#distance').inputValue(), '13')
+      assert.deepEqual(restored.buffer, [restored.w, restored.h])
+      assert.ok(restored.pixels.colored > 0)
+      squarePixels(restored)
+      recovery.push({ kind, before, restored })
+    }
+    checks.push({ locale, recovery })
+    for (const width of [320, 768, 1024, 1100, 1440]) {
+      await page.setViewportSize({ width, height: 900 })
+      await tab(true)
+      await page.evaluate(() => scrollTo(0, 0))
+      const metrics = await page.evaluate(() => ({
+        width: innerWidth,
+        scroll: document.documentElement.scrollWidth,
+        y: document.querySelector('.workspace').getBoundingClientRect().y,
+      }))
+      assert.ok(metrics.scroll <= width)
+      checks.push({ locale, viewport: metrics })
+    }
+  }
+  for (const code of ['', 'export function mount() { return () => {}; }']) {
+    await page.evaluate(
+      (code) =>
+        localStorage.setItem(
+          'web-gl-study:unit:v1:threejs-step-03',
           JSON.stringify({
             version: 1,
             code,

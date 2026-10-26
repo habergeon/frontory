@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Camera distance and FOV</title>
+    <style>
+      body { margin: 0; padding: 12px; font: 14px/1.5 system-ui, sans-serif; background: #fff; color: #172554; }
+      #stage { width: 480px; max-width: 100%; height: 240px; padding: 0; border: 0; }
+      canvas { display: block; width: 100%; height: 100%; padding: 0; border: 0; touch-action: none; }
+      .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 8px; }
+      input[type=number] { width: 64px; }
+      output { display: block; white-space: pre-wrap; overflow-wrap: anywhere; margin-top: 8px; }
+      #error { color: #b91c1c; }
+      [hidden] { display: none; }
+    </style>
+  </head>
+  <body>
+    <div class="controls">
+      <button id="square">240 × 240</button><button id="wide">480 × 240</button>
+      <button id="reset">Reset reference</button>
+
+      <label
+        >Camera Z
+        <input
+          id="distance"
+          type="number"
+          value="9"
+          min="3"
+          max="20"
+          step="1"
+          required
+      /></label>
+      <label
+        >FOV (degree)
+        <input
+          id="fov"
+          type="number"
+          value="30"
+          min="10"
+          max="100"
+          step="1"
+          required
+      /></label>
+      <label
+        >near
+        <input
+          id="near"
+          type="number"
+          value="0.1"
+          min="0.1"
+          max="20"
+          step="0.1"
+          required
+      /></label>
+      <label
+        >far
+        <input
+          id="far"
+          type="number"
+          value="30"
+          min="1"
+          max="40"
+          step="0.1"
+          required
+      /></label>
+
+      <button id="apply">Apply</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage">
+      <canvas
+        aria-label="Camera projection comparison: A left, B right"
+      ></canvas>
+    </div>
+    <output>Waiting for preview dimensions</output>
+    <script type="module">
+      import * as THREE from 'three';
+
+      const stage = document.querySelector('#stage');
+      const canvas = document.querySelector('canvas');
+      const output = document.querySelector('output');
+      const error = document.querySelector('#error');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const geometry = new THREE.BoxGeometry(1, 1, 1);
+      const cubeA = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: '#2563eb' }));
+      const cubeB = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: '#f97316' }));
+      cubeA.position.set(-1, 0, 2);
+      cubeB.position.set(1, 0, -2);
+      scene.add(cubeA, cubeB);
+      const baselineDistance = 9;
+      document.querySelector('#distance').value = String(baselineDistance);
+      const baselineFov = 30;
+      const subjectCamera = new THREE.PerspectiveCamera(baselineFov, 1, 0.1, 30);
+      subjectCamera.position.set(0, 0, baselineDistance);
+      subjectCamera.lookAt(0, 0, 0);
+
+
+      let activeCamera = subjectCamera;
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setPixelRatio(1);
+
+      function coords(position) {
+        return '(' + position.x.toFixed(2) + ', ' + position.y.toFixed(2) + ', ' + position.z.toFixed(2) + ')';
+      }
+      function report() {
+        output.textContent = 'View: ' + 'PerspectiveCamera'
+          + '\nCamera position: ' + coords(activeCamera.position)
+          + '\nA (blue): ' + coords(cubeA.position) + ' / B (orange): ' + coords(cubeB.position)
+          + '\nObject Y rotation: ' + cubeA.rotation.y.toFixed(2) + ' / ' + cubeB.rotation.y.toFixed(2)
+          + '\nsubject FOV: ' + subjectCamera.fov + ' / near: ' + subjectCamera.near + ' / far: ' + subjectCamera.far
+
+
+
+          + '\nCSS px: ' + stage.clientWidth + ' × ' + stage.clientHeight + ' / Buffer px: ' + canvas.width + ' × ' + canvas.height;
+      }
+      function draw() {
+        if (stage.clientWidth === 0 || stage.clientHeight === 0) return;
+        renderer.render(scene, activeCamera);
+        report();
+      }
+      // Supplied sizing: update each projection separately; keep this support code intact.
+      function resizeScene() {
+        const w = stage.clientWidth, h = stage.clientHeight;
+        if (w === 0 || h === 0) return;
+        renderer.setSize(w, h, false);
+        subjectCamera.aspect = w / h;
+        subjectCamera.updateProjectionMatrix();
+
+
+        draw();
+      }
+      function applyCameraSettings() {
+        if (![...document.querySelectorAll('input[type=number]')].every(input => input.checkValidity())) {
+          error.textContent = 'Check numeric input ranges and steps.'; return;
+        }
+        const near = Number(document.querySelector('#near').value);
+        const far = Number(document.querySelector('#far').value);
+        if (far <= near) { error.textContent = 'far must be greater than near.'; return; }
+        error.textContent = '';
+        const camera = activeCamera;
+        camera.position.set(0, 0, Number(document.querySelector('#distance').value));
+        camera.fov = Number(document.querySelector('#fov').value);
+        camera.near = near;
+        camera.far = far;
+
+        camera.updateProjectionMatrix();
+        camera.lookAt(0, 0, 0);
+
+        draw();
+      }
+      document.querySelector('#apply').addEventListener('click', applyCameraSettings);
+      document.querySelector('#square').addEventListener('click', () => { stage.style.width = '240px'; });
+      document.querySelector('#wide').addEventListener('click', () => { stage.style.width = '480px'; });
+      document.querySelector('#reset').addEventListener('click', () => {
+        document.querySelector('#distance').value = '9';
+        document.querySelector('#fov').value = '50';
+        document.querySelector('#near').value = '0.1';
+        document.querySelector('#far').value = '30';
+        subjectCamera.position.set(0, 0, 9);
+        subjectCamera.lookAt(0, 0, 0);
+        subjectCamera.fov = 50; subjectCamera.near = 0.1; subjectCamera.far = 30; subjectCamera.zoom = 1;
+
+        activeCamera = subjectCamera;
+
+
+        error.textContent = '';
+        resizeScene();
+      });
+
+
+
+      const observer = new ResizeObserver(resizeScene);
+      observer.observe(stage);
+      resizeScene();
+    </script>
+  </body>
+</html>

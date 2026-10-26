@@ -3395,8 +3395,10 @@
       "goal": "Display the same scene with both projections. Reproduce clipping of an object outside near.",
       "docPath": "/docs/en/labs/graphics/threejs/units/03/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-03/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run HTML starters inside the site. Read the steps and API reference, then record actual results in the site notes."
     },
     {
       "id": "threejs-step-04",

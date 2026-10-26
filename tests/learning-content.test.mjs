@@ -191,6 +191,7 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
     const paths = [
       'src/labs/threejs-01/example.html',
       'src/labs/threejs-step-02/example.html',
+      'src/labs/threejs-step-03/example.html',
       ...original.ko.lessons.flatMap((l) =>
         l.steps.flatMap((s) => [s.starterPath, s.solutionPath]),
       ),
@@ -306,6 +307,7 @@ test('generated source links select localized HTML while unconverted JavaScript 
     for (const [id, doc, extension] of [
       ['threejs-01', '01-foundations', locale === 'ko' ? 'html' : 'en.html'],
       ['threejs-step-02', 'units/02', locale === 'ko' ? 'html' : 'en.html'],
+      ['threejs-step-03', 'units/03', locale === 'ko' ? 'html' : 'en.html'],
       ['threejs-step-05', 'units/05', 'js'],
     ]) {
       const file = root + '/labs/graphics/threejs/' + doc + '/README.md'
@@ -337,5 +339,63 @@ test('generated source links select localized HTML while unconverted JavaScript 
           assert.match(row, /English reading-source download/)
       }
     }
+  }
+})
+
+test('camera lesson supplies bilingual independent sources, clipping and camera lifecycle explanations', async () => {
+  const { transformSync } = await import('esbuild')
+  const fs = await import('node:fs')
+  const { ko, en, readCode } = fixture()
+  for (const [locale, data] of [
+    ['ko', ko],
+    ['en', en],
+  ]) {
+    const lesson = data.lessons.find((l) => l.unitId === 'threejs-step-03')
+    const markdown = fs.readFileSync(
+      (locale === 'ko' ? 'docs' : 'docs/en') +
+        '/labs/graphics/threejs/units/03/README.md',
+      'utf8',
+    )
+    assert.match(
+      markdown,
+      locale === 'ko'
+        ? /모든 필수 과제를 사이트 안에서 단계별로 수행/
+        : /Complete every required task inside the site, step by step/,
+    )
+    assert.equal(lesson.steps.length, 6)
+    for (const step of lesson.steps) {
+      for (const path of [step.starterPath, step.solutionPath]) {
+        const source = readCode(path, locale)
+        assert.ok(
+          markdown.includes(source.trim()),
+          path + ' uses actual localized HTML in generated Markdown',
+        )
+        assert.match(source, new RegExp('lang="' + locale + '"'))
+        assert.match(source, /new ResizeObserver\(resizeScene\)/)
+        assert.doesNotMatch(source, /startWhenVisible|https?:\/\/|mount\(/)
+        transformSync(
+          source.split('<script type="module">')[1].split('</script>')[0],
+          { loader: 'js' },
+        )
+      }
+      assert.ok(step.solutionExplanation.length > 30)
+    }
+    const clipping = lesson.steps.find((s) => s.id.endsWith('-clipping'))
+    assert.match(clipping.explanation, /6\.5.*7\.5/)
+    const helper = readCode(lesson.steps.at(-1).starterPath, locale)
+    assert.ok(
+      helper.indexOf('scene.add(subjectCamera)') <
+        helper.indexOf('scene.add(helper)'),
+    )
+    assert.match(helper, /subjectCamera.updateProjectionMatrix\(\)/)
+    assert.match(helper, /helper.update\(\)/)
+    const controls = readCode(lesson.steps[4].starterPath, locale)
+    assert.match(controls, /if \(controls.enabled\) controls.update\(\)/)
+    assert.match(controls, /if \(controls\) controls.dispose\(\)/)
+    assert.match(controls, /const damping = false/)
+    assert.match(
+      readCode(lesson.steps[4].solutionPath, locale),
+      /const damping = true/,
+    )
   }
 })

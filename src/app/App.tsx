@@ -65,6 +65,11 @@ export function App() {
   )
   const navigator = useRef<HTMLDivElement>(null)
   const reader = useRef<HTMLElement>(null)
+  const lessonScroll = useRef<{
+    unitId: string
+    top: number
+    pageY: number
+  } | null>(null)
   const focusPractice = useRef(false)
   const [restoreRevision, setRestoreRevision] = useState(0)
   const [, refreshProgress] = useState(0)
@@ -87,7 +92,28 @@ export function App() {
     focusPractice.current = false
     workspace.focusCode()
   }, [readerView, workspace])
+  useLayoutEffect(() => {
+    const saved = lessonScroll.current
+    if (!saved) return
+    if (saved.unitId !== selected?.id) {
+      lessonScroll.current = null
+      return
+    }
+    if (documentPath) return
+    lessonScroll.current = null
+    const frame = requestAnimationFrame(() => {
+      document.getElementById('panel-reading')?.scrollTo({ top: saved.top })
+      window.scrollTo({ top: saved.pageY })
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [documentPath, selected?.id])
   const openDocument = (path: string) => {
+    if (contained && selected && !documentPath)
+      lessonScroll.current = {
+        unitId: selected.id,
+        top: document.getElementById('panel-reading')?.scrollTop ?? 0,
+        pageY: window.scrollY,
+      }
     setDocumentPath(path)
     setReaderView('reading')
     if (readerView === 'reading') {
@@ -278,41 +304,46 @@ export function App() {
                   }
                   reading={
                     contained
-                      ? (onLoadExample, onNotes) =>
-                          documentPath ? (
-                            <>
-                              <button onClick={() => setDocumentPath(null)}>
-                                {learningMessages[locale].back}
-                              </button>
-                              <DocumentDialog
+                      ? (onLoadExample, onNotes) => (
+                          <>
+                            {learning ? (
+                              <LessonLearning
+                                key={selected.id}
+                                lesson={learning}
                                 locale={locale}
-                                path={documentPath}
-                                requestedLocale={documentRequest!.locale}
-                                unitPath={selected.docPath}
-                                onNavigate={setDocumentPath}
-                                onClose={() => setDocumentPath(null)}
-                                inline
-                                active={readerView === 'reading'}
-                                readerRef={reader}
-                                onRestoreFocus={restoreDocumentFocus}
+                                hidden={!!documentPath}
+                                onDocument={openDocument}
+                                onLoadExample={onLoadExample}
+                                onNotes={onNotes}
                               />
-                            </>
-                          ) : learning ? (
-                            <LessonLearning
-                              key={selected.id}
-                              lesson={learning}
-                              locale={locale}
-                              onDocument={openDocument}
-                              onLoadExample={onLoadExample}
-                              onNotes={onNotes}
-                            />
-                          ) : localizedUnit ? (
-                            <PracticeGuide
-                              unit={localizedUnit}
-                              locale={locale}
-                              onDocument={openDocument}
-                            />
-                          ) : null
+                            ) : !documentPath && localizedUnit ? (
+                              <PracticeGuide
+                                unit={localizedUnit}
+                                locale={locale}
+                                onDocument={openDocument}
+                              />
+                            ) : null}
+                            {documentPath && (
+                              <>
+                                <button onClick={() => setDocumentPath(null)}>
+                                  {learningMessages[locale].back}
+                                </button>
+                                <DocumentDialog
+                                  locale={locale}
+                                  path={documentPath}
+                                  requestedLocale={documentRequest!.locale}
+                                  unitPath={selected.docPath}
+                                  onNavigate={setDocumentPath}
+                                  onClose={() => setDocumentPath(null)}
+                                  inline
+                                  active={readerView === 'reading'}
+                                  readerRef={reader}
+                                  onRestoreFocus={restoreDocumentFocus}
+                                />
+                              </>
+                            )}
+                          </>
+                        )
                       : undefined
                   }
                   onProgressChange={() => refreshProgress((value) => value + 1)}

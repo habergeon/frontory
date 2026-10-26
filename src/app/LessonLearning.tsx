@@ -18,12 +18,14 @@ export interface LearningExample {
 export function LessonLearning({
   lesson,
   locale,
+  hidden = false,
   onDocument,
   onLoadExample,
   onNotes,
 }: {
   lesson: LessonLearningData
   locale: Locale
+  hidden?: boolean
   onDocument: (path: string) => void
   onLoadExample: (example: LearningExample) => void
   onNotes: () => void
@@ -54,7 +56,7 @@ export function LessonLearning({
     loadButton.current?.focus()
   }
   return (
-    <article className="lesson-learning">
+    <article className="lesson-learning" hidden={hidden}>
       <h2 ref={heading} tabIndex={-1}>
         {copy.learning}
       </h2>

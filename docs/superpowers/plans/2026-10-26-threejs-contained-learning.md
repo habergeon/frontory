@@ -10,7 +10,9 @@
 
 **Spec:** [학습 환경 설계](../specs/2026-10-26-threejs-contained-learning-design.md), [28개 단원 로드맵](../specs/2026-10-26-threejs-learning-roadmap.md).
 
-현재 상태: Tasks 1~7은 구현과 개별 검토를 마쳤다. 첫 4개 단원은 자체 완결 실습으로 제공하고, 후속 24개는 로드맵만 제공한다. Task 8에서 남은 소규모 수정과 CI를 연결했으며 최종 통합 검사와 독립 검토를 진행한다. 실제 학습자 평가·비 Chromium 브라우저 검증·배포는 수행하지 않았다. 아래 완료 표시는 이전 task 보고서와 검토 기록을 기준으로 갱신했다.
+2026-10-26 검증 기록: Tasks 1~8 구현과 최종 통합 검사를 마쳤다. 첫 4개 단원은 자체 완결 실습으로 제공하고, 후속 24개는 로드맵만 제공한다. Task 8의 `pnpm test` 918/918, `pnpm format:check`, `pnpm build`, `pnpm check:deploy`, 브라우저 `--case all` 9개 case가 통과했다. 전체 브랜치 독립 검토에서 참고 문서 왕복 시 학습 맥락 손실을 발견해 수정했으며, KO/EN·1440/390의 두 문서 진입 경로는 `--case learning`으로 다시 확인했다. 이 수정의 집중 검사·형식·빌드 결과는 아래 최종 수정 기록으로 구분한다. 수정 내용의 최종 재검토는 남아 있다. 실제 학습자 평가·비 Chromium 브라우저 검증·merge·push·배포는 수행하지 않았다.
+
+최종 수정 검사: `node scripts/check-threejs-browser.mjs --case learning` PASS(`final-fix-learning-verified-evidence.json`, 2026-10-26). 학습 단계·힌트·해설·실제 읽기 스크롤과 editor/iframe/필기/진도를 보존하고 숨긴 본문을 키보드 접근에서 제외했다. 관련 Node 검사 19/19, `pnpm format:check`, `pnpm build`, `pnpm check:deploy`도 통과했다(`final-fix-focused.log`, `final-fix-format.log`, `final-fix-build.log`, `final-fix-deploy.log`). 이 상태 문구를 갱신한 뒤 문서 형식과 빌드·정적 출력 검사를 다시 확인한다. 과거 미분류 blob 콘솔 오류와 first-hook timeout의 원인은 확정하지 않았고, 덮어쓴 과거 PNG 두 원본은 복구하지 못했다.
 
 ## Global Constraints
 
@@ -200,10 +202,10 @@ assert.equal(entries.slice(4).every(entry => entry.readiness === 'planned'), tru
 **Interfaces:** `node scripts/check-threejs-browser.mjs --case all`은 Task 3~7의 대표 계약을 한 번씩 실행하고 유한 timeout·소유 process 종료·결과 artifact를 기록한다. 같은 코드의 기존 증거는 재사용한다.
 
 - [x] CI에 `pnpm format:check`를 추가한다. 생성물을 일괄 ignore해 검사를 통과시키지 않는다.
-- [ ] 최종 코드에서 `pnpm format:check`, `pnpm test`, `pnpm build`, `pnpm check:deploy`를 확인한다. build에 포함된 typecheck/examples/curricula/translations를 같은 HEAD에서 중복 실행하지 않는다.
-- [ ] `node scripts/check-threejs-browser.mjs --case all`로 ko/en·너비 390/1440·기존 JS/TS·HTML 실행·정렬 Undo·저장/backup·locale 보존·후속 목록을 확인한다. Chromium 이외 브라우저를 검증하지 않았다면 범위를 명시한다.
+- [x] Task 8 최종 통합 코드에서 `pnpm format:check`, `pnpm test`, `pnpm build`, `pnpm check:deploy`를 확인한다. build에 포함된 typecheck/examples/curricula/translations를 같은 HEAD에서 중복 실행하지 않는다.
+- [x] `node scripts/check-threejs-browser.mjs --case all`로 ko/en·너비 390/1440·기존 JS/TS·HTML 실행·정렬 Undo·저장/backup·locale 보존·후속 목록을 확인한다. Chromium 이외 브라우저를 검증하지 않았다면 범위를 명시한다.
 - [x] 내부 교재로 4개 단원의 수정 과제와 설명 질문을 대리 검토했다. 실제 학습자를 대상으로 한 완료 가능성·이해도 평가는 수행하지 않았으며 별도 검증이 필요하다.
-- [ ] 최종 차이를 독립 검토해 저장 호환·CSP·정렬의 의미 보존·재생성·학습 내용을 확인한다. 구현한 4개 단원, 목록을 준비한 24개 단원, 장래 후보를 구분해 보고한다. 커밋 후 자동 push/deploy는 하지 않는다.
+- [ ] 전체 브랜치 독립 검토는 마쳤으며, 발견한 참고 문서 왕복 결함의 수정 내용을 최종 재검토한다. 저장 호환·CSP·정렬의 의미 보존·재생성·학습 내용에 대한 기존 검토와 수정 검증을 구분한다. 구현한 4개 단원, 목록을 준비한 24개 단원, 장래 후보를 구분해 보고한다. 커밋 후 자동 push/deploy는 하지 않는다.
 
 ## 계획 자체 점검
 

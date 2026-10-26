@@ -1131,6 +1131,233 @@ const checkNotesPreview = async (page, value) => {
   return hidden
 }
 
+const checkReferenceRoundTrips = async (page, prefix) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.evaluate(() => {
+    location.hash = 'threejs-step-03'
+  })
+  await readyEditor(page)
+  await page.selectOption('#learning-step', 'threejs-step-03-helper')
+  await page.selectOption('#code-language', 'html')
+  const undoBase = '<p>reference Undo baseline</p>'
+  const source =
+    '<input aria-label="reference state"><script>window.referenceRuntime=17</script>'
+  await replaceText(page, undoBase)
+  await replaceText(page, source)
+  await page
+    .frameLocator('#panel-result iframe')
+    .locator('input[aria-label="reference state"]')
+    .fill('reference input')
+  await page.locator('.lesson-learning button').last().click()
+  await page.locator('.notes-editor').fill('reference notes')
+  await page.locator('.learning-status button').nth(2).click()
+  for (const index of [1, 2])
+    await page
+      .locator('.lesson-learning details')
+      .nth(index)
+      .locator('summary')
+      .click()
+  await page.evaluate(async () => {
+    const { monaco } = await import('/src/editor/monaco.ts')
+    const editor = monaco.editor.getEditors()[0]
+    editor.setSelection({
+      startLineNumber: 1,
+      startColumn: 2,
+      endLineNumber: 1,
+      endColumn: 8,
+    })
+    window.referenceModel = editor.getModel()
+    window.referenceSelection = editor.getSelection()
+    window.referenceLesson = document.querySelector('.lesson-learning')
+    window.referenceFrame = document.querySelector('#panel-result iframe')
+    window.referenceWindow = window.referenceFrame.contentWindow
+    window.referenceLoads = 0
+    window.referenceFrame.addEventListener(
+      'load',
+      () => window.referenceLoads++,
+    )
+  })
+  const before = await editorState(page)
+  const storage = await page.evaluate(() =>
+    localStorage.getItem('web-gl-study:unit:v1:threejs-step-03'),
+  )
+  const results = []
+  for (const locale of ['ko', 'en']) {
+    if (locale === 'en')
+      await page.getByRole('button', { name: 'English', exact: true }).click()
+    for (const width of [1440, 390]) {
+      await page.setViewportSize({ width, height: 900 })
+      if (width === 390) await page.locator('#tab-reading').click()
+      for (const path of ['lesson', 'prerequisite']) {
+        const opener =
+          path === 'lesson'
+            ? page.locator('.current-lesson-actions button').first()
+            : page.locator('.lesson-learning nav button').first()
+        // Activate with the keyboard without scrolling the prerequisite back to the top.
+        await opener.evaluate((element) =>
+          element.focus({ preventScroll: true }),
+        )
+        const scroll = await page.evaluate(() => {
+          const panel = document.querySelector('#panel-reading')
+          panel.scrollTop = 420
+          window.scrollTo(0, 60)
+          return { top: panel.scrollTop, pageY: window.scrollY }
+        })
+        assert.ok(scroll.top > 0)
+        await page.keyboard.press('Enter')
+        await page.waitForSelector('.document-reader .markdown')
+        const hidden = await page
+          .locator('.lesson-learning')
+          .evaluate((element) => {
+            element.querySelector('select').focus()
+            return {
+              same: element === window.referenceLesson,
+              hidden: element.hidden,
+              display: getComputedStyle(element).display,
+              height: element.getBoundingClientRect().height,
+              focused: element.contains(document.activeElement),
+            }
+          })
+        assert.deepEqual(hidden, {
+          same: true,
+          hidden: true,
+          display: 'none',
+          height: 0,
+          focused: false,
+        })
+        await page.locator('.document-reader').focus()
+        for (let index = 0; index < 8; index++) {
+          await page.keyboard.press('Tab')
+          assert.equal(
+            await page.evaluate(
+              () => !!document.activeElement.closest('.lesson-learning'),
+            ),
+            false,
+          )
+        }
+        await page.locator('.document-nav button').nth(1).click()
+        await page.waitForSelector('.document-reader .markdown')
+        await page.screenshot({
+          path: `${prefix}-reference-${locale}-${width}-${path}-open.png`,
+        })
+        if (path === 'lesson')
+          await page.locator('#panel-reading > button').click()
+        else
+          await page.locator('.document-reader .dialog-header button').click()
+        await page.waitForFunction(
+          (scroll) =>
+            document.querySelector('#panel-reading').scrollTop === scroll.top &&
+            window.scrollY === scroll.pageY,
+          scroll,
+        )
+        assert.equal(
+          await page.locator('#learning-step').inputValue(),
+          'threejs-step-03-helper',
+        )
+        assert.match(
+          await page.locator('.lesson-learning > h3').first().textContent(),
+          locale === 'ko' ? /절두체/ : /frustum/i,
+        )
+        for (const index of [1, 2])
+          assert.equal(
+            await page
+              .locator('.lesson-learning details')
+              .nth(index)
+              .getAttribute('open'),
+            '',
+          )
+        const identity = await page.evaluate(async () => {
+          const { monaco } = await import('/src/editor/monaco.ts')
+          const editor = monaco.editor.getEditors()[0],
+            frame = document.querySelector('#panel-result iframe')
+          return {
+            lesson:
+              document.querySelector('.lesson-learning') ===
+              window.referenceLesson,
+            model: editor.getModel() === window.referenceModel,
+            selection: editor
+              .getSelection()
+              .equalsSelection(window.referenceSelection),
+            frame: frame === window.referenceFrame,
+            contentWindow: frame.contentWindow === window.referenceWindow,
+            loads: window.referenceLoads,
+          }
+        })
+        assert.deepEqual(identity, {
+          lesson: true,
+          model: true,
+          selection: true,
+          frame: true,
+          contentWindow: true,
+          loads: 0,
+        })
+        const current = await editorState(page)
+        for (const field of ['code', 'language', 'version', 'id'])
+          assert.equal(current[field], before[field])
+        assert.equal(
+          await page
+            .frameLocator('#panel-result iframe')
+            .locator('input[aria-label="reference state"]')
+            .inputValue(),
+          'reference input',
+        )
+        const runtime = await (
+          await page.locator('#panel-result iframe').elementHandle()
+        ).contentFrame()
+        assert.equal(await runtime.evaluate(() => window.referenceRuntime), 17)
+        assert.equal(
+          await page.locator('.notes-editor').inputValue(),
+          'reference notes',
+        )
+        assert.equal(
+          await page.evaluate(() =>
+            localStorage.getItem('web-gl-study:unit:v1:threejs-step-03'),
+          ),
+          storage,
+        )
+        await page.screenshot({
+          path: `${prefix}-reference-${locale}-${width}-${path}-return.png`,
+        })
+        results.push({ locale, width, path, scroll, hidden, identity })
+      }
+    }
+  }
+  for (const [action, expected] of [
+    ['undo', undoBase],
+    ['redo', source],
+  ]) {
+    await page.evaluate(async (action) => {
+      const { monaco } = await import('/src/editor/monaco.ts')
+      monaco.editor.getEditors()[0].trigger('reference', action, null)
+    }, action)
+    assert.equal((await editorState(page)).code, expected)
+  }
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.locator('.current-lesson-actions button').first().click()
+  await page.waitForSelector('.document-reader .markdown')
+  await page.evaluate(() => {
+    location.hash = 'threejs-step-02'
+  })
+  await page.waitForFunction(() =>
+    document
+      .querySelector('#learning-step')
+      ?.value?.startsWith('threejs-step-02-'),
+  )
+  await page.locator('#panel-reading > button').click()
+  assert.equal(
+    await page.evaluate(
+      () =>
+        document.querySelector('.lesson-learning') === window.referenceLesson,
+    ),
+    false,
+  )
+  return {
+    referenceRoundTrips: results,
+    nativeUndoRedo: true,
+    changedUnit: 'fresh step-02 context',
+  }
+}
+
 export async function runLearning(page, base) {
   const checks = []
   assert.ok(process.env.THREEJS_EVIDENCE, 'runner owns screenshot paths')
@@ -1468,6 +1695,7 @@ export async function runLearning(page, base) {
     'Prerequisite reading keeps active unit; cancellation keeps model, Undo boundary, language and storage',
   )
   assert.equal(await frame.count(), 1)
+  checks.push(await checkReferenceRoundTrips(page, prefix))
   await page.goto(base + fixture + '?learning#javascript-01')
   await readyEditor(page)
   await page.waitForSelector('#panel-result iframe')

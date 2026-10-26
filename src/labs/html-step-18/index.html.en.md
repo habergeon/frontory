@@ -13,4 +13,4 @@ Read the [original source](./index.html) and [execution guidance](./COMPANIONS.e
 - Line 1: Failure path requested: use the transcript link.
 - Line 1: Could not load the video file. You can read the transcript.
 - Line 1: Valid video: <!-- text fragment -->
-- Line 1:  seconds / Select Korean in the captions menu.
+- Line 1: seconds / Select Korean in the captions menu.

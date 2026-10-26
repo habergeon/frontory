@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Update | assign to an original property | return a new object | Pre-run hypothesis: the type contract will be respected and previous values preserved. Keep other conditions fixed and record the actual result separately after running. |
+| Variable | Baseline                       | Change              | Expected change / hypothesis                                                                                                                                              |
+| -------- | ------------------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Update   | assign to an original property | return a new object | Pre-run hypothesis: the type contract will be respected and previous values preserved. Keep other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Setting | Resolution 1.0 | Resolution 0.5 | Expect shorter frame intervals for a pixel bottleneck and little change for a CPU sorting bottleneck. |
+| Variable | Baseline       | Change         | Expected change / hypothesis                                                                          |
+| -------- | -------------- | -------------- | ----------------------------------------------------------------------------------------------------- |
+| Setting  | Resolution 1.0 | Resolution 0.5 | Expect shorter frame intervals for a pixel bottleneck and little change for a CPU sorting bottleneck. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/gaussian-splatting-step-26/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance. The provided example collects 61 frame-index camera ticks and 60 rAF intervals once. The assignment’s time-based path and 3 runs per configuration require separate implementation; this does not measure GPU time.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

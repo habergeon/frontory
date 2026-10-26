@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Parent Width | 400px | 800px | Pixel size and the camera-based world extent each update. |
+| Variable     | Baseline | Change | Expected change / hypothesis                              |
+| ------------ | -------- | ------ | --------------------------------------------------------- |
+| Parent Width | 400px    | 800px  | Pixel size and the camera-based world extent each update. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -62,7 +62,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/react-three-fiber-step-08/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

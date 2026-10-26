@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable                 | Baseline                                  | Change                                | Expected change / hypothesis                                                      |
+| ------------------------ | ----------------------------------------- | ------------------------------------- | --------------------------------------------------------------------------------- |
 | LayoutGroup id namespace | Two LayoutGroup instances with id omitted | Distinct id values: list-a and list-b | Even with the same layoutId, indicator transitions connect only within each list. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -64,7 +64,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/motion-step-12/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Interactive Sharing LayoutId experiment with cleanup of the resources used.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

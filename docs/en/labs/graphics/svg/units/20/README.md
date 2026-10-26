@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Node position | Fixed | Move one node by 80 units | Only paths connected to that node point toward its new position |
+| Variable      | Baseline | Change                    | Expected change / hypothesis                                    |
+| ------------- | -------- | ------------------------- | --------------------------------------------------------------- |
+| Node position | Fixed    | Move one node by 80 units | Only paths connected to that node point toward its new position |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

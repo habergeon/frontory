@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Disposal Count | 1 call | 2 calls | Pre-run hypothesis: the second call will also cause no exception. Keep other conditions fixed and record the actual result separately after running. |
+| Variable       | Baseline | Change  | Expected change / hypothesis                                                                                                                         |
+| -------------- | -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Disposal Count | 1 call   | 2 calls | Pre-run hypothesis: the second call will also cause no exception. Keep other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

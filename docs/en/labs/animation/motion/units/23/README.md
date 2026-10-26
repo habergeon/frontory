@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| once | false | true | Repeated motion is skipped from the second entrance onward. |
+| Variable | Baseline | Change | Expected change / hypothesis                                |
+| -------- | -------- | ------ | ----------------------------------------------------------- |
+| once     | false    | true   | Repeated motion is skipped from the second entrance onward. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/motion-step-23/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Interactive In-View Animation experiment with cleanup of the resources used.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

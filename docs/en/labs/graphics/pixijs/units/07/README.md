@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| resolution | 1 | 2 | The logical size stays the same and the buffer has four times as many pixels |
+| Variable   | Baseline | Change | Expected change / hypothesis                                                 |
+| ---------- | -------- | ------ | ---------------------------------------------------------------------------- |
+| resolution | 1        | 2      | The logical size stays the same and the buffer has four times as many pixels |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

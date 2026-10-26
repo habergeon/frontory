@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Title | Whitespace | 새 카드 | Reject whitespace and add 새 카드 once. |
+| Variable | Baseline   | Change  | Expected change / hypothesis            |
+| -------- | ---------- | ------- | --------------------------------------- |
+| Title    | Whitespace | 새 카드 | Reject whitespace and add 새 카드 once. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

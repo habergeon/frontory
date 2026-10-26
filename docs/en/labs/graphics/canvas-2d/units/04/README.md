@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable        | Baseline              | Change                | Expected change / hypothesis                                                 |
+| --------------- | --------------------- | --------------------- | ---------------------------------------------------------------------------- |
 | Transform Order | translate then rotate | rotate then translate | The shape orbits the screen origin instead of rotating around its own center |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

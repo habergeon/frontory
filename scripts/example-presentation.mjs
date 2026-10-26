@@ -1,3 +1,5 @@
+import { parsers } from 'prettier/plugins/babel'
+import { formatGeneratedText } from './format-generated.mjs'
 import fs from 'node:fs'
 import path from 'node:path'
 import { validateExamplePresentation } from './locale-content.mjs'
@@ -6,11 +8,12 @@ const defaultRoot = path.resolve(import.meta.dirname, '..')
 const read = (root, file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'))
 const pilots = new Set(['javascript-step-02', 'css-step-04', 'react-step-03', 'gsap-step-02'])
 
-export function writeGeneratedFile(file, contents) {
+export async function writeGeneratedFile(file, contents) {
+  if (typeof contents === 'string') contents = await formatGeneratedText(file, contents)
   if (fs.existsSync(file)) {
     const previous = fs.readFileSync(file)
     if (typeof contents === 'string'
-      ? previous.toString('utf8').replaceAll('\r\n', '\n') === contents.replaceAll('\r\n', '\n')
+      ? previous.toString('utf8') === contents
       : previous.equals(contents)) return
   }
   fs.writeFileSync(file, contents)
@@ -60,16 +63,16 @@ export function translateExampleComments(id, source, original, english, location
   return source
 }
 
-export function writeEnglishReadingSource(id, commonSource, original, english, { root = defaultRoot, commentLocations = {} } = {}) {
+export async function writeEnglishReadingSource(id, commonSource, original, english, { root = defaultRoot, commentLocations = {} } = {}) {
   const reading = translateExampleComments(id, commonSource, original, english, commentLocations)
   const readingSource = `/examples-en/${id}/example.js`
   const file = path.join(root, 'public', readingSource)
   fs.mkdirSync(path.dirname(file), { recursive: true })
-  writeGeneratedFile(file, reading)
+  await writeGeneratedFile(file, reading)
   return readingSource
 }
 
-export function localizeExampleSource(id, source, aliases = {}, options = {}) {
+export async function localizeExampleSource(id, source, aliases = {}, options = {}) {
   const { root = defaultRoot, messagesMarker } = options
   const original = read(root, 'content/example-presentations.json')[id]
   if (!original) return { source }
@@ -93,11 +96,15 @@ export function localizeExampleSource(id, source, aliases = {}, options = {}) {
         }
       }
     }
-    const mount = /export function mount\(\{[^\n]+\{\r?\n/g
-    if ([...source.matchAll(mount)].length !== 1) throw Error(`Unsupported pilot mount: ${id}`)
-    source = source.replace('export function mount({', "export function mount({locale='ko',")
-      .replace(/(export function mount\([^\n]+\{)\r?\n/, (_, signature) => signature + '\n' + declaration + '\n')
+    const ast = await parsers.babel.parse(source)
+    const mounts = ast.program.body.filter(node => node.type === 'ExportNamedDeclaration' && node.declaration?.type === 'FunctionDeclaration' && node.declaration.id.name === 'mount')
+    const mount = mounts[0]?.declaration
+    const parameter = mount?.params[0]
+    if (mounts.length !== 1 || parameter?.type !== 'ObjectPattern' || parameter.properties.some(property => property.key?.name === 'locale')) throw Error(`Unsupported pilot mount: ${id}`)
+    source = source.slice(0, mount.body.start + 1) + '\n' + declaration + '\n' + source.slice(mount.body.start + 1)
+    source = source.slice(0, parameter.start + 1) + "locale='ko'," + source.slice(parameter.start + 1)
+
   }
-  const readingSource = writeEnglishReadingSource(id, source, original, english, options)
+  const readingSource = await writeEnglishReadingSource(id, source, original, english, options)
   return { source, readingSource }
 }

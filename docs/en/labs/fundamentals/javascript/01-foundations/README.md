@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable   | Baseline              | Change                            | Expected change / hypothesis                                                                                                                                                           |
+| ---------- | --------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Copy depth | Spread only the array | Spread the nested objects as well | Hypothesis before running: The original will remain unchanged even when a nested value changes. Keep the other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Octave count | 1 | 5 | Expect more detail and computation, with possible aliasing on a small screen. |
+| Variable     | Baseline | Change | Expected change / hypothesis                                                  |
+| ------------ | -------- | ------ | ----------------------------------------------------------------------------- |
+| Octave count | 1        | 5      | Expect more detail and computation, with possible aliasing on a small screen. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -62,7 +62,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/glsl-step-17/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time. The provided selections change both the octave count 1/5 and the noise interpolation expression. This comparison alone cannot isolate the effect of octave count. Comparing with fixed interpolation is a separate assignment.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

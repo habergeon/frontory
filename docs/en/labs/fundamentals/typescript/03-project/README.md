@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Implementation | DOM | Canvas | Pre-run hypothesis: the caller will be able to swap implementations through the same contract. Keep other conditions fixed and record the actual result separately after running. |
+| Variable       | Baseline | Change | Expected change / hypothesis                                                                                                                                                      |
+| -------------- | -------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Implementation | DOM      | Canvas | Pre-run hypothesis: the caller will be able to swap implementations through the same contract. Keep other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

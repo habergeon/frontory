@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| offset | 0 | 1 | The difference between TypedArray constraints and byte access is exposed. |
+| Variable | Baseline | Change | Expected change / hypothesis                                              |
+| -------- | -------- | ------ | ------------------------------------------------------------------------- |
+| offset   | 0        | 1      | The difference between TypedArray constraints and byte access is exposed. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

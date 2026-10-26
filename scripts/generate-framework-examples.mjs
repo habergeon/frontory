@@ -310,22 +310,22 @@ for(const [series,examples] of Object.entries(all)){
   const directory=path.join(base,'src/labs',unit.id)
   fs.mkdirSync(directory,{recursive:true})
   const source=series==='react'?reactSource(unit,entry):series==='vue'?vueSource(unit,entry):series==='svelte'?svelteSource(unit,entry[0]):fiberSource(unit,entry)
-  const localized=localizeExampleSource(unit.id,source,{'Snapshot +1 three times':'snapshot','Updater +1 three times':'updater','Reset':'reset','Experiment input':'input'},unit.id==='react-step-03'?{}:{messagesMarker:'/* framework messages */'})
-  writeGeneratedFile(path.join(directory,'example.js'),localized.source)
+  const localized=await localizeExampleSource(unit.id,source,{'Snapshot +1 three times':'snapshot','Updater +1 three times':'updater','Reset':'reset','Experiment input':'input'},unit.id==='react-step-03'?{}:{messagesMarker:'/* framework messages */'})
+  await writeGeneratedFile(path.join(directory,'example.js'),localized.source)
   manifest[unit.id]={...(localized.readingSource?{readingSource:localized.readingSource}:{}),mode:'browser',note:series==='react'?'실제 React API 실험입니다. JSX 대신 createElement를 사용합니다.':series==='vue'?'실제 Vue 반응성과 render 함수 실험입니다. SFC 템플릿은 외부 컴파일 환경에서 확인합니다.':'실제 React Three Fiber Canvas 실험입니다. WebGL을 지원하는 브라우저가 필요합니다.'}
   if(series==='svelte'){
-   writeGeneratedFile(path.join(directory,'App.svelte'),'<script>\n'+entry[1]+'\n</script>\n'+entry[2]+'\n')
+   await writeGeneratedFile(path.join(directory,'App.svelte'),'<script>\n'+entry[1]+'\n</script>\n'+entry[2]+'\n')
    manifest[unit.id]={mode:'external',note:'미리보기는 Svelte writable/DOM 계약 실험입니다. runes·snippet·컴파일 결과는 실제 App.svelte를 Svelte 5 프로젝트에서 실행하세요.',files:['src/labs/'+unit.id+'/App.svelte']}
    const extras={}
    if(unit.day===16)extras['workspace.svelte.js']="export function createWorkspace(){const workspace=$state({draft:''});return workspace;}\n"
    if(unit.day===17)extras['Consumer.svelte']="<script>\nimport {getContext} from 'svelte';const workspace=getContext('workspace');\n</script>\n<label>Consumer <input bind:value={workspace.draft}/></label>\n"
    if(unit.day===21)extras['Editor.svelte']="<script>\nlet {value=$bindable('')}=$props();let edits=$state(0);\n</script>\n<input aria-label=\"Draft\" bind:value oninput={()=>edits++}/><p>Local edits {edits}</p>\n"
-   for(const [name,code] of Object.entries(extras)){writeGeneratedFile(path.join(directory,name),code);manifest[unit.id].files.push('src/labs/'+unit.id+'/'+name)}
+   for(const [name,code] of Object.entries(extras)){await writeGeneratedFile(path.join(directory,name),code);manifest[unit.id].files.push('src/labs/'+unit.id+'/'+name)}
   }
   if(series==='react'&&unit.day===21)manifest[unit.id].note+=' Profiler callback은 profiling 지원 빌드에서 측정하세요. 배포 React 빌드에서는 callback이 비활성일 수 있습니다.'
   if(series==='react-three-fiber'&&unit.day===15){
    manifest[unit.id]={mode:'external',note:'미리보기는 Three ObjectLoader의 실제 JSON 모델 로딩입니다. GLB·Suspense·오류 경계 실험은 외부 App.jsx와 유효한 /model.glb가 필요합니다.',files:['src/labs/'+unit.id+'/App.jsx']}
-   writeGeneratedFile(path.join(directory,'App.jsx'),[
+   await writeGeneratedFile(path.join(directory,'App.jsx'),[
 "import React, {Suspense, useState} from 'react';",
 "import {Canvas, useLoader} from '@react-three/fiber';",
 "import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';",
@@ -337,7 +337,7 @@ for(const [series,examples] of Object.entries(all)){
   if(localized.readingSource)manifest[unit.id].readingSource=localized.readingSource
  }
  fs.mkdirSync(path.join(base,'content/examples'),{recursive:true})
- writeGeneratedFile(path.join(base,'content/examples',series+'.json'),JSON.stringify(manifest,null,2)+'\n')
+ await writeGeneratedFile(path.join(base,'content/examples',series+'.json'),JSON.stringify(manifest,null,2)+'\n')
  console.log(series+': '+Object.keys(manifest).length+' new examples')
- writeCompanionGuidance('scripts/generate-framework-examples.mjs',series)
+ await writeCompanionGuidance('scripts/generate-framework-examples.mjs',series)
 }

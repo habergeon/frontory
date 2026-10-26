@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| key | index | item.id | The note stays with the same id after reversing the order. |
+| Variable | Baseline | Change  | Expected change / hypothesis                               |
+| -------- | -------- | ------- | ---------------------------------------------------------- |
+| key      | index    | item.id | The note stays with the same id after reversing the order. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -64,7 +64,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/react-step-06/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 This is an experiment using actual React APIs. It uses createElement instead of JSX.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

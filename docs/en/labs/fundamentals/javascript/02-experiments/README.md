@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| First response delay | 50ms | 800ms | Hypothesis before running: The latest search result will be preserved. Keep the other conditions fixed and record the actual result separately after running. |
+| Variable             | Baseline | Change | Expected change / hypothesis                                                                                                                                  |
+| -------------------- | -------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| First response delay | 50ms     | 800ms  | Hypothesis before running: The latest search result will be preserved. Keep the other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

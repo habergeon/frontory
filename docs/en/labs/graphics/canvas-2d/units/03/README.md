@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable          | Baseline        | Change          | Expected change / hypothesis                                       |
+| ----------------- | --------------- | --------------- | ------------------------------------------------------------------ |
 | State Restoration | restore present | restore removed | The last badge's color or transform remains in subsequent drawings |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

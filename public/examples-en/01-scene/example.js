@@ -1,7 +1,10 @@
 // This module runs in the right/center editor and the practice view.
 // First task: change CAMERA_POSITION to [0, 2, 5] and [5, 2, 0], then record your predictions and results.
-export function mount({locale='ko', THREE, OrbitControls, container }) {
-  const messages=locale==='en'?{"display001":"Rotating cube and coordinate axes"}:{"display001":"회전 큐브와 좌표축"};
+export function mount({ locale = 'ko', THREE, OrbitControls, container }) {
+  const messages =
+    locale === 'en'
+      ? { display001: 'Rotating cube and coordinate axes' }
+      : { display001: '회전 큐브와 좌표축' }
   const CAMERA_POSITION = [3, 2, 5]
   const CUBE_COLOR = '#3179bf'
   const FOV = 50
@@ -17,7 +20,10 @@ export function mount({locale='ko', THREE, OrbitControls, container }) {
   container.appendChild(canvas)
 
   const geometry = new THREE.BoxGeometry(1, 1, 1)
-  const material = new THREE.MeshStandardMaterial({ color: CUBE_COLOR, roughness: 0.55 })
+  const material = new THREE.MeshStandardMaterial({
+    color: CUBE_COLOR,
+    roughness: 0.55,
+  })
   const cube = new THREE.Mesh(geometry, material)
   scene.add(cube)
 
@@ -52,8 +58,9 @@ export function mount({locale='ko', THREE, OrbitControls, container }) {
   resize()
 
   let lastTime
-  renderer.setAnimationLoop(time => {
-    const delta = lastTime === undefined ? 0 : Math.min((time - lastTime) / 1000, 0.1)
+  renderer.setAnimationLoop((time) => {
+    const delta =
+      lastTime === undefined ? 0 : Math.min((time - lastTime) / 1000, 0.1)
     lastTime = time
     if (ROTATE) {
       cube.rotation.x += delta * 0.3
@@ -76,8 +83,10 @@ export function mount({locale='ko', THREE, OrbitControls, container }) {
     material.dispose()
     for (const helper of [grid, axes]) {
       helper.geometry.dispose()
-      const materials = Array.isArray(helper.material) ? helper.material : [helper.material]
-      materials.forEach(item => item.dispose())
+      const materials = Array.isArray(helper.material)
+        ? helper.material
+        : [helper.material]
+      materials.forEach((item) => item.dispose())
     }
     scene.clear()
     renderer.dispose()

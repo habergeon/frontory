@@ -70,7 +70,7 @@ DOM·CSS transform, 시간
 
 - [GSAP 공식 문서](https://gsap.com/docs/v3/)
 - [ScrollTrigger 공식 문서](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)
-- [GSAP to 목표값과 설정](https://gsap.com/docs/v3/GSAP/gsap.to()/)
-- [GSAP from 현재 상태와 초기 적용](https://gsap.com/docs/v3/GSAP/gsap.from()/)
-- [GSAP fromTo 양 끝점과 immediateRender](https://gsap.com/docs/v3/GSAP/gsap.fromTo()/)
-- [GSAP 속성값 읽기](https://gsap.com/docs/v3/GSAP/gsap.getProperty()/)
+- [GSAP to 목표값과 설정](<https://gsap.com/docs/v3/GSAP/gsap.to()/>)
+- [GSAP from 현재 상태와 초기 적용](<https://gsap.com/docs/v3/GSAP/gsap.from()/>)
+- [GSAP fromTo 양 끝점과 immediateRender](<https://gsap.com/docs/v3/GSAP/gsap.fromTo()/>)
+- [GSAP 속성값 읽기](<https://gsap.com/docs/v3/GSAP/gsap.getProperty()/>)

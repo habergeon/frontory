@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable      | Baseline         | Change                      | Expected change / hypothesis                                 |
+| ------------- | ---------------- | --------------------------- | ------------------------------------------------------------ |
 | Response Type | Successful array | Failure followed by success | Retrying after error guidance switches to a successful list. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/react-step-19/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 This is an experiment using actual React APIs. It uses createElement instead of JSX.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

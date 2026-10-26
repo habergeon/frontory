@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Registration count | 1 run | Recreate 5 times | With correct cleanup, the number of update calls per frame does not increase |
+| Variable           | Baseline | Change           | Expected change / hypothesis                                                 |
+| ------------------ | -------- | ---------------- | ---------------------------------------------------------------------------- |
+| Registration count | 1 run    | Recreate 5 times | With correct cleanup, the number of update calls per frame does not increase |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

@@ -107,9 +107,9 @@ ease: 'none'을 지정해 중간 진행도에서 거리도 절반이 되도록 �
 
 ## 관찰할 변수
 
-| 변수 | 기준 조건 | 바꿀 조건 | 예상할 변화·검증 가설 |
-| --- | --- | --- | --- |
-| API | to | fromTo | 명시한 시작값으로 이동 구간이 바뀐다. |
+| 변수 | 기준 조건 | 바꿀 조건 | 예상할 변화·검증 가설                 |
+| ---- | --------- | --------- | ------------------------------------- |
+| API  | to        | fromTo    | 명시한 시작값으로 이동 구간이 바뀐다. |
 
 표의 예상은 측정 결과가 아닙니다. 한 번에 한 조건만 바꾸고 실제 결과가 다르면 원인을 기록하세요.
 
@@ -126,17 +126,16 @@ ease: 'none'을 지정해 중간 진행도에서 거리도 절반이 되도록 �
 
 ## 공식 참고
 
-- [GSAP to 목표값과 설정](https://gsap.com/docs/v3/GSAP/gsap.to()/)
-- [GSAP from 현재 상태와 초기 적용](https://gsap.com/docs/v3/GSAP/gsap.from()/)
-- [GSAP fromTo 양 끝점과 immediateRender](https://gsap.com/docs/v3/GSAP/gsap.fromTo()/)
-- [GSAP 속성값 읽기](https://gsap.com/docs/v3/GSAP/gsap.getProperty()/)
+- [GSAP to 목표값과 설정](<https://gsap.com/docs/v3/GSAP/gsap.to()/>)
+- [GSAP from 현재 상태와 초기 적용](<https://gsap.com/docs/v3/GSAP/gsap.from()/>)
+- [GSAP fromTo 양 끝점과 immediateRender](<https://gsap.com/docs/v3/GSAP/gsap.fromTo()/>)
+- [GSAP 속성값 읽기](<https://gsap.com/docs/v3/GSAP/gsap.getProperty()/>)
 
 ## 연결된 예제와 실행 범위
 
 [예제 원본](../../../../../../src/labs/gsap-step-02/example.js) · [실행 환경과 제한](../../../../../examples.md)
 
 시작값과 목표값 실험입니다. 직접 조작할 수 있으며 사용한 자원을 정리합니다.
-
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 

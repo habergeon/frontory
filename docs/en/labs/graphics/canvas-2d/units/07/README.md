@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Input String | 가나 | WWW iii | Even with similar character counts, badge width varies with actual glyph widths |
+| Variable     | Baseline | Change  | Expected change / hypothesis                                                    |
+| ------------ | -------- | ------- | ------------------------------------------------------------------------------- |
+| Input String | 가나     | WWW iii | Even with similar character counts, badge width varies with actual glyph widths |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

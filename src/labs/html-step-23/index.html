@@ -1,1 +1,21 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>script 로딩 순서</title><script>window.loadingLog=[];window.record=name=>{const entry={name,time:Math.round(performance.now()),readyState:document.readyState,targetExists:!!document.getElementById('target')};window.loadingLog.push(entry);console.log(entry);const out=document.querySelector('pre');if(out)out.textContent=JSON.stringify(window.loadingLog,null,2)};document.addEventListener('DOMContentLoaded',()=>window.record('DOMContentLoaded'));</script><!-- 두 script의 defer를 제거하거나 async로 바꿔 비교하세요. --><script defer src="first.js"></script><script defer src="second.js"></script></head><body><h1 id="target">DOM 파싱 대상</h1><p>두 외부 스크립트 속성을 같은 방식으로 바꾼 후 새로고침하세요.</p><pre aria-live="polite"></pre><script>window.record('body inline')</script></body></html>
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>script 로딩 순서</title>
+    <script>
+      window.loadingLog=[];window.record=name=>{const entry={name,time:Math.round(performance.now()),readyState:document.readyState,targetExists:!!document.getElementById('target')};window.loadingLog.push(entry);console.log(entry);const out=document.querySelector('pre');if(out)out.textContent=JSON.stringify(window.loadingLog,null,2)};document.addEventListener('DOMContentLoaded',()=>window.record('DOMContentLoaded'));
+    </script>
+    <!-- 두 script의 defer를 제거하거나 async로 바꿔 비교하세요. -->
+    <script defer src="first.js"></script>
+    <script defer src="second.js"></script>
+  </head>
+  <body>
+    <h1 id="target">DOM 파싱 대상</h1>
+    <p>두 외부 스크립트 속성을 같은 방식으로 바꾼 후 새로고침하세요.</p>
+    <pre aria-live="polite"></pre>
+    <script>
+      window.record('body inline')
+    </script>
+  </body>
+</html>

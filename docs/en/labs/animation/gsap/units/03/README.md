@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| ease | none | power2.inOut | Movement is faster in the middle than at either end. |
+| Variable | Baseline | Change       | Expected change / hypothesis                         |
+| -------- | -------- | ------------ | ---------------------------------------------------- |
+| ease     | none     | power2.inOut | Movement is faster in the middle than at either end. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/gsap-step-03/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 This is an experiment on The Time Curve of Ease. It supports direct interaction and cleans up the resources it uses.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

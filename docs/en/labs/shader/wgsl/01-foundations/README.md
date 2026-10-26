@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable       | Baseline        | Change             | Expected change / hypothesis                                      |
+| -------------- | --------------- | ------------------ | ----------------------------------------------------------------- |
 | Color location | 0 on both sides | 1 in fragment only | A mismatch is expected to appear during stage linkage validation. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../src/labs/wgsl-01/example.js) · [Runtime environments and limits](../../../../examples.md)
 
 Uses an actual WebGPU pipeline and requires a supported GPU and browser. Unsupported environments display guidance. Check WGSL errors with the GPU compiler.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

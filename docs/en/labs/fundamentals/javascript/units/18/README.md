@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable    | Baseline   | Change       | Expected change / hypothesis                                                                                                                          |
+| ----------- | ---------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | import path | ./state.js | ./missing.js | Hypothesis before running: A module loading error will appear. Keep the other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -62,7 +62,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/javascript-step-18/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 This example runs the public interface of a Blob ES module. Test actual separation into relative files and Network paths in an HTTP project.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

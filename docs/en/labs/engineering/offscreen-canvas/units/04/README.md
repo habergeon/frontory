@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Initialization | Normal | Inject failure | Main-thread rendering recovers on a new Canvas. |
+| Variable       | Baseline | Change         | Expected change / hypothesis                    |
+| -------------- | -------- | -------------- | ----------------------------------------------- |
+| Initialization | Normal   | Inject failure | Main-thread rendering recovers on a new Canvas. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/offscreen-canvas-step-04/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 The button calls fallback directly rather than injecting a getContext failure. The shared initialization path checks for a null Context and replaces the Canvas.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

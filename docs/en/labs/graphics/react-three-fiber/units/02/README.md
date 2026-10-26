@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| fov | 50 | 75 | At the same distance, the cube appears smaller on screen. |
+| Variable | Baseline | Change | Expected change / hypothesis                              |
+| -------- | -------- | ------ | --------------------------------------------------------- |
+| fov      | 50       | 75     | At the same distance, the cube appears smaller on screen. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -62,7 +62,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/react-three-fiber-step-02/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 This is an actual React Three Fiber Canvas experiment. A browser with WebGL support is required.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

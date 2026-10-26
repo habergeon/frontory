@@ -1,1 +1,4 @@
-export function createWorkspace(){const workspace=$state({draft:''});return workspace;}
+export function createWorkspace() {
+  const workspace = $state({ draft: '' })
+  return workspace
+}

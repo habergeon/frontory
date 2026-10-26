@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Progress | 25% | 75% | You need to change large-arc-flag to select the longer arc |
+| Variable | Baseline | Change | Expected change / hypothesis                               |
+| -------- | -------- | ------ | ---------------------------------------------------------- |
+| Progress | 25%      | 75%    | You need to change large-arc-flag to select the longer arc |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

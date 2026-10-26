@@ -3,11 +3,12 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import { transformSync } from 'esbuild'
 import { readEnglishContent } from '../scripts/locale-content.mjs'
+import { formatGeneratedText } from '../scripts/format-generated.mjs'
 
 const sources = JSON.parse(fs.readFileSync('content/example-presentations.json', 'utf8'))
 for (const [id, original] of Object.entries(sources)) {
-  test(`${id}: English reading source changes only anchored comments and preserves parsed executable tokens`, () => {
-    const common = fs.readFileSync(`src/labs/${id}/example.js`, 'utf8').replaceAll('\r\n', '\n')
+  test(`${id}: English reading source changes only anchored comments and preserves parsed executable tokens`, async () => {
+    const common = await formatGeneratedText('example.js', fs.readFileSync(`src/labs/${id}/example.js`, 'utf8'))
     const reading = fs.readFileSync(`public/examples-en/${id}/example.js`, 'utf8').replaceAll('\r\n', '\n')
     const translated = readEnglishContent().examplePresentations[id]
     let restored = reading
@@ -21,12 +22,12 @@ for (const [id, original] of Object.entries(sources)) {
       assert.equal(restored.split(from).length, 2, `${id}.${key}: unique approved comment`)
       restored = restored.replace(from, () => to)
     }
-    assert.equal(restored, common)
+    assert.equal(await formatGeneratedText('example.js', restored), common)
     const parsed = source => transformSync(source, { loader: 'js', legalComments: 'none' }).code
     // CSS26 changes an embedded CSS comment inside a JS string value. Reverse
     // that exact approved span before comparing executable JavaScript output.
     assert.equal(parsed(id === 'css-step-26' ? restored : reading), parsed(common))
-    assert.match(common, /locale='ko'/)
+    assert.match(common, /locale\s*=\s*'ko'/)
     for (const [key, value] of Object.entries(translated.messages)) {
       if (id === 'canvas-2d-step-07' && key === 'display002') {
         assert.equal(value, 'Input String: 가나 ↔ WWW iii')

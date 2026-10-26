@@ -1,10 +1,17 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
+import { parsers } from 'prettier/plugins/markdown'
 
 const read = path => JSON.parse(fs.readFileSync(path, 'utf8'))
 const catalog = read('src/app/catalog.json')
 const previous = read('content/catalog-v2.json')
+// Compare the full displayed instruction, allowing Markdown escapes and the
+// whitespace collapsing that already applies when prose is rendered in HTML.
+function displayedMarkdown(source) {
+  const text = node => node.type === 'text' ? node.value.replace(/\s+/g, ' ') : typeof node.value === 'string' ? node.value : (node.children ?? []).map(text).join('')
+  return text(parsers.markdown.parse(source))
+}
 
 test('each of 23 series has 28 ordered units in four complete stages', () => {
   assert.equal(catalog.series.length, 23)
@@ -46,7 +53,8 @@ test('expanded curricula contain explained concepts and concrete experiment cont
       const entry = catalog.units.find(item => item.id === unit.id)
       assert.ok(entry, unit.id)
       const markdown = fs.readFileSync('.' + entry.docPath, 'utf8')
-      for (const step of unit.steps) assert.ok(markdown.includes(step), unit.id)
+      const displayed = displayedMarkdown(markdown)
+      for (const step of unit.steps) assert.ok(displayed.includes(displayedMarkdown(step)), unit.id)
     }
   }
 })
@@ -67,6 +75,7 @@ test('English generated catalog and lessons match approved content without unpub
     const note = read('content/locales/en/examples/' + unit.seriesId + '.json')[unit.id]
     assert.equal(unit.exampleNote, note?.values?.note)
     const markdown = fs.readFileSync('.' + unit.docPath, 'utf8')
+    const displayed = displayedMarkdown(markdown)
     let proseWithoutCode = markdown.replace(/```[\s\S]*?```/g, '')
     if (unit.id === 'javascript-step-11') {
       const fixture = '<strong>실험</strong>'
@@ -120,7 +129,7 @@ test('English generated catalog and lessons match approved content without unpub
     }
     assert.doesNotMatch(proseWithoutCode, /[가-힣]/)
     for (const name of ['tasks', 'variables', 'criteria', 'notes']) assert.ok(markdown.includes('## ' + headings.en[name]), name)
-    for (const step of translated.steps) assert.ok(markdown.includes(step), unit.id)
+    for (const step of translated.steps) assert.ok(displayed.includes(displayedMarkdown(step)), unit.id)
     if (note?.values) assert.ok(markdown.includes(unit.exampleNote))
     else {
       assert.ok(previous.units.some(legacy => legacy.id === unit.id), unit.id + ': legacy guidance required')

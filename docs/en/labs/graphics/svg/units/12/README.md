@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable     | Baseline   | Change           | Expected change / hypothesis                              |
+| ------------ | ---------- | ---------------- | --------------------------------------------------------- |
 | Label length | Short name | Long Korean name | Fixed spacing causes overlap and requires a layout policy |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

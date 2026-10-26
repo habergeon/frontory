@@ -38,9 +38,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Images | Successful loading | All fail | Pre-run hypothesis: The topics and control purposes will remain understandable. Keep other conditions fixed and record the actual result separately after running. |
+| Variable | Baseline           | Change   | Expected change / hypothesis                                                                                                                                       |
+| -------- | ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Images   | Successful loading | All fail | Pre-run hypothesis: The topics and control purposes will remain understandable. Keep other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

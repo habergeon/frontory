@@ -1,4 +1,6 @@
 <script>
-let {value=$bindable('Shared draft')}=$props();
+  let { value = $bindable('Shared draft') } = $props()
 </script>
-<input aria-label="Bindable editor" bind:value/><p>{value}</p>
+
+<input aria-label="Bindable editor" bind:value />
+<p>{value}</p>

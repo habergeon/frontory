@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable   | Baseline | Change    | Expected change / hypothesis               |
+| ---------- | -------- | --------- | ------------------------------------------ |
 | Card count | 20 cards | 100 cards | Measured costs and bottlenecks may change. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/motion-step-26/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Interactive Observing Renders and Performance experiment with cleanup of the resources used.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

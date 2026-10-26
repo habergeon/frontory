@@ -311,11 +311,11 @@ for(const series of ['webgpu','wgsl','glsl','gaussian-splatting']){
     let source=series==='glsl'?glslTemplate(u):series==='gaussian-splatting'?gsTemplate(u):gpuTemplate(u,(series==='wgsl'?wgsl:webgpu)[u.day],note);
     if(source.includes('undefined'))throw new Error('Missing implementation '+u.id);
     source=source.trimEnd()+String.fromCharCode(10);
-    const localized=localizeExampleSource(u.id,source,{}, {messagesMarker:'/* GPU_MESSAGES */'});source=localized.source;
-    const dir=path.join(root,'src/labs',u.id);fs.mkdirSync(dir,{recursive:true});writeGeneratedFile(path.join(dir,'example.js'),source);
+    const localized=await localizeExampleSource(u.id,source,{}, {messagesMarker:'/* GPU_MESSAGES */'});source=localized.source;
+    const dir=path.join(root,'src/labs',u.id);fs.mkdirSync(dir,{recursive:true});await writeGeneratedFile(path.join(dir,'example.js'),source);
     metadata[u.id]={mode:'browser',note,readingSource:localized.readingSource};count++;
   }
   if(count!==25)throw new Error(series+': expected 25, got '+count);
-  fs.mkdirSync(path.join(root,'content/examples'),{recursive:true});writeGeneratedFile(path.join(root,'content/examples',series+'.json'),JSON.stringify(metadata,null,2)+'\n');
+  fs.mkdirSync(path.join(root,'content/examples'),{recursive:true});await writeGeneratedFile(path.join(root,'content/examples',series+'.json'),JSON.stringify(metadata,null,2)+'\n');
   console.log(series+': '+count+' standalone examples');
 }

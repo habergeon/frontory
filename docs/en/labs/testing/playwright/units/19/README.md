@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable                                     | Baseline                       | Change                                                       | Expected change / hypothesis                                                                                            |
+| -------------------------------------------- | ------------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
 | input interval in the 500ms debounce fixture | advance 600ms after each input | advance 100ms between inputs and 500ms after the final input | At 600ms intervals, save 3 times; at 100ms intervals, save the last value 1 time. The last string is ABC in both cases. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

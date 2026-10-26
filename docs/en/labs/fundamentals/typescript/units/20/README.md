@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable       | Baseline            | Change                  | Expected change / hypothesis                                                                                                                                  |
+| -------------- | ------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Condition Form | T extends condition | tuple-wrapped condition | Pre-run hypothesis: the result of testing the union as a whole may differ. Keep other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

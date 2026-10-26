@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Resume timestamp | Retain the previous value | Reset | The large jump on the first resumed frame is reduced. |
+| Variable         | Baseline                  | Change | Expected change / hypothesis                          |
+| ---------------- | ------------------------- | ------ | ----------------------------------------------------- |
+| Resume timestamp | Retain the previous value | Reset  | The large jump on the first resumed frame is reduced. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/offscreen-canvas-step-17/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Pause suppresses drawing and resets the time baseline. It does not cancel every scheduled frame or interval.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

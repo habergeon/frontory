@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Mask Radius | 60 | 30 | The image position stays the same, and only the exposed area shrinks |
+| Variable    | Baseline | Change | Expected change / hypothesis                                         |
+| ----------- | -------- | ------ | -------------------------------------------------------------------- |
+| Mask Radius | 60       | 30     | The image position stays the same, and only the exposed area shrinks |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

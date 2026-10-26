@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Cap | 3 | 2 | The backing-store size decreases in high-DPR environments. |
+| Variable | Baseline | Change | Expected change / hypothesis                               |
+| -------- | -------- | ------ | ---------------------------------------------------------- |
+| Cap      | 3        | 2      | The backing-store size decreases in high-DPR environments. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/offscreen-canvas-step-10/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 An interactive Detecting DPR Changes experiment with cleanup of the resources it uses.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

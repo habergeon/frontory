@@ -62,9 +62,7 @@
   "react-three-fiber-step-15": {
     "mode": "external",
     "note": "미리보기는 Three ObjectLoader의 실제 JSON 모델 로딩입니다. GLB·Suspense·오류 경계 실험은 외부 App.jsx와 유효한 /model.glb가 필요합니다.",
-    "files": [
-      "src/labs/react-three-fiber-step-15/App.jsx"
-    ],
+    "files": ["src/labs/react-three-fiber-step-15/App.jsx"],
     "readingSource": "/examples-en/react-three-fiber-step-15/example.js"
   },
   "react-three-fiber-step-16": {

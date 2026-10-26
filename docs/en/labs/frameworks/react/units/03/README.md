@@ -88,8 +88,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable      | Baseline                     | Change                   | Expected change / hypothesis                |
+| ------------- | ---------------------------- | ------------------------ | ------------------------------------------- |
 | Update method | Three snapshot-value updates | Three functional updates | The increase per click changes from 1 to 3. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -117,7 +117,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/react-step-03/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 This experiment uses the actual React API. It uses createElement instead of JSX.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

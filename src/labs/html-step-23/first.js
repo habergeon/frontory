@@ -1,1 +1,1 @@
-window.record('first.js');
+window.record('first.js')

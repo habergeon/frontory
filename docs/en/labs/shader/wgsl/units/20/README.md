@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Input count | 64 | 1003 | Multiple partial sums and the final incomplete group are expected to need handling. |
+| Variable    | Baseline | Change | Expected change / hypothesis                                                        |
+| ----------- | -------- | ------ | ----------------------------------------------------------------------------------- |
+| Input count | 64       | 1003   | Multiple partial sums and the final incomplete group are expected to need handling. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/wgsl-step-20/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

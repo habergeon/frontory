@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| cullMode | none | back | Only the triangle with reversed winding is expected to disappear. |
+| Variable | Baseline | Change | Expected change / hypothesis                                      |
+| -------- | -------- | ------ | ----------------------------------------------------------------- |
+| cullMode | none     | back   | Only the triangle with reversed winding is expected to disappear. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/webgpu-step-07/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

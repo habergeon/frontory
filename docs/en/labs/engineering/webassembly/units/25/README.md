@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| scope | kernel only | including copies | Wasm's comparative advantage may change. |
+| Variable | Baseline    | Change           | Expected change / hypothesis             |
+| -------- | ----------- | ---------------- | ---------------------------------------- |
+| scope    | kernel only | including copies | Wasm's comparative advantage may change. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

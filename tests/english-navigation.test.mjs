@@ -15,8 +15,8 @@ test('English navigation resolves every local link and identifies intentional Ko
   const englishPaths = new Set(englishFiles.map(file => path.resolve(file)))
   for (const file of englishFiles) {
     for (const line of read(file).split('\n')) {
-      for (const match of line.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g)) {
-        const destination = match[2].split('#')[0]
+      for (const match of line.matchAll(/\[([^\]]+)\]\((<[^>]+>|[^)]+)\)/g)) {
+        const destination = match[2].replace(/^<|>$/g, '').split('#')[0]
         if (!destination || /^(https?:|mailto:)/.test(destination)) continue
         const target = path.resolve(path.dirname(file), destination)
         assert.ok(fs.existsSync(target), `${file}: ${match[0]}`)

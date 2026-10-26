@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable      | Baseline    | Change      | Expected change / hypothesis                                                                                                                                                  |
+| ------------- | ----------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Heading Level | h2 under h1 | h4 under h1 | Pre-run hypothesis: Heading relationships will appear irregular in the accessibility tree. Keep other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

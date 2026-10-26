@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| anchor | 0,0 | 0.5,0.5 | position points to the center of the image instead of its upper-left corner |
+| Variable | Baseline | Change  | Expected change / hypothesis                                                |
+| -------- | -------- | ------- | --------------------------------------------------------------------------- |
+| anchor   | 0,0      | 0.5,0.5 | position points to the center of the image instead of its upper-left corner |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

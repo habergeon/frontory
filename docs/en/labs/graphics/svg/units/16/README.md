@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Selection width | 2px | 16px | The operable region widens while the visible stroke stays the same |
+| Variable        | Baseline | Change | Expected change / hypothesis                                       |
+| --------------- | -------- | ------ | ------------------------------------------------------------------ |
+| Selection width | 2px      | 16px   | The operable region widens while the visible stroke stays the same |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

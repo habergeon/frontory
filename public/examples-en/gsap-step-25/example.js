@@ -1,9 +1,59 @@
 // gsap-step-25: Hiding and Returning
-export function mount({locale='ko',container,gsap,animate,React,createRoot,Motion,ScrollTrigger}) {
-const messages=locale==='en'?{"display001":"<h3>Hiding and Returning</h3><p>Background / Resume Policy</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>","display002":"GSAP","display003":"Paused","display004":"Resumed without catch-up"}:{"display001":"<h3>숨김과 복귀</h3><p>백그라운드 / 재개 정책</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>","display002":"GSAP","display003":"Paused","display004":"Resumed without catch-up"};
- const root=document.createElement('section');root.style.cssText='padding:18px;font:14px system-ui;color:#172b46';container.append(root);root.innerHTML=messages.display001;
- const button=root.querySelector('button'),out=root.querySelector('output'),stage=/** @type {HTMLDivElement} */ (root.querySelector('.stage'));let dead=false;const stops=[];
- const box=document.createElement('div');box.textContent='GSAP';box.style.cssText='width:64px;height:48px;background:#76d3de;display:grid;place-items:center';stage.append(box);stops.push(()=>gsap.killTweensOf(box));
- const tween=gsap.to(box,{x:220,duration:2,yoyo:true,repeat:-1});const visibility=()=>{tween.paused(document.hidden);out.textContent=document.hidden?'Paused':'Resumed without catch-up'};document.addEventListener('visibilitychange',visibility);button.onclick=()=>tween.paused(!tween.paused());stops.push(()=>{tween.kill();document.removeEventListener('visibilitychange',visibility)});
- return()=>{dead=true;stops.reverse().forEach(fn=>fn());root.remove()};
+export function mount({
+  locale = 'ko',
+  container,
+  gsap,
+  animate,
+  React,
+  createRoot,
+  Motion,
+  ScrollTrigger,
+}) {
+  const messages =
+    locale === 'en'
+      ? {
+          display001:
+            '<h3>Hiding and Returning</h3><p>Background / Resume Policy</p><button>Run experiment</button> <output aria-live="polite"></output><div class="stage" style="position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden"></div>',
+          display002: 'GSAP',
+          display003: 'Paused',
+          display004: 'Resumed without catch-up',
+        }
+      : {
+          display001:
+            '<h3>숨김과 복귀</h3><p>백그라운드 / 재개 정책</p><button>Run experiment</button> <output aria-live="polite"></output><div class="stage" style="position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden"></div>',
+          display002: 'GSAP',
+          display003: 'Paused',
+          display004: 'Resumed without catch-up',
+        }
+  const root = document.createElement('section')
+  root.style.cssText = 'padding:18px;font:14px system-ui;color:#172b46'
+  container.append(root)
+  root.innerHTML = messages.display001
+  const button = root.querySelector('button'),
+    out = root.querySelector('output'),
+    stage = /** @type {HTMLDivElement} */ (root.querySelector('.stage'))
+  let dead = false
+  const stops = []
+  const box = document.createElement('div')
+  box.textContent = 'GSAP'
+  box.style.cssText =
+    'width:64px;height:48px;background:#76d3de;display:grid;place-items:center'
+  stage.append(box)
+  stops.push(() => gsap.killTweensOf(box))
+  const tween = gsap.to(box, { x: 220, duration: 2, yoyo: true, repeat: -1 })
+  const visibility = () => {
+    tween.paused(document.hidden)
+    out.textContent = document.hidden ? 'Paused' : 'Resumed without catch-up'
+  }
+  document.addEventListener('visibilitychange', visibility)
+  button.onclick = () => tween.paused(!tween.paused())
+  stops.push(() => {
+    tween.kill()
+    document.removeEventListener('visibilitychange', visibility)
+  })
+  return () => {
+    dead = true
+    stops.reverse().forEach((fn) => fn())
+    root.remove()
+  }
 }

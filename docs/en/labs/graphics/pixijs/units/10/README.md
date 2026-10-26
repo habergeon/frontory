@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| URL | Valid local path | Missing image | The error state appears and the retry button remains available |
+| Variable | Baseline         | Change        | Expected change / hypothesis                                   |
+| -------- | ---------------- | ------------- | -------------------------------------------------------------- |
+| URL      | Valid local path | Missing image | The error state appears and the retry button remains available |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

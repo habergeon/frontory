@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable     | Baseline      | Change           | Expected change / hypothesis                                              |
+| ------------ | ------------- | ---------------- | ------------------------------------------------------------------------- |
 | Box position | circle center | move 0.2 along x | Expect the overlap region and the cut boundary of the difference to move. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -62,7 +62,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/glsl-step-15/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

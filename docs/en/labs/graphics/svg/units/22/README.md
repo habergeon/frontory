@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable       | Baseline      | Change           | Expected change / hypothesis                                |
+| -------------- | ------------- | ---------------- | ----------------------------------------------------------- |
 | Style location | Page CSS only | style inside SVG | Specified colors and strokes persist in the standalone file |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

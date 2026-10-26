@@ -1,9 +1,68 @@
 // gsap-step-04: Transform and Layout
-export function mount({locale='ko',container,gsap,animate,React,createRoot,Motion,ScrollTrigger}) {
-const messages=locale==='en'?{"display001":"<h3>Transform and Layout</h3><p>Transform / Measurement</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>","display002":"GSAP","display003":"Layout offsetLeft ","display004":"; visual left ","display005":" → "}:{"display001":"<h3>Transform과 배치</h3><p>Transform / 측정</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>","display002":"GSAP","display003":"Layout offsetLeft ","display004":"; visual left ","display005":" → "};
- const root=document.createElement('section');root.style.cssText='padding:18px;font:14px system-ui;color:#172b46';container.append(root);root.innerHTML=messages.display001;
- const button=root.querySelector('button'),out=root.querySelector('output'),stage=/** @type {HTMLDivElement} */ (root.querySelector('.stage'));let dead=false;const stops=[];
- const box=document.createElement('div');box.textContent='GSAP';box.style.cssText='width:64px;height:48px;background:#76d3de;display:grid;place-items:center';stage.append(box);stops.push(()=>gsap.killTweensOf(box));
- button.onclick=()=>{const before=box.getBoundingClientRect();gsap.to(box,{x:180,rotation:25,duration:1,onComplete:()=>{const after=box.getBoundingClientRect();out.textContent='Layout offsetLeft '+box.offsetLeft+'; visual left '+before.left.toFixed(0)+' → '+after.left.toFixed(0)}})};
- return()=>{dead=true;stops.reverse().forEach(fn=>fn());root.remove()};
+export function mount({
+  locale = 'ko',
+  container,
+  gsap,
+  animate,
+  React,
+  createRoot,
+  Motion,
+  ScrollTrigger,
+}) {
+  const messages =
+    locale === 'en'
+      ? {
+          display001:
+            '<h3>Transform and Layout</h3><p>Transform / Measurement</p><button>Run experiment</button> <output aria-live="polite"></output><div class="stage" style="position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden"></div>',
+          display002: 'GSAP',
+          display003: 'Layout offsetLeft ',
+          display004: '; visual left ',
+          display005: ' → ',
+        }
+      : {
+          display001:
+            '<h3>Transform과 배치</h3><p>Transform / 측정</p><button>Run experiment</button> <output aria-live="polite"></output><div class="stage" style="position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden"></div>',
+          display002: 'GSAP',
+          display003: 'Layout offsetLeft ',
+          display004: '; visual left ',
+          display005: ' → ',
+        }
+  const root = document.createElement('section')
+  root.style.cssText = 'padding:18px;font:14px system-ui;color:#172b46'
+  container.append(root)
+  root.innerHTML = messages.display001
+  const button = root.querySelector('button'),
+    out = root.querySelector('output'),
+    stage = /** @type {HTMLDivElement} */ (root.querySelector('.stage'))
+  let dead = false
+  const stops = []
+  const box = document.createElement('div')
+  box.textContent = 'GSAP'
+  box.style.cssText =
+    'width:64px;height:48px;background:#76d3de;display:grid;place-items:center'
+  stage.append(box)
+  stops.push(() => gsap.killTweensOf(box))
+  button.onclick = () => {
+    const before = box.getBoundingClientRect()
+    gsap.to(box, {
+      x: 180,
+      rotation: 25,
+      duration: 1,
+      onComplete: () => {
+        const after = box.getBoundingClientRect()
+        out.textContent =
+          'Layout offsetLeft ' +
+          box.offsetLeft +
+          '; visual left ' +
+          before.left.toFixed(0) +
+          ' → ' +
+          after.left.toFixed(0)
+      },
+    })
+  }
+  return () => {
+    dead = true
+    stops.reverse().forEach((fn) => fn())
+    root.remove()
+  }
 }

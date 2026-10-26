@@ -184,13 +184,13 @@ for(const [series,lessons] of Object.entries(bodies)){
       const preamble=comments.map(text=>'// '+text+'\n').join('')+`/** @param {any} context */\nexport ${series==='pixijs'?'async ':''}function mount(context){\n  const {container,THREE,OrbitControls,PIXI,locale='ko'}=context;\n`+(presentation?'/* graphics messages */\nconst TITLE=messages.display001;\nconst VARIABLE=messages.display002;\n':`const TITLE=${JSON.stringify(unit.title)};\nconst VARIABLE=${JSON.stringify(variable.name+': '+variable.baseline+' ↔ '+variable.change)};\n`)
       const setup=series==='canvas-2d'?canvasSetup:series==='svg'?svgSetup:series==='threejs'?threeSetup:pixiSetup
       fs.mkdirSync(path.dirname(filename),{recursive:true})
-      const localized=localizeExampleSource(unit.id,preamble+common+setup+'  '+body.trimEnd()+'\n'+(series==='threejs'?threeEnd:end),{},{messagesMarker:'/* graphics messages */'})
-      writeGeneratedFile(filename,localized.source)
+      const localized=await localizeExampleSource(unit.id,preamble+common+setup+'  '+body.trimEnd()+'\n'+(series==='threejs'?threeEnd:end),{},{messagesMarker:'/* graphics messages */'})
+      await writeGeneratedFile(filename,localized.source)
       if(localized.readingSource)manifest[unit.id]={readingSource:localized.readingSource}
     }
     if(body&&fs.existsSync(filename))manifest[unit.id]={...manifest[unit.id],mode:'browser',note:notes[unit.id]||'편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.',files:[filename]}
   }
   fs.mkdirSync('content/examples',{recursive:true})
-  writeGeneratedFile(`content/examples/${series}.json`,JSON.stringify(manifest,null,2)+'\n')
+  await writeGeneratedFile(`content/examples/${series}.json`,JSON.stringify(manifest,null,2)+'\n')
   console.log(series+': '+Object.keys(lessons).length+' new examples; '+Object.keys(manifest).length+' manifest entries')
 }

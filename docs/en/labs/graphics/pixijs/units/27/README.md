@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Reruns | 1 run | 5 runs | With correct cleanup, commands per input and ticker callback counts do not increase |
+| Variable | Baseline | Change | Expected change / hypothesis                                                        |
+| -------- | -------- | ------ | ----------------------------------------------------------------------------------- |
+| Reruns   | 1 run    | 5 runs | With correct cleanup, commands per input and ticker callback counts do not increase |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

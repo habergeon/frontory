@@ -1,3 +1,4 @@
+import { formatGeneratedText } from './format-generated.mjs'
 import fs from 'node:fs'
 import path from 'node:path'
 import { readEnglishContent } from './locale-content.mjs'
@@ -198,7 +199,8 @@ for (const series of englishCatalog.series.filter(item => item.id !== 'webgl')) 
 }
 outputs.set(englishExampleIndexPath.slice(1), englishExampleIndex.join('\n'))
 const check = process.argv.includes('--check')
-for (const [file, text] of outputs) {
+for (const [file, source] of outputs) {
+  const text = await formatGeneratedText(file, source)
   const target = path.join(root, file)
   const current = fs.existsSync(target) ? fs.readFileSync(target, 'utf8').replaceAll('\r\n', '\n') : null
   if (check) {

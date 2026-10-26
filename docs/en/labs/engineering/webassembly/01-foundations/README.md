@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable  | Baseline   | Change       | Expected change / hypothesis                           |
+| --------- | ---------- | ------------ | ------------------------------------------------------ |
 | file path | valid wasm | missing file | Normal results and loading failures are distinguished. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -64,7 +64,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../src/labs/webassembly-01/example.js) · [Runtime environments and limits](../../../../examples.md)
 
 The preview experiments with WebAssembly.Memory and JS boundary costs. To preserve the CSP, compile WASM modules outside the iframe.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

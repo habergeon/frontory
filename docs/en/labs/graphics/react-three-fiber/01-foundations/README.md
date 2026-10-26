@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| scale prop | 1 | 1.5 | The displayed cube becomes larger while using the same geometry. |
+| Variable   | Baseline | Change | Expected change / hypothesis                                     |
+| ---------- | -------- | ------ | ---------------------------------------------------------------- |
+| scale prop | 1        | 1.5    | The displayed cube becomes larger while using the same geometry. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

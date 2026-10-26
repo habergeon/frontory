@@ -21,7 +21,7 @@ A form’s input.value is a string. For example, "15" + 1 is "151", while Number
 
 ### Conversion and validation
 
-Number(raw) is the conversion step that checks whether the input can become a number; ok determines whether saving is allowed. The example sets ok to true only when raw.trim() !== "", Number.isFinite(value), and value >= 0 all hold. Number("") and Number("  ") are 0, but the whitespace check rejects them. "0" is a nonempty string that converts to a finite 0, so it is accepted. Keep these two steps separate to avoid saving empty input as 0 minutes based on the conversion result alone.
+Number(raw) is the conversion step that checks whether the input can become a number; ok determines whether saving is allowed. The example sets ok to true only when raw.trim() !== "", Number.isFinite(value), and value >= 0 all hold. Number("") and Number(" ") are 0, but the whitespace check rejects them. "0" is a nonempty string that converts to a finite 0, so it is accepted. Keep these two steps separate to avoid saving empty input as 0 minutes based on the conversion result alone.
 
 ### NaN and null in the output
 
@@ -83,7 +83,7 @@ The linked example is a starting point. It does not implement every task below. 
 
 1. Open the lesson example, paste ["15", "", "15px", "-1"] into the experiment JSON input, and click Run experiment. Before running, write down your predicted type, value, and ok for each row. This is an array of strings, so even the number-looking 15 needs double quotation marks.
 2. Check that the output row with raw "15" is string / 15 / true, the empty string is string / 0 / false, "15px" is string / null / false, and "-1" is string / -1 / false. The order here is type / displayed value / ok. Also record that null is the JSON representation of NaN. An existing run of the example in Windows Chromium 151 matched these four results. Write your own run’s values in a separate measurement field.
-3. Change the JSON input to ["  ", "0", "Infinity", "0x10", "1e3"] and click Run experiment. The expected ok values are false, true, false, true, true, and the displayed values are 0, 0, null, 16, 1000. These boundary inputs also matched the existing Chromium 151 run record. Explain which row would be wrong if you used an if (!value) check that rejects 0.
+3. Change the JSON input to [" ", "0", "Infinity", "0x10", "1e3"] and click Run experiment. The expected ok values are false, true, false, true, true, and the displayed values are 0, 0, null, 16, 1000. These boundary inputs also matched the existing Chromium 151 run record. Explain which row would be wrong if you used an if (!value) check that rejects 0.
 4. Change the input to [ and click Run experiment to check the error display. Then correct it to ["2"], click the same button again, and check that it recovers to value 2 and ok true. The existing browser record confirmed this error display and recovery. Errors from non-string elements such as [15] occur at a different stage from JSON syntax errors.
 5. Check the saving conditions in a separate project using “Saving code to copy and run” in the concepts. Copy index.html and numbers.js into their respective files, open the page through a local HTTP server, and check that the console has no console.assert failures.
 6. The separate code’s expected saved list is [15, 0], with a count of 2. Compare the counts before and after processing the empty string, whitespace, a string with a unit, and a negative number, and record the actual console results. This saving assignment’s code is not automatically applied to the current example screen.
@@ -92,9 +92,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| String | 15 | Empty string | Hypothesis before running: an empty value will be rejected rather than saved as 0 minutes. Keep other conditions fixed and record the actual result separately after running. |
+| Variable | Baseline | Change       | Expected change / hypothesis                                                                                                                                                  |
+| -------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| String   | 15       | Empty string | Hypothesis before running: an empty value will be rejected rather than saved as 0 minutes. Keep other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -123,7 +123,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/javascript-step-02/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Compare editable inputs with actual browser execution results.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable     | Baseline         | Change                  | Expected change / hypothesis        |
+| ------------ | ---------------- | ----------------------- | ----------------------------------- |
 | Removal time | After completion | During the first action | No UI updates remain after removal. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/motion-step-24/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Interactive UseAnimate Cleanup experiment with cleanup of the resources used.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

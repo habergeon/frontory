@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Propagation | Allow | Block at the front mesh | One click does not also change the selection of an object behind it. |
+| Variable    | Baseline | Change                  | Expected change / hypothesis                                         |
+| ----------- | -------- | ----------------------- | -------------------------------------------------------------------- |
+| Propagation | Allow    | Block at the front mesh | One click does not also change the selection of an object behind it. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

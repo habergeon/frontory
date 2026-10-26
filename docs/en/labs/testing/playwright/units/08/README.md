@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| execution order | A→B | B→A | Keep each test’s notes out of the other test’s initial state. |
+| Variable        | Baseline | Change | Expected change / hypothesis                                  |
+| --------------- | -------- | ------ | ------------------------------------------------------------- |
+| execution order | A→B      | B→A    | Keep each test’s notes out of the other test’s initial state. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

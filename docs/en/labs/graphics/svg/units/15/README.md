@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable     | Baseline                   | Change                 | Expected change / hypothesis                                                |
+| ------------ | -------------------------- | ---------------------- | --------------------------------------------------------------------------- |
 | Graphic role | Informational, with a name | Decorative aria-hidden | Decoration is excluded from navigation while the informational name remains |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

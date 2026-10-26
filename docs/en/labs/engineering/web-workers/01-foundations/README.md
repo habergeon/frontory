@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable     | Baseline     | Change          | Expected change / hypothesis                                          |
+| ------------ | ------------ | --------------- | --------------------------------------------------------------------- |
 | Array length | 100 elements | 100000 elements | Main-thread input handling should remain possible during computation. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

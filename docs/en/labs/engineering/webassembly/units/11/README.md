@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| grow | none | 1 page | The existing view becomes invalid, and the new view can read the data. |
+| Variable | Baseline | Change | Expected change / hypothesis                                           |
+| -------- | -------- | ------ | ---------------------------------------------------------------------- |
+| grow     | none     | 1 page | The existing view becomes invalid, and the new view can read the data. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

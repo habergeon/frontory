@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Starting point | 20,20 | 80,20 | The shape made with relative commands moves while preserving its overall form |
+| Variable       | Baseline | Change | Expected change / hypothesis                                                  |
+| -------------- | -------- | ------ | ----------------------------------------------------------------------------- |
+| Starting point | 20,20    | 80,20  | The shape made with relative commands moves while preserving its overall form |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

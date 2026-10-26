@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| binary | new build | previous build | A version mismatch is detected and excluded from the comparison. |
+| Variable | Baseline  | Change         | Expected change / hypothesis                                     |
+| -------- | --------- | -------------- | ---------------------------------------------------------------- |
+| binary   | new build | previous build | A version mismatch is detected and excluded from the comparison. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

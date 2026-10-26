@@ -1,9 +1,60 @@
 // gsap-step-07: Playback Controls
-export function mount({locale='ko',container,gsap,animate,React,createRoot,Motion,ScrollTrigger}) {
-const messages=locale==='en'?{"display001":"<h3>Playback Controls</h3><p>Progress / Synchronization</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>","display002":"GSAP"}:{"display001":"<h3>재생 제어판</h3><p>Progress / 동기화</p><button>Run experiment</button> <output aria-live=\"polite\"></output><div class=\"stage\" style=\"position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden\"></div>","display002":"GSAP"};
- const root=document.createElement('section');root.style.cssText='padding:18px;font:14px system-ui;color:#172b46';container.append(root);root.innerHTML=messages.display001;
- const button=root.querySelector('button'),out=root.querySelector('output'),stage=/** @type {HTMLDivElement} */ (root.querySelector('.stage'));let dead=false;const stops=[];
- const box=document.createElement('div');box.textContent='GSAP';box.style.cssText='width:64px;height:48px;background:#76d3de;display:grid;place-items:center';stage.append(box);stops.push(()=>gsap.killTweensOf(box));
- const tl=gsap.timeline({paused:true}).to(box,{x:230,rotation:360,duration:3});const slider=document.createElement('input');slider.type='range';slider.min='0';slider.max='1';slider.step='.01';stage.append(slider);slider.oninput=()=>tl.progress(Number(slider.value)).pause();tl.eventCallback('onUpdate',()=>{slider.value=String(tl.progress());out.textContent=tl.progress().toFixed(2)});button.onclick=()=>tl.paused(!tl.paused());stops.push(()=>tl.kill());
- return()=>{dead=true;stops.reverse().forEach(fn=>fn());root.remove()};
+export function mount({
+  locale = 'ko',
+  container,
+  gsap,
+  animate,
+  React,
+  createRoot,
+  Motion,
+  ScrollTrigger,
+}) {
+  const messages =
+    locale === 'en'
+      ? {
+          display001:
+            '<h3>Playback Controls</h3><p>Progress / Synchronization</p><button>Run experiment</button> <output aria-live="polite"></output><div class="stage" style="position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden"></div>',
+          display002: 'GSAP',
+        }
+      : {
+          display001:
+            '<h3>재생 제어판</h3><p>Progress / 동기화</p><button>Run experiment</button> <output aria-live="polite"></output><div class="stage" style="position:relative;min-height:180px;margin-top:16px;background:#edf3fa;padding:14px;overflow:hidden"></div>',
+          display002: 'GSAP',
+        }
+  const root = document.createElement('section')
+  root.style.cssText = 'padding:18px;font:14px system-ui;color:#172b46'
+  container.append(root)
+  root.innerHTML = messages.display001
+  const button = root.querySelector('button'),
+    out = root.querySelector('output'),
+    stage = /** @type {HTMLDivElement} */ (root.querySelector('.stage'))
+  let dead = false
+  const stops = []
+  const box = document.createElement('div')
+  box.textContent = 'GSAP'
+  box.style.cssText =
+    'width:64px;height:48px;background:#76d3de;display:grid;place-items:center'
+  stage.append(box)
+  stops.push(() => gsap.killTweensOf(box))
+  const tl = gsap
+    .timeline({ paused: true })
+    .to(box, { x: 230, rotation: 360, duration: 3 })
+  const slider = document.createElement('input')
+  slider.type = 'range'
+  slider.min = '0'
+  slider.max = '1'
+  slider.step = '.01'
+  stage.append(slider)
+  slider.oninput = () => tl.progress(Number(slider.value)).pause()
+  tl.eventCallback('onUpdate', () => {
+    slider.value = String(tl.progress())
+    out.textContent = tl.progress().toFixed(2)
+  })
+  button.onclick = () => tl.paused(!tl.paused())
+  stops.push(() => tl.kill())
+  return () => {
+    dead = true
+    stops.reverse().forEach((fn) => fn())
+    root.remove()
+  }
 }

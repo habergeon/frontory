@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| props | selectedId passed to all rows | Per-row selected | Update scope may shrink to the rows whose selection changed. |
+| Variable | Baseline                      | Change           | Expected change / hypothesis                                 |
+| -------- | ----------------------------- | ---------------- | ------------------------------------------------------------ |
+| props    | selectedId passed to all rows | Per-row selected | Update scope may shrink to the rows whose selection changed. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/vue-step-25/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable          | Baseline               | Change               | Expected change / hypothesis                  |
+| ----------------- | ---------------------- | -------------------- | --------------------------------------------- |
 | Creation Location | 1 time at module scope | A call per Workspace | Drafts in the two workspaces are independent. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

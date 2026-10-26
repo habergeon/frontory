@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Parent rotation | 0 | PI/4 | The entire group rotates while the children's local coordinates stay unchanged |
+| Variable        | Baseline | Change | Expected change / hypothesis                                                   |
+| --------------- | -------- | ------ | ------------------------------------------------------------------------------ |
+| Parent rotation | 0        | PI/4   | The entire group rotates while the children's local coordinates stay unchanged |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

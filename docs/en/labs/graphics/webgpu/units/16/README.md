@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable                   | Baseline     | Change                                                 | Expected change / hypothesis                                                                                 |
+| -------------------------- | ------------ | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
 | Input and output resources | Separate A/B | Conceptually review reading and writing the same array | The same-array approach is expected to have possible order dependence and will not be used as the reference. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/webgpu-step-16/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Runs real WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not substituted for GPU results. Both selections run 4 ping-pong steps with fixed boundaries and separate input/output buffers. In-place writes are not executed; the second selection provides guidance for reviewing their risk.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable         | Baseline         | Change             | Expected change / hypothesis                              |
+| ---------------- | ---------------- | ------------------ | --------------------------------------------------------- |
 | Switching method | Stay on one unit | Switch A/B 5 times | Drafts remain and external loop counts do not accumulate. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -64,7 +64,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/vue-step-27/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 This is an experiment with actual Vue reactivity and render functions. Check SFC templates in an external compilation environment.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

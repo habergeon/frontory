@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable           | Baseline         | Change         | Expected change / hypothesis                                                 |
+| ------------------ | ---------------- | -------------- | ---------------------------------------------------------------------------- |
 | requested capacity | within the limit | over the limit | An excessive request ends with an error, and the previous data is preserved. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

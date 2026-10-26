@@ -34,8 +34,8 @@ test('23 series and 644 unique units each link to substantive learning documents
 test('all local Markdown links resolve after folder migration',()=>{
   const walk = dir => fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)])
   for(const file of [...walk('docs').filter(p=>p.endsWith('.md')),'README.md']){
-    for(const match of fs.readFileSync(file,'utf8').matchAll(/\]\(([^)]+)\)/g)){
-      const link=match[1].split('#')[0]
+    for(const match of fs.readFileSync(file,'utf8').matchAll(/\]\((<[^>]+>|[^)]+)\)/g)){
+      const link=match[1].replace(/^<|>$/g,'').split('#')[0]
       if(!link || /^(https?:|mailto:)/.test(link))continue
       assert.ok(fs.existsSync(path.resolve(path.dirname(file),link)),file+' -> '+link)
     }

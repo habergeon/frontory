@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable      | Baseline       | Change         | Expected change / hypothesis                                      |
+| ------------- | -------------- | -------------- | ----------------------------------------------------------------- |
 | Emission Rate | 20 particles/s | 80 particles/s | The average active particle count increases for the same lifetime |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable    | Baseline  | Change  | Expected change / hypothesis                                       |
+| ----------- | --------- | ------- | ------------------------------------------------------------------ |
 | Retry limit | 0 retries | 1 retry | Processing ends with a result or error without endless recreation. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/web-workers-step-20/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 On a request-error response, the supplied example replaces the Worker and submits a new [9,9] sum request with a new ID. It does not implement Worker error-event recovery or retry the original request.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

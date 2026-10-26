@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| scale | 0.92 | 1 | Each input activates the action once, even without a visual effect. |
+| Variable | Baseline | Change | Expected change / hypothesis                                        |
+| -------- | -------- | ------ | ------------------------------------------------------------------- |
+| scale    | 0.92     | 1      | Each input activates the action once, even without a visual effect. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/motion-step-16/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Interactive Tap Feedback experiment with cleanup of the resources used.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

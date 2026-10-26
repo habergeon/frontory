@@ -3,200 +3,150 @@
     "readingSource": "/examples-en/svg-step-02/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-02/example.js"
-    ]
+    "files": ["src/labs/svg-step-02/example.js"]
   },
   "svg-step-03": {
     "readingSource": "/examples-en/svg-step-03/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-03/example.js"
-    ]
+    "files": ["src/labs/svg-step-03/example.js"]
   },
   "svg-step-04": {
     "readingSource": "/examples-en/svg-step-04/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-04/example.js"
-    ]
+    "files": ["src/labs/svg-step-04/example.js"]
   },
   "svg-step-05": {
     "readingSource": "/examples-en/svg-step-05/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-05/example.js"
-    ]
+    "files": ["src/labs/svg-step-05/example.js"]
   },
   "svg-step-06": {
     "readingSource": "/examples-en/svg-step-06/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-06/example.js"
-    ]
+    "files": ["src/labs/svg-step-06/example.js"]
   },
   "svg-step-07": {
     "readingSource": "/examples-en/svg-step-07/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-07/example.js"
-    ]
+    "files": ["src/labs/svg-step-07/example.js"]
   },
   "svg-step-08": {
     "readingSource": "/examples-en/svg-step-08/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-08/example.js"
-    ]
+    "files": ["src/labs/svg-step-08/example.js"]
   },
   "svg-step-09": {
     "readingSource": "/examples-en/svg-step-09/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-09/example.js"
-    ]
+    "files": ["src/labs/svg-step-09/example.js"]
   },
   "svg-step-10": {
     "readingSource": "/examples-en/svg-step-10/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-10/example.js"
-    ]
+    "files": ["src/labs/svg-step-10/example.js"]
   },
   "svg-step-11": {
     "readingSource": "/examples-en/svg-step-11/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-11/example.js"
-    ]
+    "files": ["src/labs/svg-step-11/example.js"]
   },
   "svg-step-12": {
     "readingSource": "/examples-en/svg-step-12/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-12/example.js"
-    ]
+    "files": ["src/labs/svg-step-12/example.js"]
   },
   "svg-step-13": {
     "readingSource": "/examples-en/svg-step-13/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-13/example.js"
-    ]
+    "files": ["src/labs/svg-step-13/example.js"]
   },
   "svg-step-15": {
     "readingSource": "/examples-en/svg-step-15/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-15/example.js"
-    ]
+    "files": ["src/labs/svg-step-15/example.js"]
   },
   "svg-step-16": {
     "readingSource": "/examples-en/svg-step-16/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-16/example.js"
-    ]
+    "files": ["src/labs/svg-step-16/example.js"]
   },
   "svg-step-17": {
     "readingSource": "/examples-en/svg-step-17/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-17/example.js"
-    ]
+    "files": ["src/labs/svg-step-17/example.js"]
   },
   "svg-step-18": {
     "readingSource": "/examples-en/svg-step-18/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-18/example.js"
-    ]
+    "files": ["src/labs/svg-step-18/example.js"]
   },
   "svg-step-19": {
     "readingSource": "/examples-en/svg-step-19/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-19/example.js"
-    ]
+    "files": ["src/labs/svg-step-19/example.js"]
   },
   "svg-step-20": {
     "readingSource": "/examples-en/svg-step-20/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-20/example.js"
-    ]
+    "files": ["src/labs/svg-step-20/example.js"]
   },
   "svg-step-21": {
     "readingSource": "/examples-en/svg-step-21/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-21/example.js"
-    ]
+    "files": ["src/labs/svg-step-21/example.js"]
   },
   "svg-step-22": {
     "readingSource": "/examples-en/svg-step-22/example.js",
     "mode": "browser",
     "note": "독립 SVG 소스를 입력란에 출력합니다. 파일 저장은 복사한 소스를 .svg 파일로 저장하세요.",
-    "files": [
-      "src/labs/svg-step-22/example.js"
-    ]
+    "files": ["src/labs/svg-step-22/example.js"]
   },
   "svg-step-23": {
     "readingSource": "/examples-en/svg-step-23/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-23/example.js"
-    ]
+    "files": ["src/labs/svg-step-23/example.js"]
   },
   "svg-step-24": {
     "readingSource": "/examples-en/svg-step-24/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-24/example.js"
-    ]
+    "files": ["src/labs/svg-step-24/example.js"]
   },
   "svg-step-25": {
     "readingSource": "/examples-en/svg-step-25/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-25/example.js"
-    ]
+    "files": ["src/labs/svg-step-25/example.js"]
   },
   "svg-step-26": {
     "readingSource": "/examples-en/svg-step-26/example.js",
     "mode": "browser",
     "note": "중복 id 검증·키보드 선택·이동·직렬화 실험입니다. 자유 드래그는 17일 예제에서 결합할 수 있습니다.",
-    "files": [
-      "src/labs/svg-step-26/example.js"
-    ]
+    "files": ["src/labs/svg-step-26/example.js"]
   },
   "svg-step-27": {
     "readingSource": "/examples-en/svg-step-27/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/svg-step-27/example.js"
-    ]
+    "files": ["src/labs/svg-step-27/example.js"]
   }
 }

@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable     | Baseline          | Change        | Expected change / hypothesis                                                                |
+| ------------ | ----------------- | ------------- | ------------------------------------------------------------------------------------------- |
 | buffer usage | UNIFORM\|COPY_DST | COPY_DST only | Uniform-binding validation is expected to fail, with color updates resuming after recovery. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../src/labs/webgpu-02/example.js) · [Runtime environments and limits](../../../../examples.md)
 
 Uses an actual WebGPU pipeline and requires a supported GPU and browser. Unsupported environments display guidance. Check WGSL errors with the GPU compiler.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| viewBox | 0 0 300 150 | 0 0 600 300 | Shapes at the same coordinates appear smaller on screen |
+| Variable | Baseline    | Change      | Expected change / hypothesis                            |
+| -------- | ----------- | ----------- | ------------------------------------------------------- |
+| viewBox  | 0 0 300 150 | 0 0 600 300 | Shapes at the same coordinates appear smaller on screen |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

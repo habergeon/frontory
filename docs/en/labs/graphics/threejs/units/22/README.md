@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Target size | 256×256 | 512×512 | Minimap sharpness and the number of processed pixels both increase. |
+| Variable    | Baseline | Change  | Expected change / hypothesis                                        |
+| ----------- | -------- | ------- | ------------------------------------------------------------------- |
+| Target size | 256×256  | 512×512 | Minimap sharpness and the number of processed pixels both increase. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

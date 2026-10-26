@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable         | Baseline   | Change             | Expected change / hypothesis                                                     |
+| ---------------- | ---------- | ------------------ | -------------------------------------------------------------------------------- |
 | Transition width | fixed 0.01 | based on fwidth(d) | Expect boundaries to remain roughly matched to pixel size as resolution changes. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -62,7 +62,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/glsl-step-12/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Runs WebGL ShaderMaterial in the browser. Comparisons use a fixed 640×360 size; frame intervals are different from GPU time.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

@@ -72,7 +72,7 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 
 - [GSAP Official Documentation](https://gsap.com/docs/v3/)
 - [ScrollTrigger Official Documentation](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)
-- [GSAP to target values and settings](https://gsap.com/docs/v3/GSAP/gsap.to()/)
-- [GSAP from current state and initial application](https://gsap.com/docs/v3/GSAP/gsap.from()/)
-- [GSAP fromTo endpoints and immediateRender](https://gsap.com/docs/v3/GSAP/gsap.fromTo()/)
-- [GSAP reading property values](https://gsap.com/docs/v3/GSAP/gsap.getProperty()/)
+- [GSAP to target values and settings](<https://gsap.com/docs/v3/GSAP/gsap.to()/>)
+- [GSAP from current state and initial application](<https://gsap.com/docs/v3/GSAP/gsap.from()/>)
+- [GSAP fromTo endpoints and immediateRender](<https://gsap.com/docs/v3/GSAP/gsap.fromTo()/>)
+- [GSAP reading property values](<https://gsap.com/docs/v3/GSAP/gsap.getProperty()/>)

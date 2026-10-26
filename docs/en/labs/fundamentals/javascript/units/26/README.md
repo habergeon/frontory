@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable   | Baseline    | Change    | Expected change / hypothesis                                                                                                                                                                     |
+| ---------- | ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Batch size | 10000 items | 500 items | Hypothesis before running: There will be more opportunities to handle input, and total time may increase. Keep the other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -62,7 +62,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/javascript-step-26/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Times are observations on the current device and do not establish performance superiority. Compare count and batch under the same conditions.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

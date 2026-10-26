@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable | Baseline    | Change      | Expected change / hypothesis                                                         |
+| -------- | ----------- | ----------- | ------------------------------------------------------------------------------------ |
 | duration | 0.3 seconds | 0.8 seconds | The final state stays the same, while only the intermediate transition takes longer. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

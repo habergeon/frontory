@@ -46,13 +46,13 @@ export function companionOutputs({ owner, series } = {}) {
   return outputs
 }
 
-export function writeCompanionGuidance(owner, series) {
+export async function writeCompanionGuidance(owner, series) {
   for (const [file, contents] of Object.entries(companionOutputs({ owner, series }))) {
-    writeGeneratedFile(file, contents)
+    await writeGeneratedFile(file, contents)
   }
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   // Manual companions have no generator owner; never write their originals.
-  writeCompanionGuidance(null)
+  await writeCompanionGuidance(null)
 }

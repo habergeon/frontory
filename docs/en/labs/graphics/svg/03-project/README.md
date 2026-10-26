@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Representation | SVG DOM | Canvas pixels | Element access and hit testing are implemented differently, and performance must be verified per scene |
+| Variable       | Baseline | Change        | Expected change / hypothesis                                                                           |
+| -------------- | -------- | ------------- | ------------------------------------------------------------------------------------------------------ |
+| Representation | SVG DOM  | Canvas pixels | Element access and hit testing are implemented differently, and performance must be verified per scene |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

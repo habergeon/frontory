@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Interval | 0.05 seconds | 0.2 seconds | The last card waits longer. |
+| Variable | Baseline     | Change      | Expected change / hypothesis |
+| -------- | ------------ | ----------- | ---------------------------- |
+| Interval | 0.05 seconds | 0.2 seconds | The last card waits longer.  |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/motion-step-07/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Interactive Child Entrance Order experiment with cleanup of the resources used.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

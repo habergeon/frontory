@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable       | Baseline           | Change                         | Expected change / hypothesis                                                                                                                           |
+| -------------- | ------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | State location | Inside the factory | At the top level of the module | Hypothesis before running: The two counters will share a value. Keep the other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -62,7 +62,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/javascript-step-06/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Compare the editable inputs with actual browser execution results.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

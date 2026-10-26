@@ -29,7 +29,7 @@ for (const unit of read('content/catalog-v2.json').units) {
   if (['gsap', 'motion', 'web-workers', 'offscreen-canvas', 'webassembly', 'playwright'].includes(unit.seriesId)) {
     const comments = Object.fromEntries(Object.entries(original.comments).filter(([key, value]) => value !== english.comments[key]))
     const translated = Object.fromEntries(Object.keys(comments).map(key => [key, english.comments[key]]))
-    writeEnglishReadingSource(unit.id, source, { ...original, comments }, { ...english, comments: translated })
+    await writeEnglishReadingSource(unit.id, source, { ...original, comments }, { ...english, comments: translated })
     continue
   }
   // These approved identity entries describe an existing nested shader comment.
@@ -39,6 +39,6 @@ for (const unit of read('content/catalog-v2.json').units) {
     if (original.comments[key] !== value || english.comments[key] !== value || !source.includes(' // Extra invocations MUST exit')) throw Error('Changed shader comment identity: ' + unit.id)
     const { [key]: _original, ...sourceComments } = original.comments
     const { [key]: _english, ...englishComments } = english.comments
-    writeEnglishReadingSource(unit.id, source, { ...original, comments: sourceComments }, { ...english, comments: englishComments }, { commentLocations })
-  } else writeEnglishReadingSource(unit.id, source, original, english, { commentLocations })
+    await writeEnglishReadingSource(unit.id, source, { ...original, comments: sourceComments }, { ...english, comments: englishComments }, { commentLocations })
+  } else await writeEnglishReadingSource(unit.id, source, original, english, { commentLocations })
 }

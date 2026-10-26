@@ -1,1 +1,19 @@
-<!doctype html><html lang="ko"><meta charset="utf-8"><title>iframe sandbox 경계</title><h1>스크립트 권한 비교</h1><label><input id="scripts" type="checkbox">allow-scripts 허용</label><p>동일 guide.html을 불러오고 sandbox 권한만 바꿉니다.</p><iframe id="guide" src="guide.html" title="실험 안내 문서" sandbox width="500" height="240"></iframe><pre id="events" aria-live="polite">메시지 없음</pre><script>const frame=document.querySelector('iframe'),events=document.querySelector('pre');document.querySelector('input').onchange=event=>{frame.setAttribute('sandbox',event.target.checked?'allow-scripts':'');events.textContent='프레임을 다시 불러옵니다.';frame.src='guide.html?run='+Date.now()};addEventListener('message',event=>{if(event.source!==frame.contentWindow||event.data?.type!=='guide-ready')return;events.textContent=JSON.stringify({message:event.data,origin:event.origin},null,2)});</script></html>
+<!doctype html>
+<html lang="ko">
+  <meta charset="utf-8" /><title>iframe sandbox 경계</title>
+  <h1>스크립트 권한 비교</h1>
+  <label><input id="scripts" type="checkbox" />allow-scripts 허용</label>
+  <p>동일 guide.html을 불러오고 sandbox 권한만 바꿉니다.</p>
+  <iframe
+    id="guide"
+    src="guide.html"
+    title="실험 안내 문서"
+    sandbox
+    width="500"
+    height="240"
+  ></iframe>
+  <pre id="events" aria-live="polite">메시지 없음</pre>
+  <script>
+    const frame=document.querySelector('iframe'),events=document.querySelector('pre');document.querySelector('input').onchange=event=>{frame.setAttribute('sandbox',event.target.checked?'allow-scripts':'');events.textContent='프레임을 다시 불러옵니다.';frame.src='guide.html?run='+Date.now()};addEventListener('message',event=>{if(event.source!==frame.contentWindow||event.data?.type!=='guide-ready')return;events.textContent=JSON.stringify({message:event.data,origin:event.origin},null,2)});
+  </script>
+</html>

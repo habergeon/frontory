@@ -1,1 +1,1 @@
-window.record('second.js');
+window.record('second.js')

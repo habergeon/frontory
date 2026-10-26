@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| scale encoding | raw 0.1 | log(0.1) with the log setting | Expect both inputs to reconstruct the same scale. |
+| Variable       | Baseline | Change                        | Expected change / hypothesis                      |
+| -------------- | -------- | ----------------------------- | ------------------------------------------------- |
+| scale encoding | raw 0.1  | log(0.1) with the log setting | Expect both inputs to reconstruct the same scale. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/gaussian-splatting-step-11/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 CPU Canvas2D synthetic fixtures and contract checks. This does not provide Spark GPU rendering, training data, or claims about reconstruction quality or GPU performance.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

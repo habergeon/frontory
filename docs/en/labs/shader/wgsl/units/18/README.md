@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable         | Baseline               | Change                      | Expected change / hypothesis                                                                       |
+| ---------------- | ---------------------- | --------------------------- | -------------------------------------------------------------------------------------------------- |
 | Barrier position | Inside a nonuniform if | A common path for all lanes | The change is expected to resolve uniformity diagnostics and synchronize partial groups correctly. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/wgsl-step-18/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 Runs actual WebGPU/WGSL. Requires HTTPS/localhost and a supported adapter; unsupported environments display a reason, and CPU results are not presented as GPU results.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

@@ -1,3 +1,5 @@
+import { assertGeneratedSemantics } from '../scripts/generated-source-semantics.mjs'
+import { parsers } from 'prettier/plugins/babel'
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
@@ -5,6 +7,7 @@ import os from 'node:os'
 import path from 'node:path'
 import { transformSync } from 'esbuild'
 import * as helper from '../scripts/example-presentation.mjs'
+import { formatGeneratedText } from '../scripts/format-generated.mjs'
 import { sourceHash } from '../scripts/locale-content.mjs'
 
 const original = { messages: { title: '실험' }, comments: { intro: '설명' } }
@@ -28,30 +31,30 @@ for (const [id, seriesId] of [['javascript-01', 'javascript'], ['01-scene', 'web
   test(`${id}: catalog lookup and explicit dictionary marker preserve async context and duplicate fixture strings`, async t => {
     const { root } = fixture(t, id, seriesId)
     const input = `// 설명\nconst fixture='실험';\nconst nested="self.postMessage('실험 // fixture')";\nexport async function mount(context) {\nconst {locale='ko', THREE, host}=context;\n/* EXAMPLE_MESSAGES */\nreturn {title:messages.title, fixture, nested, THREE, host};\n}\n`
-    const result = helper.localizeExampleSource(id, input, {}, { root, messagesMarker: '/* EXAMPLE_MESSAGES */' })
+    const result = await helper.localizeExampleSource(id, input, {}, { root, messagesMarker: '/* EXAMPLE_MESSAGES */' })
     assert.equal(result.readingSource, `/examples-en/${id}/example.js`)
     assert.ok(result.source.includes("export async function mount(context)"))
     const run = async (source, locale) => (await import('data:text/javascript,' + encodeURIComponent(source))).mount({ locale, THREE: 17, host: 'host' })
     assert.deepEqual(await run(result.source, 'en'), { title: 'Experiment', fixture: '실험', nested: "self.postMessage('실험 // fixture')", THREE: 17, host: 'host' })
     assert.equal((await run(result.source, 'ko')).title, '실험')
     const reading = fs.readFileSync(path.join(root, 'public', result.readingSource), 'utf8')
-    assert.equal(reading.replace('// Explanation', '// 설명'), result.source)
-    assert.equal(transformSync(reading).code, transformSync(result.source).code)
+    assert.equal(reading.replace('// Explanation', '// 설명'), await formatGeneratedText('example.js', result.source))
+    assert.equal(transformSync(reading).code, transformSync(await formatGeneratedText("example.js", result.source)).code)
     for (const bad of [input.replace('/* EXAMPLE_MESSAGES */', ''), input + '\n/* EXAMPLE_MESSAGES */']) {
-      assert.throws(() => helper.localizeExampleSource(id, bad, {}, { root, messagesMarker: '/* EXAMPLE_MESSAGES */' }), /message.*marker/i)
+      await assert.rejects(() => helper.localizeExampleSource(id, bad, {}, { root, messagesMarker: '/* EXAMPLE_MESSAGES */' }), /message.*marker/i)
     }
   })
 }
 
-test('partial sources stay unchanged and presented unknown IDs or implicit non-pilot bindings fail', t => {
+test('partial sources stay unchanged and presented unknown IDs or implicit non-pilot bindings fail', async t => {
   const { root, json } = fixture(t, 'javascript-01', 'javascript')
-  assert.deepEqual(helper.localizeExampleSource('javascript-02', 'unchanged', {}, { root }), { source: 'unchanged' })
-  assert.throws(() => helper.localizeExampleSource('javascript-01', 'export async function mount(context) {}', {}, { root }), /explicit.*marker/i)
+  assert.deepEqual(await helper.localizeExampleSource('javascript-02', 'unchanged', {}, { root }), { source: 'unchanged' })
+  await assert.rejects(() => helper.localizeExampleSource('javascript-01', 'export async function mount(context) {}', {}, { root }), /explicit.*marker/i)
   json('src/app/catalog.json', { units: [] })
-  assert.throws(() => helper.localizeExampleSource('javascript-01', 'source', {}, { root }), /unknown.*id/i)
+  await assert.rejects(() => helper.localizeExampleSource('javascript-01', 'source', {}, { root }), /unknown.*id/i)
 })
 
-test('manual reading conversion changes only approved line and inline spans, never comment-like literals', t => {
+test('manual reading conversion changes only approved line and inline spans, never comment-like literals', async t => {
   const { root } = fixture(t, 'javascript-01', 'javascript')
   const source = '// 설명\r\n  // 들여쓰기\r\nconst fixture="// 설명 /* 설명 */"; const value=3 // 같은 줄\r\nconst nested="self.postMessage(\'한글 café 日本語\')";\r\n'
   const from = { messages: {}, comments: { intro: '설명', indent: '들여쓰기', inline: '같은 줄' } }
@@ -63,8 +66,8 @@ test('manual reading conversion changes only approved line and inline spans, nev
   assert.equal(reading, expected)
   assert.equal(transformSync(reading).code, transformSync(source).code)
   assert.equal(reading.replace('// Explanation', '// 설명').replace('// Indented', '// 들여쓰기').replace('// Inline', '// 같은 줄'), source)
-  assert.equal(helper.writeEnglishReadingSource('javascript-01', source, from, to, { root, commentLocations: locations }), '/examples-en/javascript-01/example.js')
-  assert.equal(fs.readFileSync(path.join(root, 'public/examples-en/javascript-01/example.js'), 'utf8'), expected)
+  assert.equal(await helper.writeEnglishReadingSource('javascript-01', source, from, to, { root, commentLocations: locations }), '/examples-en/javascript-01/example.js')
+  assert.equal(fs.readFileSync(path.join(root, 'public/examples-en/javascript-01/example.js'), 'utf8'), await formatGeneratedText('example.js', expected))
   assert.throws(() => helper.translateExampleComments('x', source, from, to), /Missing source comment/)
   assert.throws(() => helper.translateExampleComments('x', source + '// 설명\n', from, to, locations), /Ambiguous source comment/)
   assert.throws(() => helper.translateExampleComments('x', source, from, to, { inline: { line, kind: 'line' } }), /comment location/i)
@@ -83,19 +86,22 @@ test('embedded CSS block comments use explicit JSON string spans while preservin
   assert.equal(evaluate(line).replace('/* 비교 */', ''), 'a{width:60px;}')
 })
 
-test('generated file writes preserve unchanged CRLF bytes and update changed content', t => {
+test('generated file writes final LF text and preserves unsupported CRLF inputs', async t => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'generated-file-'))
   t.after(() => fs.rmSync(root, { recursive: true, force: true }))
   const file = path.join(root, 'example.js')
   fs.writeFileSync(file, 'one\r\ntwo\r\n')
-  helper.writeGeneratedFile(file, 'one\ntwo\n')
-  assert.deepEqual(fs.readFileSync(file), Buffer.from('one\r\ntwo\r\n'))
-  helper.writeGeneratedFile(file, 'changed\n')
+  await helper.writeGeneratedFile(file, 'one\ntwo\n')
+  assert.deepEqual(fs.readFileSync(file), Buffer.from('one\ntwo\n'))
+  const wat = path.join(root, 'kernel.wat')
+  await helper.writeGeneratedFile(wat, '(module)\r\n')
+  assert.deepEqual(fs.readFileSync(wat), Buffer.from('(module)\r\n'))
+  await helper.writeGeneratedFile(file, 'changed\n')
   assert.equal(fs.readFileSync(file, 'utf8'), 'changed\n')
 })
 
 for (const id of ['javascript-step-02', 'css-step-04', 'react-step-03', 'gsap-step-02']) {
-  test(`${id}: compatibility helper regenerates the reviewed common and reading bytes`, t => {
+  test(`${id}: compatibility helper regenerates the reviewed common and reading bytes`, async t => {
     const catalog = JSON.parse(fs.readFileSync('src/app/catalog.json', 'utf8'))
     const seriesId = catalog.units.find(unit => unit.id === id).seriesId
     const { root, json } = fixture(t, id, seriesId)
@@ -103,12 +109,18 @@ for (const id of ['javascript-step-02', 'css-step-04', 'react-step-03', 'gsap-st
     json('content/example-presentations.json', originals)
     json(`content/locales/en/examples/${seriesId}.json`, JSON.parse(fs.readFileSync(`content/locales/en/examples/${seriesId}.json`, 'utf8')))
     const common = fs.readFileSync(`src/labs/${id}/example.js`, 'utf8').replaceAll('\r\n', '\n')
-    const template = common.split('\n').filter(line => !line.startsWith('const messages=locale===')).join('\n')
-      .replace("locale='ko',", '').replace(/messages\.([a-zA-Z0-9_]+)/g, (_, key) => JSON.stringify(originals[id].messages[key]))
-    const result = helper.localizeExampleSource(id, template, {}, { root })
-    assert.equal(result.source, common)
-    assert.equal(fs.readFileSync(path.join(root, 'public', result.readingSource), 'utf8'), fs.readFileSync(`public${result.readingSource}`, 'utf8').replaceAll('\r\n', '\n'))
-    assert.throws(() => helper.localizeExampleSource(id, '// missing mount', {}, { root }), /Unsupported pilot mount/)
+    const ast = await parsers.babel.parse(common)
+    const mount = ast.program.body.find(node => node.declaration?.id?.name === 'mount').declaration
+    const messages = mount.body.body.find(node => node.type === 'VariableDeclaration' && node.declarations[0].id.name === 'messages')
+    const locale = mount.params[0].properties.find(node => node.key.name === 'locale')
+    const edits = [{start: messages.start, end: messages.end}, {start: locale.start, end: common.indexOf(',', locale.end) + 1}].sort((a,b) => b.start-a.start)
+    let template = common
+    for (const {start,end} of edits) template = template.slice(0,start)+template.slice(end)
+    template = template.replace(/messages\.([a-zA-Z0-9_]+)/g, (_, key) => JSON.stringify(originals[id].messages[key]))
+    const result = await helper.localizeExampleSource(id, template, {}, { root })
+    await assertGeneratedSemantics('example.js', common, result.source)
+    await assertGeneratedSemantics('example.js', fs.readFileSync(`public${result.readingSource}`, 'utf8'), fs.readFileSync(path.join(root, 'public', result.readingSource), 'utf8'))
+    await assert.rejects(() => helper.localizeExampleSource(id, '// missing mount', {}, { root }), /Unsupported pilot mount/)
   })
 }
 
@@ -133,13 +145,27 @@ test('approved foundations and framework inline/indented source forms translate 
   }
 })
 
-test('actual CSS26 JSON-encoded block changes only the approved embedded comment', () => {
+test('actual CSS26 JSON-encoded block changes only the approved embedded comment', async () => {
   const source = fs.readFileSync('src/labs/css-step-26/example.js', 'utf8')
-  const line = source.split(/\r?\n/).find(line => line.startsWith('const HTML='))
+  const line = source.split(/\r?\n/).find(line => line.includes('/* 비교:'))
   const from = '비교: width 대신 transform:translateX(20px)'
   const to = 'Compare: use transform:translateX(20px) instead of width'
   const reading = helper.translateExampleComments('css-step-26', source, { comments: { css: from } }, { comments: { css: to } }, { css: { line, column: line.indexOf('/*'), kind: 'css-block-json' } })
   assert.equal(reading.replace('/* ' + to + ' */', '/* ' + from + ' */'), source)
-  const extractCSS = text => JSON.parse(text.split(/\r?\n/).find(line => line.startsWith('const HTML=')).split(',CSS=')[1].slice(0, -1))
-  assert.equal(extractCSS(reading).replace('/* ' + to + ' */', ''), extractCSS(source).replace('/* ' + from + ' */', ''))
+  const extractCSS = async text => {
+    const ast = await parsers.babel.parse(text)
+    const mount = ast.program.body.find(node => node.declaration?.id?.name === 'mount').declaration
+    return mount.body.body.flatMap(node => node.declarations ?? []).find(node => node.id.name === 'CSS').init.value
+  }
+  assert.equal((await extractCSS(reading)).replace('/* ' + to + ' */', ''), (await extractCSS(source)).replace('/* ' + from + ' */', ''))
+})
+
+test('async writer rejection exposes supported parse failures and preserves binary bytes', async t => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'writer-rejection-'))
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }))
+  await assert.rejects(helper.writeGeneratedFile(path.join(root, 'broken.js'), 'const ='), /broken\.js/)
+  const bytes = Buffer.from([0, 255, 13, 10])
+  const file = path.join(root, 'binary.js')
+  await helper.writeGeneratedFile(file, bytes)
+  assert.deepEqual(fs.readFileSync(file), bytes)
 })

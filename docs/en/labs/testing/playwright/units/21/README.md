@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| recording | off | retain on failure | Inspect the state immediately before the failure. |
+| Variable  | Baseline | Change            | Expected change / hypothesis                      |
+| --------- | -------- | ----------------- | ------------------------------------------------- |
+| recording | off      | retain on failure | Inspect the state immediately before the failure. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

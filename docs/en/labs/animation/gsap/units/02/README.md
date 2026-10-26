@@ -107,9 +107,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| API | to | fromTo | The explicit starting value changes the movement interval. |
+| Variable | Baseline | Change | Expected change / hypothesis                               |
+| -------- | -------- | ------ | ---------------------------------------------------------- |
+| API      | to       | fromTo | The explicit starting value changes the movement interval. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -126,17 +126,16 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 ## Official references
 
-- [GSAP to target values and settings](https://gsap.com/docs/v3/GSAP/gsap.to()/)
-- [GSAP from current state and initial application](https://gsap.com/docs/v3/GSAP/gsap.from()/)
-- [GSAP fromTo endpoints and immediateRender](https://gsap.com/docs/v3/GSAP/gsap.fromTo()/)
-- [GSAP reading property values](https://gsap.com/docs/v3/GSAP/gsap.getProperty()/)
+- [GSAP to target values and settings](<https://gsap.com/docs/v3/GSAP/gsap.to()/>)
+- [GSAP from current state and initial application](<https://gsap.com/docs/v3/GSAP/gsap.from()/>)
+- [GSAP fromTo endpoints and immediateRender](<https://gsap.com/docs/v3/GSAP/gsap.fromTo()/>)
+- [GSAP reading property values](<https://gsap.com/docs/v3/GSAP/gsap.getProperty()/>)
 
 ## Linked example and execution scope
 
 [Example source](../../../../../../../src/labs/gsap-step-02/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 This experiment explores starting and target values. You can manipulate it directly, and it cleans up the resources it uses.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

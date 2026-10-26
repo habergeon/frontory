@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| file | valid backup | invalid JSON | Restore a valid file and preserve existing values for an invalid file. |
+| Variable | Baseline     | Change       | Expected change / hypothesis                                           |
+| -------- | ------------ | ------------ | ---------------------------------------------------------------------- |
+| file     | valid backup | invalid JSON | Restore a valid file and preserve existing values for an invalid file. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

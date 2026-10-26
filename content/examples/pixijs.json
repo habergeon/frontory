@@ -8,200 +8,150 @@
     "readingSource": "/examples-en/pixijs-step-02/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-02/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-02/example.js"]
   },
   "pixijs-step-03": {
     "readingSource": "/examples-en/pixijs-step-03/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-03/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-03/example.js"]
   },
   "pixijs-step-04": {
     "readingSource": "/examples-en/pixijs-step-04/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-04/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-04/example.js"]
   },
   "pixijs-step-05": {
     "readingSource": "/examples-en/pixijs-step-05/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-05/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-05/example.js"]
   },
   "pixijs-step-06": {
     "readingSource": "/examples-en/pixijs-step-06/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-06/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-06/example.js"]
   },
   "pixijs-step-07": {
     "readingSource": "/examples-en/pixijs-step-07/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-07/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-07/example.js"]
   },
   "pixijs-step-08": {
     "readingSource": "/examples-en/pixijs-step-08/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-08/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-08/example.js"]
   },
   "pixijs-step-09": {
     "readingSource": "/examples-en/pixijs-step-09/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-09/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-09/example.js"]
   },
   "pixijs-step-10": {
     "readingSource": "/examples-en/pixijs-step-10/example.js",
     "mode": "browser",
     "note": "로컬 data URL을 Assets로 로드합니다. 오류 상태는 손상된 이미지로 재현하며 외부 서버/CORS는 별도 환경에서 확인하세요.",
-    "files": [
-      "src/labs/pixijs-step-10/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-10/example.js"]
   },
   "pixijs-step-11": {
     "readingSource": "/examples-en/pixijs-step-11/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-11/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-11/example.js"]
   },
   "pixijs-step-12": {
     "readingSource": "/examples-en/pixijs-step-12/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-12/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-12/example.js"]
   },
   "pixijs-step-13": {
     "readingSource": "/examples-en/pixijs-step-13/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-13/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-13/example.js"]
   },
   "pixijs-step-15": {
     "readingSource": "/examples-en/pixijs-step-15/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-15/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-15/example.js"]
   },
   "pixijs-step-16": {
     "readingSource": "/examples-en/pixijs-step-16/example.js",
     "mode": "browser",
     "note": "타이머로 비동기 장면 완료 순서를 재현합니다. 실제 서버 로딩 없이 세대 토큰을 관찰할 수 있습니다.",
-    "files": [
-      "src/labs/pixijs-step-16/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-16/example.js"]
   },
   "pixijs-step-17": {
     "readingSource": "/examples-en/pixijs-step-17/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-17/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-17/example.js"]
   },
   "pixijs-step-18": {
     "readingSource": "/examples-en/pixijs-step-18/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-18/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-18/example.js"]
   },
   "pixijs-step-19": {
     "readingSource": "/examples-en/pixijs-step-19/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-19/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-19/example.js"]
   },
   "pixijs-step-20": {
     "readingSource": "/examples-en/pixijs-step-20/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-20/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-20/example.js"]
   },
   "pixijs-step-21": {
     "readingSource": "/examples-en/pixijs-step-21/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-21/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-21/example.js"]
   },
   "pixijs-step-22": {
     "readingSource": "/examples-en/pixijs-step-22/example.js",
     "mode": "browser",
     "note": "직접 소유한 프레임 Texture와 TextureSource의 참조 수명을 실험합니다. Assets.unload 예제는 10일에서 확인하세요.",
-    "files": [
-      "src/labs/pixijs-step-22/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-22/example.js"]
   },
   "pixijs-step-23": {
     "readingSource": "/examples-en/pixijs-step-23/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-23/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-23/example.js"]
   },
   "pixijs-step-24": {
     "readingSource": "/examples-en/pixijs-step-24/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-24/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-24/example.js"]
   },
   "pixijs-step-25": {
     "readingSource": "/examples-en/pixijs-step-25/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-25/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-25/example.js"]
   },
   "pixijs-step-26": {
     "readingSource": "/examples-en/pixijs-step-26/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-26/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-26/example.js"]
   },
   "pixijs-step-27": {
     "readingSource": "/examples-en/pixijs-step-27/example.js",
     "mode": "browser",
     "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": [
-      "src/labs/pixijs-step-27/example.js"
-    ]
+    "files": ["src/labs/pixijs-step-27/example.js"]
   }
 }

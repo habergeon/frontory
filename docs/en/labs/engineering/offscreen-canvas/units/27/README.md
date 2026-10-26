@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable  | Baseline          | Change       | Expected change / hypothesis                   |
+| --------- | ----------------- | ------------ | ---------------------------------------------- |
 | Run order | Main thread first | Worker first | Warm-up or ordering effects can be identified. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/offscreen-canvas-step-27/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 The example shows request-to-acknowledgment time and sample count for one x patch. Visible-display latency, medians, long frames, three-run comparisons, and JSON export are separate assignments.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

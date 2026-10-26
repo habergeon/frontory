@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable | Baseline          | Change             | Expected change / hypothesis                                 |
+| -------- | ----------------- | ------------------ | ------------------------------------------------------------ |
 | Provider | 1 shared provider | 2 nested providers | The inner editor reads the draft from the nearest workspace. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

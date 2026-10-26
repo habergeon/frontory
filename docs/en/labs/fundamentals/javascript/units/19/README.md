@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable     | Baseline   | Change         | Expected change / hypothesis                                                                                                                                                             |
+| ------------ | ---------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Stored value | Valid JSON | Truncated JSON | Hypothesis before running: A restore failure will be reported while the screen remains available. Keep the other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
@@ -62,7 +62,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/javascript-step-19/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 The practice-only key is removed after execution. SecurityError caused by the iframe storage policy is also displayed.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

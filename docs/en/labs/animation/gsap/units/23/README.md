@@ -37,9 +37,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
-| Remounts | 1 time | 5 times | Drawing stops after disposal, with no duplicate registrations. |
+| Variable | Baseline | Change  | Expected change / hypothesis                                   |
+| -------- | -------- | ------- | -------------------------------------------------------------- |
+| Remounts | 1 time   | 5 times | Drawing stops after disposal, with no duplicate registrations. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 
@@ -63,7 +63,6 @@ Predictions in this table are not measured results. Change one condition at a ti
 [Example source](../../../../../../../src/labs/gsap-step-23/example.js) · [Runtime environments and limits](../../../../../examples.md)
 
 This is an experiment on Interpolating Canvas Objects. It supports direct interaction and cleans up the resources it uses.
-
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 

@@ -37,8 +37,8 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Variables to observe
 
-| Variable | Baseline | Change | Expected change / hypothesis |
-| --- | --- | --- | --- |
+| Variable                       | Baseline                | Change        | Expected change / hypothesis                                                                                    |
+| ------------------------------ | ----------------------- | ------------- | --------------------------------------------------------------------------------------------------------------- |
 | Repeated-object representation | Individual Mesh objects | InstancedMesh | With identical geometry and material, calls can be reduced, but the effect on the whole frame must be measured. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.

@@ -31,9 +31,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Practice tasks
 
-1. In import.js, prepare a valid file and a file whose second title is a number.
-2. Read the file, validate the array, id, and title, and apply only the entire array that passed validation.
-3. Run with a valid file and a file whose second title is a number. Results to check: Restore exactly the number of items in a valid file. The existing id array is unchanged after rejection. Record expected and actual results separately.
+1. Use notes.json downloaded from Unit 22 ({schemaVersion:1,notes:[...]}) as the valid file. For your import.js assignment, also prepare an unsupported version, a numeric title, and damaged JSON.
+2. Check that the file root is an object, schemaVersion is 1, and notes is an array, then validate each note’s id and title. In your separate import.js, replace state only after every check passes. The preview textarea demonstrates array validation; actual files use the versioned object.
+3. Check item counts and contents for valid files and files with Korean text/newlines. Reject unsupported versions, numeric titles, and damaged JSON. Check preservation of existing ids in import.js after implementing state replacement. The starter’s accepted/committed output does not prove app state replacement.
 
 ## Variables to observe
 

@@ -22,12 +22,12 @@
       "note": "Compare the editable inputs with actual browser execution results."
     },
     "presentation": {
-      "sourceHash": "a7ca82ffcd09e8b0ffbe061fea5a7d535b8d5695645d2979912a23a446fb9651",
+      "sourceHash": "e107cac5325796b35818303c897b4730140b5694ca8898c63cabebd4c27dcbee",
       "values": {
         "comments.title": "Equality comparisons and default values",
         "comments.help": "Editable experiment input and algorithm.",
         "messages.title": "Equality comparisons and default values",
-        "messages.help": "Change the input from logical OR to ?? and run the experiment.",
+        "messages.help": "Run [0,\"\",null] and compare the or and nullish columns. Helper code adds the final undefined row.",
         "messages.input": "Experiment JSON input",
         "messages.run": "Run experiment"
       }
@@ -234,12 +234,12 @@
       "note": "Compare the editable inputs with actual browser execution results."
     },
     "presentation": {
-      "sourceHash": "bc80256020f61f0a07c3b25ca46c14e783c665326e66704c9e1d0c8ff95000ad",
+      "sourceHash": "c32e278c4ab9b6e674b7c44001518889b90d6527a7413c9f3655ef79aed6fd05",
       "values": {
         "comments.title": "Parallel tasks and partial failures",
         "comments.help": "Editable experiment input and algorithm.",
         "messages.title": "Parallel tasks and partial failures",
-        "messages.help": "Change the input from 0 to 1 and run the experiment.",
+        "messages.help": "Compare {\"reject\":-1} (no failure) with {\"reject\":1} (second job fails). reject is the failure target index.",
         "messages.input": "Experiment JSON input",
         "messages.run": "Run experiment"
       }
@@ -362,12 +362,12 @@
       "note": "Compare the editable inputs with actual browser execution results."
     },
     "presentation": {
-      "sourceHash": "bb243161663d54ac80571e9852e26c174fe85fafad8e5e5e032f60056e9d4602",
+      "sourceHash": "3e36b035f05133ba7162d15362628d5bd2abb733b0caf23863ee1906cc3072c9",
       "values": {
         "comments.title": "File import and structure validation",
         "comments.help": "Editable experiment input and algorithm.",
         "messages.title": "File import and structure validation",
-        "messages.help": "Change the input from a string to a number and run the experiment.",
+        "messages.help": "Use the textarea to compare string and numeric titles in a notes array. Upload Unit 22’s {schemaVersion:1,notes:[...]} JSON file through the file input.",
         "messages.input": "Experiment JSON input",
         "messages.run": "Run experiment",
         "messages.display05": "Apply only when the entire array passes validation"

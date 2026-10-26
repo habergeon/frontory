@@ -7,7 +7,7 @@ Stage: Accessibility Review and Card Integration · Editable example · Storage 
 ## Goals and learning outcomes
 
 - Record the names and descriptions of the three controls in a table.
-- The button’s visible text and accessible name match.
+- After correction, the text save button’s visible wording matches its accessible name.
 
 ## Prerequisites
 
@@ -31,9 +31,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Practice tasks
 
-1. In names.html, prepare visible save text and a different aria-label.
+1. In names.html, prepare a button with visible save text, a × delete button named for its purpose, and an input with a label and description.
 2. Check names and descriptions for three types of controls—a text button, an icon button, and an input—in the accessibility panel.
-3. Run with visible save text and a different aria-label. Results to check: Record the names and descriptions of the three controls in a table. The button’s visible text and accessible name match. Record expected and actual results separately.
+3. Record the text save button’s accessible name, add a different aria-label, and record the mismatch. Remove aria-label or match it to the visible text, then inspect again. Preserve the × delete button’s purpose name and the input’s name and description.
 
 ## Variables to observe
 
@@ -46,7 +46,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 ## Completion criteria
 
 - [ ] Record the names and descriptions of the three controls in a table.
-- [ ] The button’s visible text and accessible name match.
+- [ ] After correction, the text save button’s visible wording matches its accessible name.
 
 ## Self-check
 

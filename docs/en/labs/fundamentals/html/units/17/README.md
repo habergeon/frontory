@@ -33,7 +33,7 @@ The linked example is a starting point. It does not implement every task below. 
 
 1. In dialog.html, prepare opening and closing with the keyboard, and Escape.
 2. Create a titled dialog and open/close buttons, and connect showModal and close with supporting JS.
-3. Run with opening and closing with the keyboard, and Escape. Results to check: Check keyboard operation inside the modal and closing with Escape. Record whether focus returns to the open button after closing. Record expected and actual results separately.
+3. Open with showModal and check closing, Escape, and focus returning to the opener. Close the modal, add the open attribute, and interact with outside elements without pressing the opener again. Remove open before reopening with showModal. Record expected and actual results separately.
 
 ## Variables to observe
 

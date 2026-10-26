@@ -31,9 +31,9 @@ strict는 여러 엄격한 검사를 묶어 켭니다. 옵션 변경 전후의 �
 
 ## 실습 과제
 
-1. tsconfig.json 파일에 타입 없는 매개변수와 null 대입 조건을 준비하세요.
-2. strict와 noEmit을 설정하고 명시하지 않은 함수 매개변수를 고친 뒤 실행용 출력도 비교하세요.
-3. 타입 없는 매개변수와 null 대입 조건으로 실행하세요. 확인할 결과: 설치한 tsc 버전과 두 설정의 진단을 남긴다. 수정 후 tsc --noEmit 오류가 0개다. 예상과 실제 결과는 구분해 기록하세요.
+1. tsconfig.json에는 compilerOptions의 strict·noEmit과 files:["lesson.ts"]를 설정하세요. lesson.ts에는 function double(value) { return value * 2 }와 let title: string = null;을 작성하세요.
+2. 설치한 tsc 버전을 기록하고 tsc -p tsconfig.json --noEmit으로 strict=false/true 진단을 비교하세요. 매개변수를 value: number로, title 초기값을 문자열로 고친 뒤 오류가 없는지 확인하세요.
+3. 실행용 출력 비교는 별도로 tsc -p tsconfig.json --noEmit false --outDir dist를 사용하세요. strict 변경 전후 같은 수정본을 출력해 타입 표기가 사라지는지 비교하세요. noEmit 검사만으로 출력 파일이 생겼다고 기록하지 마세요.
 
 ## 관찰할 변수
 

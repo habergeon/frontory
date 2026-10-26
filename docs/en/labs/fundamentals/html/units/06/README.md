@@ -31,9 +31,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Practice tasks
 
-1. In links/index.html, prepare a detail page in a subfolder and 3 sections.
-2. Create a detail-page link and #section links in the table of contents, and describe each destination in its link text.
-3. Run with a detail page in a subfolder and 3 sections. Results to check: The three table-of-contents links navigate to different headings. Distinguish successful and failing paths in the Network panel. Record expected and actual results separately.
+1. Create detail.html at the project root and index.html in a links folder. Do not create links/detail.html. Prepare 3 headings in links/index.html with ids intro, notes, and result.
+2. In links/index.html, create a table of contents linking to #intro, #notes, and #result, plus a detail link. From the same index URL, change the detail href from ./detail.html to ../detail.html and compare request URLs and HTTP status codes.
+3. Check that the 3 contents links reach different headings. Record the failed /links/detail.html response and successful /detail.html response in Network. Use a static server without SPA fallback; do not count a fallback 200 as a 404. example.test is an explanatory URL.
 
 ## Variables to observe
 

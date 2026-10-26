@@ -13,7 +13,7 @@ const button=document.createElement('button');button.textContent=messages.run;
 const output=document.createElement('pre');output.style.whiteSpace='pre-wrap';output.setAttribute('aria-live','polite');const stage=document.createElement('section');
 const show=value=>{if(!disposed)output.textContent=typeof value==='string'?value:JSON.stringify(value,null,2)};
 /** @param {any} input */
-async function experiment(input){const events=['sync'];const inner=()=>new Promise(resolve=>later(()=>{events.push('inner');resolve(null)},30));const chain=Promise.resolve().then(()=>{if(input.returnPromise)return inner();inner();}).then(()=>events.push('chain done'));events.push('sync end');await chain;await new Promise(resolve=>later(resolve,0));events.push('timer');return events;}
+async function experiment(input){const events=['sync'];let innerPromise;const inner=()=>innerPromise=new Promise(resolve=>later(()=>{events.push('inner');resolve(null)},30));const chain=Promise.resolve().then(()=>{if(input.returnPromise)return inner();inner();}).then(()=>events.push('chain done'));events.push('sync end');await chain;await new Promise(resolve=>later(resolve,0));events.push('timer');await innerPromise;return events;}
 let generation=0;const run=async()=>{const current=++generation;try{const result=await experiment(JSON.parse(editor.value));if(current===generation)show(result)}catch(error){if(current===generation)show({error:String(error)})}};
 button.addEventListener('click',run,{signal});container.append(title,help,editor,button,stage,output);run();
 return ()=>{disposed=true;controller.abort();timers.forEach(clearTimeout);urls.forEach(url=>URL.revokeObjectURL(url));container.replaceChildren()};

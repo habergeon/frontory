@@ -33,7 +33,7 @@ The linked example is a starting point. It does not implement every task below. 
 
 1. In input-types.html, prepare inputs for email, phone number, and study minutes.
 2. Create email·tel·number inputs with appropriate autocomplete·inputmode attributes.
-3. Run with inputs for email, phone number, and study minutes. Results to check: Each of the three fields has the corresponding label association and name. Compare the validity of valid and invalid email addresses. Record expected and actual results separately.
+3. Keep the other inputs valid. With minutes=0, record email.validity and form.checkValidity() separately for valid and invalid email values. Keep a valid email, change minutes to -1, and check that email remains valid while the form fails. Also record the label and name connections for all 3 fields.
 
 ## Variables to observe
 

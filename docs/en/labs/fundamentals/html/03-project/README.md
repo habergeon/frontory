@@ -8,6 +8,7 @@ Stage: Accessibility Review and Card Integration · Editable example · Storage 
 
 - Identify the topics and navigation purposes of 6 cards without images.
 - Use the keyboard to open the table of contents and navigate all cards, and record the order.
+- The title form rejects empty and short values and saves a valid title with Tab and Enter.
 
 ## Prerequisites
 
@@ -32,8 +33,8 @@ The linked example is a starting point. It does not implement every task below. 
 ## Practice tasks
 
 1. In cards.html, prepare successful/failed images and 100%·400% zoom.
-2. Create 6 learning cards and a details table of contents, and integrate image alt text, a heading hierarchy, and purposeful links.
-3. Run with successful/failed images and 100%·400% zoom. Results to check: Identify the topics and navigation purposes of 6 cards without images. Use the keyboard to open the table of contents and navigate all cards, and record the order. Record expected and actual results separately.
+2. Integrate image alt text, heading hierarchy, and purposeful links into 6 learning cards and a details table of contents. Reuse Unit 14’s title-saving form with label, required, minlength, aria-describedby, and failure guidance.
+3. With images loading and failing and at 100% and 400% zoom, record card topics, link purposes, and the keyboard order through the contents and cards. Check that the form rejects empty and short values, and save a valid title with Tab and Enter. Record expected and actual results separately.
 
 ## Variables to observe
 
@@ -47,6 +48,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 - [ ] Identify the topics and navigation purposes of 6 cards without images.
 - [ ] Use the keyboard to open the table of contents and navigate all cards, and record the order.
+- [ ] The title form rejects empty and short values and saves a valid title with Tab and Enter.
 
 ## Self-check
 

@@ -31,9 +31,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Practice tasks
 
-1. In form-basics.html, prepare a q input and search/reset actions.
+1. In form-basics.html, prepare a q input, search submission, and an ordinary auxiliary button.
 2. Build a GET search form with a labeled, named input and submit·button buttons.
-3. Run with a q input and search/reset actions. Results to check: The q value appears in the URL after a search. The auxiliary button does not submit the form unintentionally. Record expected and actual results separately.
+3. Check that the ordinary auxiliary button (type=button) submits 0 times, while a submit click and Enter in the input each submit 1 time. In a standalone HTTP page, record q in the URL after GET submission. The preview prevents submission navigation.
 
 ## Variables to observe
 

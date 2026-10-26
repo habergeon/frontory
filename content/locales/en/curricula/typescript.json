@@ -39,7 +39,7 @@
       }
     },
     "typescript-step-02": {
-      "sourceHash": "3091d2838d4d4bc635c1dece8847f26d6ee4d4027f9003d9da6abaa20861b71e",
+      "sourceHash": "59c38afc0429dc4cf25ab676cb0ee116bd53608a3a1e218a62d580a11725addf",
       "values": {
         "title": "strict Settings and Executable Code",
         "prerequisites": "Work and experiment records from Unit 1, “Types and Narrowing”",
@@ -50,9 +50,9 @@
         "concepts.1.explanation": "Type annotations are removed from the emitted JavaScript. Check compilation success and runtime success separately.",
         "outcomes.0": "Record the installed tsc version and diagnostics for both configurations.",
         "outcomes.1": "After correction, tsc --noEmit reports 0 errors.",
-        "steps.0": "In tsconfig.json, prepare conditions for an untyped parameter and a null assignment.",
-        "steps.1": "Set strict and noEmit, fix the unannotated function parameter, and also compare the emitted code for execution.",
-        "steps.2": "Run with an untyped parameter and a null assignment. Results to check: Record the installed tsc version and diagnostics for both configurations. After correction, tsc --noEmit reports 0 errors. Record expected and actual results separately.",
+        "steps.0": "In tsconfig.json, set compilerOptions.strict, compilerOptions.noEmit, and files:[\"lesson.ts\"]. In lesson.ts, write function double(value) { return value * 2 } and let title: string = null;.",
+        "steps.1": "Record the installed tsc version and compare diagnostics with strict=false/true using tsc -p tsconfig.json --noEmit. Type the parameter as value: number, initialize title with a string, and check that no errors remain.",
+        "steps.2": "For a separate comparison of executable output, use tsc -p tsconfig.json --noEmit false --outDir dist. Emit the same corrected source with each strict setting and compare the removal of type annotations. Do not report emitted files from a noEmit-only check.",
         "variables.0.name": "strict",
         "variables.0.baseline": "false",
         "variables.0.change": "true",
@@ -645,7 +645,7 @@
       }
     },
     "typescript-step-25": {
-      "sourceHash": "44a70c165400144b2e973fe3624e3a2255f1419b74235e19335f2f04fcb49b33",
+      "sourceHash": "c9df232724a3f6602fe3ae673f16c38e8a3ebd048d284d4cdab23498d93db152",
       "values": {
         "title": "Declaration Files and External Boundaries",
         "prerequisites": "Work and experiment records from Unit 24, “Modules and type-only import”",
@@ -656,9 +656,9 @@
         "concepts.1.explanation": "Incorrect declarations can still let consumer checks pass. Check implementation and declarations with the same call cases.",
         "outcomes.0": "Record the diagnostic for a call with an invalid argument.",
         "outcomes.1": "Keep logs comparing the declared and actual return types.",
-        "steps.0": "In legacy.d.ts, prepare conditions for string-key and number-key calls.",
-        "steps.1": "Declare a small legacy.js storage function and call it from a TS consumer with valid and invalid arguments.",
-        "steps.2": "Run with string-key and number-key calls. Results to check: Record the diagnostic for a call with an invalid argument. Keep logs comparing the declared and actual return types. Record expected and actual results separately.",
+        "steps.0": "Set type: \"module\" in the separate project’s package.json. Put export function save(value) { if (typeof value !== \"string\") throw new TypeError(\"string required\"); return value; } in legacy.js. Put only export declare function save(value: string): string; in legacy.d.ts, and call it from consumer.ts with import { save } from \"./legacy.js\".",
+        "steps.1": "In consumer.ts, log save(\"A\") and place @ts-expect-error before save(42) inside an if (false) block. Temporarily remove the directive to record the argument diagnostic, then restore it. Check with tsc --noEmit after setting strict: true, module: \"NodeNext\", and moduleResolution: \"NodeNext\" under compilerOptions and files:[\"consumer.ts\"] at the root of tsconfig.json.",
+        "steps.2": "Keep the string return in legacy.js fixed and change only the declaration return from string to number. Compare tsc --noEmit diagnostics with typeof save(\"A\") at runtime. For execution, emit with noEmit false and copy legacy.js into the output folder. The original starter returns a numeric string length; this is a separate assignment.",
         "variables.0.name": "Declared Return",
         "variables.0.baseline": "actual string",
         "variables.0.change": "incorrect number declaration",

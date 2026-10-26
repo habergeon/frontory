@@ -31,9 +31,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Practice tasks
 
-1. In legacy.d.ts, prepare conditions for string-key and number-key calls.
-2. Declare a small legacy.js storage function and call it from a TS consumer with valid and invalid arguments.
-3. Run with string-key and number-key calls. Results to check: Record the diagnostic for a call with an invalid argument. Keep logs comparing the declared and actual return types. Record expected and actual results separately.
+1. Set type: "module" in the separate project’s package.json. Put export function save(value) { if (typeof value !== "string") throw new TypeError("string required"); return value; } in legacy.js. Put only export declare function save(value: string): string; in legacy.d.ts, and call it from consumer.ts with import { save } from "./legacy.js".
+2. In consumer.ts, log save("A") and place @ts-expect-error before save(42) inside an if (false) block. Temporarily remove the directive to record the argument diagnostic, then restore it. Check with tsc --noEmit after setting strict: true, module: "NodeNext", and moduleResolution: "NodeNext" under compilerOptions and files:["consumer.ts"] at the root of tsconfig.json.
+3. Keep the string return in legacy.js fixed and change only the declaration return from string to number. Compare tsc --noEmit diagnostics with typeof save("A") at runtime. For execution, emit with noEmit false and copy legacy.js into the output folder. The original starter returns a numeric string length; this is a separate assignment.
 
 ## Variables to observe
 

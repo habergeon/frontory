@@ -81,9 +81,9 @@
         "수정 후 tsc --noEmit 오류가 0개다."
       ],
       "steps": [
-        "tsconfig.json 파일에 타입 없는 매개변수와 null 대입 조건을 준비하세요.",
-        "strict와 noEmit을 설정하고 명시하지 않은 함수 매개변수를 고친 뒤 실행용 출력도 비교하세요.",
-        "타입 없는 매개변수와 null 대입 조건으로 실행하세요. 확인할 결과: 설치한 tsc 버전과 두 설정의 진단을 남긴다. 수정 후 tsc --noEmit 오류가 0개다. 예상과 실제 결과는 구분해 기록하세요."
+        "tsconfig.json에는 compilerOptions의 strict·noEmit과 files:[\"lesson.ts\"]를 설정하세요. lesson.ts에는 function double(value) { return value * 2 }와 let title: string = null;을 작성하세요.",
+        "설치한 tsc 버전을 기록하고 tsc -p tsconfig.json --noEmit으로 strict=false/true 진단을 비교하세요. 매개변수를 value: number로, title 초기값을 문자열로 고친 뒤 오류가 없는지 확인하세요.",
+        "실행용 출력 비교는 별도로 tsc -p tsconfig.json --noEmit false --outDir dist를 사용하세요. strict 변경 전후 같은 수정본을 출력해 타입 표기가 사라지는지 비교하세요. noEmit 검사만으로 출력 파일이 생겼다고 기록하지 마세요."
       ],
       "variables": [
         {
@@ -1217,9 +1217,9 @@
         "선언과 실제 반환 타입을 비교한 로그가 있다."
       ],
       "steps": [
-        "legacy.d.ts 파일에 문자열 키와 숫자 키 호출 조건을 준비하세요.",
-        "작은 legacy.js 저장 함수를 선언하고 TS 소비자에서 정상·잘못된 인수로 호출하세요.",
-        "문자열 키와 숫자 키 호출 조건으로 실행하세요. 확인할 결과: 잘못된 인수 호출의 진단을 남긴다. 선언과 실제 반환 타입을 비교한 로그가 있다. 예상과 실제 결과는 구분해 기록하세요."
+        "별도 프로젝트의 package.json에 type: \"module\"을 설정하세요. legacy.js에는 export function save(value) { if (typeof value !== \"string\") throw new TypeError(\"string required\"); return value; } 구현을 두세요. legacy.d.ts에는 export declare function save(value: string): string; 선언만 두고, consumer.ts에서 import { save } from \"./legacy.js\"로 호출하세요.",
+        "consumer.ts에서 save(\"A\")를 출력하고 if (false) 블록의 save(42) 앞에는 @ts-expect-error를 두세요. 해당 지시문을 잠시 제거해 인수 진단을 기록한 뒤 복원하세요. tsconfig.json의 compilerOptions에는 strict: true·module: \"NodeNext\"·moduleResolution: \"NodeNext\"를, files에는 [\"consumer.ts\"]를 설정하고 tsc --noEmit으로 검사하세요.",
+        "legacy.js의 문자열 반환을 고정하고 선언 반환만 string에서 number로 바꾸세요. tsc --noEmit 진단과 실행 후 typeof save(\"A\")를 비교하세요. 실행할 때는 noEmit false로 출력하고 legacy.js를 출력 폴더에 복사하세요. 원본 starter의 문자열 길이 number 반환은 이 별도 과제와 다릅니다."
       ],
       "variables": [
         {

@@ -31,9 +31,9 @@ d.ts는 구현의 타입 계약을 기술합니다. 실제 JavaScript 동작을 
 
 ## 실습 과제
 
-1. legacy.d.ts 파일에 문자열 키와 숫자 키 호출 조건을 준비하세요.
-2. 작은 legacy.js 저장 함수를 선언하고 TS 소비자에서 정상·잘못된 인수로 호출하세요.
-3. 문자열 키와 숫자 키 호출 조건으로 실행하세요. 확인할 결과: 잘못된 인수 호출의 진단을 남긴다. 선언과 실제 반환 타입을 비교한 로그가 있다. 예상과 실제 결과는 구분해 기록하세요.
+1. 별도 프로젝트의 package.json에 type: "module"을 설정하세요. legacy.js에는 export function save(value) { if (typeof value !== "string") throw new TypeError("string required"); return value; } 구현을 두세요. legacy.d.ts에는 export declare function save(value: string): string; 선언만 두고, consumer.ts에서 import { save } from "./legacy.js"로 호출하세요.
+2. consumer.ts에서 save("A")를 출력하고 if (false) 블록의 save(42) 앞에는 @ts-expect-error를 두세요. 해당 지시문을 잠시 제거해 인수 진단을 기록한 뒤 복원하세요. tsconfig.json의 compilerOptions에는 strict: true·module: "NodeNext"·moduleResolution: "NodeNext"를, files에는 ["consumer.ts"]를 설정하고 tsc --noEmit으로 검사하세요.
+3. legacy.js의 문자열 반환을 고정하고 선언 반환만 string에서 number로 바꾸세요. tsc --noEmit 진단과 실행 후 typeof save("A")를 비교하세요. 실행할 때는 noEmit false로 출력하고 legacy.js를 출력 폴더에 복사하세요. 원본 starter의 문자열 길이 number 반환은 이 별도 과제와 다릅니다.
 
 ## 관찰할 변수
 

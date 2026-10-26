@@ -1,7 +1,7 @@
 // 병렬 작업과 부분 실패
 // 편집할 실험 입력과 알고리즘입니다.
 export function mount({container,locale='ko'}) {
-const messages=locale==='en'?{"title":"Parallel tasks and partial failures","help":"Change the input from 0 to 1 and run the experiment.","input":"Experiment JSON input","run":"Run experiment"}:{"title":"병렬 작업과 부분 실패","help":"0 → 1 조건으로 입력을 바꿔 실행하세요.","input":"실험 JSON 입력","run":"실험 실행"};
+const messages=locale==='en'?{"title":"Parallel tasks and partial failures","help":"Compare {\"reject\":-1} (no failure) with {\"reject\":1} (second job fails). reject is the failure target index.","input":"Experiment JSON input","run":"Run experiment"}:{"title":"병렬 작업과 부분 실패","help":"{\"reject\":-1}(실패 없음)과 {\"reject\":1}(둘째 작업 실패)을 비교하세요. reject는 실패 대상 인덱스입니다.","input":"실험 JSON 입력","run":"실험 실행"};
 const INITIAL={"reject":1};
 const controller=new AbortController(),signal=controller.signal;
 const timers=[],urls=[];let disposed=false;

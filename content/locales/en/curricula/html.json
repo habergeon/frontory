@@ -64,7 +64,7 @@
       }
     },
     "html-step-03": {
-      "sourceHash": "1e800c63587527c024091c56ecda469f34eb29cadacacaaaf55bf1e4e34c4cc4",
+      "sourceHash": "6d2bf398d8006c5496fb452ad1d18fbc651921b332a461b69912d7fcc7915926",
       "values": {
         "title": "Metadata and Document Titles",
         "prerequisites": "The work and experiment records from Unit 2, “Document Skeleton and Character Encoding”.",
@@ -74,12 +74,12 @@
         "concepts.1.title": "Viewport",
         "concepts.1.explanation": "The viewport meta tag affects mobile layout viewport settings. Settings that prevent zooming can interfere with reading.",
         "outcomes.0": "The tab titles of the two pages are distinguishable.",
-        "outcomes.1": "Record the screen width before and after applying the settings in mobile emulation.",
+        "outcomes.1": "Record layout viewport widths before and after the viewport meta change under identical mobile emulation settings.",
         "criteria.0": "The tab titles of the two pages are distinguishable.",
-        "criteria.1": "Record the screen width before and after applying the settings in mobile emulation.",
-        "steps.0": "In head.html, prepare two files: a list page and a detail page.",
-        "steps.1": "Write a unique title and description, and set width=device-width·initial-scale=1.",
-        "steps.2": "Run with two files: a list page and a detail page. Results to check: The tab titles of the two pages are distinguishable. Record the screen width before and after applying the settings in mobile emulation. Record expected and actual results separately.",
+        "criteria.1": "Record layout viewport widths before and after the viewport meta change under identical mobile emulation settings.",
+        "steps.0": "Create list.html and detail.html with titles Learning list and Learning detail respectively. Keep the same emulated mobile device and zoom settings.",
+        "steps.1": "Write a distinct description in each head. Reload list.html without a viewport meta tag and record document.documentElement.clientWidth in the console. Add width=device-width, initial-scale=1, reload under the same conditions, and record the width again.",
+        "steps.2": "Record both tab titles and the mobile layout viewport width before and after the change. Do not interpret the built-in width slider or outer window width as the meta tag effect. Record expected and actual results separately.",
         "questions.0": "Is description always used in search results?",
         "questions.1": "Who is affected by settings that prevent zooming?",
         "variables.0.name": "viewport",
@@ -142,7 +142,7 @@
       }
     },
     "html-step-06": {
-      "sourceHash": "2fb7913bbcff4fc3b3bf569806734f92471142df4ad2134effd086b0383a4010",
+      "sourceHash": "123022e3ea88aa011d6f1dfb4ede54a39ddb4dab56d46db32f8ea66ee248dcff",
       "values": {
         "title": "Link Paths and In-page Navigation",
         "prerequisites": "The work and experiment records from Unit 5, “Lists and Term Descriptions”.",
@@ -155,9 +155,9 @@
         "outcomes.1": "Distinguish successful and failing paths in the Network panel.",
         "criteria.0": "The three table-of-contents links navigate to different headings.",
         "criteria.1": "Distinguish successful and failing paths in the Network panel.",
-        "steps.0": "In links/index.html, prepare a detail page in a subfolder and 3 sections.",
-        "steps.1": "Create a detail-page link and #section links in the table of contents, and describe each destination in its link text.",
-        "steps.2": "Run with a detail page in a subfolder and 3 sections. Results to check: The three table-of-contents links navigate to different headings. Distinguish successful and failing paths in the Network panel. Record expected and actual results separately.",
+        "steps.0": "Create detail.html at the project root and index.html in a links folder. Do not create links/detail.html. Prepare 3 headings in links/index.html with ids intro, notes, and result.",
+        "steps.1": "In links/index.html, create a table of contents linking to #intro, #notes, and #result, plus a detail link. From the same index URL, change the detail href from ./detail.html to ../detail.html and compare request URLs and HTTP status codes.",
+        "steps.2": "Check that the 3 contents links reach different headings. Record the failed /links/detail.html response and successful /detail.html response in Network. Use a static server without SPA fallback; do not count a fallback 200 as a 404. example.test is an explanatory URL.",
         "questions.0": "What problems arise if the link text only says “here”?",
         "questions.1": "How can you find duplicate ids?",
         "variables.0.name": "Relative Path",
@@ -272,7 +272,7 @@
       }
     },
     "html-step-11": {
-      "sourceHash": "63c55ec2cf03465893596f01e291379cd9f2ec5708a4492efe16da3a9fa2cdbe",
+      "sourceHash": "38b12226e2f068ffc3e7bcb463a227729a53ae38827e51eaa308a971f35a6851",
       "values": {
         "title": "The Form Submission Contract",
         "prerequisites": "The work and experiment records from Unit 10, “Quotations and Machine-readable Dates”.",
@@ -285,9 +285,9 @@
         "outcomes.1": "The auxiliary button does not submit the form unintentionally.",
         "criteria.0": "The q value appears in the URL after a search.",
         "criteria.1": "The auxiliary button does not submit the form unintentionally.",
-        "steps.0": "In form-basics.html, prepare a q input and search/reset actions.",
+        "steps.0": "In form-basics.html, prepare a q input, search submission, and an ordinary auxiliary button.",
         "steps.1": "Build a GET search form with a labeled, named input and submit·button buttons.",
-        "steps.2": "Run with a q input and search/reset actions. Results to check: The q value appears in the URL after a search. The auxiliary button does not submit the form unintentionally. Record expected and actual results separately.",
+        "steps.2": "Check that the ordinary auxiliary button (type=button) submits 0 times, while a submit click and Enter in the input each submit 1 time. In a standalone HTTP page, record q in the URL after GET submission. The preview prevents submission navigation.",
         "questions.0": "Is an input with only id submitted?",
         "questions.1": "How do the purposes of GET and POST differ?",
         "variables.0.name": "Button type",
@@ -298,7 +298,7 @@
       }
     },
     "html-step-12": {
-      "sourceHash": "88ff4b2cbdf106857f1bd5885a962dc7762c18ed8fa02241c4b9053609b87a2a",
+      "sourceHash": "5e06fa8cb5bad8ba958541ae247559070e6956734a94421926ee5d78a974f983",
       "values": {
         "title": "Input Types and Autocomplete",
         "prerequisites": "The work and experiment records from Unit 11, “The Form Submission Contract”.",
@@ -313,7 +313,7 @@
         "criteria.1": "Compare the validity of valid and invalid email addresses.",
         "steps.0": "In input-types.html, prepare inputs for email, phone number, and study minutes.",
         "steps.1": "Create email·tel·number inputs with appropriate autocomplete·inputmode attributes.",
-        "steps.2": "Run with inputs for email, phone number, and study minutes. Results to check: Each of the three fields has the corresponding label association and name. Compare the validity of valid and invalid email addresses. Record expected and actual results separately.",
+        "steps.2": "Keep the other inputs valid. With minutes=0, record email.validity and form.checkValidity() separately for valid and invalid email values. Keep a valid email, change minutes to -1, and check that email remains valid while the form fails. Also record the label and name connections for all 3 fields.",
         "questions.0": "Does inputmode perform input validation?",
         "questions.1": "Is the leading 0 of a phone number preserved?",
         "variables.0.name": "Email type",
@@ -431,7 +431,7 @@
       }
     },
     "html-step-17": {
-      "sourceHash": "baf060fd4d1d6c301f91b5dbddc15028b4a29555dcdf44ca26d7f86ef9af1da7",
+      "sourceHash": "1f2ebdafc0db0ee3151fe10fcfc7f26c72c41637b8708aefb0121aa480b5432d",
       "values": {
         "title": "dialog and Modal Flow",
         "prerequisites": "The work and experiment records from Unit 16, “A Collapsible Table of Contents with details”.",
@@ -446,7 +446,7 @@
         "criteria.1": "Record whether focus returns to the open button after closing.",
         "steps.0": "In dialog.html, prepare opening and closing with the keyboard, and Escape.",
         "steps.1": "Create a titled dialog and open/close buttons, and connect showModal and close with supporting JS.",
-        "steps.2": "Run with opening and closing with the keyboard, and Escape. Results to check: Check keyboard operation inside the modal and closing with Escape. Record whether focus returns to the open button after closing. Record expected and actual results separately.",
+        "steps.2": "Open with showModal and check closing, Escape, and focus returning to the opener. Close the modal, add the open attribute, and interact with outside elements without pressing the opener again. Remove open before reopening with showModal. Record expected and actual results separately.",
         "questions.0": "How do you associate a dialog with its title?",
         "questions.1": "Where is an appropriate place for initial focus inside a modal?",
         "variables.0.name": "Opening Method",
@@ -614,7 +614,7 @@
       }
     },
     "html-step-24": {
-      "sourceHash": "af2ed518719313a140ed6301638efab569050d91a2c37d9fb572142dcefbb02c",
+      "sourceHash": "1ecc045e45a1df332b824306083f1410e3dff6800b54e3d7c3e284b71a3aff6f",
       "values": {
         "title": "Accessible Names and Descriptions",
         "prerequisites": "The work and experiment records from Unit 23, “Script Loading and Document Parsing”.",
@@ -624,12 +624,12 @@
         "concepts.1.title": "Description Associations",
         "concepts.1.explanation": "aria-describedby associates additional descriptions. Do not use it to replace a name.",
         "outcomes.0": "Record the names and descriptions of the three controls in a table.",
-        "outcomes.1": "The button’s visible text and accessible name match.",
+        "outcomes.1": "After correction, the text save button’s visible wording matches its accessible name.",
         "criteria.0": "Record the names and descriptions of the three controls in a table.",
-        "criteria.1": "The button’s visible text and accessible name match.",
-        "steps.0": "In names.html, prepare visible save text and a different aria-label.",
+        "criteria.1": "After correction, the text save button’s visible wording matches its accessible name.",
+        "steps.0": "In names.html, prepare a button with visible save text, a × delete button named for its purpose, and an input with a label and description.",
         "steps.1": "Check names and descriptions for three types of controls—a text button, an icon button, and an input—in the accessibility panel.",
-        "steps.2": "Run with visible save text and a different aria-label. Results to check: Record the names and descriptions of the three controls in a table. The button’s visible text and accessible name match. Record expected and actual results separately.",
+        "steps.2": "Record the text save button’s accessible name, add a different aria-label, and record the mismatch. Remove aria-label or match it to the visible text, then inspect again. Preserve the × delete button’s purpose name and the input’s name and description.",
         "questions.0": "Is aria-label always necessary?",
         "questions.1": "What burden can an overly long description place on users?",
         "variables.0.name": "Naming Attribute",
@@ -718,7 +718,7 @@
       }
     },
     "html-03": {
-      "sourceHash": "fb0eafcd640f20bb2e36dde22f4e38e6aea79938397397a9bc7d22b9bcb9acbc",
+      "sourceHash": "4737c16881b650af33d533de0b881467e5e6c96a1342a616a45e2df2acc207df",
       "values": {
         "title": "Accessible Learning Cards",
         "prerequisites": "The work and experiment records from Unit 27, “Checking Image Failure and Zoom”.",
@@ -732,15 +732,17 @@
         "criteria.0": "Identify the topics and navigation purposes of 6 cards without images.",
         "criteria.1": "Use the keyboard to open the table of contents and navigate all cards, and record the order.",
         "steps.0": "In cards.html, prepare successful/failed images and 100%·400% zoom.",
-        "steps.1": "Create 6 learning cards and a details table of contents, and integrate image alt text, a heading hierarchy, and purposeful links.",
-        "steps.2": "Run with successful/failed images and 100%·400% zoom. Results to check: Identify the topics and navigation purposes of 6 cards without images. Use the keyboard to open the table of contents and navigate all cards, and record the order. Record expected and actual results separately.",
+        "steps.1": "Integrate image alt text, heading hierarchy, and purposeful links into 6 learning cards and a details table of contents. Reuse Unit 14’s title-saving form with label, required, minlength, aria-describedby, and failure guidance.",
+        "steps.2": "With images loading and failing and at 100% and 400% zoom, record card topics, link purposes, and the keyboard order through the contents and cards. Check that the form rejects empty and short values, and save a valid title with Tab and Enter. Record expected and actual results separately.",
         "questions.0": "Does the meaning remain with CSS removed?",
         "questions.1": "Which aspects of the user experience could automated checks not verify?",
         "variables.0.name": "Images",
         "variables.0.baseline": "Successful loading",
         "variables.0.change": "All fail",
         "variables.0.expected": "Pre-run hypothesis: The topics and control purposes will remain understandable. Keep other conditions fixed and record the actual result separately after running.",
-        "references.0.title": "MDN HTML"
+        "references.0.title": "MDN HTML",
+        "outcomes.2": "The title form rejects empty and short values and saves a valid title with Tab and Enter.",
+        "criteria.2": "The title form rejects empty and short values and saves a valid title with Tab and Enter."
       }
     }
   }

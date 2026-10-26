@@ -31,9 +31,9 @@ id를 가리키는 링크는 문서 내부 위치로 이동합니다. 중복 id�
 
 ## 실습 과제
 
-1. links/index.html 파일에 하위 폴더 상세 페이지와 섹션 3개 조건을 준비하세요.
-2. 상세 페이지 링크와 목차의 #section 링크를 만들고 링크 텍스트에 목적을 적으세요.
-3. 하위 폴더 상세 페이지와 섹션 3개 조건으로 실행하세요. 확인할 결과: 세 목차 링크가 서로 다른 제목으로 이동한다. 네트워크에서 정상 경로와 실패 경로를 구분한다. 예상과 실제 결과는 구분해 기록하세요.
+1. 프로젝트 루트에 detail.html, links 폴더에 index.html을 만드세요. links/detail.html은 만들지 마세요. links/index.html에 id가 intro·notes·result인 제목 3개를 준비하세요.
+2. links/index.html에서 #intro·#notes·#result 목차와 상세 링크를 만드세요. 같은 index URL에서 상세 href를 ./detail.html에서 ../detail.html로 바꿔 요청 URL과 HTTP status를 비교하세요.
+3. 세 목차가 서로 다른 제목으로 이동하는지 확인하세요. Network에서 /links/detail.html의 실패 응답과 /detail.html의 정상 응답을 기록하세요. SPA fallback의 200을 404로 세지 말고 fallback 없는 정적 서버를 사용하세요. example.test는 설명용 URL입니다.
 
 ## 관찰할 변수
 

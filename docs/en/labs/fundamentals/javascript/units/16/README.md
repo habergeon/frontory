@@ -33,13 +33,13 @@ The linked example is a starting point. It does not implement every task below. 
 
 1. In batch.js, prepare different delays and a failure in the second operation.
 2. Run 3 delayed operations with all and allSettled, and output their result order and status.
-3. Run with different delays and a failure in the second operation. Results to check: Distinguish completion order from the order of the returned array. The partial-failure screen retains 2 successful items. Record expected and actual results separately.
+3. Compare all-success with {"reject":-1} and second-job failure with {"reject":1}. Check for 2 successes and 1 failure and the input order of the returned array. Log completion events in your separate batch.js to distinguish completion order from return order. This starter observes all after allSettled and does not measure when all first rejects.
 
 ## Variables to observe
 
 | Variable | Baseline | Change | Expected change / hypothesis |
 | --- | --- | --- | --- |
-| Number of failures | 0 | 1 | Hypothesis before running: It will be possible to separate 2 successes and 1 failure. Keep the other conditions fixed and record the actual result separately after running. |
+| Failure target index | -1 (no failure) | 1 (second job) | Hypothesis before running: It will be possible to separate 2 successes and 1 failure. Keep the other conditions fixed and record the actual result separately after running. |
 
 Predictions in this table are not measured results. Change one condition at a time and record why the actual result differs.
 

@@ -424,7 +424,7 @@
       }
     },
     "javascript-step-16": {
-      "sourceHash": "acfa7d2df43f89bd75964f6da75407ba732cc28cadad7999231a1f723a4b8f10",
+      "sourceHash": "93f6dbb8b2b65ecec72e3f1a5ff601f4bdaf68403f8ac824b988464f6ef1996c",
       "values": {
         "title": "Parallel Work and Partial Failure",
         "prerequisites": "The work and experiment records from Unit 15, “Fetch Responses and HTTP Errors”",
@@ -439,10 +439,10 @@
         "criteria.1": "The partial-failure screen retains 2 successful items.",
         "steps.0": "In batch.js, prepare different delays and a failure in the second operation.",
         "steps.1": "Run 3 delayed operations with all and allSettled, and output their result order and status.",
-        "steps.2": "Run with different delays and a failure in the second operation. Results to check: Distinguish completion order from the order of the returned array. The partial-failure screen retains 2 successful items. Record expected and actual results separately.",
-        "variables.0.name": "Number of failures",
-        "variables.0.baseline": "0",
-        "variables.0.change": "1",
+        "steps.2": "Compare all-success with {\"reject\":-1} and second-job failure with {\"reject\":1}. Check for 2 successes and 1 failure and the input order of the returned array. Log completion events in your separate batch.js to distinguish completion order from return order. This starter observes all after allSettled and does not measure when all first rejects.",
+        "variables.0.name": "Failure target index",
+        "variables.0.baseline": "-1 (no failure)",
+        "variables.0.change": "1 (second job)",
         "variables.0.expected": "Hypothesis before running: It will be possible to separate 2 successes and 1 failure. Keep the other conditions fixed and record the actual result separately after running.",
         "questions.0": "Does a failure in all cancel the remaining operations?",
         "questions.1": "How should partial failure be communicated?",
@@ -606,7 +606,7 @@
       }
     },
     "javascript-step-23": {
-      "sourceHash": "433711b6dd2199cd00303ef79ea876828a3aefd460aa31571ec703f8b1288892",
+      "sourceHash": "995d01e84ef9938e8b824d0c0c6cb092a18fe119bf96cf00517b86b41d924d4c",
       "values": {
         "title": "File Import and Structure Validation",
         "prerequisites": "The work and experiment records from Unit 22, “Exporting JSON with Blob”",
@@ -619,9 +619,9 @@
         "criteria.0": "Restore exactly the number of items in a valid file.",
         "outcomes.1": "The existing id array is unchanged after rejection.",
         "criteria.1": "The existing id array is unchanged after rejection.",
-        "steps.0": "In import.js, prepare a valid file and a file whose second title is a number.",
-        "steps.1": "Read the file, validate the array, id, and title, and apply only the entire array that passed validation.",
-        "steps.2": "Run with a valid file and a file whose second title is a number. Results to check: Restore exactly the number of items in a valid file. The existing id array is unchanged after rejection. Record expected and actual results separately.",
+        "steps.0": "Use notes.json downloaded from Unit 22 ({schemaVersion:1,notes:[...]}) as the valid file. For your import.js assignment, also prepare an unsupported version, a numeric title, and damaged JSON.",
+        "steps.1": "Check that the file root is an object, schemaVersion is 1, and notes is an array, then validate each note’s id and title. In your separate import.js, replace state only after every check passes. The preview textarea demonstrates array validation; actual files use the versioned object.",
+        "steps.2": "Check item counts and contents for valid files and files with Korean text/newlines. Reject unsupported versions, numeric titles, and damaged JSON. Check preservation of existing ids in import.js after implementing state replacement. The starter’s accepted/committed output does not prove app state replacement.",
         "variables.0.name": "Type of title",
         "variables.0.baseline": "String",
         "variables.0.change": "Number",

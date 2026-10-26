@@ -1,7 +1,7 @@
 // 동등 비교와 기본값
 // 편집할 실험 입력과 알고리즘입니다.
 export function mount({container,locale='ko'}) {
-const messages=locale==='en'?{"title":"Equality comparisons and default values","help":"Change the input from logical OR to ?? and run the experiment.","input":"Experiment JSON input","run":"Run experiment"}:{"title":"동등 비교와 기본값","help":"논리 OR → ?? 조건으로 입력을 바꿔 실행하세요.","input":"실험 JSON 입력","run":"실험 실행"};
+const messages=locale==='en'?{"title":"Equality comparisons and default values","help":"Run [0,\"\",null] and compare the or and nullish columns. Helper code adds the final undefined row.","input":"Experiment JSON input","run":"Run experiment"}:{"title":"동등 비교와 기본값","help":"[0,\"\",null]을 실행하고 or·nullish 열을 비교하세요. 마지막 undefined 행은 보조 코드가 추가합니다.","input":"실험 JSON 입력","run":"실험 실행"};
 const INITIAL=[0,"",null];
 const controller=new AbortController(),signal=controller.signal;
 const timers=[],urls=[];let disposed=false;

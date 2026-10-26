@@ -1,7 +1,7 @@
 // template과 반복 콘텐츠: 실제 HTML/CSS 실험
 export function mount({container,locale='ko'}) {
 const messages=locale==='en'?{"title":"template and Repeated Content","note":"Helper code clones the template 3 times and associates for/id with unique suffixes. Try changing the template content in the source. Inside Shadow DOM, body/html/:root selectors become .doc. @media responds to the outer preview viewport. The width slider changes only the container width. Network access, form navigation, and iframes are restricted.","display003":"Element to run in an external environment: ","display004":"Inspect current DOM / styles","display005":"HTML source","display006":"CSS source","display007":"Container width","display008":"Apply","display009":"Title"}:{"title":"template과 반복 콘텐츠","note":"보조 코드가 template을 3회 복제하고 for/id를 고유 접미사로 연결합니다. 소스의 template 내용을 바꿔보세요. Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.","display003":"외부 환경에서 실행할 요소: ","display004":"현재 DOM / 스타일 검사","display005":"HTML 소스","display006":"CSS 소스","display007":"컨테이너 폭","display008":"적용","display009":"제목"};
-const HTML=("<template id=\"card\"><article><label for=\"title\">"+messages.display009+"</label><input id=\"title\" value=\"메모\"></article></template><section data-cards></section>"),CSS="";
+const HTML=("<body><template id=\"card\"><article><label for=\"title\">"+messages.display009+"</label><input id=\"title\" value=\"메모\"></article></template><section data-cards></section></body>"),CSS="";
 const originalRootSize=document.documentElement.style.fontSize;
 const controller=new AbortController(),signal=controller.signal;
 const heading=document.createElement('h2');heading.textContent=messages.title;

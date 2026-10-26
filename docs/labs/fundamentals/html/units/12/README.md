@@ -33,7 +33,7 @@ autocomplete 토큰은 입력 목적을 전달합니다. 사용자 입력 부담
 
 1. input-types.html 파일에 이메일, 전화번호, 학습 분 입력 조건을 준비하세요.
 2. email·tel·number 입력과 적절한 autocomplete·inputmode를 작성하세요.
-3. 이메일, 전화번호, 학습 분 입력 조건으로 실행하세요. 확인할 결과: 세 필드의 label과 name이 각각 연결된다. 올바른 이메일과 잘못된 이메일의 validity를 비교한다. 예상과 실제 결과는 구분해 기록하세요.
+3. 다른 입력을 유효하게 고정하고 minutes=0에서 정상·잘못된 email의 email.validity와 form.checkValidity()를 따로 기록하세요. 정상 email을 유지한 채 minutes=-1로 바꾸고 email은 유효하지만 form은 실패하는지 확인하세요. 세 필드의 label과 name 연결도 기록하세요.
 
 ## 관찰할 변수
 

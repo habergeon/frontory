@@ -31,9 +31,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Practice tasks
 
-1. In tsconfig.json, prepare conditions for an untyped parameter and a null assignment.
-2. Set strict and noEmit, fix the unannotated function parameter, and also compare the emitted code for execution.
-3. Run with an untyped parameter and a null assignment. Results to check: Record the installed tsc version and diagnostics for both configurations. After correction, tsc --noEmit reports 0 errors. Record expected and actual results separately.
+1. In tsconfig.json, set compilerOptions.strict, compilerOptions.noEmit, and files:["lesson.ts"]. In lesson.ts, write function double(value) { return value * 2 } and let title: string = null;.
+2. Record the installed tsc version and compare diagnostics with strict=false/true using tsc -p tsconfig.json --noEmit. Type the parameter as value: number, initialize title with a string, and check that no errors remain.
+3. For a separate comparison of executable output, use tsc -p tsconfig.json --noEmit false --outDir dist. Emit the same corrected source with each strict setting and compare the removal of type annotations. Do not report emitted files from a noEmit-only check.
 
 ## Variables to observe
 

@@ -7,7 +7,7 @@ Stage: Document Meaning and Content · Editable example · Storage ID: `html-ste
 ## Goals and learning outcomes
 
 - The tab titles of the two pages are distinguishable.
-- Record the screen width before and after applying the settings in mobile emulation.
+- Record layout viewport widths before and after the viewport meta change under identical mobile emulation settings.
 
 ## Prerequisites
 
@@ -31,9 +31,9 @@ The linked example is a starting point. It does not implement every task below. 
 
 ## Practice tasks
 
-1. In head.html, prepare two files: a list page and a detail page.
-2. Write a unique title and description, and set width=device-width·initial-scale=1.
-3. Run with two files: a list page and a detail page. Results to check: The tab titles of the two pages are distinguishable. Record the screen width before and after applying the settings in mobile emulation. Record expected and actual results separately.
+1. Create list.html and detail.html with titles Learning list and Learning detail respectively. Keep the same emulated mobile device and zoom settings.
+2. Write a distinct description in each head. Reload list.html without a viewport meta tag and record document.documentElement.clientWidth in the console. Add width=device-width, initial-scale=1, reload under the same conditions, and record the width again.
+3. Record both tab titles and the mobile layout viewport width before and after the change. Do not interpret the built-in width slider or outer window width as the meta tag effect. Record expected and actual results separately.
 
 ## Variables to observe
 
@@ -46,7 +46,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 ## Completion criteria
 
 - [ ] The tab titles of the two pages are distinguishable.
-- [ ] Record the screen width before and after applying the settings in mobile emulation.
+- [ ] Record layout viewport widths before and after the viewport meta change under identical mobile emulation settings.
 
 ## Self-check
 

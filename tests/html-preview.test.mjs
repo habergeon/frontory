@@ -135,7 +135,8 @@ test('HTML runtime bounds console, validates disposal and keeps error state', as
   const messages = [],
     revoked = [],
     listeners = new Map(),
-    maps = []
+    maps = [],
+    removed = []
   const parent = { postMessage: (message) => messages.push(message) },
     module = { exports: {} }
   const context = {
@@ -149,7 +150,11 @@ test('HTML runtime bounds console, validates disposal and keeps error state', as
       revokeObjectURL: (url) => revoked.push(url),
     },
     document: {
-      createElement: () => ({}),
+      currentScript: {
+        previousElementSibling: { remove: () => removed.push('policy') },
+        remove: () => removed.push('bootstrap'),
+      },
+      createElement: () => ({ remove: () => removed.push('map') }),
       head: { append: (map) => maps.push(map) },
     },
     console: Object.fromEntries(
@@ -173,6 +178,7 @@ test('HTML runtime bounds console, validates disposal and keeps error state', as
     scripts: parseHtmlSource(source).blocks,
   })
   assert.equal(maps.length, 1)
+  assert.deepEqual(removed, ['map', 'policy', 'bootstrap'])
   listeners.get('error')({
     filename: 'about:srcdoc',
     lineno: 5,
@@ -198,11 +204,18 @@ test('HTML runtime bounds console, validates disposal and keeps error state', as
   const cyclic = {}
   cyclic.self = cyclic
   context.console.log(cyclic)
-  for (let i = 0; i < 250; i++) context.console.log('x'.repeat(5000))
+  for (let i = 0; i < 250; i++) context.console.log(`${i} ${'x'.repeat(5000)}`)
   const logs = messages.filter((m) => m.status === 'console')
-  assert.equal(logs.length, 200)
+  assert.equal(logs.length, 251)
   assert.match(logs[0].message, /Circular/)
   assert.ok(logs.every((m) => m.message.length <= 4000))
+  const recent = logs.slice(-200)
+  assert.deepEqual(
+    recent.map((m) => parseInt(m.message)),
+    Array.from({ length: 200 }, (_, i) => i + 50),
+  )
+  context.console.error('later error')
+  assert.equal(messages.at(-1).message, 'later error')
   for (const event of [
     { source: {}, data: { type: 'study-dispose', token: 'token' } },
     { source: parent, data: { type: 'study-dispose', token: 'wrong' } },

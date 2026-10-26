@@ -12,9 +12,10 @@ interface HtmlRuntimeOptions {
 /** Self-contained: serialized into the iframe before any user script. */
 export function startHtmlRuntime(options: HtmlRuntimeOptions) {
   const { token } = options
+  const bootstrap = document.currentScript!
+  const policy = bootstrap.previousElementSibling!
   let closed = false
   let failed = false
-  let consoleCount = 0
   const urls: string[] = []
   const normalize = (text: string) => text.replace(/\r\n?/g, '\n')
   const original = normalize(options.source)
@@ -109,8 +110,7 @@ export function startHtmlRuntime(options: HtmlRuntimeOptions) {
     const originalConsole = console[level].bind(console)
     console[level] = (...args: unknown[]) => {
       originalConsole(...args)
-      if (consoleCount++ < 200)
-        send('console', args.map(summarize).join(' ').slice(0, 4000), { level })
+      send('console', args.map(summarize).join(' ').slice(0, 4000), { level })
     }
   }
   const dispose = () => {
@@ -155,5 +155,9 @@ export function startHtmlRuntime(options: HtmlRuntimeOptions) {
     map.type = 'importmap'
     map.textContent = JSON.stringify({ imports })
     document.head.append(map)
+    map.remove()
   }
+  // Installed policies and mappings persist after their owned nodes are removed.
+  policy.remove()
+  bootstrap.remove()
 }

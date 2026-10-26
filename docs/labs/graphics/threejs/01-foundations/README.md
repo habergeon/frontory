@@ -59,7 +59,7 @@ canvas는 HTML 출력 요소입니다. Scene에 geometry와 material을 묶은 M
 
 ## 연결된 예제와 실행 범위
 
-[예제 원본](../../../../../src/labs/threejs-01/example.js) · [실행 환경과 제한](../../../../examples.md)
+[예제 원본](../../../../../src/labs/threejs-01/example.html) · [실행 환경과 제한](../../../../examples.md)
 
 사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.
 

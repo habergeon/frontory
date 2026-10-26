@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Match the buffer and camera separately</title>
+    <style>
+      body { margin: 0; padding: 12px; font: 14px/1.5 system-ui, sans-serif; background: #fff; color: #172554; }
+      #stage { width: 240px; max-width: 100%; height: 240px; padding: 0; border: 0; }
+      #stage[hidden] { display: none; }
+      canvas { display: block; width: 100%; height: 100%; padding: 0; border: 0; }
+      output { display: block; white-space: pre-wrap; overflow-wrap: anywhere; margin-top: 8px; }
+      .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+    </style>
+  </head>
+  <body>
+    <div class="controls">
+      <button id="square">240 × 240</button>
+      <button id="wide">480 × 240</button>
+    </div>
+    <div id="stage">
+      <canvas aria-label="Compare front-face proportions"></canvas>
+    </div>
+    <output>Waiting for preview dimensions</output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage = document.querySelector('#stage');
+      const canvas = document.querySelector('canvas');
+      const output = document.querySelector('output');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 50);
+      camera.position.set(0, 0, 5);
+      camera.lookAt(0, 0, 0);
+      const geometry = new THREE.BoxGeometry(1, 1, 0.2);
+      const material = new THREE.MeshBasicMaterial({ color: '#2563eb' });
+      const cube = new THREE.Mesh(geometry, material);
+      scene.add(cube);
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      let dpr = 1;
+      function reportSize() {
+        const w = stage.clientWidth;
+        const h = stage.clientHeight;
+        output.textContent = 'CSS px: ' + w + ' × ' + h + '\nBuffer px: ' + canvas.width + ' × ' + canvas.height
+          + '\nLast valid aspect: ' + camera.aspect.toFixed(4) + '\nDPR: ' + renderer.getPixelRatio()
+          + '\nBuffer pixel count: ' + canvas.width * canvas.height
+          + (w === 0 || h === 0 ? '\nZero size: skipping this update.' : '');
+      }
+      function resizeScene() {
+        const w = stage.clientWidth;
+        const h = stage.clientHeight;
+        if (w === 0 || h === 0) { reportSize(); return; }
+        renderer.setPixelRatio(dpr);
+        renderer.setSize(w, h, false);
+        // ASPECT: camera.aspect remains 1 for now.
+        renderer.render(scene, camera);
+        reportSize();
+      }
+      function changeWidth(width) {
+        stage.style.width = width + 'px';
+        resizeScene();
+      }
+      document.querySelector('#square').addEventListener('click', () => changeWidth(240));
+      document.querySelector('#wide').addEventListener('click', () => changeWidth(480));
+
+
+
+      // Wait only for the first visible size, then stop after one initialization.
+      function startWhenVisible() {
+        if (stage.clientWidth === 0 || stage.clientHeight === 0) {
+          requestAnimationFrame(startWhenVisible);
+          return;
+        }
+        resizeScene();
+      }
+      startWhenVisible();
+    </script>
+  </body>
+</html>

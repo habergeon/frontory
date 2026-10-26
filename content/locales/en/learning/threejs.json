@@ -111,6 +111,122 @@
         "canvas-dimensions",
         "resize-observer"
       ]
+    },
+    {
+      "unitId": "threejs-step-02",
+      "prerequisiteIds": ["threejs-01", "css-step-04", "css-step-07"],
+      "introduction": "Match CSS display size, drawing buffer size, and camera aspect as separate concerns. Each independent HTML starter contains a front-facing BoxGeometry(1, 1, .2) and does not require previous code. stage has no padding/border; canvas uses display:block; width:100%; height:100%. The 240×240 and 480×240 conditions are examples when space permits. On narrow screens max-width can limit them; use actual w,h from output. Record shape proportions, CSS size, buffer size, and DPR in the site notes. Predict before running, change one item at a time, and use the site notes: conditions / prediction / actual image and numbers / reason for differences. The site supplies the three import; no separate installation is needed.",
+      "steps": [
+        {
+          "id": "threejs-step-02-display-buffer",
+          "title": "Display size and buffer size",
+          "explanation": "Initially DPR=1 and camera.aspect=1 in a square stage. renderer.setSize runs only once at startup. The camera looks from (0, 0, 5) toward the origin; the box has no rotation, making its front-face proportions easy to observe.\n\nUse the size button to increase only stage width, then read CSS and buffer dimensions. stage.clientWidth/clientHeight use CSS px; canvas.width/height use buffer px. CSS can display the old buffer image over a wider area without drawing additional pixels. A changed display ratio can stretch the square horizontally.\n\nIn every example startWhenVisible uses requestAnimationFrame to wait for the first positive size, calls resizeScene once, then stops. A callback is a function the browser invokes before a later repaint; return ends this function call. This bootstrap does not observe later changes. addEventListener runs a function on click; assigning a CSS length string to stage.style.width changes display width only. reportSize reads current client and buffer dimensions and displays them through output.textContent. querySelector finds HTML elements; renderer.domElement is the same canvas supplied from HTML. In output, toFixed(4) formats a number as a string with four decimal places; + joins strings. Buffer pixel count is canvas.width × canvas.height.",
+          "solutionExplanation": "with a 240×240 buffer displayed at 480×240, the same image is stretched 2 times horizontally. If actual width differs from 480, substitute the output values. Read the actual stage size rather than body or window width. Automatic resizing is intentionally absent in this step.",
+          "starterPath": "src/labs/threejs-step-02/steps/display-buffer.html",
+          "expected": "stage width changes while canvas.width/height keep their initial values. The square can appear stretched. On narrow screens target and measured dimensions can differ.",
+          "hints": [
+            "Read the CSS px and buffer px output rows separately.",
+            "Compare whether canvas.width changes after changing stage width.",
+            "Displaying a 240×240 buffer at 480×240 stretches it 2 times horizontally. Calculate the same ratio from your actual output."
+          ],
+          "solutionPath": "src/labs/threejs-step-02/solutions/display-buffer.html",
+          "questions": [
+            "Does changing CSS width always change buffer width?",
+            "Why can stage width differ from window width?"
+          ]
+        },
+        {
+          "id": "threejs-step-02-buffer-resize",
+          "title": "Match the buffer and camera separately",
+          "explanation": "The starter resizeScene() reads w=stage.clientWidth, h=stage.clientHeight and calls renderer.setSize(w, h, false). The size button calls it, but camera.aspect is still 1. Choose a wide size and check that buffer dimensions match display dimensions. The square can still appear stretched.\n\nAfter setSize in resizeScene(), add camera.aspect = w / h; camera.updateProjectionMatrix();. Compare the same sizes again. aspect is width/height; updateProjectionMatrix applies that ratio to projection calculations. Changing only one is insufficient.",
+          "solutionExplanation": "matching the buffer determines how many pixels are drawn. Camera projection determines the proportions used to place objects into that pixel region. With fixed vertical FOV, a wider view shows more of the scene horizontally without flattening objects. false in setSize prevents CSS display-size changes, not buffer changes.",
+          "starterPath": "src/labs/threejs-step-02/steps/buffer-resize.html",
+          "expected": "setSize alone matches the buffer but can leave shape proportions wrong. Updating aspect and projection together preserves the front-face proportions.",
+          "hints": [
+            "Compare display w/h with camera.aspect.",
+            "Check for updateProjectionMatrix after assigning camera.aspect.",
+            "Use renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); before rendering."
+          ],
+          "solutionPath": "src/labs/threejs-step-02/solutions/buffer-resize.html",
+          "questions": [
+            "Why can a shape stretch even when the buffer size matches?",
+            "What does false prevent in the third setSize argument?"
+          ]
+        },
+        {
+          "id": "threejs-step-02-observer",
+          "title": "Observe element size changes",
+          "explanation": "This independent starter includes the completed resizeScene(). Now the size button only changes CSS and no longer calls resizeScene directly. The initial frame matches, but later stage changes do not.\n\nCreate observer = new ResizeObserver(resizeScene) and connect observer.observe(stage). ResizeObserver is a browser Web API, not Three.js. It calls the callback when an observed element changes size. Keep the initial resizeScene() call to size the first frame immediately.\n\nLeave window dimensions unchanged and press the stage size button. The observer responds to the element's own size changes. Observe stage, which defines the size, rather than canvas. stage has no padding/border and canvas fills it at 100%, making the measurement basis clear.",
+          "solutionExplanation": "the observer does not understand cameras or buffers automatically. The resizeScene callback performs setSize, aspect and projection updates, and rendering. If dimensions oscillate, check false in setSize, canvas CSS, and that stage is observed. Use observer.disconnect() when observation ends.",
+          "starterPath": "src/labs/threejs-step-02/steps/observer.html",
+          "expected": "Changing only the stage button matches measured dimensions, buffer, and aspect without resizing the browser window. resizeScene redraws the image too.",
+          "hints": [
+            "Check output to see whether changing only stage CSS runs resizeScene.",
+            "Check that observer.observe receives stage rather than canvas.",
+            "Connect const observer = new ResizeObserver(resizeScene); observer.observe(stage); resizeScene();."
+          ],
+          "solutionPath": "src/labs/threejs-step-02/solutions/observer.html",
+          "questions": [
+            "Why can a window resize listener be insufficient?",
+            "Does the observer itself call render?"
+          ]
+        },
+        {
+          "id": "threejs-step-02-dpr",
+          "title": "Compare DPR 1 and 2",
+          "explanation": "The starter includes resizing and starts with dpr=1. output displays actual CSS w,h, canvas.width/height, camera.aspect, and dpr. Change dpr to 2 and call renderer.setPixelRatio(dpr) followed by renderer.setSize(w, h, false). w,h must be CSS dimensions, not values already multiplied by DPR.\n\nFor a 240×240 CSS display, DPR 1 gives a 240×240 buffer and DPR 2 gives 480×480. Pixel count rises from 57,600 to 230,400, a factor of 4. For other display dimensions, use actual w,h. camera.aspect remains w/h without DPR multiplication.\n\nThe input value is a string, so Number(input.value) converts it to a number. The change event runs when the selection changes. Add renderer.setPixelRatio(dpr); at the DPR comment in resizeScene, then compare input values 1 and 2.",
+          "solutionExplanation": "DPR affects buffer resolution along both axes. It does not request making CSS display size or scene-object size 2 times larger. Although devicePixelRatio can vary by device or browser zoom, this experiment explicitly uses 1 and 2. A sharpness difference may be subtle and processing time is not necessarily 4 times greater. Multiplying DPR 2 times gives a factor of 4 along each buffer axis; inspect setSize arguments if that happens.",
+          "starterPath": "src/labs/threejs-step-02/steps/dpr.html",
+          "expected": "CSS size and camera.aspect stay unchanged. At DPR 2 each buffer axis becomes 2 times larger and pixel count becomes 4 times larger. A 240×240 display gives a 480×480 buffer.",
+          "hints": [
+            "Record CSS px and buffer px side by side and calculate each axis ratio.",
+            "Check whether setSize receives w*dpr, h*dpr by mistake.",
+            "In renderer.setPixelRatio(2); renderer.setSize(w, h, false);, w,h are measured CSS dimensions. camera.aspect is w/h."
+          ],
+          "solutionPath": "src/labs/threejs-step-02/solutions/dpr.html",
+          "questions": [
+            "Why does DPR 2 give 4 times as many pixels?",
+            "Should DPR also multiply camera.aspect?",
+            "Does 4 times as many pixels guarantee 4 times the processing time?"
+          ]
+        },
+        {
+          "id": "threejs-step-02-zero-size",
+          "title": "Hide and show the stage",
+          "explanation": "The starter has buttons to hide and show stage. After reading w,h near the start of resizeScene(), check if (w === 0 || h === 0) return;. output reports hidden dimensions without claiming a newly valid aspect.\n\nHide and show stage. With display:none, client dimensions can be 0. Do not divide w/h when h=0 or substitute 1 and label the result normal. The observer keeps watching stage and calls resizeScene when it has size again.\n\nstage.hidden is a boolean property controlling visibility. Buttons and output are outside stage, so they remain usable while it is hidden. The hidden output aspect is the last valid value, not a newly computed ratio.",
+          "solutionExplanation": "return skips this size update. It does not disconnect the observer or terminate the program. After showing, setSize and aspect use the actual dimensions and render restores the image. To finish, record shape proportions and numbers for square/wide, DPR 1/2, and recovery from hiding.",
+          "starterPath": "src/labs/threejs-step-02/steps/zero-size.html",
+          "expected": "Hidden dimensions are reported as 0 without division by 0. Showing stage restores finite aspect and current buffer dimensions while preserving shape proportions.",
+          "hints": [
+            "Read whether stage.clientWidth/clientHeight become 0 while hidden.",
+            "Check that the zero-size guard precedes w/h.",
+            "Place setSize, aspect, projection, and render after if (w === 0 || h === 0) return;. The observer calls the same function after showing."
+          ],
+          "solutionPath": "src/labs/threejs-step-02/solutions/zero-size.html",
+          "questions": [
+            "How does replacing 0 with 1 differ from skipping an update?",
+            "Why can the image recover after the function returned?"
+          ]
+        }
+      ],
+      "apiIds": [
+        "scene",
+        "color",
+        "renderer",
+        "renderer-size",
+        "renderer-render",
+        "perspective-camera",
+        "box-geometry",
+        "basic-material",
+        "mesh",
+        "object-position",
+        "object-lookat",
+        "object-add",
+        "renderer-pixelratio",
+        "camera-projection",
+        "canvas-dimensions",
+        "resize-observer"
+      ]
     }
   ],
   "apis": [
@@ -590,9 +706,30 @@
       "sourceUrl": "https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver",
       "packageVersion": "0.186.1",
       "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "renderer-pixelratio",
+      "symbol": "renderer.setPixelRatio / renderer.getPixelRatio",
+      "description": "Method that sets buffer pixels per CSS pixel. getPixelRatio() takes no arguments and returns the currently configured ratio as a number.",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "number",
+          "description": "The experiment explicitly uses 1 or 2. The initial renderer ratio is 1."
+        }
+      ],
+      "result": "No return value. Resizes the buffer using the current logical size.",
+      "cautions": [
+        "It does not automatically read devicePixelRatio.",
+        "A ratio of 2 affects both axes, giving 4 times as many pixels, not necessarily 4 times the processing time."
+      ],
+      "example": "renderer.setPixelRatio(2);\nrenderer.setSize(w, h, false);",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
     }
   ],
-  "sourceHash": "fb28529f480e0ebc9b5d30a963e6d48f6f33c7cb20b5ce6d341728fa76dd25c7",
+  "sourceHash": "b4a539b279dd911df40bb0c2bb766b6c910b03c0c16d6f23e6ec020b092b38ab",
   "codeSourceHashes": {
     "src/labs/threejs-01/example.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
     "src/labs/threejs-01/steps/canvas.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
@@ -602,6 +739,17 @@
     "src/labs/threejs-01/steps/animation.html": "fbde2801477afe5f23745ce42271eca144b08c80d37271222cce411480003808",
     "src/labs/threejs-01/solutions/animation.html": "f2f64ebf33332633b2116097480fadb7062b64550c371fc6d4a17cf96c987b5d",
     "src/labs/threejs-01/steps/localworld.html": "6af61b9560724e8914f59a6f31fba815b22579d5e75a95563bf09fbc451ea641",
-    "src/labs/threejs-01/solutions/localworld.html": "4cf5aeadeacb0a4eed9b53437c3359ac501ff7309c78e116fe9986ccc6392b42"
+    "src/labs/threejs-01/solutions/localworld.html": "4cf5aeadeacb0a4eed9b53437c3359ac501ff7309c78e116fe9986ccc6392b42",
+    "src/labs/threejs-step-02/steps/display-buffer.html": "d8c3b3cbf40d8f7848abd03fed56e122ba3c85227990bcbf278cdf8114a7030a",
+    "src/labs/threejs-step-02/solutions/display-buffer.html": "eadcbea12740d22a1496de65ad08c12f093eeae8a42c22c21e6a97e2d9f111fd",
+    "src/labs/threejs-step-02/steps/buffer-resize.html": "4f9bd6f865617ac27ddff74d6cc5c5ffc978c5c814eb9bba868b699fd6ac2189",
+    "src/labs/threejs-step-02/solutions/buffer-resize.html": "95adb8d34234053c1c17ac5739b0ca76acfedd0a68a9547897185a7419a04899",
+    "src/labs/threejs-step-02/steps/observer.html": "36fc6947d2d4b1d653fbe8fd0c0b4cc9efc3cc77a385ab5db7e416da35cfcfff",
+    "src/labs/threejs-step-02/solutions/observer.html": "dcab384fbf109f7b0cdbf7d91ec4fd7b9fc64506cee6ccba48d56fc333cf7b1d",
+    "src/labs/threejs-step-02/steps/dpr.html": "bce58d66a011df4a41fc08dd06eec8d04da1f3db2f2ed031129c87091a44c9c0",
+    "src/labs/threejs-step-02/solutions/dpr.html": "5135e0f9f85c75273188cff7e449c302464cc0fcfb397b70ef78625d2f686bc7",
+    "src/labs/threejs-step-02/steps/zero-size.html": "19f2bb20763b41eb23455aa1ae0b6d5192c116c8d05eb9eb4798c0ddf98c9ea9",
+    "src/labs/threejs-step-02/solutions/zero-size.html": "3725b002cf0016bd84b34fa03804f99f3a9370aa2e35bde57f4ba57b2b966719",
+    "src/labs/threejs-step-02/example.html": "d8c3b3cbf40d8f7848abd03fed56e122ba3c85227990bcbf278cdf8114a7030a"
   }
 }

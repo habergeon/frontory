@@ -1469,3 +1469,266 @@ export async function runLearning(page, base) {
   })
   return checks
 }
+
+// Restrict the shared rollout case to implemented 02 until 03/04 are delivered.
+export async function runLessons0204(page, base) {
+  assert.equal(process.env.THREEJS_LESSON ?? '02', '02')
+  const checks = []
+  const prefix = (process.env.THREEJS_EVIDENCE ?? 'task-6b-browser').replace(
+    /\.json$/,
+    '',
+  )
+  let serial = 0
+  const frame = async () => {
+    await page
+      .frameLocator('#panel-result iframe')
+      .locator('canvas')
+      .waitFor({ state: 'attached' })
+    return (
+      await page.locator('#panel-result iframe').elementHandle()
+    ).contentFrame()
+  }
+  const tab = async (preview) => {
+    const w = await page.evaluate(() => innerWidth)
+    if (w < 768)
+      await page.locator(preview ? '#tab-result' : '#tab-reading').click()
+    else if (w < 1100)
+      await page
+        .locator('.tablet-learning-tabs button')
+        .nth(preview ? 1 : 0)
+        .click()
+  }
+  const load = async (step, solution = false) => {
+    await tab(false)
+    await page.selectOption('#learning-step', 'threejs-step-02-' + step)
+    const details = page
+      .locator('.lesson-learning > details')
+      .nth(solution ? 2 : 0)
+    await details.locator('summary').click()
+    await details.getByRole('button').click()
+    await page.locator('.example-confirm button').first().click()
+    return (await editorState(page)).code
+  }
+  const run = async (source, hidden = false) => {
+    const tag = ++serial
+    const hook = `\nglobalThis.__sizing={tag:${tag},snapshot(){
+      renderer.render(scene,camera);
+      const gl=renderer.getContext(),p=new Uint8Array(canvas.width*canvas.height*4);
+      gl.readPixels(0,0,canvas.width,canvas.height,gl.RGBA,gl.UNSIGNED_BYTE,p);
+      let minX=canvas.width,minY=canvas.height,maxX=-1,maxY=-1;
+      for(let i=0;i<p.length;i+=4)if(p[i+2]>p[i]+30&&p[i+1]<200){const x=(i/4)%canvas.width,y=Math.floor(i/4/canvas.width);minX=Math.min(minX,x);maxX=Math.max(maxX,x);minY=Math.min(minY,y);maxY=Math.max(maxY,y);}
+      return {w:stage.clientWidth,h:stage.clientHeight,buffer:[canvas.width,canvas.height],aspect:camera.aspect,dpr:renderer.getPixelRatio(),pixelBox:[maxX-minX+1,maxY-minY+1],output:output.textContent};
+    }};`
+    await replaceText(page, source.replace('</script>', hook + '\n</script>'))
+    await page.waitForFunction(
+      (tag) =>
+        document
+          .querySelector('#panel-result iframe')
+          .srcdoc.includes('tag:' + tag + ','),
+      tag,
+    )
+    const f = await frame()
+    await f.waitForFunction((tag) => globalThis.__sizing?.tag === tag, tag, {
+      polling: 50,
+    })
+    if (!hidden) {
+      await tab(true)
+      await f.waitForFunction(
+        () => document.querySelector('canvas').width !== 300,
+      )
+    }
+    return f
+  }
+  const snap = (f) => f.evaluate(() => globalThis.__sizing.snapshot())
+  const settle = async (f) =>
+    f.evaluate(
+      () =>
+        new Promise((resolve) =>
+          requestAnimationFrame(() => requestAnimationFrame(resolve)),
+        ),
+    )
+  const wide = async (f) => {
+    await f.locator('#wide').click()
+    await settle(f)
+    return snap(f)
+  }
+  for (const locale of ['ko', 'en']) {
+    await page.setViewportSize({ width: 320, height: 900 })
+    await page.goto(base + fixture + '?learning#threejs-step-02')
+    await readyEditor(page, 'attached')
+    if (locale === 'en')
+      await page.getByRole('button', { name: 'English', exact: true }).click()
+    await page.evaluate(() =>
+      localStorage.removeItem('web-gl-study:unit:v1:threejs-step-02'),
+    )
+    await page.reload()
+    await readyEditor(page, 'attached')
+    assert.equal((await editorState(page)).language, 'html')
+    assert.match(
+      (await editorState(page)).code,
+      new RegExp('lang="' + locale + '"'),
+    )
+    for (const step of [
+      'display-buffer',
+      'buffer-resize',
+      'observer',
+      'dpr',
+      'zero-size',
+    ]) {
+      await page.setViewportSize({ width: 320, height: 900 })
+      console.log('sizing', locale, step)
+      const source = await load(step)
+      assert.match(source, new RegExp('lang="' + locale + '"'))
+      const f = await run(source, true)
+      const hidden = await snap(f)
+      assert.equal(hidden.w, 0)
+      await page.setViewportSize({ width: 360, height: 900 })
+      await tab(true)
+      await f.waitForFunction(
+        () => document.querySelector('canvas').width !== 300,
+      )
+      const displayed = await snap(f)
+      assert.deepEqual(displayed.buffer, [displayed.w, displayed.h])
+      checks.push({ locale, step, hidden, displayed })
+      await page.setViewportSize({ width: 1920, height: 1000 })
+      const initialFrame = await run(source),
+        initial = await snap(initialFrame)
+      assert.equal(initial.w, 240)
+      assert.equal(initial.h, 240)
+      const before = await wide(initialFrame)
+      assert.equal(before.w, 480)
+      if (step === 'display-buffer' || step === 'observer')
+        assert.deepEqual(before.buffer, [240, 240])
+      if (step === 'buffer-resize') {
+        assert.deepEqual(before.buffer, [480, 240])
+        assert.equal(before.aspect, 1)
+      }
+      if (step === 'dpr') {
+        await initialFrame.locator('#dpr').selectOption('2')
+        await settle(initialFrame)
+        const missing = await snap(initialFrame)
+        assert.equal(missing.dpr, 1)
+        checks.push({ locale, dprBeforeEdit: missing })
+      }
+      let edited = source
+      if (step === 'buffer-resize')
+        edited = source.replace(
+          /\/\/ ASPECT:[^\n]*/,
+          'camera.aspect = w / h;\n        camera.updateProjectionMatrix();',
+        )
+      if (step === 'observer')
+        edited = source.replace(
+          /\/\/ OBSERVER:[^\n]*/,
+          'const observer = new ResizeObserver(resizeScene);\n      observer.observe(stage);',
+        )
+      if (step === 'dpr')
+        edited = source.replace(
+          /\/\/ DPR:[^\n]*/,
+          'renderer.setPixelRatio(dpr);',
+        )
+      const ef = await run(edited),
+        after = await wide(ef)
+      if (step !== 'display-buffer') {
+        assert.deepEqual(after.buffer, [480, 240])
+        assert.equal(after.aspect, 2)
+        assert.ok(Math.abs(after.pixelBox[0] - after.pixelBox[1]) <= 2)
+      }
+      if (step === 'buffer-resize')
+        assert.ok(before.pixelBox[0] / before.pixelBox[1] > 1.9)
+      if (step === 'dpr') {
+        await ef.locator('#square').click()
+        await settle(ef)
+        const one = await snap(ef)
+        await ef.locator('#dpr').selectOption('2')
+        await settle(ef)
+        const two = await snap(ef)
+        assert.deepEqual(one.buffer, [240, 240])
+        assert.deepEqual(two.buffer, [480, 480])
+        assert.equal(two.w, one.w)
+        assert.equal(two.aspect, one.aspect)
+        await page.setViewportSize({ width: 320, height: 900 })
+        await tab(false)
+        await page.setViewportSize({ width: 768, height: 900 })
+        await tab(true)
+        await settle(ef)
+        assert.equal(await ef.locator('#dpr').inputValue(), '2')
+        checks.push({ locale, dpr: { one, two, preserved: await snap(ef) } })
+        await page.setViewportSize({ width: 1920, height: 1000 })
+      }
+      if (step === 'zero-size') {
+        await ef.locator('#hide').click()
+        await settle(ef)
+        const zero = await snap(ef)
+        assert.equal(zero.w, 0)
+        assert.equal(zero.h, 0)
+        assert.ok(Number.isFinite(zero.aspect))
+        assert.match(zero.output, /0 × 0/)
+        await ef.locator('#show').click()
+        await settle(ef)
+        const restored = await snap(ef)
+        assert.equal(restored.w, 480)
+        assert.equal(restored.aspect, 2)
+        checks.push({ locale, zero, restored })
+      }
+      const solution = await load(step, true)
+      const sf = await run(solution),
+        completed = await wide(sf)
+      if (step !== 'display-buffer') {
+        assert.deepEqual(completed.buffer, [480, 240])
+        assert.equal(completed.aspect, 2)
+      }
+      checks.push({
+        locale,
+        step,
+        initial,
+        before,
+        studentEdit: after,
+        completed,
+      })
+      await page.screenshot({
+        path: prefix + '-' + locale + '-' + step + '.png',
+      })
+    }
+    for (const width of [320, 768, 1024, 1100, 1440]) {
+      await page.setViewportSize({ width, height: 900 })
+      await tab(true)
+      await page.evaluate(() => scrollTo(0, 0))
+      const metrics = await page.evaluate(() => ({
+        width: innerWidth,
+        scroll: document.documentElement.scrollWidth,
+        y: document.querySelector('.workspace').getBoundingClientRect().y,
+      }))
+      assert.ok(metrics.scroll <= width)
+      checks.push({ locale, viewport: metrics })
+    }
+  }
+  for (const code of ['', 'export function mount() { return () => {}; }']) {
+    await page.evaluate(
+      (code) =>
+        localStorage.setItem(
+          'web-gl-study:unit:v1:threejs-step-02',
+          JSON.stringify({
+            version: 1,
+            code,
+            notes: 'saved note',
+            progress: 'completed',
+            updatedAt: '2026-10-26T00:00:00.000Z',
+          }),
+        ),
+      code,
+    )
+    await page.reload()
+    await readyEditor(page, 'attached')
+    assert.equal((await editorState(page)).code, code)
+    assert.equal((await editorState(page)).language, 'javascript')
+    assert.equal(await page.locator('.notes-editor').inputValue(), 'saved note')
+    assert.equal(
+      await page
+        .locator('.learning-status button')
+        .nth(2)
+        .getAttribute('aria-pressed'),
+      'true',
+    )
+  }
+  return checks
+}

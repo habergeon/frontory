@@ -3382,8 +3382,10 @@
       "goal": "Preserve shape proportions after resizing. Handle a hidden container with a size of 0.",
       "docPath": "/docs/en/labs/graphics/threejs/units/02/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-02/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run HTML starters inside the site. Read the step-by-step guidance and API references, then record actual results in the site notes."
     },
     {
       "id": "threejs-step-03",

@@ -3144,6 +3144,8 @@
       "goal": "리사이즈 뒤 도형 비율이 유지된다. 숨김 컨테이너의 0 크기를 처리한다.",
       "docPath": "/docs/labs/graphics/threejs/units/02/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-02/example.js"
     },
     {

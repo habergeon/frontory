@@ -28,8 +28,14 @@ test('integrated HTML lesson documents keep every required task inside the site'
     )
     assert.match(completed, expected)
     assert.doesNotMatch(completed, excluded)
-    const future = fs.readFileSync(
+    const second = fs.readFileSync(
       prefix + '/graphics/threejs/units/02/README.md',
+      'utf8',
+    )
+    assert.match(second, expected)
+    assert.doesNotMatch(second, excluded)
+    const future = fs.readFileSync(
+      prefix + '/graphics/threejs/units/05/README.md',
       'utf8',
     )
     assert.match(
@@ -184,6 +190,7 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
     const original = readLearningContent()
     const paths = [
       'src/labs/threejs-01/example.html',
+      'src/labs/threejs-step-02/example.html',
       ...original.ko.lessons.flatMap((l) =>
         l.steps.flatMap((s) => [s.starterPath, s.solutionPath]),
       ),
@@ -242,7 +249,7 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
       path.join(root, logical.replace('.html', '.en.html')),
     )
     en = structuredClone(original.en)
-    const shared = paths[1]
+    const shared = original.ko.lessons[0].steps[0].starterPath
     fs.unlinkSync(path.join(root, shared.replace('.html', '.en.html')))
     delete en.codeSourceHashes[shared]
     save(en)
@@ -258,5 +265,77 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
         .startsWith(path.resolve(tmpdir()) + path.sep + 'frontory-learning-'),
     )
     fs.rmSync(root, { recursive: true, force: true })
+  }
+})
+
+test('sizing lesson keeps bootstrap separate from deliberately missing student behavior', async () => {
+  const { transformSync } = await import('esbuild')
+  const { ko, readCode } = fixture()
+  const lesson = ko.lessons.find((l) => l.unitId === 'threejs-step-02')
+  assert.equal(lesson.steps.length, 5)
+  for (const locale of ['ko', 'en']) {
+    for (const step of lesson.steps)
+      transformSync(
+        readCode(step.solutionPath, locale)
+          .split('<script type="module">')[1]
+          .split('</script>')[0],
+        { loader: 'js' },
+      )
+    const sources = lesson.steps.map((s) => readCode(s.starterPath, locale))
+    assert.doesNotMatch(sources[0], /new ResizeObserver/)
+    assert.doesNotMatch(sources[1], /camera.aspect = w \/ h/)
+    assert.doesNotMatch(sources[2], /new ResizeObserver/)
+    assert.doesNotMatch(sources[3], /renderer.setPixelRatio\(dpr\)/)
+    for (const source of sources) {
+      assert.match(source, /requestAnimationFrame\(startWhenVisible\)/)
+      assert.match(source, /if \(w === 0 \|\| h === 0\)/)
+      assert.match(source, /renderer.setSize\(w, h, false\)/)
+      transformSync(
+        source.split('<script type="module">')[1].split('</script>')[0],
+        { loader: 'js' },
+      )
+    }
+  }
+})
+
+test('generated source links select localized HTML while unconverted JavaScript links remain intact', async () => {
+  const fs = await import('node:fs')
+  const path = await import('node:path')
+  for (const locale of ['ko', 'en']) {
+    const root = locale === 'ko' ? 'docs' : 'docs/en'
+    for (const [id, doc, extension] of [
+      ['threejs-01', '01-foundations', locale === 'ko' ? 'html' : 'en.html'],
+      ['threejs-step-02', 'units/02', locale === 'ko' ? 'html' : 'en.html'],
+      ['threejs-step-05', 'units/05', 'js'],
+    ]) {
+      const file = root + '/labs/graphics/threejs/' + doc + '/README.md'
+      const text = fs.readFileSync(file, 'utf8')
+      const target = text.match(
+        locale === 'ko'
+          ? /\[예제 원본\]\(([^)]+)\)/
+          : /\[Example source\]\(([^)]+)\)/,
+      )[1]
+      const resolved = path.resolve(path.dirname(file), target)
+      assert.equal(
+        resolved,
+        path.resolve('src/labs/' + id + '/example.' + extension),
+      )
+      assert.ok(fs.existsSync(resolved))
+      if (id !== 'threejs-01') {
+        const index = root + '/examples-expanded.md'
+        const row = fs
+          .readFileSync(index, 'utf8')
+          .split(String.fromCharCode(10))
+          .find((line) => line.includes('/' + id + '/example.'))
+        const link = row.match(
+          locale === 'ko'
+            ? /\[원본 코드\]\(([^)]+)\)/
+            : /\[Source code\]\(([^)]+)\)/,
+        )[1]
+        assert.equal(path.resolve(path.dirname(index), link), resolved)
+        if (locale === 'en')
+          assert.match(row, /English reading-source download/)
+      }
+    }
   }
 })

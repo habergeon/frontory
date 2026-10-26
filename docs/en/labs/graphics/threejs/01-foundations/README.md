@@ -59,7 +59,7 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 ## Linked example and execution scope
 
-[Example source](../../../../../../src/labs/threejs-01/example.js) · [Runtime environments and limits](../../../../examples.md)
+[Example source](../../../../../../src/labs/threejs-01/example.en.html) · [Runtime environments and limits](../../../../examples.md)
 
 Edit and run the HTML starter inside the site. Read the step instructions and API reference, then record actual results in the notes.
 

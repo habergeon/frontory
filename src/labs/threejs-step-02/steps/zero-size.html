@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>숨김과 다시 표시하기</title>
+    <style>
+      body { margin: 0; padding: 12px; font: 14px/1.5 system-ui, sans-serif; background: #fff; color: #172554; }
+      #stage { width: 240px; max-width: 100%; height: 240px; padding: 0; border: 0; }
+      #stage[hidden] { display: none; }
+      canvas { display: block; width: 100%; height: 100%; padding: 0; border: 0; }
+      output { display: block; white-space: pre-wrap; overflow-wrap: anywhere; margin-top: 8px; }
+      .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+    </style>
+  </head>
+  <body>
+    <div class="controls">
+      <button id="square">240 × 240</button>
+      <button id="wide">480 × 240</button>
+      <label
+        >DPR
+        <select id="dpr">
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select></label
+      >
+      <button id="hide">숨기기</button><button id="show">다시 표시</button>
+    </div>
+    <div id="stage"><canvas aria-label="정면 사각형의 비율 비교"></canvas></div>
+    <output>미리보기 크기를 기다리는 중</output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage = document.querySelector('#stage');
+      const canvas = document.querySelector('canvas');
+      const output = document.querySelector('output');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 50);
+      camera.position.set(0, 0, 5);
+      camera.lookAt(0, 0, 0);
+      const geometry = new THREE.BoxGeometry(1, 1, 0.2);
+      const material = new THREE.MeshBasicMaterial({ color: '#2563eb' });
+      const cube = new THREE.Mesh(geometry, material);
+      scene.add(cube);
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      let dpr = 1;
+      function reportSize() {
+        const w = stage.clientWidth;
+        const h = stage.clientHeight;
+        output.textContent = 'CSS px: ' + w + ' × ' + h + '\nBuffer px: ' + canvas.width + ' × ' + canvas.height
+          + '\n마지막 유효 aspect: ' + camera.aspect.toFixed(4) + '\nDPR: ' + renderer.getPixelRatio()
+          + '\n버퍼 픽셀 수: ' + canvas.width * canvas.height
+          + (w === 0 || h === 0 ? '\n0 크기: 갱신을 건너뜁니다.' : '');
+      }
+      function resizeScene() {
+        const w = stage.clientWidth;
+        const h = stage.clientHeight;
+        if (w === 0 || h === 0) { reportSize(); return; }
+        renderer.setPixelRatio(dpr);
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.render(scene, camera);
+        reportSize();
+      }
+      function changeWidth(width) {
+        stage.style.width = width + 'px';
+        reportSize();
+      }
+      document.querySelector('#square').addEventListener('click', () => changeWidth(240));
+      document.querySelector('#wide').addEventListener('click', () => changeWidth(480));
+      document.querySelector('#dpr').addEventListener('change', (event) => {
+        dpr = Number(event.target.value);
+        resizeScene();
+      });
+      document.querySelector('#hide').addEventListener('click', () => { stage.hidden = true; resizeScene(); });
+      document.querySelector('#show').addEventListener('click', () => { stage.hidden = false; });
+      const observer = new ResizeObserver(resizeScene);
+      observer.observe(stage);
+      // 첫 표시 준비만 기다립니다. 양수 크기에서 한 번 실행한 뒤 멈춥니다.
+      function startWhenVisible() {
+        if (stage.clientWidth === 0 || stage.clientHeight === 0) {
+          requestAnimationFrame(startWhenVisible);
+          return;
+        }
+        resizeScene();
+      }
+      startWhenVisible();
+    </script>
+  </body>
+</html>

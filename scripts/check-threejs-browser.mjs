@@ -9,8 +9,15 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 const args = process.argv.slice(2)
 const selected = args[args.indexOf('--case') + 1]
 assert.ok(
-  ['storage', 'runtime', 'format', 'learning', 'lesson-01'].includes(selected),
-  'Use --case storage|runtime|format|learning|lesson-01',
+  [
+    'storage',
+    'runtime',
+    'format',
+    'learning',
+    'lesson-01',
+    'lessons-02-04',
+  ].includes(selected),
+  'Use --case storage|runtime|format|learning|lesson-01|lessons-02-04',
 )
 const totalMs = Number(process.env.THREEJS_TIMEOUT_MS ?? 120_000)
 const closeMs = Number(process.env.THREEJS_CLOSE_MS ?? 3_000)
@@ -154,8 +161,14 @@ if (!args.includes('--worker')) {
       }
     } else {
       const { createServer } = await import('vite')
-      const { runStorage, runRuntime, runFormat, runLearning, runLesson01 } =
-        await import('../tests/browser/threejs-learning.js')
+      const {
+        runStorage,
+        runRuntime,
+        runFormat,
+        runLearning,
+        runLesson01,
+        runLessons0204,
+      } = await import('../tests/browser/threejs-learning.js')
       const { runHtmlRuntimeFixtures } =
         await import('../tests/browser/html-runtime.js')
       const playwright =
@@ -198,15 +211,17 @@ if (!args.includes('--worker')) {
         evidence.errors.push({ message: error.message, stack: error.stack }),
       )
       evidence.checks = await (
-        selected === 'lesson-01'
-          ? runLesson01
-          : selected === 'learning'
-            ? runLearning
-            : selected === 'storage'
-              ? runStorage
-              : selected === 'format'
-                ? runFormat
-                : runRuntime
+        selected === 'lessons-02-04'
+          ? runLessons0204
+          : selected === 'lesson-01'
+            ? runLesson01
+            : selected === 'learning'
+              ? runLearning
+              : selected === 'storage'
+                ? runStorage
+                : selected === 'format'
+                  ? runFormat
+                  : runRuntime
       )(page, base)
       if (selected === 'runtime')
         evidence.producer = await runHtmlRuntimeFixtures(page, base)

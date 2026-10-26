@@ -1,5 +1,8 @@
 import { readLearningContent } from './learning-content.mjs'
-import { learningMarkdown } from '../src/app/learningSchema.ts'
+import {
+  learningMarkdown,
+  localizedLearningCodePath,
+} from '../src/app/learningSchema.ts'
 import { formatGeneratedText } from './format-generated.mjs'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -29,8 +32,24 @@ const bullets = (values) => values.map((value) => '- ' + value).join('\n')
 const numbered = (values) =>
   values.map((value, index) => `${index + 1}. ${value}`).join('\n')
 const table = (value) => value.replaceAll('|', '\\|').replaceAll('\n', ' ')
+const exampleSourcePath = (id, locale = 'ko') => {
+  const html =
+    catalog.units.find((unit) => unit.id === id)?.sourceLanguage === 'html'
+  const file = 'src/labs/' + id + '/example.' + (html ? 'html' : 'js')
+  return (
+    '/' +
+    (html
+      ? localizedLearningCodePath(
+          file,
+          locale,
+          learning.en.codeSourceHashes,
+          (file) => fs.existsSync(path.join(root, file)),
+        )
+      : file)
+  )
+}
 const hasExample = (id) =>
-  fs.existsSync(path.join(root, 'src/labs', id, 'example.js'))
+  fs.existsSync(path.join(root, exampleSourcePath(id).slice(1)))
 const metadataDirectory = path.join(root, 'content/examples')
 const metadata = fs.existsSync(metadataDirectory)
   ? Object.assign(
@@ -213,7 +232,7 @@ for (const series of baseline.series) {
       '## 연결된 예제와 실행 범위',
       '',
       hasExample(unit.id)
-        ? `${link(entry.docPath, '/src/labs/' + unit.id + '/example.js', '예제 원본')} · ${link(entry.docPath, '/docs/examples.md', '실행 환경과 제한')}`
+        ? `${link(entry.docPath, exampleSourcePath(unit.id), '예제 원본')} · ${link(entry.docPath, '/docs/examples.md', '실행 환경과 제한')}`
         : '문서와 필기를 제공합니다.',
       '',
       ...(metadata[unit.id]
@@ -307,7 +326,7 @@ for (const series of catalog.series.filter((item) => item.id !== 'webgl')) {
   )) {
     const detail = metadata[unit.id]
     exampleIndex.push(
-      `| ${link(exampleIndexPath, unit.docPath, unit.day + '. ' + unit.title)} | ${exampleLabel(unit.id)} | ${link(exampleIndexPath, '/src/labs/' + unit.id + '/example.js', '원본 코드')} — ${table(detail?.note ?? '예제 준비 중')} |`,
+      `| ${link(exampleIndexPath, unit.docPath, unit.day + '. ' + unit.title)} | ${exampleLabel(unit.id)} | ${link(exampleIndexPath, exampleSourcePath(unit.id), '원본 코드')} — ${table(detail?.note ?? '예제 준비 중')} |`,
     )
   }
   exampleIndex.push('')
@@ -495,7 +514,7 @@ for (const series of englishCatalog.series.filter(
       '## Linked example and execution scope',
       '',
       hasExample(unit.id)
-        ? `${link(entry.docPath, '/src/labs/' + unit.id + '/example.js', 'Example source')} · ${link(entry.docPath, '/docs/en/examples.md', 'Runtime environments and limits')}`
+        ? `${link(entry.docPath, exampleSourcePath(unit.id, 'en'), 'Example source')} · ${link(entry.docPath, '/docs/en/examples.md', 'Runtime environments and limits')}`
         : 'Documents and notes are provided.',
       '',
       ...(entry.exampleNote
@@ -592,7 +611,7 @@ for (const series of englishCatalog.series.filter(
       ? [
           link(
             englishExampleIndexPath,
-            '/src/labs/' + unit.id + '/example.js',
+            exampleSourcePath(unit.id, 'en'),
             'Source code',
           ),
           ...(unit.exampleReadingSource

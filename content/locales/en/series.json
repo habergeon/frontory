@@ -70,10 +70,10 @@
     }
   },
   "threejs": {
-    "sourceHash": "8a4b89ea2c0aea33ae27ee183f1ae0dbf385b4aaa3df49d05b35fdb0571484df",
+    "sourceHash": "ba99ce7303f4042584719ec0b4d2e067c13f854171b925c08449b8bc9eae0fd9",
     "values": {
       "title": "Three.js",
-      "prerequisites": "A first WebGL scene, vectors and matrices"
+      "prerequisites": "HTML, CSS, and JavaScript basics"
     }
   },
   "react-three-fiber": {

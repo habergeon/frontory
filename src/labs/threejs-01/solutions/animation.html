@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>시간을 회전 각도로 바꾸기</title>
+    <style>
+      body { margin: 0; padding: 12px; font: 14px/1.5 system-ui, sans-serif; color: #172554; background: #fff; }
+      canvas { display: block; width: 100%; height: 240px; padding: 0; border: 0; }
+      output { display: block; margin-top: 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
+      label { display: block; margin-bottom: 8px; }
+      input { max-width: 100%; }
+    </style>
+  </head>
+  <body>
+    <canvas aria-label="시간을 회전 각도로 바꾸기"></canvas>
+    <output>미리보기 크기를 기다리는 중</output>
+    <script type="module">
+      import * as THREE from 'three';
+      const canvas = document.querySelector('canvas');
+      const output = document.querySelector('output');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 50);
+      camera.position.set(0, 0, 5);
+      camera.lookAt(0, 0, 0);
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      const geometry = new THREE.BoxGeometry(1, 1, 1);
+      const material = new THREE.MeshBasicMaterial({ color: '#2563eb' });
+      const cube = new THREE.Mesh(geometry, material);
+      cube.position.x = 0;
+      scene.add(cube);
+      const speed = 0.5; // rad/s: 0 → 0.5 → 1로 바꿔 보세요.
+      let start;
+      let seconds = 0;
+
+      // 읽기 화면에서 숨겨져 있으면 크기가 생길 때까지 기다립니다.
+      function draw() {
+        const w = canvas.clientWidth;
+        const h = canvas.clientHeight;
+        if (w === 0 || h === 0) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        output.textContent = '시간: ' + seconds.toFixed(3) + ' s; 각도: ' + cube.rotation.y.toFixed(3) + ' rad; speed: ' + speed + ' rad/s';
+        renderer.render(scene, camera);
+      }
+      const observer = new ResizeObserver(draw);
+      observer.observe(canvas);
+      draw();
+      function renderFrame(timeMs) {
+        if (start === undefined) start = timeMs;
+        seconds = (timeMs - start) / 1000;
+        cube.rotation.y = seconds * speed;
+        draw();
+      }
+      renderer.setAnimationLoop(renderFrame);
+    </script>
+  </body>
+</html>

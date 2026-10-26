@@ -307,6 +307,12 @@ export function readEnglishContent({
         ...entry,
         title: unit.title,
         goal: unit.outcomes.join(' '),
+        ...(original.sourceLanguage
+          ? { sourceLanguage: original.sourceLanguage }
+          : {}),
+        ...(original.runtimeProfile
+          ? { runtimeProfile: original.runtimeProfile }
+          : {}),
       })
     }
     result.curricula[series.id] = translated

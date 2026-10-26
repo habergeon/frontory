@@ -2,49 +2,606 @@
   "lessons": [
     {
       "unitId": "threejs-01",
-      "prerequisiteIds": ["html-step-02"],
-      "introduction": "Add an object to a Scene and observe its child count. This short experiment explores the scene structure before drawing shapes.",
+      "prerequisiteIds": [
+        "html-step-02",
+        "html-step-23",
+        "javascript-step-18",
+        "javascript-step-05",
+        "javascript-step-11",
+        "javascript-step-02",
+        "javascript-step-12"
+      ],
+      "introduction": "Start with HTML, CSS, and JavaScript basics. Draw your first object, then explain time-based rotation and local/world positions. Coordinates, axes, and angles are introduced here; WebGL and matrix calculations are not prerequisites. Each starter is an independent HTML document. Predict, edit one value, run, and record the observed numbers and reasons in the site notes. Reading a step or explanation does not replace your code; loading an example is a separate action.",
       "steps": [
         {
-          "id": "threejs-01-scene",
-          "title": "Add an object to the scene",
-          "explanation": "A Scene holds objects. The starter displays the child count of an empty scene. Add one Object3D after creating the scene.",
-          "solutionExplanation": "scene.add(new Object3D()) attaches an object as a child of the scene. scene.children.length changes from 0 to 1. This experiment has no renderer and does not draw shapes.",
-          "starterPath": "src/labs/threejs-01/steps/scene-starter.html",
-          "expected": "The displayed number changes from 0 to 1.",
-          "hints": ["Pass a new Object3D to scene.add()."],
-          "solutionPath": "src/labs/threejs-01/steps/scene-solution.html",
-          "questions": ["What number would two added objects produce?"]
+          "id": "threejs-01-canvas",
+          "title": "Draw a scene on a canvas",
+          "explanation": "The starter is an HTML document with canvas and output elements. Inline style sets the canvas display size; JavaScript inside script type=\"module\" draws the image. import * as THREE from 'three' exposes the library names under THREE. The site supplies the module, so no npm installation or external server is required.\n\ndocument.querySelector('canvas') finds the canvas element in the document. output is selected in the same way; assigning a string to output.textContent displays it as text.\n\nThe canvas is the HTML element that receives the image. Scene groups 3D objects and Camera sets the viewing position and direction. WebGLRenderer uses them when renderer.render(scene, camera) draws to the canvas. Scene and Camera are not HTML elements. new creates an object; renderer.render(...) calls a method on an existing object.\n\nFind canvas, scene, camera, and renderer in order. Check that the renderer receives the canvas selected from HTML. The camera is at (0, 0, 5), looking at the origin. There are no objects yet, so a background-only image is expected. In scene.background = new THREE.Color('#edf2f7'), change only the color to '#172554' and run. Record your prediction first.\n\ndraw reads canvas.clientWidth and clientHeight in CSS px. A zero width or height returns early to defer drawing. When you reopen the preview, ResizeObserver reports the size change and calls draw. observe(canvas) starts observation. At a positive size, setSize(w, h, false) fits the image, while camera.aspect = w / h and updateProjectionMatrix() apply the camera ratio. false leaves the CSS size intact. This supporting code appears in every step; keep it unchanged here. The next unit explores sizing, buffers, and DPR.\n\nThe + operators join strings and numbers in output. The canvas and output selectors each find one element in this document. Client dimensions are integers including padding but excluding borders and scrollbars; this canvas has zero padding and border. Observation and animation continue while the document remains mounted; running again replaces the iframe.",
+          "solutionExplanation": "scene.background is independent of the body background CSS. A changed value may leave an existing image unchanged until render runs again. If even the background is missing, read output and the error display, then check script execution, the canvas connection, and render in order.",
+          "starterPath": "src/labs/threejs-01/steps/canvas.html",
+          "expected": "The empty scene background changes from #edf2f7 to #172554. output shows the actual display width and height. Having no cube yet is expected.",
+          "hints": [
+            "Check that the selected HTML canvas and the canvas in WebGLRenderer({ canvas }) are the same element.",
+            "After changing scene.background, check for renderer.render(scene, camera).",
+            "Assign new THREE.Color('#172554') to scene.background and render again."
+          ],
+          "solutionPath": "src/labs/threejs-01/solutions/canvas.html",
+          "questions": [
+            "What do canvas, Scene, Camera, and WebGLRenderer each do?",
+            "Are scene.background and the body background CSS the same value?"
+          ]
+        },
+        {
+          "id": "threejs-01-cube",
+          "title": "Your first cube and camera",
+          "explanation": "This independent starter includes a cube. geometry = new THREE.BoxGeometry(1, 1, 1) defines its shape; material = new THREE.MeshBasicMaterial({ color: '#2563eb' }) defines the surface; cube = new THREE.Mesh(geometry, material) combines them into a scene object. This material is visible without lights, so no light is added.\n\nChange only color in the material constructor and run. Then keep the color and change cube.position.x from 0 to 1. position is relative to the parent, initially Scene. With this camera, +X appears rightward and +Y upward, but screen directions depend on camera orientation. Temporarily comment out scene.add(cube), run, and restore it. Creation and scene connection are separate operations.\n\nRestore cube.position.x to 0 and change the last argument of camera.position.set(0, 0, 5) to 7, changing camera.position.z from 5 to 7. Predict the cube's appearance from the more distant camera. Now change camera.position.set(0, 0, 5) to camera.position.set(2, 0, 5), keeping camera.lookAt(0, 0, 0). position sets location; lookAt sets the direction toward a world-space target. A camera initially looks along local -Z. lookAt does not move it to the target.\n\nThe completed example shows the final comparison: an orange cube and camera=(2, 0, 5). Test the intermediate x=1, z=7, and removed add separately in the starter, restoring each before the next test.",
+          "solutionExplanation": "create a Mesh from geometry and material, connect it to Scene, and render with a Camera that can see it. When z changes from 5 to 7 the perspective image is smaller, but the geometry width remains 1. near=.1 and far=50 define the drawing depth range. Keep them here; unit 03 explores clipping. If you place the camera inside the cube, do not mistake the blank image for missing lighting.",
+          "starterPath": "src/labs/threejs-01/steps/cube.html",
+          "expected": "color changes the surface color; cube.position.x changes location. Removing add hides the cube. It appears smaller at camera.z=7. After lookAt, camera.position remains (2, 0, 5).",
+          "hints": [
+            "Find Mesh creation and scene.add(cube) separately. Creation alone does not connect it to Scene.",
+            "Restore the cube to the origin and check that camera.z is 5 or 7.",
+            "Check location, direction, and drawing with camera.position.set(2, 0, 5); camera.lookAt(0, 0, 0); renderer.render(scene, camera);"
+          ],
+          "solutionPath": "src/labs/threejs-01/solutions/cube.html",
+          "questions": [
+            "Why is a created Mesh invisible if it is never added?",
+            "What do position and lookAt each change?",
+            "Does moving the camera farther away change geometry width?"
+          ]
+        },
+        {
+          "id": "threejs-01-animation",
+          "title": "Turn time into rotation",
+          "explanation": "The starter contains the cube and camera and begins with speed=0, so it is stationary. Passing renderFrame(timeMs) to renderer.setAnimationLoop makes the renderer call it each frame. A function passed for later invocation is called a callback.\n\ntimeMs is a timestamp in milliseconds. Save its first value in start and calculate elapsed seconds with seconds = (timeMs - start) / 1000. In cube.rotation.y = seconds * speed, speed is in rad/s. rotation uses radians: Math.PI is 180°, Math.PI / 2 is 90°, and 2 * Math.PI is one turn. Remember that camera.fov uses degrees instead.\n\nSet speed to .5, run again, and read angle when output seconds is near 2. Run again with speed=1 and compare near the same 2 seconds. A frame might not occur at exactly 2 seconds; record the actual time and angle together. Adding a fixed angle per frame can make rotation per second depend on display refresh rate. This example calculates the angle from time.\n\nrenderFrame calls draw(). renderer.render(scene, camera) inside draw paints the updated rotation. Repeated calls reuse the same objects.",
+          "solutionExplanation": ".5rad/s for 2 seconds gives 1rad; 1rad/s for 2 seconds gives 2rad. Without converting 2000ms into seconds, the angle is 1000 times larger. renderer.render(scene, camera) must also run inside renderFrame after changing rotation. The same cube is updated, rather than recreated each frame. renderer.setAnimationLoop(null) stops repeated calls.",
+          "starterPath": "src/labs/threejs-01/steps/animation.html",
+          "expected": "speed=0 is stationary. Near 2 seconds, speed=.5 gives angle≈1rad and speed=1 gives angle≈2rad. Both output and image change.",
+          "hints": [
+            "Check whether seconds and angle both change. If only the numbers change, inspect render placement.",
+            "Check the division of timeMs by 1000 and the rad/s unit of speed.",
+            "Inside renderFrame, call renderer.render(scene, camera) after cube.rotation.y = seconds * speed."
+          ],
+          "solutionPath": "src/labs/threejs-01/solutions/animation.html",
+          "questions": [
+            "How does adding a fixed angle per frame differ from seconds*speed?",
+            "Why divide timeMs by 1000?",
+            "What should you check if numbers change but the image is still?"
+          ]
+        },
+        {
+          "id": "threejs-01-localworld",
+          "title": "Compare parent and child positions",
+          "explanation": "This independent starter is stationary, with no animation. parent = new THREE.Group() is a parent node without its own shape. parent.position=(0, 0, 0), child.position=(2, 0, 0), and parent.add(child), scene.add(parent) connect them. The camera looks at the origin from (5, 4, 7) so that XZ motion is visible.\n\nThe tree is Scene → parent Group → child Mesh. child.position is local to parent; world position includes parent transforms in the coordinate system of the whole scene. angleInput has a string value, so convert it with Number(angleInput.value) before assigning parent.rotation.y. The choices are radian values 0 and Math.PI / 2.\n\nworld = new THREE.Vector3() stores the result. child.getWorldPosition(world) writes into world without modifying child.position. Predict both positions at rotation 0, then run: both are (2, 0, 0). Change parent Y rotation to Math.PI / 2 and compare again. Expect local=(2, 0, 0), world=(0, 0, -2). Point your right thumb along +Y; your curled fingers indicate positive rotation. In the XZ diagram, +X turns toward -Z.\n\nThe HTML range input has two values: 0 and 1.5707963267948966, the latter equal to Math.PI / 2. addEventListener('input', draw) calls draw when the value changes. toFixed(2) formats a number as a string with two decimal places. coordinates groups x/y/z for display without changing the position.",
+          "solutionExplanation": "parent rotation turns the axes used to express the child's position. The child remains 2 units along the parent's +X. getWorldPosition applies the current parent transforms without requiring manual matrix multiplication. Values such as 1e-16 are floating-point results close to 0. Format output to 2 decimal places without rounding the actual position.\n\nAn object has only one parent. scene.add(child) after parent.add(child) removes child from parent. Record your predictions, actual coordinates, and reasons for both rotation conditions in the site notes.",
+          "starterPath": "src/labs/threejs-01/steps/localworld.html",
+          "expected": "parent stays at the origin. At parent.rotation.y=0, world=(2, 0, 0); at Math.PI / 2, world≈(0, 0, -2). child local=(2, 0, 0) is unchanged.",
+          "hints": [
+            "Read child.position and world together in output and identify the value relative to the parent.",
+            "Check that the final connection is parent.add(child). scene.add(child) changes the parent.",
+            "Read with const world = new THREE.Vector3(); child.getWorldPosition(world);. Changing only parent.rotation.y to Math.PI / 2 gives local=(2, 0, 0), world=(0, 0, -2)."
+          ],
+          "solutionPath": "src/labs/threejs-01/solutions/localworld.html",
+          "questions": [
+            "Why is child.position unchanged when only the parent rotates?",
+            "Does getWorldPosition(world) modify child.position?",
+            "What changes if scene.add(child) is called last?"
+          ]
         }
       ],
-      "apiIds": ["object3d-add"]
+      "apiIds": [
+        "scene",
+        "color",
+        "renderer",
+        "renderer-size",
+        "renderer-render",
+        "perspective-camera",
+        "box-geometry",
+        "basic-material",
+        "mesh",
+        "object-position",
+        "object-lookat",
+        "object-add",
+        "object-rotation",
+        "renderer-loop",
+        "group",
+        "vector3",
+        "object-worldposition",
+        "camera-projection",
+        "canvas-dimensions",
+        "resize-observer"
+      ]
     }
   ],
   "apis": [
     {
-      "id": "object3d-add",
-      "symbol": "Object3D.add",
-      "description": "Attaches an object as a child of this object. Scene inherits Object3D and uses the same method.",
+      "id": "scene",
+      "symbol": "THREE.Scene",
+      "description": "Constructor for a scene root. Scene inherits Object3D and connects children with add. Its background member defaults to null.",
+      "parameters": [],
+      "result": "Returns a new Scene. Construction alone does not draw to a canvas.",
+      "cautions": ["Scene is not an HTML element."],
+      "example": "const scene = new THREE.Scene();\nscene.add(cube);",
+      "sourceUrl": "https://threejs.org/docs/pages/Scene.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "color",
+      "symbol": "THREE.Color",
+      "description": "Constructor for a color object. This course uses CSS hex strings only.",
       "parameters": [
         {
-          "name": "object",
-          "type": "Object3D",
-          "description": "The object to attach as a child."
+          "name": "value",
+          "type": "string",
+          "description": "A CSS hex color string, such as '#edf2f7'."
         }
       ],
-      "result": "Returns the object on which the method was called.",
+      "result": "Returns a new Color.",
       "cautions": [
-        "An object with an existing parent is removed from that parent first."
+        "Color spaces and linear RGB calculations are later topics."
       ],
-      "example": "scene.add(new Object3D())",
-      "sourceUrl": "https://threejs.org/docs/#api/en/core/Object3D.add",
+      "example": "scene.background = new THREE.Color('#edf2f7');",
+      "sourceUrl": "https://threejs.org/docs/pages/Color.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "renderer",
+      "symbol": "THREE.WebGLRenderer / renderer.domElement",
+      "description": "Constructor for a renderer that draws WebGL2 scenes to a canvas. domElement refers to its actual output canvas.",
+      "parameters": [
+        {
+          "name": "canvas",
+          "type": "HTMLCanvasElement",
+          "description": "The canvas selected from HTML. Omitting it creates a new canvas."
+        },
+        {
+          "name": "antialias",
+          "type": "boolean",
+          "description": "Requests edge antialiasing at construction.",
+          "defaultValue": "false"
+        }
+      ],
+      "result": "Returns a renderer. domElement is a canvas reference, not a method.",
+      "cautions": [
+        "WebGL2 support is required. Pass your existing canvas to use it."
+      ],
+      "example": "const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });\nconst actualCanvas = renderer.domElement;",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "renderer-size",
+      "symbol": "renderer.setSize",
+      "description": "Instance method that sets renderer logical size and viewport. It also resizes the canvas buffer using DPR.",
+      "parameters": [
+        {
+          "name": "width",
+          "type": "number",
+          "description": "Logical width in CSS px."
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": "Logical height in CSS px."
+        },
+        {
+          "name": "updateStyle",
+          "type": "boolean",
+          "description": "When true, also changes canvas inline CSS width and height.",
+          "defaultValue": "true"
+        }
+      ],
+      "result": "No return value. The buffer becomes floor(width*DPR) × floor(height*DPR).",
+      "cautions": [
+        "Use false when CSS manages display size. Do not pass dimensions already multiplied by DPR."
+      ],
+      "example": "renderer.setSize(w, h, false);",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "renderer-render",
+      "symbol": "renderer.render",
+      "description": "Instance method that draws the scene through a camera onto the current canvas.",
+      "parameters": [
+        {
+          "name": "scene",
+          "type": "Scene",
+          "description": "The scene to draw."
+        },
+        {
+          "name": "camera",
+          "type": "Camera",
+          "description": "The camera defining position, direction, and projection."
+        }
+      ],
+      "result": "No return value. Updates the current image.",
+      "cautions": [
+        "Changing object properties does not automatically call this method."
+      ],
+      "example": "renderer.render(scene, camera);",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "perspective-camera",
+      "symbol": "THREE.PerspectiveCamera",
+      "description": "Constructor for a perspective camera, where distant objects appear smaller. Arguments are positional.",
+      "parameters": [
+        {
+          "name": "fov",
+          "type": "number",
+          "description": "Vertical field of view in degrees.",
+          "defaultValue": "50"
+        },
+        {
+          "name": "aspect",
+          "type": "number",
+          "description": "Display width divided by height.",
+          "defaultValue": "1"
+        },
+        {
+          "name": "near",
+          "type": "number",
+          "description": "Depth of the near plane in front of the camera.",
+          "defaultValue": "0.1"
+        },
+        {
+          "name": "far",
+          "type": "number",
+          "description": "Depth of the far plane.",
+          "defaultValue": "2000"
+        }
+      ],
+      "result": "Returns a new PerspectiveCamera.",
+      "cautions": [
+        "Set near>0 and far>near. fov uses degrees rather than the radians used by rotation.",
+        "Call updateProjectionMatrix after changing fov/aspect/near/far/zoom."
+      ],
+      "example": "const camera = new THREE.PerspectiveCamera(50, w / h, .1, 50);",
+      "sourceUrl": "https://threejs.org/docs/pages/PerspectiveCamera.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "box-geometry",
+      "symbol": "THREE.BoxGeometry",
+      "description": "Constructor for a box centered at the origin, with edges parallel to local X/Y/Z.",
+      "parameters": [
+        {
+          "name": "width",
+          "type": "number",
+          "description": "Length along local X.",
+          "defaultValue": "1"
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": "Length along local Y.",
+          "defaultValue": "1"
+        },
+        {
+          "name": "depth",
+          "type": "number",
+          "description": "Length along local Z.",
+          "defaultValue": "1"
+        }
+      ],
+      "result": "Returns a new BoxGeometry.",
+      "cautions": [
+        "Segment arguments are omitted here and each defaults to 1. Editing parameters.width does not rebuild vertices."
+      ],
+      "example": "const geometry = new THREE.BoxGeometry(1, 1, 1);",
+      "sourceUrl": "https://threejs.org/docs/pages/BoxGeometry.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "basic-material",
+      "symbol": "THREE.MeshBasicMaterial",
+      "description": "Constructor for a surface appearance unaffected by lights.",
+      "parameters": [
+        {
+          "name": "color",
+          "type": "Color | string | number",
+          "description": "The examples use CSS hex strings.",
+          "defaultValue": "0xffffff"
+        },
+        {
+          "name": "wireframe",
+          "type": "boolean",
+          "description": "When true, displays triangle edges.",
+          "defaultValue": "false"
+        }
+      ],
+      "result": "Returns a new material.",
+      "cautions": [
+        "If this material is invisible, check Scene connection, camera, and render before adding lights."
+      ],
+      "example": "const material = new THREE.MeshBasicMaterial({ color: '#2563eb' });",
+      "sourceUrl": "https://threejs.org/docs/pages/MeshBasicMaterial.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "mesh",
+      "symbol": "THREE.Mesh",
+      "description": "Constructor for a scene object combining geometry and material.",
+      "parameters": [
+        {
+          "name": "geometry",
+          "type": "BufferGeometry",
+          "description": "The shape object."
+        },
+        {
+          "name": "material",
+          "type": "Material",
+          "description": "The surface appearance object."
+        }
+      ],
+      "result": "Returns a new Mesh without adding it to Scene.",
+      "cautions": [
+        "This course supplies both arguments rather than relying on omitted defaults."
+      ],
+      "example": "const cube = new THREE.Mesh(geometry, material);\nscene.add(cube);",
+      "sourceUrl": "https://threejs.org/docs/pages/Mesh.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "object-position",
+      "symbol": "object.position / Vector3.set",
+      "description": "position is a Vector3 member holding a position relative to the parent. position.set is a Vector3 method that changes its components.",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "number",
+          "description": "Position along the parent X axis."
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "description": "Position along the parent Y axis."
+        },
+        {
+          "name": "z",
+          "type": "number",
+          "description": "Position along the parent Z axis."
+        }
+      ],
+      "result": "position initially is (0, 0, 0). set mutates it and returns the same Vector3.",
+      "cautions": [
+        "Change x/y/z or use set; do not replace position with an array."
+      ],
+      "example": "cube.position.set(1, 0, 0);\ncube.position.x = 2;",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "object-lookat",
+      "symbol": "camera.lookAt",
+      "description": "Method that points a camera toward a world-space target.",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "number",
+          "description": "Target world X. An overload accepts a single Vector3."
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "description": "Target world Y."
+        },
+        {
+          "name": "z",
+          "type": "number",
+          "description": "Target world Z."
+        }
+      ],
+      "result": "No return value. Changes camera rotation without moving its position.",
+      "cautions": [
+        "Non-uniformly scaled parents are unsupported. With controls, avoid having lookAt and controls.update overwrite orientation each frame."
+      ],
+      "example": "camera.position.set(2, 0, 5);\ncamera.lookAt(0, 0, 0);",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "object-add",
+      "symbol": "object.add",
+      "description": "Method that connects other Object3D instances as children.",
+      "parameters": [
+        {
+          "name": "children",
+          "type": "Object3D[]",
+          "description": "Children to connect. Multiple arguments are accepted."
+        }
+      ],
+      "result": "Returns the parent itself. Children are removed from their previous parents.",
+      "cautions": [
+        "An object has one parent. Its local transform is retained, but its world position is not guaranteed to stay the same."
+      ],
+      "example": "parent.add(child);\nscene.add(parent);",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "object-rotation",
+      "symbol": "object.rotation.x/y/z",
+      "description": "Euler member holding an Object3D local rotation. x/y/z are angles in radians.",
+      "parameters": [],
+      "result": "Initial angles are (0, 0, 0), with default order XYZ. Assigning components mutates the object.",
+      "cautions": [
+        "Math.PI / 2 is 90°. Do not confuse radians with camera.fov degrees.",
+        "A child rotation.y is not always a rotation about world Y."
+      ],
+      "example": "cube.rotation.y = Math.PI / 2;",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "renderer-loop",
+      "symbol": "renderer.setAnimationLoop",
+      "description": "Method that registers or stops a callback for each frame.",
+      "parameters": [
+        {
+          "name": "callback",
+          "type": "function | null",
+          "description": "The first callback argument in this non-XR example is timestamp timeMs. null stops the loop."
+        }
+      ],
+      "result": "No return value. The registered callback runs repeatedly.",
+      "cautions": [
+        "The timestamp is in ms; elapsed seconds are (timeMs-start)/1000.",
+        "After changing object values inside the callback, also call render."
+      ],
+      "example": "let start;\nrenderer.setAnimationLoop(timeMs => {\n  if (start === undefined) start = timeMs;\n  const seconds = (timeMs - start) / 1000;\n  cube.rotation.y = seconds * speed;\n  renderer.render(scene, camera);\n});",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "group",
+      "symbol": "THREE.Group",
+      "description": "Constructor for an Object3D node that groups child transforms. It has no shape of its own.",
+      "parameters": [],
+      "result": "Returns a new Group. position/rotation/add follow Object3D contracts.",
+      "cautions": ["Adding a Group does not create visible geometry."],
+      "example": "const parent = new THREE.Group();\nparent.add(child);\nscene.add(parent);",
+      "sourceUrl": "https://threejs.org/docs/pages/Group.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "vector3",
+      "symbol": "THREE.Vector3",
+      "description": "Constructor for an object with x/y/z components, used here to store position results.",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "number",
+          "description": "X component.",
+          "defaultValue": "0"
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "description": "Y component.",
+          "defaultValue": "0"
+        },
+        {
+          "name": "z",
+          "type": "number",
+          "description": "Z component.",
+          "defaultValue": "0"
+        }
+      ],
+      "result": "Returns a new Vector3.",
+      "cautions": [
+        "The Vector3 type does not determine whether a value is local or world-space; its use does."
+      ],
+      "example": "const world = new THREE.Vector3();",
+      "sourceUrl": "https://threejs.org/docs/pages/Vector3.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "object-worldposition",
+      "symbol": "object.getWorldPosition",
+      "description": "Method that reads world position including current parent transforms.",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "Vector3",
+          "description": "The destination object for the result; it is required."
+        }
+      ],
+      "result": "Mutates and returns target without changing object.position.",
+      "cautions": [
+        "In 0.186.1, the method updates the required parent world matrices internally. No manual matrix multiplication is needed."
+      ],
+      "example": "const world = new THREE.Vector3();\nchild.getWorldPosition(world);",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "camera-projection",
+      "symbol": "camera.updateProjectionMatrix",
+      "description": "Method that applies changed fov/aspect/near/far/zoom values to the projection matrix. Orthographic cameras expose the same method.",
+      "parameters": [],
+      "result": "No return value. The next render uses the updated projection.",
+      "cautions": [
+        "Property assignment does not call this automatically.",
+        "Distinguish camera movement from changes to projection values."
+      ],
+      "example": "camera.aspect = w / h;\ncamera.updateProjectionMatrix();",
+      "sourceUrl": "https://threejs.org/docs/pages/PerspectiveCamera.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "canvas-dimensions",
+      "symbol": "canvas.width/height / stage.clientWidth/clientHeight",
+      "description": "DOM members for display and buffer dimensions. clientWidth/clientHeight use CSS px; canvas.width/height use buffer px. The same Element clientWidth/clientHeight contract applies to canvas.",
+      "parameters": [],
+      "result": "Property reads yield dimension numbers. Client dimensions are integers and include padding but exclude borders. The corresponding scrollbar is also excluded.",
+      "cautions": [
+        "These are Web APIs, not Three.js APIs. packageVersion records the lesson Three.js version.",
+        "The example stage has no padding/border. Do not mix direct canvas buffer assignments with renderer size management.",
+        "Display-size sources: https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth and https://developer.mozilla.org/en-US/docs/Web/API/Element/clientHeight"
+      ],
+      "example": "const w = stage.clientWidth;\nconst h = stage.clientHeight;\noutput.textContent = `${w} × ${h}; ${canvas.width} × ${canvas.height}`;",
+      "sourceUrl": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/width",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "resize-observer",
+      "symbol": "ResizeObserver / observe / disconnect",
+      "description": "Web API that reports element size changes through a callback, including stage changes without window resizing.",
+      "parameters": [
+        {
+          "name": "callback",
+          "type": "function",
+          "description": "Function called for size changes; the example passes resizeScene."
+        },
+        {
+          "name": "target",
+          "type": "Element",
+          "description": "The stage element observed with observe(target)."
+        }
+      ],
+      "result": "The constructor returns an observer. observe and disconnect return no value. disconnect stops observation.",
+      "cautions": [
+        "This is not a Three.js API. packageVersion records the lesson Three.js version.",
+        "Return before division if w or h is 0. An observer does not replace render."
+      ],
+      "example": "const observer = new ResizeObserver(resizeScene);\nobserver.observe(stage);\nresizeScene();\n// When observation ends: observer.disconnect();",
+      "sourceUrl": "https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver",
       "packageVersion": "0.186.1",
       "checkedAt": "2026-10-26"
     }
   ],
-  "sourceHash": "66f4d02a6d8ec62bc9fe3b2e2408dbec9db3214e493824ceb81259760ca2ab15",
+  "sourceHash": "fb28529f480e0ebc9b5d30a963e6d48f6f33c7cb20b5ce6d341728fa76dd25c7",
   "codeSourceHashes": {
-    "src/labs/threejs-01/steps/scene-starter.html": "5e6fc9ec5aaddf7db3dd88b331445418e89acabadcf1dc6ae1f39daa17bfd024",
-    "src/labs/threejs-01/steps/scene-solution.html": "0e4d3f8c86bab49998aeb40a672d38d698b24709585f4d6d7fc3881fbd1fe45f"
+    "src/labs/threejs-01/example.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
+    "src/labs/threejs-01/steps/canvas.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
+    "src/labs/threejs-01/solutions/canvas.html": "d62a8e77a1eca6cd05cb7f04453f02fccc777b828dc6124fdcfc5a326d5058ad",
+    "src/labs/threejs-01/steps/cube.html": "3e6cd6c3a0621ea69e1dbeed2d3f229ff31c9aa36b758aab0d805f07bc5ad29e",
+    "src/labs/threejs-01/solutions/cube.html": "184831db52e27d2eb4d27bb28b8159e12189060fdc748825075612a1fef65a03",
+    "src/labs/threejs-01/steps/animation.html": "fbde2801477afe5f23745ce42271eca144b08c80d37271222cce411480003808",
+    "src/labs/threejs-01/solutions/animation.html": "f2f64ebf33332633b2116097480fadb7062b64550c371fc6d4a17cf96c987b5d",
+    "src/labs/threejs-01/steps/localworld.html": "6af61b9560724e8914f59a6f31fba815b22579d5e75a95563bf09fbc451ea641",
+    "src/labs/threejs-01/solutions/localworld.html": "4cf5aeadeacb0a4eed9b53437c3359ac501ff7309c78e116fe9986ccc6392b42"
   }
 }

@@ -145,7 +145,7 @@
       "title": "Three.js",
       "category": "graphics",
       "priority": 5,
-      "prerequisites": "WebGL 첫 장면, 벡터·행렬",
+      "prerequisites": "HTML·CSS·JavaScript 기초",
       "docPath": "/docs/labs/graphics/threejs/README.md",
       "stages": [
         "장면 좌표·카메라·기하",
@@ -3129,9 +3129,11 @@
       "day": 1,
       "week": 1,
       "title": "장면 그래프와 카메라",
-      "goal": "local과 world 좌표 변화를 출력한다. FOV와 카메라 이동의 효과를 구별한다.",
+      "goal": "canvas에 첫 물체를 그리고 색·위치·카메라 거리 효과를 비교한다. 시간에 따른 회전과 부모 회전 전후 local/world 위치를 수치와 말로 설명한다.",
       "docPath": "/docs/labs/graphics/threejs/01-foundations/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-01/example.js"
     },
     {

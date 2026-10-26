@@ -496,6 +496,10 @@
         "comments.comment001": "Assignment: change the parent rotation and the child’s local coordinates, then predict the world coordinates.",
         "comments.comment002": "Shared scene setup: the code below also runs exactly as you edit it."
       }
+    },
+    "sourceHash": "586a61d756ef6b1e3c312e5658081bfaaa6cf7b336667866b6d5932919a9874b",
+    "values": {
+      "note": "Edit and run the HTML starter inside the site. Read the step instructions and API reference, then record actual results in the notes."
     }
   },
   "threejs-02": {

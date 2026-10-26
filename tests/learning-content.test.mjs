@@ -126,8 +126,8 @@ test('browser lookup adapter exposes optional data without a Node filesystem dep
       'threejs-01',
     )
     assert.equal(
-      module.exports.getApiReference('object3d-add', locale).symbol,
-      'Object3D.add',
+      module.exports.getApiReference('object-add', locale).symbol,
+      'object.add',
     )
   }
 })
@@ -149,11 +149,15 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
   const root = fs.mkdtempSync(path.join(tmpdir(), 'frontory-learning-'))
   try {
     const original = readLearningContent()
-    const paths = original.ko.lessons.flatMap((l) =>
-      l.steps.flatMap((s) => [s.starterPath, s.solutionPath]),
-    )
+    const paths = [
+      'src/labs/threejs-01/example.html',
+      ...original.ko.lessons.flatMap((l) =>
+        l.steps.flatMap((s) => [s.starterPath, s.solutionPath]),
+      ),
+    ]
     for (const file of [
       'src/app/catalog.json',
+      'content/curricula/threejs.json',
       'content/learning/threejs.json',
       'content/locales/en/learning/threejs.json',
       ...paths,
@@ -180,6 +184,14 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
     save(en)
     assert.throws(() => readLearningContent(root), /Stale learning code/)
     save(original.en)
+    en = structuredClone(original.en)
+    en.codeSourceHashes['src/labs/unknown/example.html'] = 'unknown'
+    save(en)
+    assert.throws(
+      () => readLearningContent(root),
+      /Unknown English learning code hash path/,
+    )
+    save(original.en)
     fs.unlinkSync(path.join(root, logical.replace('.html', '.en.html')))
     assert.throws(
       () => readLearningContent(root),
@@ -188,10 +200,23 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
     en = structuredClone(original.en)
     delete en.codeSourceHashes[logical]
     save(en)
+    assert.throws(
+      () => readLearningContent(root),
+      /Missing English learning code hash/,
+    )
+    fs.copyFileSync(
+      logical.replace('.html', '.en.html'),
+      path.join(root, logical.replace('.html', '.en.html')),
+    )
+    en = structuredClone(original.en)
+    const shared = paths[1]
+    fs.unlinkSync(path.join(root, shared.replace('.html', '.en.html')))
+    delete en.codeSourceHashes[shared]
+    save(en)
     assert.match(
-      readLearningContent(root).readCode(logical, 'en'),
+      readLearningContent(root).readCode(shared, 'en'),
       /lang="ko"/,
-      'shared-code fallback requires both translated file and hash to be absent',
+      'legacy shared-code fallback still requires both file and hash to be absent',
     )
   } finally {
     assert.ok(

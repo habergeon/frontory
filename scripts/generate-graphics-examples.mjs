@@ -208,6 +208,17 @@ for (const [series, lessons] of Object.entries(bodies)) {
     ),
   )
   for (const unit of curriculum.units) {
+    if (unit.sourceLanguage === 'html') {
+      manifest[unit.id] = {
+        ...JSON.parse(
+          fs.readFileSync('content/examples/' + series + '.json', 'utf8'),
+        )[unit.id],
+        mode: 'browser',
+        note: '사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.',
+        files: [`src/labs/${unit.id}/example.html`],
+      }
+      continue
+    }
     const filename = `src/labs/${unit.id}/example.js`
     const body = lessons[unit.day]
     if (body) {

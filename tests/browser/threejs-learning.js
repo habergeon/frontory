@@ -29,14 +29,366 @@ const replaceText = async (page, code) => {
     editor.pushUndoStop()
   }, code)
 }
-const readyEditor = async (page) => {
-  await page.waitForSelector('.monaco-editor')
+const readyEditor = async (page, state = 'visible') => {
+  await page.waitForSelector('.monaco-editor', { state })
   await page.waitForFunction(
     () =>
       !/준비하고|Preparing/.test(
         document.querySelector('.code-check-status').textContent,
       ),
   )
+}
+
+// Run through the actual learning workspace and its localized source loader.
+export async function runLesson01(page, base) {
+  const checks = []
+  const prefix =
+    (
+      process.env.THREEJS_EVIDENCE ??
+      '.superpowers/sdd/2026-10-26-threejs-contained-learning/task-6a-browser'
+    ).replace(/\.json$/, '') + '-'
+  const waitFrame = async () => {
+    await page.waitForFunction(
+      () => !!document.querySelector('#panel-result iframe'),
+    )
+    await page
+      .frameLocator('#panel-result iframe')
+      .locator('canvas')
+      .waitFor({ state: 'attached' })
+    return (
+      await page.locator('#panel-result iframe').elementHandle()
+    ).contentFrame()
+  }
+  const showReading = async () => {
+    const width = await page.evaluate(() => innerWidth)
+    if (width < 768) await page.locator('#tab-reading').click()
+    else if (width < 1100)
+      await page.locator('.tablet-learning-tabs button').first().click()
+  }
+  const showPreview = async () => {
+    const width = await page.evaluate(() => innerWidth)
+    if (width < 768) await page.locator('#tab-result').click()
+    else if (width < 1100)
+      await page.locator('.tablet-learning-tabs button').nth(1).click()
+    await page
+      .frameLocator('#panel-result iframe')
+      .locator('canvas')
+      .waitFor({ state: 'visible' })
+    await page.waitForFunction(
+      () =>
+        document.querySelector('#panel-result iframe').getBoundingClientRect()
+          .width > 0,
+    )
+  }
+  const load = async (step, solution = false) => {
+    await showReading()
+    await page.selectOption('#learning-step', 'threejs-01-' + step)
+    const details = page
+      .locator('.lesson-learning > details')
+      .nth(solution ? 2 : 0)
+    await details.locator('summary').click()
+    await details.getByRole('button').click()
+    await page.locator('.example-confirm button').first().click()
+    const source = (await editorState(page)).code
+    await waitFrame()
+    // Source replacement and preview compilation are asynchronous.
+    await page.waitForFunction(
+      (title) => {
+        const f = document.querySelector('#panel-result iframe')
+        return f.srcdoc.includes(title)
+      },
+      source.match(/<title>(.*?)<\/title>/)[1],
+    )
+    return source
+  }
+  let serial = 0
+  const run = async (source, step) => {
+    const tag = ++serial
+    const hook = `\nglobalThis.__lesson = {tag:${tag}, snapshot() {
+      draw();
+      const gl = renderer.getContext();
+      const pixels = new Uint8Array(canvas.width * canvas.height * 4);
+      gl.readPixels(0, 0, canvas.width, canvas.height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
+      const bg = scene.background.getHexString();
+      const expected = [0,2,4].map(i => parseInt(bg.slice(i,i+2),16));
+      let count=0,minX=canvas.width,maxX=-1;
+      for(let p=0;p<pixels.length;p+=4) if(expected.some((c,i)=>Math.abs(c-pixels[p+i])>12)) {count++;minX=Math.min(minX,(p/4)%canvas.width);maxX=Math.max(maxX,(p/4)%canvas.width);}
+      return {w:canvas.clientWidth,h:canvas.clientHeight,buffer:[canvas.width,canvas.height],aspect:camera.aspect,background:bg,camera:[camera.position.x,camera.position.y,camera.position.z],pixels:count,minX,maxX,output:output.textContent,
+        ${step === 'canvas' ? '' : step === 'localworld' ? 'local:[child.position.x,child.position.y,child.position.z],world:[world.x,world.y,world.z],parent:[parent.position.x,parent.position.y,parent.position.z],angle:parent.rotation.y,' : `position:[cube.position.x,cube.position.y,cube.position.z],color:material.color.getHexString(),width:geometry.parameters.width,angle:cube.rotation.y,`}
+        ${step === 'animation' ? 'seconds,speed,' : ''}
+      };
+    }};`
+    await replaceText(page, source.replace('</script>', hook + '\n</script>'))
+    await page.waitForFunction(
+      (tag) =>
+        document
+          .querySelector('#panel-result iframe')
+          .srcdoc.includes('tag:' + tag + ','),
+      tag,
+    )
+    await showPreview()
+    const f = await waitFrame()
+    await f.waitForFunction((tag) => globalThis.__lesson?.tag === tag, tag)
+    return f
+  }
+  const snapshot = async (f) => f.evaluate(() => globalThis.__lesson.snapshot())
+  for (const locale of ['ko', 'en']) {
+    await page.setViewportSize({ width: 320, height: 900 })
+    await page.goto(base + fixture + '?learning#threejs-01')
+    await readyEditor(page, 'attached')
+    if (locale === 'en')
+      await page.getByRole('button', { name: 'English', exact: true }).click()
+    if (locale === 'en') {
+      // No saved code: a fresh mount must select the actual English default.
+      await page.evaluate(() =>
+        localStorage.removeItem('web-gl-study:unit:v1:threejs-01'),
+      )
+      await page.reload()
+      await readyEditor(page, 'attached')
+    }
+    assert.equal((await editorState(page)).language, 'html')
+    assert.match(
+      (await editorState(page)).code,
+      new RegExp('lang="' + locale + '"'),
+    )
+    for (const step of ['canvas', 'cube', 'animation', 'localworld']) {
+      const source = await load(step)
+      assert.match(source, new RegExp('lang="' + locale + '"'))
+      const hidden = await (
+        await waitFrame()
+      )
+        .locator('canvas')
+        .evaluate((c) => ({ w: c.clientWidth, h: c.clientHeight }))
+      assert.equal(hidden.w, 0)
+      await page.setViewportSize({ width: 360, height: 900 })
+      await showPreview()
+      await (
+        await waitFrame()
+      ).waitForFunction(
+        () =>
+          !document.querySelector('output').textContent.includes('기다리는') &&
+          !document.querySelector('output').textContent.includes('Waiting'),
+      )
+      const displayed = await (
+        await waitFrame()
+      )
+        .locator('canvas')
+        .evaluate((c) => ({
+          w: c.clientWidth,
+          h: c.clientHeight,
+          buffer: [c.width, c.height],
+        }))
+      assert.ok(displayed.w > 0 && displayed.h > 0)
+      assert.deepEqual(displayed.buffer, [displayed.w, displayed.h])
+      checks.push({ locale, step, hidden, displayed })
+      await page.setViewportSize({ width: 1440, height: 900 })
+      const f = await run(source, step)
+      if (step === 'animation')
+        await f.waitForFunction(
+          () => globalThis.__lesson.snapshot().seconds >= 0.1,
+        )
+      const initial = await snapshot(f)
+      assert.ok(Number.isFinite(initial.aspect) && initial.w > 0)
+      if (step === 'canvas') assert.equal(initial.background, 'edf2f7')
+      else assert.ok(initial.pixels > 0)
+      if (step === 'animation') assert.equal(initial.angle, 0)
+      if (step === 'localworld') assert.deepEqual(initial.world, [2, 0, 0])
+      const solution = await load(step, true)
+      const sf = await run(solution, step)
+      const completed = await snapshot(sf)
+      if (step === 'canvas') assert.equal(completed.background, '172554')
+      if (step === 'cube') assert.deepEqual(completed.camera, [2, 0, 5])
+      if (step === 'localworld')
+        for (const [i, n] of [0, 0, -2].entries())
+          assert.ok(Math.abs(completed.world[i] - n) < 1e-6)
+      if (step === 'localworld') {
+        await page.setViewportSize({ width: 320, height: 900 })
+        await showReading()
+        await page.setViewportSize({ width: 768, height: 900 })
+        await showPreview()
+        const preserved = await snapshot(sf)
+        assert.deepEqual(preserved.world, completed.world)
+        assert.equal(preserved.angle, completed.angle)
+        assert.ok(
+          Math.abs(
+            Number(await sf.locator('#angle').inputValue()) - Math.PI / 2,
+          ) < 1e-12,
+        )
+        checks.push({ locale, inputAcrossHiddenResize: preserved })
+        await page.setViewportSize({ width: 1440, height: 900 })
+      }
+      checks.push({ locale, step, initial, completed })
+      if (locale === 'ko') {
+        if (step === 'canvas') {
+          const edited = await run(
+            source.replace("'#edf2f7'", "'#172554'"),
+            step,
+          )
+          assert.equal((await snapshot(edited)).background, '172554')
+        }
+        if (step === 'cube') {
+          const moved = await snapshot(
+            await run(
+              source
+                .replace('cube.position.x = 0', 'cube.position.x = 1')
+                .replace("'#2563eb'", "'#f97316'"),
+              step,
+            ),
+          )
+          assert.equal(moved.position[0], 1)
+          assert.equal(moved.color, 'f97316')
+          assert.ok(moved.minX > initial.minX)
+          const far = await snapshot(
+            await run(
+              source.replace(
+                'camera.position.set(0, 0, 5)',
+                'camera.position.set(0, 0, 7)',
+              ),
+              step,
+            ),
+          )
+          assert.equal(far.camera[2], 7)
+          assert.equal(far.width, 1)
+          assert.ok(far.pixels < initial.pixels)
+          const removed = await snapshot(
+            await run(
+              source.replace('scene.add(cube);', '// scene.add(cube);'),
+              step,
+            ),
+          )
+          assert.equal(removed.pixels, 0)
+          checks.push({ studentCube: { moved, far, removed } })
+        }
+        if (step === 'animation')
+          for (const speed of [0.5, 1]) {
+            const af = await run(
+              source.replace('const speed = 0;', `const speed = ${speed};`),
+              step,
+            )
+            await af.waitForFunction(
+              () => globalThis.__lesson.snapshot().seconds >= 2,
+            )
+            const observed = await snapshot(af)
+            assert.ok(
+              Math.abs(observed.angle - observed.seconds * speed) < 1e-6,
+            )
+            checks.push({ studentAnimation: observed })
+          }
+        if (step === 'localworld') {
+          const lf = await run(source, step)
+          const before = await snapshot(lf)
+          await lf.locator('#angle').evaluate((input) => {
+            input.value = String(Math.PI / 2)
+            input.dispatchEvent(new Event('input', { bubbles: true }))
+          })
+          const after = await snapshot(lf)
+          assert.deepEqual(after.local, [2, 0, 0])
+          assert.deepEqual(after.parent, [0, 0, 0])
+          for (const [i, n] of [0, 0, -2].entries())
+            assert.ok(Math.abs(after.world[i] - n) < 1e-6)
+          assert.notEqual(before.minX, after.minX)
+          await page.screenshot({ path: prefix + 'localworld-90.png' })
+          checks.push({ studentLocalWorld: { before, after } })
+        }
+      }
+      await page.setViewportSize({ width: 320, height: 900 })
+    }
+    for (const width of [320, 768, 1024, 1100, 1440]) {
+      await page.setViewportSize({ width, height: 900 })
+      await showReading()
+      await page.evaluate(() => window.scrollTo(0, 0))
+      const metrics = await page.evaluate(() => ({
+        viewport: innerWidth,
+        page: document.documentElement.scrollWidth,
+        reading: document
+          .querySelector('#panel-reading')
+          .getBoundingClientRect().width,
+      }))
+      assert.ok(metrics.page <= metrics.viewport)
+      await page.screenshot({
+        path: prefix + locale + '-width-' + width + '.png',
+      })
+      checks.push({ locale, metrics })
+    }
+    await page.evaluate(() =>
+      localStorage.removeItem('web-gl-study:unit:v1:threejs-01'),
+    )
+  }
+  // Historical drafts (including omitted language and empty code) win over defaults.
+  for (const code of [
+    'export function mount({container}) { container.textContent="saved-js"; return () => {}; }',
+    '',
+  ]) {
+    await page.evaluate(
+      (code) =>
+        localStorage.setItem(
+          'web-gl-study:unit:v1:threejs-01',
+          JSON.stringify({
+            version: 1,
+            code,
+            notes: 'saved note',
+            progress: 'completed',
+            updatedAt: '2026-10-26T00:00:00.000Z',
+          }),
+        ),
+      code,
+    )
+    await page.reload()
+    await readyEditor(page)
+    assert.equal((await editorState(page)).code, code)
+    assert.equal((await editorState(page)).language, 'javascript')
+    assert.equal(await page.locator('.notes-editor').inputValue(), 'saved note')
+    assert.equal(
+      await page
+        .locator('.learning-status button')
+        .nth(2)
+        .getAttribute('aria-pressed'),
+      'true',
+    )
+    const stored = await page.evaluate(() =>
+      localStorage.getItem('web-gl-study:unit:v1:threejs-01'),
+    )
+    await page
+      .getByRole('button', { name: /^(English|한국어)$/, exact: true })
+      .click()
+    assert.equal((await editorState(page)).code, code)
+    assert.equal(
+      await page.evaluate(() =>
+        localStorage.getItem('web-gl-study:unit:v1:threejs-01'),
+      ),
+      stored,
+    )
+    checks.push({
+      historicalDraft: {
+        empty: code === '',
+        language: 'javascript',
+        notes: 'saved note',
+        completed: true,
+        unchanged: true,
+      },
+    })
+  }
+  const old = await editorState(page)
+  await replaceText(page, '// saved draft edit')
+  const edited = await editorState(page)
+  await page
+    .getByRole('button', { name: /^(English|한국어)$/, exact: true })
+    .click()
+  assert.deepEqual(await editorState(page), edited)
+  await page.evaluate(async () => {
+    const { monaco } = await import('/src/editor/monaco.ts')
+    monaco.editor.getEditors()[0].trigger('fixture', 'undo', null)
+  })
+  assert.equal((await editorState(page)).code, old.code)
+  assert.equal((await editorState(page)).language, old.language)
+  checks.push({
+    localeChange: {
+      model: edited.id,
+      codeAndLanguageAndVersionPreserved: true,
+      nativeUndoRestored: true,
+    },
+  })
+  return checks
 }
 export async function runStorage(page, base) {
   const checks = []
@@ -1014,7 +1366,7 @@ export async function runLearning(page, base) {
     modelVersion: before.version,
     notesProgressStorage: 'unchanged',
   })
-  await page.locator('.lesson-learning nav button').click()
+  await page.locator('.lesson-learning nav button').first().click()
   await page.waitForSelector('.document-reader .markdown')
   assert.equal(await page.evaluate(() => location.hash), '#threejs-01')
   assert.equal((await editorState(page)).code, before.code)
@@ -1056,7 +1408,7 @@ export async function runLearning(page, base) {
     const after = await editorState(page)
     assert.equal(after.id, prior.id)
     assert.equal(after.language, 'html')
-    assert.match(after.code, /Scene, Object3D/)
+    assert.match(after.code, /new THREE.Scene/)
     await undo()
     const undone = await editorState(page)
     assert.equal(undone.code, prior.code)
@@ -1082,7 +1434,7 @@ export async function runLearning(page, base) {
   await load.click()
   await page.locator('.example-confirm button').first().click()
   assert.match((await editorState(page)).code, /lang="en"/)
-  assert.match((await editorState(page)).code, /Scene experiment/)
+  assert.match((await editorState(page)).code, /Draw a scene on a canvas/)
   assert.match(
     await page.locator('#panel-code .panel-hint').textContent(),
     /isolated preview/,
@@ -1095,7 +1447,7 @@ export async function runLearning(page, base) {
   await load.click()
   await page.locator('.example-confirm button').first().click()
   assert.match((await editorState(page)).code, /lang="ko"/)
-  assert.match((await editorState(page)).code, /장면 구조 실험/)
+  assert.match((await editorState(page)).code, /canvas에 장면 그리기/)
   assert.match(
     await page.locator('#panel-code .panel-hint').textContent(),
     /HTML 문서/,

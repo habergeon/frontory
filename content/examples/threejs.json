@@ -1,4 +1,9 @@
 {
+  "threejs-01": {
+    "mode": "browser",
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.",
+    "files": ["src/labs/threejs-01/example.html"]
+  },
   "threejs-step-02": {
     "readingSource": "/examples-en/threejs-step-02/example.js",
     "mode": "browser",

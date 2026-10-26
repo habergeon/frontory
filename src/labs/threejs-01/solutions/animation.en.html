@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Turn time into rotation</title>
+    <style>
+      body { margin: 0; padding: 12px; font: 14px/1.5 system-ui, sans-serif; color: #172554; background: #fff; }
+      canvas { display: block; width: 100%; height: 240px; padding: 0; border: 0; }
+      output { display: block; margin-top: 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
+      label { display: block; margin-bottom: 8px; }
+      input { max-width: 100%; }
+    </style>
+  </head>
+  <body>
+    <canvas aria-label="Turn time into rotation"></canvas>
+    <output>Waiting for preview dimensions</output>
+    <script type="module">
+      import * as THREE from 'three';
+      const canvas = document.querySelector('canvas');
+      const output = document.querySelector('output');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 50);
+      camera.position.set(0, 0, 5);
+      camera.lookAt(0, 0, 0);
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      const geometry = new THREE.BoxGeometry(1, 1, 1);
+      const material = new THREE.MeshBasicMaterial({ color: '#2563eb' });
+      const cube = new THREE.Mesh(geometry, material);
+      cube.position.x = 0;
+      scene.add(cube);
+      const speed = 0.5; // rad/s: try 0, then 0.5, then 1.
+      let start;
+      let seconds = 0;
+
+      // Wait for a positive size when the reading tab hides the preview.
+      function draw() {
+        const w = canvas.clientWidth;
+        const h = canvas.clientHeight;
+        if (w === 0 || h === 0) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        output.textContent = 'Time: ' + seconds.toFixed(3) + ' s; angle: ' + cube.rotation.y.toFixed(3) + ' rad; speed: ' + speed + ' rad/s';
+        renderer.render(scene, camera);
+      }
+      const observer = new ResizeObserver(draw);
+      observer.observe(canvas);
+      draw();
+      function renderFrame(timeMs) {
+        if (start === undefined) start = timeMs;
+        seconds = (timeMs - start) / 1000;
+        cube.rotation.y = seconds * speed;
+        draw();
+      }
+      renderer.setAnimationLoop(renderFrame);
+    </script>
+  </body>
+</html>

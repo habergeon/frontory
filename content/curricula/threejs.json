@@ -13,25 +13,25 @@
       "day": 1,
       "id": "threejs-01",
       "title": "장면 그래프와 카메라",
-      "prerequisites": "JavaScript ES 모듈, 벡터·행렬 기초와 WebGL 첫 장면을 이해해야 합니다.",
+      "prerequisites": "HTML·CSS·JavaScript 기초로 시작합니다. 좌표·축·각도는 이 단원에서 설명하며 WebGL 수료와 행렬 계산은 필요 없습니다.",
       "concepts": [
         {
-          "title": "부모 변환",
-          "explanation": "Group의 변환은 자식의 world 좌표에 누적됩니다. 자식 position은 부모 기준이므로 화면 위치와 같은 값이 아닙니다."
+          "title": "첫 장면과 물체",
+          "explanation": "canvas는 HTML 출력 요소입니다. Scene에 geometry와 material을 묶은 Mesh를 연결하고 Camera를 통해 render합니다."
         },
         {
-          "title": "시선과 위치",
-          "explanation": "카메라 위치와 바라보는 지점은 서로 다른 값입니다. FOV를 바꾸면 위치를 고정해도 투영 크기가 변합니다."
+          "title": "시간과 부모 기준 위치",
+          "explanation": "지난 초에 각속도를 곱해 회전 각도를 구합니다. child.position은 부모 기준이고 getWorldPosition은 부모 변환을 반영한 world 위치를 읽습니다."
         }
       ],
       "outcomes": [
-        "local과 world 좌표 변화를 출력한다.",
-        "FOV와 카메라 이동의 효과를 구별한다."
+        "canvas에 첫 물체를 그리고 색·위치·카메라 거리 효과를 비교한다.",
+        "시간에 따른 회전과 부모 회전 전후 local/world 위치를 수치와 말로 설명한다."
       ],
       "steps": [
-        "외부 실습 프로젝트의 day-01.js와 index.html을 준비하세요. 기존 threejs-01의 Group에 두 Mesh를 넣고 AxesHelper를 추가하세요.",
-        "부모 회전과 카메라 FOV를 입력받아 getWorldPosition 결과를 HTML output에 표시하세요.",
-        "입력 조건 0에서 출력을 저장한 뒤 PI/2 조건으로 다시 실행하세요. 예상: 자식 local 좌표는 같아도 world 좌표는 회전합니다. 실제 화면·로그와 대조하고 day-01-notes.md에 실제 결과와 차이의 원인을 남기세요."
+        "아래 학습 단계의 canvas 시작 예제를 불러와 배경색을 바꾸세요. 사이트 안의 HTML을 편집하고 실행합니다.",
+        "cube의 색·위치·camera.z를 하나씩 바꿔 비교한 뒤 animation에서 speed=0.5와 1을 비교하세요.",
+        "local/world 단계에서 부모 원점과 child=(2,0,0)을 유지하고 부모 Y 회전 0과 Math.PI / 2의 실제 좌표를 읽으세요. 조건·예상·실제 화면과 수치·이유를 사이트 필기에 남기세요."
       ],
       "variables": [
         {
@@ -42,8 +42,8 @@
         }
       ],
       "criteria": [
-        "local과 world 좌표 변화를 출력한다.",
-        "FOV와 카메라 이동의 효과를 구별한다."
+        "첫 물체의 생성·Scene 연결·render 역할과 camera.position/lookAt 차이를 설명한다.",
+        "초 단위 회전값과 local=(2,0,0), world=(2,0,0)→(0,0,-2)를 확인하고 이유를 설명한다."
       ],
       "questions": [
         "부모만 이동했는데 자식 position이 그대로인 이유는 무엇인가요?",
@@ -55,7 +55,9 @@
           "url": "https://threejs.org/manual/pages/fundamentals.html"
         }
       ],
-      "environment": "기존 내장 예제는 출발점만 제공합니다. 확장 요구사항 전체가 구현된 예제가 아니며 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+      "environment": "사이트 안에서 독립 HTML 예제를 편집·실행합니다. Three.js 0.186.1은 사이트가 공급하므로 별도 설치·서버·외부 이미지가 필요 없습니다. 기존에 저장한 JavaScript 코드는 유지되며 시작 예제 불러오기는 교체 확인 후 적용됩니다.",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs"
     },
     {
       "day": 2,

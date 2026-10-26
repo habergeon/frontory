@@ -10,7 +10,7 @@
 
 ## 선수 지식
 
-WebGL 첫 장면, 벡터·행렬
+HTML·CSS·JavaScript 기초
 
 ## 실습 방식과 제공 범위
 

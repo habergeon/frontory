@@ -4,6 +4,7 @@ import catalog from './catalog.json'
 import englishCatalog from './catalog.en.json'
 import type { Locale } from '../i18n/locale'
 import previousCatalog from '../../content/catalog-v2.json'
+import { readLearningCode } from './learningContent'
 
 export interface Unit {
   id: string
@@ -46,9 +47,12 @@ const examples = import.meta.glob<string>('../labs/*/example.js', {
   import: 'default',
   eager: true,
 })
-export const units: Unit[] = catalog.units.map((unit) => ({
+export const units: Unit[] = (catalog.units as Unit[]).map((unit) => ({
   ...unit,
-  source: examples['../labs/' + unit.id + '/example.js'],
+  source:
+    unit.sourceLanguage === 'html'
+      ? readLearningCode('src/labs/' + unit.id + '/example.html')
+      : examples['../labs/' + unit.id + '/example.js'],
   exampleMode: exampleDetails[unit.id]?.mode,
   exampleFiles: exampleDetails[unit.id]?.files,
   exampleNote: exampleDetails[unit.id]?.note,
@@ -75,7 +79,10 @@ const localizedCatalogs = {
       const common = units.find((unit) => unit.id === entry.id)!
       return {
         ...entry,
-        source: common.source,
+        source:
+          common.sourceLanguage === 'html'
+            ? readLearningCode('src/labs/' + entry.id + '/example.html', 'en')
+            : common.source,
         sourceLanguage: common.sourceLanguage,
         runtimeProfile: common.runtimeProfile,
         exampleMode: common.exampleMode,

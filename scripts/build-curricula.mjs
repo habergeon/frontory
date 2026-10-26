@@ -80,6 +80,8 @@ for (const series of baseline.series) {
       goal: unit.outcomes.join(' '),
       docPath,
       seriesId: series.id,
+      ...(unit.sourceLanguage ? { sourceLanguage: unit.sourceLanguage } : {}),
+      ...(unit.runtimeProfile ? { runtimeProfile: unit.runtimeProfile } : {}),
     }
   })
   catalog.series.push({ ...series, stages: content.stages })

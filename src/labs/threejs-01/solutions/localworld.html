@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>부모와 자식의 위치 비교</title>
+    <style>
+      body { margin: 0; padding: 12px; font: 14px/1.5 system-ui, sans-serif; color: #172554; background: #fff; }
+      canvas { display: block; width: 100%; height: 240px; padding: 0; border: 0; }
+      output { display: block; margin-top: 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
+      label { display: block; margin-bottom: 8px; }
+      input { max-width: 100%; }
+    </style>
+  </head>
+  <body>
+    <p>Scene → parent Group → child Mesh</p>
+    <p>+Y는 위, +X에서 -Z로 90° 회전합니다. 부모는 원점에 고정됩니다.</p>
+    <label for="angle"
+      >부모 Y 회전 (radian)
+      <input
+        id="angle"
+        type="range"
+        min="0"
+        max="1.5707963267948966"
+        step="1.5707963267948966"
+        value="1.5707963267948966"
+      />
+    </label>
+    <canvas aria-label="부모와 자식의 위치 비교"></canvas>
+    <output>미리보기 크기를 기다리는 중</output>
+    <script type="module">
+      import * as THREE from 'three';
+      const canvas = document.querySelector('canvas');
+      const output = document.querySelector('output');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 50);
+      camera.position.set(5, 4, 7);
+      camera.lookAt(0, 0, 0);
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      const geometry = new THREE.BoxGeometry(1, 1, 1);
+      const material = new THREE.MeshBasicMaterial({ color: '#2563eb' });
+      const child = new THREE.Mesh(geometry, material);
+      child.position.x = 2;
+      const parent = new THREE.Group();
+      parent.add(child);
+      scene.add(parent);
+      const angleInput = document.querySelector('#angle');
+      const world = new THREE.Vector3();
+      const coordinates = value => '(' + value.x.toFixed(2) + ', ' + value.y.toFixed(2) + ', ' + value.z.toFixed(2) + ')';
+
+      // 읽기 화면에서 숨겨져 있으면 크기가 생길 때까지 기다립니다.
+      function draw() {
+        const w = canvas.clientWidth;
+        const h = canvas.clientHeight;
+        if (w === 0 || h === 0) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        parent.rotation.y = Number(angleInput.value);
+        child.getWorldPosition(world);
+        output.textContent = '부모 Y 회전: ' + parent.rotation.y.toFixed(6) + ' rad\nlocal: ' + coordinates(child.position) + '\nworld: ' + coordinates(world);
+        renderer.render(scene, camera);
+      }
+      const observer = new ResizeObserver(draw);
+      observer.observe(canvas);
+      draw();
+      angleInput.addEventListener('input', draw);
+    </script>
+  </body>
+</html>

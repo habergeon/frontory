@@ -46,10 +46,23 @@ export function readLearningContent(
       lesson.steps.flatMap((step) => [step.starterPath, step.solutionPath]),
     ),
   )
+  const defaults = read('content/curricula/threejs.json')
+    .units.filter(
+      (unit) =>
+        unit.sourceLanguage === 'html' &&
+        ko.lessons.some((lesson) => lesson.unitId === unit.id),
+    )
+    .map((unit) => `src/labs/${unit.id}/example.html`)
+  for (const file of defaults) paths.add(file)
   for (const file of Object.keys(en.codeSourceHashes ?? {}))
     if (!paths.has(file))
       throw Error('Unknown English learning code hash path: ' + file)
   validateLearningTranslation(ko, en, unitIds, readCode)
+  for (const file of defaults) {
+    if (!en.codeSourceHashes?.[file])
+      throw Error('Missing English learning code hash: ' + file)
+    readCode(file, 'en')
+  }
   return {
     ko,
     en,

@@ -100,7 +100,7 @@
       "title": "Three.js",
       "category": "graphics",
       "priority": 5,
-      "prerequisites": "WebGL 첫 장면, 벡터·행렬",
+      "prerequisites": "HTML·CSS·JavaScript 기초",
       "docPath": "/docs/labs/graphics/threejs/README.md",
       "stages": ["기초 이해", "변수 실험", "응용과 검증"]
     },

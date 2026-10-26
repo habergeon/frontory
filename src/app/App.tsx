@@ -268,7 +268,7 @@ export function App() {
                 <Workspace
                   ref={setWorkspace}
                   key={selected.id + ':' + restoreRevision}
-                  unit={selected}
+                  unit={localizedUnit ?? selected}
                   readingActive={readerView === 'reading'}
                   onReadingChange={
                     contained

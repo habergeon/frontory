@@ -10,7 +10,7 @@ Understand the scene graph, model loading, and GPU resource lifetimes, and build
 
 ## Prerequisites
 
-A first WebGL scene, vectors and matrices
+HTML, CSS, and JavaScript basics
 
 ## Practice approach and scope
 

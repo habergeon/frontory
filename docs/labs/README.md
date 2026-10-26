@@ -26,7 +26,7 @@ Frontend + Story + Repository. 개념을 읽고 변수를 실험하고 결과와
 - [WebGL Journey](graphics/webgl/README.md) — ★★★★★ / 28단위 / 선수: React·TypeScript 경험
 - [Canvas 2D](graphics/canvas-2d/README.md) — ★★★★★ / 28단위 / 선수: JavaScript·좌표와 함수
 - [SVG](graphics/svg/README.md) — ★★★★ / 28단위 / 선수: HTML·CSS, 좌표
-- [Three.js](graphics/threejs/README.md) — ★★★★★ / 28단위 / 선수: WebGL 첫 장면, 벡터·행렬
+- [Three.js](graphics/threejs/README.md) — ★★★★★ / 28단위 / 선수: HTML·CSS·JavaScript 기초
 - [Gaussian Splatting](graphics/gaussian-splatting/README.md) — ★★★★★ / 28단위 / 선수: Three.js 카메라·투영, alpha blending
 - [WebGPU](graphics/webgpu/README.md) — ★★★★★ / 28단위 / 선수: WebGL 파이프라인, TypedArray·비동기
 - [React Three Fiber](graphics/react-three-fiber/README.md) — ★★★★★ / 28단위 / 선수: React effect·ref, Three.js

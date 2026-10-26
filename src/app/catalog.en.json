@@ -145,7 +145,7 @@
       "title": "Three.js",
       "category": "graphics",
       "priority": 5,
-      "prerequisites": "A first WebGL scene, vectors and matrices",
+      "prerequisites": "HTML, CSS, and JavaScript basics",
       "docPath": "/docs/en/labs/graphics/threejs/README.md",
       "stages": [
         "Scene Coordinates, Cameras, and Geometry",
@@ -3366,10 +3366,13 @@
       "day": 1,
       "week": 1,
       "title": "Scene Graphs and Cameras",
-      "goal": "Print changes in local and world coordinates. Distinguish the effects of FOV from camera movement.",
+      "goal": "Draw your first object on canvas and compare color, position, and camera distance. Explain time-based rotation and local/world positions before and after parent rotation using numbers and words.",
       "docPath": "/docs/en/labs/graphics/threejs/01-foundations/README.md",
       "seriesId": "threejs",
-      "exampleReadingSource": "/examples-en/threejs-01/example.js"
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
+      "exampleReadingSource": "/examples-en/threejs-01/example.js",
+      "exampleNote": "Edit and run the HTML starter inside the site. Read the step instructions and API reference, then record actual results in the notes."
     },
     {
       "id": "threejs-step-02",

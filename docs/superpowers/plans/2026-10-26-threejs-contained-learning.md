@@ -138,6 +138,8 @@ await assert.rejects(() => formatCode('<script>const =</script>', 'html'))
 
 ## Task 5: 학습 자료와 단계·힌트·API 표시
 
+사용자 실행 지시에 따라 본문·코드·실행 결과를 같은 작업 화면에 통합한다. 기존 inline DocumentDialog와 Workspace 중첩 분할을 점검하고 화면 구조를 먼저 정한다. 데스크톱은 세 영역을 함께 참조하고 좁은 화면은 model·iframe·필기 상태를 보존하는 화면 내 전환을 제공한다. `src/app/App.tsx`, `DocumentDialog.tsx`, `Workspace.tsx`, `styles.css`를 이 작업 범위에 포함한다. 큰 컴포넌트에 책임을 더 쌓지 말고 필요하면 `LearningWorkspace.tsx`로 배치 책임만 분리한다. 독립 브라우저 검증으로 320/768/1024/1440 너비, 키보드 이동, 읽는 동안의 코드·실행 상태 보존을 확인한다.
+
 **Files:** Create: `src/app/learningContent.ts`, `LessonLearning.tsx`, `content/learning/threejs.json`, `content/locales/en/learning/threejs.json`, `tests/learning-content.test.mjs`. Modify: `PracticeGuide.tsx`, `Workspace.tsx`, `styles.css`, `scripts/build-curricula.mjs`, `scripts/check-translations.mjs`, 기존 번역 hash helper와 호출 지점.
 
 **Interfaces:** `LessonLearningData = { unitId, prerequisiteIds: string[], introduction: string, steps: LearningStep[], apiIds: string[] }`. `LearningStep = { id, title, explanation, starterPath, expected, hints: string[], solutionPath, questions: string[] }`. `ApiReference = { id, symbol, description, parameters: {name, type, description, defaultValue?}[], result, cautions: string[], example, sourceUrl, packageVersion, checkedAt }`. `getLessonLearning(unitId, locale)`은 자료가 없는 단원에 null을 반환한다. `onLoadExample({ code, language: 'html' })`만 명시적 코드 교체의 진입점으로 사용한다.
@@ -171,7 +173,7 @@ assert.equal(getLessonLearning('threejs-01', 'ko').unitId, 'threejs-01')
 
 ## Task 7: 사이트에 후속 24개 단원 목록 표시
 
-**Files:** Create: `content/learning/threejs-roadmap.json`, `src/app/SeriesRoadmap.tsx`, `tests/learning-roadmap.test.mjs`。Modify: `LearningNavigator.tsx`, `LessonLearning.tsx`, `learningContent.ts`, `messages.ts`, 両言語learning資料、`scripts/build-curricula.mjs`。
+**Files:** Create: `content/learning/threejs-roadmap.json`, `src/app/SeriesRoadmap.tsx`, `tests/learning-roadmap.test.mjs`. Modify: `LearningNavigator.tsx`, `LessonLearning.tsx`, `learningContent.ts`, `messages.ts`, 양언어 학습 자료, `scripts/build-curricula.mjs`.
 
 **Interfaces:** `RoadmapEntry = { unitId: string, prerequisiteIds: string[], topics: string[], outcome: string, requiredCapabilities: string[], readiness: 'planned' | 'verified' }`. readiness는 제품의 실습 지원 상태이며 Draft.progress로 계산하지 않는다. 번역문은 기존 locale overlay 방식으로 관리한다.
 
@@ -189,7 +191,7 @@ assert.equal(entries.slice(4).every(entry => entry.readiness === 'planned'), tru
 - [ ] `node --test tests/learning-roadmap.test.mjs tests/curricula.test.mjs`, `node scripts/check-threejs-browser.mjs --case roadmap`으로 전체 28행·후속 24개·14/28의 기존 ID·기존 강의 이동·돌아온 후 draft 보존을 확인한다.
 - [ ] 생성 문서와 사이트 목록의 일치, 번역 freshness, 키보드 조작을 확인하고 커밋한다.
 
-## Task 8: 統合・CI・完了判定
+## Task 8: 통합·CI·완료 판정
 
 **Files:** Modify: `.github/workflows/ci.yml`, `tests/browser/threejs-learning.js`, 필요한 공개 안내 문서. 별개의 새 기능은 추가하지 않는다.
 

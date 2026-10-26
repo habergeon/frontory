@@ -715,6 +715,61 @@ export async function runFormat(page, base) {
   return checks
 }
 
+const checkNotesPreview = async (page, value) => {
+  const textarea = page.locator('.notes-editor')
+  await textarea.fill(value)
+  await textarea.evaluate((element) => {
+    element.setSelectionRange(1, 6, 'backward')
+    window.notesElementBeforePreview = element
+  })
+  await page.locator('.notes-toolbar button').nth(1).click()
+  const hidden = await textarea.evaluate((element) => {
+    element.focus()
+    return {
+      identity: element === window.notesElementBeforePreview,
+      hidden: element.hidden,
+      display: getComputedStyle(element).display,
+      height: element.getBoundingClientRect().height,
+      focused: document.activeElement === element,
+      value: element.value,
+      start: element.selectionStart,
+      end: element.selectionEnd,
+      direction: element.selectionDirection,
+    }
+  })
+  assert.deepEqual(hidden, {
+    identity: true,
+    hidden: true,
+    display: 'none',
+    height: 0,
+    focused: false,
+    value,
+    start: 1,
+    end: 6,
+    direction: 'backward',
+  })
+  await page.locator('.notes-toolbar button').nth(1).press('Tab')
+  assert.equal(
+    await textarea.evaluate((element) => document.activeElement === element),
+    false,
+  )
+  assert.equal(await page.locator('.notes-preview').isVisible(), true)
+  assert.equal(await page.locator('.notes-preview').textContent(), value)
+  await page.locator('.notes-toolbar button').first().click()
+  assert.equal(await textarea.isVisible(), true)
+  assert.deepEqual(
+    await textarea.evaluate((element) => ({
+      identity: element === window.notesElementBeforePreview,
+      value: element.value,
+      start: element.selectionStart,
+      end: element.selectionEnd,
+      direction: element.selectionDirection,
+    })),
+    { identity: true, value, start: 1, end: 6, direction: 'backward' },
+  )
+  return hidden
+}
+
 export async function runLearning(page, base) {
   const checks = []
   await page.goto(base + fixture + '?learning#threejs-01')
@@ -743,7 +798,7 @@ export async function runLearning(page, base) {
     initialCanvas.push({ width, height, canvas, editor })
     await page.screenshot({
       path:
-        '.superpowers/sdd/2026-10-26-threejs-contained-learning/task-5-initial-canvas-' +
+        '.superpowers/sdd/2026-10-26-threejs-contained-learning/task-5-fix1-initial-canvas-' +
         width +
         '.png',
     })
@@ -760,7 +815,9 @@ export async function runLearning(page, base) {
     .getByRole('textbox')
     .fill('kept-input')
   await page.locator('.lesson-learning button').last().click()
-  await page.locator('.notes-editor').fill('learning notes')
+  checks.push({
+    learningNotesPreview: await checkNotesPreview(page, 'learning notes'),
+  })
   await page.locator('.learning-status button').nth(2).click()
   await page.evaluate(async () => {
     const { monaco } = await import('/src/editor/monaco.ts')
@@ -792,6 +849,32 @@ export async function runLearning(page, base) {
     .filter({ hasText: '완성 코드와 해설' })
     .click()
   await page.locator('.api-reference summary').click()
+  await page.locator('.wide-code-toggle').click()
+  assert.equal(await page.locator('#panel-result').isVisible(), false)
+  await page.setViewportSize({ width: 1024, height: 900 })
+  await page.locator('.tablet-learning-tabs button').nth(1).click()
+  assert.equal(await page.locator('#panel-reading').isVisible(), false)
+  assert.equal(await page.locator('#panel-code').isVisible(), true)
+  assert.equal(await page.locator('#panel-result').isVisible(), true)
+  await page.setViewportSize({ width: 320, height: 900 })
+  await page.locator('#tab-code').click()
+  assert.equal(await page.locator('#panel-code').isVisible(), true)
+  assert.equal(await page.locator('#panel-reading').isVisible(), false)
+  assert.equal(await page.locator('#panel-result').isVisible(), false)
+  await page.locator('#tab-result').click()
+  assert.equal(await page.locator('#panel-result').isVisible(), true)
+  assert.equal(await page.locator('#panel-code').isVisible(), false)
+  await page.setViewportSize({ width: 1440, height: 900 })
+  assert.equal(
+    await page.locator('.wide-code-toggle').getAttribute('aria-pressed'),
+    'true',
+  )
+  assert.equal(await page.locator('#panel-result').isVisible(), false)
+  await page.locator('.wide-code-toggle').click()
+  assert.equal(await page.locator('#panel-result').isVisible(), true)
+  checks.push(
+    'Wide-code desktop to 1024 and 320 keeps the chosen panels usable; returning to desktop preserves wide-code state',
+  )
   const widths = []
   for (const width of [320, 768, 1024, 1100, 1440]) {
     await page.setViewportSize({ width, height: width === 1100 ? 768 : 900 })
@@ -875,7 +958,7 @@ export async function runLearning(page, base) {
     widths.push(measure)
     await page.screenshot({
       path:
-        '.superpowers/sdd/2026-10-26-threejs-contained-learning/task-5-final-verified-width-' +
+        '.superpowers/sdd/2026-10-26-threejs-contained-learning/task-5-fix1-width-' +
         width +
         '.png',
       fullPage: false,
@@ -1025,5 +1108,12 @@ export async function runLearning(page, base) {
     'Prerequisite reading keeps active unit; cancellation keeps model, Undo boundary, language and storage',
   )
   assert.equal(await frame.count(), 1)
+  await page.goto(base + fixture + '?learning#javascript-01')
+  await readyEditor(page)
+  await page.waitForSelector('#panel-result iframe')
+  assert.equal(await page.locator('.contained-learning').count(), 0)
+  checks.push({
+    ordinaryUnitNotesPreview: await checkNotesPreview(page, 'ordinary notes'),
+  })
   return checks
 }

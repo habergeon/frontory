@@ -257,6 +257,9 @@ a,
   padding: 7px 12px;
   border-bottom: 1px solid #e7ecf1;
 }
+.notes-editor[hidden] {
+  display: none;
+}
 .code-editor,
 .notes-editor {
   display: block;

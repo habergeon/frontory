@@ -248,3 +248,93 @@ test('storage warning codes preserve failed-save memory', () => {
   assert.equal(store.begin('code-contract', 'source', 'en'), result)
   assert.equal(result.draft.code, 'edited')
 })
+
+test('HTML defaults and restores preserve saved blanks, legacy language, notes and progress', () => {
+  const storage = fixture()
+  const store = createDraftStore(() => storage)
+  assert.equal(
+    store.begin('html', '<p>한글😀</p>', 'en', 'html').draft.language,
+    'html',
+  )
+  const old = {
+    version: 1,
+    code: '',
+    notes: '기록😀',
+    updatedAt: '',
+    progress: 'completed',
+  }
+  storage.setItem(draftKey('old-html'), JSON.stringify(old))
+  assert.deepEqual(
+    store.begin('old-html', '<h1>Hi</h1>', 'en', 'html').draft,
+    old,
+  )
+  const restored = restoreCode(old, '<h1>Hi</h1>', 'html')
+  assert.deepEqual(restored, { ...old, code: '<h1>Hi</h1>', language: 'html' })
+  store.save('html', { ...restored, code: '' })
+  assert.deepEqual(
+    createDraftStore(() => storage).load('html', 'default', 'html').draft.code,
+    '',
+  )
+  assert.equal(
+    createDraftStore(() => storage).load('html', 'default').draft.language,
+    'html',
+  )
+})
+
+test('first begin applies localized HTML defaults after a navigator preload exactly once', () => {
+  const storage = fixture()
+  const store = createDraftStore(() => storage)
+  store.load('preloaded', 'Korean catalog default')
+  const first = store.begin('preloaded', '<p>English starter</p>', 'en', 'html')
+  assert.equal(first.draft.code, '<p>English starter</p>')
+  assert.equal(first.draft.language, 'html')
+  assert.strictEqual(
+    store.begin('preloaded', '<p>한국어</p>', 'ko', 'html'),
+    first,
+  )
+  assert.deepEqual([...storage.data], [])
+})
+
+test('HTML snapshot read/write failures preserve memory and original snapshot bytes', () => {
+  const storage = fixture()
+  const draft = {
+    version: 1,
+    code: '',
+    language: 'html',
+    notes: '필기😀',
+    progress: 'completed',
+    updatedAt: '',
+  }
+  const raw = JSON.stringify({ html: draft })
+  storage.setItem('web-gl-study:all:v1', raw)
+  const store = createDraftStore(() => ({
+    ...storage,
+    setItem() {
+      throw Error('quota')
+    },
+  }))
+  assert.deepEqual(store.load('html', '<p>new</p>', 'html').draft, draft)
+  assert.throws(() =>
+    store.replaceAll({ html: { ...draft, code: 'replacement' } }),
+  )
+  assert.equal(storage.getItem('web-gl-study:all:v1'), raw)
+  const failed = store.save('html', { ...draft, code: '<p>세션</p>' })
+  assert.equal(failed.warning, 'write-failed')
+  assert.equal(
+    store.begin('html', '<p>default</p>', 'en', 'html').draft.code,
+    '<p>세션</p>',
+  )
+  assert.equal(storage.getItem('web-gl-study:all:v1'), raw)
+  const blocked = createDraftStore(() => ({
+    getItem() {
+      throw Error('denied')
+    },
+    setItem() {
+      throw Error('denied')
+    },
+  }))
+  const result = blocked.begin('html', '<p>원문</p>', 'ko', 'html')
+  assert.equal(result.warning, 'read-failed')
+  assert.equal(result.draft.language, 'html')
+  assert.equal(result.draft.code, '<p>원문</p>')
+})

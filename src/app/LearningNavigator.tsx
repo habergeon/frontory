@@ -6,7 +6,8 @@ import { useLocale } from '../i18n/LocaleProvider'
 import { categoryLabels, message, messages } from '../i18n/messages'
 
 const statusOf = (unit: Unit) =>
-  draftStore.load(unit.id, unit.source ?? '').draft.progress ?? 'not-started'
+  draftStore.load(unit.id, unit.source ?? '', unit.sourceLanguage).draft
+    .progress ?? 'not-started'
 const labelsFor = (copy: typeof messages.ko | typeof messages.en) => ({
   'not-started': copy.notStarted,
   'in-progress': copy.inProgress,

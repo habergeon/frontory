@@ -1,7 +1,7 @@
 import type { Locale } from '../i18n/locale.ts'
 import { notesTemplateFor } from '../i18n/notes.ts'
 
-export type CodeLanguage = 'javascript' | 'typescript'
+export type CodeLanguage = 'javascript' | 'typescript' | 'html'
 export type LearningProgress = 'not-started' | 'in-progress' | 'completed'
 export interface Draft {
   version: 1
@@ -33,14 +33,19 @@ export function isDraft(value: unknown): value is Draft {
     typeof item.updatedAt === 'string' &&
     (item.language === undefined ||
       item.language === 'javascript' ||
-      item.language === 'typescript') &&
+      item.language === 'typescript' ||
+      item.language === 'html') &&
     (item.progress === undefined ||
       ['not-started', 'in-progress', 'completed'].includes(item.progress))
   )
 }
 
-export function restoreCode(draft: Draft, original: string): Draft {
-  return { ...draft, code: original, language: 'javascript' }
+export function restoreCode(
+  draft: Draft,
+  original: string,
+  language: CodeLanguage = 'javascript',
+): Draft {
+  return { ...draft, code: original, language }
 }
 
 /** Memory survives unit navigation, including when the browser denies storage. */
@@ -77,13 +82,18 @@ export function createDraftStore(getStorage: () => StorageAccess) {
       memory.clear()
       unstarted.clear()
     },
-    load(id: string, original: string): DraftResult {
+    load(
+      id: string,
+      original: string,
+      language: CodeLanguage = 'javascript',
+    ): DraftResult {
       const cached = memory.get(id)
       if (cached) return cached
       let result: DraftResult = {
         draft: {
           version: 1,
           code: original,
+          ...(language !== 'javascript' ? { language } : {}),
           notes: notesTemplate,
           updatedAt: '',
         },
@@ -108,12 +118,22 @@ export function createDraftStore(getStorage: () => StorageAccess) {
       memory.set(id, result)
       return result
     },
-    begin(id: string, original: string, locale: Locale): DraftResult {
-      const result = this.load(id, original)
+    begin(
+      id: string,
+      original: string,
+      locale: Locale,
+      language: CodeLanguage = 'javascript',
+    ): DraftResult {
+      const result = this.load(id, original, language)
       if (!unstarted.delete(id)) return result
       const started = {
         ...result,
-        draft: { ...result.draft, notes: notesTemplateFor(locale) },
+        draft: {
+          ...result.draft,
+          code: original,
+          ...(language !== 'javascript' ? { language } : {}),
+          notes: notesTemplateFor(locale),
+        },
       }
       memory.set(id, started)
       return started

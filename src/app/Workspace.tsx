@@ -11,12 +11,12 @@ import {
 } from 'react'
 import {
   draftStore,
-  restoreCode,
   type Draft,
   type CodeLanguage,
   type LearningProgress,
 } from '../shared/drafts'
-import type { Compilation } from '../editor/CodeEditor'
+import type { PreviewInput } from '../preview/types'
+import type { CodeEditorHandle, Compilation } from '../editor/CodeEditor'
 import { MarkdownView } from '../shared/MarkdownView'
 import { Preview } from '../preview/Preview'
 import type { Unit } from './curriculum'
@@ -39,8 +39,9 @@ export function Workspace({
   const { locale } = useLocale()
   const text = messages[locale]
   const [saved, setSaved] = useState(() =>
-    draftStore.begin(unit.id, unit.source ?? '', locale),
+    draftStore.begin(unit.id, unit.source ?? '', locale, unit.sourceLanguage),
   )
+  const editorHandle = useRef<CodeEditorHandle>(null)
   const [panel, setPanel] = useState<Panel>('result')
   const [wideCode, setWideCode] = useState(false)
   const [wrapCode, setWrapCode] = useState(true)
@@ -73,8 +74,10 @@ export function Workspace({
   const [revision, setRevision] = useState(0)
   const [confirmReset, setConfirmReset] = useState(false)
   const [compilation, setCompilation] = useState<Compilation | null>(null)
-  const [executable, setExecutable] = useState<string | null>(null)
+  const [executable, setExecutable] = useState<PreviewInput | null>(null)
   const { draft, warning } = saved
+  const latestDraft = useRef(draft)
+  latestDraft.current = draft
   const language = draft.language ?? 'javascript'
   const checked =
     compilation?.source === draft.code && compilation.language === language
@@ -84,10 +87,16 @@ export function Workspace({
       : compilation?.error
         ? text.invalidCode
         : undefined
-  const save = (next: Draft) => setSaved(draftStore.save(unit.id, next))
+  const save = (next: Draft) => {
+    latestDraft.current = next
+    setSaved(draftStore.save(unit.id, next))
+  }
   const reset = () => {
     if (unit.source !== undefined) {
-      save(restoreCode(draft, unit.source))
+      editorHandle.current?.replace({
+        code: unit.source,
+        language: unit.sourceLanguage ?? 'javascript',
+      })
       setRevision((value) => value + 1)
       setConfirmReset(false)
     }
@@ -243,7 +252,7 @@ export function Workspace({
             executable !== null ? (
               <Preview
                 locale={locale}
-                code={executable}
+                input={executable}
                 revision={revision}
                 notice={notice}
               />
@@ -327,6 +336,7 @@ export function Workspace({
                 >
                   <option value="javascript">JavaScript</option>
                   <option value="typescript">TypeScript</option>
+                  <option value="html">HTML</option>
                 </select>
                 <span>{text.editorCaption}</span>
               </>
@@ -339,14 +349,33 @@ export function Workspace({
               fallback={<div className="empty-state">{text.loadingEditor}</div>}
             >
               <CodeEditor
+                ref={editorHandle}
                 wrap={wrapCode}
                 value={draft.code}
                 language={language}
                 unitId={unit.id}
-                onChange={(code) => save({ ...draft, code })}
+                onChange={(replacement) =>
+                  save({ ...latestDraft.current, ...replacement })
+                }
                 onCompile={(result) => {
+                  const current = latestDraft.current
+                  if (
+                    result.source !== current.code ||
+                    result.language !== (current.language ?? 'javascript')
+                  )
+                    return
                   setCompilation(result)
-                  if (result.output !== null) setExecutable(result.output)
+                  if (result.output !== null)
+                    setExecutable({
+                      code: result.output,
+                      kind: result.language === 'html' ? 'html' : 'javascript',
+                      profile:
+                        result.language === 'html'
+                          ? unit.runtimeProfile === 'threejs'
+                            ? 'threejs'
+                            : 'html'
+                          : 'legacy',
+                    })
                 }}
               />
             </Suspense>

@@ -1,6 +1,12 @@
 import { useLocale } from '../i18n/LocaleProvider'
 import { message, messages } from '../i18n/messages'
-import { useEffect, useRef, useState } from 'react'
+import {
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+  type Ref,
+} from 'react'
 import { monaco } from './monaco'
 import type { CodeLanguage } from '../shared/drafts'
 
@@ -10,16 +16,27 @@ export interface Compilation {
   output: string | null
   error: string | null
 }
+export interface EditorReplacement {
+  code: string
+  language: CodeLanguage
+}
+export interface CodeEditorHandle {
+  // Native Undo covers text replacements, including identical nonempty text.
+  // An empty-to-empty language-only replacement has no native text Undo entry.
+  replace: (replacement: EditorReplacement) => void
+}
 interface Props {
+  ref?: Ref<CodeEditorHandle>
   wrap: boolean
   value: string
   language: CodeLanguage
   unitId: string
-  onChange: (value: string) => void
+  onChange: (replacement: EditorReplacement) => void
   onCompile: (result: Compilation) => void
 }
 
 export default function CodeEditor({
+  ref,
   wrap,
   value,
   language,
@@ -30,7 +47,7 @@ export default function CodeEditor({
   const { locale } = useLocale()
   const text = messages[locale]
   const [status, setStatus] = useState<
-    'loading' | 'waiting' | 'invalid' | 'valid' | 'failed'
+    'loading' | 'waiting' | 'invalid' | 'valid' | 'failed' | 'html'
   >('loading')
   const [failure, setFailure] = useState<{ details: string; emit: boolean }>({
     details: '',
@@ -40,16 +57,21 @@ export default function CodeEditor({
   const editor = useRef<monaco.editor.IStandaloneCodeEditor | null>(null)
   const callbacks = useRef({ onChange, onCompile })
   callbacks.current = { onChange, onCompile }
+  const controller = useRef<{
+    replace: CodeEditorHandle['replace']
+    select: (language: CodeLanguage) => void
+  } | null>(null)
+  const currentLanguage = useRef(language)
+  useImperativeHandle(
+    ref,
+    () => ({ replace: (next) => controller.current?.replace(next) }),
+    [],
+  )
   const initialValue = useRef(value)
   initialValue.current = value
   const [issues, setIssues] = useState<monaco.editor.IMarkerData[]>([])
   useEffect(() => {
-    const uri = monaco.Uri.parse(
-      'file:///labs/' +
-        unitId +
-        '/example.' +
-        (language === 'typescript' ? 'ts' : 'js'),
-    )
+    const uri = monaco.Uri.parse('file:///labs/' + unitId + '/example.html')
     const model = monaco.editor.createModel(initialValue.current, language, uri)
     const instance = monaco.editor.create(host.current!, {
       model,
@@ -65,17 +87,50 @@ export default function CodeEditor({
       padding: { top: 12 },
       wordWrap: 'on',
       renderValidationDecorations: 'on',
+      occurrencesHighlight: 'off',
     })
     editor.current = instance
     let timer: number | undefined
     let sequence = 0
     let disposed = false
+    let replacing = false
+    let previousVersion = model.getAlternativeVersionId()
+    // Alternative versions identify native Undo boundaries, never asynchronous freshness.
+    const boundaries: Array<{
+      before: number
+      after: number
+      beforeLanguage: CodeLanguage
+      afterLanguage: CodeLanguage
+    }> = []
+    currentLanguage.current = language
+    const select = (next: CodeLanguage) => {
+      currentLanguage.current = next
+      monaco.editor.setModelLanguage(model, next)
+    }
     const validate = () => {
       window.clearTimeout(timer)
       const request = ++sequence
       const source = model.getValue()
+      const language = currentLanguage.current
+      const version = model.getVersionId()
+      const stale = () =>
+        disposed ||
+        request !== sequence ||
+        model.getVersionId() !== version ||
+        currentLanguage.current !== language
       setStatus('waiting')
       setIssues([])
+      monaco.editor.setModelMarkers(model, 'study-check', [])
+      if (language === 'html') {
+        setStatus('html')
+        callbacks.current.onCompile({
+          source,
+          language,
+          output: source,
+          error: null,
+        })
+        return
+      }
       callbacks.current.onCompile({
         source,
         language,
@@ -92,7 +147,7 @@ export default function CodeEditor({
             worker.getSyntacticDiagnostics(uri.toString()),
             worker.getSemanticDiagnostics(uri.toString()),
           ])
-          if (disposed || request !== sequence) return
+          if (stale()) return
           const flatten = (
             message:
               | string
@@ -146,7 +201,7 @@ export default function CodeEditor({
             return
           }
           const emitted = await worker.getEmitOutput(uri.toString())
-          if (disposed || request !== sequence) return
+          if (stale()) return
           const output =
             language === 'javascript'
               ? source
@@ -156,7 +211,7 @@ export default function CodeEditor({
           setStatus('valid')
           callbacks.current.onCompile({ source, language, output, error: null })
         } catch (error) {
-          if (disposed || request !== sequence) return
+          if (stale()) return
           const message = error instanceof Error ? error.message : String(error)
           setFailure({
             details: message,
@@ -172,8 +227,60 @@ export default function CodeEditor({
         }
       }, 600)
     }
-    const change = model.onDidChangeContent(() => {
-      callbacks.current.onChange(model.getValue())
+    const notify = () =>
+      callbacks.current.onChange({
+        code: model.getValue(),
+        language: currentLanguage.current,
+      })
+    controller.current = {
+      select: (next) => {
+        select(next)
+        validate()
+      },
+      replace: (next) => {
+        if (
+          next.code === model.getValue() &&
+          next.language === currentLanguage.current
+        )
+          return
+        const before = model.getAlternativeVersionId()
+        const beforeLanguage = currentLanguage.current
+        replacing = true
+        instance.pushUndoStop()
+        instance.executeEdits('study-replace', [
+          { range: model.getFullModelRange(), text: next.code },
+        ])
+        instance.pushUndoStop()
+        select(next.language)
+        const after = model.getAlternativeVersionId()
+        boundaries.push({
+          before,
+          after,
+          beforeLanguage,
+          afterLanguage: next.language,
+        })
+        previousVersion = after
+        replacing = false
+        notify()
+        validate()
+      },
+    }
+    const change = model.onDidChangeContent((event) => {
+      const next = model.getAlternativeVersionId()
+      if (replacing) return
+      const boundary = boundaries.findLast((item) =>
+        event.isUndoing
+          ? item.after === previousVersion && item.before === next
+          : event.isRedoing &&
+            item.before === previousVersion &&
+            item.after === next,
+      )
+      if (boundary)
+        select(
+          event.isUndoing ? boundary.beforeLanguage : boundary.afterLanguage,
+        )
+      previousVersion = next
+      notify()
       validate()
     })
     validate()
@@ -185,8 +292,9 @@ export default function CodeEditor({
       instance.dispose()
       model.dispose()
       editor.current = null
+      controller.current = null
     }
-  }, [language, unitId])
+  }, [unitId])
   useEffect(() => {
     editor.current?.updateOptions({ wordWrap: wrap ? 'on' : 'off' })
   }, [wrap, language, unitId])
@@ -194,9 +302,9 @@ export default function CodeEditor({
     editor.current?.updateOptions({ ariaLabel: messages[locale].sourceCode })
   }, [locale, language, unitId])
   useEffect(() => {
-    const model = editor.current?.getModel()
-    if (model && model.getValue() !== value) model.setValue(value)
-  }, [value])
+    if (currentLanguage.current !== language)
+      controller.current?.select(language)
+  }, [language])
   return (
     <div className="code-workbench">
       <div ref={host} className="monaco-host" />
@@ -205,13 +313,15 @@ export default function CodeEditor({
           ? text.preparingLanguageService
           : status === 'waiting'
             ? text.waitingForCheck
-            : status === 'invalid'
-              ? message(locale, 'editorErrorCount', { count: issues.length })
-              : status === 'valid'
-                ? text.codeCheckPassed
-                : message(locale, 'languageServiceError', {
-                    error: failure.emit ? text.emitFailed : failure.details,
-                  })}
+            : status === 'html'
+              ? text.htmlSourceReady
+              : status === 'invalid'
+                ? message(locale, 'editorErrorCount', { count: issues.length })
+                : status === 'valid'
+                  ? text.codeCheckPassed
+                  : message(locale, 'languageServiceError', {
+                      error: failure.emit ? text.emitFailed : failure.details,
+                    })}
       </div>
       {issues.length > 0 && (
         <ul className="code-issues" aria-label={text.codeIssues}>

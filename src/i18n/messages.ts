@@ -1,6 +1,10 @@
 import type { Locale } from './locale.ts'
 
 const ko = {
+  htmlSourceReady: 'HTML 원문 실행 준비 완료 · 타입 검사 대상 아님',
+  previewConsole: '실행 콘솔',
+  webgl2Unavailable:
+    '이 브라우저는 WebGL2를 지원하지 않아 Three.js 실행을 제한합니다. 본문과 코드는 계속 읽을 수 있습니다.',
   brandHome: 'Frontory 홈',
   tagline: '배우고, 실험하고, 나의 경험으로 남기다.',
   learningNavigation: '학습 안내',
@@ -243,6 +247,10 @@ const ko = {
 
 type Template = string | { one: string; other: string }
 const en = {
+  htmlSourceReady: 'HTML source ready · not type checked',
+  previewConsole: 'Runtime console',
+  webgl2Unavailable:
+    'This browser does not support WebGL2. Three.js execution is unavailable; the lesson and code remain readable.',
   brandHome: 'Frontory home',
   tagline: 'Learn, experiment, and make it part of your experience.',
   learningNavigation: 'Learning navigation',

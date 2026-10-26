@@ -1,3 +1,5 @@
+import type { CodeLanguage } from '../shared/drafts'
+import type { RuntimeProfile } from '../preview/types'
 import catalog from './catalog.json'
 import englishCatalog from './catalog.en.json'
 import type { Locale } from '../i18n/locale'
@@ -11,6 +13,8 @@ export interface Unit {
   goal: string
   docPath: string
   seriesId: string
+  sourceLanguage?: CodeLanguage
+  runtimeProfile?: RuntimeProfile
   source?: string
   exampleNote?: string
   exampleMode?: 'browser' | 'external'
@@ -72,6 +76,8 @@ const localizedCatalogs = {
       return {
         ...entry,
         source: common.source,
+        sourceLanguage: common.sourceLanguage,
+        runtimeProfile: common.runtimeProfile,
         exampleMode: common.exampleMode,
         exampleFiles: common.exampleFiles,
       }

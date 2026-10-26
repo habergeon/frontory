@@ -167,7 +167,11 @@ export function Home({ onSelect }: { onSelect: (id: string) => void }) {
             const lessons = units.filter((unit) => unit.seriesId === item.id)
             const records = lessons.map((unit) => ({
               unit,
-              ...draftStore.load(unit.id, unit.source ?? ''),
+              ...draftStore.load(
+                unit.id,
+                unit.source ?? '',
+                unit.sourceLanguage,
+              ),
             }))
             const completed = records.filter(
               (record) => record.draft.progress === 'completed',

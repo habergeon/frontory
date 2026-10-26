@@ -68,7 +68,11 @@ export function BackupControls({
         exportedAt: new Date().toISOString(),
         selectedUnitId: selectedId,
         units: units.map((unit) => {
-          const result = draftStore.load(unit.id, unit.source ?? '')
+          const result = draftStore.load(
+            unit.id,
+            unit.source ?? '',
+            unit.sourceLanguage,
+          )
           if (result.warning) warnings++
           return {
             id: unit.id,
@@ -133,7 +137,8 @@ export function BackupControls({
           units.map((unit) => unit.id),
           (id) => {
             const unit = units.find((item) => item.id === id)!
-            return draftStore.load(id, unit.source ?? '').draft
+            return draftStore.load(id, unit.source ?? '', unit.sourceLanguage)
+              .draft
           },
         ),
       )

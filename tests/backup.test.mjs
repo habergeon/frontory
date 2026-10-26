@@ -146,3 +146,37 @@ test('validation failures expose stable codes and preserve raw JSON diagnostics'
     (error) => error instanceof SyntaxError && error.message.includes('JSON'),
   )
 })
+
+test('HTML Unicode and empty drafts survive all supported backup versions and snapshots', () => {
+  for (const [format, version] of [
+    ['web-gl-study', 1],
+    ['frontory', 2],
+    ['frontory', 3],
+  ]) {
+    const value = backup()
+    Object.assign(value, { format, version })
+    value.units[0].draft = {
+      ...value.units[0].draft,
+      language: 'html',
+      progress: 'completed',
+      code: '<p>한글😀</p>',
+    }
+    delete value.units[1].draft.language
+    const result = parseBackup(JSON.stringify(value), ['a', 'b'])
+    assert.deepEqual(result.units[0].draft, value.units[0].draft)
+    assert.equal(result.units[1].draft.code, '')
+    assert.equal(result.units[1].draft.language, 'javascript')
+    const data = new Map()
+    const storage = {
+      getItem: (k) => data.get(k) ?? null,
+      setItem: (k, v) => data.set(k, v),
+    }
+    createDraftStore(() => storage).replaceAll(
+      Object.fromEntries(result.units.map((u) => [u.id, u.draft])),
+    )
+    assert.deepEqual(
+      createDraftStore(() => storage).load('a', '').draft,
+      result.units[0].draft,
+    )
+  }
+})

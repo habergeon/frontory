@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Three.js integration fixture</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      import React, { useState } from 'react'
+      import { createRoot } from 'react-dom/client'
+      import { Workspace } from '/src/app/Workspace.tsx'
+      import { Preview } from '/src/preview/Preview.tsx'
+      import { LocaleProvider, useLocale } from '/src/i18n/LocaleProvider.tsx'
+      const unit = { id: 'fixture-threejs', day: 1, week: 1, title: 'fixture', goal: '', docPath: '', seriesId: 'fixture', sourceLanguage: 'html', runtimeProfile: 'threejs', source: '<h1>새 HTML 😀</h1><script>console.log("starter")<\/script>' }
+      function Fixture() {
+        const { locale, setLocale } = useLocale()
+        const [generation, setGeneration] = useState(0)
+        window.remountWorkspace = () => setGeneration(value => value + 1)
+        const [input, setInput] = useState({ code: '<h1>initial</h1>', kind: 'html', profile: 'html' })
+        const [revision, setRevision] = useState(0)
+        window.runPreview = next => { setInput(next); setRevision(value => value + 1) }
+        return React.createElement(React.Fragment, null,
+          React.createElement('button', { id: 'locale', onClick: () => setLocale(locale === 'ko' ? 'en' : 'ko') }, 'locale'),
+          new URLSearchParams(location.search).has('runtime')
+            ? React.createElement(Preview, { input, revision, locale })
+            : React.createElement(Workspace, { key: generation, unit, onProgressChange() {} }))
+      }
+      createRoot(document.getElementById('root')).render(React.createElement(LocaleProvider, null, React.createElement(Fixture)))
+    </script>
+    <style>
+      .monaco-host {height: 350px} .workspace {display: grid; grid-template-columns: repeat(3, 1fr)} iframe {width: 400px; height: 220px}
+    </style>
+  </body>
+</html>

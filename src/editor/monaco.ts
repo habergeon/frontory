@@ -30,6 +30,7 @@ for (const defaults of [
   defaults.setModeConfiguration({
     ...defaults.modeConfiguration,
     diagnostics: false,
+    documentRangeFormattingEdits: false,
   })
   defaults.setDiagnosticsOptions({
     noSemanticValidation: false,
@@ -40,4 +41,10 @@ for (const defaults of [
     'file:///study-context.d.ts',
   )
 }
+// Explicit formatter owns both document actions; never run HTML's default printer.
+monaco.html.htmlDefaults.setModeConfiguration({
+  ...monaco.html.htmlDefaults.modeConfiguration,
+  documentFormattingEdits: false,
+  documentRangeFormattingEdits: false,
+})
 export { monaco }

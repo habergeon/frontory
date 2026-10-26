@@ -5,6 +5,15 @@ export interface HtmlSourceInfo {
   headInsertOffset: number | null
   /** Fallback insertion after the actual html start tag or document prolog. */
   bootstrapInsertOffset: number
+  /** Complete sensitive content spans; protected ancestors suppress descendants. */
+  protectedSpans: {
+    tag: string
+    start: number
+    end: number
+    closed: boolean
+    namespace: string
+    attributes: string
+  }[]
   /** Executable document blocks; inert template contents are excluded. */
   blocks: {
     tag: 'script' | 'style'
@@ -46,6 +55,7 @@ export function parseHtmlSource(source: string): HtmlSourceInfo {
         ? html.sourceCodeLocation.startTag.endOffset + bom
         : prologEnd),
     blocks: [],
+    protectedSpans: [],
   }
   const visit = (node: DefaultTreeAdapterMap['node']) => {
     if ('tagName' in node) {
@@ -66,6 +76,37 @@ export function parseHtmlSource(source: string): HtmlSourceInfo {
     if ('childNodes' in node) node.childNodes.forEach(visit)
   }
   visit(document)
+  const protect = (node: DefaultTreeAdapterMap['node']) => {
+    if (
+      'tagName' in node &&
+      ['script', 'style', 'pre', 'textarea', 'template'].includes(node.tagName)
+    ) {
+      const location = node.sourceCodeLocation
+      if (location?.startTag) {
+        info.protectedSpans.push({
+          tag: node.tagName,
+          start: location.startTag.endOffset + bom,
+          end: (location.endTag?.startOffset ?? source.length - bom) + bom,
+          closed: Boolean(location.endTag),
+          namespace: node.namespaceURI,
+          attributes: JSON.stringify(
+            node.attrs
+              .map((attr) => [
+                attr.namespace ?? '',
+                attr.prefix ?? '',
+                attr.name,
+                attr.value,
+              ])
+              .sort(),
+          ),
+        })
+        return
+      }
+    }
+    if ('childNodes' in node) node.childNodes.forEach(protect)
+  }
+  protect(document)
+  info.protectedSpans.sort((a, b) => a.start - b.start)
   info.blocks.sort((a, b) => a.start - b.start)
   return info
 }

@@ -12,6 +12,7 @@ const editorState = (page) =>
       id: model.id,
       uri: model.uri.toString(),
       version: model.getVersionId(),
+      eol: model.getEOL(),
       markers: monaco.editor
         .getModelMarkers({ resource: model.uri })
         .map((m) => ({ owner: m.owner, code: m.code })),
@@ -435,5 +436,281 @@ export async function runRuntime(page, base) {
   assert.match(await page.locator('.preview-error pre').textContent(), /^1:21 /)
   assert.equal(await page.locator('.preview-error script').count(), 0)
   checks.push('original inline error location renders as text')
+  return checks
+}
+
+export async function runFormat(page, base) {
+  const checks = []
+  // Delay the real formatter at its public boundary, without a production test hook.
+  await page.route('**/src/editor/formatCode.ts', async (route) => {
+    const response = await route.fetch()
+    const source = await response.text()
+    assert.ok(source.includes('export async function formatCode('))
+    await route.fulfill({
+      response,
+      body:
+        source.replace(
+          'export async function formatCode(',
+          'async function actualFormatCode(',
+        ) +
+        '\nexport async function formatCode(...args) { await window.formatGate?.(); return actualFormatCode(...args) }\n',
+    })
+  })
+  await page.goto(base + fixture)
+  await readyEditor(page)
+  const button = page.getByRole('button', { name: '코드 정렬', exact: true })
+  let input =
+    '<main><script type="module">const raw=`a\nb`;const h=html`<b  id="x">Keep  spaces</b>`;</script><style>.a{--x:  a  b  ;color:red}</style><pre>  raw\n  keep</pre></main>'
+  await replaceText(page, input)
+  const before = await editorState(page)
+  input = before.code
+  const expected = (
+    await page.evaluate(
+      async (source) =>
+        (await import('/src/editor/formatCode.ts')).formatCode(source, 'html'),
+      input,
+    )
+  ).replace(/\r\n|\r|\n/g, before.eol)
+  await button.click()
+  await page.waitForFunction(async (expected) => {
+    const { monaco } = await import('/src/editor/monaco.ts')
+    return monaco.editor.getEditors()[0].getValue() === expected
+  }, expected)
+  assert.equal((await editorState(page)).id, before.id)
+  assert.ok(expected.includes('`a' + before.eol + 'b`'))
+  assert.ok(expected.includes('--x:  a  b  ;'))
+  await page.locator('.monaco-editor [role="textbox"]').focus()
+  await page.keyboard.press('Control+z')
+  assert.equal((await editorState(page)).code, input, 'button Undo')
+  await page.keyboard.press('Control+y')
+  assert.equal((await editorState(page)).code, expected, 'button Redo')
+  checks.push(
+    'actual button formats protected HTML atomically with one native Undo/Redo and stable model',
+  )
+  await replaceText(page, input)
+  const providerBefore = await editorState(page)
+  await page.evaluate(async () => {
+    const { monaco } = await import('/src/editor/monaco.ts')
+    await monaco.editor
+      .getEditors()[0]
+      .getAction('editor.action.formatDocument')
+      .run()
+  })
+  assert.equal((await editorState(page)).code, expected, 'provider result')
+  await page.locator('.monaco-editor [role="textbox"]').focus()
+  await page.keyboard.press('Control+z')
+  assert.equal(
+    (await editorState(page)).code,
+    providerBefore.code,
+    'provider Undo',
+  )
+  checks.push(
+    'Monaco Format Document provider matches button and one native Undo',
+  )
+  await page.keyboard.press('Control+y')
+  assert.equal((await editorState(page)).code, expected, 'provider Redo')
+  assert.equal((await editorState(page)).eol, before.eol)
+  await page.keyboard.press('Control+z')
+  await button.click()
+  await page.waitForFunction(async (expected) => {
+    const { monaco } = await import('/src/editor/monaco.ts')
+    return monaco.editor.getEditors()[0].getValue() === expected
+  }, expected)
+  await page.evaluate(() => {
+    window.formatSaves = 0
+    const original = Storage.prototype.setItem
+    Storage.prototype.setItem = function (key, ...args) {
+      if (key.startsWith('web-gl-study:')) window.formatSaves++
+      return original.call(this, key, ...args)
+    }
+  })
+  const stable = await editorState(page)
+  await button.click()
+  await page.waitForTimeout(100)
+  assert.deepEqual(await editorState(page), stable)
+  assert.equal(await page.evaluate(() => window.formatSaves), 0)
+  await page.evaluate(async () => {
+    const { monaco } = await import('/src/editor/monaco.ts')
+    await monaco.editor
+      .getEditors()[0]
+      .getAction('editor.action.formatDocument')
+      .run()
+  })
+  assert.deepEqual(await editorState(page), stable)
+  assert.equal(await page.evaluate(() => window.formatSaves), 0)
+  checks.push(
+    'fixed-point button produces no model edit, Undo entry, or draft save',
+  )
+  const malformed =
+    '<html>\n<head>\n<script>const earlier={x:1};</script>\n<style>.a{color:red}</style>\n</head>\n<body>\n<script>\nconst valid=1\nconst = 2\n</script>\n</body>\n</html>'
+  await replaceText(page, malformed)
+  const invalid = await editorState(page)
+  const writes = await page.evaluate(() => window.formatSaves)
+  await button.click()
+  await page.waitForSelector('.format-error')
+  assert.match(await page.locator('.format-error').textContent(), /9:7/)
+  assert.deepEqual(await editorState(page), invalid)
+  assert.equal(await page.evaluate(() => window.formatSaves), writes)
+  await page.locator('.monaco-editor [role="textbox"]').focus()
+  await page.keyboard.press('Control+z')
+  assert.equal((await editorState(page)).code, expected)
+  checks.push(
+    'later parse failure displays original HTML 9:7, leaves text/save/Undo unchanged',
+  )
+  const hold = async () =>
+    page.evaluate(() => {
+      window.formatStarted = false
+      window.formatDone = false
+      window.formatGate = () =>
+        new Promise((resolve) => {
+          window.formatStarted = true
+          window.releaseFormat = resolve
+        })
+    })
+  const release = async () => {
+    await page.evaluate(() => {
+      window.releaseFormat()
+      window.formatGate = undefined
+    })
+    await page.waitForTimeout(100)
+  }
+  for (const operation of [
+    'typing',
+    'undo-back',
+    'language',
+    'model',
+    'unit',
+  ]) {
+    await replaceText(page, input)
+    await hold()
+    await button.click()
+    await page.waitForFunction(() => window.formatStarted)
+    if (operation === 'typing' || operation === 'undo-back') {
+      await replaceText(page, '<p>new typing</p>')
+      if (operation === 'undo-back') {
+        await page.locator('.monaco-editor [role="textbox"]').focus()
+        await page.keyboard.press('Control+z')
+      }
+    } else if (operation === 'language') {
+      await page.selectOption('#code-language', 'javascript')
+      await page.selectOption('#code-language', 'html')
+    } else if (operation === 'model') {
+      await page.evaluate(() => window.remountWorkspace())
+      await readyEditor(page)
+    } else {
+      await page.evaluate(() => window.switchUnit('fixture-format-other'))
+      await readyEditor(page)
+    }
+    const current = await editorState(page)
+    await release()
+    assert.deepEqual(await editorState(page), current, operation)
+    assert.equal(await page.locator('.format-error').count(), 0)
+    checks.push(
+      `late format discarded after ${operation} without writing the current model`,
+    )
+  }
+  await replaceText(page, input)
+  await hold()
+  await page.evaluate(async () => {
+    const { monaco } = await import('/src/editor/monaco.ts')
+    window.pendingFormatAction = monaco.editor
+      .getEditors()[0]
+      .getAction('editor.action.formatDocument')
+      .run()
+  })
+  await page.waitForFunction(() => window.formatStarted)
+  await replaceText(page, '<p>provider typing</p>')
+  const providerStale = await editorState(page)
+  await release()
+  await page.evaluate(() => window.pendingFormatAction)
+  assert.deepEqual(await editorState(page), providerStale)
+  checks.push('provider returns no edit for a late result after typing')
+  await page.selectOption('#code-language', 'typescript')
+  await replaceText(page, 'const value:number=3;')
+  await button.click()
+  await page.waitForFunction(async () => {
+    const { monaco } = await import('/src/editor/monaco.ts')
+    return (
+      monaco.editor.getEditors()[0].getValue() ===
+      'const value: number = 3' +
+        monaco.editor.getEditors()[0].getModel().getEOL()
+    )
+  })
+  assert.equal((await editorState(page)).language, 'typescript')
+  await page.selectOption('#code-language', 'javascript')
+  await replaceText(page, 'const value={a:1};')
+  await page.evaluate(async () => {
+    const { monaco } = await import('/src/editor/monaco.ts')
+    await monaco.editor
+      .getEditors()[0]
+      .getAction('editor.action.formatDocument')
+      .run()
+  })
+  assert.equal(
+    (await editorState(page)).code,
+    'const value = { a: 1 }' + (await editorState(page)).eol,
+  )
+  await page.evaluate(async () => {
+    const { monaco } = await import('/src/editor/monaco.ts')
+    const model = monaco.editor.getEditors()[0].getModel()
+    model.pushStackElement()
+    model.pushEOL(monaco.editor.EndOfLineSequence.LF)
+    model.pushStackElement()
+  })
+  for (const [language, code, expected] of [
+    [
+      'javascript',
+      'const lf={a:1};',
+      'const lf = { a: 1 }' + String.fromCharCode(10),
+    ],
+    [
+      'typescript',
+      'const lf:number=1;',
+      'const lf: number = 1' + String.fromCharCode(10),
+    ],
+  ]) {
+    await page.selectOption('#code-language', language)
+    for (const action of ['button', 'provider']) {
+      await replaceText(page, code)
+      const original = await editorState(page)
+      if (action === 'button') await button.click()
+      else
+        await page.evaluate(async () => {
+          const { monaco } = await import('/src/editor/monaco.ts')
+          await monaco.editor
+            .getEditors()[0]
+            .getAction('editor.action.formatDocument')
+            .run()
+        })
+      await page.waitForFunction(async (expected) => {
+        const { monaco } = await import('/src/editor/monaco.ts')
+        return monaco.editor.getEditors()[0].getValue() === expected
+      }, expected)
+      await page.locator('.monaco-editor [role="textbox"]').focus()
+      await page.keyboard.press('Control+z')
+      assert.equal((await editorState(page)).code, original.code)
+      await page.keyboard.press('Control+y')
+      assert.equal((await editorState(page)).code, expected)
+      assert.equal((await editorState(page)).eol, String.fromCharCode(10))
+      const count = await page.evaluate(() => window.formatSaves)
+      await button.click()
+      await page.evaluate(async () => {
+        const { monaco } = await import('/src/editor/monaco.ts')
+        await monaco.editor
+          .getEditors()[0]
+          .getAction('editor.action.formatDocument')
+          .run()
+      })
+      assert.equal(await page.evaluate(() => window.formatSaves), count)
+    }
+  }
+  checks.push(
+    'LF JS/TS button and provider each preserve native Undo/Redo and suppress no-op saves',
+  )
+  await page.locator('#locale').click()
+  await page.getByRole('button', { name: 'Format code', exact: true }).waitFor()
+  checks.push(
+    'standalone TS button and JS provider use common options; format label follows locale',
+  )
   return checks
 }

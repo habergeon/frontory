@@ -294,6 +294,12 @@ export function Workspace({
                 {text.restoreOriginal}
               </button>
               <button
+                disabled={unit.source === undefined}
+                onClick={() => void editorHandle.current?.format()}
+              >
+                {text.formatCode}
+              </button>
+              <button
                 className="wide-code-toggle"
                 aria-pressed={wideCode}
                 onClick={() => setWideCode((value) => !value)}

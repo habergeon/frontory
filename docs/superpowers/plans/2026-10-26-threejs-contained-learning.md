@@ -131,7 +131,7 @@ await assert.rejects(() => formatCode('<script>const =</script>', 'html'))
 ```
 
 - [ ] HTML 내부 module JS/style, tagged HTML/CSS/GLSL 문자열, pre/textarea, 알 수 없는 script MIME, script src와 inline 본문 판정, 한 블록의 parse 실패를 fixture로 만든다. 성공 시 의미 보존·멱등, 실패 시 원문 유지를 검사한다.
-- [ ] content span을 뒤에서부터 치환하고 마지막에 HTML 바깥 구조를 공통 off 설정으로 정렬한다. 전체가 성공하기 전에는 편집기에 적용하지 않는다. JS/TS 단독 편집에도 같은 공통 옵션을 쓴다.
+- [ ] 원본 JS/CSS/JSON 본문을 독립 정렬하고 script/style/pre/textarea/template의 content span을 충돌 없는 marker로 보호한다. CSS custom-property declaration은 설치된 postcss source offset으로 별도 보호한다. 바깥 HTML을 공통 off 설정으로 정렬한 뒤 재파싱하여 개수·순서·tag·속성·marker를 검증하고 본문 span 전체를 복원한다. 보호 조상은 자식 span을 억제하며, 복원 후 들여쓰기나 HTML 재정렬을 하지 않는다. 전체 pass 최대 3회 안에 연속 결과가 같아야 반환하고, 전체 성공과 model freshness 확인 전에는 편집기에 적용하지 않는다. JS/TS 단독 편집에도 공통 옵션과 같은 수렴 조건을 쓴다. Monaco 0.55.1에서 EOL과 본문 변경을 한 native Undo에 묶으면 Redo 손상 또는 inlineCompletions 오류가 재현되므로, 편집기 적용 직전에만 기존 model EOL에 맞추고 그 표현으로 같은 결과를 판정한다. pure formatter와 저장소의 LF 정책은 유지한다.
 - [ ] 버튼과 Monaco provider를 같은 함수에 연결한다. HTML 기본 provider 중복을 막는다. model URI/version/unit/language를 대조해 늦은 응답을 버린다. `executeEdits`와 undo stop으로 한 번 Undo를 보장한다.
 - [ ] `node --test tests/editor-format.test.mjs tests/formatter-config.test.mjs`, `node scripts/check-threejs-browser.mjs --case format`으로 정렬·실패·Undo·도중 입력·전환·같은 결과의 저장 억제를 확인한다.
 - [ ] `pnpm typecheck`와 변경 파일의 format check 후 커밋한다.

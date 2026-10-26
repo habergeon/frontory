@@ -9,6 +9,7 @@ import {
 } from 'react'
 import { monaco } from './monaco'
 import type { CodeLanguage } from '../shared/drafts'
+import { CodeFormatError, formatCode } from './formatCode'
 
 export interface Compilation {
   source: string
@@ -24,6 +25,7 @@ export interface CodeEditorHandle {
   // Native Undo covers text replacements, including identical nonempty text.
   // An empty-to-empty language-only replacement has no native text Undo entry.
   replace: (replacement: EditorReplacement) => void
+  format: () => Promise<void>
 }
 interface Props {
   ref?: Ref<CodeEditorHandle>
@@ -53,24 +55,32 @@ export default function CodeEditor({
     details: '',
     emit: false,
   })
+  const [formatFailure, setFormatFailure] = useState('')
   const host = useRef<HTMLDivElement>(null)
   const editor = useRef<monaco.editor.IStandaloneCodeEditor | null>(null)
   const callbacks = useRef({ onChange, onCompile })
   callbacks.current = { onChange, onCompile }
   const controller = useRef<{
     replace: CodeEditorHandle['replace']
+    format: CodeEditorHandle['format']
     select: (language: CodeLanguage) => void
   } | null>(null)
   const currentLanguage = useRef(language)
   useImperativeHandle(
     ref,
-    () => ({ replace: (next) => controller.current?.replace(next) }),
+    () => ({
+      replace: (next) => controller.current?.replace(next),
+      format: async () => {
+        await controller.current?.format()
+      },
+    }),
     [],
   )
   const initialValue = useRef(value)
   initialValue.current = value
   const [issues, setIssues] = useState<monaco.editor.IMarkerData[]>([])
   useEffect(() => {
+    setFormatFailure('')
     const uri = monaco.Uri.parse('file:///labs/' + unitId + '/example.html')
     const model = monaco.editor.createModel(initialValue.current, language, uri)
     const instance = monaco.editor.create(host.current!, {
@@ -92,6 +102,7 @@ export default function CodeEditor({
     editor.current = instance
     let timer: number | undefined
     let sequence = 0
+    let formatSequence = 0
     let disposed = false
     let replacing = false
     let previousVersion = model.getAlternativeVersionId()
@@ -104,6 +115,8 @@ export default function CodeEditor({
     }> = []
     currentLanguage.current = language
     const select = (next: CodeLanguage) => {
+      formatSequence++
+      setFormatFailure('')
       currentLanguage.current = next
       monaco.editor.setModelLanguage(model, next)
     }
@@ -232,7 +245,62 @@ export default function CodeEditor({
         code: model.getValue(),
         language: currentLanguage.current,
       })
+    const prepareFormat = async (token?: monaco.CancellationToken) => {
+      const request = ++formatSequence
+      const version = model.getVersionId()
+      const language = currentLanguage.current
+      const source = model.getValue()
+      const stale = () =>
+        disposed ||
+        token?.isCancellationRequested ||
+        request !== formatSequence ||
+        instance.getModel() !== model ||
+        model.uri.toString() !== uri.toString() ||
+        model.getVersionId() !== version ||
+        currentLanguage.current !== language
+      setFormatFailure('')
+      try {
+        const formatted = await formatCode(source, language)
+        if (stale()) return null
+        // Monaco 0.55.1 cannot safely group EOL and text changes through Undo/Redo.
+        // Keep the model EOL; the pure formatter still uses common LF options.
+        const code = formatted.replace(/\r\n|\r|\n/g, model.getEOL())
+        if (code === source) return null
+        return { code, language }
+      } catch (error) {
+        if (!stale()) {
+          const position =
+            error instanceof CodeFormatError ? error.position : undefined
+          setFormatFailure(
+            (position ? position.line + ':' + position.column + ' ' : '') +
+              (error instanceof Error ? error.message : String(error)),
+          )
+        }
+        return null
+      }
+    }
+    const applyFormat = async (token?: monaco.CancellationToken) => {
+      const next = await prepareFormat(token)
+      if (next) controller.current?.replace(next)
+    }
+    const providers = ['html', 'javascript', 'typescript'].map((language) =>
+      monaco.languages.registerDocumentFormattingEditProvider(language, {
+        async provideDocumentFormattingEdits(target, _options, token) {
+          if (target !== model) return []
+          const next = await prepareFormat(token)
+          return next
+            ? [
+                {
+                  range: model.getFullModelRange(),
+                  text: next.code,
+                },
+              ]
+            : []
+        },
+      }),
+    )
     controller.current = {
+      format: applyFormat,
       select: (next) => {
         select(next)
         validate()
@@ -266,6 +334,8 @@ export default function CodeEditor({
       },
     }
     const change = model.onDidChangeContent((event) => {
+      formatSequence++
+      setFormatFailure('')
       const next = model.getAlternativeVersionId()
       if (replacing) return
       const boundary = boundaries.findLast((item) =>
@@ -287,6 +357,8 @@ export default function CodeEditor({
     return () => {
       disposed = true
       sequence++
+      formatSequence++
+      providers.forEach((provider) => provider.dispose())
       window.clearTimeout(timer)
       change.dispose()
       instance.dispose()
@@ -307,6 +379,11 @@ export default function CodeEditor({
   }, [language])
   return (
     <div className="code-workbench">
+      {formatFailure && (
+        <p className="format-error" role="alert">
+          {message(locale, 'formatFailed', { error: formatFailure })}
+        </p>
+      )}
       <div ref={host} className="monaco-host" />
       <div className="code-check-status" role="status">
         {status === 'loading'

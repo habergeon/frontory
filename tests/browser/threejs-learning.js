@@ -2605,3 +2605,176 @@ async function runLesson04(page, base) {
   }
   return checks
 }
+
+export async function runRoadmap(page, base) {
+  const checks = []
+  const prefix = (
+    process.env.THREEJS_EVIDENCE ??
+    '.superpowers/sdd/2026-10-26-threejs-contained-learning/task-7-browser-evidence.json'
+  ).replace(/\.json$/, '')
+  for (const locale of ['ko', 'en']) {
+    await page.goto(base + fixture + '?learning#threejs-step-04')
+    if ((await page.locator('html').getAttribute('lang')) !== locale)
+      await page
+        .getByRole('button', {
+          name: locale === 'en' ? 'English' : '한국어',
+          exact: true,
+        })
+        .click()
+    await page.waitForFunction(
+      (locale) => document.documentElement.lang === locale,
+      locale,
+    )
+    await readyEditor(page)
+    const code =
+      '<!doctype html><html><head><title>roadmap draft</title></head><body><h1>로드맵 😀 ' +
+      locale +
+      '</h1></body></html>'
+    await replaceText(page, code)
+    await page.locator('.lesson-learning > button').last().click()
+    await page.locator('.notes-editor').fill('roadmap note 😀 ' + locale)
+    await page.locator('.learning-status button').nth(2).click()
+    const roadmap = page.locator('.learning-journey > .series-roadmap')
+    if (!(await roadmap.evaluate((element) => element.open)))
+      await roadmap.locator('summary').click()
+    const rows = roadmap.locator('li[data-unit-id]')
+    assert.equal(await rows.count(), 28)
+    assert.equal(
+      await roadmap.locator('li[data-readiness="planned"]').count(),
+      24,
+    )
+    assert.equal(
+      await roadmap.locator('li[data-readiness="verified"]').count(),
+      4,
+    )
+    assert.equal(await rows.nth(13).getAttribute('data-unit-id'), 'threejs-02')
+    assert.equal(await rows.nth(27).getAttribute('data-unit-id'), 'threejs-03')
+    assert.match(
+      await roadmap.locator('p').innerText(),
+      locale === 'ko'
+        ? /검증이 남았.*학습 진도와 별개/
+        : /verification.*still pending.*separate from your learning progress/s,
+    )
+    assert.equal(
+      await page.locator('.lesson-learning > .series-roadmap').count(),
+      1,
+    )
+    console.log('roadmap rows', locale, await rows.count())
+    const before = await rows.evaluateAll((rows) =>
+      rows.map((row) => ({
+        id: row.dataset.unitId,
+        readiness: row.dataset.readiness,
+      })),
+    )
+    await page.locator('.learning-status button').nth(1).click()
+    assert.deepEqual(
+      await rows.evaluateAll((rows) =>
+        rows.map((row) => ({
+          id: row.dataset.unitId,
+          readiness: row.dataset.readiness,
+        })),
+      ),
+      before,
+    )
+    // Native Tab reaches the first lesson link from the disclosure summary.
+    await roadmap.locator('summary').focus()
+    await page.keyboard.press('Tab')
+    assert.equal(
+      await page.evaluate(() => document.activeElement.getAttribute('href')),
+      '#threejs-01',
+    )
+    const future = rows.nth(4).locator(':scope > a')
+    await future.focus()
+    await page.keyboard.press('Enter')
+    await page.waitForURL('**#threejs-step-05')
+    await page.waitForFunction(() =>
+      document
+        .querySelector('.current-lesson .eyebrow')
+        .textContent.includes('05'),
+    )
+    await readyEditor(page)
+    assert.ok((await editorState(page)).code.length > 0)
+    await page.goBack()
+    await page.waitForURL('**#threejs-step-04')
+    await readyEditor(page)
+    assert.equal((await editorState(page)).code, code)
+    assert.equal((await editorState(page)).language, 'html')
+    await page.locator('.lesson-learning > button').last().click()
+    assert.equal(
+      await page.locator('.notes-editor').inputValue(),
+      'roadmap note 😀 ' + locale,
+    )
+    assert.equal(
+      await page
+        .locator('.learning-status button')
+        .nth(1)
+        .getAttribute('aria-pressed'),
+      'true',
+    )
+    // Every listed existing lesson is reachable, including the historical IDs.
+    const currentRoadmap = page.locator('.learning-journey > .series-roadmap')
+    if (!(await currentRoadmap.evaluate((element) => element.open)))
+      await currentRoadmap.locator('summary').click()
+    const links = await currentRoadmap
+      .locator('li[data-unit-id] > a')
+      .evaluateAll((links) => links.map((a) => a.getAttribute('href')))
+    assert.equal(links.length, 28)
+    assert.equal(links[13], '#threejs-02')
+    assert.equal(links[27], '#threejs-03')
+    const visited = ['threejs-step-05']
+    for (const id of ['threejs-02', 'threejs-03']) {
+      await currentRoadmap.locator(`li[data-unit-id="${id}"] > a`).click()
+      await page.waitForURL('**#' + id)
+      await readyEditor(page)
+      assert.ok((await editorState(page)).code.length > 0)
+      visited.push(id)
+      await page.goBack()
+      await page.waitForURL('**#threejs-step-04')
+      await readyEditor(page)
+      assert.equal((await editorState(page)).code, code)
+      assert.equal((await editorState(page)).language, 'html')
+    }
+    await page.locator('.lesson-learning > button').last().click()
+    assert.equal(
+      await page.locator('.notes-editor').inputValue(),
+      'roadmap note 😀 ' + locale,
+    )
+    assert.equal(
+      await page
+        .locator('.learning-status button')
+        .nth(1)
+        .getAttribute('aria-pressed'),
+      'true',
+    )
+    await page.screenshot({
+      path: prefix + '-' + locale + '.png',
+      fullPage: true,
+    })
+    for (const width of [320, 768, 1100, 1440]) {
+      await page.setViewportSize({ width, height: 900 })
+      const metrics = await page.evaluate(() => ({
+        width: innerWidth,
+        scroll: document.documentElement.scrollWidth,
+      }))
+      assert.equal(metrics.scroll, metrics.width)
+      checks.push({ locale, viewport: metrics })
+      if (width === 320)
+        await page.screenshot({
+          path: prefix + '-' + locale + '-mobile.png',
+          fullPage: true,
+        })
+    }
+    checks.push({
+      locale,
+      entries: before,
+      keyboard: 'Tab and Enter',
+      visited,
+      returned: 'threejs-step-04',
+      draft: await editorState(page),
+      notes: 'roadmap note 😀 ' + locale,
+      progress: 'in-progress',
+    })
+    await page.setViewportSize({ width: 1500, height: 1000 })
+  }
+  return checks
+}

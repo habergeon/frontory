@@ -2,6 +2,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { assertSourceHash } from './locale-content.mjs'
 import {
+  validateLearningRoadmap,
+  validateRoadmapParity,
   validateLearningContent,
   validateLearningParity,
   localizedLearningCodePath,
@@ -18,6 +20,15 @@ export function readLearningContent(
 ) {
   const read = (file) =>
     JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'))
+  const roadmapKo = read('content/learning/threejs-roadmap.json')
+  const roadmapEn = read('content/locales/en/learning/threejs-roadmap.json')
+  const roadmapIds = read('content/curricula/threejs.json').units.map(
+    (unit) => unit.id,
+  )
+  validateLearningRoadmap(roadmapKo, roadmapIds)
+  validateLearningRoadmap(roadmapEn, roadmapIds)
+  validateRoadmapParity(roadmapKo, roadmapEn)
+  assertSourceHash(roadmapKo, roadmapEn.sourceHash, 'roadmap')
   const ko = read('content/learning/threejs.json')
   const en = read('content/locales/en/learning/threejs.json')
   const unitIds = read('src/app/catalog.json').units.map((unit) => unit.id)
@@ -66,6 +77,8 @@ export function readLearningContent(
   return {
     ko,
     en,
+    roadmapKo,
+    roadmapEn,
     unitIds,
     readCode,
     validateTranslation: validateLearningTranslation,

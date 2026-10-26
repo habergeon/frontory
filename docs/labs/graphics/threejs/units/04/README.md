@@ -2275,3 +2275,343 @@ body.rotation.order = 'YXZ';
 ### 배운 점
 
 ### 남은 질문
+
+## Three.js 전체 28개 단원 로드맵
+
+01~04는 사이트 안의 필수 실습 검증을 마쳤습니다. 05~28의 개선 예정은 기존 자료를 읽을 수 있지만 사이트 안에서 실습을 끝낼 수 있는지 검증이 남았다는 뜻입니다. 이 상태는 나의 학습 진도와 별개입니다.
+
+### [01. 장면 그래프와 카메라](../../01-foundations/README.md) · 실습 검증 완료
+
+ID: `threejs-01`
+
+배울 내용: canvas · 첫 장면 · Scene·Camera·Renderer·Mesh · 애니메이션 · local/world 기초
+
+선수 단원: 없음
+
+완료 과제: HTML 문서에서 첫 장면을 만들고 부모 회전과 자식 좌표를 설명
+
+필요한 실습 기능: 단일 HTML·inline CSS·module JavaScript · Three.js·OrbitControls · 정렬·콘솔·저장
+
+### [02. 렌더러와 화면 크기](../02/README.md) · 실습 검증 완료
+
+ID: `threejs-step-02`
+
+배울 내용: CSS 크기와 버퍼 크기 · aspect · DPR
+
+선수 단원: [01](../../01-foundations/README.md)
+
+완료 과제: 화면 크기가 달라져도 도형 비율을 유지
+
+필요한 실습 기능: 단일 HTML·inline CSS·module JavaScript · Three.js·OrbitControls · 정렬·콘솔·저장
+
+### [03. 원근과 직교 투영](../03/README.md) · 실습 검증 완료
+
+ID: `threejs-step-03`
+
+배울 내용: 카메라 거리 · FOV · near/far · OrbitControls
+
+선수 단원: [01](../../01-foundations/README.md) · [02](../02/README.md)
+
+완료 과제: 투영 차이와 물체가 보이지 않는 원인을 구별
+
+필요한 실습 기능: 단일 HTML·inline CSS·module JavaScript · Three.js·OrbitControls · 정렬·콘솔·저장
+
+### [04. 회전과 피벗](README.md) · 실습 검증 완료
+
+ID: `threejs-step-04`
+
+배울 내용: 좌표계 · 회전 중심 · 부모·자식 변환
+
+선수 단원: [01](../../01-foundations/README.md) · [02](../02/README.md) · [03](../03/README.md)
+
+완료 과제: 자전과 공전을 만들고 위치 변화를 예측
+
+필요한 실습 기능: 단일 HTML·inline CSS·module JavaScript · Three.js·OrbitControls · 정렬·콘솔·저장
+
+### [05. 버퍼 지오메트리](../05/README.md) · 개선 예정
+
+ID: `threejs-step-05`
+
+배울 내용: 정점·삼각형·인덱스·attribute
+
+선수 단원: [01](../../01-foundations/README.md) · [04](README.md)
+
+완료 과제: 직접 만든 삼각형의 정점 수와 인덱스를 설명하고 범위 오류 수정
+
+필요한 실습 기능: 숫자 배열 편집·오류 출력
+
+### [06. 법선과 표면 방향](../06/README.md) · 개선 예정
+
+ID: `threejs-step-06`
+
+배울 내용: 법선 · 면 방향 · 평면·부드러운 음영
+
+선수 단원: [05](../05/README.md)
+
+완료 과제: 법선 유무와 경계 처리의 차이를 비교
+
+필요한 실습 기능: 고정 조명 예제와 표면 비교; 조명 상세는 08에서 학습
+
+### [07. 공유 지오메트리와 복제](../07/README.md) · 개선 예정
+
+ID: `threejs-step-07`
+
+배울 내용: geometry/material 공유와 clone
+
+선수 단원: [05](../05/README.md) · [06](../06/README.md)
+
+완료 과제: 한 물체의 변경이 다른 물체에 영향을 주는 조건 재현
+
+필요한 실습 기능: 객체·자원 참조 출력
+
+### [08. 조명 종류와 배치](../08/README.md) · 개선 예정
+
+ID: `threejs-step-08`
+
+배울 내용: 환경광·방향광·점광원 · position·target
+
+선수 단원: [01](../../01-foundations/README.md) · [04](README.md) · [06](../06/README.md)
+
+완료 과제: 광원 위치와 target을 바꾸고 재질 반응 설명
+
+필요한 실습 기능: 광원별 HTML 조작 입력
+
+### [09. 거칠기와 금속성](../09/README.md) · 개선 예정
+
+ID: `threejs-step-09`
+
+배울 내용: PBR 기초 · roughness·metalness
+
+선수 단원: [07](../07/README.md) · [08](../08/README.md)
+
+완료 과제: 같은 조명에서 두 변수를 따로 바꿔 비교
+
+필요한 실습 기능: 고정 조명·환경 조건의 비교 예제
+
+### [10. 텍스처와 UV](../10/README.md) · 개선 예정
+
+ID: `threejs-step-10`
+
+배울 내용: UV · 이미지·수치 텍스처 · repeat·wrap · 로딩 실패
+
+선수 단원: [05](../05/README.md) · [09](../09/README.md)
+
+완료 과제: UV와 world 좌표를 구별하고 잘못된 자산 입력 복구
+
+필요한 실습 기능: 샘플 이미지·로컬 파일 선택·TextureLoader 지원·실패 fixture
+
+### [11. 색 공간과 출력](../11/README.md) · 개선 예정
+
+ID: `threejs-step-11`
+
+배울 내용: 색 맵과 데이터 맵 · 입력·작업·출력 색 공간
+
+선수 단원: [09](../09/README.md) · [10](../10/README.md)
+
+완료 과제: 색 이미지와 normal·roughness 데이터의 처리 차이 설명
+
+필요한 실습 기능: 출처와 색 공간이 명시된 비교 자산
+
+### [12. 그림자 지도](../12/README.md) · 개선 예정
+
+ID: `threejs-step-12`
+
+배울 내용: caster·receiver · shadow camera · 해상도·비용
+
+선수 단원: [03](../03/README.md) · [08](../08/README.md)
+
+완료 과제: 그림자 잘림과 해상도 저하를 구별해 조정
+
+필요한 실습 기능: 그림자 카메라 표시·설정 입력
+
+### [13. 정규화 좌표와 선택](../13/README.md) · 개선 예정
+
+ID: `threejs-step-13`
+
+배울 내용: canvas 기준 NDC · Raycaster · 교차 순서
+
+선수 단원: [02](../02/README.md) · [03](../03/README.md) · [04](README.md)
+
+완료 과제: 여백·크기 변경 후에도 가장 가까운 물체 선택
+
+필요한 실습 기능: 포인터 위치와 교차 결과 출력
+
+### [14. 재질·로딩·선택](../../02-experiments/README.md) · 개선 예정
+
+ID: `threejs-02`
+
+배울 내용: glTF 로딩 상태 · 모델 선택 · 공유 재질 강조
+
+선수 단원: [07](../07/README.md) · [09](../09/README.md) · [10](../10/README.md) · [13](../13/README.md)
+
+완료 과제: 실패 후에도 UI를 유지하고 선택한 물체만 강조
+
+필요한 실습 기능: GLTFLoader·샘플 GLB·로컬 파일·오류 fixture
+
+### [15. 모델 크기와 카메라 맞춤](../15/README.md) · 개선 예정
+
+ID: `threejs-step-15`
+
+배울 내용: Box3 · 모델 중심·크기 · FOV 기반 프레이밍
+
+선수 단원: [03](../03/README.md) · [14](../../02-experiments/README.md)
+
+완료 과제: 원점에서 먼 모델을 화면에 맞추고 빈 모델 처리
+
+필요한 실습 기능: 다양한 크기·위치·빈 모델 fixture
+
+### [16. 궤도 제어와 요구 렌더링](../16/README.md) · 개선 예정
+
+ID: `threejs-step-16`
+
+배울 내용: target · damping · 입력 시 렌더링
+
+선수 단원: [02](../02/README.md) · [03](../03/README.md) · [15](../15/README.md)
+
+완료 과제: 정지 화면의 불필요한 렌더를 줄이되 조작 유지
+
+필요한 실습 기능: 프레임 횟수·입력 상태 관찰
+
+### [17. 클립 애니메이션](../17/README.md) · 개선 예정
+
+ID: `threejs-step-17`
+
+배울 내용: clip·action·mixer · 초 단위 delta · 속도
+
+선수 단원: [01](../../01-foundations/README.md) · [14](../../02-experiments/README.md) · [16](../16/README.md)
+
+완료 과제: 클립 재생을 조작하고 클립 없는 모델도 처리
+
+필요한 실습 기능: 애니메이션 포함·미포함 GLB와 재생 UI
+
+### [18. 투명도와 깊이](../18/README.md) · 개선 예정
+
+ID: `threejs-step-18`
+
+배울 내용: opacity · transparent · depthWrite · 정렬 한계
+
+선수 단원: [03](../03/README.md) · [09](../09/README.md)
+
+완료 과제: 교차 표면의 결과와 객체 정렬의 한계를 설명
+
+필요한 실습 기능: 동일 장면·시점 비교와 관찰 기록
+
+### [19. 인스턴싱 기초](../19/README.md) · 개선 예정
+
+ID: `threejs-step-19`
+
+배울 내용: InstancedMesh · matrix · needsUpdate · draw call
+
+선수 단원: [04](README.md) · [05](../05/README.md) · [07](../07/README.md)
+
+완료 과제: 같은 배치를 개별 Mesh와 인스턴싱으로 비교
+
+필요한 실습 기능: renderer.info의 해당 지표 설명·출력
+
+### [20. 인스턴스 선택과 갱신](../20/README.md) · 개선 예정
+
+ID: `threejs-step-20`
+
+배울 내용: instanceId · 색·위치 갱신 · 경계
+
+선수 단원: [13](../13/README.md) · [19](../19/README.md)
+
+완료 과제: 한 인스턴스를 바꾼 뒤 새 위치에서 선택
+
+필요한 실습 기능: 인스턴스 ID·변환·경계 관찰
+
+### [21. 화면 밖 객체와 상세도](../21/README.md) · 개선 예정
+
+ID: `threejs-step-21`
+
+배울 내용: frustum culling · bounds · LOD
+
+선수 단원: [03](../03/README.md) · [05](../05/README.md) · [20](../20/README.md)
+
+완료 과제: 거리별 품질·비용을 비교하고 잘못된 컬링 수정
+
+필요한 실습 기능: bounds·상세도 상태·삼각형 수 표시
+
+### [22. 렌더 타깃과 미니맵](../22/README.md) · 개선 예정
+
+ID: `threejs-step-22`
+
+배울 내용: offscreen render · texture · target 복원
+
+선수 단원: [02](../02/README.md) · [03](../03/README.md) · [10](../10/README.md)
+
+완료 과제: 메인 화면과 미니맵을 갱신하고 렌더 상태 복원
+
+필요한 실습 기능: 두 카메라·render target 실습
+
+### [23. 자원 소유권 장부](../23/README.md) · 개선 예정
+
+ID: `threejs-step-23`
+
+배울 내용: remove와 dispose · 공유 자원 수명
+
+선수 단원: [07](../07/README.md) · [10](../10/README.md) · [14](../../02-experiments/README.md) · [22](../22/README.md)
+
+완료 과제: 자원 소유자를 기록하고 중복 해제 방지
+
+필요한 실습 기능: 생성·정리 횟수와 소유 관계 관찰
+
+### [24. 비동기 장면 교체](../24/README.md) · 개선 예정
+
+ID: `threejs-step-24`
+
+배울 내용: 요청 순서·완료 순서 · stale 결과 · 정리
+
+선수 단원: [14](../../02-experiments/README.md) · [17](../17/README.md) · [23](../23/README.md)
+
+완료 과제: 늦은 모델이 새 장면을 덮지 않고 자원도 정리
+
+필요한 실습 기능: 로컬 자산의 지연·실패·순서 역전 실험
+
+### [25. HTML 제어와 접근성](../25/README.md) · 개선 예정
+
+ID: `threejs-step-25`
+
+배울 내용: 객체 목록 · 키보드 조작 · 텍스트 상태 알림
+
+선수 단원: [13](../13/README.md) · [14](../../02-experiments/README.md) · [16](../16/README.md)
+
+완료 과제: 마우스 없이 선택·카메라 조작하고 오류 파악
+
+필요한 실습 기능: 실제 HTML controls·키보드·상태 알림 · HTML 접근성 기초
+
+### [26. 렌더 통계와 프로파일](../26/README.md) · 개선 예정
+
+ID: `threejs-step-26`
+
+배울 내용: renderer.info 범위 · 다중 패스 · 측정 조건
+
+선수 단원: [16](../16/README.md) · [19](../19/README.md) · [22](../22/README.md) · [23](../23/README.md)
+
+완료 과제: 프레임 전체 통계를 비교하고 측정 한계 설명
+
+필요한 실습 기능: 사이트 내 표·로그; 정확한 GPU 시간 측정을 필수로 요구하지 않음
+
+### [27. 장면 검사기 통합](../27/README.md) · 개선 예정
+
+ID: `threejs-step-27`
+
+배울 내용: 로딩·선택·카메라·애니메이션·오류·미니맵 통합
+
+선수 단원: [14](../../02-experiments/README.md) · [15](../15/README.md) · [16](../16/README.md) · [17](../17/README.md) · [18](../18/README.md) · [19](../19/README.md) · [20](../20/README.md) · [21](../21/README.md) · [22](../22/README.md) · [23](../23/README.md) · [24](../24/README.md) · [25](../25/README.md) · [26](../26/README.md)
+
+완료 과제: 실패 후에도 조작 가능한 검사기를 구성
+
+필요한 실습 기능: 앞선 자산·조작·관찰 기능을 연결한 시작 프로젝트
+
+### [28. 렌더링 자원과 측정](../../03-project/README.md) · 개선 예정
+
+ID: `threejs-03`
+
+배울 내용: 병목 분리 · 품질 유지 · 반복 생성·종료
+
+선수 단원: [19](../19/README.md) · [23](../23/README.md) · [24](../24/README.md) · [26](../26/README.md) · [27](../27/README.md)
+
+완료 과제: 동일 조건의 성능·품질·자원 정리 보고서 작성
+
+필요한 실습 기능: 반복 실행·통계 비교·필기·백업

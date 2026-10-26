@@ -1,4 +1,5 @@
 import { test } from 'node:test'
+import { readLearningContent } from '../scripts/learning-content.mjs'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import { parsers } from 'prettier/plugins/markdown'
@@ -378,8 +379,15 @@ test('localized catalog lookup preserves shared executable identity and has no K
   assert.equal(index, 2)
   const compiled = transformSync(runnable, { loader: 'ts', format: 'cjs' }).code
   const module = { exports: {} }
+  const actualRequire = createRequire(
+    new URL('../src/app/curriculum.ts', import.meta.url),
+  )
+  const learning = readLearningContent()
   new Function('require', 'exports', 'module', compiled)(
-    createRequire(new URL('../src/app/curriculum.ts', import.meta.url)),
+    (file) =>
+      file === './learningContent'
+        ? { readLearningCode: learning.readCode }
+        : actualRequire(file),
     module.exports,
     module,
   )
@@ -396,7 +404,17 @@ test('localized catalog lookup preserves shared executable identity and has no K
   )
   for (const unit of api.getCatalog('en').units) {
     const common = api.units.find((item) => item.id === unit.id)
-    assert.equal(unit.source, common.source)
+    assert.equal(
+      unit.source,
+      common.sourceLanguage === 'html'
+        ? learning.readCode('src/labs/' + unit.id + '/example.html', 'en')
+        : common.source,
+    )
+    if (common.sourceLanguage === 'html')
+      assert.equal(
+        common.source,
+        learning.readCode('src/labs/' + unit.id + '/example.html', 'ko'),
+      )
     assert.ok(unit.source)
     assert.equal(unit.exampleMode, common.exampleMode)
     assert.equal(unit.exampleMode, details[unit.id]?.mode)
@@ -479,7 +497,9 @@ test('catalog reading paths reach legacy downloads without metadata and reject d
           ? common
           : file === './catalog.en.json'
             ? english
-            : actualRequire(file),
+            : file === './learningContent'
+              ? { readLearningCode: readLearningContent().readCode }
+              : actualRequire(file),
       module.exports,
       module,
     )

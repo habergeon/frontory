@@ -1,3 +1,4 @@
+import { SeriesRoadmap } from './SeriesRoadmap'
 import { useRef, useState } from 'react'
 import type { Locale } from '../i18n/locale'
 import { learningMessages } from '../i18n/messages'
@@ -207,6 +208,7 @@ export function LessonLearning({
           </details>
         )
       })}
+      {lesson.unitId === 'threejs-step-04' && <SeriesRoadmap locale={locale} />}
       <button onClick={onNotes}>{copy.notes}</button>
     </article>
   )

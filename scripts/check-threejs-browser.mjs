@@ -14,10 +14,11 @@ assert.ok(
     'runtime',
     'format',
     'learning',
+    'roadmap',
     'lesson-01',
     'lessons-02-04',
   ].includes(selected),
-  'Use --case storage|runtime|format|learning|lesson-01|lessons-02-04',
+  'Use --case storage|runtime|format|learning|roadmap|lesson-01|lessons-02-04',
 )
 const totalMs = Number(process.env.THREEJS_TIMEOUT_MS ?? 120_000)
 const closeMs = Number(process.env.THREEJS_CLOSE_MS ?? 3_000)
@@ -166,6 +167,7 @@ if (!args.includes('--worker')) {
         runRuntime,
         runFormat,
         runLearning,
+        runRoadmap,
         runLesson01,
         runLessons0204,
       } = await import('../tests/browser/threejs-learning.js')
@@ -211,17 +213,19 @@ if (!args.includes('--worker')) {
         evidence.errors.push({ message: error.message, stack: error.stack }),
       )
       evidence.checks = await (
-        selected === 'lessons-02-04'
-          ? runLessons0204
-          : selected === 'lesson-01'
-            ? runLesson01
-            : selected === 'learning'
-              ? runLearning
-              : selected === 'storage'
-                ? runStorage
-                : selected === 'format'
-                  ? runFormat
-                  : runRuntime
+        selected === 'roadmap'
+          ? runRoadmap
+          : selected === 'lessons-02-04'
+            ? runLessons0204
+            : selected === 'lesson-01'
+              ? runLesson01
+              : selected === 'learning'
+                ? runLearning
+                : selected === 'storage'
+                  ? runStorage
+                  : selected === 'format'
+                    ? runFormat
+                    : runRuntime
       )(page, base)
       if (selected === 'runtime')
         evidence.producer = await runHtmlRuntimeFixtures(page, base)

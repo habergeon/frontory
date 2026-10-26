@@ -7,7 +7,7 @@ import { formatGeneratedText } from './format-generated.mjs'
 import fs from 'node:fs'
 import path from 'node:path'
 import { readEnglishContent } from './locale-content.mjs'
-import { headings, messages } from '../src/i18n/messages.ts'
+import { roadmapMessages, headings, messages } from '../src/i18n/messages.ts'
 
 const root = path.resolve(import.meta.dirname, '..')
 const read = (file) =>
@@ -24,6 +24,47 @@ const categories = {
   testing: '테스트',
 }
 const learning = readLearningContent(root)
+const roadmapMarkdown = (locale, units, from) => {
+  const copy = roadmapMessages[locale]
+  const entries = (locale === 'ko' ? learning.roadmapKo : learning.roadmapEn)
+    .entries
+  return [
+    '## ' + copy.title,
+    '',
+    copy.explanation,
+    '',
+    ...entries.flatMap((entry, index) => {
+      const unit = units.find((unit) => unit.id === entry.unitId)
+      return [
+        `### ${link(from, unit.docPath, `${String(index + 1).padStart(2, '0')}. ${unit.title}`)} · ${copy[entry.readiness]}`,
+        '',
+        `ID: \`${entry.unitId}\``,
+        '',
+        `${copy.topics}: ${entry.topics.join(' · ')}`,
+        '',
+        `${copy.prerequisites}: ${
+          entry.prerequisiteIds.length
+            ? entry.prerequisiteIds
+                .map((id) => {
+                  const prerequisite = units.find((unit) => unit.id === id)
+                  return link(
+                    from,
+                    prerequisite.docPath,
+                    String(prerequisite.day).padStart(2, '0'),
+                  )
+                })
+                .join(' · ')
+            : copy.none
+        }`,
+        '',
+        `${copy.outcome}: ${entry.outcome}`,
+        '',
+        `${copy.capabilities}: ${entry.requiredCapabilities.join(' · ')}`,
+        '',
+      ]
+    }),
+  ].join('\n')
+}
 const outputs = new Map()
 const catalog = { series: [], units: [] }
 const relative = (from, to) => path.posix.relative(path.posix.dirname(from), to)
@@ -160,6 +201,8 @@ for (const series of baseline.series) {
     ].map((reference) => `- [${reference.title}](${reference.url})`),
     '',
   )
+  if (series.id === 'threejs')
+    intro.push(roadmapMarkdown('ko', units, series.docPath))
   outputs.set(series.docPath.slice(1), intro.join('\n'))
   content.units.forEach((unit, index) => {
     const entry = units[index]
@@ -285,6 +328,8 @@ for (const series of baseline.series) {
         0,
         learningMarkdown(lesson, learning.ko.apis, learning.readCode, 'ko'),
       )
+    if (unit.id === 'threejs-step-04')
+      lines.push(roadmapMarkdown('ko', units, entry.docPath))
     outputs.set(entry.docPath.slice(1), lines.join('\n'))
   })
 }
@@ -441,6 +486,8 @@ for (const series of englishCatalog.series.filter(
     ].map((reference) => `- [${reference.title}](${reference.url})`),
     '',
   )
+  if (series.id === 'threejs')
+    intro.push(roadmapMarkdown('en', units, series.docPath))
   outputs.set(series.docPath.slice(1), intro.join('\n'))
   for (const unit of content.units) {
     const entry = units.find((item) => item.id === unit.id)
@@ -573,6 +620,8 @@ for (const series of englishCatalog.series.filter(
         0,
         learningMarkdown(lesson, learning.en.apis, learning.readCode, 'en'),
       )
+    if (unit.id === 'threejs-step-04')
+      lines.push(roadmapMarkdown('en', units, entry.docPath))
     outputs.set(entry.docPath.slice(1), lines.join('\n'))
   }
 }

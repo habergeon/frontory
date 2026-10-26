@@ -201,6 +201,8 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
       'src/app/catalog.json',
       'content/curricula/threejs.json',
       'content/learning/threejs.json',
+      'content/learning/threejs-roadmap.json',
+      'content/locales/en/learning/threejs-roadmap.json',
       'content/locales/en/learning/threejs.json',
       ...paths,
       ...paths.map((p) => p.replace('.html', '.en.html')),

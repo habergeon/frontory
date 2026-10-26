@@ -1,8 +1,13 @@
+import roadmapKo from '../../content/learning/threejs-roadmap.json'
+import roadmapEn from '../../content/locales/en/learning/threejs-roadmap.json'
 import ko from '../../content/learning/threejs.json'
 import en from '../../content/locales/en/learning/threejs.json'
 import catalog from './catalog.json'
 import type { Locale } from '../i18n/locale'
 import {
+  validateLearningRoadmap,
+  validateRoadmapParity,
+  type LearningRoadmap,
   validateLearningContent,
   validateLearningParity,
   localizedLearningCodePath,
@@ -47,3 +52,15 @@ export const getApiReference = (
   locale: Locale,
 ): ApiReference | null =>
   (locale === 'ko' ? ko : en).apis.find((api) => api.id === id) ?? null
+
+const roadmapIds = catalog.units
+  .filter((unit) => unit.seriesId === 'threejs')
+  .map((unit) => unit.id)
+validateLearningRoadmap(roadmapKo as LearningRoadmap, roadmapIds)
+validateLearningRoadmap(roadmapEn as LearningRoadmap, roadmapIds)
+validateRoadmapParity(
+  roadmapKo as LearningRoadmap,
+  roadmapEn as LearningRoadmap,
+)
+export const getSeriesRoadmap = (locale: Locale) =>
+  ((locale === 'ko' ? roadmapKo : roadmapEn) as LearningRoadmap).entries

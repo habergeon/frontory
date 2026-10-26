@@ -1810,3 +1810,25 @@ html[lang='ko'] :is(pre, code, .monaco-editor) {
   font-size: 12px;
   padding: 5px 10px;
 }
+
+.series-roadmap {
+  margin-block: 0.75rem;
+  overflow-wrap: anywhere;
+}
+.series-roadmap > summary {
+  cursor: pointer;
+}
+.series-roadmap > ol {
+  max-height: 24rem;
+  overflow: auto;
+  padding-inline: 2rem 0.75rem;
+}
+.series-roadmap li {
+  margin-block: 1rem;
+}
+.series-roadmap dl {
+  margin-block: 0.5rem;
+}
+.series-roadmap dd {
+  margin-inline-start: 1rem;
+}

@@ -1,0 +1,379 @@
+{
+  "entries": [
+    {
+      "unitId": "threejs-01",
+      "prerequisiteIds": [],
+      "topics": [
+        "canvas",
+        "first scene",
+        "Scene, Camera, Renderer and Mesh",
+        "animation",
+        "local/world coordinates"
+      ],
+      "outcome": "Build a first HTML scene and explain parent rotation and child coordinates",
+      "requiredCapabilities": [
+        "Single HTML document, inline CSS and module JavaScript",
+        "Three.js and OrbitControls",
+        "formatting, console and saving"
+      ],
+      "readiness": "verified"
+    },
+    {
+      "unitId": "threejs-step-02",
+      "prerequisiteIds": ["threejs-01"],
+      "topics": ["CSS size and drawing buffer", "aspect ratio", "DPR"],
+      "outcome": "Keep shapes in proportion as the display size changes",
+      "requiredCapabilities": [
+        "Single HTML document, inline CSS and module JavaScript",
+        "Three.js and OrbitControls",
+        "formatting, console and saving"
+      ],
+      "readiness": "verified"
+    },
+    {
+      "unitId": "threejs-step-03",
+      "prerequisiteIds": ["threejs-01", "threejs-step-02"],
+      "topics": ["camera distance", "FOV", "near/far", "OrbitControls"],
+      "outcome": "Distinguish projection differences and reasons an object disappears",
+      "requiredCapabilities": [
+        "Single HTML document, inline CSS and module JavaScript",
+        "Three.js and OrbitControls",
+        "formatting, console and saving"
+      ],
+      "readiness": "verified"
+    },
+    {
+      "unitId": "threejs-step-04",
+      "prerequisiteIds": ["threejs-01", "threejs-step-02", "threejs-step-03"],
+      "topics": [
+        "coordinate spaces",
+        "rotation centers",
+        "parent and child transforms"
+      ],
+      "outcome": "Build spin and orbit motions and predict position changes",
+      "requiredCapabilities": [
+        "Single HTML document, inline CSS and module JavaScript",
+        "Three.js and OrbitControls",
+        "formatting, console and saving"
+      ],
+      "readiness": "verified"
+    },
+    {
+      "unitId": "threejs-step-05",
+      "prerequisiteIds": ["threejs-01", "threejs-step-04"],
+      "topics": ["vertices", "triangles", "indices", "attributes"],
+      "outcome": "Explain vertex counts and indices in a custom triangle and fix out-of-range values",
+      "requiredCapabilities": ["Numeric array editing and error output"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-06",
+      "prerequisiteIds": ["threejs-step-05"],
+      "topics": ["normals", "face direction", "flat and smooth shading"],
+      "outcome": "Compare missing normals and edge handling",
+      "requiredCapabilities": [
+        "Fixed lighting example and surface comparison",
+        "lighting details come in unit 08"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-07",
+      "prerequisiteIds": ["threejs-step-05", "threejs-step-06"],
+      "topics": ["geometry/material sharing", "clone"],
+      "outcome": "Reproduce when changing one object affects another",
+      "requiredCapabilities": ["Object and resource reference output"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-08",
+      "prerequisiteIds": ["threejs-01", "threejs-step-04", "threejs-step-06"],
+      "topics": ["ambient, directional and point lights", "position", "target"],
+      "outcome": "Change light positions and targets and explain material response",
+      "requiredCapabilities": ["HTML inputs for each light type"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-09",
+      "prerequisiteIds": ["threejs-step-07", "threejs-step-08"],
+      "topics": ["PBR basics", "roughness", "metalness"],
+      "outcome": "Change each variable separately under the same lighting",
+      "requiredCapabilities": [
+        "Comparison examples with fixed lighting and environment"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-10",
+      "prerequisiteIds": ["threejs-step-05", "threejs-step-09"],
+      "topics": [
+        "UV",
+        "image and numeric textures",
+        "repeat and wrap",
+        "loading failures"
+      ],
+      "outcome": "Distinguish UV from world coordinates and recover from invalid assets",
+      "requiredCapabilities": [
+        "Sample images, local file selection, TextureLoader support and failure fixtures"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-11",
+      "prerequisiteIds": ["threejs-step-09", "threejs-step-10"],
+      "topics": [
+        "color maps and data maps",
+        "input, working and output color spaces"
+      ],
+      "outcome": "Explain how color images differ from normal and roughness data",
+      "requiredCapabilities": [
+        "Comparison assets with documented sources and color spaces"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-12",
+      "prerequisiteIds": ["threejs-step-03", "threejs-step-08"],
+      "topics": [
+        "casters and receivers",
+        "shadow camera",
+        "resolution and cost"
+      ],
+      "outcome": "Distinguish clipped shadows from low resolution and adjust them",
+      "requiredCapabilities": ["Shadow camera display and settings inputs"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-13",
+      "prerequisiteIds": [
+        "threejs-step-02",
+        "threejs-step-03",
+        "threejs-step-04"
+      ],
+      "topics": ["canvas-relative NDC", "Raycaster", "intersection order"],
+      "outcome": "Select the nearest object after margin and size changes",
+      "requiredCapabilities": ["Pointer position and intersection output"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-02",
+      "prerequisiteIds": [
+        "threejs-step-07",
+        "threejs-step-09",
+        "threejs-step-10",
+        "threejs-step-13"
+      ],
+      "topics": [
+        "glTF loading states",
+        "model selection",
+        "shared material highlighting"
+      ],
+      "outcome": "Keep the UI usable after failures and highlight only the selected object",
+      "requiredCapabilities": [
+        "GLTFLoader, sample GLB, local files and error fixtures"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-15",
+      "prerequisiteIds": ["threejs-step-03", "threejs-02"],
+      "topics": ["Box3", "model center and size", "FOV-based framing"],
+      "outcome": "Frame a model far from the origin and handle empty models",
+      "requiredCapabilities": [
+        "Fixtures with varied sizes, positions and empty models"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-16",
+      "prerequisiteIds": [
+        "threejs-step-02",
+        "threejs-step-03",
+        "threejs-step-15"
+      ],
+      "topics": ["target", "damping", "rendering on input"],
+      "outcome": "Reduce idle rendering while keeping controls responsive",
+      "requiredCapabilities": ["Frame count and input state observation"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-17",
+      "prerequisiteIds": ["threejs-01", "threejs-02", "threejs-step-16"],
+      "topics": [
+        "clips, actions and mixers",
+        "delta in seconds",
+        "playback speed"
+      ],
+      "outcome": "Control clip playback and handle models without clips",
+      "requiredCapabilities": [
+        "GLB files with and without animation and playback UI"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-18",
+      "prerequisiteIds": ["threejs-step-03", "threejs-step-09"],
+      "topics": ["opacity", "transparent", "depthWrite", "sorting limits"],
+      "outcome": "Explain intersecting surfaces and the limits of object sorting",
+      "requiredCapabilities": [
+        "The same scene and viewpoint for comparison and notes"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-19",
+      "prerequisiteIds": [
+        "threejs-step-04",
+        "threejs-step-05",
+        "threejs-step-07"
+      ],
+      "topics": ["InstancedMesh", "matrices", "needsUpdate", "draw calls"],
+      "outcome": "Compare individual meshes with instancing for the same layout",
+      "requiredCapabilities": [
+        "Explanation and output of relevant renderer.info metrics"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-20",
+      "prerequisiteIds": ["threejs-step-13", "threejs-step-19"],
+      "topics": ["instanceId", "color and position updates", "bounds"],
+      "outcome": "Move one instance and select it at its new position",
+      "requiredCapabilities": ["Instance ID, transform and bounds observation"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-21",
+      "prerequisiteIds": [
+        "threejs-step-03",
+        "threejs-step-05",
+        "threejs-step-20"
+      ],
+      "topics": ["frustum culling", "bounds", "LOD"],
+      "outcome": "Compare quality and cost by distance and fix incorrect culling",
+      "requiredCapabilities": [
+        "Bounds, detail level and triangle count display"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-22",
+      "prerequisiteIds": [
+        "threejs-step-02",
+        "threejs-step-03",
+        "threejs-step-10"
+      ],
+      "topics": ["offscreen rendering", "textures", "target restoration"],
+      "outcome": "Update the main view and minimap and restore rendering state",
+      "requiredCapabilities": ["Two-camera and render target practice"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-23",
+      "prerequisiteIds": [
+        "threejs-step-07",
+        "threejs-step-10",
+        "threejs-02",
+        "threejs-step-22"
+      ],
+      "topics": ["remove and dispose", "shared resource lifetimes"],
+      "outcome": "Record resource owners and prevent duplicate disposal",
+      "requiredCapabilities": [
+        "Creation and cleanup counts and ownership observation"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-24",
+      "prerequisiteIds": ["threejs-02", "threejs-step-17", "threejs-step-23"],
+      "topics": ["request and completion order", "stale results", "cleanup"],
+      "outcome": "Prevent late models from replacing a newer scene and clean up resources",
+      "requiredCapabilities": [
+        "Local asset delay, failure and out-of-order completion experiments"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-25",
+      "prerequisiteIds": ["threejs-step-13", "threejs-02", "threejs-step-16"],
+      "topics": [
+        "object lists",
+        "keyboard controls",
+        "text status announcements"
+      ],
+      "outcome": "Select objects, control cameras and understand errors without a mouse",
+      "requiredCapabilities": [
+        "Real HTML controls, keyboard support and status announcements",
+        "HTML accessibility basics required"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-26",
+      "prerequisiteIds": [
+        "threejs-step-16",
+        "threejs-step-19",
+        "threejs-step-22",
+        "threejs-step-23"
+      ],
+      "topics": [
+        "renderer.info scope",
+        "multiple passes",
+        "measurement conditions"
+      ],
+      "outcome": "Compare whole-frame statistics and explain measurement limits",
+      "requiredCapabilities": [
+        "In-site tables and logs",
+        "precise GPU timing is not required"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-27",
+      "prerequisiteIds": [
+        "threejs-02",
+        "threejs-step-15",
+        "threejs-step-16",
+        "threejs-step-17",
+        "threejs-step-18",
+        "threejs-step-19",
+        "threejs-step-20",
+        "threejs-step-21",
+        "threejs-step-22",
+        "threejs-step-23",
+        "threejs-step-24",
+        "threejs-step-25",
+        "threejs-step-26"
+      ],
+      "topics": [
+        "loading, selection, cameras, animation, errors and minimap integration"
+      ],
+      "outcome": "Build an inspector that remains usable after failures",
+      "requiredCapabilities": [
+        "A starter project connecting earlier assets, controls and observation tools"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-03",
+      "prerequisiteIds": [
+        "threejs-step-19",
+        "threejs-step-23",
+        "threejs-step-24",
+        "threejs-step-26",
+        "threejs-step-27"
+      ],
+      "topics": [
+        "bottleneck isolation",
+        "quality preservation",
+        "repeated creation and shutdown"
+      ],
+      "outcome": "Write a performance, quality and resource cleanup report under identical conditions",
+      "requiredCapabilities": [
+        "Repeated runs, statistics comparison, notes and backup"
+      ],
+      "readiness": "planned"
+    }
+  ],
+  "sourceHash": "50d81c9341c49e6406794c84232ebd614787124a781e6cef6b0a98d950deda71"
+}

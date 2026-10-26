@@ -1,0 +1,316 @@
+{
+  "entries": [
+    {
+      "unitId": "threejs-01",
+      "prerequisiteIds": [],
+      "topics": [
+        "canvas",
+        "첫 장면",
+        "Scene·Camera·Renderer·Mesh",
+        "애니메이션",
+        "local/world 기초"
+      ],
+      "outcome": "HTML 문서에서 첫 장면을 만들고 부모 회전과 자식 좌표를 설명",
+      "requiredCapabilities": [
+        "단일 HTML·inline CSS·module JavaScript",
+        "Three.js·OrbitControls",
+        "정렬·콘솔·저장"
+      ],
+      "readiness": "verified"
+    },
+    {
+      "unitId": "threejs-step-02",
+      "prerequisiteIds": ["threejs-01"],
+      "topics": ["CSS 크기와 버퍼 크기", "aspect", "DPR"],
+      "outcome": "화면 크기가 달라져도 도형 비율을 유지",
+      "requiredCapabilities": [
+        "단일 HTML·inline CSS·module JavaScript",
+        "Three.js·OrbitControls",
+        "정렬·콘솔·저장"
+      ],
+      "readiness": "verified"
+    },
+    {
+      "unitId": "threejs-step-03",
+      "prerequisiteIds": ["threejs-01", "threejs-step-02"],
+      "topics": ["카메라 거리", "FOV", "near/far", "OrbitControls"],
+      "outcome": "투영 차이와 물체가 보이지 않는 원인을 구별",
+      "requiredCapabilities": [
+        "단일 HTML·inline CSS·module JavaScript",
+        "Three.js·OrbitControls",
+        "정렬·콘솔·저장"
+      ],
+      "readiness": "verified"
+    },
+    {
+      "unitId": "threejs-step-04",
+      "prerequisiteIds": ["threejs-01", "threejs-step-02", "threejs-step-03"],
+      "topics": ["좌표계", "회전 중심", "부모·자식 변환"],
+      "outcome": "자전과 공전을 만들고 위치 변화를 예측",
+      "requiredCapabilities": [
+        "단일 HTML·inline CSS·module JavaScript",
+        "Three.js·OrbitControls",
+        "정렬·콘솔·저장"
+      ],
+      "readiness": "verified"
+    },
+    {
+      "unitId": "threejs-step-05",
+      "prerequisiteIds": ["threejs-01", "threejs-step-04"],
+      "topics": ["정점·삼각형·인덱스·attribute"],
+      "outcome": "직접 만든 삼각형의 정점 수와 인덱스를 설명하고 범위 오류 수정",
+      "requiredCapabilities": ["숫자 배열 편집·오류 출력"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-06",
+      "prerequisiteIds": ["threejs-step-05"],
+      "topics": ["법선", "면 방향", "평면·부드러운 음영"],
+      "outcome": "법선 유무와 경계 처리의 차이를 비교",
+      "requiredCapabilities": [
+        "고정 조명 예제와 표면 비교; 조명 상세는 08에서 학습"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-07",
+      "prerequisiteIds": ["threejs-step-05", "threejs-step-06"],
+      "topics": ["geometry/material 공유와 clone"],
+      "outcome": "한 물체의 변경이 다른 물체에 영향을 주는 조건 재현",
+      "requiredCapabilities": ["객체·자원 참조 출력"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-08",
+      "prerequisiteIds": ["threejs-01", "threejs-step-04", "threejs-step-06"],
+      "topics": ["환경광·방향광·점광원", "position·target"],
+      "outcome": "광원 위치와 target을 바꾸고 재질 반응 설명",
+      "requiredCapabilities": ["광원별 HTML 조작 입력"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-09",
+      "prerequisiteIds": ["threejs-step-07", "threejs-step-08"],
+      "topics": ["PBR 기초", "roughness·metalness"],
+      "outcome": "같은 조명에서 두 변수를 따로 바꿔 비교",
+      "requiredCapabilities": ["고정 조명·환경 조건의 비교 예제"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-10",
+      "prerequisiteIds": ["threejs-step-05", "threejs-step-09"],
+      "topics": ["UV", "이미지·수치 텍스처", "repeat·wrap", "로딩 실패"],
+      "outcome": "UV와 world 좌표를 구별하고 잘못된 자산 입력 복구",
+      "requiredCapabilities": [
+        "샘플 이미지·로컬 파일 선택·TextureLoader 지원·실패 fixture"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-11",
+      "prerequisiteIds": ["threejs-step-09", "threejs-step-10"],
+      "topics": ["색 맵과 데이터 맵", "입력·작업·출력 색 공간"],
+      "outcome": "색 이미지와 normal·roughness 데이터의 처리 차이 설명",
+      "requiredCapabilities": ["출처와 색 공간이 명시된 비교 자산"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-12",
+      "prerequisiteIds": ["threejs-step-03", "threejs-step-08"],
+      "topics": ["caster·receiver", "shadow camera", "해상도·비용"],
+      "outcome": "그림자 잘림과 해상도 저하를 구별해 조정",
+      "requiredCapabilities": ["그림자 카메라 표시·설정 입력"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-13",
+      "prerequisiteIds": [
+        "threejs-step-02",
+        "threejs-step-03",
+        "threejs-step-04"
+      ],
+      "topics": ["canvas 기준 NDC", "Raycaster", "교차 순서"],
+      "outcome": "여백·크기 변경 후에도 가장 가까운 물체 선택",
+      "requiredCapabilities": ["포인터 위치와 교차 결과 출력"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-02",
+      "prerequisiteIds": [
+        "threejs-step-07",
+        "threejs-step-09",
+        "threejs-step-10",
+        "threejs-step-13"
+      ],
+      "topics": ["glTF 로딩 상태", "모델 선택", "공유 재질 강조"],
+      "outcome": "실패 후에도 UI를 유지하고 선택한 물체만 강조",
+      "requiredCapabilities": ["GLTFLoader·샘플 GLB·로컬 파일·오류 fixture"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-15",
+      "prerequisiteIds": ["threejs-step-03", "threejs-02"],
+      "topics": ["Box3", "모델 중심·크기", "FOV 기반 프레이밍"],
+      "outcome": "원점에서 먼 모델을 화면에 맞추고 빈 모델 처리",
+      "requiredCapabilities": ["다양한 크기·위치·빈 모델 fixture"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-16",
+      "prerequisiteIds": [
+        "threejs-step-02",
+        "threejs-step-03",
+        "threejs-step-15"
+      ],
+      "topics": ["target", "damping", "입력 시 렌더링"],
+      "outcome": "정지 화면의 불필요한 렌더를 줄이되 조작 유지",
+      "requiredCapabilities": ["프레임 횟수·입력 상태 관찰"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-17",
+      "prerequisiteIds": ["threejs-01", "threejs-02", "threejs-step-16"],
+      "topics": ["clip·action·mixer", "초 단위 delta", "속도"],
+      "outcome": "클립 재생을 조작하고 클립 없는 모델도 처리",
+      "requiredCapabilities": ["애니메이션 포함·미포함 GLB와 재생 UI"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-18",
+      "prerequisiteIds": ["threejs-step-03", "threejs-step-09"],
+      "topics": ["opacity", "transparent", "depthWrite", "정렬 한계"],
+      "outcome": "교차 표면의 결과와 객체 정렬의 한계를 설명",
+      "requiredCapabilities": ["동일 장면·시점 비교와 관찰 기록"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-19",
+      "prerequisiteIds": [
+        "threejs-step-04",
+        "threejs-step-05",
+        "threejs-step-07"
+      ],
+      "topics": ["InstancedMesh", "matrix", "needsUpdate", "draw call"],
+      "outcome": "같은 배치를 개별 Mesh와 인스턴싱으로 비교",
+      "requiredCapabilities": ["renderer.info의 해당 지표 설명·출력"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-20",
+      "prerequisiteIds": ["threejs-step-13", "threejs-step-19"],
+      "topics": ["instanceId", "색·위치 갱신", "경계"],
+      "outcome": "한 인스턴스를 바꾼 뒤 새 위치에서 선택",
+      "requiredCapabilities": ["인스턴스 ID·변환·경계 관찰"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-21",
+      "prerequisiteIds": [
+        "threejs-step-03",
+        "threejs-step-05",
+        "threejs-step-20"
+      ],
+      "topics": ["frustum culling", "bounds", "LOD"],
+      "outcome": "거리별 품질·비용을 비교하고 잘못된 컬링 수정",
+      "requiredCapabilities": ["bounds·상세도 상태·삼각형 수 표시"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-22",
+      "prerequisiteIds": [
+        "threejs-step-02",
+        "threejs-step-03",
+        "threejs-step-10"
+      ],
+      "topics": ["offscreen render", "texture", "target 복원"],
+      "outcome": "메인 화면과 미니맵을 갱신하고 렌더 상태 복원",
+      "requiredCapabilities": ["두 카메라·render target 실습"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-23",
+      "prerequisiteIds": [
+        "threejs-step-07",
+        "threejs-step-10",
+        "threejs-02",
+        "threejs-step-22"
+      ],
+      "topics": ["remove와 dispose", "공유 자원 수명"],
+      "outcome": "자원 소유자를 기록하고 중복 해제 방지",
+      "requiredCapabilities": ["생성·정리 횟수와 소유 관계 관찰"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-24",
+      "prerequisiteIds": ["threejs-02", "threejs-step-17", "threejs-step-23"],
+      "topics": ["요청 순서·완료 순서", "stale 결과", "정리"],
+      "outcome": "늦은 모델이 새 장면을 덮지 않고 자원도 정리",
+      "requiredCapabilities": ["로컬 자산의 지연·실패·순서 역전 실험"],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-25",
+      "prerequisiteIds": ["threejs-step-13", "threejs-02", "threejs-step-16"],
+      "topics": ["객체 목록", "키보드 조작", "텍스트 상태 알림"],
+      "outcome": "마우스 없이 선택·카메라 조작하고 오류 파악",
+      "requiredCapabilities": [
+        "실제 HTML controls·키보드·상태 알림",
+        "HTML 접근성 기초"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-26",
+      "prerequisiteIds": [
+        "threejs-step-16",
+        "threejs-step-19",
+        "threejs-step-22",
+        "threejs-step-23"
+      ],
+      "topics": ["renderer.info 범위", "다중 패스", "측정 조건"],
+      "outcome": "프레임 전체 통계를 비교하고 측정 한계 설명",
+      "requiredCapabilities": [
+        "사이트 내 표·로그; 정확한 GPU 시간 측정을 필수로 요구하지 않음"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-step-27",
+      "prerequisiteIds": [
+        "threejs-02",
+        "threejs-step-15",
+        "threejs-step-16",
+        "threejs-step-17",
+        "threejs-step-18",
+        "threejs-step-19",
+        "threejs-step-20",
+        "threejs-step-21",
+        "threejs-step-22",
+        "threejs-step-23",
+        "threejs-step-24",
+        "threejs-step-25",
+        "threejs-step-26"
+      ],
+      "topics": ["로딩·선택·카메라·애니메이션·오류·미니맵 통합"],
+      "outcome": "실패 후에도 조작 가능한 검사기를 구성",
+      "requiredCapabilities": [
+        "앞선 자산·조작·관찰 기능을 연결한 시작 프로젝트"
+      ],
+      "readiness": "planned"
+    },
+    {
+      "unitId": "threejs-03",
+      "prerequisiteIds": [
+        "threejs-step-19",
+        "threejs-step-23",
+        "threejs-step-24",
+        "threejs-step-26",
+        "threejs-step-27"
+      ],
+      "topics": ["병목 분리", "품질 유지", "반복 생성·종료"],
+      "outcome": "동일 조건의 성능·품질·자원 정리 보고서 작성",
+      "requiredCapabilities": ["반복 실행·통계 비교·필기·백업"],
+      "readiness": "planned"
+    }
+  ]
+}

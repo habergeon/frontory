@@ -1,3 +1,4 @@
+import { SeriesRoadmap } from './SeriesRoadmap'
 import { useEffect, useRef, useState } from 'react'
 import { UnitPagination } from './UnitPagination'
 import { getCatalog, getLocalizedUnit, type Unit } from './curriculum'
@@ -308,6 +309,7 @@ export function LearningNavigator({
           ))}
         </nav>
       </details>
+      {current.id === 'threejs' && <SeriesRoadmap locale={locale} />}
       {catalog}
     </section>
   )

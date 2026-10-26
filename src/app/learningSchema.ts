@@ -266,3 +266,64 @@ export function localizedLearningCodePath(
     throw Error('Missing English learning code file: ' + translated)
   return translated
 }
+
+export interface RoadmapEntry {
+  unitId: string
+  prerequisiteIds: string[]
+  topics: string[]
+  outcome: string
+  requiredCapabilities: string[]
+  readiness: 'planned' | 'verified'
+}
+export interface LearningRoadmap {
+  entries: RoadmapEntry[]
+}
+
+export function validateLearningRoadmap(
+  data: LearningRoadmap,
+  orderedUnitIds: string[],
+) {
+  if (!Array.isArray(data.entries) || data.entries.length !== 28)
+    throw Error('Expected 28 roadmap entries')
+  const ids = data.entries.map((entry) => entry.unitId)
+  if (new Set(ids).size !== 28) throw Error('Duplicate roadmap unit ID')
+  if (JSON.stringify(ids) !== JSON.stringify(orderedUnitIds))
+    throw Error('Invalid roadmap sequence')
+  if (ids[13] !== 'threejs-02' || ids[27] !== 'threejs-03')
+    throw Error('Invalid historical roadmap positions')
+  for (const [index, entry] of data.entries.entries()) {
+    if (entry.readiness !== (index < 4 ? 'verified' : 'planned'))
+      throw Error('Invalid roadmap readiness: ' + entry.unitId)
+    for (const key of ['topics', 'requiredCapabilities'] as const)
+      if (
+        !Array.isArray(entry[key]) ||
+        !entry[key].length ||
+        entry[key].some((text) => typeof text !== 'string' || !text.trim())
+      )
+        throw Error('Invalid roadmap field: ' + key)
+    if (typeof entry.outcome !== 'string' || !entry.outcome.trim())
+      throw Error('Invalid roadmap outcome')
+    if (
+      !Array.isArray(entry.prerequisiteIds) ||
+      new Set(entry.prerequisiteIds).size !== entry.prerequisiteIds.length
+    )
+      throw Error('Invalid roadmap prerequisites')
+    for (const id of entry.prerequisiteIds)
+      if (id === entry.unitId || !ids.includes(id))
+        throw Error('Invalid roadmap prerequisite: ' + id)
+  }
+}
+
+export function validateRoadmapParity(
+  source: LearningRoadmap,
+  translated: LearningRoadmap,
+) {
+  const shape = (data: LearningRoadmap) =>
+    data.entries.map(({ unitId, prerequisiteIds, readiness }) => ({
+      unitId,
+      prerequisiteIds,
+      readiness,
+    }))
+  if (JSON.stringify(shape(source)) !== JSON.stringify(shape(translated)))
+    throw Error('Translation parity mismatch: roadmap')
+}

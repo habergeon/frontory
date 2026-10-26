@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>축과 물체 원점</title>
+    <style>
+      body { margin: 0; padding: 12px; font: 14px/1.5 system-ui, sans-serif; background: #fff; color: #172554; }
+      #stage { width: 480px; max-width: 100%; height: 240px; }
+      canvas { display: block; width: 100%; height: 100%; }
+      .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+      input { width: 80px; }
+      output, pre { display: block; white-space: pre-wrap; overflow-wrap: anywhere; }
+      #error { color: #b91c1c; }
+    </style>
+  </head>
+  <body>
+    <pre>
+Scene → pivot Group → body Mesh
+XZ 평면: pivot (1,0) → +X offset 2 → body (3,0)
+부모 +Y 회전 π/2: offset +X → -Z, body (1,-2)</pre>
+    <p>+X 빨강 / +Y 초록 / +Z 파랑. 각도는 radian: π/2 ≈ 1.5708rad = 90°.</p>
+    <div class="controls">
+      <label
+        >pivot Y (rad)
+        <input id="pivotAngle" type="number" step="any" required /></label
+      ><label
+        >body local Y (rad)
+        <input id="bodyAngle" type="number" step="any" required /></label
+      ><button id="apply">적용</button><button id="reset">기준 복원</button
+      ><button id="square">240 × 240</button
+      ><button id="wide">480 × 240</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage"><canvas aria-label="축과 회전 중심 관찰"></canvas></div>
+    <output>미리보기 크기를 기다리는 중</output>
+    <script type="module">
+      import * as THREE from 'three';
+
+      const stage = document.querySelector('#stage');
+      const canvas = document.querySelector('canvas');
+      const output = document.querySelector('output');
+      const error = document.querySelector('#error');
+      const input = id => document.querySelector('#' + id);
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const material = new THREE.MeshBasicMaterial({ color: '#2563eb' });
+      const pivotAngle = 0;
+      const bodyAngle = 0;
+      const pivot = new THREE.Group();
+      const body = new THREE.Mesh(new THREE.BoxGeometry(1, 0.6, 0.4), material);
+      pivot.position.set(1, 0, 0);
+      body.position.set(2, 0, 0);
+      pivot.add(body);
+      scene.add(pivot);
+      pivot.add(new THREE.AxesHelper(1));
+      pivot.rotation.y = pivotAngle;
+      body.rotation.y = bodyAngle;
+      scene.add(new THREE.AxesHelper(3));
+      const world = new THREE.Vector3();
+      const parentWorld = new THREE.Vector3();
+      const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 30);
+      camera.position.set(6, 4, 8);
+      camera.lookAt(0, 0, 0);
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setPixelRatio(1);
+
+      function coords(p) {
+        return '(' + p.x.toFixed(2) + ', ' + p.y.toFixed(2) + ', ' + p.z.toFixed(2) + ')';
+      }
+      function report() {
+        body.getWorldPosition(world);
+        pivot.getWorldPosition(parentWorld);
+        output.textContent = 'pivot world: ' + coords(parentWorld)
+          + '\nbody local: ' + coords(body.position) + ' / world: ' + coords(world)
+          + '\npivot Y (rad): ' + pivot.rotation.y.toFixed(4)
+          + ' / body local Y (rad): ' + body.rotation.y.toFixed(4)
+
+
+          + '\nCSS px: ' + stage.clientWidth + ' × ' + stage.clientHeight + ' / Buffer px: ' + canvas.width + ' × ' + canvas.height;
+      }
+      function draw() {
+        if (stage.clientWidth === 0 || stage.clientHeight === 0) return;
+        renderer.render(scene, camera);
+        report();
+      }
+      // 지원 코드: 표시 크기가 0이면 기다리고, 보이면 크기와 투영을 함께 갱신합니다.
+      function resizeScene() {
+        const w = stage.clientWidth, h = stage.clientHeight;
+        if (w === 0 || h === 0) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        draw();
+      }
+      function syncInputs() {
+        input('pivotAngle').value = String(pivot.rotation.y);
+        input('bodyAngle').value = String(body.rotation.y);
+      }
+      function applySettings() {
+        for (const field of document.querySelectorAll('input')) {
+          if (!field.checkValidity() || !Number.isFinite(Number(field.value))) {
+            error.textContent = '유한한 숫자를 입력하세요.'; return;
+          }
+        }
+        error.textContent = '';
+        pivot.rotation.y = Number(input('pivotAngle').value);
+        body.rotation.y = Number(input('bodyAngle').value);
+        draw();
+      }
+      input('apply').addEventListener('click', applySettings);
+      input('reset').addEventListener('click', () => {
+        pivot.rotation.y = pivotAngle;
+        body.rotation.y = bodyAngle;
+        syncInputs(); error.textContent = ''; draw();
+      });
+      input('square').addEventListener('click', () => { stage.style.width = '240px'; });
+      input('wide').addEventListener('click', () => { stage.style.width = '480px'; });
+      syncInputs();
+
+      const observer = new ResizeObserver(resizeScene);
+      observer.observe(stage);
+      resizeScene();
+    </script>
+  </body>
+</html>

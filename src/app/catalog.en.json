@@ -3405,11 +3405,13 @@
       "day": 4,
       "week": 1,
       "title": "Rotation and Pivots",
-      "goal": "Implement a pivot without modifying geometry. Distinguish parent axes from child axes.",
+      "goal": "Predict local/world positions for spin and orbit and check actual values. Build a hinge without modifying geometry and explain why its edge stays fixed.",
       "docPath": "/docs/en/labs/graphics/threejs/units/04/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-04/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run HTML starters inside the site. Read the steps and API reference, then record actual results in the site notes."
     },
     {
       "id": "threejs-step-05",

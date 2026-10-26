@@ -192,6 +192,7 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
       'src/labs/threejs-01/example.html',
       'src/labs/threejs-step-02/example.html',
       'src/labs/threejs-step-03/example.html',
+      'src/labs/threejs-step-04/example.html',
       ...original.ko.lessons.flatMap((l) =>
         l.steps.flatMap((s) => [s.starterPath, s.solutionPath]),
       ),
@@ -308,6 +309,7 @@ test('generated source links select localized HTML while unconverted JavaScript 
       ['threejs-01', '01-foundations', locale === 'ko' ? 'html' : 'en.html'],
       ['threejs-step-02', 'units/02', locale === 'ko' ? 'html' : 'en.html'],
       ['threejs-step-03', 'units/03', locale === 'ko' ? 'html' : 'en.html'],
+      ['threejs-step-04', 'units/04', locale === 'ko' ? 'html' : 'en.html'],
       ['threejs-step-05', 'units/05', 'js'],
     ]) {
       const file = root + '/labs/graphics/threejs/' + doc + '/README.md'
@@ -397,5 +399,55 @@ test('camera lesson supplies bilingual independent sources, clipping and camera 
       readCode(lesson.steps[4].solutionPath, locale),
       /const damping = true/,
     )
+  }
+})
+
+test('transforms lesson keeps bilingual spin, orbit, hinge and supplementary Euler sources self contained', async () => {
+  const { transformSync } = await import('esbuild')
+  const fs = await import('node:fs')
+  const { ko, en, readCode } = fixture()
+  for (const [locale, data] of [
+    ['ko', ko],
+    ['en', en],
+  ]) {
+    const lesson = data.lessons.find((l) => l.unitId === 'threejs-step-04')
+    const markdown = fs.readFileSync(
+      (locale === 'ko' ? 'docs' : 'docs/en') +
+        '/labs/graphics/threejs/units/04/README.md',
+      'utf8',
+    )
+    assert.equal(lesson.steps.length, 6)
+    for (const step of lesson.steps) {
+      assert.ok(step.solutionExplanation.length > 30)
+      for (const path of [step.starterPath, step.solutionPath]) {
+        const source = readCode(path, locale)
+        assert.ok(markdown.includes(source.trim()), path)
+        assert.match(source, new RegExp('lang="' + locale + '"'))
+        assert.match(source, /new ResizeObserver\(resizeScene\)/)
+        assert.doesNotMatch(source, /startWhenVisible|https?:\/\/|mount\(/)
+        transformSync(
+          source.split('<script type="module">')[1].split('</script>')[0],
+          { loader: 'js' },
+        )
+      }
+    }
+    assert.match(
+      readCode(lesson.steps[2].solutionPath, locale),
+      /const pivotAngle = Math.PI \/ 2/,
+    )
+    assert.match(
+      readCode(lesson.steps[4].solutionPath, locale),
+      /const hingeX = -1/,
+    )
+    assert.match(
+      readCode(lesson.steps[4].solutionPath, locale),
+      /const doorX = 1/,
+    )
+    assert.match(
+      readCode(lesson.steps[5].solutionPath, locale),
+      /eulerOrder = 'YXZ'/,
+    )
+    for (const id of lesson.apiIds)
+      assert.ok(data.apis.some((a) => a.id === id))
   }
 })

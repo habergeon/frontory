@@ -1473,8 +1473,9 @@ export async function runLearning(page, base) {
 // The shared rollout case can run a single implemented lesson while iterating.
 export async function runLessons0204(page, base) {
   const selected = process.env.THREEJS_LESSON ?? 'all'
-  assert.ok(['02', '03', 'all'].includes(selected))
+  assert.ok(['02', '03', '04', 'all'].includes(selected))
   if (selected === '03') return runLesson03(page, base)
+  if (selected === '04') return runLesson04(page, base)
   const checks = []
   const prefix = (process.env.THREEJS_EVIDENCE ?? 'task-6b-browser').replace(
     /\.json$/,
@@ -1733,7 +1734,11 @@ export async function runLessons0204(page, base) {
     )
   }
   return selected === 'all'
-    ? [...checks, ...(await runLesson03(page, base))]
+    ? [
+        ...checks,
+        ...(await runLesson03(page, base)),
+        ...(await runLesson04(page, base)),
+      ]
     : checks
 }
 
@@ -2185,6 +2190,396 @@ async function runLesson03(page, base) {
       (code) =>
         localStorage.setItem(
           'web-gl-study:unit:v1:threejs-step-03',
+          JSON.stringify({
+            version: 1,
+            code,
+            notes: 'saved note',
+            progress: 'completed',
+            updatedAt: '2026-10-26T00:00:00.000Z',
+          }),
+        ),
+      code,
+    )
+    await page.reload()
+    await readyEditor(page, 'attached')
+    assert.equal((await editorState(page)).code, code)
+    assert.equal((await editorState(page)).language, 'javascript')
+    assert.equal(await page.locator('.notes-editor').inputValue(), 'saved note')
+    assert.equal(
+      await page
+        .locator('.learning-status button')
+        .nth(2)
+        .getAttribute('aria-pressed'),
+      'true',
+    )
+  }
+  return checks
+}
+
+async function runLesson04(page, base) {
+  const checks = []
+  const steps = [
+    'axes',
+    'spin',
+    'orbit',
+    'combined',
+    'hinge',
+    'euler-supplement',
+  ]
+  const prefix = (process.env.THREEJS_EVIDENCE ?? 'task-6d-browser').replace(
+    /\.json$/,
+    '',
+  )
+  let serial = 0
+  const tab = async (preview) => {
+    const w = await page.evaluate(() => innerWidth)
+    if (w < 768)
+      await page.locator(preview ? '#tab-result' : '#tab-reading').click()
+    else if (w < 1100)
+      await page
+        .locator('.tablet-learning-tabs button')
+        .nth(preview ? 1 : 0)
+        .click()
+  }
+  const load = async (step, solution = false) => {
+    await tab(false)
+    await page.selectOption('#learning-step', 'threejs-step-04-' + step)
+    const detail = page
+      .locator('.lesson-learning > details')
+      .nth(solution ? 2 : 0)
+    await detail.locator('summary').click()
+    await detail.getByRole('button').click()
+    await page.locator('.example-confirm button').first().click()
+    return (await editorState(page)).code
+  }
+  const run = async (source, hidden = false) => {
+    const tag = ++serial
+    // Observe only renders initiated by the product. snapshot never renders.
+    // Install after setup, before the first ResizeObserver/animation callback.
+    const hook = `\nconst productRender = renderer.render.bind(renderer);
+      let renderCalls = 0, lastPixels = null;
+      renderer.render = (...args) => {
+        productRender(...args); renderCalls++;
+        const gl=renderer.getContext(), pixels=new Uint8Array(canvas.width*canvas.height*4);
+        gl.readPixels(0,0,canvas.width,canvas.height,gl.RGBA,gl.UNSIGNED_BYTE,pixels);
+        let count=0,minX=canvas.width,minY=canvas.height,maxX=-1,maxY=-1,hash=0;
+        for(let i=0;i<pixels.length;i+=4){const r=pixels[i],g=pixels[i+1],b=pixels[i+2];
+          if(r===37&&g===99&&b===235){const x=(i/4)%canvas.width,y=Math.floor(i/4/canvas.width);count++;minX=Math.min(minX,x);maxX=Math.max(maxX,x);minY=Math.min(minY,y);maxY=Math.max(maxY,y);hash=(hash+(i/4+1)*b)%2147483647;}}
+        lastPixels={count,width:count?maxX-minX+1:0,height:count?maxY-minY+1:0,minX,minY,hash};
+      };
+      const obj=typeof door==='undefined'?body:door, parent=typeof hinge==='undefined'?pivot:hinge;
+      globalThis.__transformLesson={tag:${tag},snapshot(){return {
+        renderCalls,pixels:lastPixels,w:stage.clientWidth,h:stage.clientHeight,buffer:[canvas.width,canvas.height],
+        local:obj.position.toArray(),world:obj.getWorldPosition(new THREE.Vector3()).toArray(),
+        parent:parent.getWorldPosition(new THREE.Vector3()).toArray(),
+        angles:[parent.rotation.y,obj.rotation.y],order:obj.rotation.order,
+        basis:obj.localToWorld(new THREE.Vector3(1,0,0)).sub(obj.getWorldPosition(new THREE.Vector3())).toArray(),
+        edge:obj.localToWorld(new THREE.Vector3(-1,0,0)).toArray(),
+        seconds:typeof seconds==='undefined'?null:seconds,
+        speeds:typeof orbitSpeed==='undefined'?null:[orbitSpeed,spinSpeed],
+        aspect:camera.aspect,output:output.textContent
+      }}};`
+    await replaceText(page, source.replace('</script>', hook + '\n</script>'))
+    await page.waitForFunction(
+      (tag) =>
+        document
+          .querySelector('#panel-result iframe')
+          .srcdoc.includes('tag:' + tag + ','),
+      tag,
+    )
+    await page
+      .frameLocator('#panel-result iframe')
+      .locator('canvas')
+      .waitFor({ state: 'attached' })
+    const f = await (
+      await page.locator('#panel-result iframe').elementHandle()
+    ).contentFrame()
+    try {
+      await f.waitForFunction(
+        (tag) => globalThis.__transformLesson?.tag === tag,
+        tag,
+        { polling: 50 },
+      )
+    } catch (error) {
+      console.log(
+        'transform runtime status',
+        await page.locator('.preview-error').allTextContents(),
+        await page.locator('.preview-status').allTextContents(),
+      )
+      console.log(
+        'transform hook failure',
+        await f.evaluate(() => ({
+          url: location.href,
+          html: document.documentElement.outerHTML.slice(-4000),
+          keys: Object.keys(globalThis).filter((k) => k.includes('transform')),
+        })),
+      )
+      throw error
+    }
+    if (!hidden) {
+      await tab(true)
+      await f.waitForFunction(
+        () => globalThis.__transformLesson.snapshot().renderCalls > 0,
+      )
+    }
+    return f
+  }
+  const snap = (f) => f.evaluate(() => globalThis.__transformLesson.snapshot())
+  const changed = async (f, action) => {
+    const before = await snap(f)
+    await action()
+    await f.waitForFunction(
+      (count) => globalThis.__transformLesson.snapshot().renderCalls > count,
+      before.renderCalls,
+    )
+    const after = await snap(f)
+    assert.ok(after.pixels)
+    return after
+  }
+  const apply = async (f, values) =>
+    changed(f, async () => {
+      for (const [id, value] of Object.entries(values))
+        await f.locator('#' + id).fill(String(value))
+      await f.locator('#apply').click()
+    })
+  const reset = (f) => changed(f, () => f.locator('#reset').click())
+  const close = (actual, expected) =>
+    actual.forEach((v, i) =>
+      assert.ok(
+        Math.abs(v - expected[i]) < 1e-6,
+        JSON.stringify({ actual, expected }),
+      ),
+    )
+  const expectPixels = (s) => assert.ok(s.pixels.count > 10, JSON.stringify(s))
+  for (const locale of ['ko', 'en']) {
+    await page.setViewportSize({ width: 320, height: 900 })
+    await page.goto(base + fixture + '?learning#threejs-step-04')
+    await readyEditor(page, 'attached')
+    const button = page.getByRole('button', {
+      name: locale === 'en' ? 'English' : '한국어',
+      exact: true,
+    })
+    if (await button.count()) await button.click()
+    await page.evaluate(() =>
+      localStorage.removeItem('web-gl-study:unit:v1:threejs-step-04'),
+    )
+    await page.reload()
+    await readyEditor(page, 'attached')
+    assert.equal((await editorState(page)).language, 'html')
+    assert.match(
+      (await editorState(page)).code,
+      new RegExp('lang="' + locale + '"'),
+    )
+    for (const step of steps) {
+      console.log('transforms', locale, step)
+      await page.setViewportSize({ width: 320, height: 900 })
+      const source = await load(step)
+      assert.match(source, new RegExp('lang="' + locale + '"'))
+      const hf = await run(source, true),
+        hidden = await snap(hf)
+      assert.equal(hidden.w, 0)
+      assert.equal(hidden.renderCalls, 0)
+      assert.equal(hidden.pixels, null)
+      await page.setViewportSize({ width: 360, height: 900 })
+      await tab(true)
+      await hf.waitForFunction(
+        () => globalThis.__transformLesson.snapshot().renderCalls > 0,
+      )
+      const displayed = await snap(hf)
+      expectPixels(displayed)
+      assert.deepEqual(displayed.buffer, [displayed.w, displayed.h])
+      checks.push({ locale, step, hidden, displayed })
+      await page.setViewportSize({ width: 1920, height: 1000 })
+      let f = await run(source),
+        initial = await snap(f)
+      assert.deepEqual([initial.w, initial.h], [480, 240])
+      expectPixels(initial)
+      if (step !== 'hinge') {
+        close(initial.local, [2, 0, 0])
+        close(initial.world, [3, 0, 0])
+        close(initial.parent, [1, 0, 0])
+      }
+      if (step === 'spin' || step === 'orbit') {
+        const id = step === 'spin' ? 'bodyAngle' : 'pivotAngle'
+        const changedAngle = await apply(f, { [id]: Math.PI / 2 })
+        close(changedAngle.local, [2, 0, 0])
+        close(changedAngle.world, step === 'spin' ? [3, 0, 0] : [1, 0, -2])
+        assert.notEqual(changedAngle.pixels.hash, initial.pixels.hash)
+        const code = source.replace(
+          'const ' + id + ' = 0',
+          'const ' + id + ' = Math.PI / 2',
+        )
+        f = await run(code)
+        const edited = await snap(f)
+        close(edited.world, changedAngle.world)
+        assert.equal(edited.pixels.hash, changedAngle.pixels.hash)
+        assert.equal(
+          Number(await f.locator('#' + id).inputValue()),
+          Math.PI / 2,
+        )
+        const unrelated = await apply(f, {
+          [step === 'spin' ? 'pivotAngle' : 'bodyAngle']: 0,
+        })
+        close(
+          unrelated.angles,
+          step === 'spin' ? [0, Math.PI / 2] : [Math.PI / 2, 0],
+        )
+        const restored = await reset(f)
+        close(restored.angles, unrelated.angles)
+        checks.push({ locale, step, changedAngle, edited, unrelated, restored })
+      }
+      if (step === 'combined') {
+        const motions = []
+        for (const [orbit, spin] of [
+          [0.5, 0],
+          [0, 1],
+          [0.5, 1],
+        ]) {
+          const code = source
+            .replace('let orbitSpeed = 0', 'let orbitSpeed = ' + orbit)
+            .replace('let spinSpeed = 0', 'let spinSpeed = ' + spin)
+          f = await run(code)
+          await f.waitForFunction(
+            () => globalThis.__transformLesson.snapshot().seconds >= 2,
+          )
+          const moving = await snap(f)
+          close(moving.angles, [moving.seconds * orbit, moving.seconds * spin])
+          close(moving.world, [
+            1 + 2 * Math.cos(moving.seconds * orbit),
+            0,
+            -2 * Math.sin(moving.seconds * orbit),
+          ])
+          assert.notEqual(moving.pixels.hash, initial.pixels.hash)
+          assert.equal(
+            Number(await f.locator('#orbitSpeed').inputValue()),
+            orbit,
+          )
+          await apply(f, { spinSpeed: spin })
+          const applied = await snap(f)
+          assert.deepEqual(applied.speeds, [orbit, spin])
+          motions.push({ orbit, spin, moving, applied })
+        }
+        checks.push({ locale, motions })
+      }
+      if (step === 'hinge') {
+        close(initial.world, [0, 0, 0])
+        const centerOpen = await apply(f, { hingeAngle: Math.PI / 2 })
+        close(centerOpen.world, [0, 0, 0])
+        await reset(f)
+        const closed = await apply(f, { hingeX: -1, doorX: 1 })
+        close(closed.world, [0, 0, 0])
+        close(closed.parent, [-1, 0, 0])
+        close(closed.edge, [-1, 0, 0])
+        const opened = await apply(f, { hingeAngle: Math.PI / 2 })
+        close(opened.world, [-1, 0, -1])
+        close(opened.parent, [-1, 0, 0])
+        close(opened.edge, [-1, 0, 0])
+        assert.notEqual(opened.pixels.hash, closed.pixels.hash)
+        f = await run(
+          source
+            .replace('const hingeX = 0', 'const hingeX = -1')
+            .replace('const doorX = 0', 'const doorX = 1'),
+        )
+        const editedClosed = await snap(f)
+        close(editedClosed.world, [0, 0, 0])
+        const editedOpen = await apply(f, { hingeAngle: Math.PI / 2 })
+        close(editedOpen.world, opened.world)
+        assert.equal(await f.locator('#hingeX').inputValue(), '-1')
+        assert.equal(await f.locator('#doorX').inputValue(), '1')
+        assert.equal(editedOpen.pixels.hash, opened.pixels.hash)
+        const resetEdited = await reset(f)
+        close(resetEdited.world, [0, 0, 0])
+        close(resetEdited.parent, [-1, 0, 0])
+        checks.push({
+          locale,
+          centerOpen,
+          closed,
+          opened,
+          editedClosed,
+          editedOpen,
+          resetEdited,
+        })
+      }
+      if (step === 'euler-supplement') {
+        const yxz = await changed(f, () =>
+          f
+            .locator('#order')
+            .selectOption('YXZ')
+            .then(() => f.locator('#apply').click()),
+        )
+        close(yxz.world, [3, 0, 0])
+        assert.notDeepEqual(yxz.basis, initial.basis)
+        assert.notEqual(yxz.pixels.hash, initial.pixels.hash)
+        f = await run(
+          source.replace(
+            "const eulerOrder = 'XYZ'",
+            "const eulerOrder = 'YXZ'",
+          ),
+        )
+        const edited = await snap(f)
+        close(edited.basis, yxz.basis)
+        assert.equal(edited.pixels.hash, yxz.pixels.hash)
+        await apply(f, {})
+        assert.equal((await snap(f)).order, 'YXZ')
+        checks.push({ locale, yxz, edited })
+      }
+      const solution = await load(step, true),
+        sf = await run(solution),
+        completed = await snap(sf)
+      expectPixels(completed)
+      if (step === 'spin') close(completed.angles, [0, Math.PI / 2])
+      if (step === 'orbit') close(completed.world, [1, 0, -2])
+      if (step === 'hinge') {
+        close(completed.world, [-1, 0, -1])
+        close(completed.edge, [-1, 0, 0])
+      }
+      if (step === 'combined') assert.deepEqual(completed.speeds, [0.5, 1])
+      if (step === 'euler-supplement') assert.equal(completed.order, 'YXZ')
+      checks.push({ locale, step, initial, completed })
+      await page.screenshot({
+        path: prefix + '-' + locale + '-' + step + '.png',
+      })
+    }
+    const recoverySource = await load('orbit'),
+      rf = await run(recoverySource)
+    await apply(rf, { pivotAngle: Math.PI / 2 })
+    await page.setViewportSize({ width: 320, height: 900 })
+    await tab(false)
+    await page.setViewportSize({ width: 768, height: 900 })
+    const before = await snap(rf)
+    await tab(true)
+    await rf.waitForFunction(
+      (count) => globalThis.__transformLesson.snapshot().renderCalls > count,
+      before.renderCalls,
+    )
+    const restored = await snap(rf)
+    expectPixels(restored)
+    close(restored.world, [1, 0, -2])
+    assert.equal(
+      Number(await rf.locator('#pivotAngle').inputValue()),
+      Math.PI / 2,
+    )
+    assert.deepEqual(restored.buffer, [restored.w, restored.h])
+    assert.ok(Number.isFinite(restored.aspect))
+    checks.push({ locale, recovery: { before, restored } })
+    for (const width of [320, 768, 1024, 1100, 1440]) {
+      await page.setViewportSize({ width, height: 900 })
+      await tab(true)
+      await page.evaluate(() => scrollTo(0, 0))
+      const metrics = await page.evaluate(() => ({
+        width: innerWidth,
+        scroll: document.documentElement.scrollWidth,
+        y: document.querySelector('.workspace').getBoundingClientRect().y,
+      }))
+      assert.ok(metrics.scroll <= width)
+      checks.push({ locale, viewport: metrics })
+    }
+  }
+  for (const code of ['', 'export function mount() { return () => {}; }']) {
+    await page.evaluate(
+      (code) =>
+        localStorage.setItem(
+          'web-gl-study:unit:v1:threejs-step-04',
           JSON.stringify({
             version: 1,
             code,

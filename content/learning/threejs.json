@@ -379,6 +379,153 @@
         "camera-helper",
         "object-visible"
       ]
+    },
+    {
+      "unitId": "threejs-step-04",
+      "prerequisiteIds": [
+        "threejs-01",
+        "threejs-step-02",
+        "threejs-step-03",
+        "javascript-step-02",
+        "javascript-step-12"
+      ],
+      "introduction": "부모 원점과 자식 offset을 나누어 자전·공전·경첩을 만듭니다. 먼저 정지한 각도로 예측을 확인한 뒤 시간에 따른 움직임을 결합합니다. 시작 HTML은 필요한 Scene, camera, 크기 대응을 모두 포함하며 이전 초안을 요구하지 않습니다. 01에서는 부모가 원점이었고 여기서는 pivot=(1, 0, 0)으로 옮겨 부모 이동까지 비교합니다. 각도는 radian입니다. 마지막 Euler 순서 실험은 보충이며 quaternion 구현은 완료 조건이 아닙니다.\n\n사이트가 three import를 제공합니다. canvas는 그리기 영역이고 output은 실제 객체 수치를 보여 줍니다. querySelector는 id로 DOM 요소를 찾고 input.value는 문자열을 반환합니다. Number로 숫자로 바꾸며 textContent로 텍스트를 표시합니다. addEventListener의 callback은 버튼을 누른 뒤 실행됩니다. syncInputs는 장면 상태에서 입력값을 채우므로 소스 상수를 수정하면 조작값도 함께 바뀝니다. 적용은 표시된 입력을 읽고 기준 복원은 소스의 기준값으로 되돌립니다. Number.isFinite와 checkValidity로 빈 값이나 유한하지 않은 수를 거릅니다. String은 입력 표시용 문자열을 만들고 toFixed는 좌표를 바꾸지 않고 표시만 반올림합니다. 작은 부동소수 오차는 허용 오차로 비교하세요. for...of는 각 입력을 차례로 검사합니다.",
+      "steps": [
+        {
+          "id": "threejs-step-04-axes",
+          "title": "축과 물체 원점",
+          "explanation": "시작 트리는 Scene → pivot Group → body Mesh입니다. pivot.position=(1, 0, 0), body.position=(2, 0, 0), 모든 회전=0입니다. body는 BoxGeometry(1, .6, .4)여서 방향 변화가 대칭에 가려지지 않습니다. camera는 (6, 4, 8)에서 원점을 봅니다.\n\nscene.add(new THREE.AxesHelper(3))는 장면 기준 축을, pivot.add(new THREE.AxesHelper(1))는 pivot 기준 축을 그립니다. +X는 빨강, +Y는 초록, +Z는 파랑입니다. 색 외에도 output의 축 이름과 수치를 읽으세요. 카메라를 옮기면 화면에서 축이 향하는 방향도 달라집니다.\n\nbody.position과 body.getWorldPosition(world)를 비교합니다. local=(2, 0, 0), world=(3, 0, 0)인지 예상하고 실행하세요. 여기서 위치는 Mesh 원점의 위치입니다. geometry의 모든 표면점이 같은 좌표에 있다는 뜻이 아닙니다.",
+          "solutionExplanation": "부모 원점이 이미 world +X로 1만큼 이동했습니다. 자식은 그 부모의 +X로 2만큼 떨어져 있어 world 중심이 3입니다. helper는 붙인 부모의 변환을 따르므로 두 축의 원점도 다릅니다. 01의 world=(2, 0, 0)과 다른 이유는 부모 위치가 달라졌기 때문입니다.",
+          "starterPath": "src/labs/threejs-step-04/steps/axes.html",
+          "expected": "pivot 원점은 world=(1, 0, 0), body local=(2, 0, 0), body world=(3, 0, 0)입니다. world 축과 pivot 축의 원점이 다릅니다.",
+          "hints": [
+            "트리에서 body의 부모가 pivot인지 확인하세요.",
+            "body.position의 2에 부모 위치 1이 더해지는 정지 조건인지 확인하세요.",
+            "pivot.position.set(1, 0, 0); body.position.set(2, 0, 0); pivot.add(body); scene.add(pivot);로 구성하고 getWorldPosition으로 읽으세요."
+          ],
+          "solutionPath": "src/labs/threejs-step-04/solutions/axes.html",
+          "questions": [
+            "local이 2인데 world가 3인 이유는 무엇인가요?",
+            "AxesHelper를 scene과 pivot에 붙이는 것은 어떻게 다른가요?"
+          ]
+        },
+        {
+          "id": "threejs-step-04-spin",
+          "title": "자기 원점에서 자전하기",
+          "explanation": "이 시작 예제는 앞 단계의 같은 트리를 포함하고 pivot.rotation.y=0으로 고정합니다. body.position=(2, 0, 0)을 유지한 채 body.rotation.y만 0에서 Math.PI / 2로 바꿉니다. 입력은 radian이며 숫자 90을 그대로 대입하지 않습니다.\n\n실행 전에 body의 방향과 body 원점의 world 위치 중 무엇이 변할지 적습니다. 직육면체의 긴 방향과 축을 비교하고 getWorldPosition 출력도 확인하세요. 물체가 돌았다는 화면 관찰과 중심이 이동했다는 관찰은 구별합니다.\n\n소스에서는 const bodyAngle = 0을 찾아 Math.PI / 2로 바꾸세요. body.rotation.y 대입문이 이 상수를 사용하며 입력과 기준 복원도 같은 소스 기준을 따릅니다. body local Y 입력과 적용 버튼으로도 비교할 수 있습니다.",
+          "solutionExplanation": "body.rotation은 body의 local 원점 주위 자세를 바꿉니다. body의 부모 기준 위치는 여전히 (2, 0, 0)이므로 world 원점은 (3, 0, 0)에 머뭅니다. geometry는 바뀌지 않습니다. 정육면체 대신 직육면체를 쓴 이유는 90° 뒤의 방향 차이를 쉽게 보기 위해서입니다.",
+          "starterPath": "src/labs/threejs-step-04/steps/spin.html",
+          "expected": "body 방향은 바뀌지만 local=(2, 0, 0), world=(3, 0, 0)은 그대로입니다. pivot 각도는 0입니다.",
+          "hints": [
+            "output에서 body 각도와 pivot 각도를 따로 읽으세요.",
+            "body.position이 아닌 body.rotation.y를 바꾸고 있는지 확인하세요.",
+            "pivot.rotation.y = 0; body.rotation.y = Math.PI / 2;로 비교하면 body world 원점은 (3, 0, 0)에 남습니다."
+          ],
+          "solutionPath": "src/labs/threejs-step-04/solutions/spin.html",
+          "questions": [
+            "물체가 회전했는데 원점 위치는 왜 그대로인가요?",
+            "90을 그대로 대입하면 왜 90°가 아닌가요?"
+          ]
+        },
+        {
+          "id": "threejs-step-04-orbit",
+          "title": "부모 원점 주위로 공전하기",
+          "explanation": "이 독립 예제는 body.rotation=0을 복원합니다. pivot.position=(1, 0, 0), body.position=(2, 0, 0)은 유지하고 pivot.rotation.y만 0에서 Math.PI / 2로 바꿉니다. 바꾸기 전에 local/world 위치를 각각 예상하세요.\n\n부모 기준 +X로 2 떨어진 offset 방향이 부모와 함께 돌아갑니다. +Y축 양의 90° 회전은 +X를 -Z로 돌립니다. 따라서 body 원점은 부모 원점 (1, 0, 0)에서 -Z로 2 떨어진 (1, 0, -2)가 됩니다. getWorldPosition 출력과 XZ 도식을 비교합니다.\n\n소스에서는 const pivotAngle = 0을 Math.PI / 2로 바꾸세요. pivot.rotation.y 대입문과 초기 입력, 기준 복원이 같은 소스 기준을 사용합니다. pivot Y 입력으로도 실험할 수 있습니다.",
+          "solutionExplanation": "child offset이 0이면 부모를 돌려도 공전 반지름이 없습니다. 부모의 rotation을 바꿔야 offset 방향이 변합니다. body.rotation만 바꾸면 앞 단계의 자전입니다. 부모 회전은 물체 방향도 함께 돌리므로 이 운동이 ‘위치만 원을 그리고 world 방향은 고정’된 것이라고 설명하지 않습니다.",
+          "starterPath": "src/labs/threejs-step-04/steps/orbit.html",
+          "expected": "pivot.rotation.y=0이면 body world=(3, 0, 0), Math.PI / 2이면 world≈(1, 0, -2)입니다. body local=(2, 0, 0)은 고정입니다.",
+          "hints": [
+            "회전시키는 객체가 body인지 pivot인지 먼저 확인하세요.",
+            "body.position.x가 0이 아닌 2인지 확인하세요.",
+            "body.rotation.y = 0; pivot.rotation.y = Math.PI / 2;로 바꾸면 local=(2, 0, 0), world=(1, 0, -2)가 됩니다."
+          ],
+          "solutionPath": "src/labs/threejs-step-04/solutions/orbit.html",
+          "questions": [
+            "offset이 0이면 왜 공전 경로가 사라지나요?",
+            "부모 회전은 body의 위치만 바꾸나요?"
+          ]
+        },
+        {
+          "id": "threejs-step-04-combined",
+          "title": "자전과 공전을 함께 만들기",
+          "explanation": "이 시작 예제는 같은 부모·자식 구조와 시간 기반 renderFrame을 갖추고 orbitSpeed=0, spinSpeed=0으로 정지해 있습니다. seconds는 첫 timestamp부터 지난 초입니다. pivot.rotation.y = seconds * orbitSpeed, body.rotation.y = seconds * spinSpeed 두 줄을 구별하세요.\n\norbitSpeed만 .5로 바꾸어 관찰한 다음 0으로 복원하고 spinSpeed만 1로 바꿉니다. 마지막으로 둘 다 활성화합니다. 약 2초일 때 부모 각도와 자식 local 각도를 예상하고 output과 비교하세요. 두 speed 단위는 rad/s입니다.\n\n적용 버튼은 현재 속도로 시간을 0부터 다시 셉니다. 기준 복원은 소스에 쓴 속도로 되돌립니다. renderFrame은 첫 timestamp를 startTime에 저장하고 지난 밀리초를 1000으로 나눕니다. undefined는 아직 timestamp를 저장하지 않은 상태입니다.",
+          "solutionExplanation": "orbitSpeed=.5와 spinSpeed=1이면 2초 근처의 부모 각도는 약 1rad, body local 각도는 약 2rad입니다. body local 각도가 world 자세 전체를 나타내는 것은 아닙니다. 부모 회전까지 적용되기 때문입니다. 이 같은 Y축 예제의 단순 합을 모든 축 조합에 일반화하지 마세요. 새로운 Mesh를 매 프레임 만들지 않고 기존 객체 두 개의 rotation만 갱신합니다.",
+          "starterPath": "src/labs/threejs-step-04/steps/combined.html",
+          "expected": "부모만 돌리면 공전, body만 돌리면 자전입니다. 둘을 켜면 동시에 움직입니다. 약 2초에 pivot≈1rad, body local≈2rad이며 output 시간과 함께 비교합니다.",
+          "hints": [
+            "두 speed를 하나씩 켜서 어느 객체의 운동인지 분리하세요.",
+            "seconds가 ms가 아닌 초인지 확인하세요.",
+            "pivot.rotation.y = seconds * .5; body.rotation.y = seconds * 1; 뒤에 renderer.render(scene, camera)를 호출하세요."
+          ],
+          "solutionPath": "src/labs/threejs-step-04/solutions/combined.html",
+          "questions": [
+            "body.rotation.y만 읽어 world 자세를 모두 알 수 있나요?",
+            "같은 Y축에서의 단순 합을 모든 축 조합에 적용해도 되나요?"
+          ]
+        },
+        {
+          "id": "threejs-step-04-hinge",
+          "title": "문 가장자리에 경첩 만들기",
+          "explanation": "이 단계는 별도 문 예제입니다. BoxGeometry(2, 3, .15)는 폭 2의 중심이 원점에 있습니다. 시작 상태는 hinge.position.x=0, door.position.x=0이며 hinge.add(door), scene.add(hinge)로 연결합니다. 먼저 각도 0과 Math.PI / 2에서 중심 회전을 관찰합니다.\n\n각도를 0으로 복원한 다음 hinge.position.x=-1, door.position.x=1을 함께 적용합니다. 부모를 왼쪽 경계로 옮기고 문 중심을 부모 기준 오른쪽으로 반폭 1만큼 돌려놓는 것입니다. 닫힌 문의 world 중심이 여전히 (0, 0, 0)인지 확인한 다음 hinge.rotation.y를 Math.PI / 2로 바꿉니다.\n\n경첩 원점과 문 중심의 world 좌표를 output에서 읽고 경계가 고정되는지 봅니다. geometry 자체를 translate하거나 정점을 수정하지 않습니다. body 자전 예제와 달리 부모 원점을 물체 중심 밖에 두어 회전 기준을 바꾸었습니다.\n\n소스에서는 const hingeX = -1과 const doorX = 1을 설정한 뒤 const hingeAngle을 0에서 Math.PI / 2로 바꾸세요. 이 상수들이 position/rotation 대입문과 입력값을 정합니다. hinge X, door local X, hinge Y 입력을 바꾸고 적용해도 됩니다. 기준 복원은 현재 소스에 쓴 상수로 되돌립니다.",
+          "solutionExplanation": "닫힌 중심은 -1+1=0입니다. 90°에서 문 중심은 (-1, 0, -1)이 되고 경첩 원점 (-1, 0, 0)은 그대로입니다. hinge만 -1로 옮기고 door offset을 0으로 남기면 닫힌 위치부터 달라집니다. 문 폭이 4라면 같은 원리로 hinge=-2, door=+2입니다. 완료할 때 자전·공전의 두 world 수치와 문 경계 고정 결과를 필기에 남기세요.",
+          "starterPath": "src/labs/threejs-step-04/steps/hinge.html",
+          "expected": "경첩 설정 뒤 각도 0에서 문 중심 world=(0, 0, 0)입니다. Math.PI / 2에서 중심은≈(-1, 0, -1), 경첩은 (-1, 0, 0)으로 고정됩니다.",
+          "hints": [
+            "문 폭 2의 절반이 1이고 왼쪽 경계가 -1인지 확인하세요.",
+            "hinge=-1과 door=+1 두 offset을 모두 바꿨는지 확인하세요.",
+            "hinge.position.x = -1; door.position.x = 1; hinge.rotation.y = Math.PI / 2;로 비교하세요. geometry를 바꾸지는 않습니다."
+          ],
+          "solutionPath": "src/labs/threejs-step-04/solutions/hinge.html",
+          "questions": [
+            "부모와 자식 offset을 왜 함께 바꾸나요?",
+            "문 폭이 4면 hinge와 door의 x는 어떻게 정하나요?",
+            "geometry 정점과 Object3D transform은 같은 것인가요?"
+          ]
+        },
+        {
+          "id": "threejs-step-04-euler-supplement",
+          "title": "보충: 두 축 회전 순서",
+          "explanation": "이 보충 시작 예제는 애니메이션과 부모 회전을 멈추고 방향을 구별할 직육면체와 축을 보여 줍니다. body.rotation.x=Math.PI / 4, body.rotation.y=Math.PI / 3, body.rotation.z=0으로 고정합니다. order의 기본값은 'XYZ'입니다.\n\n세 각도는 그대로 둔 채 body.rotation.order만 'XYZ'에서 'YXZ'로 바꿉니다. 두 자세를 비교하고 같은 세 숫자만으로 회전을 완전히 정할 수 없는 이유를 적습니다. Euler order는 intrinsic local 축의 회전 순서입니다. 항상 world X 다음 world Y를 돌린다고 설명하지 않습니다.\n\n소스에서는 const eulerOrder = 'XYZ'를 'YXZ'로 바꾸세요. Euler order를 선택하고 적용해도 됩니다. 세 각도는 고정합니다.",
+          "solutionExplanation": "여러 축 회전은 순서에 따라 결과가 달라집니다. order를 바꾸는 이 실험은 이전 world 자세를 보존하는 작업이 아닙니다. quaternion으로 바꾸거나 gimbal lock 해법을 구현할 필요는 없습니다. ‘회전 뒤 translate는 어느 축인가’라는 질문은 이번에 쓰는 position.x가 부모 축 기준이라는 범위에서 답하세요. 별도 local 이동 메서드 translateX를 배우지 않았다면 두 API를 섞지 않습니다.\n\n다음에는 geometry 정점·법선·공유 자원을 배우고 조명·재질·텍스처, 모델·선택, 애니메이션·성능·정리로 이어집니다. 05~28 로드맵의 후속 단원은 자체 완결 실습 개선 예정이며 이미 개편 완료된 것은 아닙니다.",
+          "starterPath": "src/labs/threejs-step-04/steps/euler-supplement.html",
+          "expected": "x=Math.PI / 4, y=Math.PI / 3, z=0은 같아도 order가 XYZ와 YXZ일 때 자세가 달라집니다. 이 보충 실험은 첫 네 단원의 필수 완료 조건에 quaternion 구현을 추가하지 않습니다.",
+          "hints": [
+            "부모 회전과 애니메이션이 0인지 먼저 확인하세요.",
+            "세 각도를 유지하고 order 하나만 바꾸세요.",
+            "body.rotation.order = 'YXZ'로 바꾼 뒤 render하세요. intrinsic local 축 순서의 차이를 관찰합니다."
+          ],
+          "solutionPath": "src/labs/threejs-step-04/solutions/euler-supplement.html",
+          "questions": [
+            "같은 x/y/z 값이라도 order가 필요할 수 있는 이유는 무엇인가요?",
+            "order 변경은 이전 world 자세를 보존하는 동작인가요?"
+          ]
+        }
+      ],
+      "apiIds": [
+        "scene",
+        "color",
+        "renderer",
+        "renderer-size",
+        "renderer-render",
+        "perspective-camera",
+        "box-geometry",
+        "basic-material",
+        "mesh",
+        "object-position",
+        "object-lookat",
+        "object-add",
+        "object-rotation",
+        "renderer-pixelratio",
+        "camera-projection",
+        "canvas-dimensions",
+        "resize-observer",
+        "group",
+        "vector3",
+        "object-worldposition",
+        "renderer-loop",
+        "axes-helper",
+        "euler-order"
+      ]
     }
   ],
   "apis": [
@@ -1053,6 +1200,42 @@
         "helper.visible=false는 helper 선을 숨기며 subjectCamera를 삭제하지 않습니다."
       ],
       "example": "helper.visible = false;",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "axes-helper",
+      "symbol": "THREE.AxesHelper",
+      "description": "local 양의 X/Y/Z축을 선으로 그리는 생성자입니다.",
+      "parameters": [
+        {
+          "name": "size",
+          "type": "number",
+          "description": "각 축 선의 길이, scene 거리 단위입니다.",
+          "defaultValue": "1"
+        }
+      ],
+      "result": "새 helper를 반환합니다. X=빨강, Y=초록, Z=파랑입니다.",
+      "cautions": [
+        "scene에 붙이면 world 축, pivot에 붙이면 pivot 변환을 따릅니다. 색 외 텍스트 이름도 함께 읽습니다."
+      ],
+      "example": "scene.add(new THREE.AxesHelper(3));\npivot.add(new THREE.AxesHelper(1));",
+      "sourceUrl": "https://threejs.org/docs/pages/AxesHelper.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "euler-order",
+      "symbol": "rotation.order",
+      "description": "Euler의 intrinsic local 축 회전 순서를 정하는 문자열 멤버입니다. 기본값은 XYZ입니다.",
+      "parameters": [],
+      "result": "같은 x/y/z 숫자라도 order 변경으로 자세가 달라질 수 있습니다.",
+      "cautions": [
+        "world X 다음 world Y라고 설명하지 않습니다.",
+        "이 보충 실험은 기존 world 자세 보존이나 quaternion 변환을 구현하지 않습니다."
+      ],
+      "example": "body.rotation.x = Math.PI / 4;\nbody.rotation.y = Math.PI / 3;\nbody.rotation.z = 0;\nbody.rotation.order = 'YXZ';",
       "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
       "packageVersion": "0.186.1",
       "checkedAt": "2026-10-26"

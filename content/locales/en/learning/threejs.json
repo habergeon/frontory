@@ -379,6 +379,153 @@
         "camera-helper",
         "object-visible"
       ]
+    },
+    {
+      "unitId": "threejs-step-04",
+      "prerequisiteIds": [
+        "threejs-01",
+        "threejs-step-02",
+        "threejs-step-03",
+        "javascript-step-02",
+        "javascript-step-12"
+      ],
+      "introduction": "Separate the parent origin and child offset to build spin, orbit, and a hinge. Check predictions at fixed angles before combining time-based motion. Each starter HTML includes Scene, camera, and resizing without requiring your previous draft. In unit 01 the parent was at the origin; here pivot=(1, 0, 0) adds parent translation. Angles use radians. The final Euler-order experiment is supplementary; quaternion implementation is not required.\n\nThe site supplies the three import. canvas is the drawing surface; output shows actual object values. Use querySelector to find a DOM node by id; input.value is a string, Number converts it to a number, and textContent writes text. An addEventListener callback runs after a button click. syncInputs initializes inputs from the scene state, so editing a source constant also updates the controls. Apply reads all shown controls; Reset restores the source baseline. Number.isFinite and checkValidity reject missing or nonfinite numbers. String converts a value for input; toFixed formats a number as text without changing coordinates. Tiny floating-point differences need tolerance, not exact equality. The for...of loop checks each input.",
+      "steps": [
+        {
+          "id": "threejs-step-04-axes",
+          "title": "Axes and object origins",
+          "explanation": "The starting tree is Scene → pivot Group → body Mesh. pivot.position=(1, 0, 0), body.position=(2, 0, 0), and all rotations are 0. body uses BoxGeometry(1, .6, .4), so symmetry does not hide orientation changes. The camera looks toward the origin from (6, 4, 8).\n\nscene.add(new THREE.AxesHelper(3)) shows scene axes; pivot.add(new THREE.AxesHelper(1)) shows pivot axes. +X is red, +Y green, and +Z blue. Read text axis names and values as well as colors. Moving the camera changes the directions these axes appear to point on screen.\n\nCompare body.position with body.getWorldPosition(world). Predict local=(2, 0, 0), world=(3, 0, 0), then run. Position here means the Mesh origin, not that all surface points have the same coordinate.",
+          "solutionExplanation": "the parent origin is already translated 1 unit along world +X. The child is another 2 units along parent +X, giving world center 3. Each helper follows its parent transform, so their origins differ too. The difference from unit 01 world=(2, 0, 0) is caused by the changed parent location.",
+          "starterPath": "src/labs/threejs-step-04/steps/axes.html",
+          "expected": "pivot origin is world=(1, 0, 0), body local=(2, 0, 0), and body world=(3, 0, 0). Scene and pivot axes have different origins.",
+          "hints": [
+            "Check the tree to confirm that body belongs to pivot.",
+            "Check the stationary case where parent position 1 adds to body.position 2.",
+            "Use pivot.position.set(1, 0, 0); body.position.set(2, 0, 0); pivot.add(body); scene.add(pivot); and read getWorldPosition."
+          ],
+          "solutionPath": "src/labs/threejs-step-04/solutions/axes.html",
+          "questions": [
+            "Why is world 3 while local is 2?",
+            "How does adding AxesHelper to scene differ from adding it to pivot?"
+          ]
+        },
+        {
+          "id": "threejs-step-04-spin",
+          "title": "Spin about the object origin",
+          "explanation": "This starter includes the same tree and fixes pivot.rotation.y=0. Keep body.position=(2, 0, 0) and change only body.rotation.y from 0 to Math.PI / 2. Input is in radians; do not assign 90 directly.\n\nPredict which changes: body orientation or the world position of its origin. Compare the cuboid's long direction with the axes and read getWorldPosition. Distinguish seeing an object turn from seeing its center move.\n\nFor a source edit, find const bodyAngle = 0 and set it to Math.PI / 2. The body.rotation.y assignment uses that constant; input and Reset use the same source baseline. You can also compare with the body local Y input and Apply.",
+          "solutionExplanation": "body.rotation changes orientation about the body's local origin. Its parent-relative position remains (2, 0, 0), so its world origin stays at (3, 0, 0). Geometry does not change. A cuboid rather than a cube makes the orientation difference after 90° easier to see.",
+          "starterPath": "src/labs/threejs-step-04/steps/spin.html",
+          "expected": "body orientation changes, but local=(2, 0, 0) and world=(3, 0, 0) remain unchanged. pivot angle is 0.",
+          "hints": [
+            "Read body and pivot angles separately in output.",
+            "Check that you change body.rotation.y rather than body.position.",
+            "Compare pivot.rotation.y = 0; body.rotation.y = Math.PI / 2;. The body world origin stays at (3, 0, 0)."
+          ],
+          "solutionPath": "src/labs/threejs-step-04/solutions/spin.html",
+          "questions": [
+            "Why can orientation change while the origin stays fixed?",
+            "Why does assigning 90 not mean 90°?"
+          ]
+        },
+        {
+          "id": "threejs-step-04-orbit",
+          "title": "Orbit about the parent origin",
+          "explanation": "This independent starter restores body.rotation=0. Keep pivot.position=(1, 0, 0) and body.position=(2, 0, 0), changing only pivot.rotation.y from 0 to Math.PI / 2. Predict local and world positions separately before changing it.\n\nThe offset 2 units along parent +X rotates with the parent. Positive 90° about +Y turns +X toward -Z. Starting from parent origin (1, 0, 0), move 2 units along -Z to reach body origin (1, 0, -2). Compare getWorldPosition with the XZ diagram.\n\nFor a source edit, change const pivotAngle = 0 to Math.PI / 2. The pivot.rotation.y assignment, initial input, and Reset share that source baseline. The pivot Y input is an alternative experiment.",
+          "solutionExplanation": "if child offset is 0 there is no orbit radius. Rotate the parent to turn the offset direction. Rotating only body produces the previous spin. Parent rotation also turns body orientation; do not describe this as a circular path with world orientation fixed.",
+          "starterPath": "src/labs/threejs-step-04/steps/orbit.html",
+          "expected": "At pivot.rotation.y=0, body world=(3, 0, 0); at Math.PI / 2, world≈(1, 0, -2). body local=(2, 0, 0) stays fixed.",
+          "hints": [
+            "First check whether the rotated object is body or pivot.",
+            "Check that body.position.x is 2 rather than 0.",
+            "With body.rotation.y = 0; pivot.rotation.y = Math.PI / 2;, local=(2, 0, 0) and world=(1, 0, -2)."
+          ],
+          "solutionPath": "src/labs/threejs-step-04/solutions/orbit.html",
+          "questions": [
+            "Why does an offset of 0 remove the orbit path?",
+            "Does parent rotation change only body position?"
+          ]
+        },
+        {
+          "id": "threejs-step-04-combined",
+          "title": "Combine spin and orbit",
+          "explanation": "This starter includes the same hierarchy and time-based renderFrame, initially stationary with orbitSpeed=0 and spinSpeed=0. seconds is elapsed time since the first timestamp. Distinguish pivot.rotation.y = seconds * orbitSpeed from body.rotation.y = seconds * spinSpeed.\n\nEnable only orbitSpeed=.5 and observe, then restore it to 0 and enable only spinSpeed=1. Finally enable both. Predict parent and child-local angles near 2 seconds and compare output. Both speeds use rad/s.\n\nApply starts time from zero with the current speeds; Reset restores the speeds written in the source. In renderFrame, the first timestamp is stored in startTime and elapsed milliseconds are divided by 1000. undefined means no timestamp has been stored yet.",
+          "solutionExplanation": "with orbitSpeed=.5 and spinSpeed=1, at about 2 seconds the parent angle is about 1rad and body local rotation is about 2rad. The body local angle does not describe the whole world orientation because parent rotation also applies. Do not generalize simple addition from this same-Y-axis example to arbitrary axis combinations. Update the existing objects rather than creating a new Mesh each frame.",
+          "starterPath": "src/labs/threejs-step-04/steps/combined.html",
+          "expected": "Parent-only rotation orbits; body-only rotation spins. Both enabled produce simultaneous motion. Near 2 seconds pivot≈1rad and body local≈2rad; compare with the actual output time.",
+          "hints": [
+            "Enable one speed at a time to identify each motion.",
+            "Check that seconds is in seconds rather than ms.",
+            "Use pivot.rotation.y = seconds * .5; body.rotation.y = seconds * 1; before renderer.render(scene, camera)."
+          ],
+          "solutionPath": "src/labs/threejs-step-04/solutions/combined.html",
+          "questions": [
+            "Does body.rotation.y alone describe its whole world orientation?",
+            "Can simple addition about the same Y axis be generalized to every axis combination?"
+          ]
+        },
+        {
+          "id": "threejs-step-04-hinge",
+          "title": "Build a hinge at the door edge",
+          "explanation": "This step is an independent door example. BoxGeometry(2, 3, .15) has width 2 centered at the origin. Initially hinge.position.x=0 and door.position.x=0, connected with hinge.add(door), scene.add(hinge). First compare center rotation at 0 and Math.PI / 2.\n\nRestore angle 0 and apply both hinge.position.x=-1 and door.position.x=1. The parent moves to the left edge while the door center moves right by half-width 1 relative to the parent. Check that the closed world center remains (0, 0, 0), then change hinge.rotation.y to Math.PI / 2.\n\nRead hinge-origin and door-center world coordinates in output and observe the fixed edge. Do not translate geometry or edit vertices. Unlike the body spin example, the parent origin is outside the object center to change the rotation pivot.\n\nFor a source edit, set const hingeX = -1 and const doorX = 1; then change const hingeAngle from 0 to Math.PI / 2. These constants feed the position/rotation assignments and the inputs. Alternatively edit hinge X, door local X, and hinge Y and press Apply. Reset restores the constants currently written in the source.",
+          "solutionExplanation": "the closed center is -1+1=0. At 90° the door center becomes (-1, 0, -1), while the hinge origin stays (-1, 0, 0). Moving only hinge to -1 with door offset 0 changes the closed position too. For width 4, the same rule gives hinge=-2, door=+2. To finish, record world values for spin/orbit and the fixed door edge in the site notes.",
+          "starterPath": "src/labs/threejs-step-04/steps/hinge.html",
+          "expected": "After setting the hinge, angle 0 gives door center world=(0, 0, 0). At Math.PI / 2, the center is≈(-1, 0, -1), while the hinge stays at (-1, 0, 0).",
+          "hints": [
+            "Check that half of width 2 is 1 and the left edge is -1.",
+            "Check both offsets: hinge=-1 and door=+1.",
+            "Compare hinge.position.x = -1; door.position.x = 1; hinge.rotation.y = Math.PI / 2;. Leave geometry unchanged."
+          ],
+          "solutionPath": "src/labs/threejs-step-04/solutions/hinge.html",
+          "questions": [
+            "Why change both parent and child offsets?",
+            "For door width 4, what should hinge and door x values be?",
+            "Are geometry vertices and Object3D transforms the same thing?"
+          ]
+        },
+        {
+          "id": "threejs-step-04-euler-supplement",
+          "title": "Supplement: order of two-axis rotations",
+          "explanation": "This supplementary starter stops animation and parent rotation and shows a cuboid and axes that make orientation clear. Fix body.rotation.x=Math.PI / 4, body.rotation.y=Math.PI / 3, body.rotation.z=0. The default order is 'XYZ'.\n\nKeep the three angles and change only body.rotation.order from 'XYZ' to 'YXZ'. Compare orientations and explain why three numbers alone may not fully define a rotation. Euler order specifies intrinsic local-axis rotation order. Do not describe it as always rotating world X then world Y.\n\nFor a source edit, change const eulerOrder = 'XYZ' to 'YXZ'. You can also select Euler order and press Apply. The numeric angles remain fixed.",
+          "solutionExplanation": "rotations about multiple axes can produce different results in different orders. This order-change experiment does not preserve the old world orientation. Quaternion conversion and gimbal-lock solutions are not required. For a question about translation after rotation, stay within the introduced contract: position.x is relative to parent axes. Do not mix it with the separate local movement method translateX if that method has not been introduced.\n\nNext come geometry vertices, normals, and shared resources, followed by lighting/materials/textures, models/selection, and animation/performance/cleanup. Units 05~28 in the roadmap are planned for self-contained practice improvements, not already completed revisions.",
+          "starterPath": "src/labs/threejs-step-04/steps/euler-supplement.html",
+          "expected": "With x=Math.PI / 4, y=Math.PI / 3, z=0 unchanged, XYZ and YXZ produce different orientations. This supplement does not add quaternion implementation to the first four units required completion.",
+          "hints": [
+            "First check that parent rotation and animation are 0.",
+            "Keep all three angles and change only order.",
+            "Set body.rotation.order = 'YXZ' and render. Observe the intrinsic local-axis order difference."
+          ],
+          "solutionPath": "src/labs/threejs-step-04/solutions/euler-supplement.html",
+          "questions": [
+            "Why can order matter even with identical x/y/z values?",
+            "Does changing order preserve the old world orientation?"
+          ]
+        }
+      ],
+      "apiIds": [
+        "scene",
+        "color",
+        "renderer",
+        "renderer-size",
+        "renderer-render",
+        "perspective-camera",
+        "box-geometry",
+        "basic-material",
+        "mesh",
+        "object-position",
+        "object-lookat",
+        "object-add",
+        "object-rotation",
+        "renderer-pixelratio",
+        "camera-projection",
+        "canvas-dimensions",
+        "resize-observer",
+        "group",
+        "vector3",
+        "object-worldposition",
+        "renderer-loop",
+        "axes-helper",
+        "euler-order"
+      ]
     }
   ],
   "apis": [
@@ -1056,9 +1203,45 @@
       "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
       "packageVersion": "0.186.1",
       "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "axes-helper",
+      "symbol": "THREE.AxesHelper",
+      "description": "Constructor for lines showing local positive X/Y/Z axes.",
+      "parameters": [
+        {
+          "name": "size",
+          "type": "number",
+          "description": "Length of each axis line in scene units.",
+          "defaultValue": "1"
+        }
+      ],
+      "result": "Returns a new helper. X=red, Y=green, Z=blue.",
+      "cautions": [
+        "Under scene it shows world axes; under pivot it follows pivot transforms. Read text labels as well as colors."
+      ],
+      "example": "scene.add(new THREE.AxesHelper(3));\npivot.add(new THREE.AxesHelper(1));",
+      "sourceUrl": "https://threejs.org/docs/pages/AxesHelper.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "euler-order",
+      "symbol": "rotation.order",
+      "description": "String member setting Euler intrinsic local-axis rotation order. The default is XYZ.",
+      "parameters": [],
+      "result": "The same x/y/z values can produce different orientations with a different order.",
+      "cautions": [
+        "Do not describe this as world X followed by world Y.",
+        "This supplementary experiment does not preserve an old world orientation or implement quaternion conversion."
+      ],
+      "example": "body.rotation.x = Math.PI / 4;\nbody.rotation.y = Math.PI / 3;\nbody.rotation.z = 0;\nbody.rotation.order = 'YXZ';",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
     }
   ],
-  "sourceHash": "8e4f5aa2f432c1d085de0d55785e9988ac3e5eb98beb81e8b089ca08df3af05a",
+  "sourceHash": "f546d6f539486174c858a132fc8de6b5783fbe308f5cc15b3b020e6c34638b0c",
   "codeSourceHashes": {
     "src/labs/threejs-01/example.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
     "src/labs/threejs-01/steps/canvas.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
@@ -1092,6 +1275,19 @@
     "src/labs/threejs-step-03/steps/controls.html": "ccdc99953ceae659b21f935641d70ef425065526c8573937d85641a89ae4f11d",
     "src/labs/threejs-step-03/solutions/controls.html": "8ca3a91a0b2d735fe30c173f3173acc6755f8f2d905b2e5a155a7c78b522188f",
     "src/labs/threejs-step-03/steps/helper.html": "daa8435d56e130da42330f6e966a14c0fe7ae65b07ba78b4bbc128dd7bed1369",
-    "src/labs/threejs-step-03/solutions/helper.html": "e0426962a2f64eb77722350b6e10bf90709fab9dadf79a021257ccab0e63461d"
+    "src/labs/threejs-step-03/solutions/helper.html": "e0426962a2f64eb77722350b6e10bf90709fab9dadf79a021257ccab0e63461d",
+    "src/labs/threejs-step-04/example.html": "b08c69fb25eaa2242069a4123085120ffa6af812f301be6483a98d0d5bd63722",
+    "src/labs/threejs-step-04/steps/axes.html": "b08c69fb25eaa2242069a4123085120ffa6af812f301be6483a98d0d5bd63722",
+    "src/labs/threejs-step-04/solutions/axes.html": "b08c69fb25eaa2242069a4123085120ffa6af812f301be6483a98d0d5bd63722",
+    "src/labs/threejs-step-04/steps/spin.html": "5a54ed04ecde5048269b4401c84ee5f053ada0aba2cde3ed819a0b13ebef2eae",
+    "src/labs/threejs-step-04/solutions/spin.html": "96af9a1111e3a0f04179acd6797a454542e88b836e912d738bb38d4d92f04a8b",
+    "src/labs/threejs-step-04/steps/orbit.html": "ad517fd3a1ebe1051d21647ba118890eab8ee273f5267f66bf762174c684d99d",
+    "src/labs/threejs-step-04/solutions/orbit.html": "7389ec1cb181cd25e3ada84d05f6acecfb39deaa9abf70e8c54a8be7ff4cf449",
+    "src/labs/threejs-step-04/steps/combined.html": "463f880d742446759b486816379338acc440d99de67118e87d0899bf7a271797",
+    "src/labs/threejs-step-04/solutions/combined.html": "c1e03819e56fa56072c3d964dbe1250dca86fc2ebacc205f31632da66383babf",
+    "src/labs/threejs-step-04/steps/hinge.html": "06caa39a74f8b2f266e8f0bb15d27fdd29eb283abb13d96a53a12754476bb540",
+    "src/labs/threejs-step-04/solutions/hinge.html": "4494c02b7f4116b090ebceeb8ef39d3d5d0b12c672a400b2101bd071fcd0acf0",
+    "src/labs/threejs-step-04/steps/euler-supplement.html": "7bc026d3063d1de3d466a669d2d6fb23f7aa05fc1842e5e33668c3c2a4a4aec6",
+    "src/labs/threejs-step-04/solutions/euler-supplement.html": "a70d2312aea4f90ab34e061e115bd11bdec407dbf7028633c77e176c195cd0dc"
   }
 }

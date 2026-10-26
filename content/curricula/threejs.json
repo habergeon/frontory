@@ -167,41 +167,51 @@
       "day": 4,
       "id": "threejs-step-04",
       "title": "회전과 피벗",
-      "prerequisites": "선수 개념: 원근 투영, 직교 투영. 3단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "prerequisites": "선수 개념: local/world 좌표, 카메라와 크기 대응. 각 시작 HTML이 필요한 코드를 포함하므로 이전 저장 초안은 필요하지 않습니다.",
       "concepts": [
         {
-          "title": "피벗 그룹",
-          "explanation": "회전 기준을 바꾸려면 부모 그룹과 자식 오프셋을 나눌 수 있습니다. geometry 자체를 매번 수정할 필요는 없습니다."
+          "title": "자전과 공전",
+          "explanation": "body 회전은 자기 원점의 방향을 바꿉니다. 부모 pivot을 돌리면 자식 offset 방향도 돌아 world 위치가 달라집니다."
         },
         {
-          "title": "Euler 순서",
-          "explanation": "여러 축의 회전은 적용 순서에 따라 결과가 달라집니다. 복잡한 자세에서는 quaternion 표현도 검토해야 합니다."
+          "title": "문 경첩",
+          "explanation": "폭 2인 문은 hinge=-1, door offset=+1로 닫힌 중심을 유지하며 가장자리에서 회전합니다."
+        },
+        {
+          "title": "Euler 순서 보충",
+          "explanation": "같은 x/y/z 각도도 intrinsic local 축의 순서에 따라 자세가 달라집니다. quaternion 구현은 필수 과제가 아닙니다."
         }
       ],
       "outcomes": [
-        "geometry 수정 없이 피벗을 구현한다.",
-        "부모 축과 자식 축을 구별한다."
+        "자전과 공전에서 local/world 위치를 예측하고 실제 수치로 확인한다.",
+        "geometry 수정 없이 경첩을 만들고 문 경계가 고정되는 이유를 설명한다."
       ],
       "steps": [
-        "외부 실습 프로젝트의 day-04.js와 index.html을 준비하세요. 문 경첩 위치에 Group을 만들고 문 Mesh를 절반 폭만큼 이동시키세요.",
-        "회전 슬라이더로 문을 열고 두 축 회전 순서를 바꾼 결과를 비교하세요.",
-        "입력 조건 문 중심에서 출력을 저장한 뒤 문 가장자리 조건으로 다시 실행하세요. 예상: 문이 중심 회전 대신 경첩을 따라 움직입니다. 실제 화면·로그와 대조하고 day-04-notes.md에 실제 결과와 차이의 원인을 남기세요."
+        "축과 원점을 확인하고 body.rotation.y만 0에서 Math.PI / 2로 바꿉니다.",
+        "pivot.rotation.y를 0에서 Math.PI / 2로 바꾸고 world (3,0,0)→(1,0,-2)를 비교합니다.",
+        "orbitSpeed와 spinSpeed를 하나씩 켜고 결합합니다. hinge=-1, door=+1을 적용해 닫힌 중심과 열린 중심을 기록합니다. Euler 순서는 보충으로 비교합니다."
       ],
       "variables": [
         {
-          "name": "피벗 위치",
-          "baseline": "문 중심",
-          "change": "문 가장자리",
-          "expected": "문이 중심 회전 대신 경첩을 따라 움직입니다"
+          "name": "회전 객체",
+          "baseline": "body",
+          "change": "pivot",
+          "expected": "자전은 world 원점이 고정되고 공전은 local offset을 유지하며 world 원점이 이동합니다."
+        },
+        {
+          "name": "경첩 offset",
+          "baseline": "hinge=0, door=0",
+          "change": "hinge=-1, door=1",
+          "expected": "닫힌 중심은 (0,0,0), 90° 중심은 (-1,0,-1), 경첩은 (-1,0,0)입니다."
         }
       ],
       "criteria": [
-        "geometry 수정 없이 피벗을 구현한다.",
-        "부모 축과 자식 축을 구별한다."
+        "자전과 공전에서 local/world 위치를 예측하고 실제 수치로 확인한다.",
+        "geometry 수정 없이 경첩을 만들고 문 경계가 고정되는 이유를 설명한다."
       ],
       "questions": [
-        "회전 뒤 translate가 어느 축으로 적용되나요?",
-        "Euler 순서가 다른 두 회전은 왜 같지 않나요?"
+        "자전과 공전의 world 위치가 다른 이유는 무엇인가요?",
+        "문 폭이 4라면 부모와 자식 offset을 어떻게 정하나요?"
       ],
       "references": [
         {
@@ -209,7 +219,9 @@
           "url": "https://threejs.org/manual/pages/fundamentals.html"
         }
       ],
-      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+      "environment": "사이트에서 three import를 제공합니다. 시작 HTML을 불러와 수정하고 실행한 뒤 사이트 필기에 예상과 실제 수치를 기록하세요.",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs"
     },
     {
       "day": 5,

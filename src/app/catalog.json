@@ -3165,9 +3165,11 @@
       "day": 4,
       "week": 1,
       "title": "회전과 피벗",
-      "goal": "geometry 수정 없이 피벗을 구현한다. 부모 축과 자식 축을 구별한다.",
+      "goal": "자전과 공전에서 local/world 위치를 예측하고 실제 수치로 확인한다. geometry 수정 없이 경첩을 만들고 문 경계가 고정되는 이유를 설명한다.",
       "docPath": "/docs/labs/graphics/threejs/units/04/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-04/example.js"
     },
     {

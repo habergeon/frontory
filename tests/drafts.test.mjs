@@ -1,10 +1,18 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { createDraftStore, restoreCode, draftKey } from '../src/shared/drafts.ts'
+import {
+  createDraftStore,
+  restoreCode,
+  draftKey,
+} from '../src/shared/drafts.ts'
 
 function fixture() {
   const data = new Map()
-  return { data, getItem: key => data.get(key) ?? null, setItem: (key, value) => data.set(key, value) }
+  return {
+    data,
+    getItem: (key) => data.get(key) ?? null,
+    setItem: (key, value) => data.set(key, value),
+  }
 }
 test('unit drafts stay separate and survive a fresh store', () => {
   const storage = fixture()
@@ -21,24 +29,44 @@ test('empty code and notes are intentional values', () => {
   const storage = fixture()
   const store = createDraftStore(() => storage)
   store.save('a', { ...store.load('a', 'original').draft, code: '', notes: '' })
-  assert.equal(createDraftStore(() => storage).load('a', 'original').draft.code, '')
-  assert.equal(createDraftStore(() => storage).load('a', 'original').draft.notes, '')
+  assert.equal(
+    createDraftStore(() => storage).load('a', 'original').draft.code,
+    '',
+  )
+  assert.equal(
+    createDraftStore(() => storage).load('a', 'original').draft.notes,
+    '',
+  )
 })
 test('write failure preserves drafts and warning across unit navigation; retry succeeds', () => {
   const storage = fixture()
   let fail = true
-  const store = createDraftStore(() => ({ ...storage, setItem: (k,v) => { if (fail) throw new Error('quota'); storage.setItem(k,v) } }))
-  const result = store.save('a', { ...store.load('a', 'original').draft, notes: 'unsaved' })
+  const store = createDraftStore(() => ({
+    ...storage,
+    setItem: (k, v) => {
+      if (fail) throw new Error('quota')
+      storage.setItem(k, v)
+    },
+  }))
+  const result = store.save('a', {
+    ...store.load('a', 'original').draft,
+    notes: 'unsaved',
+  })
   assert.ok(result.warning)
   store.load('b', '')
   assert.equal(store.load('a', '').draft.notes, 'unsaved')
   assert.ok(store.load('a', '').warning)
   fail = false
   assert.equal(store.save('a', result.draft).warning, null)
-  assert.equal(createDraftStore(() => storage).load('a', '').draft.notes, 'unsaved')
+  assert.equal(
+    createDraftStore(() => storage).load('a', '').draft.notes,
+    'unsaved',
+  )
 })
 test('blocked storage access falls back to memory', () => {
-  const store = createDraftStore(() => { throw new Error('SecurityError') })
+  const store = createDraftStore(() => {
+    throw new Error('SecurityError')
+  })
   const result = store.load('a', 'original')
   assert.ok(result.warning)
   store.save('a', { ...result.draft, notes: 'session' })
@@ -67,8 +95,16 @@ test('language selection persists while legacy drafts remain readable', () => {
   const store = createDraftStore(() => storage)
   const legacy = store.load('a', 'original').draft
   storage.setItem(draftKey('old'), JSON.stringify(legacy))
-  assert.equal(createDraftStore(() => storage).load('old', '').draft.language, undefined)
-  store.save('a', { ...legacy, language: 'typescript', code: 'const n: number = 1', notes: 'keep' })
+  assert.equal(
+    createDraftStore(() => storage).load('old', '').draft.language,
+    undefined,
+  )
+  store.save('a', {
+    ...legacy,
+    language: 'typescript',
+    code: 'const n: number = 1',
+    notes: 'keep',
+  })
   const loaded = createDraftStore(() => storage).load('a', '').draft
   assert.equal(loaded.language, 'typescript')
   const reset = restoreCode(loaded, 'original')
@@ -76,7 +112,8 @@ test('language selection persists while legacy drafts remain readable', () => {
   assert.equal(reset.notes, 'keep')
 })
 
-const englishNotes = '# Experiment notes\n\n## Goal\n\n## Key concepts\n\n## Changed variables and predictions\n\n## Actual results\n\n## What I learned\n\n## Remaining questions\n'
+const englishNotes =
+  '# Experiment notes\n\n## Goal\n\n## Key concepts\n\n## Changed variables and predictions\n\n## Actual results\n\n## What I learned\n\n## Remaining questions\n'
 
 test('begin selects a first-use template once without saving or changing timestamps', () => {
   const storage = fixture()
@@ -87,13 +124,23 @@ test('begin selects a first-use template once without saving or changing timesta
   assert.equal(english.draft.updatedAt, '')
   assert.deepEqual([...storage.data], [])
   assert.strictEqual(store.begin('a', 'original', 'ko'), english)
-  assert.equal(store.begin('b', '', 'ko').draft.notes, '# 실험 기록\n\n## 목표\n\n## 핵심 개념\n\n## 바꾼 변수와 예상\n\n## 실제 결과\n\n## 배운 점\n\n## 남은 질문\n')
+  assert.equal(
+    store.begin('b', '', 'ko').draft.notes,
+    '# 실험 기록\n\n## 목표\n\n## 핵심 개념\n\n## 바꾼 변수와 예상\n\n## 실제 결과\n\n## 배운 점\n\n## 남은 질문\n',
+  )
 })
 
 test('begin preserves saved blank and Korean notes and storage bytes across locales', () => {
   for (const notes of ['', '한국어로 쓴 기록']) {
     const storage = fixture()
-    const saved = { version: 1, code: '', notes, updatedAt: '2026-10-21T12:34:56.000Z', language: 'typescript', progress: 'completed' }
+    const saved = {
+      version: 1,
+      code: '',
+      notes,
+      updatedAt: '2026-10-21T12:34:56.000Z',
+      language: 'typescript',
+      progress: 'completed',
+    }
     const raw = JSON.stringify(saved, null, 2)
     storage.setItem(draftKey('a'), raw)
     const store = createDraftStore(() => storage)
@@ -109,10 +156,20 @@ test('begin preserves edits saved before first start even when storage rejects t
     const storage = fixture()
     const store = createDraftStore(() => {
       if (blockedRead) throw new Error('SecurityError')
-      return { ...storage, setItem() { throw new Error('quota') } }
+      return {
+        ...storage,
+        setItem() {
+          throw new Error('quota')
+        },
+      }
     })
     const loaded = store.load('a', 'original')
-    const saved = store.save('a', { ...loaded.draft, code: '', notes: '', progress: 'in-progress' })
+    const saved = store.save('a', {
+      ...loaded.draft,
+      code: '',
+      notes: '',
+      progress: 'in-progress',
+    })
     assert.ok(saved.warning)
     assert.strictEqual(store.begin('a', 'original', 'en'), saved)
     assert.strictEqual(store.begin('a', 'original', 'ko'), saved)
@@ -143,18 +200,25 @@ test('save persists only existing draft fields and replaceAll resets cached firs
   const storage = fixture()
   const store = createDraftStore(() => storage)
   const saved = store.save('a', store.begin('a', 'original', 'en').draft)
-  assert.deepEqual(Object.keys(JSON.parse(storage.getItem(draftKey('a')))).sort(), ['code', 'notes', 'updatedAt', 'version'])
+  assert.deepEqual(
+    Object.keys(JSON.parse(storage.getItem(draftKey('a')))).sort(),
+    ['code', 'notes', 'updatedAt', 'version'],
+  )
   assert.equal(saved.draft.notes, englishNotes)
   store.begin('b', 'original', 'ko')
   store.replaceAll({ a: { version: 1, code: '', notes: '', updatedAt: '' } })
   assert.equal(store.begin('a', 'original', 'en').draft.notes, '')
   assert.equal(store.begin('b', 'original', 'en').draft.notes, englishNotes)
-  assert.deepEqual(Object.keys(JSON.parse(storage.getItem('web-gl-study:all:v1')).a).sort(), ['code', 'notes', 'updatedAt', 'version'])
+  assert.deepEqual(
+    Object.keys(JSON.parse(storage.getItem('web-gl-study:all:v1')).a).sort(),
+    ['code', 'notes', 'updatedAt', 'version'],
+  )
 })
 
-
 test('blocked storage still allows an English first-use template without losing its warning', () => {
-  const store = createDraftStore(() => { throw new Error('SecurityError') })
+  const store = createDraftStore(() => {
+    throw new Error('SecurityError')
+  })
   const loaded = store.load('a', 'original')
   const started = store.begin('a', 'original', 'en')
   assert.equal(started.draft.notes, englishNotes)
@@ -165,9 +229,21 @@ test('blocked storage still allows an English first-use template without losing 
 })
 
 test('storage warning codes preserve failed-save memory', () => {
-  const store = createDraftStore(() => ({ getItem() { throw Error('denied') }, setItem() { throw Error('denied') } }))
+  const store = createDraftStore(() => ({
+    getItem() {
+      throw Error('denied')
+    },
+    setItem() {
+      throw Error('denied')
+    },
+  }))
   assert.equal(store.load('code-contract', 'source').warning, 'read-failed')
-  const result = store.save('code-contract', { version: 1, code: 'edited', notes: 'notes', updatedAt: '' })
+  const result = store.save('code-contract', {
+    version: 1,
+    code: 'edited',
+    notes: 'notes',
+    updatedAt: '',
+  })
   assert.equal(result.warning, 'write-failed')
   assert.equal(store.begin('code-contract', 'source', 'en'), result)
   assert.equal(result.draft.code, 'edited')

@@ -1,4 +1,11 @@
-import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import {
+  lazy,
+  Suspense,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react'
 import { getLocalizedUnit, units } from './curriculum'
 import { Home } from './Home'
 import { DocumentDialog } from './DocumentDialog'
@@ -12,8 +19,11 @@ import { messages } from '../i18n/messages'
 import { localizePath, practicePath } from '../i18n/locale'
 import { localizedDocPath, parseDocumentPath } from './documents'
 
-const Workspace = lazy(() => import('./Workspace').then(module => ({ default: module.Workspace })))
-const fromHash = () => units.find(unit => unit.id === window.location.hash.slice(1)) ?? null
+const Workspace = lazy(() =>
+  import('./Workspace').then((module) => ({ default: module.Workspace })),
+)
+const fromHash = () =>
+  units.find((unit) => unit.id === window.location.hash.slice(1)) ?? null
 export function App() {
   const { locale, setLocale } = useLocale()
   const copy = messages[locale]
@@ -21,17 +31,33 @@ export function App() {
   const localizedUnit = selected && getLocalizedUnit(locale, selected.id)
   useEffect(() => {
     document.documentElement.lang = locale
-    document.title = localizedUnit ? localizedUnit.title + ' · Frontory' : 'Frontory'
+    document.title = localizedUnit
+      ? localizedUnit.title + ' · Frontory'
+      : 'Frontory'
   }, [locale, localizedUnit])
-  const [documentRequest, setDocumentRequest] = useState<{ path: string; locale: typeof locale } | null>(null)
+  const [documentRequest, setDocumentRequest] = useState<{
+    path: string
+    locale: typeof locale
+  } | null>(null)
   const documentPath = documentRequest?.path ?? null
-  const setDocumentPath = (path: string | null) => setDocumentRequest(path ? { path, locale } : null)
+  const setDocumentPath = (path: string | null) =>
+    setDocumentRequest(path ? { path, locale } : null)
   useEffect(() => {
-    setDocumentRequest(current => current && current.locale !== locale ? {
-      path: localizedDocPath(locale, parseDocumentPath(current.path).koDocPath), locale,
-    } : current)
+    setDocumentRequest((current) =>
+      current && current.locale !== locale
+        ? {
+            path: localizedDocPath(
+              locale,
+              parseDocumentPath(current.path).koDocPath,
+            ),
+            locale,
+          }
+        : current,
+    )
   }, [locale])
-  const [readerView, setReaderView] = useState<'reading' | 'practice'>('reading')
+  const [readerView, setReaderView] = useState<'reading' | 'practice'>(
+    'reading',
+  )
   const navigator = useRef<HTMLDivElement>(null)
   const reader = useRef<HTMLElement>(null)
   const focusPractice = useRef(false)
@@ -39,10 +65,17 @@ export function App() {
   const [, refreshProgress] = useState(0)
   const [workspace, setWorkspace] = useState<WorkspaceHandle | null>(null)
   useEffect(() => {
-    const sync = () => { const unit = fromHash(); setSelected(unit); if (!unit) setDocumentRequest(null) }
+    const sync = () => {
+      const unit = fromHash()
+      setSelected(unit)
+      if (!unit) setDocumentRequest(null)
+    }
     window.addEventListener('hashchange', sync)
     window.addEventListener('popstate', sync)
-    return () => { window.removeEventListener('hashchange', sync); window.removeEventListener('popstate', sync) }
+    return () => {
+      window.removeEventListener('hashchange', sync)
+      window.removeEventListener('popstate', sync)
+    }
   }, [])
   useLayoutEffect(() => {
     if (!focusPractice.current || !workspace) return
@@ -59,39 +92,215 @@ export function App() {
   }
   const practice = () => {
     if (readerView === 'practice' || !documentPath) workspace?.focusCode()
-    else { focusPractice.current = true; setReaderView('practice') }
+    else {
+      focusPractice.current = true
+      setReaderView('practice')
+    }
   }
-  const restoreDocumentFocus = () => navigator.current?.querySelector<HTMLButtonElement>('.current-lesson-actions button')?.focus()
+  const restoreDocumentFocus = () =>
+    navigator.current
+      ?.querySelector<HTMLButtonElement>('.current-lesson-actions button')
+      ?.focus()
   const select = (id: string) => {
-    const unit = units.find(item => item.id === id)
+    const unit = units.find((item) => item.id === id)
     if (!unit) return
     setSelected(unit)
-    if (window.location.hash !== '#' + unit.id) history.pushState(null, '', '#' + unit.id)
+    if (window.location.hash !== '#' + unit.id)
+      history.pushState(null, '', '#' + unit.id)
     window.scrollTo(0, 0)
   }
-  return <main className={'app-shell' + (!selected ? ' home-shell' : '')}>
-    <header className={'app-header' + (selected ? ' learning-header' : '')}>
-      <a className="brand home-brand" href="#" aria-label={copy.brandHome}><span className="brand-mark" aria-hidden="true">F<span>↗</span></span><div><strong>Frontory</strong>{selected && <p>{copy.tagline}</p>}</div></a>
-      <nav className="header-navigation" aria-label={copy.learningNavigation}>{selected ? <a className="header-action" href="#">{copy.home}</a> : <a className="header-action" href="#series">{copy.exploreSeries}</a>}<button className="header-action" onClick={() => openDocument(localizedDocPath(locale, '/docs/learning-workspace.md'))}>{copy.usage}</button>{!selected && <a className="home-github header-action" href="https://github.com/habergeon/frontory" target="_blank" rel="noreferrer">GitHub ↗</a>}<span className="interface-language" role="group" aria-label={copy.interfaceLanguage}><button className="header-action" onClick={() => setLocale(locale === 'ko' ? 'en' : 'ko')} lang={locale === 'ko' ? 'en' : 'ko'}>{locale === 'ko' ? 'English' : '한국어'}</button></span></nav>
-    </header>
-    {!selected ? <Home onSelect={select} /> : <>
-    <div ref={navigator}><LearningNavigator selected={selected} onSelect={select} onDocument={openDocument} onPractice={workspace ? practice : undefined} /></div>
-    {documentPath && <div className="reader-view-controls" role="group" aria-label={copy.learningView}>
-      <button aria-pressed={readerView === 'reading'} onClick={() => setReaderView('reading')}>{copy.readingView}</button>
-      <button aria-pressed={readerView === 'practice'} onClick={() => setReaderView('practice')}>{copy.practiceView}</button>
-    </div>}
-    <div className={'learning-layout' + (documentPath ? ' reader-open view-' + readerView : '')}>
-    <div className="practice-pane">
-    {localizedUnit && <PracticeGuide key={selected.id} unit={localizedUnit} locale={locale} onDocument={openDocument} />}
-    {localizedUnit ? <p><a href={localizePath(locale, '/learn/' + selected.seriesId + '/' + selected.id + '/')}>{copy.publicDocument}</a></p> : <p role="status">This lesson is not available in English yet. <a href={practicePath('ko', selected.id)} onClick={event => { event.preventDefault(); setLocale('ko') }}>Read the Korean lesson</a></p>}
-    <details className="backup-disclosure"><summary>{copy.archive}</summary><BackupControls selectedId={selected.id} onRestore={id => { select(id); setRestoreRevision(value => value + 1) }} /></details>
-    <Suspense fallback={<p role="status">{copy.preparingWorkspace}</p>}><Workspace ref={setWorkspace} key={selected.id + ':' + restoreRevision} unit={selected} onProgressChange={() => refreshProgress(value => value + 1)} /></Suspense>
-    <UnitPagination selected={selected} onSelect={select} />
-    </div>
-    {documentPath && <DocumentDialog locale={locale} path={documentPath} requestedLocale={documentRequest!.locale} unitPath={selected.docPath} onNavigate={setDocumentPath} onClose={() => setDocumentPath(null)} inline active={readerView === 'reading'} readerRef={reader} onRestoreFocus={restoreDocumentFocus} />}
-    </div>
-    </>}
-    {!selected && documentPath && <DocumentDialog locale={locale} path={documentPath} requestedLocale={documentRequest!.locale} unitPath="/docs/labs/README.md" onNavigate={setDocumentPath} onClose={() => setDocumentPath(null)} />}
-    <footer className="app-footer"><span>{copy.footer}</span><nav aria-label={copy.serviceNavigation}><a href={localizePath(locale, '/about/')}>{copy.about}</a><a href={localizePath(locale, '/privacy/')}>{copy.privacy}</a><a href="https://github.com/habergeon/frontory" target="_blank" rel="noreferrer">GitHub</a></nav></footer>
-  </main>
+  return (
+    <main className={'app-shell' + (!selected ? ' home-shell' : '')}>
+      <header className={'app-header' + (selected ? ' learning-header' : '')}>
+        <a className="brand home-brand" href="#" aria-label={copy.brandHome}>
+          <span className="brand-mark" aria-hidden="true">
+            F<span>↗</span>
+          </span>
+          <div>
+            <strong>Frontory</strong>
+            {selected && <p>{copy.tagline}</p>}
+          </div>
+        </a>
+        <nav className="header-navigation" aria-label={copy.learningNavigation}>
+          {selected ? (
+            <a className="header-action" href="#">
+              {copy.home}
+            </a>
+          ) : (
+            <a className="header-action" href="#series">
+              {copy.exploreSeries}
+            </a>
+          )}
+          <button
+            className="header-action"
+            onClick={() =>
+              openDocument(
+                localizedDocPath(locale, '/docs/learning-workspace.md'),
+              )
+            }
+          >
+            {copy.usage}
+          </button>
+          {!selected && (
+            <a
+              className="home-github header-action"
+              href="https://github.com/habergeon/frontory"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub ↗
+            </a>
+          )}
+          <span
+            className="interface-language"
+            role="group"
+            aria-label={copy.interfaceLanguage}
+          >
+            <button
+              className="header-action"
+              onClick={() => setLocale(locale === 'ko' ? 'en' : 'ko')}
+              lang={locale === 'ko' ? 'en' : 'ko'}
+            >
+              {locale === 'ko' ? 'English' : '한국어'}
+            </button>
+          </span>
+        </nav>
+      </header>
+      {!selected ? (
+        <Home onSelect={select} />
+      ) : (
+        <>
+          <div ref={navigator}>
+            <LearningNavigator
+              selected={selected}
+              onSelect={select}
+              onDocument={openDocument}
+              onPractice={workspace ? practice : undefined}
+            />
+          </div>
+          {documentPath && (
+            <div
+              className="reader-view-controls"
+              role="group"
+              aria-label={copy.learningView}
+            >
+              <button
+                aria-pressed={readerView === 'reading'}
+                onClick={() => setReaderView('reading')}
+              >
+                {copy.readingView}
+              </button>
+              <button
+                aria-pressed={readerView === 'practice'}
+                onClick={() => setReaderView('practice')}
+              >
+                {copy.practiceView}
+              </button>
+            </div>
+          )}
+          <div
+            className={
+              'learning-layout' +
+              (documentPath ? ' reader-open view-' + readerView : '')
+            }
+          >
+            <div className="practice-pane">
+              {localizedUnit && (
+                <PracticeGuide
+                  key={selected.id}
+                  unit={localizedUnit}
+                  locale={locale}
+                  onDocument={openDocument}
+                />
+              )}
+              {localizedUnit ? (
+                <p>
+                  <a
+                    href={localizePath(
+                      locale,
+                      '/learn/' + selected.seriesId + '/' + selected.id + '/',
+                    )}
+                  >
+                    {copy.publicDocument}
+                  </a>
+                </p>
+              ) : (
+                <p role="status">
+                  This lesson is not available in English yet.{' '}
+                  <a
+                    href={practicePath('ko', selected.id)}
+                    onClick={(event) => {
+                      event.preventDefault()
+                      setLocale('ko')
+                    }}
+                  >
+                    Read the Korean lesson
+                  </a>
+                </p>
+              )}
+              <details className="backup-disclosure">
+                <summary>{copy.archive}</summary>
+                <BackupControls
+                  selectedId={selected.id}
+                  onRestore={(id) => {
+                    select(id)
+                    setRestoreRevision((value) => value + 1)
+                  }}
+                />
+              </details>
+              <Suspense
+                fallback={<p role="status">{copy.preparingWorkspace}</p>}
+              >
+                <Workspace
+                  ref={setWorkspace}
+                  key={selected.id + ':' + restoreRevision}
+                  unit={selected}
+                  onProgressChange={() => refreshProgress((value) => value + 1)}
+                />
+              </Suspense>
+              <UnitPagination selected={selected} onSelect={select} />
+            </div>
+            {documentPath && (
+              <DocumentDialog
+                locale={locale}
+                path={documentPath}
+                requestedLocale={documentRequest!.locale}
+                unitPath={selected.docPath}
+                onNavigate={setDocumentPath}
+                onClose={() => setDocumentPath(null)}
+                inline
+                active={readerView === 'reading'}
+                readerRef={reader}
+                onRestoreFocus={restoreDocumentFocus}
+              />
+            )}
+          </div>
+        </>
+      )}
+      {!selected && documentPath && (
+        <DocumentDialog
+          locale={locale}
+          path={documentPath}
+          requestedLocale={documentRequest!.locale}
+          unitPath="/docs/labs/README.md"
+          onNavigate={setDocumentPath}
+          onClose={() => setDocumentPath(null)}
+        />
+      )}
+      <footer className="app-footer">
+        <span>{copy.footer}</span>
+        <nav aria-label={copy.serviceNavigation}>
+          <a href={localizePath(locale, '/about/')}>{copy.about}</a>
+          <a href={localizePath(locale, '/privacy/')}>{copy.privacy}</a>
+          <a
+            href="https://github.com/habergeon/frontory"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+        </nav>
+      </footer>
+    </main>
+  )
 }

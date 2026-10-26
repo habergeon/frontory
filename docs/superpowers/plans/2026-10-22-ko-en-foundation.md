@@ -33,18 +33,18 @@
 
 ## 파일과 공통 계약
 
-| 파일 | 책임 |
-| --- | --- |
-| `src/i18n/locale.ts` | `Locale`, 언어 판별과 공개·실습 경로 생성 |
-| `src/i18n/messages.ts` | ko/en UI·문서 heading 메시지와 인자형 |
-| `src/i18n/LocaleProvider.tsx` | 현재 URL 언어와 전환, popstate 동기화 |
-| `scripts/locale-content.mjs` | 영어 번역 원본의 필드·hash·ID 검증과 결합 |
-| `content/locales/en/manifest.json` | `publishedUnitIds: string[]`; 검증된 영어 공개 단위 집합 |
-| `content/locales/en/series.json` | 안정 시리즈 ID별 제목·선수 지식·단계 번역 |
-| `content/locales/en/curricula/<seriesId>.json` | 시리즈 산문·단위 산문 번역; 알고리즘·경로 복제 금지 |
-| `src/app/catalog.en.json` | 생성된 영어 표시 카탈로그. 직접 편집 금지 |
-| `docs/en/…` | 원래 `/docs/` 뒤 경로를 유지하는 영어 Markdown. 생성·수동 관리 여부를 원문과 맞춤 |
-| `src/app/documents.ts` | locale·docPath별 비동기 로딩. 앱의 문서 창과 가이드가 공유 |
+| 파일                                           | 책임                                                                              |
+| ---------------------------------------------- | --------------------------------------------------------------------------------- |
+| `src/i18n/locale.ts`                           | `Locale`, 언어 판별과 공개·실습 경로 생성                                         |
+| `src/i18n/messages.ts`                         | ko/en UI·문서 heading 메시지와 인자형                                             |
+| `src/i18n/LocaleProvider.tsx`                  | 현재 URL 언어와 전환, popstate 동기화                                             |
+| `scripts/locale-content.mjs`                   | 영어 번역 원본의 필드·hash·ID 검증과 결합                                         |
+| `content/locales/en/manifest.json`             | `publishedUnitIds: string[]`; 검증된 영어 공개 단위 집합                          |
+| `content/locales/en/series.json`               | 안정 시리즈 ID별 제목·선수 지식·단계 번역                                         |
+| `content/locales/en/curricula/<seriesId>.json` | 시리즈 산문·단위 산문 번역; 알고리즘·경로 복제 금지                               |
+| `src/app/catalog.en.json`                      | 생성된 영어 표시 카탈로그. 직접 편집 금지                                         |
+| `docs/en/…`                                    | 원래 `/docs/` 뒤 경로를 유지하는 영어 Markdown. 생성·수동 관리 여부를 원문과 맞춤 |
+| `src/app/documents.ts`                         | locale·docPath별 비동기 로딩. 앱의 문서 창과 가이드가 공유                        |
 
 `localeFromPath(pathname: string): Locale | null`은 `/en`, `/en/`, `/en/…`에서 `en`, 기존 한국어 앱·공개 경로에서 `ko`, 지원하지 않는 경로에서 `null`을 반환한다. 경로의 유효한 문서 존재 여부는 공개 생성물 맵에서 따로 확인한다. `localizePath(locale: Locale, koPath: string): string`은 한국어 절대 경로에 언어 접두어를 붙인다. 이미 영어인 경로를 중복 처리하지 않도록 호출부는 한국어 정규 경로를 전달한다. `practicePath(locale: Locale, id: string): string`은 `/#id` 또는 `/en/#id`다.
 

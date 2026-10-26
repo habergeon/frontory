@@ -29,7 +29,6 @@ GS picking은 일반 mesh 삼각형 raycasting과 같지 않을 수 있습니다
 2. 회전·이동·줌의 최소/최대 거리를 설정하고 초기화를 추가합니다.
 3. 사용할 GS picking API의 기준을 조사하고 화면 경계의 세 지점에 대해 예상 결과를 적습니다.
 
-
 ## 관찰할 변수
 
 camera target/position/near/far, 데이터 transform, picking 조건.
@@ -53,21 +52,27 @@ camera target/position/near/far, 데이터 transform, picking 조건.
 ## 실험 기록 — 직접 작성
 
 ### 목표
+
 <!-- 이번에 답하려는 질문 -->
 
 ### 핵심 개념
+
 <!-- 자기 말로 설명 -->
 
 ### 바꾼 변수와 예상
+
 <!-- 기준값 → 변경값 / 고정 조건 / 실행 전 예상 -->
 
 ### 실제 결과
+
 <!-- 실제 관찰 내용, 화면, 측정값. 실행 전에는 비워 둡니다. -->
 
 ### 배운 점
+
 <!-- 예상과 실제의 차이, 이유 -->
 
 ### 남은 질문
+
 <!-- 다음 실험으로 확인할 것 -->
 
 [이전: .ply·.splat 로딩](../19-gs-loading/README.md) · [다음: GS 뷰어 복습과 후보 비교](../21-gs-review/README.md)

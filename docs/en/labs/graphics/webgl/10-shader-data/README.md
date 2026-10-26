@@ -29,7 +29,6 @@ Update uniforms.uTime.value in seconds. The range of sin(uTime*uSpeed), -1~1, ca
 2. Change one color channel over time and compare uSpeed=0,1,3 over the same observation duration.
 3. Decide and record whether pausing/resuming stops accumulated time or uses actual clock time.
 
-
 ## Variables to observe
 
 uTime, uSpeed, amplitude·offset. Keep the camera and geometry fixed.
@@ -53,21 +52,27 @@ uTime, uSpeed, amplitude·offset. Keep the camera and geometry fixed.
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: GLSL syntax and color](../09-glsl-color/README.md) · [Next: UV and Texture Sampling](../11-uv/README.md)

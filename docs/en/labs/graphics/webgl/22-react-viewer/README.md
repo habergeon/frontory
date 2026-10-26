@@ -29,7 +29,6 @@ Keep the shared exercise contract minimal, such as mount/update/dispose. Move co
 2. Define a minimal interface for connecting mesh and GS.
 3. Write a scenario that switches to B while A has a slow response, and ignore stale responses.
 
-
 ## Variables to observe
 
 Selected unit, run id, response order, UI input.
@@ -53,21 +52,27 @@ Selected unit, run id, response order, UI input.
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: GS viewer review and candidate comparison](../21-gs-review/README.md) · [Next: Loading UI and progress](../23-loading-ui/README.md)

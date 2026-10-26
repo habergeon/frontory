@@ -7,7 +7,12 @@ function documentInput(id, locale) {
   const source = fs.readFileSync(`src/labs/${id}/example.js`, 'utf8')
   const start = source.indexOf('export function mount(')
   const end = source.indexOf('const originalRootSize', start)
-  return new Function(source.slice(start, end).replace('export function mount', 'function mount') + '\nreturn {HTML,CSS};}\nreturn mount({container:{},locale:arguments[0]});')(locale)
+  return new Function(
+    source
+      .slice(start, end)
+      .replace('export function mount', 'function mount') +
+      '\nreturn {HTML,CSS};}\nreturn mount({container:{},locale:arguments[0]});',
+  )(locale)
 }
 
 test('HTML encoding translates display while retaining multilingual data and lang fixture', () => {
@@ -26,9 +31,14 @@ test('document input localization preserves attributes, FormData names, media co
   assert.ok(en.HTML.includes('type="submit"'))
   const picture = documentInput('html-step-20', 'en')
   assert.ok(picture.HTML.includes('(max-width:600px)'))
-  const narrowSource = picture.HTML.match(/srcset="data:image\/svg\+xml,([^"]+)"/)[1]
+  const narrowSource = picture.HTML.match(
+    /srcset="data:image\/svg\+xml,([^"]+)"/,
+  )[1]
   assert.doesNotMatch(narrowSource, /\s/)
-  assert.equal(decodeURIComponent(narrowSource), "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><rect width='200' height='200' fill='coral'/></svg>")
+  assert.equal(
+    decodeURIComponent(narrowSource),
+    "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><rect width='200' height='200' fill='coral'/></svg>",
+  )
   assert.equal(picture.CSS, 'img{max-width:100%;height:auto}')
 })
 
@@ -36,14 +46,36 @@ test('manual JavaScript button uses selected locale and preserves count behavior
   const { mount } = await import('../src/labs/javascript-01/example.js')
   const previous = globalThis.document
   const nodes = []
-  globalThis.document = { createElement(tag) { return { tag, handlers: {}, addEventListener(name, fn) { this.handlers[name] = fn }, removeEventListener(name) { delete this.handlers[name] } } } }
+  globalThis.document = {
+    createElement(tag) {
+      return {
+        tag,
+        handlers: {},
+        addEventListener(name, fn) {
+          this.handlers[name] = fn
+        },
+        removeEventListener(name) {
+          delete this.handlers[name]
+        },
+      }
+    },
+  }
   try {
-    const container = { append(...items) { nodes.push(...items) }, replaceChildren() { nodes.length = 0 } }
+    const container = {
+      append(...items) {
+        nodes.push(...items)
+      },
+      replaceChildren() {
+        nodes.length = 0
+      },
+    }
     const dispose = mount({ container, locale: 'en' })
     assert.equal(nodes[0].textContent, 'Increment state')
     nodes[0].handlers.click()
     assert.deepEqual(JSON.parse(nodes[1].textContent), { count: 1 })
     dispose()
     assert.equal(nodes.length, 0)
-  } finally { globalThis.document = previous }
+  } finally {
+    globalThis.document = previous
+  }
 })

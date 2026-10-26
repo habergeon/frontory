@@ -14,7 +14,7 @@
       "ownership": "manual",
       "producer": null,
       "originalSha256": "73b53d03b1bffbf2b0c9d4b8c6e74ac35c9acf877a1546fafea7b6f5695b6e1c",
-      "sourceSha256": "73b53d03b1bffbf2b0c9d4b8c6e74ac35c9acf877a1546fafea7b6f5695b6e1c",
+      "sourceSha256": "00cd40e2b24b0a2f34f6e75506ffdb635d78c0615ab9f1505e511b43658833f9",
       "englishProvision": "English reading-only prose sidecar linked beside original executable; never fork executable algorithms; English material is reading guidance only, not a separately executable algorithm fork",
       "englishPath": "src/labs/01-scene/createScene.ts.en.md",
       "guidancePath": "src/labs/01-scene/COMPANIONS.en.md",
@@ -24,7 +24,7 @@
         "execution": "not claimed by this inventory"
       },
       "originalByteSha256": "5da1ea3e6cc09cf6bd90b24550057b53e4617f85300f0dfcb505cffc6aec176e",
-      "sourceByteSha256": "5da1ea3e6cc09cf6bd90b24550057b53e4617f85300f0dfcb505cffc6aec176e",
+      "sourceByteSha256": "00cd40e2b24b0a2f34f6e75506ffdb635d78c0615ab9f1505e511b43658833f9",
       "hashPolicy": "UTF-8 text with CRLF normalized to LF; byte hashes retain original Windows provenance"
     },
     {
@@ -35,7 +35,7 @@
       "ownership": "manual",
       "producer": null,
       "originalSha256": "38c31d900d1438d930bbfc75162f8e522595779ae79125732f5f3c5d5ca8edee",
-      "sourceSha256": "7965571c7d20c161b98f277d7fdc271164686f003be98e0b0642e180db588647",
+      "sourceSha256": "9c01ae59f174e250f3b521a00840948ad18f0c7c973e0e09916c5c192983954f",
       "englishProvision": "English reading-only prose sidecar linked beside original executable; never fork executable algorithms; English material is reading guidance only, not a separately executable algorithm fork",
       "englishPath": "src/labs/01-scene/SceneLab.tsx.en.md",
       "guidancePath": "src/labs/01-scene/COMPANIONS.en.md",
@@ -51,7 +51,7 @@
         "reason": "Approved correction to the existing catalog document."
       },
       "originalByteSha256": "7b289cd9eca948c5ffdb333ee04e92ac2fdeed74b18e17475e05dfc84fbe8d39",
-      "sourceByteSha256": "5fc27a128d17e492a4a364f96d21e050ecd87c35dd94f3afeab9f7d08bbdf0dc",
+      "sourceByteSha256": "9c01ae59f174e250f3b521a00840948ad18f0c7c973e0e09916c5c192983954f",
       "hashPolicy": "UTF-8 text with CRLF normalized to LF; byte hashes retain original Windows provenance"
     },
     {
@@ -1196,7 +1196,7 @@
       "ownership": "manual",
       "producer": null,
       "originalSha256": "737ec1208270b03917d657f880218e79c28431fbaacf030677c7101de3029a6e",
-      "sourceSha256": "737ec1208270b03917d657f880218e79c28431fbaacf030677c7101de3029a6e",
+      "sourceSha256": "5ac4e6baf2b0d097dd07e4d5665eeb777e3b6ebe74b8f1c1a4490cef64e4f299",
       "englishProvision": "English reading-only prose sidecar linked beside original executable; never fork executable algorithms; English material is reading guidance only, not a separately executable algorithm fork",
       "englishPath": "src/labs/svelte-02/App.svelte.en.md",
       "guidancePath": "src/labs/svelte-02/COMPANIONS.en.md",
@@ -1206,7 +1206,7 @@
         "execution": "not claimed by this inventory"
       },
       "originalByteSha256": "edfaafd4a0f185a9b97cc68ea113d85a5a7e6412bf8ecda262c6a2619ac34067",
-      "sourceByteSha256": "edfaafd4a0f185a9b97cc68ea113d85a5a7e6412bf8ecda262c6a2619ac34067",
+      "sourceByteSha256": "5ac4e6baf2b0d097dd07e4d5665eeb777e3b6ebe74b8f1c1a4490cef64e4f299",
       "hashPolicy": "UTF-8 text with CRLF normalized to LF; byte hashes retain original Windows provenance"
     },
     {
@@ -1217,7 +1217,7 @@
       "ownership": "manual",
       "producer": null,
       "originalSha256": "6c30e2546dca121f4fd2d670c62a6220d4ddc8633e77b5735c0d695811b1c1a0",
-      "sourceSha256": "6c30e2546dca121f4fd2d670c62a6220d4ddc8633e77b5735c0d695811b1c1a0",
+      "sourceSha256": "2f3dfc0e5a5ca61d40b2c756c54a1b128e0611b031788d21b755ae9c5d1c52d6",
       "englishProvision": "English reading-only prose sidecar linked beside original executable; never fork executable algorithms; English material is reading guidance only, not a separately executable algorithm fork",
       "englishPath": "src/labs/svelte-02/PointerCanvas.svelte.en.md",
       "guidancePath": "src/labs/svelte-02/COMPANIONS.en.md",
@@ -1227,7 +1227,7 @@
         "execution": "not claimed by this inventory"
       },
       "originalByteSha256": "aca8ea9a4af54739a96f90dc3057e47aab783907d26f602215eac91c57e5337c",
-      "sourceByteSha256": "aca8ea9a4af54739a96f90dc3057e47aab783907d26f602215eac91c57e5337c",
+      "sourceByteSha256": "2f3dfc0e5a5ca61d40b2c756c54a1b128e0611b031788d21b755ae9c5d1c52d6",
       "hashPolicy": "UTF-8 text with CRLF normalized to LF; byte hashes retain original Windows provenance"
     },
     {
@@ -1248,7 +1248,7 @@
         "execution": "not claimed by this inventory"
       },
       "originalByteSha256": "e40989e028596003a743f2b3cb6407693bc609a86741d91ec4103b4a9ca0dfc2",
-      "sourceByteSha256": "e40989e028596003a743f2b3cb6407693bc609a86741d91ec4103b4a9ca0dfc2",
+      "sourceByteSha256": "0b38a1579cf845759082246b42ab623fd5769d139a7491020afd014103697a41",
       "hashPolicy": "UTF-8 text with CRLF normalized to LF; byte hashes retain original Windows provenance"
     },
     {
@@ -1595,7 +1595,7 @@
       "ownership": "manual",
       "producer": null,
       "originalSha256": "2a10ecfb274c9eec61779cdffa183f3397426d5b61725ac7acfb5ae127df0e68",
-      "sourceSha256": "2a10ecfb274c9eec61779cdffa183f3397426d5b61725ac7acfb5ae127df0e68",
+      "sourceSha256": "1050a49ebbdeeb2e228a542d6681f13a18df4c3d08a4cc2973aad336ab8b8ae3",
       "englishProvision": "English reading-only prose sidecar linked beside original executable; never fork executable algorithms; English material is reading guidance only, not a separately executable algorithm fork",
       "englishPath": "src/labs/svelte-03/App.svelte.en.md",
       "guidancePath": "src/labs/svelte-03/COMPANIONS.en.md",
@@ -1605,7 +1605,7 @@
         "execution": "not claimed by this inventory"
       },
       "originalByteSha256": "ac90f056e5a6dfc2f676046e0732a863adb8d0953a631f8c05d21fbd8b775493",
-      "sourceByteSha256": "ac90f056e5a6dfc2f676046e0732a863adb8d0953a631f8c05d21fbd8b775493",
+      "sourceByteSha256": "1050a49ebbdeeb2e228a542d6681f13a18df4c3d08a4cc2973aad336ab8b8ae3",
       "hashPolicy": "UTF-8 text with CRLF normalized to LF; byte hashes retain original Windows provenance"
     },
     {
@@ -1626,7 +1626,7 @@
         "execution": "not claimed by this inventory"
       },
       "originalByteSha256": "4729c84a99d82d165a4a898c77081e807a6205f86783285bad57dd712311d6ca",
-      "sourceByteSha256": "4729c84a99d82d165a4a898c77081e807a6205f86783285bad57dd712311d6ca",
+      "sourceByteSha256": "a2c0e69db53020cfe48e4440af6a7ebcebb98c965568f96a1e60501411d1828e",
       "hashPolicy": "UTF-8 text with CRLF normalized to LF; byte hashes retain original Windows provenance"
     },
     {
@@ -2696,7 +2696,7 @@
       "ownership": "manual",
       "producer": null,
       "originalSha256": "d5ee40d5e71b019096d8d7bfafcc1dc2d477de37a778b601113e5c6725bba969",
-      "sourceSha256": "d5ee40d5e71b019096d8d7bfafcc1dc2d477de37a778b601113e5c6725bba969",
+      "sourceSha256": "d03b586e92ee62cfb71255f52629eca41c02871b47fc9577fa084812fcf6b4b7",
       "englishProvision": "reuse unchanged English/code fixture; English execution guidance in unit sidecar; English material is reading guidance only, not a separately executable algorithm fork",
       "englishPath": null,
       "guidancePath": "src/labs/webassembly-02/COMPANIONS.en.md",
@@ -2732,7 +2732,7 @@
         "execution": "not claimed by this inventory"
       },
       "originalByteSha256": "44ce33902927bb0efedb47edb3ec76ed58de8491f54efcd53dad45ea0acc5697",
-      "sourceByteSha256": "44ce33902927bb0efedb47edb3ec76ed58de8491f54efcd53dad45ea0acc5697",
+      "sourceByteSha256": "d03b586e92ee62cfb71255f52629eca41c02871b47fc9577fa084812fcf6b4b7",
       "hashPolicy": "UTF-8 text with CRLF normalized to LF; byte hashes retain original Windows provenance"
     },
     {
@@ -3947,7 +3947,7 @@
       "ownership": "manual",
       "producer": null,
       "originalSha256": "d5ee40d5e71b019096d8d7bfafcc1dc2d477de37a778b601113e5c6725bba969",
-      "sourceSha256": "d5ee40d5e71b019096d8d7bfafcc1dc2d477de37a778b601113e5c6725bba969",
+      "sourceSha256": "d03b586e92ee62cfb71255f52629eca41c02871b47fc9577fa084812fcf6b4b7",
       "englishProvision": "reuse unchanged English/code fixture; English execution guidance in unit sidecar; English material is reading guidance only, not a separately executable algorithm fork",
       "englishPath": null,
       "guidancePath": "src/labs/webassembly-03/COMPANIONS.en.md",
@@ -3983,7 +3983,7 @@
         "execution": "not claimed by this inventory"
       },
       "originalByteSha256": "44ce33902927bb0efedb47edb3ec76ed58de8491f54efcd53dad45ea0acc5697",
-      "sourceByteSha256": "44ce33902927bb0efedb47edb3ec76ed58de8491f54efcd53dad45ea0acc5697",
+      "sourceByteSha256": "d03b586e92ee62cfb71255f52629eca41c02871b47fc9577fa084812fcf6b4b7",
       "hashPolicy": "UTF-8 text with CRLF normalized to LF; byte hashes retain original Windows provenance"
     },
     {
@@ -5200,7 +5200,7 @@
       "ownership": "manual",
       "producer": null,
       "originalSha256": "d7537f0d5c62a79cdec58642e61dfa2d9da2d020695bc56aa1c79bec54412523",
-      "sourceSha256": "d7537f0d5c62a79cdec58642e61dfa2d9da2d020695bc56aa1c79bec54412523",
+      "sourceSha256": "eeff642590b8d2934c5b771f892e317f14ab067da0e66f12a3ac0156d0374172",
       "englishProvision": "reuse unchanged English/code fixture; English execution guidance in unit sidecar; English material is reading guidance only, not a separately executable algorithm fork",
       "englishPath": null,
       "guidancePath": "src/labs/playwright-02/COMPANIONS.en.md",
@@ -5210,7 +5210,7 @@
         "execution": "not claimed by this inventory"
       },
       "originalByteSha256": "1d9b747c4001c8dfeb4257d019836d89815554f21240eb3232b5a6d7196eae6f",
-      "sourceByteSha256": "1d9b747c4001c8dfeb4257d019836d89815554f21240eb3232b5a6d7196eae6f",
+      "sourceByteSha256": "eeff642590b8d2934c5b771f892e317f14ab067da0e66f12a3ac0156d0374172",
       "hashPolicy": "UTF-8 text with CRLF normalized to LF; byte hashes retain original Windows provenance"
     },
     {
@@ -6464,7 +6464,7 @@
       "ownership": "manual",
       "producer": null,
       "originalSha256": "55d30b3bfef7a47c90fc039db33e158d5ccbc70c059a0251df2553f02af17045",
-      "sourceSha256": "55d30b3bfef7a47c90fc039db33e158d5ccbc70c059a0251df2553f02af17045",
+      "sourceSha256": "70f7fff0e68af6b254875d85481fb09d2a580cab7100a677d122e75543f0b002",
       "englishProvision": "reuse unchanged English/code fixture; English execution guidance in unit sidecar; English material is reading guidance only, not a separately executable algorithm fork",
       "englishPath": null,
       "guidancePath": "src/labs/playwright-03/COMPANIONS.en.md",
@@ -6474,7 +6474,7 @@
         "execution": "not claimed by this inventory"
       },
       "originalByteSha256": "84bc23c2d233faab778d53b8e5a1b6b6e379562a4bc595c6c46f13da34c69b67",
-      "sourceByteSha256": "84bc23c2d233faab778d53b8e5a1b6b6e379562a4bc595c6c46f13da34c69b67",
+      "sourceByteSha256": "70f7fff0e68af6b254875d85481fb09d2a580cab7100a677d122e75543f0b002",
       "hashPolicy": "UTF-8 text with CRLF normalized to LF; byte hashes retain original Windows provenance"
     }
   ]

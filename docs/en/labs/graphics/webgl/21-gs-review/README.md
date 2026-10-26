@@ -29,7 +29,6 @@ Compare candidates in one table covering supported formats, compatible Three.js 
 2. Define minimum viewer acceptance criteria for loading, controls, errors, and cleanup with one small dataset.
 3. Summarize what you understand and the remaining questions about GS principles and implementation, and keep the data out of Git.
 
-
 ## Variables to observe
 
 Candidate library features and versions. Performance remains unverified until measured under identical conditions.
@@ -54,21 +53,27 @@ Candidate library features and versions. Performance remains unverified until me
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: Three.js+GS camera and interaction](../20-gs-interaction/README.md) · [Next: React+Three.js component design](../22-react-viewer/README.md)

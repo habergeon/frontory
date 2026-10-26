@@ -29,7 +29,6 @@ Noise differs from generating new random numbers every frame. If you want spatia
 2. Keep frequency fixed and compare subdivision counts of 4,16,64.
 3. Compare the phases of sin and cos, then record your expectations for replacing them with noise and the implementation and source required.
 
-
 ## Variables to observe
 
 Amplitude, frequency, speed, subdivision count, phase. Change one at a time.
@@ -54,21 +53,27 @@ Amplitude, frequency, speed, subdivision count, phase. Change one at a time.
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: UV and Texture Sampling](../11-uv/README.md) · [Next: ShaderMaterial integration](../13-shader-material/README.md)

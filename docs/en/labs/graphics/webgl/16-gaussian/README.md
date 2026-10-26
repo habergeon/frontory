@@ -29,7 +29,6 @@ Covariance represents directional extent and relationships between directions. I
 2. Predict separately the results of moving center, increasing scale along one axis, rotation, and decreasing opacity.
 3. Make a table mapping the original paper's terms to Spark center/scales/quaternion/opacity.
 
-
 ## Variables to observe
 
 position, scales, rotation, opacity. Start with hypothetical comparisons that keep other values fixed.
@@ -53,21 +52,27 @@ position, scales, rotation, opacity. Start with hypothetical comparisons that ke
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: Comparing NeRF and 3DGS](../15-nerf-gs/README.md) · [Next: Spherical Harmonics and view-dependent color](../17-sh/README.md)

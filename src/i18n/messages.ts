@@ -11,7 +11,8 @@ const ko = {
   publicDocument: '이 학습의 공개 문서 · 공유 주소',
   archive: '학습 아카이브 · 전체 JSON 내보내기 / 가져오기',
   preparingWorkspace: '실습 환경을 준비하고 있습니다…',
-  footer: 'Frontory · 기록은 이 브라우저에 저장됩니다. 정기적으로 JSON 백업을 내려받으세요.',
+  footer:
+    'Frontory · 기록은 이 브라우저에 저장됩니다. 정기적으로 JSON 백업을 내려받으세요.',
   serviceNavigation: '서비스 안내',
   about: '소개와 문의',
   privacy: '저장 및 개인정보',
@@ -20,21 +21,28 @@ const ko = {
   browseSeries: '시리즈 둘러보기',
   startWithHtml: 'HTML 첫 실습 시작',
   beginnerPathTitle: '처음 시작한다면 HTML부터',
-  beginnerPathDescription: 'HTML → CSS → JavaScript 순서로 기초를 살펴보세요. 이미 아는 내용은 건너뛰어도 됩니다.',
-  beginnerPathNote: 'JavaScript는 HTML 요소와 이벤트를 이해한 뒤 시작하세요. CSS 전 과정을 마칠 필요는 없습니다.',
-  firstHtmlResult: 'HTML 첫 예제는 이 브라우저에서 확인하고, 전체 과제는 별도 HTML 파일에서 이어갑니다.',
+  beginnerPathDescription:
+    'HTML → CSS → JavaScript 순서로 기초를 살펴보세요. 이미 아는 내용은 건너뛰어도 됩니다.',
+  beginnerPathNote:
+    'JavaScript는 HTML 요소와 이벤트를 이해한 뒤 시작하세요. CSS 전 과정을 마칠 필요는 없습니다.',
+  firstHtmlResult:
+    'HTML 첫 예제는 이 브라우저에서 확인하고, 전체 과제는 별도 HTML 파일에서 이어갑니다.',
   openFirstUnit: '첫 단위 열기',
   firstUnitLabel: '{title} 첫 단위 열기',
   catalogCount: '{seriesCount}개 시리즈 · {unitCount}개 학습 단위',
   learningMethod: 'Frontory 학습 방식',
   readConcepts: '개념 읽기',
-  readConceptsDescription: '목표와 개념을 읽고 이번 실습에서 확인할 질문을 정합니다.',
+  readConceptsDescription:
+    '목표와 개념을 읽고 이번 실습에서 확인할 질문을 정합니다.',
   experimentCode: '코드 실험',
-  experimentCodeDescription: '실제 실행 코드를 바꾸고 예상과 화면의 차이를 관찰합니다.',
+  experimentCodeDescription:
+    '실제 실행 코드를 바꾸고 예상과 화면의 차이를 관찰합니다.',
   recordExperience: '경험 기록',
-  recordExperienceDescription: '배운 내용을 Markdown으로 남기고 JSON으로 백업합니다.',
+  recordExperienceDescription:
+    '배운 내용을 Markdown으로 남기고 JSON으로 백업합니다.',
   catalogTitle: '어떤 기술을 탐험할까요?',
-  catalogDescription: '각 시리즈의 선수 지식을 확인하고 관심 있는 분야로 이어가세요.',
+  catalogDescription:
+    '각 시리즈의 선수 지식을 확인하고 관심 있는 분야로 이어가세요.',
   searchSeries: '시리즈 검색',
   seriesCategory: '시리즈 분야',
   all: '전체',
@@ -42,7 +50,8 @@ const ko = {
   prerequisites: '선수 지식 · {text}',
   exampleCounts: '예제 연결 {exampleCount} · 문서 기반 실습 {documentCount}',
   externalTestExample: '별도 환경에서 실행하는 테스트 예제',
-  storageNeedsCheck: '저장 기록 확인이 필요합니다. 학습 화면에서 안내를 확인하세요.',
+  storageNeedsCheck:
+    '저장 기록 확인이 필요합니다. 학습 화면에서 안내를 확인하세요.',
   unitCount: '{count}개 단위',
   completedCount: '{count}개 완료',
   continueLearning: '이어가기',
@@ -59,7 +68,8 @@ const ko = {
   close: '닫기 · Esc',
   searchPlaceholder: 'React, Canvas, WebGPU…',
   categoryFilter: '분야 필터',
-  seriesSummary: '{count}개 시리즈 · 시리즈마다 4단계·28단위 · 연결 예제와 문서 기반 직접 구현 과제를 구분합니다.',
+  seriesSummary:
+    '{count}개 시리즈 · 시리즈마다 4단계·28단위 · 연결 예제와 문서 기반 직접 구현 과제를 구분합니다.',
   seriesCompletion: '{total}개 단위 · 완료 {completed}개',
   completionLabel: '{title} 완료율',
   prerequisiteShort: '선수: {text}',
@@ -102,8 +112,10 @@ const ko = {
   retrySave: '저장 다시 시도',
   downloadExampleFiles: '예제 파일 다운로드 · 별도 환경에서 실행',
   downloadEnglishReadingSource: '영어 주석 원본 다운로드 · 읽기용',
-  originalFilesHint: '아래 파일은 원본 예제입니다. 편집기 변경 내용은 전체 JSON 백업에 저장하세요.',
-  emptyCodePreserved: '빈 코드 기록이 보존되어 있습니다. 새 예제를 불러오려면 ‘원본 코드로’를 선택하세요. 필기는 유지됩니다.',
+  originalFilesHint:
+    '아래 파일은 원본 예제입니다. 편집기 변경 내용은 전체 JSON 백업에 저장하세요.',
+  emptyCodePreserved:
+    '빈 코드 기록이 보존되어 있습니다. 새 예제를 불러오려면 ‘원본 코드로’를 선택하세요. 필기는 유지됩니다.',
   workspace: '실습 영역',
   practiceScreen: '실습 화면',
   sourceCode: '실행 코드',
@@ -113,7 +125,8 @@ const ko = {
   preparingEditor: '편집기와 언어 서비스를 준비하고 있습니다…',
   documentPractice: '문서 기반 실습',
   implementTask: '과제를 따라 직접 구현하는 단위입니다.',
-  documentPracticeHint: '상단의 순서와 학습 문서의 준비 환경을 확인해 별도 프로젝트에서 실습하세요. 이 단위에는 내장 실행 예제가 없습니다. 결과와 코드 파일 위치를 오른쪽 필기에 기록할 수 있습니다.',
+  documentPracticeHint:
+    '상단의 순서와 학습 문서의 준비 환경을 확인해 별도 프로젝트에서 실습하세요. 이 단위에는 내장 실행 예제가 없습니다. 결과와 코드 파일 위치를 오른쪽 필기에 기록할 수 있습니다.',
   editSourceCode: '실행 코드 편집',
   restoreOriginal: '원본 코드로',
   widenCode: '코드 넓게 보기',
@@ -126,9 +139,12 @@ const ko = {
   editorCaption: ' · Monaco · 600ms 후 검사·반영',
   documentImplementation: '문서 기반 직접 구현',
   loadingEditor: '코드 편집기 로딩 중…',
-  separateProjectHint: '이 단위는 별도 프로젝트에서 구현합니다. 준비 환경과 과제는 상단 학습 문서에서 확인하세요.',
-  mountHint: 'mount 함수가 실제로 실행됩니다. 원본 복원은 코드·언어를 되돌리고 필기를 유지합니다.',
-  separateCodeHint: '별도 프로젝트의 코드는 작업 폴더에서 보관하세요. Frontory에는 필기와 학습 상태를 저장합니다.',
+  separateProjectHint:
+    '이 단위는 별도 프로젝트에서 구현합니다. 준비 환경과 과제는 상단 학습 문서에서 확인하세요.',
+  mountHint:
+    'mount 함수가 실제로 실행됩니다. 원본 복원은 코드·언어를 되돌리고 필기를 유지합니다.',
+  separateCodeHint:
+    '별도 프로젝트의 코드는 작업 폴더에서 보관하세요. Frontory에는 필기와 학습 상태를 저장합니다.',
   downloadNotesTitle: '현재 단위의 필기를 Markdown 파일로 저장',
   downloadMarkdown: 'MD 다운로드',
   write: '작성',
@@ -136,13 +152,15 @@ const ko = {
   unitDay: '단위 {day}',
   notesHint: '예상 → 관찰 → 설명. 실제 결과는 직접 기록하세요.',
   exportRequested: '전체 {count}개 단위의 JSON 다운로드를 요청했습니다.',
-  exportWarnings: '저장소 읽기/쓰기 경고가 있는 단위 {count}개가 포함됩니다. 현재 탭에서 읽을 수 있는 내용으로 내보냈으므로 파일을 확인하고 이전 백업도 보관하세요.',
+  exportWarnings:
+    '저장소 읽기/쓰기 경고가 있는 단위 {count}개가 포함됩니다. 현재 탭에서 읽을 수 있는 내용으로 내보냈으므로 파일을 확인하고 이전 백업도 보관하세요.',
   exportFailed: '내보내기에 실패했습니다.',
   backupTooLarge: '파일은 10 MiB 이하여야 합니다.',
   importStopped: '가져오기 중단: {error}',
   fileReadFailed: '파일을 읽지 못했습니다.',
   restoreCompleted: '전체 학습 내용을 복원하고 저장된 목차로 이동했습니다.',
-  restoreFailed: '가져오기를 저장하지 못했습니다. 기존 내용은 유지됩니다. 브라우저 저장 권한·용량을 확인하고 다시 시도하세요.',
+  restoreFailed:
+    '가져오기를 저장하지 못했습니다. 기존 내용은 유지됩니다. 브라우저 저장 권한·용량을 확인하고 다시 시도하세요.',
   backup: '전체 학습 백업',
   exportJson: 'JSON 내보내기',
   importJson: 'JSON 가져오기',
@@ -150,9 +168,11 @@ const ko = {
   backupContents: '{count}개 목차 · 코드 · 필기 · 언어 · 학습 상태 · 현재 목차',
   checkingFile: '파일 검사 중…',
   backupDate: '백업 날짜: {date} · {count}개 단위',
-  legacyRestore: '기존 {count}개 단위만 교체하며 이후 추가된 단위의 기록은 유지합니다.',
+  legacyRestore:
+    '기존 {count}개 단위만 교체하며 이후 추가된 단위의 기록은 유지합니다.',
   replaceAll: '모든 시리즈의 코드·필기·학습 상태를 파일 내용으로 교체합니다.',
-  restoreHint: '복원 목차: {title}. 실행 예제가 있는 단위의 코드는 검사 후 실행됩니다. 필요하면 먼저 현재 내용을 내보내세요.',
+  restoreHint:
+    '복원 목차: {title}. 실행 예제가 있는 단위의 코드는 검사 후 실행됩니다. 필요하면 먼저 현재 내용을 내보내세요.',
   confirmRestore: '전체 교체하여 복원',
   learningDocument: '학습 문서',
   learningView: '학습 보기',
@@ -162,7 +182,8 @@ const ko = {
   currentUnitDocument: '현재 단위',
   roadmap: '전체 로드맵',
   usageAndStorage: '사용법과 저장 안내',
-  documentNotFound: '# 문서를 찾을 수 없습니다\n상단에서 현재 단위나 로드맵을 선택하세요.',
+  documentNotFound:
+    '# 문서를 찾을 수 없습니다\n상단에서 현재 단위나 로드맵을 선택하세요.',
   practiceGuide: '이번 실습, 이렇게 해보세요',
   collapseGuide: '안내 접기',
   expandGuide: '안내 펼치기',
@@ -170,13 +191,16 @@ const ko = {
   guideSteps: '01 · 따라 할 순서',
   guideFallback: '학습 문서의 실습 과제를 확인하세요.',
   guideObserve: '02 · 비교하고 기록하기',
-  observeHint: '한 번에 변수 하나만 바꾸세요. 변경 전 예상과 실행 후 실제 결과를 오른쪽 필기에 구분해 기록합니다.',
+  observeHint:
+    '한 번에 변수 하나만 바꾸세요. 변경 전 예상과 실행 후 실제 결과를 오른쪽 필기에 구분해 기록합니다.',
   guideComplete: '03 · 완료 전 확인',
   executionScope: '실행 범위',
   browserExecutionScope: '브라우저 내장 예제입니다.',
   externalExecutionScope: '미리보기와 별도 실행 과제를 함께 제공합니다.',
-  executableGuideHint: '입력을 멈추면 약 600ms 후 코드 검사·반영됩니다. 구문·타입 오류가 나면 마지막 정상 화면을 유지하므로 오류를 먼저 고치세요.',
-  documentGuideHint: '문서 기반 실습입니다. 상세 문서의 준비 환경에서 직접 구현하고 예상과 실제 결과를 필기에 남기세요. 내장 실행 예제는 제공하지 않습니다.',
+  executableGuideHint:
+    '입력을 멈추면 약 600ms 후 코드 검사·반영됩니다. 구문·타입 오류가 나면 마지막 정상 화면을 유지하므로 오류를 먼저 고치세요.',
+  documentGuideHint:
+    '문서 기반 실습입니다. 상세 문서의 준비 환경에서 직접 구현하고 예상과 실제 결과를 필기에 남기세요. 내장 실행 예제는 제공하지 않습니다.',
   readDetailedDocument: '개념·상세 문서 읽기',
   imagePlaceholder: '[이미지: {alt} — 외부 이미지는 자동 로드하지 않습니다]',
   noImageDescription: '설명 없음',
@@ -185,7 +209,8 @@ const ko = {
   editorErrorCount: '오류 {count}개 · 실행 보류',
   emitFailed: 'TypeScript 변환 결과를 생성하지 못했습니다.',
   codeCheckPassed: '문법·타입 검사 통과',
-  languageServiceError: '언어 서비스 오류: {error} · 다시 검사하려면 코드를 수정하세요.',
+  languageServiceError:
+    '언어 서비스 오류: {error} · 다시 검사하려면 코드를 수정하세요.',
   codeIssues: '코드 오류 목록',
   nextRunLocale: '예제 언어는 다음 실행이나 코드 수정 때 바뀝니다.',
   applyingCode: '검사된 코드 반영 중…',
@@ -196,10 +221,14 @@ const ko = {
   checkCode: '코드를 확인하세요',
   previewErrorHint: '편집기에서 수정하면 다시 실행됩니다. 필기는 유지됩니다.',
   controlsHint: '실습 화면의 입력·버튼과 예제 주석에서 조작 방법을 확인하세요.',
-  storageReadFailed: '저장된 내용을 읽을 수 없습니다. 손상된 데이터 또는 브라우저 저장 제한을 확인하세요. 기존 저장값은 삭제하지 않았습니다. 편집하면 해당 단위의 저장값을 새 내용으로 덮어씁니다.',
-  storageWriteFailed: '브라우저 저장에 실패했습니다. 현재 탭에서만 유지됩니다. 새로고침하거나 닫기 전에 필기를 다운로드하고 코드를 복사하세요.',
-  invalidBackup: 'Frontory v3 전체 백업, 기존 Frontory v2 또는 WebGL v1 백업 파일이 아닙니다.',
-  invalidBackupUnits: '학습 단위가 누락·중복되었거나 코드/필기 형식이 잘못되었습니다.',
+  storageReadFailed:
+    '저장된 내용을 읽을 수 없습니다. 손상된 데이터 또는 브라우저 저장 제한을 확인하세요. 기존 저장값은 삭제하지 않았습니다. 편집하면 해당 단위의 저장값을 새 내용으로 덮어씁니다.',
+  storageWriteFailed:
+    '브라우저 저장에 실패했습니다. 현재 탭에서만 유지됩니다. 새로고침하거나 닫기 전에 필기를 다운로드하고 코드를 복사하세요.',
+  invalidBackup:
+    'Frontory v3 전체 백업, 기존 Frontory v2 또는 WebGL v1 백업 파일이 아닙니다.',
+  invalidBackupUnits:
+    '학습 단위가 누락·중복되었거나 코드/필기 형식이 잘못되었습니다.',
   invalidSavedTime: '잘못된 저장 시간입니다.',
   missingMount: 'export function mount(...) 함수를 정의하세요.',
   missingCleanup: 'mount는 자원을 정리하는 함수를 반환해야 합니다.',
@@ -224,38 +253,52 @@ const en = {
   publicDocument: 'Public lesson document · shareable link',
   archive: 'Learning archive · export / import all JSON',
   preparingWorkspace: 'Preparing the practice workspace…',
-  footer: 'Frontory · Your work is saved in this browser. Download a JSON backup regularly.',
+  footer:
+    'Frontory · Your work is saved in this browser. Download a JSON backup regularly.',
   serviceNavigation: 'Service information',
   about: 'About and contact',
   privacy: 'Storage and privacy',
   heroTitle: 'Turn what you learn into things you build.',
-  heroDescription: 'Read the docs, change the code, and write it in your own words.',
+  heroDescription:
+    'Read the docs, change the code, and write it in your own words.',
   browseSeries: 'Browse series',
   startWithHtml: 'Start your first HTML practice',
   beginnerPathTitle: 'Start learning the web with HTML',
-  beginnerPathDescription: 'Explore the basics through HTML → CSS → JavaScript. Skip what you already know.',
-  beginnerPathNote: 'Start JavaScript when you understand HTML elements and events. You do not need to finish the full CSS series first.',
-  firstHtmlResult: 'Try the first HTML example in this browser, then continue the full task in a separate HTML file.',
+  beginnerPathDescription:
+    'Explore the basics through HTML → CSS → JavaScript. Skip what you already know.',
+  beginnerPathNote:
+    'Start JavaScript when you understand HTML elements and events. You do not need to finish the full CSS series first.',
+  firstHtmlResult:
+    'Try the first HTML example in this browser, then continue the full task in a separate HTML file.',
   openFirstUnit: 'Open first unit',
   firstUnitLabel: 'Open the first {title} unit',
-  catalogCount: { one: '{seriesCount} series · {unitCount} learning unit', other: '{seriesCount} series · {unitCount} learning units' },
+  catalogCount: {
+    one: '{seriesCount} series · {unitCount} learning unit',
+    other: '{seriesCount} series · {unitCount} learning units',
+  },
   learningMethod: 'How to learn with Frontory',
   readConcepts: 'Read concepts',
-  readConceptsDescription: 'Read the goals and concepts, then choose a question to explore in this practice.',
+  readConceptsDescription:
+    'Read the goals and concepts, then choose a question to explore in this practice.',
   experimentCode: 'Experiment with code',
-  experimentCodeDescription: 'Change running code and compare what you expected with what you see.',
+  experimentCodeDescription:
+    'Change running code and compare what you expected with what you see.',
   recordExperience: 'Record your experience',
-  recordExperienceDescription: 'Write what you learned in Markdown and back it up as JSON.',
+  recordExperienceDescription:
+    'Write what you learned in Markdown and back it up as JSON.',
   catalogTitle: 'What would you like to explore?',
-  catalogDescription: 'Check the prerequisites and choose a series in an area that interests you.',
+  catalogDescription:
+    'Check the prerequisites and choose a series in an area that interests you.',
   searchSeries: 'Search series',
   seriesCategory: 'Series categories',
   all: 'All',
   seriesCount: '{count} series',
   prerequisites: 'Prerequisites · {text}',
-  exampleCounts: 'Linked examples: {exampleCount} · document-based practice: {documentCount}',
+  exampleCounts:
+    'Linked examples: {exampleCount} · document-based practice: {documentCount}',
   externalTestExample: 'Test examples for a separate environment',
-  storageNeedsCheck: 'Your saved work needs attention. Check the notice in the learning workspace.',
+  storageNeedsCheck:
+    'Your saved work needs attention. Check the notice in the learning workspace.',
   unitCount: { one: '{count} unit', other: '{count} units' },
   completedCount: '{count} completed',
   continueLearning: 'Continue',
@@ -272,15 +315,24 @@ const en = {
   close: 'Close · Esc',
   searchPlaceholder: 'React, Canvas, WebGPU…',
   categoryFilter: 'Category filter',
-  seriesSummary: '{count} series · currently published English units · linked examples and document-based implementation tasks are marked separately.',
-  seriesCompletion: { one: '{total} unit · {completed} completed', other: '{total} units · {completed} completed' },
+  seriesSummary:
+    '{count} series · currently published English units · linked examples and document-based implementation tasks are marked separately.',
+  seriesCompletion: {
+    one: '{total} unit · {completed} completed',
+    other: '{total} units · {completed} completed',
+  },
   completionLabel: '{title} completion',
   prerequisiteShort: 'Prerequisites: {text}',
   externalTestSource: 'Test source for a separate environment',
-  linkedExampleCount: { one: '{count} linked example', other: '{count} linked examples' },
-  noSeriesSuggestion: 'No matching series. Try a different search term or category.',
+  linkedExampleCount: {
+    one: '{count} linked example',
+    other: '{count} linked examples',
+  },
+  noSeriesSuggestion:
+    'No matching series. Try a different search term or category.',
   learningJourney: 'Learning journey',
-  webglJourney: 'A 28-step learning journey from scenes to an integrated viewer',
+  webglJourney:
+    'A 28-step learning journey from scenes to an integrated viewer',
   seriesJourney: 'Prerequisites: {text} · available English units',
   browseSeriesCount: 'Browse series · {count}',
   seriesPlan: 'Series learning plan',
@@ -307,16 +359,22 @@ const en = {
   invalidCode: 'Syntax or type error · keeping the last working scene',
   learningStatus: 'Learning status',
   myLearningStatus: 'My learning status',
-  markCompletion: 'Check the completion criteria and mark your progress yourself.',
+  markCompletion:
+    'Check the completion criteria and mark your progress yourself.',
   saveNeedsCheck: 'Check saved work',
   savedAt: 'Saved in this browser · {time}',
   originalExample: 'Original example · edits are saved automatically',
-  localStorageHint: 'Saved only in this browser · back up your notes as Markdown.',
+  localStorageHint:
+    'Saved only in this browser · back up your notes as Markdown.',
   retrySave: 'Retry saving',
-  downloadExampleFiles: 'Download example files · run in a separate environment',
-  downloadEnglishReadingSource: 'Download source with English comments · for reading',
-  originalFilesHint: 'These files are the original examples. Save editor changes in a full JSON backup.',
-  emptyCodePreserved: 'Your empty code record is preserved. Select “Restore original code” to load the example. Your notes will be kept.',
+  downloadExampleFiles:
+    'Download example files · run in a separate environment',
+  downloadEnglishReadingSource:
+    'Download source with English comments · for reading',
+  originalFilesHint:
+    'These files are the original examples. Save editor changes in a full JSON backup.',
+  emptyCodePreserved:
+    'Your empty code record is preserved. Select “Restore original code” to load the example. Your notes will be kept.',
   workspace: 'Practice workspace',
   practiceScreen: 'Practice screen',
   sourceCode: 'Source code',
@@ -326,46 +384,72 @@ const en = {
   preparingEditor: 'Preparing the editor and language service…',
   documentPractice: 'Document-based practice',
   implementTask: 'Implement this unit yourself by following the tasks.',
-  documentPracticeHint: 'Follow the steps above and the setup in the lesson document in a separate project. This unit has no built-in runnable example. Record your results and code file locations in the notes on the right.',
+  documentPracticeHint:
+    'Follow the steps above and the setup in the lesson document in a separate project. This unit has no built-in runnable example. Record your results and code file locations in the notes on the right.',
   editSourceCode: 'Edit source code',
   restoreOriginal: 'Restore original code',
   widenCode: 'Widen code',
   showAllPanels: 'Show all practice panels',
   wrapLines: 'Wrap lines',
-  resetConfirmation: 'Restore the original JavaScript code. Your notes will be kept.',
+  resetConfirmation:
+    'Restore the original JavaScript code. Your notes will be kept.',
   resetCodeOnly: 'Restore code only',
   cancel: 'Cancel',
   codeLanguage: 'Language ',
   editorCaption: ' · Monaco · checks and applies after 600ms',
   documentImplementation: 'Document-based implementation',
   loadingEditor: 'Loading the code editor…',
-  separateProjectHint: 'Implement this unit in a separate project. See the lesson document above for setup and tasks.',
-  mountHint: 'The mount function actually runs. Restoring the original resets the code and code language while keeping your notes.',
-  separateCodeHint: 'Keep code for separate projects in your working folder. Frontory saves your notes and learning status.',
+  separateProjectHint:
+    'Implement this unit in a separate project. See the lesson document above for setup and tasks.',
+  mountHint:
+    'The mount function actually runs. Restoring the original resets the code and code language while keeping your notes.',
+  separateCodeHint:
+    'Keep code for separate projects in your working folder. Frontory saves your notes and learning status.',
   downloadNotesTitle: 'Save this unit’s notes as a Markdown file',
   downloadMarkdown: 'Download MD',
   write: 'Write',
   preview: 'Preview',
   unitDay: 'Unit {day}',
   notesHint: 'Predict → observe → explain. Record the actual results yourself.',
-  exportRequested: { one: 'Requested a JSON download of all {count} unit.', other: 'Requested a JSON download of all {count} units.' },
-  exportWarnings: { one: 'Includes {count} unit with storage read/write warnings. Only content readable in this tab was exported. Check the file and keep earlier backups.', other: 'Includes {count} units with storage read/write warnings. Only content readable in this tab was exported. Check the file and keep earlier backups.' },
+  exportRequested: {
+    one: 'Requested a JSON download of all {count} unit.',
+    other: 'Requested a JSON download of all {count} units.',
+  },
+  exportWarnings: {
+    one: 'Includes {count} unit with storage read/write warnings. Only content readable in this tab was exported. Check the file and keep earlier backups.',
+    other:
+      'Includes {count} units with storage read/write warnings. Only content readable in this tab was exported. Check the file and keep earlier backups.',
+  },
   exportFailed: 'Export failed.',
   backupTooLarge: 'The file must be 10 MiB or smaller.',
   importStopped: 'Import stopped: {error}',
   fileReadFailed: 'Could not read the file.',
   restoreCompleted: 'Restored all learning data and opened the saved unit.',
-  restoreFailed: 'Could not save the imported data. Existing content is preserved. Check browser storage permissions and available space, then try again.',
+  restoreFailed:
+    'Could not save the imported data. Existing content is preserved. Check browser storage permissions and available space, then try again.',
   backup: 'Full learning backup',
   exportJson: 'Export JSON',
   importJson: 'Import JSON',
   backupFile: 'Learning backup JSON file',
-  backupContents: { one: '{count} entry · code · notes · code language · learning status · current unit', other: '{count} entries · code · notes · code language · learning status · current unit' },
+  backupContents: {
+    one: '{count} entry · code · notes · code language · learning status · current unit',
+    other:
+      '{count} entries · code · notes · code language · learning status · current unit',
+  },
   checkingFile: 'Checking file…',
-  backupDate: { one: 'Backup date: {date} · {count} unit', other: 'Backup date: {date} · {count} units' },
-  legacyRestore: { one: 'Only the original {count} unit will be replaced. Records for units added later will be kept.', other: 'Only the original {count} units will be replaced. Records for units added later will be kept.' },
-  replaceAll: 'Replace code, notes, and learning status for every series with the file contents.',
-  restoreHint: 'Restored unit: {title}. Code in units with runnable examples will run after checking. Export your current work first if needed.',
+  backupDate: {
+    one: 'Backup date: {date} · {count} unit',
+    other: 'Backup date: {date} · {count} units',
+  },
+  legacyRestore: {
+    one: 'Only the original {count} unit will be replaced. Records for units added later will be kept.',
+    other:
+      'Only the original {count} units will be replaced. Records for units added later will be kept.',
+  },
+  replaceAll:
+    'Replace code, notes, and learning status for every series with the file contents.',
+  restoreHint:
+    'Restored unit: {title}. Code in units with runnable examples will run after checking. Export your current work first if needed.',
   confirmRestore: 'Replace all and restore',
   learningDocument: 'Lesson document',
   learningView: 'Learning view',
@@ -375,7 +459,8 @@ const en = {
   currentUnitDocument: 'Current unit',
   roadmap: 'Full roadmap',
   usageAndStorage: 'Usage and storage guide',
-  documentNotFound: '# Document not found\nSelect the current unit or roadmap above.',
+  documentNotFound:
+    '# Document not found\nSelect the current unit or roadmap above.',
   practiceGuide: 'How to approach this practice',
   collapseGuide: 'Collapse guide',
   expandGuide: 'Expand guide',
@@ -383,24 +468,34 @@ const en = {
   guideSteps: '01 · Steps to follow',
   guideFallback: 'Check the practice tasks in the lesson document.',
   guideObserve: '02 · Compare and record',
-  observeHint: 'Change one variable at a time. Record your prediction before the change and the actual result after running in the notes on the right.',
+  observeHint:
+    'Change one variable at a time. Record your prediction before the change and the actual result after running in the notes on the right.',
   guideComplete: '03 · Before you finish',
   executionScope: 'Execution scope',
   browserExecutionScope: 'Built-in browser example.',
-  externalExecutionScope: 'Includes a preview and tasks for separate execution.',
-  executableGuideHint: 'Code is checked and applied about 600ms after you stop typing. Syntax or type errors keep the last working screen, so fix errors first.',
-  documentGuideHint: 'This is document-based practice. Implement it in the environment described in the detailed document, and record predicted and actual results in your notes. No built-in runnable example is provided.',
+  externalExecutionScope:
+    'Includes a preview and tasks for separate execution.',
+  executableGuideHint:
+    'Code is checked and applied about 600ms after you stop typing. Syntax or type errors keep the last working screen, so fix errors first.',
+  documentGuideHint:
+    'This is document-based practice. Implement it in the environment described in the detailed document, and record predicted and actual results in your notes. No built-in runnable example is provided.',
   readDetailedDocument: 'Read concepts and detailed docs',
-  imagePlaceholder: '[Image: {alt} — external images are not loaded automatically]',
+  imagePlaceholder:
+    '[Image: {alt} — external images are not loaded automatically]',
   noImageDescription: 'No description',
   preparingLanguageService: 'Preparing language service…',
   waitingForCheck: 'Waiting to check · 600ms',
-  editorErrorCount: { one: '{count} error · execution paused', other: '{count} errors · execution paused' },
+  editorErrorCount: {
+    one: '{count} error · execution paused',
+    other: '{count} errors · execution paused',
+  },
   emitFailed: 'Could not generate the TypeScript output.',
   codeCheckPassed: 'Syntax and type checks passed',
-  languageServiceError: 'Language service error: {error} · edit the code to check again.',
+  languageServiceError:
+    'Language service error: {error} · edit the code to check again.',
   codeIssues: 'Code errors',
-  nextRunLocale: 'The example language will change the next time you run or edit the code.',
+  nextRunLocale:
+    'The example language will change the next time you run or edit the code.',
   applyingCode: 'Applying checked code…',
   running: 'Running',
   runtimeError: 'Runtime error',
@@ -409,10 +504,14 @@ const en = {
   checkCode: 'Check your code',
   previewErrorHint: 'Edit the code to run it again. Your notes will be kept.',
   controlsHint: 'Check the inputs, buttons, and example comments for controls.',
-  storageReadFailed: 'Could not read saved content. Check for damaged data or browser storage restrictions. Existing stored values were not deleted. Editing will overwrite this unit’s saved value with new content.',
-  storageWriteFailed: 'Could not save to browser storage. Your work is kept only in this tab. Download your notes and copy your code before reloading or closing.',
-  invalidBackup: 'This is not a Frontory v3 full backup, a legacy Frontory v2 backup, or a WebGL v1 backup file.',
-  invalidBackupUnits: 'Learning units are missing or duplicated, or the code/notes format is invalid.',
+  storageReadFailed:
+    'Could not read saved content. Check for damaged data or browser storage restrictions. Existing stored values were not deleted. Editing will overwrite this unit’s saved value with new content.',
+  storageWriteFailed:
+    'Could not save to browser storage. Your work is kept only in this tab. Download your notes and copy your code before reloading or closing.',
+  invalidBackup:
+    'This is not a Frontory v3 full backup, a legacy Frontory v2 backup, or a WebGL v1 backup file.',
+  invalidBackupUnits:
+    'Learning units are missing or duplicated, or the code/notes format is invalid.',
   invalidSavedTime: 'Invalid saved time.',
   missingMount: 'Define an export function mount(...) function.',
   missingCleanup: 'mount must return a function that cleans up resources.',
@@ -427,37 +526,83 @@ const en = {
 
 export const messages = { ko, en }
 
-type Placeholders<Text extends string> = Text extends `${string}{${infer Name}}${infer Rest}` ? Name | Placeholders<Rest> : never
-type NumericParam = 'count' | 'seriesCount' | 'unitCount' | 'exampleCount' | 'documentCount' | 'total' | 'completed' | 'index' | 'percent'
+type Placeholders<Text extends string> =
+  Text extends `${string}{${infer Name}}${infer Rest}`
+    ? Name | Placeholders<Rest>
+    : never
+type NumericParam =
+  | 'count'
+  | 'seriesCount'
+  | 'unitCount'
+  | 'exampleCount'
+  | 'documentCount'
+  | 'total'
+  | 'completed'
+  | 'index'
+  | 'percent'
 export type MessageParams = {
   [Key in keyof typeof ko]: [Placeholders<(typeof ko)[Key]>] extends [never]
     ? Record<string, never>
-    : { [Name in Placeholders<(typeof ko)[Key]>]: Name extends NumericParam ? number : string }
+    : {
+        [Name in Placeholders<(typeof ko)[Key]>]: Name extends NumericParam
+          ? number
+          : string
+      }
 }
 
-export function message<Key extends keyof MessageParams>(locale: Locale, key: Key, params: MessageParams[Key]): string {
+export function message<Key extends keyof MessageParams>(
+  locale: Locale,
+  key: Key,
+  params: MessageParams[Key],
+): string {
   const template: Template = messages[locale][key]
   const values = params as Record<string, string | number>
-  const text = typeof template === 'string' ? template : (values.count ?? values.unitCount ?? values.total) === 1 ? template.one : template.other
+  const text =
+    typeof template === 'string'
+      ? template
+      : (values.count ?? values.unitCount ?? values.total) === 1
+        ? template.one
+        : template.other
   return text.replace(/\{(\w+)\}/g, (_, name: string) => String(values[name]))
 }
 
 export const headings = {
   ko: {
-    tasks: '실습 과제', variables: '관찰할 변수', criteria: '완료 조건',
-    notes: '실험 기록', goal: '목표', concepts: '핵심 개념', prediction: '바꾼 변수와 예상',
-    result: '실제 결과', learning: '배운 점', questions: '남은 질문',
+    tasks: '실습 과제',
+    variables: '관찰할 변수',
+    criteria: '완료 조건',
+    notes: '실험 기록',
+    goal: '목표',
+    concepts: '핵심 개념',
+    prediction: '바꾼 변수와 예상',
+    result: '실제 결과',
+    learning: '배운 점',
+    questions: '남은 질문',
   },
   en: {
-    tasks: 'Practice tasks', variables: 'Variables to observe', criteria: 'Completion criteria',
-    notes: 'Experiment notes', goal: 'Goal', concepts: 'Key concepts', prediction: 'Changed variables and predictions',
-    result: 'Actual results', learning: 'What I learned', questions: 'Remaining questions',
+    tasks: 'Practice tasks',
+    variables: 'Variables to observe',
+    criteria: 'Completion criteria',
+    notes: 'Experiment notes',
+    goal: 'Goal',
+    concepts: 'Key concepts',
+    prediction: 'Changed variables and predictions',
+    result: 'Actual results',
+    learning: 'What I learned',
+    questions: 'Remaining questions',
   },
 } as const
 
 const categoriesFor = (locale: Locale): Record<string, string> => ({
-  fundamentals: messages[locale].categoryFundamentals, frameworks: messages[locale].categoryFrameworks,
-  graphics: messages[locale].categoryGraphics, shader: messages[locale].categoryShader,
-  animation: messages[locale].categoryAnimation, engineering: messages[locale].categoryEngineering, testing: messages[locale].categoryTesting,
+  fundamentals: messages[locale].categoryFundamentals,
+  frameworks: messages[locale].categoryFrameworks,
+  graphics: messages[locale].categoryGraphics,
+  shader: messages[locale].categoryShader,
+  animation: messages[locale].categoryAnimation,
+  engineering: messages[locale].categoryEngineering,
+  testing: messages[locale].categoryTesting,
 })
-export const categoryLabels = { ko: categoriesFor('ko'), en: categoriesFor('en') }
+export const categoryLabels = {
+  ko: categoriesFor('ko'),
+  en: categoriesFor('en'),
+}

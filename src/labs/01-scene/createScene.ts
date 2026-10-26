@@ -30,7 +30,10 @@ export function createScene(container: HTMLElement): SceneController {
   camera.position.set(3, 2, 5)
 
   const geometry = new BoxGeometry(1, 1, 1)
-  const material = new MeshStandardMaterial({ color: '#3179bf', roughness: 0.55 })
+  const material = new MeshStandardMaterial({
+    color: '#3179bf',
+    roughness: 0.55,
+  })
   const cube = new Mesh(geometry, material)
   scene.add(cube)
 
@@ -77,7 +80,8 @@ export function createScene(container: HTMLElement): SceneController {
   let disposed = false
   renderer.setAnimationLoop((time) => {
     // 탭 복귀 때 과도하게 회전하지 않도록 시간 간격을 제한합니다.
-    const delta = lastTime === undefined ? 0 : Math.min((time - lastTime) / 1000, 0.1)
+    const delta =
+      lastTime === undefined ? 0 : Math.min((time - lastTime) / 1000, 0.1)
     lastTime = time
     if (!paused) {
       cube.rotation.x += delta * 0.3
@@ -110,7 +114,9 @@ export function createScene(container: HTMLElement): SceneController {
       grid.geometry.dispose()
       axes.geometry.dispose()
       for (const helper of [grid, axes]) {
-        const materials = Array.isArray(helper.material) ? helper.material : [helper.material]
+        const materials = Array.isArray(helper.material)
+          ? helper.material
+          : [helper.material]
         materials.forEach((helperMaterial) => helperMaterial.dispose())
       }
       scene.clear()

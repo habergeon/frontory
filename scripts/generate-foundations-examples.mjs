@@ -1,274 +1,1231 @@
 import { writeCompanionGuidance } from './companion-guidance.mjs'
-import { localizeExampleSource, writeGeneratedFile } from './example-presentation.mjs';
-import fs from 'node:fs';
-import path from 'node:path';
-const presentations=JSON.parse(fs.readFileSync('content/example-presentations.json','utf8'));
-const specs={javascript:{},typescript:{},html:{},css:{}};
-const add=(s,n,input,body,note='')=>specs[s][n]={input,body,note};
-add('javascript',2,['15','','15px','-1'],`return input.map(raw=>{const value=Number(raw);return {raw,type:typeof raw,ok:raw.trim()!==''&&Number.isFinite(value)&&value>=0,value};});`);
-add('javascript',3,[0,'',null],"const values=[...input,undefined];const a={x:1},b={x:1};return {defaults:values.map(value=>({value:String(value),or:value||10,nullish:value??10})),sameReference:a===a,sameContent:a===b};");
-add('javascript',4,['idle','running','done',null,'paused'],"function describe(status){if(typeof status!=='string')return {ok:false,message:messages.display06};switch(status){case 'idle':return {ok:true,message:messages.display07};case 'running':return {ok:true,message:messages.display08};case 'done':return {ok:true,message:messages.display09};default:return {ok:false,message:messages.display05+status};}}return input.map(describe);");
-add('javascript',5,[[0,0],[1,4],[4,4]],"const score=(done,total)=>total===0?0:done/total*100;return input.map(([done,total])=>({done,total,percent:score(done,total),finite:Number.isFinite(score(done,total))}));");
-add('javascript',6,{shared:false,clicks:['A','A','B']},"let shared=0;function createCounter(){let count=0;return {increment(){input.shared?shared++:count++},read(){return input.shared?shared:count}}}const counters={A:createCounter(),B:createCounter()};input.clicks.forEach(key=>counters[key].increment());return {A:counters.A.read(),B:counters.B.read()};");
-add('javascript',7,{topic:'css',notes:[{title:'Grid',topic:'css',minutes:20},{title:'Map',topic:'js',minutes:10},{title:'Flex',topic:'css',minutes:15},{title:'DOM',topic:'js',minutes:25},{title:'Color',topic:'css',minutes:5}]},"const before=JSON.stringify(input.notes);const selected=input.notes.filter(n=>n.topic===input.topic);return {titles:selected.map(n=>n.title),minutes:selected.reduce((sum,n)=>sum+n.minutes,0),originalPreserved:before===JSON.stringify(input.notes)};");
-add('javascript',8,[{name:'민수',contact:{email:'test@example.com'}},{name:'수진'},{}],"return input.map(author=>{const {name}=author;return {ok:typeof name==='string'&&name.trim()!=='',name,email:author.contact?.email??messages.display05};});");
-add('javascript',9,{tags:['js','css','js','html','css','js'],key:2},"const map=new Map([[1,'one'],[2,'two'],[3,'three']]);map.set(input.key,'updated');return {tags:[...new Set(input.tags)],before:input.tags.length,after:new Set(input.tags).size,map:[...map],missing:map.get(99)??'not found'};");
-add('javascript',10,['{"title":"ok"}','{"title":'],"return input.map(raw=>{let busy=true;let result;try{result={ok:true,value:JSON.parse(raw)}}catch(error){result={ok:false,error:String(error)}}finally{busy=false}return {...result,busy};});");
-add('javascript',11,['normal','<img src=x onerror=alert(1)>'],"stage.replaceChildren();const list=document.createElement('ul'),fragment=document.createDocumentFragment();input.forEach(title=>{const item=document.createElement('li');item.textContent=title;fragment.append(item)});list.append(fragment);stage.append(list);return {count:list.children.length,injectedImages:list.querySelectorAll('img').length,markup:list.innerHTML};");
-add('javascript',12,['Alpha','Beta','Gamma'],"stage.replaceChildren();const list=document.createElement('ul');input.forEach(title=>{const li=document.createElement('li'),button=document.createElement('button'),span=document.createElement('span');span.textContent=title+messages.display06;button.dataset.action='remove';button.append(span);li.append(button);list.append(li)});list.onclick=event=>{const target=event.target;if(!(target instanceof Element))return;const button=target.closest('[data-action=\"remove\"]');if(button&&list.contains(button))button.closest('li')?.remove();};stage.append(list);return messages.display05;");
-add('javascript',13,{returnPromise:true},"const events=['sync'];let innerPromise;const inner=()=>innerPromise=new Promise(resolve=>later(()=>{events.push('inner');resolve(null)},30));const chain=Promise.resolve().then(()=>{if(input.returnPromise)return inner();inner();}).then(()=>events.push('chain done'));events.push('sync end');await chain;await new Promise(resolve=>later(resolve,0));events.push('timer');await innerPromise;return events;");
-add('javascript',15,{missing:false},"const response=new Response(input.missing?'Not found':'[{\"title\":\"local fixture\"}]',{status:input.missing?404:200});if(!response.ok)throw new Error('HTTP '+response.status);return {status:response.status,notes:await response.json()};",'미리보기 네트워크 제한 때문에 실제 Response 객체의 200/404 fixture를 실행합니다. fetch·HTTP 요청은 로컬 서버에서 검사하세요.');
-add('javascript',16,{reject:1},"const jobs=[40,10,25].map((delay,index)=>new Promise((resolve,reject)=>later(()=>index===input.reject?reject(new Error('failed '+index)):resolve(index),delay)));const settled=await Promise.allSettled(jobs);let all;try{all=await Promise.all(jobs)}catch(error){all=String(error)}return {all,settled:settled.map(r=>r.status==='fulfilled'?r:{status:r.status,reason:String(r.reason)})};");
-add('javascript',17,{delay:300,query:'grid'},"stage.replaceChildren();const field=document.createElement('input');field.value=input.query;const result=document.createElement('output');let pending;field.oninput=()=>{clearTimeout(pending);pending=later(()=>{result.textContent=messages.display06+field.value},input.delay)};stage.append(field,result);field.dispatchEvent(new Event('input'));return messages.display05+input.delay+messages.display07;");
-add('javascript',18,{missing:false},"const url=URL.createObjectURL(new Blob(['const state={count:0}; export const increment=()=>++state.count; export const read=()=>state.count;'],{type:'text/javascript'}));try{const module=await import(input.missing?'./missing.js':url);return {publicKeys:Object.keys(module),first:module.increment(),second:module.increment(),read:module.read(),privateStateVisible:'state' in module};}finally{URL.revokeObjectURL(url)}",'Blob ES 모듈의 공개 경계를 실행합니다. 실제 상대 파일 분리와 Network 경로 검증은 HTTP 프로젝트에서 수행하세요.');
-add('javascript',19,{raw:'[{"title":"saved"}]',simulateWriteFailure:false},"const key='frontory-javascript-step-19';try{if(input.simulateWriteFailure)throw new DOMException('실험용 쓰기 실패','QuotaExceededError');localStorage.setItem(key,input.raw);return {restored:JSON.parse(localStorage.getItem(key)||'null')}}catch(error){return {error:String(error)}}finally{localStorage.removeItem(key)}",'실습 전용 키는 실행 후 제거됩니다. iframe 저장소 정책에 따른 SecurityError도 표시합니다.');
-add('javascript',20,{topic:'한글과 공백',base:'https://example.test/notes?topic=css'},"const url=new URL(input.base);const before=url.href;url.searchParams.set('topic',input.topic);return {before,after:url.href,restored:new URL(url.href).searchParams.get('topic')};",'URLSearchParams 인코딩 왕복을 실행합니다. 실제 주소 표시줄 및 popstate 뒤로 가기 검증은 별도 HTTP 페이지에서 진행하세요.');
-add('javascript',21,{title:'Grid',minutes:'15',done:true},"stage.replaceChildren();const form=document.createElement('form');form.innerHTML=(\"<label>\"+messages.display06+\"<input name=\\\"title\\\"></label><label>\"+messages.display08+\"<input name=\\\"minutes\\\"></label><label>\"+messages.display07+\"<input name=\\\"done\\\" type=\\\"checkbox\\\"></label><button>\"+messages.display09+\"</button>\");/** @type {HTMLInputElement} */(form.querySelector('input[name=title]')).value=input.title;/** @type {HTMLInputElement} */(form.querySelector('input[name=minutes]')).value=input.minutes;/** @type {HTMLInputElement} */(form.querySelector('input[name=done]')).checked=input.done;form.onsubmit=event=>{event.preventDefault();const data=new FormData(form),title=String(data.get('title')).trim(),raw=String(data.get('minutes')),minutes=Number(raw);show({ok:!!title&&raw.trim()!==''&&Number.isFinite(minutes)&&minutes>=0,title,minutes,done:data.has('done')})};stage.append(form);return messages.display05;");
-add('javascript',22,{notes:[{id:1,title:'한글\n줄바꿈'}]},"const blob=new Blob([JSON.stringify({schemaVersion:1,notes:input.notes},null,2)],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob);urls.push(url);stage.replaceChildren();const a=document.createElement('a');a.href=url;a.download='notes.json';a.textContent=messages.display05;stage.append(a);return {bytes:blob.size,roundTrip:JSON.parse(await blob.text())};");
-add('javascript',23,[{id:1,title:'valid'},{id:2,title:42}],"const validate=notes=>Array.isArray(notes)&&notes.every(n=>n&&typeof n.id==='number'&&typeof n.title==='string');stage.replaceChildren();const file=document.createElement('input');file.type='file';file.accept='.json,application/json';file.onchange=async()=>{try{const text=await file.files?.[0]?.text();if(text){const data=JSON.parse(text);show({accepted:!!data&&typeof data==='object'&&!Array.isArray(data)&&data.schemaVersion===1&&validate(data.notes)})}}catch(error){show({error:String(error)})}};stage.append(file);return {accepted:validate(input),committed:validate(input)?input:[],policy:messages.display05};");
-add('javascript',24,{mutate:false},"let state=[{id:1,done:false}],history=[state];state=input.mutate?(state[0].done=true,state):state.map(n=>({...n,done:!n.done}));const after=state;state=history.pop();return {after,undo:state,undoSucceeded:state[0].done===false};");
-add('javascript',25,{iso:'2026-01-01T00:00:00Z',zones:['UTC','Asia/Seoul']},"const date=new Date(input.iso);return {stored:date.toISOString(),display:input.zones.map(timeZone=>({timeZone,text:new Intl.DateTimeFormat('ko-KR',{timeZone,dateStyle:'full',timeStyle:'long'}).format(date)}))};");
-add('javascript',26,{count:10000,batch:500},"if(!Number.isInteger(input.batch)||input.batch<1||input.count<0||input.count>1000000)throw new Error('batch >= 1, count 0..1000000');let hits=0,yields=0;const started=performance.now();stage.replaceChildren();const button=document.createElement('button');button.textContent=messages.display06;button.onclick=()=>button.textContent=messages.display05;stage.append(button);for(let start=0;start<input.count;start+=input.batch){for(let i=start;i<Math.min(start+input.batch,input.count);i++)if(('record '+i).includes('5'))hits++;await new Promise(resolve=>later(resolve,0));yields++}return {hits,yields,milliseconds:performance.now()-started};",'시간은 현재 기기의 관찰값이며 성능 우열을 단정하지 않습니다. count와 batch를 같은 조건으로 비교하세요.');
-add('javascript',27,{mounts:5},"const target=new EventTarget();let calls=0,disposed=0;const mount=()=>{const handler=()=>calls++;target.addEventListener('ping',handler);const controller=new AbortController();return ()=>{target.removeEventListener('ping',handler);controller.abort();disposed++}};for(let i=0;i<input.mounts;i++){const dispose=mount();dispose()}const dispose=mount();target.dispatchEvent(new Event('ping'));dispose();target.dispatchEvent(new Event('ping'));return {calls,disposed,expectedCalls:1};");
-const ts={
-2:['function double(value: number): number { return value * 2 }\nconst result = double(3);',{value:3},"return {value:input.value,result:typeof input.value==='number'?input.value*2:'runtime rejected'};"],
-3:['const mode = "idle";\nfunction start(mode: "idle" | "running") { return mode }\nstart(mode);\nlet widened = "idle";\n// @ts-expect-error widened string is not a state\nstart(widened);',{mode:'idle'},"return {accepted:['idle','running'].includes(input.mode),mode:input.mode};"],
-4:['interface Note { id: number; title: string; tag?: string }\nconst good: Note = {id:1,title:"A"};\n// @ts-expect-error misspelled required field\nconst bad: Note = {id:1,titel:"A"};',{id:1,title:'A'},"return {accepted:typeof input.id==='number'&&typeof input.title==='string',optionalTag:input.tag??'absent'};"],
-5:['type Point = [x:number, y:number];\nconst point: Point = [10,20];\n// @ts-expect-error tuple requires two elements\nconst bad: Point = [10];',[10,20],"return {accepted:Array.isArray(input)&&input.length===2&&input.every(v=>typeof v==='number'),x:input[0],y:input[1],swapped:[input[1],input[0]],note:messages.display003};"],
-6:['function title(note: {title:string}): string { return note.title.trim() }\nfunction visit(items: string[], callback:(value:string)=>void): void { items.forEach(callback) }',{title:'  Grid  '},"return {result:typeof input.title==='string'?input.title.trim():null,returnType:'string or validation failure'};"],
-7:['function length(value:unknown):number { return typeof value === "string" ? value.length : 0 }',['hello',null,42],"return input.map(value=>({value,length:typeof value==='string'?value.length:0}));"],
-8:['type State = {status:"idle"}|{status:"loading"}|{status:"done";value:string}|{status:"error";message:string};\nfunction text(s:State):string { return s.status==="done" ? s.value : s.status==="error" ? s.message : s.status }',{status:'idle',event:'resolve'},"const allowed=input.status==='loading'&&input.event==='resolve';return {accepted:allowed,next:allowed?{status:'done',value:'loaded'}:input.status};"],
-9:['type State = "idle"|"loading"|"done";\nfunction assertNever(x:never):never { throw new Error(String(x)) }\nfunction label(s:State):string { switch(s){case "idle":return "대기";case "loading":return "진행";case "done":return "완료";default:return assertNever(s)} }',{status:'cancelled'},"switch(input.status){case 'idle':return messages.display005;case 'loading':return messages.display006;case 'done':return messages.display007;default:throw new Error('Unhandled: '+input.status)}"],
-10:['type Note = {readonly id:number; readonly done:boolean};\nfunction toggle(notes:readonly Note[]):Note[] { return notes.map(n=>({...n,done:!n.done})) }',[{id:1,done:false}],"const before=JSON.stringify(input);const updated=input.map(n=>({...n,done:!n.done}));return {updated,originalPreserved:before===JSON.stringify(input),frozen:Object.isFrozen(input),note:messages.display003};"],
-11:['function getProperty<T,K extends keyof T>(object:T,key:K):T[K] { return object[key] }\nconst note={title:"A",done:false};\ngetProperty(note,"title");\n// @ts-expect-error missing key\ngetProperty(note,"missing");',{key:'title'},"const note={title:'A',done:false};return {exists:Object.hasOwn(note,input.key),value:note[input.key]??'missing'};"],
-12:['function first<T>(items:T[]):T|undefined { return items[0] }\nfunction mapValues<T,U>(items:T[],fn:(v:T)=>U):U[] { return items.map(fn) }',['a','b'],"return {first:input[0]??'undefined',mapped:input.map(value=>String(value).toUpperCase()),length:input.length};"],
-13:['function index<T extends {id:number}>(items:T[]):Map<number,T> { return new Map(items.map(item=>[item.id,item])) }\n// @ts-expect-error id required\nindex([{title:"A"}]);',[{id:1,title:'A'}],"if(!input.every(v=>typeof v.id==='number'))throw new Error('id required');return [...new Map(input.map(v=>[v.id,v]))];"],
-15:['type Note={id:number;title:string};\nfunction isNote(v:unknown):v is Note { return typeof v==="object" && v!==null && "id" in v && typeof v.id==="number" && "title" in v && typeof v.title==="string" }',[null,{title:'A'},{id:1,title:2},{id:1,title:'A'}],"return input.map(v=>({value:v,accepted:!!v&&typeof v==='object'&&typeof v.id==='number'&&typeof v.title==='string'}));"],
-16:['type Result<T,E>={ok:true;value:T}|{ok:false;error:E};\nfunction parse(raw:string):Result<unknown,string> { try{return {ok:true,value:JSON.parse(raw)}}catch{return {ok:false,error:"syntax"}} }',{raw:'{"id":1,"title":42}'},"try{const value=JSON.parse(input.raw);return value&&typeof value.id==='number'&&typeof value.title==='string'?{ok:true,value}:{ok:false,error:'structure'}}catch{return {ok:false,error:'syntax'}}"],
-17:['type Note={id:number;title:string;done:boolean};\ntype Patch=Partial<Omit<Note,"id">>;\ntype Summary=Pick<Note,"id"|"title">;\nfunction apply(note:Note,patch:Patch):Note { return {...note,...patch} }',{patch:{title:'Updated'}},"const note={id:1,title:'A',done:false};const keys=Object.keys(input.patch);return {accepted:keys.every(k=>['title','done'].includes(k)),result:keys.every(k=>['title','done'].includes(k))?{...note,...input.patch}:note};"],
-18:['type Theme={foreground:string;background:string};\nconst theme={foreground:"#111",background:"#fff"} as const satisfies Theme;\n// @ts-expect-error misspelled foreground\nconst bad={foregound:"#111",background:"#fff"} satisfies Theme;',{foreground:'#111',background:'#fff'},"return {accepted:typeof input.foreground==='string'&&typeof input.background==='string',keys:Object.keys(input)};"],
-19:['type Settings={theme:string;size:number;enabled:boolean};\ntype Errors={ [K in keyof Settings]:string|null };\nconst errors:Errors={theme:null,size:null,enabled:null};',{settings:{theme:'dark',size:14,enabled:true},errors:{theme:null,size:null,enabled:null}},"return {missingErrorKeys:Object.keys(input.settings).filter(key=>!Object.hasOwn(input.errors,key)),readOnlyIsCompileTime:true};"],
-20:['type ElementOf<T> = T extends (infer U)[] ? U : T;\ntype Distributed<T> = T extends string ? "text" : "other";\ntype Whole<T> = [T] extends [string] ? "text" : "other";\nconst distributed:Distributed<string|number>="text";\nconst whole:Whole<string|number>="other";',['a',1],"return {perMember:input.map(v=>typeof v==='string'?'text':'other'),whole:input.every(v=>typeof v==='string')?'text':'other',note:messages.display003};"],
-21:['type Note={title:string;done:boolean};\nfunction emit<K extends keyof Note>(name:`${K}Changed`,payload:Note[K]):void {}\nemit("titleChanged","A");\n// @ts-expect-error title needs string\nemit<"title">("titleChanged",42);',{name:'titleChanged',payload:42},"return {accepted:input.name==='titleChanged'?typeof input.payload==='string':input.name==='doneChanged'&&typeof input.payload==='boolean'};"],
-22:['const element=document.querySelector("#title");\nif(element instanceof HTMLInputElement){ console.log(element.value) }',{tag:'input'},"stage.replaceChildren();const element=document.createElement(input.tag==='input'?'input':'div');stage.append(element);return {isInput:element instanceof HTMLInputElement,value:element instanceof HTMLInputElement?element.value:messages.display004};"],
-23:['type Result<T>={ok:true;value:T}|{ok:false;error:string};\nasync function load():Promise<Result<string>> { try{return {ok:true,value:await Promise.resolve("A")}}catch(error:unknown){return {ok:false,error:error instanceof Error?error.message:String(error)}} }',{throwString:true},"try{await Promise.resolve();throw input.throwString?'문자열 실패':new Error('Error 실패')}catch(error){return {ok:false,error:error instanceof Error?error.message:String(error)}}"],
-24:['// Split these declarations into model.ts and main.ts in a local project.\nexport type Note={id:number;title:string};\nexport const create=(title:string):Note=>({id:1,title});\n// Consumer: import type { Note } from "./model.js";\n// Consumer: import { create } from "./model.js";',{title:'A'},"const create=title=>({id:1,title});return {value:create(input.title),runtimeExports:['create'],erasedType:'Note has no runtime binding'};"],
-25:['// legacy.d.ts: export function save(value:string):number;\ndeclare function save(value:string):number;\nif(false){save("A");\n// @ts-expect-error declaration rejects number\nsave(42)}',{value:42},"function legacySave(value){if(typeof value!=='string')throw new TypeError('legacy expects string');return value.length}return legacySave(input.value);"],
-26:['type State="idle"|"done";\nconst good:State="idle";\n// @ts-expect-error unsupported state; becomes unused if State weakens to any\nconst bad:State="missing";\ntype Plugin={mount:()=>()=>void};\n// @ts-expect-error cleanup function is required\nconst plugin:Plugin={mount:()=>42};',{state:'missing'},"return {runtimeAccepted:['idle','done'].includes(input.state),compileTest:'Run tsc --strict --noEmit lesson.ts; unused @ts-expect-error is diagnostic TS2578'};"],
-27:['type Context={container:HTMLElement};\ninterface Plugin { mount(context:Context):()=>void }\nconst plugin:Plugin={mount({container}){const node=document.createElement("button");container.append(node);return ()=>node.remove()}};',{mounts:2},"const target=new EventTarget();let calls=0;function mount(){const handler=()=>calls++;target.addEventListener('ping',handler);return ()=>target.removeEventListener('ping',handler)}for(let i=0;i<input.mounts;i++){const cleanup=mount();cleanup()}target.dispatchEvent(new Event('ping'));return {callsAfterCleanup:calls,expected:0};"]
-};
-for(const [day,[source,input,body]] of Object.entries(ts)){add('typescript',day,input,body,'미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.');specs.typescript[day].source=source+'\nexport {};\n'}
-const H=(n,html,css='',note='')=>{specs.html[n]={htmlSource:html,css,note}};
-const C=(n,html,css,note='')=>{specs.css[n]={htmlSource:html,css,note}};
-
-H(2,"(\"<!doctype html><html lang=\\\"ko\\\"><head><meta charset=\\\"utf-8\\\"><title>\"+messages.display009+\"</title></head><body><h1>\"+messages.display005+\"</h1><p>한글 · café · 日本語</p></body></html>\")",'',"lang을 en으로 바꾸고 접근성 언어를 확인하세요. HTML 문자열은 이미 유니코드이므로 실제 HTTP charset 오인코딩은 별도 파일로 검사합니다.");
-H(3,"(\"<!doctype html><html lang=\\\"ko\\\"><head><meta charset=\\\"utf-8\\\"><title>\"+messages.display007+\"</title><meta name=\\\"description\\\" content=\\\"\"+messages.display006+\"\\\"><meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1\\\"></head><body><h1>\"+messages.display007+\"</h1><p>\"+messages.display003+\"</p></body></html>\")",'','문서 title과 meta를 검사합니다. 모바일 viewport 효과는 독립 페이지와 실제 모바일 장치에서 확인하세요.');
-H(4,"(\"<h1>\"+messages.display013+\"</h1><p>\"+messages.display007+\"<em>\"+messages.display012+\"</em>\"+messages.display009+\"</p><p><strong>\"+messages.display014+\"</strong>\"+messages.display003+\"</p><p>\"+messages.display015+\"<br>\"+messages.display004+\"</p>\")");
-H(5,"(\"<h1>\"+messages.display010+\"</h1><ul><li>\"+messages.display013+\"</li><li>\"+messages.display014+\"</li></ul><ol><li>\"+messages.display011+\"</li><li>\"+messages.display016+\"</li><li>\"+messages.display012+\"</li></ol><dl><dt>\"+messages.display017+\"</dt><dd>\"+messages.display007+\"</dd><dt>\"+messages.display018+\"</dt><dd>\"+messages.display005+\"</dd></dl>\")");
-H(6,"(\"<base href=\\\"https://example.test/course/lesson/\\\"><nav><a href=\\\"#result\\\">\"+messages.display011+\"</a> · <a href=\\\"./detail.html\\\">\"+messages.display006+\"</a> · <a href=\\\"../detail.html\\\">\"+messages.display007+\"</a></nav><h1>\"+messages.display012+\"</h1><p style=\\\"height:300px\\\">\"+messages.display003+\"</p><h2 id=\\\"result\\\">\"+messages.display014+\"</h2>\")",'',"이 미리보기의 검사 결과는 현재 DOM의 원래 href 속성을 표시합니다. head의 base는 Shadow DOM에 복사되지 않습니다. base를 포함한 절대 URL 해석은 별도 HTTP 문서에서 확인하세요. example.test의 실제 문서는 제공하지 않습니다.");
-H(7,"(\"<h1>\"+messages.display011+\"</h1><p>\"+messages.display012+\"<img src=\\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22240%22%3E%3Crect%20width%3D%22600%22%20height%3D%22240%22%20fill%3D%22%23285ea8%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22120%22%20r%3D%2270%22%20fill%3D%22%23f9ca72%22%2F%3E%3C%2Fsvg%3E\\\" width=\\\"240\\\" height=\\\"96\\\" alt=\\\"\"+messages.display006+\"\\\"></p><p>\"+messages.display013+\"<img src=\\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22240%22%3E%3Crect%20width%3D%22600%22%20height%3D%22240%22%20fill%3D%22%23285ea8%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22120%22%20r%3D%2270%22%20fill%3D%22%23f9ca72%22%2F%3E%3C%2Fsvg%3E\\\" width=\\\"60\\\" height=\\\"24\\\" alt=\\\"\\\"></p><a href=\\\"#details\\\"><img src=\\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22240%22%3E%3Crect%20width%3D%22600%22%20height%3D%22240%22%20fill%3D%22%23285ea8%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22120%22%20r%3D%2270%22%20fill%3D%22%23f9ca72%22%2F%3E%3C%2Fsvg%3E\\\" width=\\\"120\\\" height=\\\"48\\\" alt=\\\"\"+messages.display007+\"\\\"></a><p id=\\\"details\\\">\"+messages.display003+\"</p>\")");
-H(8,"(\"<figure><img src=\\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22240%22%3E%3Crect%20width%3D%22600%22%20height%3D%22240%22%20fill%3D%22%23285ea8%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22120%22%20r%3D%2270%22%20fill%3D%22%23f9ca72%22%2F%3E%3C%2Fsvg%3E\\\" width=\\\"200\\\" height=\\\"80\\\" alt=\\\"\"+messages.display006+\"\\\"><img src=\\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22240%22%3E%3Crect%20width%3D%22600%22%20height%3D%22240%22%20fill%3D%22%23285ea8%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22120%22%20r%3D%2270%22%20fill%3D%22%23f9ca72%22%2F%3E%3C%2Fsvg%3E\\\" style=\\\"filter:grayscale(1)\\\" width=\\\"200\\\" height=\\\"80\\\" alt=\\\"\"+messages.display010+\"\\\"><figcaption>\"+messages.display003+\"</figcaption></figure>\")");
-H(9,"(\"<table><caption>\"+messages.display005+\"</caption><thead><tr><th scope=\\\"col\\\">\"+messages.display011+\"</th><th scope=\\\"col\\\">\"+messages.display009+\"</th></tr></thead><tbody><tr><th scope=\\\"row\\\">\"+messages.display012+\"</th><td>14</td></tr><tr><th scope=\\\"row\\\">\"+messages.display013+\"</th><td>9</td></tr></tbody></table>\")",'th,td{padding:12px;border:1px solid #879bb0}table{border-collapse:collapse}');
-H(10,"(\"<p><q cite=\\\"https://developer.mozilla.org/en-US/docs/Web/HTML\\\">HTML describes the structure of a web page.</q></p><p>\"+messages.display008+\"<a href=\\\"https://developer.mozilla.org/en-US/docs/Web/HTML\\\">MDN HTML</a></p><p>\"+messages.display009+\"<time datetime=\\\"2026-10-21\\\">2026년 10월 21일</time></p>\")",'','datetime을 자연어로 바꾼 뒤 검사 결과와 HTML validator를 비교하세요. 인용은 예시 문장입니다.');
-H(11,"(\"<form method=\\\"get\\\" action=\\\"about:blank\\\"><label for=\\\"query\\\">\"+messages.display011+\"</label><input id=\\\"query\\\" name=\\\"q\\\" value=\\\"grid\\\"><button type=\\\"submit\\\">\"+messages.display008+\"</button><button type=\\\"button\\\">\"+messages.display009+\"</button></form>\")",'',"이 미리보기는 submit 이벤트에서 preventDefault()를 호출하므로 iframe이 이동하지 않습니다. 검사 버튼과 제출 핸들러는 현재 DOM의 유효성과 FormData를 표시합니다. GET 제출 뒤 URL을 확인하는 과제는 별도 HTTP 페이지에서 수행하세요.");
-H(12,"(\"<form><label>\"+messages.display010+\"<input name=\\\"email\\\" type=\\\"email\\\" autocomplete=\\\"email\\\" value=\\\"invalid\\\" required></label><label>\"+messages.display011+\"<input name=\\\"phone\\\" type=\\\"tel\\\" autocomplete=\\\"tel\\\" inputmode=\\\"tel\\\"></label><label>\"+messages.display009+\"<input name=\\\"minutes\\\" type=\\\"number\\\" min=\\\"0\\\" step=\\\"5\\\" value=\\\"-1\\\"></label><button>\"+messages.display008+\"</button></form>\")",'label{display:block;margin:12px}');
-H(13,"(\"<form><fieldset><legend>\"+messages.display009+\"</legend><label><input type=\\\"radio\\\" name=\\\"level\\\" value=\\\"beginner\\\" checked>\"+messages.display011+\"</label><label><input type=\\\"radio\\\" name=\\\"level\\\" value=\\\"advanced\\\">\"+messages.display012+\"</label></fieldset><fieldset><legend>\"+messages.display008+\"</legend><label><input type=\\\"checkbox\\\" name=\\\"topic\\\" value=\\\"css\\\" checked>CSS</label><label><input type=\\\"checkbox\\\" name=\\\"topic\\\" value=\\\"html\\\" checked>HTML</label></fieldset></form>\")");
-H(15,"(\"<form><label>\"+messages.display010+\"<input name=\\\"normal\\\" value=\\\"A\\\"></label><label>\"+messages.display008+\"<input name=\\\"readonly\\\" value=\\\"B\\\" readonly></label><label>\"+messages.display009+\"<input name=\\\"disabled\\\" value=\\\"C\\\" disabled></label></form>\")",'label{display:block;margin:16px}');
-H(16,"(\"<details open><summary>\"+messages.display005+\"</summary><ol><li><a href=\\\"#a\\\">\"+messages.display009+\"</a></li><li><a href=\\\"#b\\\">\"+messages.display013+\"</a></li><li><a href=\\\"#c\\\">\"+messages.display010+\"</a></li><li><a href=\\\"#d\\\">\"+messages.display011+\"</a></li></ol></details><h2 id=\\\"a\\\">\"+messages.display009+\"</h2><h2 id=\\\"b\\\">\"+messages.display013+\"</h2><h2 id=\\\"c\\\">\"+messages.display010+\"</h2><h2 id=\\\"d\\\">\"+messages.display011+\"</h2>\")");
-H(17,"(\"<button data-open-dialog>\"+messages.display007+\"</button><dialog aria-labelledby=\\\"dialog-title\\\"><h2 id=\\\"dialog-title\\\">\"+messages.display010+\"</h2><p>\"+messages.display003+\"</p><form method=\\\"dialog\\\"><button>\"+messages.display012+\"</button></form></dialog>\")",'','전용 보조 코드가 열기 버튼을 showModal에 연결합니다. dialog의 open 속성과 모달 초점 동작을 비교하세요.');
-H(18,"(\"<video controls width=\\\"320\\\"><source src=\\\"./sample.mp4\\\" type=\\\"video/mp4\\\"><track kind=\\\"captions\\\" srclang=\\\"ko\\\" label=\\\"한국어\\\" src=\\\"./captions.vtt\\\" default>\"+messages.display003+\"</video><p><a href=\\\"#transcript\\\">\"+messages.display009+\"</a></p><section id=\\\"transcript\\\"><h2>\"+messages.display011+\"</h2><p>00:00 실험 시작. 00:03 카드의 색상을 변경합니다.</p></section>\")",'','첨부 companion 폴더에 index.html, 6초 합성 sample.mp4, captions.vtt, transcript.html, README.md를 제공합니다. 실제 재생·자막·실패 전환은 해당 폴더를 로컬 HTTP 서버로 열어 검사하세요.');
-H(19,"(\"<img src=\\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22300%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22steelblue%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E600w%3C%2Ftext%3E%3C%2Fsvg%3E\\\" srcset=\\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22150%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22coral%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E300w%3C%2Ftext%3E%3C%2Fsvg%3E 300w, data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22300%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22steelblue%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E600w%3C%2Ftext%3E%3C%2Fsvg%3E 600w, data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221200%22%20height%3D%22600%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22seagreen%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E1200w%3C%2Ftext%3E%3C%2Fsvg%3E 1200w\\\" sizes=\\\"(max-width:600px) 100vw, 600px\\\" width=\\\"600\\\" height=\\\"300\\\" alt=\\\"\"+messages.display006+\"\\\"><p>\"+messages.display003+\"</p>\")",'img{max-width:100%;height:auto}','내장 SVG 후보는 하나입니다. 선택 문법과 currentSrc를 관찰할 수 있고 실제 전송량 비교에는 다른 해상도의 래스터 파일 3개가 필요합니다.');
-H(20,"(\"<picture><source media=\\\"(max-width:600px)\\\" srcset=\\\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='200'%20height='200'%3E%3Crect%20width='200'%20height='200'%20fill='coral'/%3E%3C/svg%3E\\\"><img src=\\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22240%22%3E%3Crect%20width%3D%22600%22%20height%3D%22240%22%20fill%3D%22%23285ea8%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22120%22%20r%3D%2270%22%20fill%3D%22%23f9ca72%22%2F%3E%3C%2Fsvg%3E\\\" width=\\\"600\\\" height=\\\"240\\\" alt=\\\"\"+messages.display003+\"\\\"></picture>\")",'img{max-width:100%;height:auto}');
-H(21,"(\"<iframe title=\\\"\"+messages.display006+\"\\\" sandbox srcdoc=\\\"<h2>\"+messages.display011+\"</h2><p>\"+messages.display003+\"</p><script>document.body.append('script executed')</script>\\\"></iframe>\")",'','sandbox에 allow-scripts를 추가해 비교하세요. 상위 미리보기 CSP도 적용되므로 스크립트 차단이 sandbox만의 결과라고 단정하지 마세요.');
-H(22,"(\"<body><template id=\\\"card\\\"><article><label for=\\\"title\\\">\"+messages.display009+\"</label><input id=\\\"title\\\" value=\\\"메모\\\"></article></template><section data-cards></section></body>\")",'','보조 코드가 template을 3회 복제하고 for/id를 고유 접미사로 연결합니다. 소스의 template 내용을 바꿔보세요.');
-H(23,"(\"<!doctype html><html><head><script defer src=\\\"./first.js\\\"></script><script async src=\\\"./second.js\\\"></script></head><body><h1 id=\\\"target\\\">\"+messages.display006+\"</h1><p>\"+messages.display003+\"</p></body></html>\")",'','첨부 index.html, first.js, second.js, README.md로 실제 로딩 실험을 제공합니다. 이 미리보기는 소스 구조를 검사하며 일반/defer/async의 실행 순서는 companion 폴더의 로컬 HTTP 페이지에서 관찰하세요.');
-H(24,"(\"<button>\"+messages.display012+\"</button><button aria-label=\\\"\"+messages.display009+\"\\\">×</button><label for=\\\"name\\\">\"+messages.display010+\"</label><input id=\\\"name\\\" aria-describedby=\\\"hint\\\"><p id=\\\"hint\\\">\"+messages.display005+\"</p>\")",'','aria-label을 보이는 텍스트와 다르게 바꾸고 브라우저 접근성 패널에서 실제 계산된 이름을 검사하세요.');
-H(25,"(\"<a class=\\\"skip\\\" href=\\\"#main\\\">\"+messages.display006+\"</a><nav><a href=\\\"#one\\\">\"+messages.display013+\"</a> <a href=\\\"#two\\\">\"+messages.display014+\"</a> <a href=\\\"#three\\\">\"+messages.display015+\"</a></nav><main id=\\\"main\\\" tabindex=\\\"-1\\\"><h1>\"+messages.display016+\"</h1><article id=\\\"one\\\"><a href=\\\"#two\\\">\"+messages.display011+\"</a></article><article id=\\\"two\\\"><a href=\\\"#three\\\">\"+messages.display010+\"</a></article><article id=\\\"three\\\"><button>\"+messages.display009+\"</button></article></main>\")",'.skip{position:absolute;left:-999px}.skip:focus{position:static}nav{padding:50px}');
-H(26,"(\"<p>\"+messages.display009+\"<div>\"+messages.display005+\"</div>\"+messages.display010+\"</p><button>\"+messages.display012+\"<button>\"+messages.display013+\"</button></button>\")",'','검사 결과에 브라우저가 복구한 body 트리를 표시합니다. p/div를 형제로 수정하고 HTML validator의 진단과 비교하세요.');
-H(27,"(\"<article><h1>\"+messages.display008+\"</h1><img src=\\\"./missing-image.png\\\" width=\\\"240\\\" height=\\\"120\\\" alt=\\\"\"+messages.display005+\"\\\"><p>\"+messages.display003+\"</p><a href=\\\"#detail\\\">\"+messages.display009+\"</a><button>\"+messages.display014+\"</button><p id=\\\"detail\\\">\"+messages.display004+\"</p></article>\")",'article{max-width:35rem}img{max-width:100%;height:auto}button,a{display:inline-block;margin:12px}','미리보기 폭을 줄여 reflow를 확인하고 실제 브라우저 200%·400% 확대도 별도로 검사하세요.');
-
-C(2,"(\"<section class=\\\"card\\\"><button>\"+messages.display008+\"</button><div><button>\"+messages.display009+\"</button></div></section><button>\"+messages.display011+\"</button>\")",'.card button{background:#ffc96a}.card > button{color:#8a1221}button{margin:10px;padding:12px}');
-C(3,"(\"<section class=\\\"parent\\\">\"+messages.display010+\"<div class=\\\"child\\\">\"+messages.display003+\"</div></section>\")",'.parent{color:#b3261e;border:4px solid #b3261e;padding:20px}.child{color:initial;border:inherit;padding:20px}','initial, inherit, unset을 각각 바꾸고 계산된 color·border를 확인하세요.');
-C(4,"\"<div class=\\\"card\\\">width 200 + padding 40 + border 4</div>\"",'.card{width:200px;padding:20px;border:2px solid #285ea8;box-sizing:content-box}','box-sizing을 border-box로 바꿔 실측 너비 244px와 200px를 비교하세요.');
-C(5,"(\"<h1>\"+messages.display006+\"</h1><p>\"+messages.display003+\"</p>\")",'html{font-size:16px}h1{font-size:clamp(1.5rem,5vw,3rem);margin-block:2rem}');
-C(6,"(\"<div class=\\\"parent\\\"><p>\"+messages.display009+\"</p><p>\"+messages.display008+\"</p></div>\")",'.parent{display:block;background:#dae9fa}p:first-child{margin:20px 0}p:last-child{margin:30px 0}','부모 flow-root는 부모/자식 마진 상쇄를 막지만 형제 문단끼리의 상쇄는 그대로입니다.');
-C(7,"(\"<div class=\\\"row\\\"><div class=\\\"card\\\">https://example.test/verylongunbreakableurlwithoutspaces012345678901234567890</div></div><div class=\\\"scroll\\\">\"+messages.display008+\"<br>1<br>2<br>3<br>4<br>5</div>\")",'.row{display:flex;width:260px}.card{min-width:0;overflow-wrap:normal;border:2px solid}.scroll{height:70px;overflow:auto}');
-C(8,"\"<div class=\\\"toolbar\\\"><button>A</button><button>B</button><button>C</button></div>\"",'.toolbar{display:flex;flex-direction:row;justify-content:space-between;align-items:center;height:220px;border:1px solid}button{padding:20px}');
-C(9,"(\"<div class=\\\"panels\\\"><div class=\\\"card\\\">\"+messages.display009+\"</div><div class=\\\"card\\\">very-long-unbreakable-content-0123456789</div><div class=\\\"card\\\">\"+messages.display008+\"</div></div>\")",'.panels{display:flex;width:440px;max-width:100%;gap:10px}.card{flex:1 1 200px;min-width:0;overflow-wrap:anywhere;background:#dae9fa;padding:10px}');
-C(10,"(\"<div class=\\\"grid\\\"><div class=\\\"card\\\">\"+messages.display009+\"</div><div class=\\\"card\\\">very-long-unbreakable-content-0123456789</div><div class=\\\"card\\\">\"+messages.display008+\"</div></div>\")",'.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:480px;max-width:100%}.card{background:#dae9fa;padding:10px}');
-C(11,"\"<div class=\\\"grid\\\"><div class=\\\"card\\\">A</div><div class=\\\"card\\\">B</div></div>\"",'.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px}.card{background:#dae9fa;padding:20px}');
-C(12,"\"<div class=\\\"layout\\\"><header>Header</header><nav><a href=\\\"#main\\\">Navigation</a></nav><main id=\\\"main\\\"><button>Main first in DOM</button></main><aside><button>Aside second in DOM</button></aside></div>\"",'.layout{display:grid;grid-template-areas:"head head" "nav nav" "main side";gap:12px}header{grid-area:head}nav{grid-area:nav}main{grid-area:main}aside{grid-area:side}@media(max-width:500px){.layout{grid-template-areas:"head" "nav" "side" "main"}}.layout>*{padding:20px;background:#dae9fa}');
-C(13,"(\"<nav>Home · Experiments · Results</nav><div class=\\\"grid\\\"><div class=\\\"card\\\">\"+messages.display009+\"</div><div class=\\\"card\\\">very-long-unbreakable-content-0123456789</div><div class=\\\"card\\\">\"+messages.display008+\"</div></div>\")",'.grid{display:grid;grid-template-columns:1fr;gap:12px}.card{padding:20px;background:#dae9fa;overflow-wrap:anywhere}@media(min-width:700px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}');
-C(15,"(\"<div class=\\\"wrapper\\\"><article><div>\"+messages.display009+\"</div><p>\"+messages.display003+\"</p></article></div>\")",'.wrapper{container-type:inline-size;width:300px;max-width:100%;border:2px solid}article{display:grid;gap:16px;padding:20px}@container(min-width:500px){article{grid-template-columns:1fr 1fr}}');
-C(16,"(\"<article dir=\\\"rtl\\\"><h2>\"+messages.display009+\"</h2><p>\"+messages.display003+\"</p></article>\")",'article{margin-inline-start:40px;padding-inline-start:24px;border-inline-start:8px solid #287bd0;background:#eaf2fb}');
-C(17,"(\"<article><h1>\"+messages.display005+\"</h1><p>행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. </p><small>\"+messages.display009+\"</small></article>\")",'article{max-width:55ch}p{line-height:1.2;font-size:18px}small{font-size:14px}');
-C(18,"(\"<article class=\\\"normal\\\">\"+messages.display010+\"</article><article class=\\\"selected\\\">\"+messages.display007+\"</article><article class=\\\"error\\\">\"+messages.display005+\"</article>\")",'article{padding:24px;margin:12px;color:#fff}.normal{background:#2463a4}.selected{background:#174d35;border:3px solid #000}.error{background:#9d2034}','실제 텍스트 대비는 개발자 도구에서 검사하세요. 색상 외에도 체크 기호와 오류 텍스트를 제공합니다.');
-C(19,"(\"<button>\"+messages.display012+\"</button><a href=\\\"#end\\\">\"+messages.display013+\"</a><label>\"+messages.display010+\"<input type=\\\"email\\\" required></label><button disabled>\"+messages.display009+\"</button><p id=\\\"end\\\">\"+messages.display005+\"</p>\")",':focus-visible{outline:2px solid #9a3100;outline-offset:4px}input:invalid{border:2px solid #a51428}button:disabled{opacity:.5}button,a,input{margin:12px;padding:10px}');
-C(20,"(\"<div class=\\\"scroll\\\"><nav>\"+messages.display006+\"</nav><article><span class=\\\"badge\\\">NEW</span><h2>\"+messages.display011+\"</h2><p>\"+messages.display003+\"</p></article><div style=\\\"height:500px\\\">\"+messages.display010+\"</div></div>\")",'.scroll{height:260px;overflow:auto;border:2px solid}.scroll nav{position:sticky;top:0;background:#ffe399;z-index:2}article{position:relative;height:180px;background:#dae9fa}.badge{position:absolute;right:0;top:15px;background:#ab2338;color:white}');
-C(21,"(\"<div class=\\\"a\\\">\"+messages.display010+\"<span>\"+messages.display005+\"</span></div><div class=\\\"b\\\">\"+messages.display006+\"</div>\")",'.a{position:relative;transform:translateZ(0);background:#dae9fa;width:220px;height:120px}.a span{position:absolute;left:120px;top:60px;z-index:999;background:#ffcf66;padding:20px;white-space:nowrap}.b{position:relative;z-index:1;margin-top:-40px;margin-left:150px;background:#86c5ab;width:220px;height:120px}');
-C(22,"(\"<label><input type=\\\"checkbox\\\">\"+messages.display009+\"</label><div class=\\\"card\\\">\"+messages.display005+\"</div>\")",'.card{padding:40px;background:#b5d7fc;transition:transform 150ms,opacity 150ms}body:has(input:checked) .card{transform:translateX(40px);opacity:.5}@media(prefers-reduced-motion:reduce){.card{transition:none}}');
-C(23,"(\"<label><input type=\\\"checkbox\\\">\"+messages.display008+\"</label><div class=\\\"dot\\\"></div>\")",'@keyframes travel{from{transform:translateX(0)}to{transform:translateX(220px)}}.dot{width:40px;height:40px;background:#b42649;animation:travel 2s alternate infinite}body:has(input:checked) .dot{animation-play-state:paused}@media(prefers-reduced-motion:reduce){.dot{animation:none}}');
-C(24,"(\"<button class=\\\"action\\\">\"+messages.display005+\"</button>\")",'@layer base,components,utilities;@layer base{.action{background:#edb964}}@layer components{.action{background:#87c5ab}}@layer utilities{.action{background:#8dbef5}}.action{padding:24px}','비레이어 background 선언 또는 !important를 각 레이어에 추가해 계산 스타일을 비교하세요.');
-C(25,"(\"<section data-theme=\\\"light\\\"><h2>\"+messages.display009+\"</h2><input aria-label=\\\"\"+messages.display008+\"\\\" placeholder=\\\"\"+messages.display011+\"\\\"><button>\"+messages.display012+\"</button></section>\")",':root{--bg:#f5f8fc;--fg:#162c43;--space:16px;--radius:12px}[data-theme=dark]{--bg:#162c43;--fg:#f5f8fc}section{padding:var(--space);background:var(--bg);color:var(--fg);border-radius:var(--radius)}input,button{padding:var(--space);margin:var(--space);background:var(--bg);color:var(--fg);border:2px solid currentColor;border-radius:var(--radius)}:focus-visible{outline:3px solid #d26400;outline-offset:3px}');
-C(26,"(\"<label><input type=\\\"checkbox\\\">\"+messages.display009+\"</label><section><div class=\\\"card\\\">1</div><div class=\\\"card\\\">2</div><div class=\\\"card\\\">3</div><div class=\\\"card\\\">4</div><div class=\\\"card\\\">5</div><div class=\\\"card\\\">6</div><div class=\\\"card\\\">7</div><div class=\\\"card\\\">8</div><div class=\\\"card\\\">9</div><div class=\\\"card\\\">10</div><div class=\\\"card\\\">11</div><div class=\\\"card\\\">12</div><div class=\\\"card\\\">13</div><div class=\\\"card\\\">14</div><div class=\\\"card\\\">15</div><div class=\\\"card\\\">16</div><div class=\\\"card\\\">17</div><div class=\\\"card\\\">18</div><div class=\\\"card\\\">19</div><div class=\\\"card\\\">20</div><div class=\\\"card\\\">21</div><div class=\\\"card\\\">22</div><div class=\\\"card\\\">23</div><div class=\\\"card\\\">24</div><div class=\\\"card\\\">25</div><div class=\\\"card\\\">26</div><div class=\\\"card\\\">27</div><div class=\\\"card\\\">28</div><div class=\\\"card\\\">29</div><div class=\\\"card\\\">30</div><div class=\\\"card\\\">31</div><div class=\\\"card\\\">32</div><div class=\\\"card\\\">33</div><div class=\\\"card\\\">34</div><div class=\\\"card\\\">35</div><div class=\\\"card\\\">36</div><div class=\\\"card\\\">37</div><div class=\\\"card\\\">38</div><div class=\\\"card\\\">39</div><div class=\\\"card\\\">40</div><div class=\\\"card\\\">41</div><div class=\\\"card\\\">42</div><div class=\\\"card\\\">43</div><div class=\\\"card\\\">44</div><div class=\\\"card\\\">45</div><div class=\\\"card\\\">46</div><div class=\\\"card\\\">47</div><div class=\\\"card\\\">48</div><div class=\\\"card\\\">49</div><div class=\\\"card\\\">50</div></section>\")",'section{display:flex;flex-wrap:wrap;gap:5px}.card{width:40px;height:30px;background:#8dbef5;transition:width 500ms,transform 500ms}body:has(input:checked) .card{width:60px;/* 비교: width 대신 transform:translateX(20px) */}','실제 Layout/Paint/Composite 비용은 DevTools Performance로 두 조건을 각각 기록하세요. 미리보기는 비용을 자동 추론하지 않습니다.');
-C(27,'('+JSON.stringify('<main>')+'+'+Array.from({length:200},(_,i)=>JSON.stringify('<article><a href="#card-'+i+'" id="card-'+i+'">')+'+messages.display008+'+JSON.stringify(i+'</a><p>'+('높이가 다른 내용 '.repeat(i%7+1))+'</p></article>')).join('+')+'+'+JSON.stringify('</main>')+')','article{content-visibility:auto;contain-intrinsic-size:auto 120px;margin:16px;padding:20px;border:1px solid #92b9e5}','content-visibility를 visible로 바꾸고 초기 렌더 및 스크롤을 기록하세요. 검색과 Tab으로 뒤쪽 카드에 도달하는지도 확인합니다.');
-const dataKeys={
-  "javascript-step-02":{"input":"input","run":"run"},
-  "javascript-step-03":{"input":"input","run":"run"},
-  "javascript-step-04":{"input":"input","run":"run"},
-  "javascript-step-05":{"input":"input","run":"run"},
-  "javascript-step-06":{"input":"input","run":"run"},
-  "javascript-step-07":{"input":"input","run":"run"},
-  "javascript-step-08":{"input":"input","run":"run"},
-  "javascript-step-09":{"input":"input","run":"run"},
-  "javascript-step-10":{"input":"input","run":"run"},
-  "javascript-step-11":{"input":"input","run":"run"},
-  "javascript-step-12":{"input":"input","run":"run"},
-  "javascript-step-13":{"input":"input","run":"run"},
-  "javascript-step-15":{"input":"input","run":"run"},
-  "javascript-step-16":{"input":"input","run":"run"},
-  "javascript-step-17":{"input":"input","run":"run"},
-  "javascript-step-18":{"input":"input","run":"run"},
-  "javascript-step-19":{"input":"input","run":"run"},
-  "javascript-step-20":{"input":"input","run":"run"},
-  "javascript-step-21":{"input":"input","run":"run"},
-  "javascript-step-22":{"input":"input","run":"run"},
-  "javascript-step-23":{"input":"input","run":"run"},
-  "javascript-step-24":{"input":"input","run":"run"},
-  "javascript-step-25":{"input":"input","run":"run"},
-  "javascript-step-26":{"input":"input","run":"run"},
-  "javascript-step-27":{"input":"input","run":"run"},
-  "typescript-step-02":{"input":"display003","run":"display004"},
-  "typescript-step-03":{"input":"display003","run":"display004"},
-  "typescript-step-04":{"input":"display003","run":"display004"},
-  "typescript-step-05":{"input":"display004","run":"display005"},
-  "typescript-step-06":{"input":"display003","run":"display004"},
-  "typescript-step-07":{"input":"display003","run":"display004"},
-  "typescript-step-08":{"input":"display003","run":"display004"},
-  "typescript-step-09":{"input":"display003","run":"display004"},
-  "typescript-step-10":{"input":"display004","run":"display005"},
-  "typescript-step-11":{"input":"display003","run":"display004"},
-  "typescript-step-12":{"input":"display003","run":"display004"},
-  "typescript-step-13":{"input":"display003","run":"display004"},
-  "typescript-step-15":{"input":"display003","run":"display004"},
-  "typescript-step-16":{"input":"display003","run":"display004"},
-  "typescript-step-17":{"input":"display003","run":"display004"},
-  "typescript-step-18":{"input":"display003","run":"display004"},
-  "typescript-step-19":{"input":"display003","run":"display004"},
-  "typescript-step-20":{"input":"display004","run":"display005"},
-  "typescript-step-21":{"input":"display003","run":"display004"},
-  "typescript-step-22":{"input":"display003","run":"display005"},
-  "typescript-step-23":{"input":"display003","run":"display004"},
-  "typescript-step-24":{"input":"display003","run":"display004"},
-  "typescript-step-25":{"input":"display003","run":"display004"},
-  "typescript-step-26":{"input":"display003","run":"display004"},
-  "typescript-step-27":{"input":"display003","run":"display004"}
-};
-function dataSource(unit,spec){const ui=dataKeys[unit.id],pilot=!presentations[unit.id]||unit.id==='javascript-step-02';return `// ${unit.title}\n// 편집할 실험 입력과 알고리즘입니다.\nexport function mount({container${pilot?'':",locale='ko'"}}) {\n${pilot?'':'/* EXAMPLE_MESSAGES */\n'}const INITIAL=${JSON.stringify(spec.input)};\nconst controller=new AbortController(),signal=controller.signal;\nconst timers=[],urls=[];let disposed=false;\nconst later=(fn,delay)=>{const id=setTimeout(fn,delay);timers.push(id);return id};\nconst title=document.createElement('h2');title.textContent=${pilot?JSON.stringify(unit.title):'messages.title'};\nconst help=document.createElement('p');help.textContent=${pilot?JSON.stringify(spec.note||unit.variables[0].baseline+' → '+unit.variables[0].change+' 조건으로 입력을 바꿔 실행하세요.'):'messages.help'};\nconst editor=document.createElement('textarea');editor.value=JSON.stringify(INITIAL,null,2);editor.rows=10;editor.style.cssText='width:100%;font-family:monospace';editor.setAttribute('aria-label',${pilot?"'실험 JSON 입력'":'messages.'+ui.input});\nconst button=document.createElement('button');button.textContent=${pilot?"'실험 실행'":'messages.'+ui.run};\nconst output=document.createElement('pre');output.style.whiteSpace='pre-wrap';output.setAttribute('aria-live','polite');const stage=document.createElement('section');\nconst show=value=>{if(!disposed)output.textContent=typeof value==='string'?value:JSON.stringify(value,null,2)};\n/** @param {any} input */\nasync function experiment(input){${spec.body}}\nlet generation=0;const run=async()=>{const current=++generation;try{const result=await experiment(JSON.parse(editor.value));if(current===generation)show(result)}catch(error){if(current===generation)show({error:String(error)})}};\nbutton.addEventListener('click',run,{signal});container.append(title,help,editor,button,stage,output);run();\nreturn ()=>{disposed=true;controller.abort();timers.forEach(clearTimeout);urls.forEach(url=>URL.revokeObjectURL(url));container.replaceChildren()};\n}\n`}
-
-
-specs.html[19]={htmlSource:"(\"<img src=\\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22300%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22steelblue%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E600w%3C%2Ftext%3E%3C%2Fsvg%3E\\\" srcset=\\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22150%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22coral%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E300w%3C%2Ftext%3E%3C%2Fsvg%3E 300w, data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22300%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22steelblue%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E600w%3C%2Ftext%3E%3C%2Fsvg%3E 600w, data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221200%22%20height%3D%22600%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22seagreen%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E1200w%3C%2Ftext%3E%3C%2Fsvg%3E 1200w\\\" sizes=\\\"(max-width:600px) 100vw, 600px\\\" width=\\\"600\\\" height=\\\"300\\\" alt=\\\"\"+messages.display006+\"\\\"><p>\"+messages.display003+\"</p>\")",css:'img{max-width:100%;height:auto}',note:"300/600/1200w SVG 후보가 실제 srcset으로 선택됩니다. sizes와 DPR 및 미리보기 viewport가 선택에 영향을 줍니다. data URL은 네트워크 전송량 비교용이 아닙니다."};
-
-const documentKeys={
-  "html-step-02":{"external":"display003","inspect":"display004","html":"display006","css":"display007","width":"display008","apply":"display010"},
-  "html-step-03":{"external":"display004","inspect":"display005","html":"display008","css":"display009","width":"display010","apply":"display011"},
-  "html-step-04":{"external":"display005","inspect":"display006","html":"display008","css":"display010","width":"display011","apply":"display016"},
-  "html-step-05":{"external":"display003","inspect":"display004","html":"display006","css":"display008","width":"display009","apply":"display015"},
-  "html-step-06":{"external":"display004","inspect":"display005","html":"display008","css":"display009","width":"display010","apply":"display013"},
-  "html-step-07":{"external":"display004","inspect":"display005","html":"display008","css":"display009","width":"display010","apply":"display014"},
-  "html-step-08":{"external":"display004","inspect":"display005","html":"display007","css":"display008","width":"display009","apply":"display011"},
-  "html-step-09":{"external":"display003","inspect":"display004","html":"display006","css":"display007","width":"display008","apply":"display010"},
-  "html-step-10":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display010"},
-  "html-step-11":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display010"},
-  "html-step-12":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display012"},
-  "html-step-13":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display010"},
-  "html-step-15":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display011"},
-  "html-step-16":{"external":"display003","inspect":"display004","html":"display006","css":"display007","width":"display008","apply":"display012"},
-  "html-step-17":{"external":"display004","inspect":"display005","html":"display006","css":"display008","width":"display009","apply":"display011"},
-  "html-step-18":{"external":"display004","inspect":"display005","html":"display006","css":"display007","width":"display008","apply":"display010"},
-  "html-step-19":{"external":"display004","inspect":"display005","html":"display007","css":"display008","width":"display009","apply":"display010"},
-  "html-step-20":{"external":"display004","inspect":"display005","html":"display006","css":"display007","width":"display008","apply":"display009"},
-  "html-step-21":{"external":"display004","inspect":"display005","html":"display007","css":"display008","width":"display009","apply":"display010"},
-  "html-step-22":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display008"},
-  "html-step-23":{"external":"display004","inspect":"display005","html":"display007","css":"display008","width":"display009","apply":"display010"},
-  "html-step-24":{"external":"display003","inspect":"display004","html":"display006","css":"display007","width":"display008","apply":"display011"},
-  "html-step-25":{"external":"display003","inspect":"display004","html":"display005","css":"display007","width":"display008","apply":"display012"},
-  "html-step-26":{"external":"display003","inspect":"display004","html":"display006","css":"display007","width":"display008","apply":"display011"},
-  "html-step-27":{"external":"display006","inspect":"display007","html":"display010","css":"display011","width":"display012","apply":"display013"},
-  "css-step-02":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display010"},
-  "css-step-03":{"external":"display004","inspect":"display005","html":"display006","css":"display007","width":"display008","apply":"display009"},
-  "css-step-04":{"external":"external","inspect":"inspect","html":"html","css":"css","width":"width","apply":"apply"},
-  "css-step-05":{"external":"display004","inspect":"display005","html":"display007","css":"display008","width":"display009","apply":"display010"},
-  "css-step-06":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display010"},
-  "css-step-07":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display009"},
-  "css-step-08":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display008"},
-  "css-step-09":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display010"},
-  "css-step-10":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display010"},
-  "css-step-11":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display008"},
-  "css-step-12":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display008"},
-  "css-step-13":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display010"},
-  "css-step-15":{"external":"display004","inspect":"display005","html":"display006","css":"display007","width":"display008","apply":"display010"},
-  "css-step-16":{"external":"display004","inspect":"display005","html":"display006","css":"display007","width":"display008","apply":"display010"},
-  "css-step-17":{"external":"display003","inspect":"display004","html":"display006","css":"display007","width":"display008","apply":"display010"},
-  "css-step-18":{"external":"display003","inspect":"display004","html":"display006","css":"display008","width":"display009","apply":"display011"},
-  "css-step-19":{"external":"display003","inspect":"display004","html":"display006","css":"display007","width":"display008","apply":"display011"},
-  "css-step-20":{"external":"display004","inspect":"display005","html":"display007","css":"display008","width":"display009","apply":"display012"},
-  "css-step-21":{"external":"display003","inspect":"display004","html":"display007","css":"display008","width":"display009","apply":"display011"},
-  "css-step-22":{"external":"display003","inspect":"display004","html":"display006","css":"display007","width":"display008","apply":"display010"},
-  "css-step-23":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display009"},
-  "css-step-24":{"external":"display003","inspect":"display004","html":"display006","css":"display007","width":"display008","apply":"display009"},
-  "css-step-25":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display010"},
-  "css-step-26":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display008"},
-  "css-step-27":{"external":"display003","inspect":"display004","html":"display005","css":"display006","width":"display007","apply":"display009"}
-};
-let htmlMetadata;
-for(const series of Object.keys(specs)){
-const units=JSON.parse(fs.readFileSync('content/curricula/'+series+'.json','utf8')).units.filter(u=>u.id.includes('-step-'));
-const metadata={};for(const unit of units){const spec=specs[series][unit.day];if(!spec)throw new Error('Missing '+unit.id);if(!/^(javascript|typescript|html|css)-step-\d{2}$/.test(unit.id))throw new Error('Unexpected unit '+unit.id);const dir='src/labs/'+unit.id;fs.mkdirSync(dir,{recursive:true});const file=dir+'/example.js';const localized=await localizeExampleSource(unit.id,series==='html'||series==='css'?documentSource(unit,spec):dataSource(unit,spec),{},{...(!['javascript-step-02','css-step-04'].includes(unit.id)?{messagesMarker:'/* EXAMPLE_MESSAGES */'}:{}),...(unit.id==='css-step-26'?{commentLocations:{cssComparison:{line:documentSource(unit,spec).split('\n').find(line=>line.includes('/* 비교:')),column:documentSource(unit,spec).split('\n').find(line=>line.includes('/* 비교:')).indexOf('/* 비교:'),kind:'css-block-json'}}}:{})});await writeGeneratedFile(file,localized.source);if(spec.source)await writeGeneratedFile(dir+'/lesson.ts',spec.source);metadata[unit.id]={...(localized.readingSource?{readingSource:localized.readingSource}:{}),mode:series==='html'&&[18,21,23].includes(unit.day)?'external':'browser',note:spec.note||(series==='css'?'실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다.':'편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다.'),...(spec.source?{files:[dir+'/example.js',dir+'/lesson.ts']}: {})};}
-if(series==='html'||series==='css')for(const item of Object.values(metadata))item.note+=' Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다.';
-fs.mkdirSync('content/examples',{recursive:true});if(series==='html')htmlMetadata=metadata;else await writeGeneratedFile('content/examples/'+series+'.json',JSON.stringify(metadata,null,2)+'\n');console.log(series,units.length);
+import {
+  localizeExampleSource,
+  writeGeneratedFile,
+} from './example-presentation.mjs'
+import fs from 'node:fs'
+import path from 'node:path'
+const presentations = JSON.parse(
+  fs.readFileSync('content/example-presentations.json', 'utf8'),
+)
+const specs = { javascript: {}, typescript: {}, html: {}, css: {} }
+const add = (s, n, input, body, note = '') =>
+  (specs[s][n] = { input, body, note })
+add(
+  'javascript',
+  2,
+  ['15', '', '15px', '-1'],
+  `return input.map(raw=>{const value=Number(raw);return {raw,type:typeof raw,ok:raw.trim()!==''&&Number.isFinite(value)&&value>=0,value};});`,
+)
+add(
+  'javascript',
+  3,
+  [0, '', null],
+  'const values=[...input,undefined];const a={x:1},b={x:1};return {defaults:values.map(value=>({value:String(value),or:value||10,nullish:value??10})),sameReference:a===a,sameContent:a===b};',
+)
+add(
+  'javascript',
+  4,
+  ['idle', 'running', 'done', null, 'paused'],
+  "function describe(status){if(typeof status!=='string')return {ok:false,message:messages.display06};switch(status){case 'idle':return {ok:true,message:messages.display07};case 'running':return {ok:true,message:messages.display08};case 'done':return {ok:true,message:messages.display09};default:return {ok:false,message:messages.display05+status};}}return input.map(describe);",
+)
+add(
+  'javascript',
+  5,
+  [
+    [0, 0],
+    [1, 4],
+    [4, 4],
+  ],
+  'const score=(done,total)=>total===0?0:done/total*100;return input.map(([done,total])=>({done,total,percent:score(done,total),finite:Number.isFinite(score(done,total))}));',
+)
+add(
+  'javascript',
+  6,
+  { shared: false, clicks: ['A', 'A', 'B'] },
+  'let shared=0;function createCounter(){let count=0;return {increment(){input.shared?shared++:count++},read(){return input.shared?shared:count}}}const counters={A:createCounter(),B:createCounter()};input.clicks.forEach(key=>counters[key].increment());return {A:counters.A.read(),B:counters.B.read()};',
+)
+add(
+  'javascript',
+  7,
+  {
+    topic: 'css',
+    notes: [
+      { title: 'Grid', topic: 'css', minutes: 20 },
+      { title: 'Map', topic: 'js', minutes: 10 },
+      { title: 'Flex', topic: 'css', minutes: 15 },
+      { title: 'DOM', topic: 'js', minutes: 25 },
+      { title: 'Color', topic: 'css', minutes: 5 },
+    ],
+  },
+  'const before=JSON.stringify(input.notes);const selected=input.notes.filter(n=>n.topic===input.topic);return {titles:selected.map(n=>n.title),minutes:selected.reduce((sum,n)=>sum+n.minutes,0),originalPreserved:before===JSON.stringify(input.notes)};',
+)
+add(
+  'javascript',
+  8,
+  [
+    { name: '민수', contact: { email: 'test@example.com' } },
+    { name: '수진' },
+    {},
+  ],
+  "return input.map(author=>{const {name}=author;return {ok:typeof name==='string'&&name.trim()!=='',name,email:author.contact?.email??messages.display05};});",
+)
+add(
+  'javascript',
+  9,
+  { tags: ['js', 'css', 'js', 'html', 'css', 'js'], key: 2 },
+  "const map=new Map([[1,'one'],[2,'two'],[3,'three']]);map.set(input.key,'updated');return {tags:[...new Set(input.tags)],before:input.tags.length,after:new Set(input.tags).size,map:[...map],missing:map.get(99)??'not found'};",
+)
+add(
+  'javascript',
+  10,
+  ['{"title":"ok"}', '{"title":'],
+  'return input.map(raw=>{let busy=true;let result;try{result={ok:true,value:JSON.parse(raw)}}catch(error){result={ok:false,error:String(error)}}finally{busy=false}return {...result,busy};});',
+)
+add(
+  'javascript',
+  11,
+  ['normal', '<img src=x onerror=alert(1)>'],
+  "stage.replaceChildren();const list=document.createElement('ul'),fragment=document.createDocumentFragment();input.forEach(title=>{const item=document.createElement('li');item.textContent=title;fragment.append(item)});list.append(fragment);stage.append(list);return {count:list.children.length,injectedImages:list.querySelectorAll('img').length,markup:list.innerHTML};",
+)
+add(
+  'javascript',
+  12,
+  ['Alpha', 'Beta', 'Gamma'],
+  "stage.replaceChildren();const list=document.createElement('ul');input.forEach(title=>{const li=document.createElement('li'),button=document.createElement('button'),span=document.createElement('span');span.textContent=title+messages.display06;button.dataset.action='remove';button.append(span);li.append(button);list.append(li)});list.onclick=event=>{const target=event.target;if(!(target instanceof Element))return;const button=target.closest('[data-action=\"remove\"]');if(button&&list.contains(button))button.closest('li')?.remove();};stage.append(list);return messages.display05;",
+)
+add(
+  'javascript',
+  13,
+  { returnPromise: true },
+  "const events=['sync'];let innerPromise;const inner=()=>innerPromise=new Promise(resolve=>later(()=>{events.push('inner');resolve(null)},30));const chain=Promise.resolve().then(()=>{if(input.returnPromise)return inner();inner();}).then(()=>events.push('chain done'));events.push('sync end');await chain;await new Promise(resolve=>later(resolve,0));events.push('timer');await innerPromise;return events;",
+)
+add(
+  'javascript',
+  15,
+  { missing: false },
+  "const response=new Response(input.missing?'Not found':'[{\"title\":\"local fixture\"}]',{status:input.missing?404:200});if(!response.ok)throw new Error('HTTP '+response.status);return {status:response.status,notes:await response.json()};",
+  '미리보기 네트워크 제한 때문에 실제 Response 객체의 200/404 fixture를 실행합니다. fetch·HTTP 요청은 로컬 서버에서 검사하세요.',
+)
+add(
+  'javascript',
+  16,
+  { reject: 1 },
+  "const jobs=[40,10,25].map((delay,index)=>new Promise((resolve,reject)=>later(()=>index===input.reject?reject(new Error('failed '+index)):resolve(index),delay)));const settled=await Promise.allSettled(jobs);let all;try{all=await Promise.all(jobs)}catch(error){all=String(error)}return {all,settled:settled.map(r=>r.status==='fulfilled'?r:{status:r.status,reason:String(r.reason)})};",
+)
+add(
+  'javascript',
+  17,
+  { delay: 300, query: 'grid' },
+  "stage.replaceChildren();const field=document.createElement('input');field.value=input.query;const result=document.createElement('output');let pending;field.oninput=()=>{clearTimeout(pending);pending=later(()=>{result.textContent=messages.display06+field.value},input.delay)};stage.append(field,result);field.dispatchEvent(new Event('input'));return messages.display05+input.delay+messages.display07;",
+)
+add(
+  'javascript',
+  18,
+  { missing: false },
+  "const url=URL.createObjectURL(new Blob(['const state={count:0}; export const increment=()=>++state.count; export const read=()=>state.count;'],{type:'text/javascript'}));try{const module=await import(input.missing?'./missing.js':url);return {publicKeys:Object.keys(module),first:module.increment(),second:module.increment(),read:module.read(),privateStateVisible:'state' in module};}finally{URL.revokeObjectURL(url)}",
+  'Blob ES 모듈의 공개 경계를 실행합니다. 실제 상대 파일 분리와 Network 경로 검증은 HTTP 프로젝트에서 수행하세요.',
+)
+add(
+  'javascript',
+  19,
+  { raw: '[{"title":"saved"}]', simulateWriteFailure: false },
+  "const key='frontory-javascript-step-19';try{if(input.simulateWriteFailure)throw new DOMException('실험용 쓰기 실패','QuotaExceededError');localStorage.setItem(key,input.raw);return {restored:JSON.parse(localStorage.getItem(key)||'null')}}catch(error){return {error:String(error)}}finally{localStorage.removeItem(key)}",
+  '실습 전용 키는 실행 후 제거됩니다. iframe 저장소 정책에 따른 SecurityError도 표시합니다.',
+)
+add(
+  'javascript',
+  20,
+  { topic: '한글과 공백', base: 'https://example.test/notes?topic=css' },
+  "const url=new URL(input.base);const before=url.href;url.searchParams.set('topic',input.topic);return {before,after:url.href,restored:new URL(url.href).searchParams.get('topic')};",
+  'URLSearchParams 인코딩 왕복을 실행합니다. 실제 주소 표시줄 및 popstate 뒤로 가기 검증은 별도 HTTP 페이지에서 진행하세요.',
+)
+add(
+  'javascript',
+  21,
+  { title: 'Grid', minutes: '15', done: true },
+  'stage.replaceChildren();const form=document.createElement(\'form\');form.innerHTML=("<label>"+messages.display06+"<input name=\\"title\\"></label><label>"+messages.display08+"<input name=\\"minutes\\"></label><label>"+messages.display07+"<input name=\\"done\\" type=\\"checkbox\\"></label><button>"+messages.display09+"</button>");/** @type {HTMLInputElement} */(form.querySelector(\'input[name=title]\')).value=input.title;/** @type {HTMLInputElement} */(form.querySelector(\'input[name=minutes]\')).value=input.minutes;/** @type {HTMLInputElement} */(form.querySelector(\'input[name=done]\')).checked=input.done;form.onsubmit=event=>{event.preventDefault();const data=new FormData(form),title=String(data.get(\'title\')).trim(),raw=String(data.get(\'minutes\')),minutes=Number(raw);show({ok:!!title&&raw.trim()!==\'\'&&Number.isFinite(minutes)&&minutes>=0,title,minutes,done:data.has(\'done\')})};stage.append(form);return messages.display05;',
+)
+add(
+  'javascript',
+  22,
+  { notes: [{ id: 1, title: '한글\n줄바꿈' }] },
+  "const blob=new Blob([JSON.stringify({schemaVersion:1,notes:input.notes},null,2)],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob);urls.push(url);stage.replaceChildren();const a=document.createElement('a');a.href=url;a.download='notes.json';a.textContent=messages.display05;stage.append(a);return {bytes:blob.size,roundTrip:JSON.parse(await blob.text())};",
+)
+add(
+  'javascript',
+  23,
+  [
+    { id: 1, title: 'valid' },
+    { id: 2, title: 42 },
+  ],
+  "const validate=notes=>Array.isArray(notes)&&notes.every(n=>n&&typeof n.id==='number'&&typeof n.title==='string');stage.replaceChildren();const file=document.createElement('input');file.type='file';file.accept='.json,application/json';file.onchange=async()=>{try{const text=await file.files?.[0]?.text();if(text){const data=JSON.parse(text);show({accepted:!!data&&typeof data==='object'&&!Array.isArray(data)&&data.schemaVersion===1&&validate(data.notes)})}}catch(error){show({error:String(error)})}};stage.append(file);return {accepted:validate(input),committed:validate(input)?input:[],policy:messages.display05};",
+)
+add(
+  'javascript',
+  24,
+  { mutate: false },
+  'let state=[{id:1,done:false}],history=[state];state=input.mutate?(state[0].done=true,state):state.map(n=>({...n,done:!n.done}));const after=state;state=history.pop();return {after,undo:state,undoSucceeded:state[0].done===false};',
+)
+add(
+  'javascript',
+  25,
+  { iso: '2026-01-01T00:00:00Z', zones: ['UTC', 'Asia/Seoul'] },
+  "const date=new Date(input.iso);return {stored:date.toISOString(),display:input.zones.map(timeZone=>({timeZone,text:new Intl.DateTimeFormat('ko-KR',{timeZone,dateStyle:'full',timeStyle:'long'}).format(date)}))};",
+)
+add(
+  'javascript',
+  26,
+  { count: 10000, batch: 500 },
+  "if(!Number.isInteger(input.batch)||input.batch<1||input.count<0||input.count>1000000)throw new Error('batch >= 1, count 0..1000000');let hits=0,yields=0;const started=performance.now();stage.replaceChildren();const button=document.createElement('button');button.textContent=messages.display06;button.onclick=()=>button.textContent=messages.display05;stage.append(button);for(let start=0;start<input.count;start+=input.batch){for(let i=start;i<Math.min(start+input.batch,input.count);i++)if(('record '+i).includes('5'))hits++;await new Promise(resolve=>later(resolve,0));yields++}return {hits,yields,milliseconds:performance.now()-started};",
+  '시간은 현재 기기의 관찰값이며 성능 우열을 단정하지 않습니다. count와 batch를 같은 조건으로 비교하세요.',
+)
+add(
+  'javascript',
+  27,
+  { mounts: 5 },
+  "const target=new EventTarget();let calls=0,disposed=0;const mount=()=>{const handler=()=>calls++;target.addEventListener('ping',handler);const controller=new AbortController();return ()=>{target.removeEventListener('ping',handler);controller.abort();disposed++}};for(let i=0;i<input.mounts;i++){const dispose=mount();dispose()}const dispose=mount();target.dispatchEvent(new Event('ping'));dispose();target.dispatchEvent(new Event('ping'));return {calls,disposed,expectedCalls:1};",
+)
+const ts = {
+  2: [
+    'function double(value: number): number { return value * 2 }\nconst result = double(3);',
+    { value: 3 },
+    "return {value:input.value,result:typeof input.value==='number'?input.value*2:'runtime rejected'};",
+  ],
+  3: [
+    'const mode = "idle";\nfunction start(mode: "idle" | "running") { return mode }\nstart(mode);\nlet widened = "idle";\n// @ts-expect-error widened string is not a state\nstart(widened);',
+    { mode: 'idle' },
+    "return {accepted:['idle','running'].includes(input.mode),mode:input.mode};",
+  ],
+  4: [
+    'interface Note { id: number; title: string; tag?: string }\nconst good: Note = {id:1,title:"A"};\n// @ts-expect-error misspelled required field\nconst bad: Note = {id:1,titel:"A"};',
+    { id: 1, title: 'A' },
+    "return {accepted:typeof input.id==='number'&&typeof input.title==='string',optionalTag:input.tag??'absent'};",
+  ],
+  5: [
+    'type Point = [x:number, y:number];\nconst point: Point = [10,20];\n// @ts-expect-error tuple requires two elements\nconst bad: Point = [10];',
+    [10, 20],
+    "return {accepted:Array.isArray(input)&&input.length===2&&input.every(v=>typeof v==='number'),x:input[0],y:input[1],swapped:[input[1],input[0]],note:messages.display003};",
+  ],
+  6: [
+    'function title(note: {title:string}): string { return note.title.trim() }\nfunction visit(items: string[], callback:(value:string)=>void): void { items.forEach(callback) }',
+    { title: '  Grid  ' },
+    "return {result:typeof input.title==='string'?input.title.trim():null,returnType:'string or validation failure'};",
+  ],
+  7: [
+    'function length(value:unknown):number { return typeof value === "string" ? value.length : 0 }',
+    ['hello', null, 42],
+    "return input.map(value=>({value,length:typeof value==='string'?value.length:0}));",
+  ],
+  8: [
+    'type State = {status:"idle"}|{status:"loading"}|{status:"done";value:string}|{status:"error";message:string};\nfunction text(s:State):string { return s.status==="done" ? s.value : s.status==="error" ? s.message : s.status }',
+    { status: 'idle', event: 'resolve' },
+    "const allowed=input.status==='loading'&&input.event==='resolve';return {accepted:allowed,next:allowed?{status:'done',value:'loaded'}:input.status};",
+  ],
+  9: [
+    'type State = "idle"|"loading"|"done";\nfunction assertNever(x:never):never { throw new Error(String(x)) }\nfunction label(s:State):string { switch(s){case "idle":return "대기";case "loading":return "진행";case "done":return "완료";default:return assertNever(s)} }',
+    { status: 'cancelled' },
+    "switch(input.status){case 'idle':return messages.display005;case 'loading':return messages.display006;case 'done':return messages.display007;default:throw new Error('Unhandled: '+input.status)}",
+  ],
+  10: [
+    'type Note = {readonly id:number; readonly done:boolean};\nfunction toggle(notes:readonly Note[]):Note[] { return notes.map(n=>({...n,done:!n.done})) }',
+    [{ id: 1, done: false }],
+    'const before=JSON.stringify(input);const updated=input.map(n=>({...n,done:!n.done}));return {updated,originalPreserved:before===JSON.stringify(input),frozen:Object.isFrozen(input),note:messages.display003};',
+  ],
+  11: [
+    'function getProperty<T,K extends keyof T>(object:T,key:K):T[K] { return object[key] }\nconst note={title:"A",done:false};\ngetProperty(note,"title");\n// @ts-expect-error missing key\ngetProperty(note,"missing");',
+    { key: 'title' },
+    "const note={title:'A',done:false};return {exists:Object.hasOwn(note,input.key),value:note[input.key]??'missing'};",
+  ],
+  12: [
+    'function first<T>(items:T[]):T|undefined { return items[0] }\nfunction mapValues<T,U>(items:T[],fn:(v:T)=>U):U[] { return items.map(fn) }',
+    ['a', 'b'],
+    "return {first:input[0]??'undefined',mapped:input.map(value=>String(value).toUpperCase()),length:input.length};",
+  ],
+  13: [
+    'function index<T extends {id:number}>(items:T[]):Map<number,T> { return new Map(items.map(item=>[item.id,item])) }\n// @ts-expect-error id required\nindex([{title:"A"}]);',
+    [{ id: 1, title: 'A' }],
+    "if(!input.every(v=>typeof v.id==='number'))throw new Error('id required');return [...new Map(input.map(v=>[v.id,v]))];",
+  ],
+  15: [
+    'type Note={id:number;title:string};\nfunction isNote(v:unknown):v is Note { return typeof v==="object" && v!==null && "id" in v && typeof v.id==="number" && "title" in v && typeof v.title==="string" }',
+    [null, { title: 'A' }, { id: 1, title: 2 }, { id: 1, title: 'A' }],
+    "return input.map(v=>({value:v,accepted:!!v&&typeof v==='object'&&typeof v.id==='number'&&typeof v.title==='string'}));",
+  ],
+  16: [
+    'type Result<T,E>={ok:true;value:T}|{ok:false;error:E};\nfunction parse(raw:string):Result<unknown,string> { try{return {ok:true,value:JSON.parse(raw)}}catch{return {ok:false,error:"syntax"}} }',
+    { raw: '{"id":1,"title":42}' },
+    "try{const value=JSON.parse(input.raw);return value&&typeof value.id==='number'&&typeof value.title==='string'?{ok:true,value}:{ok:false,error:'structure'}}catch{return {ok:false,error:'syntax'}}",
+  ],
+  17: [
+    'type Note={id:number;title:string;done:boolean};\ntype Patch=Partial<Omit<Note,"id">>;\ntype Summary=Pick<Note,"id"|"title">;\nfunction apply(note:Note,patch:Patch):Note { return {...note,...patch} }',
+    { patch: { title: 'Updated' } },
+    "const note={id:1,title:'A',done:false};const keys=Object.keys(input.patch);return {accepted:keys.every(k=>['title','done'].includes(k)),result:keys.every(k=>['title','done'].includes(k))?{...note,...input.patch}:note};",
+  ],
+  18: [
+    'type Theme={foreground:string;background:string};\nconst theme={foreground:"#111",background:"#fff"} as const satisfies Theme;\n// @ts-expect-error misspelled foreground\nconst bad={foregound:"#111",background:"#fff"} satisfies Theme;',
+    { foreground: '#111', background: '#fff' },
+    "return {accepted:typeof input.foreground==='string'&&typeof input.background==='string',keys:Object.keys(input)};",
+  ],
+  19: [
+    'type Settings={theme:string;size:number;enabled:boolean};\ntype Errors={ [K in keyof Settings]:string|null };\nconst errors:Errors={theme:null,size:null,enabled:null};',
+    {
+      settings: { theme: 'dark', size: 14, enabled: true },
+      errors: { theme: null, size: null, enabled: null },
+    },
+    'return {missingErrorKeys:Object.keys(input.settings).filter(key=>!Object.hasOwn(input.errors,key)),readOnlyIsCompileTime:true};',
+  ],
+  20: [
+    'type ElementOf<T> = T extends (infer U)[] ? U : T;\ntype Distributed<T> = T extends string ? "text" : "other";\ntype Whole<T> = [T] extends [string] ? "text" : "other";\nconst distributed:Distributed<string|number>="text";\nconst whole:Whole<string|number>="other";',
+    ['a', 1],
+    "return {perMember:input.map(v=>typeof v==='string'?'text':'other'),whole:input.every(v=>typeof v==='string')?'text':'other',note:messages.display003};",
+  ],
+  21: [
+    'type Note={title:string;done:boolean};\nfunction emit<K extends keyof Note>(name:`${K}Changed`,payload:Note[K]):void {}\nemit("titleChanged","A");\n// @ts-expect-error title needs string\nemit<"title">("titleChanged",42);',
+    { name: 'titleChanged', payload: 42 },
+    "return {accepted:input.name==='titleChanged'?typeof input.payload==='string':input.name==='doneChanged'&&typeof input.payload==='boolean'};",
+  ],
+  22: [
+    'const element=document.querySelector("#title");\nif(element instanceof HTMLInputElement){ console.log(element.value) }',
+    { tag: 'input' },
+    "stage.replaceChildren();const element=document.createElement(input.tag==='input'?'input':'div');stage.append(element);return {isInput:element instanceof HTMLInputElement,value:element instanceof HTMLInputElement?element.value:messages.display004};",
+  ],
+  23: [
+    'type Result<T>={ok:true;value:T}|{ok:false;error:string};\nasync function load():Promise<Result<string>> { try{return {ok:true,value:await Promise.resolve("A")}}catch(error:unknown){return {ok:false,error:error instanceof Error?error.message:String(error)}} }',
+    { throwString: true },
+    "try{await Promise.resolve();throw input.throwString?'문자열 실패':new Error('Error 실패')}catch(error){return {ok:false,error:error instanceof Error?error.message:String(error)}}",
+  ],
+  24: [
+    '// Split these declarations into model.ts and main.ts in a local project.\nexport type Note={id:number;title:string};\nexport const create=(title:string):Note=>({id:1,title});\n// Consumer: import type { Note } from "./model.js";\n// Consumer: import { create } from "./model.js";',
+    { title: 'A' },
+    "const create=title=>({id:1,title});return {value:create(input.title),runtimeExports:['create'],erasedType:'Note has no runtime binding'};",
+  ],
+  25: [
+    '// legacy.d.ts: export function save(value:string):number;\ndeclare function save(value:string):number;\nif(false){save("A");\n// @ts-expect-error declaration rejects number\nsave(42)}',
+    { value: 42 },
+    "function legacySave(value){if(typeof value!=='string')throw new TypeError('legacy expects string');return value.length}return legacySave(input.value);",
+  ],
+  26: [
+    'type State="idle"|"done";\nconst good:State="idle";\n// @ts-expect-error unsupported state; becomes unused if State weakens to any\nconst bad:State="missing";\ntype Plugin={mount:()=>()=>void};\n// @ts-expect-error cleanup function is required\nconst plugin:Plugin={mount:()=>42};',
+    { state: 'missing' },
+    "return {runtimeAccepted:['idle','done'].includes(input.state),compileTest:'Run tsc --strict --noEmit lesson.ts; unused @ts-expect-error is diagnostic TS2578'};",
+  ],
+  27: [
+    'type Context={container:HTMLElement};\ninterface Plugin { mount(context:Context):()=>void }\nconst plugin:Plugin={mount({container}){const node=document.createElement("button");container.append(node);return ()=>node.remove()}};',
+    { mounts: 2 },
+    "const target=new EventTarget();let calls=0;function mount(){const handler=()=>calls++;target.addEventListener('ping',handler);return ()=>target.removeEventListener('ping',handler)}for(let i=0;i<input.mounts;i++){const cleanup=mount();cleanup()}target.dispatchEvent(new Event('ping'));return {callsAfterCleanup:calls,expected:0};",
+  ],
 }
-function documentSource(unit,spec){const pilot=!presentations[unit.id]||unit.id==='css-step-04',ui=documentKeys[unit.id];return `// ${unit.title}: 실제 HTML/CSS 실험
-export function mount({container${pilot?'':",locale='ko'"}}) {
-${pilot?'':'/* EXAMPLE_MESSAGES */\n'}const HTML=${spec.htmlSource??JSON.stringify(spec.html)},CSS=${JSON.stringify(spec.css||'')};
+for (const [day, [source, input, body]] of Object.entries(ts)) {
+  add(
+    'typescript',
+    day,
+    input,
+    body,
+    '미리보기는 JavaScript 런타임 경계 실험입니다. TypeScript 진단은 실행하지 않습니다. lesson.ts를 로컬 tsc --strict --noEmit --lib ES2023,DOM 으로 검사하세요.',
+  )
+  specs.typescript[day].source = source + '\nexport {};\n'
+}
+const H = (n, html, css = '', note = '') => {
+  specs.html[n] = { htmlSource: html, css, note }
+}
+const C = (n, html, css, note = '') => {
+  specs.css[n] = { htmlSource: html, css, note }
+}
+
+H(
+  2,
+  '("<!doctype html><html lang=\\"ko\\"><head><meta charset=\\"utf-8\\"><title>"+messages.display009+"</title></head><body><h1>"+messages.display005+"</h1><p>한글 · café · 日本語</p></body></html>")',
+  '',
+  'lang을 en으로 바꾸고 접근성 언어를 확인하세요. HTML 문자열은 이미 유니코드이므로 실제 HTTP charset 오인코딩은 별도 파일로 검사합니다.',
+)
+H(
+  3,
+  '("<!doctype html><html lang=\\"ko\\"><head><meta charset=\\"utf-8\\"><title>"+messages.display007+"</title><meta name=\\"description\\" content=\\""+messages.display006+"\\"><meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\"></head><body><h1>"+messages.display007+"</h1><p>"+messages.display003+"</p></body></html>")',
+  '',
+  '문서 title과 meta를 검사합니다. 모바일 viewport 효과는 독립 페이지와 실제 모바일 장치에서 확인하세요.',
+)
+H(
+  4,
+  '("<h1>"+messages.display013+"</h1><p>"+messages.display007+"<em>"+messages.display012+"</em>"+messages.display009+"</p><p><strong>"+messages.display014+"</strong>"+messages.display003+"</p><p>"+messages.display015+"<br>"+messages.display004+"</p>")',
+)
+H(
+  5,
+  '("<h1>"+messages.display010+"</h1><ul><li>"+messages.display013+"</li><li>"+messages.display014+"</li></ul><ol><li>"+messages.display011+"</li><li>"+messages.display016+"</li><li>"+messages.display012+"</li></ol><dl><dt>"+messages.display017+"</dt><dd>"+messages.display007+"</dd><dt>"+messages.display018+"</dt><dd>"+messages.display005+"</dd></dl>")',
+)
+H(
+  6,
+  '("<base href=\\"https://example.test/course/lesson/\\"><nav><a href=\\"#result\\">"+messages.display011+"</a> · <a href=\\"./detail.html\\">"+messages.display006+"</a> · <a href=\\"../detail.html\\">"+messages.display007+"</a></nav><h1>"+messages.display012+"</h1><p style=\\"height:300px\\">"+messages.display003+"</p><h2 id=\\"result\\">"+messages.display014+"</h2>")',
+  '',
+  '이 미리보기의 검사 결과는 현재 DOM의 원래 href 속성을 표시합니다. head의 base는 Shadow DOM에 복사되지 않습니다. base를 포함한 절대 URL 해석은 별도 HTTP 문서에서 확인하세요. example.test의 실제 문서는 제공하지 않습니다.',
+)
+H(
+  7,
+  '("<h1>"+messages.display011+"</h1><p>"+messages.display012+"<img src=\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22240%22%3E%3Crect%20width%3D%22600%22%20height%3D%22240%22%20fill%3D%22%23285ea8%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22120%22%20r%3D%2270%22%20fill%3D%22%23f9ca72%22%2F%3E%3C%2Fsvg%3E\\" width=\\"240\\" height=\\"96\\" alt=\\""+messages.display006+"\\"></p><p>"+messages.display013+"<img src=\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22240%22%3E%3Crect%20width%3D%22600%22%20height%3D%22240%22%20fill%3D%22%23285ea8%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22120%22%20r%3D%2270%22%20fill%3D%22%23f9ca72%22%2F%3E%3C%2Fsvg%3E\\" width=\\"60\\" height=\\"24\\" alt=\\"\\"></p><a href=\\"#details\\"><img src=\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22240%22%3E%3Crect%20width%3D%22600%22%20height%3D%22240%22%20fill%3D%22%23285ea8%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22120%22%20r%3D%2270%22%20fill%3D%22%23f9ca72%22%2F%3E%3C%2Fsvg%3E\\" width=\\"120\\" height=\\"48\\" alt=\\""+messages.display007+"\\"></a><p id=\\"details\\">"+messages.display003+"</p>")',
+)
+H(
+  8,
+  '("<figure><img src=\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22240%22%3E%3Crect%20width%3D%22600%22%20height%3D%22240%22%20fill%3D%22%23285ea8%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22120%22%20r%3D%2270%22%20fill%3D%22%23f9ca72%22%2F%3E%3C%2Fsvg%3E\\" width=\\"200\\" height=\\"80\\" alt=\\""+messages.display006+"\\"><img src=\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22240%22%3E%3Crect%20width%3D%22600%22%20height%3D%22240%22%20fill%3D%22%23285ea8%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22120%22%20r%3D%2270%22%20fill%3D%22%23f9ca72%22%2F%3E%3C%2Fsvg%3E\\" style=\\"filter:grayscale(1)\\" width=\\"200\\" height=\\"80\\" alt=\\""+messages.display010+"\\"><figcaption>"+messages.display003+"</figcaption></figure>")',
+)
+H(
+  9,
+  '("<table><caption>"+messages.display005+"</caption><thead><tr><th scope=\\"col\\">"+messages.display011+"</th><th scope=\\"col\\">"+messages.display009+"</th></tr></thead><tbody><tr><th scope=\\"row\\">"+messages.display012+"</th><td>14</td></tr><tr><th scope=\\"row\\">"+messages.display013+"</th><td>9</td></tr></tbody></table>")',
+  'th,td{padding:12px;border:1px solid #879bb0}table{border-collapse:collapse}',
+)
+H(
+  10,
+  '("<p><q cite=\\"https://developer.mozilla.org/en-US/docs/Web/HTML\\">HTML describes the structure of a web page.</q></p><p>"+messages.display008+"<a href=\\"https://developer.mozilla.org/en-US/docs/Web/HTML\\">MDN HTML</a></p><p>"+messages.display009+"<time datetime=\\"2026-10-21\\">2026년 10월 21일</time></p>")',
+  '',
+  'datetime을 자연어로 바꾼 뒤 검사 결과와 HTML validator를 비교하세요. 인용은 예시 문장입니다.',
+)
+H(
+  11,
+  '("<form method=\\"get\\" action=\\"about:blank\\"><label for=\\"query\\">"+messages.display011+"</label><input id=\\"query\\" name=\\"q\\" value=\\"grid\\"><button type=\\"submit\\">"+messages.display008+"</button><button type=\\"button\\">"+messages.display009+"</button></form>")',
+  '',
+  '이 미리보기는 submit 이벤트에서 preventDefault()를 호출하므로 iframe이 이동하지 않습니다. 검사 버튼과 제출 핸들러는 현재 DOM의 유효성과 FormData를 표시합니다. GET 제출 뒤 URL을 확인하는 과제는 별도 HTTP 페이지에서 수행하세요.',
+)
+H(
+  12,
+  '("<form><label>"+messages.display010+"<input name=\\"email\\" type=\\"email\\" autocomplete=\\"email\\" value=\\"invalid\\" required></label><label>"+messages.display011+"<input name=\\"phone\\" type=\\"tel\\" autocomplete=\\"tel\\" inputmode=\\"tel\\"></label><label>"+messages.display009+"<input name=\\"minutes\\" type=\\"number\\" min=\\"0\\" step=\\"5\\" value=\\"-1\\"></label><button>"+messages.display008+"</button></form>")',
+  'label{display:block;margin:12px}',
+)
+H(
+  13,
+  '("<form><fieldset><legend>"+messages.display009+"</legend><label><input type=\\"radio\\" name=\\"level\\" value=\\"beginner\\" checked>"+messages.display011+"</label><label><input type=\\"radio\\" name=\\"level\\" value=\\"advanced\\">"+messages.display012+"</label></fieldset><fieldset><legend>"+messages.display008+"</legend><label><input type=\\"checkbox\\" name=\\"topic\\" value=\\"css\\" checked>CSS</label><label><input type=\\"checkbox\\" name=\\"topic\\" value=\\"html\\" checked>HTML</label></fieldset></form>")',
+)
+H(
+  15,
+  '("<form><label>"+messages.display010+"<input name=\\"normal\\" value=\\"A\\"></label><label>"+messages.display008+"<input name=\\"readonly\\" value=\\"B\\" readonly></label><label>"+messages.display009+"<input name=\\"disabled\\" value=\\"C\\" disabled></label></form>")',
+  'label{display:block;margin:16px}',
+)
+H(
+  16,
+  '("<details open><summary>"+messages.display005+"</summary><ol><li><a href=\\"#a\\">"+messages.display009+"</a></li><li><a href=\\"#b\\">"+messages.display013+"</a></li><li><a href=\\"#c\\">"+messages.display010+"</a></li><li><a href=\\"#d\\">"+messages.display011+"</a></li></ol></details><h2 id=\\"a\\">"+messages.display009+"</h2><h2 id=\\"b\\">"+messages.display013+"</h2><h2 id=\\"c\\">"+messages.display010+"</h2><h2 id=\\"d\\">"+messages.display011+"</h2>")',
+)
+H(
+  17,
+  '("<button data-open-dialog>"+messages.display007+"</button><dialog aria-labelledby=\\"dialog-title\\"><h2 id=\\"dialog-title\\">"+messages.display010+"</h2><p>"+messages.display003+"</p><form method=\\"dialog\\"><button>"+messages.display012+"</button></form></dialog>")',
+  '',
+  '전용 보조 코드가 열기 버튼을 showModal에 연결합니다. dialog의 open 속성과 모달 초점 동작을 비교하세요.',
+)
+H(
+  18,
+  '("<video controls width=\\"320\\"><source src=\\"./sample.mp4\\" type=\\"video/mp4\\"><track kind=\\"captions\\" srclang=\\"ko\\" label=\\"한국어\\" src=\\"./captions.vtt\\" default>"+messages.display003+"</video><p><a href=\\"#transcript\\">"+messages.display009+"</a></p><section id=\\"transcript\\"><h2>"+messages.display011+"</h2><p>00:00 실험 시작. 00:03 카드의 색상을 변경합니다.</p></section>")',
+  '',
+  '첨부 companion 폴더에 index.html, 6초 합성 sample.mp4, captions.vtt, transcript.html, README.md를 제공합니다. 실제 재생·자막·실패 전환은 해당 폴더를 로컬 HTTP 서버로 열어 검사하세요.',
+)
+H(
+  19,
+  '("<img src=\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22300%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22steelblue%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E600w%3C%2Ftext%3E%3C%2Fsvg%3E\\" srcset=\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22150%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22coral%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E300w%3C%2Ftext%3E%3C%2Fsvg%3E 300w, data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22300%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22steelblue%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E600w%3C%2Ftext%3E%3C%2Fsvg%3E 600w, data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221200%22%20height%3D%22600%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22seagreen%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E1200w%3C%2Ftext%3E%3C%2Fsvg%3E 1200w\\" sizes=\\"(max-width:600px) 100vw, 600px\\" width=\\"600\\" height=\\"300\\" alt=\\""+messages.display006+"\\"><p>"+messages.display003+"</p>")',
+  'img{max-width:100%;height:auto}',
+  '내장 SVG 후보는 하나입니다. 선택 문법과 currentSrc를 관찰할 수 있고 실제 전송량 비교에는 다른 해상도의 래스터 파일 3개가 필요합니다.',
+)
+H(
+  20,
+  '("<picture><source media=\\"(max-width:600px)\\" srcset=\\"data:image/svg+xml,%3Csvg%20xmlns=\'http://www.w3.org/2000/svg\'%20width=\'200\'%20height=\'200\'%3E%3Crect%20width=\'200\'%20height=\'200\'%20fill=\'coral\'/%3E%3C/svg%3E\\"><img src=\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22240%22%3E%3Crect%20width%3D%22600%22%20height%3D%22240%22%20fill%3D%22%23285ea8%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22120%22%20r%3D%2270%22%20fill%3D%22%23f9ca72%22%2F%3E%3C%2Fsvg%3E\\" width=\\"600\\" height=\\"240\\" alt=\\""+messages.display003+"\\"></picture>")',
+  'img{max-width:100%;height:auto}',
+)
+H(
+  21,
+  '("<iframe title=\\""+messages.display006+"\\" sandbox srcdoc=\\"<h2>"+messages.display011+"</h2><p>"+messages.display003+"</p><script>document.body.append(\'script executed\')</script>\\"></iframe>")',
+  '',
+  'sandbox에 allow-scripts를 추가해 비교하세요. 상위 미리보기 CSP도 적용되므로 스크립트 차단이 sandbox만의 결과라고 단정하지 마세요.',
+)
+H(
+  22,
+  '("<body><template id=\\"card\\"><article><label for=\\"title\\">"+messages.display009+"</label><input id=\\"title\\" value=\\"메모\\"></article></template><section data-cards></section></body>")',
+  '',
+  '보조 코드가 template을 3회 복제하고 for/id를 고유 접미사로 연결합니다. 소스의 template 내용을 바꿔보세요.',
+)
+H(
+  23,
+  '("<!doctype html><html><head><script defer src=\\"./first.js\\"></script><script async src=\\"./second.js\\"></script></head><body><h1 id=\\"target\\">"+messages.display006+"</h1><p>"+messages.display003+"</p></body></html>")',
+  '',
+  '첨부 index.html, first.js, second.js, README.md로 실제 로딩 실험을 제공합니다. 이 미리보기는 소스 구조를 검사하며 일반/defer/async의 실행 순서는 companion 폴더의 로컬 HTTP 페이지에서 관찰하세요.',
+)
+H(
+  24,
+  '("<button>"+messages.display012+"</button><button aria-label=\\""+messages.display009+"\\">×</button><label for=\\"name\\">"+messages.display010+"</label><input id=\\"name\\" aria-describedby=\\"hint\\"><p id=\\"hint\\">"+messages.display005+"</p>")',
+  '',
+  'aria-label을 보이는 텍스트와 다르게 바꾸고 브라우저 접근성 패널에서 실제 계산된 이름을 검사하세요.',
+)
+H(
+  25,
+  '("<a class=\\"skip\\" href=\\"#main\\">"+messages.display006+"</a><nav><a href=\\"#one\\">"+messages.display013+"</a> <a href=\\"#two\\">"+messages.display014+"</a> <a href=\\"#three\\">"+messages.display015+"</a></nav><main id=\\"main\\" tabindex=\\"-1\\"><h1>"+messages.display016+"</h1><article id=\\"one\\"><a href=\\"#two\\">"+messages.display011+"</a></article><article id=\\"two\\"><a href=\\"#three\\">"+messages.display010+"</a></article><article id=\\"three\\"><button>"+messages.display009+"</button></article></main>")',
+  '.skip{position:absolute;left:-999px}.skip:focus{position:static}nav{padding:50px}',
+)
+H(
+  26,
+  '("<p>"+messages.display009+"<div>"+messages.display005+"</div>"+messages.display010+"</p><button>"+messages.display012+"<button>"+messages.display013+"</button></button>")',
+  '',
+  '검사 결과에 브라우저가 복구한 body 트리를 표시합니다. p/div를 형제로 수정하고 HTML validator의 진단과 비교하세요.',
+)
+H(
+  27,
+  '("<article><h1>"+messages.display008+"</h1><img src=\\"./missing-image.png\\" width=\\"240\\" height=\\"120\\" alt=\\""+messages.display005+"\\"><p>"+messages.display003+"</p><a href=\\"#detail\\">"+messages.display009+"</a><button>"+messages.display014+"</button><p id=\\"detail\\">"+messages.display004+"</p></article>")',
+  'article{max-width:35rem}img{max-width:100%;height:auto}button,a{display:inline-block;margin:12px}',
+  '미리보기 폭을 줄여 reflow를 확인하고 실제 브라우저 200%·400% 확대도 별도로 검사하세요.',
+)
+
+C(
+  2,
+  '("<section class=\\"card\\"><button>"+messages.display008+"</button><div><button>"+messages.display009+"</button></div></section><button>"+messages.display011+"</button>")',
+  '.card button{background:#ffc96a}.card > button{color:#8a1221}button{margin:10px;padding:12px}',
+)
+C(
+  3,
+  '("<section class=\\"parent\\">"+messages.display010+"<div class=\\"child\\">"+messages.display003+"</div></section>")',
+  '.parent{color:#b3261e;border:4px solid #b3261e;padding:20px}.child{color:initial;border:inherit;padding:20px}',
+  'initial, inherit, unset을 각각 바꾸고 계산된 color·border를 확인하세요.',
+)
+C(
+  4,
+  '"<div class=\\"card\\">width 200 + padding 40 + border 4</div>"',
+  '.card{width:200px;padding:20px;border:2px solid #285ea8;box-sizing:content-box}',
+  'box-sizing을 border-box로 바꿔 실측 너비 244px와 200px를 비교하세요.',
+)
+C(
+  5,
+  '("<h1>"+messages.display006+"</h1><p>"+messages.display003+"</p>")',
+  'html{font-size:16px}h1{font-size:clamp(1.5rem,5vw,3rem);margin-block:2rem}',
+)
+C(
+  6,
+  '("<div class=\\"parent\\"><p>"+messages.display009+"</p><p>"+messages.display008+"</p></div>")',
+  '.parent{display:block;background:#dae9fa}p:first-child{margin:20px 0}p:last-child{margin:30px 0}',
+  '부모 flow-root는 부모/자식 마진 상쇄를 막지만 형제 문단끼리의 상쇄는 그대로입니다.',
+)
+C(
+  7,
+  '("<div class=\\"row\\"><div class=\\"card\\">https://example.test/verylongunbreakableurlwithoutspaces012345678901234567890</div></div><div class=\\"scroll\\">"+messages.display008+"<br>1<br>2<br>3<br>4<br>5</div>")',
+  '.row{display:flex;width:260px}.card{min-width:0;overflow-wrap:normal;border:2px solid}.scroll{height:70px;overflow:auto}',
+)
+C(
+  8,
+  '"<div class=\\"toolbar\\"><button>A</button><button>B</button><button>C</button></div>"',
+  '.toolbar{display:flex;flex-direction:row;justify-content:space-between;align-items:center;height:220px;border:1px solid}button{padding:20px}',
+)
+C(
+  9,
+  '("<div class=\\"panels\\"><div class=\\"card\\">"+messages.display009+"</div><div class=\\"card\\">very-long-unbreakable-content-0123456789</div><div class=\\"card\\">"+messages.display008+"</div></div>")',
+  '.panels{display:flex;width:440px;max-width:100%;gap:10px}.card{flex:1 1 200px;min-width:0;overflow-wrap:anywhere;background:#dae9fa;padding:10px}',
+)
+C(
+  10,
+  '("<div class=\\"grid\\"><div class=\\"card\\">"+messages.display009+"</div><div class=\\"card\\">very-long-unbreakable-content-0123456789</div><div class=\\"card\\">"+messages.display008+"</div></div>")',
+  '.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:480px;max-width:100%}.card{background:#dae9fa;padding:10px}',
+)
+C(
+  11,
+  '"<div class=\\"grid\\"><div class=\\"card\\">A</div><div class=\\"card\\">B</div></div>"',
+  '.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px}.card{background:#dae9fa;padding:20px}',
+)
+C(
+  12,
+  '"<div class=\\"layout\\"><header>Header</header><nav><a href=\\"#main\\">Navigation</a></nav><main id=\\"main\\"><button>Main first in DOM</button></main><aside><button>Aside second in DOM</button></aside></div>"',
+  '.layout{display:grid;grid-template-areas:"head head" "nav nav" "main side";gap:12px}header{grid-area:head}nav{grid-area:nav}main{grid-area:main}aside{grid-area:side}@media(max-width:500px){.layout{grid-template-areas:"head" "nav" "side" "main"}}.layout>*{padding:20px;background:#dae9fa}',
+)
+C(
+  13,
+  '("<nav>Home · Experiments · Results</nav><div class=\\"grid\\"><div class=\\"card\\">"+messages.display009+"</div><div class=\\"card\\">very-long-unbreakable-content-0123456789</div><div class=\\"card\\">"+messages.display008+"</div></div>")',
+  '.grid{display:grid;grid-template-columns:1fr;gap:12px}.card{padding:20px;background:#dae9fa;overflow-wrap:anywhere}@media(min-width:700px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}',
+)
+C(
+  15,
+  '("<div class=\\"wrapper\\"><article><div>"+messages.display009+"</div><p>"+messages.display003+"</p></article></div>")',
+  '.wrapper{container-type:inline-size;width:300px;max-width:100%;border:2px solid}article{display:grid;gap:16px;padding:20px}@container(min-width:500px){article{grid-template-columns:1fr 1fr}}',
+)
+C(
+  16,
+  '("<article dir=\\"rtl\\"><h2>"+messages.display009+"</h2><p>"+messages.display003+"</p></article>")',
+  'article{margin-inline-start:40px;padding-inline-start:24px;border-inline-start:8px solid #287bd0;background:#eaf2fb}',
+)
+C(
+  17,
+  '("<article><h1>"+messages.display005+"</h1><p>행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. 행간과 줄 길이를 같은 글에서 비교합니다. 의미 있는 문장의 흐름을 유지하세요. </p><small>"+messages.display009+"</small></article>")',
+  'article{max-width:55ch}p{line-height:1.2;font-size:18px}small{font-size:14px}',
+)
+C(
+  18,
+  '("<article class=\\"normal\\">"+messages.display010+"</article><article class=\\"selected\\">"+messages.display007+"</article><article class=\\"error\\">"+messages.display005+"</article>")',
+  'article{padding:24px;margin:12px;color:#fff}.normal{background:#2463a4}.selected{background:#174d35;border:3px solid #000}.error{background:#9d2034}',
+  '실제 텍스트 대비는 개발자 도구에서 검사하세요. 색상 외에도 체크 기호와 오류 텍스트를 제공합니다.',
+)
+C(
+  19,
+  '("<button>"+messages.display012+"</button><a href=\\"#end\\">"+messages.display013+"</a><label>"+messages.display010+"<input type=\\"email\\" required></label><button disabled>"+messages.display009+"</button><p id=\\"end\\">"+messages.display005+"</p>")',
+  ':focus-visible{outline:2px solid #9a3100;outline-offset:4px}input:invalid{border:2px solid #a51428}button:disabled{opacity:.5}button,a,input{margin:12px;padding:10px}',
+)
+C(
+  20,
+  '("<div class=\\"scroll\\"><nav>"+messages.display006+"</nav><article><span class=\\"badge\\">NEW</span><h2>"+messages.display011+"</h2><p>"+messages.display003+"</p></article><div style=\\"height:500px\\">"+messages.display010+"</div></div>")',
+  '.scroll{height:260px;overflow:auto;border:2px solid}.scroll nav{position:sticky;top:0;background:#ffe399;z-index:2}article{position:relative;height:180px;background:#dae9fa}.badge{position:absolute;right:0;top:15px;background:#ab2338;color:white}',
+)
+C(
+  21,
+  '("<div class=\\"a\\">"+messages.display010+"<span>"+messages.display005+"</span></div><div class=\\"b\\">"+messages.display006+"</div>")',
+  '.a{position:relative;transform:translateZ(0);background:#dae9fa;width:220px;height:120px}.a span{position:absolute;left:120px;top:60px;z-index:999;background:#ffcf66;padding:20px;white-space:nowrap}.b{position:relative;z-index:1;margin-top:-40px;margin-left:150px;background:#86c5ab;width:220px;height:120px}',
+)
+C(
+  22,
+  '("<label><input type=\\"checkbox\\">"+messages.display009+"</label><div class=\\"card\\">"+messages.display005+"</div>")',
+  '.card{padding:40px;background:#b5d7fc;transition:transform 150ms,opacity 150ms}body:has(input:checked) .card{transform:translateX(40px);opacity:.5}@media(prefers-reduced-motion:reduce){.card{transition:none}}',
+)
+C(
+  23,
+  '("<label><input type=\\"checkbox\\">"+messages.display008+"</label><div class=\\"dot\\"></div>")',
+  '@keyframes travel{from{transform:translateX(0)}to{transform:translateX(220px)}}.dot{width:40px;height:40px;background:#b42649;animation:travel 2s alternate infinite}body:has(input:checked) .dot{animation-play-state:paused}@media(prefers-reduced-motion:reduce){.dot{animation:none}}',
+)
+C(
+  24,
+  '("<button class=\\"action\\">"+messages.display005+"</button>")',
+  '@layer base,components,utilities;@layer base{.action{background:#edb964}}@layer components{.action{background:#87c5ab}}@layer utilities{.action{background:#8dbef5}}.action{padding:24px}',
+  '비레이어 background 선언 또는 !important를 각 레이어에 추가해 계산 스타일을 비교하세요.',
+)
+C(
+  25,
+  '("<section data-theme=\\"light\\"><h2>"+messages.display009+"</h2><input aria-label=\\""+messages.display008+"\\" placeholder=\\""+messages.display011+"\\"><button>"+messages.display012+"</button></section>")',
+  ':root{--bg:#f5f8fc;--fg:#162c43;--space:16px;--radius:12px}[data-theme=dark]{--bg:#162c43;--fg:#f5f8fc}section{padding:var(--space);background:var(--bg);color:var(--fg);border-radius:var(--radius)}input,button{padding:var(--space);margin:var(--space);background:var(--bg);color:var(--fg);border:2px solid currentColor;border-radius:var(--radius)}:focus-visible{outline:3px solid #d26400;outline-offset:3px}',
+)
+C(
+  26,
+  '("<label><input type=\\"checkbox\\">"+messages.display009+"</label><section><div class=\\"card\\">1</div><div class=\\"card\\">2</div><div class=\\"card\\">3</div><div class=\\"card\\">4</div><div class=\\"card\\">5</div><div class=\\"card\\">6</div><div class=\\"card\\">7</div><div class=\\"card\\">8</div><div class=\\"card\\">9</div><div class=\\"card\\">10</div><div class=\\"card\\">11</div><div class=\\"card\\">12</div><div class=\\"card\\">13</div><div class=\\"card\\">14</div><div class=\\"card\\">15</div><div class=\\"card\\">16</div><div class=\\"card\\">17</div><div class=\\"card\\">18</div><div class=\\"card\\">19</div><div class=\\"card\\">20</div><div class=\\"card\\">21</div><div class=\\"card\\">22</div><div class=\\"card\\">23</div><div class=\\"card\\">24</div><div class=\\"card\\">25</div><div class=\\"card\\">26</div><div class=\\"card\\">27</div><div class=\\"card\\">28</div><div class=\\"card\\">29</div><div class=\\"card\\">30</div><div class=\\"card\\">31</div><div class=\\"card\\">32</div><div class=\\"card\\">33</div><div class=\\"card\\">34</div><div class=\\"card\\">35</div><div class=\\"card\\">36</div><div class=\\"card\\">37</div><div class=\\"card\\">38</div><div class=\\"card\\">39</div><div class=\\"card\\">40</div><div class=\\"card\\">41</div><div class=\\"card\\">42</div><div class=\\"card\\">43</div><div class=\\"card\\">44</div><div class=\\"card\\">45</div><div class=\\"card\\">46</div><div class=\\"card\\">47</div><div class=\\"card\\">48</div><div class=\\"card\\">49</div><div class=\\"card\\">50</div></section>")',
+  'section{display:flex;flex-wrap:wrap;gap:5px}.card{width:40px;height:30px;background:#8dbef5;transition:width 500ms,transform 500ms}body:has(input:checked) .card{width:60px;/* 비교: width 대신 transform:translateX(20px) */}',
+  '실제 Layout/Paint/Composite 비용은 DevTools Performance로 두 조건을 각각 기록하세요. 미리보기는 비용을 자동 추론하지 않습니다.',
+)
+C(
+  27,
+  '(' +
+    JSON.stringify('<main>') +
+    '+' +
+    Array.from(
+      { length: 200 },
+      (_, i) =>
+        JSON.stringify(
+          '<article><a href="#card-' + i + '" id="card-' + i + '">',
+        ) +
+        '+messages.display008+' +
+        JSON.stringify(
+          i +
+            '</a><p>' +
+            '높이가 다른 내용 '.repeat((i % 7) + 1) +
+            '</p></article>',
+        ),
+    ).join('+') +
+    '+' +
+    JSON.stringify('</main>') +
+    ')',
+  'article{content-visibility:auto;contain-intrinsic-size:auto 120px;margin:16px;padding:20px;border:1px solid #92b9e5}',
+  'content-visibility를 visible로 바꾸고 초기 렌더 및 스크롤을 기록하세요. 검색과 Tab으로 뒤쪽 카드에 도달하는지도 확인합니다.',
+)
+const dataKeys = {
+  'javascript-step-02': { input: 'input', run: 'run' },
+  'javascript-step-03': { input: 'input', run: 'run' },
+  'javascript-step-04': { input: 'input', run: 'run' },
+  'javascript-step-05': { input: 'input', run: 'run' },
+  'javascript-step-06': { input: 'input', run: 'run' },
+  'javascript-step-07': { input: 'input', run: 'run' },
+  'javascript-step-08': { input: 'input', run: 'run' },
+  'javascript-step-09': { input: 'input', run: 'run' },
+  'javascript-step-10': { input: 'input', run: 'run' },
+  'javascript-step-11': { input: 'input', run: 'run' },
+  'javascript-step-12': { input: 'input', run: 'run' },
+  'javascript-step-13': { input: 'input', run: 'run' },
+  'javascript-step-15': { input: 'input', run: 'run' },
+  'javascript-step-16': { input: 'input', run: 'run' },
+  'javascript-step-17': { input: 'input', run: 'run' },
+  'javascript-step-18': { input: 'input', run: 'run' },
+  'javascript-step-19': { input: 'input', run: 'run' },
+  'javascript-step-20': { input: 'input', run: 'run' },
+  'javascript-step-21': { input: 'input', run: 'run' },
+  'javascript-step-22': { input: 'input', run: 'run' },
+  'javascript-step-23': { input: 'input', run: 'run' },
+  'javascript-step-24': { input: 'input', run: 'run' },
+  'javascript-step-25': { input: 'input', run: 'run' },
+  'javascript-step-26': { input: 'input', run: 'run' },
+  'javascript-step-27': { input: 'input', run: 'run' },
+  'typescript-step-02': { input: 'display003', run: 'display004' },
+  'typescript-step-03': { input: 'display003', run: 'display004' },
+  'typescript-step-04': { input: 'display003', run: 'display004' },
+  'typescript-step-05': { input: 'display004', run: 'display005' },
+  'typescript-step-06': { input: 'display003', run: 'display004' },
+  'typescript-step-07': { input: 'display003', run: 'display004' },
+  'typescript-step-08': { input: 'display003', run: 'display004' },
+  'typescript-step-09': { input: 'display003', run: 'display004' },
+  'typescript-step-10': { input: 'display004', run: 'display005' },
+  'typescript-step-11': { input: 'display003', run: 'display004' },
+  'typescript-step-12': { input: 'display003', run: 'display004' },
+  'typescript-step-13': { input: 'display003', run: 'display004' },
+  'typescript-step-15': { input: 'display003', run: 'display004' },
+  'typescript-step-16': { input: 'display003', run: 'display004' },
+  'typescript-step-17': { input: 'display003', run: 'display004' },
+  'typescript-step-18': { input: 'display003', run: 'display004' },
+  'typescript-step-19': { input: 'display003', run: 'display004' },
+  'typescript-step-20': { input: 'display004', run: 'display005' },
+  'typescript-step-21': { input: 'display003', run: 'display004' },
+  'typescript-step-22': { input: 'display003', run: 'display005' },
+  'typescript-step-23': { input: 'display003', run: 'display004' },
+  'typescript-step-24': { input: 'display003', run: 'display004' },
+  'typescript-step-25': { input: 'display003', run: 'display004' },
+  'typescript-step-26': { input: 'display003', run: 'display004' },
+  'typescript-step-27': { input: 'display003', run: 'display004' },
+}
+function dataSource(unit, spec) {
+  const ui = dataKeys[unit.id],
+    pilot = !presentations[unit.id] || unit.id === 'javascript-step-02'
+  return `// ${unit.title}\n// 편집할 실험 입력과 알고리즘입니다.\nexport function mount({container${pilot ? '' : ",locale='ko'"}}) {\n${pilot ? '' : '/* EXAMPLE_MESSAGES */\n'}const INITIAL=${JSON.stringify(spec.input)};\nconst controller=new AbortController(),signal=controller.signal;\nconst timers=[],urls=[];let disposed=false;\nconst later=(fn,delay)=>{const id=setTimeout(fn,delay);timers.push(id);return id};\nconst title=document.createElement('h2');title.textContent=${pilot ? JSON.stringify(unit.title) : 'messages.title'};\nconst help=document.createElement('p');help.textContent=${pilot ? JSON.stringify(spec.note || unit.variables[0].baseline + ' → ' + unit.variables[0].change + ' 조건으로 입력을 바꿔 실행하세요.') : 'messages.help'};\nconst editor=document.createElement('textarea');editor.value=JSON.stringify(INITIAL,null,2);editor.rows=10;editor.style.cssText='width:100%;font-family:monospace';editor.setAttribute('aria-label',${pilot ? "'실험 JSON 입력'" : 'messages.' + ui.input});\nconst button=document.createElement('button');button.textContent=${pilot ? "'실험 실행'" : 'messages.' + ui.run};\nconst output=document.createElement('pre');output.style.whiteSpace='pre-wrap';output.setAttribute('aria-live','polite');const stage=document.createElement('section');\nconst show=value=>{if(!disposed)output.textContent=typeof value==='string'?value:JSON.stringify(value,null,2)};\n/** @param {any} input */\nasync function experiment(input){${spec.body}}\nlet generation=0;const run=async()=>{const current=++generation;try{const result=await experiment(JSON.parse(editor.value));if(current===generation)show(result)}catch(error){if(current===generation)show({error:String(error)})}};\nbutton.addEventListener('click',run,{signal});container.append(title,help,editor,button,stage,output);run();\nreturn ()=>{disposed=true;controller.abort();timers.forEach(clearTimeout);urls.forEach(url=>URL.revokeObjectURL(url));container.replaceChildren()};\n}\n`
+}
+
+specs.html[19] = {
+  htmlSource:
+    '("<img src=\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22300%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22steelblue%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E600w%3C%2Ftext%3E%3C%2Fsvg%3E\\" srcset=\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22150%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22coral%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E300w%3C%2Ftext%3E%3C%2Fsvg%3E 300w, data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22300%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22steelblue%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E600w%3C%2Ftext%3E%3C%2Fsvg%3E 600w, data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221200%22%20height%3D%22600%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22seagreen%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2260%22%20font-size%3D%2240%22%20fill%3D%22white%22%3E1200w%3C%2Ftext%3E%3C%2Fsvg%3E 1200w\\" sizes=\\"(max-width:600px) 100vw, 600px\\" width=\\"600\\" height=\\"300\\" alt=\\""+messages.display006+"\\"><p>"+messages.display003+"</p>")',
+  css: 'img{max-width:100%;height:auto}',
+  note: '300/600/1200w SVG 후보가 실제 srcset으로 선택됩니다. sizes와 DPR 및 미리보기 viewport가 선택에 영향을 줍니다. data URL은 네트워크 전송량 비교용이 아닙니다.',
+}
+
+const documentKeys = {
+  'html-step-02': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display006',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display010',
+  },
+  'html-step-03': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display008',
+    css: 'display009',
+    width: 'display010',
+    apply: 'display011',
+  },
+  'html-step-04': {
+    external: 'display005',
+    inspect: 'display006',
+    html: 'display008',
+    css: 'display010',
+    width: 'display011',
+    apply: 'display016',
+  },
+  'html-step-05': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display006',
+    css: 'display008',
+    width: 'display009',
+    apply: 'display015',
+  },
+  'html-step-06': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display008',
+    css: 'display009',
+    width: 'display010',
+    apply: 'display013',
+  },
+  'html-step-07': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display008',
+    css: 'display009',
+    width: 'display010',
+    apply: 'display014',
+  },
+  'html-step-08': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display007',
+    css: 'display008',
+    width: 'display009',
+    apply: 'display011',
+  },
+  'html-step-09': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display006',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display010',
+  },
+  'html-step-10': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display010',
+  },
+  'html-step-11': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display010',
+  },
+  'html-step-12': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display012',
+  },
+  'html-step-13': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display010',
+  },
+  'html-step-15': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display011',
+  },
+  'html-step-16': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display006',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display012',
+  },
+  'html-step-17': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display006',
+    css: 'display008',
+    width: 'display009',
+    apply: 'display011',
+  },
+  'html-step-18': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display006',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display010',
+  },
+  'html-step-19': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display007',
+    css: 'display008',
+    width: 'display009',
+    apply: 'display010',
+  },
+  'html-step-20': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display006',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display009',
+  },
+  'html-step-21': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display007',
+    css: 'display008',
+    width: 'display009',
+    apply: 'display010',
+  },
+  'html-step-22': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display008',
+  },
+  'html-step-23': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display007',
+    css: 'display008',
+    width: 'display009',
+    apply: 'display010',
+  },
+  'html-step-24': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display006',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display011',
+  },
+  'html-step-25': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display012',
+  },
+  'html-step-26': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display006',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display011',
+  },
+  'html-step-27': {
+    external: 'display006',
+    inspect: 'display007',
+    html: 'display010',
+    css: 'display011',
+    width: 'display012',
+    apply: 'display013',
+  },
+  'css-step-02': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display010',
+  },
+  'css-step-03': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display006',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display009',
+  },
+  'css-step-04': {
+    external: 'external',
+    inspect: 'inspect',
+    html: 'html',
+    css: 'css',
+    width: 'width',
+    apply: 'apply',
+  },
+  'css-step-05': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display007',
+    css: 'display008',
+    width: 'display009',
+    apply: 'display010',
+  },
+  'css-step-06': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display010',
+  },
+  'css-step-07': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display009',
+  },
+  'css-step-08': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display008',
+  },
+  'css-step-09': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display010',
+  },
+  'css-step-10': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display010',
+  },
+  'css-step-11': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display008',
+  },
+  'css-step-12': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display008',
+  },
+  'css-step-13': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display010',
+  },
+  'css-step-15': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display006',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display010',
+  },
+  'css-step-16': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display006',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display010',
+  },
+  'css-step-17': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display006',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display010',
+  },
+  'css-step-18': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display006',
+    css: 'display008',
+    width: 'display009',
+    apply: 'display011',
+  },
+  'css-step-19': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display006',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display011',
+  },
+  'css-step-20': {
+    external: 'display004',
+    inspect: 'display005',
+    html: 'display007',
+    css: 'display008',
+    width: 'display009',
+    apply: 'display012',
+  },
+  'css-step-21': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display007',
+    css: 'display008',
+    width: 'display009',
+    apply: 'display011',
+  },
+  'css-step-22': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display006',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display010',
+  },
+  'css-step-23': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display009',
+  },
+  'css-step-24': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display006',
+    css: 'display007',
+    width: 'display008',
+    apply: 'display009',
+  },
+  'css-step-25': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display010',
+  },
+  'css-step-26': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display008',
+  },
+  'css-step-27': {
+    external: 'display003',
+    inspect: 'display004',
+    html: 'display005',
+    css: 'display006',
+    width: 'display007',
+    apply: 'display009',
+  },
+}
+let htmlMetadata
+for (const series of Object.keys(specs)) {
+  const units = JSON.parse(
+    fs.readFileSync('content/curricula/' + series + '.json', 'utf8'),
+  ).units.filter((u) => u.id.includes('-step-'))
+  const metadata = {}
+  for (const unit of units) {
+    const spec = specs[series][unit.day]
+    if (!spec) throw new Error('Missing ' + unit.id)
+    if (!/^(javascript|typescript|html|css)-step-\d{2}$/.test(unit.id))
+      throw new Error('Unexpected unit ' + unit.id)
+    const dir = 'src/labs/' + unit.id
+    fs.mkdirSync(dir, { recursive: true })
+    const file = dir + '/example.js'
+    const localized = await localizeExampleSource(
+      unit.id,
+      series === 'html' || series === 'css'
+        ? documentSource(unit, spec)
+        : dataSource(unit, spec),
+      {},
+      {
+        ...(!['javascript-step-02', 'css-step-04'].includes(unit.id)
+          ? { messagesMarker: '/* EXAMPLE_MESSAGES */' }
+          : {}),
+        ...(unit.id === 'css-step-26'
+          ? {
+              commentLocations: {
+                cssComparison: {
+                  line: documentSource(unit, spec)
+                    .split('\n')
+                    .find((line) => line.includes('/* 비교:')),
+                  column: documentSource(unit, spec)
+                    .split('\n')
+                    .find((line) => line.includes('/* 비교:'))
+                    .indexOf('/* 비교:'),
+                  kind: 'css-block-json',
+                },
+              },
+            }
+          : {}),
+      },
+    )
+    await writeGeneratedFile(file, localized.source)
+    if (spec.source) await writeGeneratedFile(dir + '/lesson.ts', spec.source)
+    metadata[unit.id] = {
+      ...(localized.readingSource
+        ? { readingSource: localized.readingSource }
+        : {}),
+      mode:
+        series === 'html' && [18, 21, 23].includes(unit.day)
+          ? 'external'
+          : 'browser',
+      note:
+        spec.note ||
+        (series === 'css'
+          ? '실제 CSS 문서를 렌더하고 DOM 치수와 계산 스타일을 검사합니다.'
+          : '편집 가능한 입력과 실제 브라우저 실행 결과를 비교합니다.'),
+      ...(spec.source
+        ? { files: [dir + '/example.js', dir + '/lesson.ts'] }
+        : {}),
+    }
+  }
+  if (series === 'html' || series === 'css')
+    for (const item of Object.values(metadata))
+      item.note +=
+        ' Shadow DOM에서 문서 body/html 선택자를 범위화합니다. @media는 외부 미리보기 viewport에 반응하며 폭 슬라이더는 컨테이너만 변경합니다. 네트워크·폼 이동·iframe 실행은 제한됩니다.'
+  fs.mkdirSync('content/examples', { recursive: true })
+  if (series === 'html') htmlMetadata = metadata
+  else
+    await writeGeneratedFile(
+      'content/examples/' + series + '.json',
+      JSON.stringify(metadata, null, 2) + '\n',
+    )
+  console.log(series, units.length)
+}
+function documentSource(unit, spec) {
+  const pilot = !presentations[unit.id] || unit.id === 'css-step-04',
+    ui = documentKeys[unit.id]
+  return `// ${unit.title}: 실제 HTML/CSS 실험
+export function mount({container${pilot ? '' : ",locale='ko'"}}) {
+${pilot ? '' : '/* EXAMPLE_MESSAGES */\n'}const HTML=${spec.htmlSource ?? JSON.stringify(spec.html)},CSS=${JSON.stringify(spec.css || '')};
 const originalRootSize=document.documentElement.style.fontSize;
 const controller=new AbortController(),signal=controller.signal;
-const heading=document.createElement('h2');heading.textContent=${pilot?JSON.stringify(unit.title):'messages.title'};
-const note=document.createElement('p');note.textContent=${pilot?JSON.stringify((spec.note||unit.variables[0].baseline+' → '+unit.variables[0].change+'를 비교하세요.')+' Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.'):'messages.note'};
+const heading=document.createElement('h2');heading.textContent=${pilot ? JSON.stringify(unit.title) : 'messages.title'};
+const note=document.createElement('p');note.textContent=${pilot ? JSON.stringify((spec.note || unit.variables[0].baseline + ' → ' + unit.variables[0].change + '를 비교하세요.') + ' Shadow DOM에서 body/html/:root를 .doc로 옮깁니다. @media는 바깥 미리보기 viewport에 반응합니다. 폭 슬라이더는 컨테이너 폭만 변경합니다. 네트워크·폼 이동·iframe은 제한됩니다.') : 'messages.note'};
 const html=document.createElement('textarea'),css=document.createElement('textarea');html.value=HTML;css.value=CSS;
-for(const field of [html,css]){field.setAttribute('aria-label',field===html?${pilot?"'HTML 소스'":'messages.'+ui.html}:${pilot?"'CSS 소스'":'messages.'+ui.css});field.rows=6;field.style.cssText='display:block;width:100%;font-family:monospace'}
-const apply=document.createElement('button');apply.textContent=${pilot?"'적용'":'messages.'+ui.apply};const inspect=document.createElement('button');inspect.textContent=${pilot?"'현재 DOM / 스타일 검사'":'messages.'+ui.inspect};
-const width=document.createElement('input');width.type='range';width.min='280';width.max='1200';width.value='700';width.setAttribute('aria-label',${pilot?"'컨테이너 폭'":'messages.'+ui.width});
+for(const field of [html,css]){field.setAttribute('aria-label',field===html?${pilot ? "'HTML 소스'" : 'messages.' + ui.html}:${pilot ? "'CSS 소스'" : 'messages.' + ui.css});field.rows=6;field.style.cssText='display:block;width:100%;font-family:monospace'}
+const apply=document.createElement('button');apply.textContent=${pilot ? "'적용'" : 'messages.' + ui.apply};const inspect=document.createElement('button');inspect.textContent=${pilot ? "'현재 DOM / 스타일 검사'" : 'messages.' + ui.inspect};
+const width=document.createElement('input');width.type='range';width.min='280';width.max='1200';width.value='700';width.setAttribute('aria-label',${pilot ? "'컨테이너 폭'" : 'messages.' + ui.width});
 const host=document.createElement('section');host.style.cssText='display:block;background:white;border:1px solid #9ab;max-width:100%;max-height:450px;overflow:auto';const shadow=host.attachShadow({mode:'open'});
 const output=document.createElement('pre');output.style.whiteSpace='pre-wrap';output.setAttribute('aria-live','polite');let sourceDocument;
 const measure=()=>{const root=shadow.querySelector('.doc');if(!root)return;const nodes=[...root.querySelectorAll('.card,.child,button,img,input,article,p')].slice(0,18);output.textContent=JSON.stringify({title:sourceDocument.title,lang:sourceDocument.documentElement.lang,containerWidth:host.clientWidth,viewportWidth:innerWidth,scrollWidth:root.scrollWidth,forms:[...root.querySelectorAll('form')].map(form=>({valid:form.checkValidity(),entries:[...new FormData(form)]})),links:[...root.querySelectorAll('a')].slice(0,8).map(a=>({text:a.textContent,href:a.getAttribute('href')})),nodes:nodes.map(node=>{const s=getComputedStyle(node);return {tag:node.tagName,width:Math.round(node.getBoundingClientRect().width),color:s.color,background:s.backgroundColor,display:s.display,boxSizing:s.boxSizing,grid:s.gridTemplateColumns,transform:s.transform,currentSrc:node instanceof HTMLImageElement?node.currentSrc:undefined}}),repairedBody:root.innerHTML.slice(0,1800)},null,2)};
-const render=()=>{if(${JSON.stringify(unit.id==='css-step-05')}){const font=css.value.match(/font-size:[ ]*([0-9.]+px)/);if(font)document.documentElement.style.fontSize=font[1]}sourceDocument=new DOMParser().parseFromString(html.value,'text/html');const style=document.createElement('style');style.textContent='.doc{font-family:system-ui;color:#172c43;padding:16px}'+css.value.replace(/:root|\\bbody\\b|\\bhtml\\b/g,'.doc');const root=document.createElement('div');root.className='doc';root.lang=sourceDocument.documentElement.lang;root.innerHTML=sourceDocument.body.innerHTML;root.querySelectorAll('script,iframe').forEach(node=>{const text=document.createElement('pre');text.textContent=${pilot?"'외부 환경에서 실행할 요소: '":'messages.'+ui.external}+node.outerHTML;node.replaceWith(text)});shadow.replaceChildren(style,root);host.style.width=width.value+'px';root.querySelectorAll('form').forEach(form=>form.addEventListener('submit',event=>{event.preventDefault();const dialog=form.closest('dialog');if(form.getAttribute('method')==='dialog')dialog?.close();measure()},{signal}));root.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',event=>{event.preventDefault();const id=a.getAttribute('href').slice(1);const target=[...root.querySelectorAll('[id]')].find(node=>node.id===id);target?.scrollIntoView();if(target instanceof HTMLElement)target.focus()},{signal}));const opener=root.querySelector('[data-open-dialog]'),dialog=root.querySelector('dialog');opener?.addEventListener('click',()=>dialog?.showModal(),{signal});const template=root.querySelector('template'),target=root.querySelector('[data-cards]');if(template&&target){for(let i=0;i<3;i++){const fragment=/** @type {DocumentFragment} */(template.content.cloneNode(true));const input=fragment.querySelector('input'),label=fragment.querySelector('label');if(input)input.id='title-'+i;if(label)label.htmlFor='title-'+i;target.append(fragment)}}measure()};
+const render=()=>{if(${JSON.stringify(unit.id === 'css-step-05')}){const font=css.value.match(/font-size:[ ]*([0-9.]+px)/);if(font)document.documentElement.style.fontSize=font[1]}sourceDocument=new DOMParser().parseFromString(html.value,'text/html');const style=document.createElement('style');style.textContent='.doc{font-family:system-ui;color:#172c43;padding:16px}'+css.value.replace(/:root|\\bbody\\b|\\bhtml\\b/g,'.doc');const root=document.createElement('div');root.className='doc';root.lang=sourceDocument.documentElement.lang;root.innerHTML=sourceDocument.body.innerHTML;root.querySelectorAll('script,iframe').forEach(node=>{const text=document.createElement('pre');text.textContent=${pilot ? "'외부 환경에서 실행할 요소: '" : 'messages.' + ui.external}+node.outerHTML;node.replaceWith(text)});shadow.replaceChildren(style,root);host.style.width=width.value+'px';root.querySelectorAll('form').forEach(form=>form.addEventListener('submit',event=>{event.preventDefault();const dialog=form.closest('dialog');if(form.getAttribute('method')==='dialog')dialog?.close();measure()},{signal}));root.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',event=>{event.preventDefault();const id=a.getAttribute('href').slice(1);const target=[...root.querySelectorAll('[id]')].find(node=>node.id===id);target?.scrollIntoView();if(target instanceof HTMLElement)target.focus()},{signal}));const opener=root.querySelector('[data-open-dialog]'),dialog=root.querySelector('dialog');opener?.addEventListener('click',()=>dialog?.showModal(),{signal});const template=root.querySelector('template'),target=root.querySelector('[data-cards]');if(template&&target){for(let i=0;i<3;i++){const fragment=/** @type {DocumentFragment} */(template.content.cloneNode(true));const input=fragment.querySelector('input'),label=fragment.querySelector('label');if(input)input.id='title-'+i;if(label)label.htmlFor='title-'+i;target.append(fragment)}}measure()};
 apply.addEventListener('click',render,{signal});inspect.addEventListener('click',measure,{signal});width.addEventListener('input',()=>{host.style.width=width.value+'px';measure()},{signal});container.append(heading,note,html,css,apply,inspect,width,host,output);render();
 return ()=>{controller.abort();document.documentElement.style.fontSize=originalRootSize;shadow.replaceChildren();container.replaceChildren()};
 }
-`}
-// External browser lessons ship complete local sources; keep media fixture alongside them.
-const externalFiles={
-18:{
-'index.html':`<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>자막과 대본 실험</title><style>body{font:18px system-ui;max-width:48rem;margin:2rem auto}video{max-width:100%}</style><h1>미디어 자막과 대체 경로</h1><video id="video" controls width="640" height="360"><source src="sample.mp4" type="video/mp4"><track src="captions.vtt" kind="captions" srclang="ko" label="한국어" default>영상 재생을 지원하지 않습니다.</video><p><button id="fail">없는 파일로 전환</button> <button id="restore">정상 파일 복원</button></p><output id="status" aria-live="polite">재생 버튼을 누르세요.</output><p><a href="transcript.html">대본 읽기</a></p><script>const video=document.querySelector('video'),source=video.querySelector('source'),status=document.querySelector('output');document.querySelector('#fail').onclick=()=>{source.src='missing.mp4';video.load();status.textContent='실패 경로 요청: 대본 링크를 사용하세요.'};document.querySelector('#restore').onclick=()=>{source.src='sample.mp4';video.load()};source.addEventListener('error',()=>status.textContent='영상 파일을 불러오지 못했습니다. 대본을 읽을 수 있습니다.');video.addEventListener('loadedmetadata',()=>status.textContent='정상 영상: '+video.duration.toFixed(1)+'초 / 자막 메뉴에서 한국어를 선택하세요.');</script></html>`,
-'captions.vtt':'WEBVTT\n\n00:00.000 --> 00:03.000\n파란색: 기준 조건입니다.\n\n00:03.000 --> 00:06.000\n주황색: 배경색만 변경했습니다.\n',
-'transcript.html':'<!doctype html><html lang="ko"><meta charset="utf-8"><title>실험 영상 대본</title><h1>실험 대본</h1><p><time>00:00–00:03</time> 파란색 화면. 기준 조건입니다.</p><p><time>00:03–00:06</time> 주황색 화면. 배경색만 변경했습니다.</p><p>이 영상은 무음 합성 fixture이며 자막은 시각적인 변화를 설명합니다.</p><a href="index.html">영상으로 돌아가기</a></html>',
-'README.md':'# 미디어·자막·실패 경로\n\n이 폴더에서 `python -m http.server 8000` 실행 후 http://localhost:8000/index.html 을 여세요. file:// 로 열면 자막이 제한될 수 있습니다.\n\n1. 6초 무음 sample.mp4를 재생하고 한국어 자막 메뉴를 선택합니다. 3초에서 파랑이 주황으로 바뀝니다.\n2. 없는 파일 전환 버튼으로 404와 대본 대체 경로를 확인합니다. 정상 복원도 검사합니다.\n3. captions.vtt의 시간·텍스트를 바꾸고 새로고침해 비교합니다.\n\n무음 합성 영상은 실제 발화의 자막 품질 평가용이 아닙니다. 사용자가 소유한 발화 영상으로 바꿀 때 자막과 대본도 함께 고치세요.\n\n재생 자원은 FFmpeg의 color 소스로 생성했습니다. 외부 영상·음원은 사용하지 않았습니다. 생성 명령은 저장소의 generate-foundations-examples.mjs 설명을 참고하세요.\n'
-},
-21:{
-'index.html':`<!doctype html><html lang="ko"><meta charset="utf-8"><title>iframe sandbox 경계</title><h1>스크립트 권한 비교</h1><label><input id="scripts" type="checkbox">allow-scripts 허용</label><p>동일 guide.html을 불러오고 sandbox 권한만 바꿉니다.</p><iframe id="guide" src="guide.html" title="실험 안내 문서" sandbox width="500" height="240"></iframe><pre id="events" aria-live="polite">메시지 없음</pre><script>const frame=document.querySelector('iframe'),events=document.querySelector('pre');document.querySelector('input').onchange=event=>{frame.setAttribute('sandbox',event.target.checked?'allow-scripts':'');events.textContent='프레임을 다시 불러옵니다.';frame.src='guide.html?run='+Date.now()};addEventListener('message',event=>{if(event.source!==frame.contentWindow||event.data?.type!=='guide-ready')return;events.textContent=JSON.stringify({message:event.data,origin:event.origin},null,2)});</script></html>`,
-'guide.html':`<!doctype html><html lang="ko"><meta charset="utf-8"><title>포함 안내</title><h2>학습 안내</h2><p id="state">정적 HTML 표시: 스크립트 실행 전</p><button id="count">카운터 0</button><script>document.querySelector('#state').textContent='스크립트 실행됨';let count=0;document.querySelector('button').onclick=event=>event.target.textContent='카운터 '+(++count);parent.postMessage({type:'guide-ready',scriptExecuted:true},'*');</script></html>`,
-'README.md':'# iframe의 sandbox 경계\n\n이 폴더에서 `python -m http.server 8000` 실행 후 http://localhost:8000/index.html 을 엽니다.\n\n- 체크 해제: sandbox="". 안내 HTML은 보이지만 script, 버튼 핸들러, postMessage는 실행되지 않습니다.\n- 체크: sandbox="allow-scripts". 동일 문서를 다시 로드하고 카운터와 메시지가 작동합니다. origin은 allow-same-origin이 없으므로 "null"입니다.\n- 부모 페이지는 event.source와 메시지 type을 검사합니다. 이 예제는 기밀 데이터를 전송하지 않습니다.\n\nFrontory 내부에는 상위 CSP 제한도 있으므로 이 비교는 반드시 독립 로컬 서버에서 수행합니다. allow-same-origin은 추가하지 마세요. 네트워크 응답·콘솔의 차단 기록과 실제 버튼 동작을 함께 기록하세요.\n'
-},
-23:{
-'index.html':`<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>script 로딩 순서</title><script>window.loadingLog=[];window.record=name=>{const entry={name,time:Math.round(performance.now()),readyState:document.readyState,targetExists:!!document.getElementById('target')};window.loadingLog.push(entry);console.log(entry);const out=document.querySelector('pre');if(out)out.textContent=JSON.stringify(window.loadingLog,null,2)};document.addEventListener('DOMContentLoaded',()=>window.record('DOMContentLoaded'));</script><!-- 두 script의 defer를 제거하거나 async로 바꿔 비교하세요. --><script defer src="first.js"></script><script defer src="second.js"></script></head><body><h1 id="target">DOM 파싱 대상</h1><p>두 외부 스크립트 속성을 같은 방식으로 바꾼 후 새로고침하세요.</p><pre aria-live="polite"></pre><script>window.record('body inline')</script></body></html>`,
-'first.js':"window.record('first.js');\n",
-'second.js':"window.record('second.js');\n",
-'README.md':'# 일반 · defer · async 로딩\n\n이 폴더에서 `python -m http.server 8000` 실행 후 http://localhost:8000/index.html 을 엽니다. 두 외부 script는 의도적으로 head에서 target보다 앞에 있습니다.\n\n1. 기본 defer: body inline → first.js → second.js → DOMContentLoaded. 외부 두 스크립트는 targetExists:true입니다.\n2. 두 defer를 제거: first.js → second.js → body inline. 외부 두 스크립트는 파싱을 멈추므로 targetExists:false입니다.\n3. 두 defer를 async로 변경: 다운로드가 끝난 순서로 실행됩니다. DOM 존재와 순서를 매번 기록하세요. async가 항상 순서를 바꾸거나 항상 DOM보다 먼저 실행된다고 가정하지 마세요.\n4. DevTools Network의 Disable cache와 느린 네트워크 조건을 적용하고 재시도하세요. 작은 로컬 파일에서 차이가 안 보이면 해당 관찰 자체를 기록하세요.\n\n시간은 performance.now의 관찰값입니다. console과 화면은 같은 loadingLog를 표시합니다. 실제 fetch·파싱을 실행하므로 Frontory 내부의 정적 소스 검사와 구분하세요.\n'
+`
 }
-};
-for(const [day,files] of Object.entries(externalFiles)){const id='html-step-'+day,dir='src/labs/'+id;for(const [file,contents] of Object.entries(files))await writeGeneratedFile(dir+'/'+file,contents);htmlMetadata[id].files=Object.keys(files).map(file=>dir+'/'+file);if(day==='18')htmlMetadata[id].files.push(dir+'/sample.mp4');htmlMetadata[id].note=day==='18'?'외부 HTTP 실행 예제: 6초 합성 MP4, 한국어 VTT, 대본과 정상/실패 전환을 제공합니다. 무음 합성 fixture이며 실제 발화 접근성 평가는 별도 영상으로 수행합니다.':day==='21'?'외부 HTTP 실행 예제: 동일 guide.html에서 sandbox=""와 allow-scripts를 전환하고 버튼·postMessage 동작을 관찰합니다.':'외부 HTTP 실행 예제: first.js/second.js를 실제 로드하고 일반/defer/async의 파싱·실행 순서를 기록합니다.';}
-await writeGeneratedFile('content/examples/html.json',JSON.stringify(htmlMetadata,null,2)+'\n');
+// External browser lessons ship complete local sources; keep media fixture alongside them.
+const externalFiles = {
+  18: {
+    'index.html': `<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>자막과 대본 실험</title><style>body{font:18px system-ui;max-width:48rem;margin:2rem auto}video{max-width:100%}</style><h1>미디어 자막과 대체 경로</h1><video id="video" controls width="640" height="360"><source src="sample.mp4" type="video/mp4"><track src="captions.vtt" kind="captions" srclang="ko" label="한국어" default>영상 재생을 지원하지 않습니다.</video><p><button id="fail">없는 파일로 전환</button> <button id="restore">정상 파일 복원</button></p><output id="status" aria-live="polite">재생 버튼을 누르세요.</output><p><a href="transcript.html">대본 읽기</a></p><script>const video=document.querySelector('video'),source=video.querySelector('source'),status=document.querySelector('output');document.querySelector('#fail').onclick=()=>{source.src='missing.mp4';video.load();status.textContent='실패 경로 요청: 대본 링크를 사용하세요.'};document.querySelector('#restore').onclick=()=>{source.src='sample.mp4';video.load()};source.addEventListener('error',()=>status.textContent='영상 파일을 불러오지 못했습니다. 대본을 읽을 수 있습니다.');video.addEventListener('loadedmetadata',()=>status.textContent='정상 영상: '+video.duration.toFixed(1)+'초 / 자막 메뉴에서 한국어를 선택하세요.');</script></html>`,
+    'captions.vtt':
+      'WEBVTT\n\n00:00.000 --> 00:03.000\n파란색: 기준 조건입니다.\n\n00:03.000 --> 00:06.000\n주황색: 배경색만 변경했습니다.\n',
+    'transcript.html':
+      '<!doctype html><html lang="ko"><meta charset="utf-8"><title>실험 영상 대본</title><h1>실험 대본</h1><p><time>00:00–00:03</time> 파란색 화면. 기준 조건입니다.</p><p><time>00:03–00:06</time> 주황색 화면. 배경색만 변경했습니다.</p><p>이 영상은 무음 합성 fixture이며 자막은 시각적인 변화를 설명합니다.</p><a href="index.html">영상으로 돌아가기</a></html>',
+    'README.md':
+      '# 미디어·자막·실패 경로\n\n이 폴더에서 `python -m http.server 8000` 실행 후 http://localhost:8000/index.html 을 여세요. file:// 로 열면 자막이 제한될 수 있습니다.\n\n1. 6초 무음 sample.mp4를 재생하고 한국어 자막 메뉴를 선택합니다. 3초에서 파랑이 주황으로 바뀝니다.\n2. 없는 파일 전환 버튼으로 404와 대본 대체 경로를 확인합니다. 정상 복원도 검사합니다.\n3. captions.vtt의 시간·텍스트를 바꾸고 새로고침해 비교합니다.\n\n무음 합성 영상은 실제 발화의 자막 품질 평가용이 아닙니다. 사용자가 소유한 발화 영상으로 바꿀 때 자막과 대본도 함께 고치세요.\n\n재생 자원은 FFmpeg의 color 소스로 생성했습니다. 외부 영상·음원은 사용하지 않았습니다. 생성 명령은 저장소의 generate-foundations-examples.mjs 설명을 참고하세요.\n',
+  },
+  21: {
+    'index.html': `<!doctype html><html lang="ko"><meta charset="utf-8"><title>iframe sandbox 경계</title><h1>스크립트 권한 비교</h1><label><input id="scripts" type="checkbox">allow-scripts 허용</label><p>동일 guide.html을 불러오고 sandbox 권한만 바꿉니다.</p><iframe id="guide" src="guide.html" title="실험 안내 문서" sandbox width="500" height="240"></iframe><pre id="events" aria-live="polite">메시지 없음</pre><script>const frame=document.querySelector('iframe'),events=document.querySelector('pre');document.querySelector('input').onchange=event=>{frame.setAttribute('sandbox',event.target.checked?'allow-scripts':'');events.textContent='프레임을 다시 불러옵니다.';frame.src='guide.html?run='+Date.now()};addEventListener('message',event=>{if(event.source!==frame.contentWindow||event.data?.type!=='guide-ready')return;events.textContent=JSON.stringify({message:event.data,origin:event.origin},null,2)});</script></html>`,
+    'guide.html': `<!doctype html><html lang="ko"><meta charset="utf-8"><title>포함 안내</title><h2>학습 안내</h2><p id="state">정적 HTML 표시: 스크립트 실행 전</p><button id="count">카운터 0</button><script>document.querySelector('#state').textContent='스크립트 실행됨';let count=0;document.querySelector('button').onclick=event=>event.target.textContent='카운터 '+(++count);parent.postMessage({type:'guide-ready',scriptExecuted:true},'*');</script></html>`,
+    'README.md':
+      '# iframe의 sandbox 경계\n\n이 폴더에서 `python -m http.server 8000` 실행 후 http://localhost:8000/index.html 을 엽니다.\n\n- 체크 해제: sandbox="". 안내 HTML은 보이지만 script, 버튼 핸들러, postMessage는 실행되지 않습니다.\n- 체크: sandbox="allow-scripts". 동일 문서를 다시 로드하고 카운터와 메시지가 작동합니다. origin은 allow-same-origin이 없으므로 "null"입니다.\n- 부모 페이지는 event.source와 메시지 type을 검사합니다. 이 예제는 기밀 데이터를 전송하지 않습니다.\n\nFrontory 내부에는 상위 CSP 제한도 있으므로 이 비교는 반드시 독립 로컬 서버에서 수행합니다. allow-same-origin은 추가하지 마세요. 네트워크 응답·콘솔의 차단 기록과 실제 버튼 동작을 함께 기록하세요.\n',
+  },
+  23: {
+    'index.html': `<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>script 로딩 순서</title><script>window.loadingLog=[];window.record=name=>{const entry={name,time:Math.round(performance.now()),readyState:document.readyState,targetExists:!!document.getElementById('target')};window.loadingLog.push(entry);console.log(entry);const out=document.querySelector('pre');if(out)out.textContent=JSON.stringify(window.loadingLog,null,2)};document.addEventListener('DOMContentLoaded',()=>window.record('DOMContentLoaded'));</script><!-- 두 script의 defer를 제거하거나 async로 바꿔 비교하세요. --><script defer src="first.js"></script><script defer src="second.js"></script></head><body><h1 id="target">DOM 파싱 대상</h1><p>두 외부 스크립트 속성을 같은 방식으로 바꾼 후 새로고침하세요.</p><pre aria-live="polite"></pre><script>window.record('body inline')</script></body></html>`,
+    'first.js': "window.record('first.js');\n",
+    'second.js': "window.record('second.js');\n",
+    'README.md':
+      '# 일반 · defer · async 로딩\n\n이 폴더에서 `python -m http.server 8000` 실행 후 http://localhost:8000/index.html 을 엽니다. 두 외부 script는 의도적으로 head에서 target보다 앞에 있습니다.\n\n1. 기본 defer: body inline → first.js → second.js → DOMContentLoaded. 외부 두 스크립트는 targetExists:true입니다.\n2. 두 defer를 제거: first.js → second.js → body inline. 외부 두 스크립트는 파싱을 멈추므로 targetExists:false입니다.\n3. 두 defer를 async로 변경: 다운로드가 끝난 순서로 실행됩니다. DOM 존재와 순서를 매번 기록하세요. async가 항상 순서를 바꾸거나 항상 DOM보다 먼저 실행된다고 가정하지 마세요.\n4. DevTools Network의 Disable cache와 느린 네트워크 조건을 적용하고 재시도하세요. 작은 로컬 파일에서 차이가 안 보이면 해당 관찰 자체를 기록하세요.\n\n시간은 performance.now의 관찰값입니다. console과 화면은 같은 loadingLog를 표시합니다. 실제 fetch·파싱을 실행하므로 Frontory 내부의 정적 소스 검사와 구분하세요.\n',
+  },
+}
+for (const [day, files] of Object.entries(externalFiles)) {
+  const id = 'html-step-' + day,
+    dir = 'src/labs/' + id
+  for (const [file, contents] of Object.entries(files))
+    await writeGeneratedFile(dir + '/' + file, contents)
+  htmlMetadata[id].files = Object.keys(files).map((file) => dir + '/' + file)
+  if (day === '18') htmlMetadata[id].files.push(dir + '/sample.mp4')
+  htmlMetadata[id].note =
+    day === '18'
+      ? '외부 HTTP 실행 예제: 6초 합성 MP4, 한국어 VTT, 대본과 정상/실패 전환을 제공합니다. 무음 합성 fixture이며 실제 발화 접근성 평가는 별도 영상으로 수행합니다.'
+      : day === '21'
+        ? '외부 HTTP 실행 예제: 동일 guide.html에서 sandbox=""와 allow-scripts를 전환하고 버튼·postMessage 동작을 관찰합니다.'
+        : '외부 HTTP 실행 예제: first.js/second.js를 실제 로드하고 일반/defer/async의 파싱·실행 순서를 기록합니다.'
+}
+await writeGeneratedFile(
+  'content/examples/html.json',
+  JSON.stringify(htmlMetadata, null, 2) + '\n',
+)
 // Reproduce sample.mp4 with FFmpeg: -f lavfi -i color=c=blue:s=640x360:d=3:r=24 -f lavfi -i color=c=orange:s=640x360:d=3:r=24 -filter_complex "[0:v][1:v]concat=n=2:v=1:a=0[v]" -map "[v]" -c:v libx264 -pix_fmt yuv420p -movflags +faststart sample.mp4
 
-await writeCompanionGuidance('scripts/generate-foundations-examples.mjs');
+await writeCompanionGuidance('scripts/generate-foundations-examples.mjs')

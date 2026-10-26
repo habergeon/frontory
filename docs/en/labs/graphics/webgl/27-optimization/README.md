@@ -29,7 +29,6 @@ Change only one of DPR, vertex subdivision count, visible splat count, or shader
 2. For example, change only the DPR cap from 2 → 1, and measure again with the same path and duration.
 3. Record before/after values, image-quality changes, evidence supporting/insufficient for/refuting the hypothesis, and the next experiment.
 
-
 ## Variables to observe
 
 One chosen variable. Keep the device, data, camera, and measurement method fixed.
@@ -53,21 +52,27 @@ One chosen variable. Keep the device, data, camera, and measurement method fixed
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: FPS·Draw Calls·memory analysis](../26-performance/README.md) · [Next: Documentation and optional deployment planning](../28-review/README.md)

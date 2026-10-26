@@ -60,30 +60,30 @@
 
 아래 각 행은 독립 작업이다. 한 행을 1~3개 학습 단위 묶음으로 실행하고 검토·생성 검사 후 커밋한다. 원고 파일은 시리즈 작성자 한 명이 소유한다. 공용 파일에 동시 쓰기하지 않는다.
 
-| 묶음 | 시리즈 | 목표 단위 수 | 추가 확인 |
-| --- | --- | ---: | --- |
-| C01 | `javascript` | 28 | 값 변환·문자열·비동기 결과 |
-| C02 | `css` | 28 | px·박스 크기·계산 조건 |
-| C03 | `react` | 28 | snapshot·updater·effect 설명 |
-| C04 | `gsap` | 28 | 시작값·시간·즉시 렌더링 |
-| C05 | `html` | 28 | 언어·인코딩·접근성 실험 fixture |
-| C06 | `typescript` | 28 | 타입 검사 지시문·오류 기대값 |
-| C07 | `vue` | 28 | 반응성·watch·cleanup |
-| C08 | `svelte` | 28 | 내장 preview와 실제 compiler 실행 차이 |
-| C09 | `canvas-2d` | 28 | 좌표·크기·픽셀 관찰 |
-| C10 | `svg` | 28 | viewBox·좌표·DOM 속성 |
-| C11 | `threejs` | 28 | 카메라·좌표·자원 정리 |
-| C12 | `react-three-fiber` | 28 | React 수명주기와 Three 객체 관계 |
-| C13 | `pixijs` | 28 | 합성 자료·모의 실패·정리 |
-| C14 | `webgpu` | 28 | adapter 미지원·GPU 검증 범위 |
-| C15 | `wgsl` | 28 | 언어 문법·layout·compiler 원문 |
-| C16 | `glsl` | 28 | 셰이더 수식·정밀도·오류 |
-| C17 | `gaussian-splatting` | 28 | CPU 교육 예제와 실제 학습·추론 구분 |
-| C18 | `motion` | 28 | 시간·spring·상태 변화 |
-| C19 | `web-workers` | 28 | 복사·전송·취소·경계 |
-| C20 | `offscreen-canvas` | 28 | 지원 여부·worker/화면 관계 |
-| C21 | `webassembly` | 28 | iframe CSP와 외부 WAT/Node 구분 |
-| C22 | `playwright` | 28 | preview와 실제 E2E 실행 구분 |
+| 묶음 | 시리즈               | 목표 단위 수 | 추가 확인                              |
+| ---- | -------------------- | -----------: | -------------------------------------- |
+| C01  | `javascript`         |           28 | 값 변환·문자열·비동기 결과             |
+| C02  | `css`                |           28 | px·박스 크기·계산 조건                 |
+| C03  | `react`              |           28 | snapshot·updater·effect 설명           |
+| C04  | `gsap`               |           28 | 시작값·시간·즉시 렌더링                |
+| C05  | `html`               |           28 | 언어·인코딩·접근성 실험 fixture        |
+| C06  | `typescript`         |           28 | 타입 검사 지시문·오류 기대값           |
+| C07  | `vue`                |           28 | 반응성·watch·cleanup                   |
+| C08  | `svelte`             |           28 | 내장 preview와 실제 compiler 실행 차이 |
+| C09  | `canvas-2d`          |           28 | 좌표·크기·픽셀 관찰                    |
+| C10  | `svg`                |           28 | viewBox·좌표·DOM 속성                  |
+| C11  | `threejs`            |           28 | 카메라·좌표·자원 정리                  |
+| C12  | `react-three-fiber`  |           28 | React 수명주기와 Three 객체 관계       |
+| C13  | `pixijs`             |           28 | 합성 자료·모의 실패·정리               |
+| C14  | `webgpu`             |           28 | adapter 미지원·GPU 검증 범위           |
+| C15  | `wgsl`               |           28 | 언어 문법·layout·compiler 원문         |
+| C16  | `glsl`               |           28 | 셰이더 수식·정밀도·오류                |
+| C17  | `gaussian-splatting` |           28 | CPU 교육 예제와 실제 학습·추론 구분    |
+| C18  | `motion`             |           28 | 시간·spring·상태 변화                  |
+| C19  | `web-workers`        |           28 | 복사·전송·취소·경계                    |
+| C20  | `offscreen-canvas`   |           28 | 지원 여부·worker/화면 관계             |
+| C21  | `webassembly`        |           28 | iframe CSP와 외부 WAT/Node 구분        |
+| C22  | `playwright`         |           28 | preview와 실제 E2E 실행 구분           |
 
 각 묶음의 반복 절차:
 

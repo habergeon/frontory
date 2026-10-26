@@ -29,7 +29,6 @@ Higher coefficient degrees can represent more complex directional variation, but
 2. Check the official documentation for how your chosen data and renderer support SH.
 3. Define a path for observing with only camera rotation after loading, and distinguish possible color changes from lighting changes.
 
-
 ## Variables to observe
 
 view direction, SH degree/support. Keep lights and data fixed.
@@ -53,21 +52,27 @@ view direction, SH degree/support. Keep lights and data fixed.
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: Gaussian position·size·rotation·opacity](../16-gaussian/README.md) · [Next: Projection·Sorting·Alpha Blending](../18-gs-projection/README.md)

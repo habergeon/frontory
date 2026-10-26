@@ -29,7 +29,6 @@ Three.js ShaderMaterial은 position, projectionMatrix, modelViewMatrix 등의 �
 2. vertex에서 projectionMatrix * modelViewMatrix * vec4(position,1.0), fragment에서 단색을 출력합니다.
 3. 위치 오프셋과 색 채널을 각각 바꾼 결과를 비교합니다.
 
-
 ## 관찰할 변수
 
 정점 위치 오프셋, 출력 색. 카메라·시간은 고정합니다.
@@ -53,21 +52,27 @@ Three.js ShaderMaterial은 position, projectionMatrix, modelViewMatrix 등의 �
 ## 실험 기록 — 직접 작성
 
 ### 목표
+
 <!-- 이번에 답하려는 질문 -->
 
 ### 핵심 개념
+
 <!-- 자기 말로 설명 -->
 
 ### 바꾼 변수와 예상
+
 <!-- 기준값 → 변경값 / 고정 조건 / 실행 전 예상 -->
 
 ### 실제 결과
+
 <!-- 실제 관찰 내용, 화면, 측정값. 실행 전에는 비워 둡니다. -->
 
 ### 배운 점
+
 <!-- 예상과 실제의 차이, 이유 -->
 
 ### 남은 질문
+
 <!-- 다음 실험으로 확인할 것 -->
 
 [이전: 인터랙티브 장면 복습](../07-scene-review/README.md) · [다음: GLSL 문법과 색상](../09-glsl-color/README.md)

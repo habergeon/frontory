@@ -76,10 +76,7 @@
           "explanation": "자원 크기와 binding 수에는 장치 한도가 있습니다. 큰 값을 추정하기보다 device.limits에 맞춰 입력을 제한합니다."
         }
       ],
-      "outcomes": [
-        "장치 기능을 협상한다.",
-        "한도 기반 입력 검사를 작성한다."
-      ],
+      "outcomes": ["장치 기능을 협상한다.", "한도 기반 입력 검사를 작성한다."],
       "steps": [
         "capabilities.js에서 adapter.features와 limits를 필요한 항목만 표로 표시하세요.",
         "필수 기능과 선택 기능을 구분해 requestDevice descriptor를 작성하세요.",
@@ -180,10 +177,7 @@
           "explanation": "submit 호출 반환은 GPU 작업 완료를 뜻하지 않습니다. 완료를 기다리는 코드는 필요한 관찰 지점에만 둡니다."
         }
       ],
-      "outcomes": [
-        "명령 생명주기를 구성한다.",
-        "제출과 완료를 구분한다."
-      ],
+      "outcomes": ["명령 생명주기를 구성한다.", "제출과 완료를 구분한다."],
       "steps": [
         "commands.js에 createCommandEncoder·beginRenderPass·end·finish·submit 순서를 작성하세요.",
         "clear 색 두 개를 서로 다른 제출로 기록하고 화면의 마지막 색을 확인하세요.",
@@ -440,10 +434,7 @@
           "explanation": "구조체 멤버 정렬과 dynamic uniform offset 한도는 별개의 규칙입니다. dynamic offset은 device의 최소 정렬을 따라야 합니다."
         }
       ],
-      "outcomes": [
-        "host와 shader 배치를 맞춘다.",
-        "두 정렬 규칙을 구분한다."
-      ],
+      "outcomes": ["host와 shader 배치를 맞춘다.", "두 정렬 규칙을 구분한다."],
       "steps": [
         "layout.md에 color:vec3f, gain:f32 구조체의 offset 0·12와 크기 16을 계산하세요.",
         "DataView로 color와 gain을 각각 기록하고 출력 색을 확인하세요.",
@@ -492,10 +483,7 @@
           "explanation": "WebGPU의 clip 깊이 범위는 WebGL과 다릅니다. 사용한 projection 함수가 목표 API의 깊이 규약에 맞는지 확인합니다."
         }
       ],
-      "outcomes": [
-        "카메라 변환을 구성한다.",
-        "깊이 좌표 규약을 검증한다."
-      ],
+      "outcomes": ["카메라 변환을 구성한다.", "깊이 좌표 규약을 검증한다."],
       "steps": [
         "camera.js에 model·view·projection 행렬을 분리하세요.",
         "mat4x4f uniform 64바이트를 올리고 vertex에서 곱한 위치를 반환하세요.",
@@ -1116,10 +1104,7 @@
           "explanation": "복구에는 shader·buffer·pipeline을 다시 만드는 경로가 필요합니다. CPU 쪽 설정과 초기 데이터는 재생성 가능한 형태로 보관합니다."
         }
       ],
-      "outcomes": [
-        "장치 손실을 처리한다.",
-        "자원 재생성 경로를 검증한다."
-      ],
+      "outcomes": ["장치 손실을 처리한다.", "자원 재생성 경로를 검증한다."],
       "steps": [
         "device.js에 device.lost 처리와 렌더 루프 중단을 연결하세요.",
         "개발용 버튼으로 device.destroy를 호출하고 손실 사유를 표시하세요.",
@@ -1272,10 +1257,7 @@
           "explanation": "절대 오차와 상대 오차는 값의 크기에 따라 역할이 다릅니다. 결과를 보기 전에 허용 기준과 특수값 처리를 정합니다."
         }
       ],
-      "outcomes": [
-        "CPU 기준을 작성한다.",
-        "수치 오차를 명시적으로 판정한다."
-      ],
+      "outcomes": ["CPU 기준을 작성한다.", "수치 오차를 명시적으로 판정한다."],
       "steps": [
         "reference.js에 입자 갱신 CPU 함수를 작성하고 고정 seed 입력을 생성하세요.",
         "readback 결과와 절대·상대 오차를 원소별로 계산하세요.",

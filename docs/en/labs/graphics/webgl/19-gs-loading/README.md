@@ -29,7 +29,6 @@ First record the source, license, format, version, and size, then choose one sma
 2. Record the small file's URL, license, byte size, and format, and check whether it is excluded from Git.
 3. In a follow-up local exercise, load a valid file, a missing path, and an incompatible PLY, and distinguish their states and errors.
 
-
 ## Variables to observe
 
 Path, format, fields, size, scale. Start with just one dataset.
@@ -53,21 +52,27 @@ Path, format, fields, size, scale. Start with just one dataset.
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: Projection·Sorting·Alpha Blending](../18-gs-projection/README.md) · [Next: Three.js+GS camera and interaction](../20-gs-interaction/README.md)

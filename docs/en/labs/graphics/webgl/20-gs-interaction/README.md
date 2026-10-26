@@ -29,7 +29,6 @@ GS picking may differ from raycasting ordinary mesh triangles. Gaussian center a
 2. Set minimum/maximum distances for rotation, movement, and zoom, and add reset.
 3. Investigate the criteria of the GS picking API you will use and write expected results for three points along the visible boundary.
 
-
 ## Variables to observe
 
 camera target/position/near/far, data transform, picking conditions.
@@ -53,21 +52,27 @@ camera target/position/near/far, data transform, picking conditions.
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: .ply·.splat loading](../19-gs-loading/README.md) · [Next: GS viewer review and candidate comparison](../21-gs-review/README.md)

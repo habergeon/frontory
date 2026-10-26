@@ -29,7 +29,6 @@ Order matters when compositing transparent colors. Apply C=alpha*C앞+(1-alpha)*
 2. Draw the footprints of a near splat and a distant splat.
 3. Define a camera path and recording items for observing overlap boundaries in the loading exercise.
 
-
 ## Variables to observe
 
 Depth order, alpha, distance, resolution. Cost changes are hypotheses until measured.
@@ -53,21 +52,27 @@ Depth order, alpha, distance, resolution. Cost changes are hypotheses until meas
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: Spherical Harmonics and view-dependent color](../17-sh/README.md) · [Next: .ply·.splat loading](../19-gs-loading/README.md)

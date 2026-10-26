@@ -29,7 +29,6 @@ Distinguish ranges from alpha in color calculations. Depending on the GLSL versi
 2. Make an incorrect assignment between vec3 and vec4, read the line and type information in the error, and fix it.
 3. Blend two colors with mix and clamp and compare predicted colors at 0,0.5,1.
 
-
 ## Variables to observe
 
 RGB channels, blend ratio, alpha. Keep geometry and the camera fixed.
@@ -53,21 +52,27 @@ RGB channels, blend ratio, alpha. Keep geometry and the camera fixed.
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: Vertex·Fragment shader](../08-shader-stages/README.md) · [Next: Uniform·Attribute·Varying and time](../10-shader-data/README.md)

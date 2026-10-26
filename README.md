@@ -15,15 +15,15 @@
 
 현재 **644개 학습 문서와 단위별 연결 예제**를 제공합니다. 브라우저에서 실행하는 실험과 별도 환경에서 실행하는 예제 파일을 구분합니다. 각 단위의 목표·실습 절차·비교 변수·완료 조건을 따라 코드를 변경하며 학습하세요. 예제 제공은 학습 완료를 의미하지 않습니다. WebGPU 지원 조건, GS 교육용 CPU 뷰어의 제한, Svelte 컴포넌트와 WebAssembly·Playwright 별도 실행 방법은 [예제 안내](docs/examples.md)를 확인하세요.
 
-| 분야 | 시리즈 |
-| --- | --- |
-| Fundamentals | JavaScript, TypeScript, HTML, CSS |
-| Frameworks | React, Vue, Svelte |
-| Graphics | WebGL, Canvas 2D, SVG, Three.js, Gaussian Splatting, WebGPU, React Three Fiber, PixiJS |
-| Shader | GLSL, WGSL |
-| Animation | GSAP, Motion |
-| Engineering | Web Workers, OffscreenCanvas, WebAssembly |
-| Testing | Playwright |
+| 분야         | 시리즈                                                                                 |
+| ------------ | -------------------------------------------------------------------------------------- |
+| Fundamentals | JavaScript, TypeScript, HTML, CSS                                                      |
+| Frameworks   | React, Vue, Svelte                                                                     |
+| Graphics     | WebGL, Canvas 2D, SVG, Three.js, Gaussian Splatting, WebGPU, React Three Fiber, PixiJS |
+| Shader       | GLSL, WGSL                                                                             |
+| Animation    | GSAP, Motion                                                                           |
+| Engineering  | Web Workers, OffscreenCanvas, WebAssembly                                              |
+| Testing      | Playwright                                                                             |
 
 ## 저장과 개인정보
 

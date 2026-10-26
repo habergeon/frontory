@@ -10,18 +10,37 @@ function fixture(mount) {
   globalThis.document = {
     createElement(tag) {
       return {
-        tag, children: [], textContent: '', handlers: {},
-        style: {}, setAttribute() {},
-        addEventListener(event, handler) { this.handlers[event] = handler },
-        append(...nodes) { this.children.push(...nodes) },
-        replaceChildren(...nodes) { this.children = nodes },
+        tag,
+        children: [],
+        textContent: '',
+        handlers: {},
+        style: {},
+        setAttribute() {},
+        addEventListener(event, handler) {
+          this.handlers[event] = handler
+        },
+        append(...nodes) {
+          this.children.push(...nodes)
+        },
+        replaceChildren(...nodes) {
+          this.children = nodes
+        },
       }
     },
   }
   const container = document.createElement('main')
   const dispose = mount({ container })
-  const [,, editor, button, stage, output] = container.children
-  return { editor, button, stage, output, close() { dispose(); globalThis.document = previous } }
+  const [, , editor, button, stage, output] = container.children
+  return {
+    editor,
+    button,
+    stage,
+    output,
+    close() {
+      dispose()
+      globalThis.document = previous
+    },
+  }
 }
 
 async function waitForOutput(output) {
@@ -40,11 +59,16 @@ test('Promise snapshot observes the actual inner work in both return modes', asy
       lab.output.textContent = ''
       await lab.button.handlers.click()
       const events = await waitForOutput(lab.output)
-      assert.equal(events.filter(event => event === 'inner').length, 1)
-      assert.equal(events.filter(event => event === 'chain done').length, 1)
-      assert.equal(events.indexOf('inner') < events.indexOf('chain done'), returnPromise)
+      assert.equal(events.filter((event) => event === 'inner').length, 1)
+      assert.equal(events.filter((event) => event === 'chain done').length, 1)
+      assert.equal(
+        events.indexOf('inner') < events.indexOf('chain done'),
+        returnPromise,
+      )
     }
-  } finally { lab.close() }
+  } finally {
+    lab.close()
+  }
 })
 
 test('file import accepts the download envelope while textarea keeps the array contract', async () => {
@@ -70,5 +94,7 @@ test('file import accepts the download envelope while textarea keeps the array c
     lab.editor.value = JSON.stringify([{ id: 1, title: 'A' }])
     await lab.button.handlers.click()
     assert.equal(JSON.parse(lab.output.textContent).accepted, true)
-  } finally { lab.close() }
+  } finally {
+    lab.close()
+  }
 })

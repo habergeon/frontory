@@ -25,11 +25,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "three-r186",
-        "webgl-specs",
-        "glsl-specs"
-      ]
+      "sourceIds": ["three-r186", "webgl-specs", "glsl-specs"]
     },
     {
       "id": "javascript",
@@ -43,10 +39,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "ecmascript",
-        "whatwg-html"
-      ]
+      "sourceIds": ["ecmascript", "whatwg-html"]
     },
     {
       "id": "typescript",
@@ -86,9 +79,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "typescript-docs"
-      ]
+      "sourceIds": ["typescript-docs"]
     },
     {
       "id": "html",
@@ -102,9 +93,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "whatwg-html"
-      ]
+      "sourceIds": ["whatwg-html"]
     },
     {
       "id": "css",
@@ -118,9 +107,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "css-specs"
-      ]
+      "sourceIds": ["css-specs"]
     },
     {
       "id": "react",
@@ -138,9 +125,7 @@
           "scope": "preview"
         }
       ],
-      "sourceIds": [
-        "react-docs"
-      ]
+      "sourceIds": ["react-docs"]
     },
     {
       "id": "vue",
@@ -152,9 +137,7 @@
           "scope": "preview"
         }
       ],
-      "sourceIds": [
-        "vue-docs"
-      ]
+      "sourceIds": ["vue-docs"]
     },
     {
       "id": "svelte",
@@ -175,9 +158,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "svelte-docs"
-      ]
+      "sourceIds": ["svelte-docs"]
     },
     {
       "id": "canvas-2d",
@@ -191,9 +172,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "whatwg-html"
-      ]
+      "sourceIds": ["whatwg-html"]
     },
     {
       "id": "svg",
@@ -207,9 +186,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "svg-spec"
-      ]
+      "sourceIds": ["svg-spec"]
     },
     {
       "id": "threejs",
@@ -229,9 +206,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "three-r186"
-      ]
+      "sourceIds": ["three-r186"]
     },
     {
       "id": "gaussian-splatting",
@@ -253,9 +228,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "gaussian-splatting-paper"
-      ]
+      "sourceIds": ["gaussian-splatting-paper"]
     },
     {
       "id": "webgpu",
@@ -269,9 +242,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "webgpu-spec"
-      ]
+      "sourceIds": ["webgpu-spec"]
     },
     {
       "id": "react-three-fiber",
@@ -309,11 +280,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "r3f-docs",
-        "react-docs",
-        "three-r186"
-      ]
+      "sourceIds": ["r3f-docs", "react-docs", "three-r186"]
     },
     {
       "id": "pixijs",
@@ -333,9 +300,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "pixijs-docs"
-      ]
+      "sourceIds": ["pixijs-docs"]
     },
     {
       "id": "glsl",
@@ -355,10 +320,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "glsl-specs",
-        "three-r186"
-      ]
+      "sourceIds": ["glsl-specs", "three-r186"]
     },
     {
       "id": "wgsl",
@@ -372,9 +334,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "wgsl-spec"
-      ]
+      "sourceIds": ["wgsl-spec"]
     },
     {
       "id": "gsap",
@@ -386,9 +346,7 @@
           "scope": "preview"
         }
       ],
-      "sourceIds": [
-        "gsap-docs"
-      ]
+      "sourceIds": ["gsap-docs"]
     },
     {
       "id": "motion",
@@ -400,9 +358,7 @@
           "scope": "preview"
         }
       ],
-      "sourceIds": [
-        "motion-docs"
-      ]
+      "sourceIds": ["motion-docs"]
     },
     {
       "id": "web-workers",
@@ -416,9 +372,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "whatwg-html"
-      ]
+      "sourceIds": ["whatwg-html"]
     },
     {
       "id": "offscreen-canvas",
@@ -432,9 +386,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "whatwg-html"
-      ]
+      "sourceIds": ["whatwg-html"]
     },
     {
       "id": "webassembly",
@@ -457,9 +409,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "wasm-spec"
-      ]
+      "sourceIds": ["wasm-spec"]
     },
     {
       "id": "playwright",
@@ -474,9 +424,7 @@
           }
         }
       ],
-      "sourceIds": [
-        "playwright-docs"
-      ]
+      "sourceIds": ["playwright-docs"]
     }
   ],
   "sources": [
@@ -1187,12 +1135,7 @@
         "license": "MIT",
         "licenseUrl": "https://raw.githubusercontent.com/mrdoob/three.js/9b4a2ac29c63ccb43fd51c5661f2f873ac2c39b8/LICENSE",
         "evidenceFile": "LICENSE",
-        "excludedAssets": [
-          "images",
-          "fonts",
-          "videos",
-          "external-packages"
-        ],
+        "excludedAssets": ["images", "fonts", "videos", "external-packages"],
         "reason": {
           "ko": "같은 commit의 선택 문서와 MIT 고지를 함께 보관합니다. 별도 외부 자산은 포함하지 않습니다.",
           "en": "Selected documents and the MIT notice from the same commit are archived together. Separate external assets are excluded."

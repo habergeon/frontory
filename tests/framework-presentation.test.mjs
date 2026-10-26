@@ -9,7 +9,19 @@ async function renderReact(id, locale) {
   const { mount } = await import(`../src/labs/${id}/example.js`)
   let html
   let unmounted = false
-  const dispose = mount({ React, locale, container: {}, createRoot: () => ({ render(element) { html = renderToStaticMarkup(element) }, unmount() { unmounted = true } }) })
+  const dispose = mount({
+    React,
+    locale,
+    container: {},
+    createRoot: () => ({
+      render(element) {
+        html = renderToStaticMarkup(element)
+      },
+      unmount() {
+        unmounted = true
+      },
+    }),
+  })
   dispose()
   assert.equal(unmounted, true)
   return html
@@ -28,12 +40,17 @@ test('generated React translates heading and input aria without translating card
   const en = await renderReact('react-step-05', 'en')
   assert.match(en, /Conditional Screens and Empty States/)
   assert.match(en, /aria-label="Experiment input"/)
-  for (const fixture of ['State', 'Effects', 'Canvas']) assert.ok(en.includes(fixture))
+  for (const fixture of ['State', 'Effects', 'Canvas'])
+    assert.ok(en.includes(fixture))
 })
 
 test('Svelte generated external records retain the canonical reading after final metadata assignment', () => {
-  const records = JSON.parse(fs.readFileSync('content/examples/svelte.json', 'utf8'))
-  for (const [id, record] of Object.entries(records).filter(([id]) => id.includes('-step-'))) {
+  const records = JSON.parse(
+    fs.readFileSync('content/examples/svelte.json', 'utf8'),
+  )
+  for (const [id, record] of Object.entries(records).filter(([id]) =>
+    id.includes('-step-'),
+  )) {
     assert.equal(record.readingSource, `/examples-en/${id}/example.js`)
     assert.equal(record.mode, 'external')
     assert.ok(record.files.includes(`src/labs/${id}/App.svelte`))
@@ -50,24 +67,45 @@ test('Svelte harness localizes display while showing HTML-looking fixture as tex
   const { mount } = await import('../src/labs/svelte-step-02/example.js')
   const previous = globalThis.document
   const nodes = []
-  globalThis.document = { createElement(tag) { return { tag, attributes: {}, setAttribute(key, value) { this.attributes[key] = value } } } }
+  globalThis.document = {
+    createElement(tag) {
+      return {
+        tag,
+        attributes: {},
+        setAttribute(key, value) {
+          this.attributes[key] = value
+        },
+      }
+    },
+  }
   try {
-    const container = { append(node) { nodes.push(node) }, replaceChildren() { nodes.length = 0 } }
+    const container = {
+      append(node) {
+        nodes.push(node)
+      },
+      replaceChildren() {
+        nodes.length = 0
+      },
+    }
     const dispose = mount({ writable, container, locale: 'en' })
     assert.equal(nodes[0].textContent, 'Markup and Event Attributes')
-    const output = nodes.find(node => node.tag === 'p' && node.textContent === 'Card title')
+    const output = nodes.find(
+      (node) => node.tag === 'p' && node.textContent === 'Card title',
+    )
     assert.ok(output)
-    const input = nodes.find(node => node.tag === 'input')
+    const input = nodes.find((node) => node.tag === 'input')
     assert.equal(input.attributes['aria-label'], 'Title')
     input.value = '한글 · café · 日本語'
     input.oninput()
     assert.equal(output.textContent, '한글 · café · 日本語')
-    nodes.find(node => node.tag === 'button').onclick()
+    nodes.find((node) => node.tag === 'button').onclick()
     assert.equal(output.textContent, '<img src=x onerror=alert(1)>')
     dispose()
     assert.equal(nodes.length, 0)
     input.value = 'after cleanup'
     input.oninput()
     assert.equal(output.textContent, '<img src=x onerror=alert(1)>')
-  } finally { globalThis.document = previous }
+  } finally {
+    globalThis.document = previous
+  }
 })

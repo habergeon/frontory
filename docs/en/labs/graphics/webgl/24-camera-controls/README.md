@@ -29,7 +29,6 @@ When damping is enabled, changes continue after input ends. Check whether remain
 2. Set min/max distance and angle ranges and operate at their extremes.
 3. Compare reset immediately after dragging, after zooming, and after resizing.
 
-
 ## Variables to observe
 
 position, target, min/max distance·angle, damping.
@@ -53,21 +52,27 @@ position, target, min/max distance·angle, damping.
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: Loading UI and progress](../23-loading-ui/README.md) · [Next: Markers and Raycasting](../25-markers/README.md)

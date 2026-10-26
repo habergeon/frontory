@@ -3,7 +3,8 @@ export type Locale = 'ko' | 'en'
 /** Classify route prefixes; generated public-page maps check page existence. */
 export function localeFromPath(pathname: string): Locale | null {
   if (pathname === '/en' || pathname.startsWith('/en/')) return 'en'
-  if (pathname === '/' || /^\/(learn|about|privacy)(\/|$)/.test(pathname)) return 'ko'
+  if (pathname === '/' || /^\/(learn|about|privacy)(\/|$)/.test(pathname))
+    return 'ko'
   return null
 }
 

@@ -29,7 +29,6 @@ Uniform value changes differ from changes to shader source/defines. Avoid unnece
 2. Update existing values when changing only time and color.
 3. Check three situations: an incorrect variable name, missing UVs, and cleanup when replacing a material.
 
-
 ## Variables to observe
 
 Uniform values, defines, shader source. Distinguish which changes require recompilation.
@@ -53,21 +52,27 @@ Uniform values, defines, shader source. Distinguish which changes require recomp
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: Noise·Sin·Cos waves and distortion](../12-waves/README.md) · [Next: Interactive shader review](../14-shader-review/README.md)

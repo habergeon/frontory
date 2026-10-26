@@ -37,12 +37,12 @@
 
 React 상태 스냅샷, GSAP 시작값과 목표값, JavaScript 숫자 변환, CSS 박스 모델의 설명을 보강하며 Windows의 HeadlessChrome 151.0.7922.34에서 기존 예제를 실행했습니다. 아래 값은 해당 입력에 대한 확인 기록이며 전체 커리큘럼의 상호작용 검증을 뜻하지 않습니다.
 
-| 예제 | 확인한 내용 |
-| --- | --- |
-| React 3단위 | 초기 0, Snapshot 한 클릭 뒤 1, Reset 뒤 0, Updater 한 클릭 뒤 3, 한 번 더 클릭하면 6. 본문 교체 코드에서는 별도 Snapshot 세 클릭의 1 → 2 → 3과 Reset 뒤 Updater의 3도 확인 |
-| JavaScript 2단위 | 기본 문자열 네 개와 공백·0·Infinity·16진수·지수 표기의 판정. 잘못된 JSON의 오류 표시 후 정상 입력으로 복구 |
-| CSS 4단위 | content-box의 테두리 너비 244px와 border-box의 200px. 계산 스타일의 너비에서 padding과 border를 빼면 콘텐츠 너비 156px |
-| GSAP 2단위 | 첫 실행과 다음 실행의 종료 x가 각각 0과 240. 본문 세 카드 비교 코드의 생성 직후·진행도 0.5·진행도 1 결과 및 immediateRender: false 변형 |
+| 예제             | 확인한 내용                                                                                                                                                                |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| React 3단위      | 초기 0, Snapshot 한 클릭 뒤 1, Reset 뒤 0, Updater 한 클릭 뒤 3, 한 번 더 클릭하면 6. 본문 교체 코드에서는 별도 Snapshot 세 클릭의 1 → 2 → 3과 Reset 뒤 Updater의 3도 확인 |
+| JavaScript 2단위 | 기본 문자열 네 개와 공백·0·Infinity·16진수·지수 표기의 판정. 잘못된 JSON의 오류 표시 후 정상 입력으로 복구                                                                 |
+| CSS 4단위        | content-box의 테두리 너비 244px와 border-box의 200px. 계산 스타일의 너비에서 padding과 border를 빼면 콘텐츠 너비 156px                                                     |
+| GSAP 2단위       | 첫 실행과 다음 실행의 종료 x가 각각 0과 240. 본문 세 카드 비교 코드의 생성 직후·진행도 0.5·진행도 1 결과 및 immediateRender: false 변형                                    |
 
 재현하려면 `pnpm dev`를 실행한 뒤 `http://127.0.0.1:5173/tests/browser/representative-lessons.html`을 엽니다. [검사 코드](../tests/browser/representative-lessons.js)는 실제 예제의 mount를 호출하고 본문에 포함된 React·GSAP 코드도 추출해 실행합니다. 모든 판정이 맞으면 PASS와 관찰값을 표시합니다. 생성되는 학습 문서는 `pnpm build:curricula`로 갱신합니다.
 
@@ -54,15 +54,15 @@ React 상태 스냅샷, GSAP 시작값과 목표값, JavaScript 숫자 변환, C
 
 영어 공개 강의는 `javascript-step-02`, `css-step-04`, `react-step-03`, `gsap-step-02` 네 개입니다. 한국어 23개 시리즈·644개 단위 전체의 영어 번역이나 모든 예제의 상호작용 검증을 마친 것은 아닙니다.
 
-| 검사 | 확인 결과 |
-| --- | --- |
-| `pnpm test` | 115/115 통과 |
-| `pnpm check:curricula` | 생성 파일 650개 최신 상태, 한국어 644개·영어 4개 단위 |
-| `pnpm build` | curricula·preview·타입·예제 검사·Vite·검색 생성 통과. 검색 assets 686개, sitemap canonical URL 683개 |
-| `pnpm check:deploy` | 2364 files, largest 6904626 bytes. 로컬 파일 한도 검사 |
-| 첫 묶음 생성기 재실행 | foundations·framework·engineering 예제, curricula·preview·search 여섯 생성기의 tracked 파일 byte 변화 없음 |
-| 실제 Chromium 브라우저 | 격리한 context에서 298/298 판정 통과. 실제 built entry 15개 포함 |
-| 로컬 preview HTTP | 영어 정상 페이지 12개, entry JS/CSS 자산 3개, 404 경로 3개, 한국어 광고 경로 4개, source 다운로드 8개 확인 |
+| 검사                   | 확인 결과                                                                                                  |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `pnpm test`            | 115/115 통과                                                                                               |
+| `pnpm check:curricula` | 생성 파일 650개 최신 상태, 한국어 644개·영어 4개 단위                                                      |
+| `pnpm build`           | curricula·preview·타입·예제 검사·Vite·검색 생성 통과. 검색 assets 686개, sitemap canonical URL 683개       |
+| `pnpm check:deploy`    | 2364 files, largest 6904626 bytes. 로컬 파일 한도 검사                                                     |
+| 첫 묶음 생성기 재실행  | foundations·framework·engineering 예제, curricula·preview·search 여섯 생성기의 tracked 파일 byte 변화 없음 |
+| 실제 Chromium 브라우저 | 격리한 context에서 298/298 판정 통과. 실제 built entry 15개 포함                                           |
+| 로컬 preview HTTP      | 영어 정상 페이지 12개, entry JS/CSS 자산 3개, 404 경로 3개, 한국어 광고 경로 4개, source 다운로드 8개 확인 |
 
 브라우저 검사는 `http://127.0.0.1:4185`의 전용 harness와 `http://127.0.0.1:4186`의 실제 built preview를 사용했습니다. Browser plugin이 없어 Playwright MCP를 사용했으며 Windows Chromium 155에서 실행했습니다. `tests/browser/i18n-suite.js`는 각 묶음에 새 context를 만들고 종료합니다. 영어 홈 직접 진입·reload, 공개 문서→실습→언어 전환→뒤로 이동→문서 복귀, 필기 저장·reload, JS/TS 코드·progress·ISO 시간의 backup v1/v2/v3 왕복을 검사합니다. 저장 실패·손상 fixture도 정상 기록과 분리합니다. 320·375·768·1280px 문서 폭과 keyboard focus 검사는 roundtrip 묶음에 포함됩니다.
 
@@ -84,20 +84,20 @@ F17의 첫 legacy harness는 사전 snapshot 없이 기본 MCP context에서 실
 
 대표 상호작용은 기존 네 예제를 재사용하고 새 19개 기술군 대표와 정정 계약을 더했다. 최신 focused harness는 42개 서로 다른 ID를 두 언어에서 실행했다. 아래 합계에는 기존 React·JavaScript·CSS·GSAP 대표의 46+46개 판정이 포함돼 있다.
 
-| 검사 묶음 | 최종 assertion 통과 수 |
-| --- | ---: |
-| backup v1/v2/v3·빈 필기·320/375/768/1280px·keyboard/focus | 52 |
-| storage 차단·손상·재시도 | 18 |
-| 실제 built entry·없는 영어 URL의 404 | 15 |
-| Workspace·JS/TS 마지막 정상 실행·compiler 원문 | 25 |
-| 실행 locale 적용 시점·iframe/contentWindow 보존 | 23 |
-| 영어 원본 다운로드·기존 draft 보존, legacy ID 포함 | 34 |
-| 전체 공개 catalog·검색·언어 왕복 | 75 |
-| 기존 대표 네 예제 한국어 | 46 |
-| 기존 대표 네 예제 영어 | 46 |
-| 확장 focused 42개 ID 한국어 | 831 |
-| 확장 focused 42개 ID 영어 | 831 |
-| **11묶음 합계** | **1,996** |
+| 검사 묶음                                                 | 최종 assertion 통과 수 |
+| --------------------------------------------------------- | ---------------------: |
+| backup v1/v2/v3·빈 필기·320/375/768/1280px·keyboard/focus |                     52 |
+| storage 차단·손상·재시도                                  |                     18 |
+| 실제 built entry·없는 영어 URL의 404                      |                     15 |
+| Workspace·JS/TS 마지막 정상 실행·compiler 원문            |                     25 |
+| 실행 locale 적용 시점·iframe/contentWindow 보존           |                     23 |
+| 영어 원본 다운로드·기존 draft 보존, legacy ID 포함        |                     34 |
+| 전체 공개 catalog·검색·언어 왕복                          |                     75 |
+| 기존 대표 네 예제 한국어                                  |                     46 |
+| 기존 대표 네 예제 영어                                    |                     46 |
+| 확장 focused 42개 ID 한국어                               |                    831 |
+| 확장 focused 42개 ID 영어                                 |                    831 |
+| **11묶음 합계**                                           |              **1,996** |
 
 최초 전체 suite는 1,792개를 통과했다. 이후 focused 계측만 보강해 한국어·영어를 각각 재실행했고, 변경 없는 나머지 9묶음의 334개 결과를 재사용했다. 따라서 1,792와 1,996을 더하지 않는다. 기존 네 대표의 92개도 334와 1,996에 이미 포함돼 있다. 양언어 focused 결과 중 표시 번역과 검사 페이지의 locale URL을 제외한 같은 관찰 789쌍은 실제 값이 모두 같았다. 별도 보충 검사에서는 HTML20의 599/600/601px 경계 6개, 실제 Enter 키와 exit 후 focus 복구 2개, 미지원 adapter 안내·재실행 2개를 확인했다. 이 10개 시나리오의 168개 판정은 위 합계에 더하지 않았다.
 

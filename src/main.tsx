@@ -6,6 +6,8 @@ import './app/styles.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <LocaleProvider><App /></LocaleProvider>
+    <LocaleProvider>
+      <App />
+    </LocaleProvider>
   </StrictMode>,
 )

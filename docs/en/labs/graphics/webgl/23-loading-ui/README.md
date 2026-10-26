@@ -29,7 +29,6 @@ Design failure and retry handling, cancellation during transitions, or ignoring 
 2. Distinguish the UI for transfers with a known file size from transfers with an unknown size.
 3. Test retry after failure, switching during loading, and switching just before completion.
 
-
 ## Variables to observe
 
 Whether total size information is available, network delay, response order, failure location.
@@ -53,21 +52,27 @@ Whether total size information is available, network delay, response order, fail
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: React+Three.js component design](../22-react-viewer/README.md) · [Next: Camera movement·rotation·zoom](../24-camera-controls/README.md)

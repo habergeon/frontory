@@ -14,7 +14,11 @@ import * as Motion from 'motion/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { writable } from 'svelte/store'
 
-export async function start(source: string, token: string, locale: Locale = 'ko') {
+export async function start(
+  source: string,
+  token: string,
+  locale: Locale = 'ko',
+) {
   let cleanup: (() => void) | undefined
   let closed = false
   let failed = false
@@ -22,34 +26,82 @@ export async function start(source: string, token: string, locale: Locale = 'ko'
     parent.postMessage({ type: 'study-preview', token, status, message }, '*')
   const report = (error: unknown) => {
     failed = true
-    if (!closed) send('error', error instanceof Error ? error.message : String(error))
+    if (!closed)
+      send('error', error instanceof Error ? error.message : String(error))
   }
   const dispose = () => {
     if (closed) return
     closed = true
-    try { cleanup?.() } catch { /* Context removal is the final cleanup boundary. */ }
+    try {
+      cleanup?.()
+    } catch {
+      /* Context removal is the final cleanup boundary. */
+    }
     cleanup = undefined
   }
-  addEventListener('message', event => {
-    if (event.source === parent && event.data?.type === 'study-dispose' && event.data.token === token) {
+  addEventListener('message', (event) => {
+    if (
+      event.source === parent &&
+      event.data?.type === 'study-dispose' &&
+      event.data.token === token
+    ) {
       dispose()
       send('disposed')
     }
   })
   addEventListener('pagehide', dispose, { once: true })
-  addEventListener('error', event => { event.preventDefault(); report(event.error ?? event.message) })
-  addEventListener('unhandledrejection', event => { event.preventDefault(); report(event.reason) })
-  const url = URL.createObjectURL(new Blob([source], { type: 'text/javascript' }))
+  addEventListener('error', (event) => {
+    event.preventDefault()
+    report(event.error ?? event.message)
+  })
+  addEventListener('unhandledrejection', (event) => {
+    event.preventDefault()
+    report(event.reason)
+  })
+  const url = URL.createObjectURL(
+    new Blob([source], { type: 'text/javascript' }),
+  )
   try {
     const module = await import(/* @vite-ignore */ url)
     if (closed) return
-    if (typeof module.mount !== 'function') throw new Error(locale === 'en' ? 'Define an export function mount(...) function.' : 'export function mount(...) 함수를 정의하세요.')
-    const result = await module.mount({ locale, THREE, OrbitControls, React, createRoot, Vue, Fiber, PIXI, gsap, ScrollTrigger, animate, Motion, writable, container: document.getElementById('scene-root') })
-    if (typeof result !== 'function') throw new Error(locale === 'en' ? 'mount must return a function that cleans up resources.' : 'mount는 자원을 정리하는 함수를 반환해야 합니다.')
-    if (closed) { result(); return }
+    if (typeof module.mount !== 'function')
+      throw new Error(
+        locale === 'en'
+          ? 'Define an export function mount(...) function.'
+          : 'export function mount(...) 함수를 정의하세요.',
+      )
+    const result = await module.mount({
+      locale,
+      THREE,
+      OrbitControls,
+      React,
+      createRoot,
+      Vue,
+      Fiber,
+      PIXI,
+      gsap,
+      ScrollTrigger,
+      animate,
+      Motion,
+      writable,
+      container: document.getElementById('scene-root'),
+    })
+    if (typeof result !== 'function')
+      throw new Error(
+        locale === 'en'
+          ? 'mount must return a function that cleans up resources.'
+          : 'mount는 자원을 정리하는 함수를 반환해야 합니다.',
+      )
+    if (closed) {
+      result()
+      return
+    }
     cleanup = result
     // Mount completion must not depend on rAF: background tabs may suspend it.
     if (!closed && !failed) send('ready')
-  } catch (error) { report(error) }
-  finally { URL.revokeObjectURL(url) }
+  } catch (error) {
+    report(error)
+  } finally {
+    URL.revokeObjectURL(url)
+  }
 }

@@ -29,7 +29,6 @@ Three.js ShaderMaterial provides inputs such as position, projectionMatrix, and 
 2. Output projectionMatrix * modelViewMatrix * vec4(position,1.0) in the vertex stage and a solid color in the fragment stage.
 3. Compare the results of changing the position offset and color channels separately.
 
-
 ## Variables to observe
 
 Vertex position offset, output color. Keep the camera and time fixed.
@@ -53,21 +52,27 @@ Vertex position offset, output color. Keep the camera and time fixed.
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: Interactive scene review](../07-scene-review/README.md) · [Next: GLSL syntax and color](../09-glsl-color/README.md)

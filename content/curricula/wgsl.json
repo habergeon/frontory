@@ -76,10 +76,7 @@
           "explanation": "부호 있는 정수와 없는 정수는 범위와 연산 의미가 다릅니다. index와 계산값 사이 변환을 명시해 예상하지 않은 값 해석을 피합니다."
         }
       ],
-      "outcomes": [
-        "수치 타입을 선택한다.",
-        "타입 변환을 명시한다."
-      ],
+      "outcomes": ["수치 타입을 선택한다.", "타입 변환을 명시한다."],
       "steps": [
         "types.wgsl에 i32·u32·f32 변수와 명시적 변환 함수를 작성하세요.",
         "양수·음수·소수 입력을 작은 compute 출력 buffer에 기록하세요.",
@@ -128,10 +125,7 @@
           "explanation": "WGSL 행렬은 열 벡터로 구성됩니다. CPU가 기록한 열 순서와 shader의 행렬 곱을 맞춰야 변환이 의도대로 됩니다."
         }
       ],
-      "outcomes": [
-        "벡터·행렬 연산을 작성한다.",
-        "행렬 저장 규약을 검증한다."
-      ],
+      "outcomes": ["벡터·행렬 연산을 작성한다.", "행렬 저장 규약을 검증한다."],
       "steps": [
         "math.wgsl에 벡터 생성·swizzle·dot 결과를 출력하는 함수를 만드세요.",
         "mat2x2f의 두 열과 vec2f 입력을 정하고 수작업 곱을 계산하세요.",
@@ -388,10 +382,7 @@
           "explanation": "uniform과 읽기 전용 storage에 값을 쓰는 코드는 계약을 위반합니다. storage의 read와 read_write를 실제 작업에 맞게 지정합니다."
         }
       ],
-      "outcomes": [
-        "주소 공간을 선택한다.",
-        "자원 접근 권한을 지킨다."
-      ],
+      "outcomes": ["주소 공간을 선택한다.", "자원 접근 권한을 지킨다."],
       "steps": [
         "spaces.wgsl에 읽기 uniform과 read storage, read_write output을 선언하세요.",
         "함수 지역 누적값과 private 변수를 구분해 주석을 달세요.",
@@ -544,10 +535,7 @@
           "explanation": "배열 원소 stride는 원소의 size를 alignment에 맞춰 반올림해 결정됩니다. CPU에서 다음 원소로 이동할 때 같은 stride를 사용합니다."
         }
       ],
-      "outcomes": [
-        "행렬의 열 배치를 계산한다.",
-        "배열 stride를 검증한다."
-      ],
+      "outcomes": ["행렬의 열 배치를 계산한다.", "배열 stride를 검증한다."],
       "steps": [
         "matrix-layout.md에 mat3x3f 열 offset 0·16·32와 size 48을 적으세요.",
         "두 행렬을 48바이트 stride로 기록하고 각각 다른 벡터를 곱하세요.",
@@ -752,10 +740,7 @@
           "explanation": "2차원 입력을 1차원 배열로 저장할 때 row stride를 포함해야 합니다. x와 y를 바꾸면 전치되거나 범위를 벗어날 수 있습니다."
         }
       ],
-      "outcomes": [
-        "invocation ID를 해석한다.",
-        "다차원 인덱스를 평탄화한다."
-      ],
+      "outcomes": ["invocation ID를 해석한다.", "다차원 인덱스를 평탄화한다."],
       "steps": [
         "ids.wgsl에 @workgroup_size(8,8)과 global id 입력을 선언하세요.",
         "width=13,height=9에서 index=y*width+x로 식별값을 출력하세요.",
@@ -856,10 +841,7 @@
           "explanation": "각 lane의 값이 준비된 뒤 다른 lane이 읽어야 합니다. 부분 그룹의 비활성 lane도 중립값을 쓰고 동기화에 참여합니다."
         }
       ],
-      "outcomes": [
-        "공유 메모리를 초기화한다.",
-        "그룹 내부 협력을 구현한다."
-      ],
+      "outcomes": ["공유 메모리를 초기화한다.", "그룹 내부 협력을 구현한다."],
       "steps": [
         "shared.wgsl에 var<workgroup> tile:array<f32,64>를 선언하세요.",
         "유효 lane은 입력을, 나머지는 0을 넣고 workgroupBarrier 뒤 이웃 값을 읽으세요.",
@@ -1012,10 +994,7 @@
           "explanation": "workgroup별 부분합을 얻은 뒤에는 추가 dispatch나 CPU 합으로 마무리합니다. 그룹 사이에서 같은 dispatch의 완료를 기다리지 않습니다."
         }
       ],
-      "outcomes": [
-        "협력 감소 연산을 작성한다.",
-        "그룹 간 계산 단계를 나눈다."
-      ],
+      "outcomes": ["협력 감소 연산을 작성한다.", "그룹 간 계산 단계를 나눈다."],
       "steps": [
         "reduce.wgsl에 64 lane 공유 배열과 32·16·8·4·2·1 감소 단계를 작성하세요.",
         "각 단계의 조건부 덧셈 뒤 공통 barrier를 배치하세요.",
@@ -1064,10 +1043,7 @@
           "explanation": "한 dispatch가 한 시점의 상태를 다음 시점으로 바꿉니다. 다음 dispatch에서는 두 buffer의 역할을 교환합니다."
         }
       ],
-      "outcomes": [
-        "데이터 경쟁을 피한다.",
-        "시간 단계별 상태를 분리한다."
-      ],
+      "outcomes": ["데이터 경쟁을 피한다.", "시간 단계별 상태를 분리한다."],
       "steps": [
         "stencil.wgsl에 이전 좌우 이웃의 평균을 새 배열에 쓰는 함수를 작성하세요.",
         "A→B와 B→A binding을 호스트에서 교대하세요.",

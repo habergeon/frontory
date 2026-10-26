@@ -29,7 +29,6 @@ renderer.info.render.calls and triangles are partial indicators of rendering wor
 2. Fill in the conditions and observation tools in docs/performance.md.
 3. Measure the same path several times and distinguish loading, CPU updates, and rendering intervals.
 
-
 ## Variables to observe
 
 Keep conditions fixed for the baseline. There is no intentionally changed variable yet.
@@ -53,21 +52,27 @@ Keep conditions fixed for the baseline. There is no intentionally changed variab
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: Markers and Raycasting](../25-markers/README.md) · [Next: Resolution·data optimization](../27-optimization/README.md)

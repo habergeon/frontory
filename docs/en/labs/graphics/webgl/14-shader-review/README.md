@@ -29,7 +29,6 @@ Exposing too many variables in one effect makes causes hard to track. Start with
 2. Compare UI values and actual results at minimum, default, and maximum values.
 3. Write a short demonstration sequence, explain the code, and summarize results that differed from your predictions.
 
-
 ## Variables to observe
 
 Amplitude, speed, viewport. Keep the default geometry and camera fixed.
@@ -53,21 +52,27 @@ Amplitude, speed, viewport. Keep the default geometry and camera fixed.
 ## Experiment notes — fill these in yourself
 
 ### Goal
+
 <!-- The question you want to answer in this experiment -->
 
 ### Key concepts
+
 <!-- Explain in your own words -->
 
 ### Changed variables and predictions
+
 <!-- Baseline → changed value / fixed conditions / prediction before running -->
 
 ### Actual results
+
 <!-- Actual observations, screenshots, and measurements. Leave blank before running. -->
 
 ### What I learned
+
 <!-- Differences between predictions and actual results, and why -->
 
 ### Remaining questions
+
 <!-- What to check in the next experiment -->
 
 [Previous: ShaderMaterial integration](../13-shader-material/README.md) · [Next: Comparing NeRF and 3DGS](../15-nerf-gs/README.md)

@@ -15,15 +15,15 @@
 
 The project currently provides **644 learning documents and examples linked to individual units**. Browser experiments are distinguished from example files that run in a separate environment. Change the code as you follow each unit's goals, exercise steps, comparison variables, and completion criteria. Providing an example does not mean the learning is complete. See the [example guide](docs/en/examples.md) for WebGPU support requirements, limits of the GS educational CPU viewer, Svelte components, and separate execution of WebAssembly and Playwright.
 
-| Field | Series |
-| --- | --- |
-| Fundamentals | JavaScript, TypeScript, HTML, CSS |
-| Frameworks | React, Vue, Svelte |
-| Graphics | WebGL, Canvas 2D, SVG, Three.js, Gaussian Splatting, WebGPU, React Three Fiber, PixiJS |
-| Shader | GLSL, WGSL |
-| Animation | GSAP, Motion |
-| Engineering | Web Workers, OffscreenCanvas, WebAssembly |
-| Testing | Playwright |
+| Field        | Series                                                                                 |
+| ------------ | -------------------------------------------------------------------------------------- |
+| Fundamentals | JavaScript, TypeScript, HTML, CSS                                                      |
+| Frameworks   | React, Vue, Svelte                                                                     |
+| Graphics     | WebGL, Canvas 2D, SVG, Three.js, Gaussian Splatting, WebGPU, React Three Fiber, PixiJS |
+| Shader       | GLSL, WGSL                                                                             |
+| Animation    | GSAP, Motion                                                                           |
+| Engineering  | Web Workers, OffscreenCanvas, WebAssembly                                              |
+| Testing      | Playwright                                                                             |
 
 ## Storage and privacy
 

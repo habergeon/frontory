@@ -3,8 +3,16 @@ import assert from 'node:assert/strict'
 import { spawnSync } from 'node:child_process'
 
 for (const kind of ['framework', 'graphics', 'gpu', 'engineering']) {
-  test(kind + ' generator preserves baseline metadata while replacing owned entries', () => {
-    const result = spawnSync(process.execPath, ['--input-type=module', '-e', `
+  test(
+    kind +
+      ' generator preserves baseline metadata while replacing owned entries',
+    () => {
+      const result = spawnSync(
+        process.execPath,
+        [
+          '--input-type=module',
+          '-e',
+          `
       import fs from 'node:fs'
       import path from 'node:path'
       import assert from 'node:assert/strict'
@@ -33,7 +41,11 @@ for (const kind of ['framework', 'graphics', 'gpu', 'engineering']) {
         }
       }
       assert.ok(preserved > 0, 'must exercise legacy metadata')
-    `], { encoding: 'utf8', timeout: 60000 })
-    assert.equal(result.status, 0, result.stderr || String(result.error))
-  })
+    `,
+        ],
+        { encoding: 'utf8', timeout: 60000 },
+      )
+      assert.equal(result.status, 0, result.stderr || String(result.error))
+    },
+  )
 }

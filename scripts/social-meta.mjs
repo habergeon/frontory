@@ -11,5 +11,7 @@ export const socialMeta = `<meta property="og:site_name" content="Frontory">
 <meta name="twitter:image:alt" content="Frontory — Learn, Experiment, Archive">`
 
 export function socialMetaForLocale(locale = 'ko') {
-  return locale === 'en' ? socialMeta.replace('content="ko_KR"', 'content="en_US"') : socialMeta
+  return locale === 'en'
+    ? socialMeta.replace('content="ko_KR"', 'content="en_US"')
+    : socialMeta
 }

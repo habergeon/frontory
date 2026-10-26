@@ -15,7 +15,10 @@ interface StorageAccess {
   getItem(key: string): string | null
   setItem(key: string, value: string): void
 }
-export interface DraftResult { draft: Draft; warning: 'read-failed' | 'write-failed' | null }
+export interface DraftResult {
+  draft: Draft
+  warning: 'read-failed' | 'write-failed' | null
+}
 
 export const draftKey = (id: string) => 'web-gl-study:unit:v1:' + id
 export const notesTemplate = notesTemplateFor('ko')
@@ -23,10 +26,17 @@ export const notesTemplate = notesTemplateFor('ko')
 export function isDraft(value: unknown): value is Draft {
   if (typeof value !== 'object' || value === null) return false
   const item = value as Partial<Draft>
-  return item.version === 1 && typeof item.code === 'string' &&
-    typeof item.notes === 'string' && typeof item.updatedAt === 'string' &&
-    (item.language === undefined || item.language === 'javascript' || item.language === 'typescript') &&
-    (item.progress === undefined || ['not-started', 'in-progress', 'completed'].includes(item.progress))
+  return (
+    item.version === 1 &&
+    typeof item.code === 'string' &&
+    typeof item.notes === 'string' &&
+    typeof item.updatedAt === 'string' &&
+    (item.language === undefined ||
+      item.language === 'javascript' ||
+      item.language === 'typescript') &&
+    (item.progress === undefined ||
+      ['not-started', 'in-progress', 'completed'].includes(item.progress))
+  )
 }
 
 export function restoreCode(draft: Draft, original: string): Draft {
@@ -42,15 +52,25 @@ export function createDraftStore(getStorage: () => StorageAccess) {
   const readSnapshot = (fresh = false): Record<string, Draft> | null => {
     if (!fresh && snapshotCache !== undefined) return snapshotCache
     const raw = getStorage().getItem(snapshotKey)
-    if (raw === null) { snapshotCache = null; return null }
+    if (raw === null) {
+      snapshotCache = null
+      return null
+    }
     const value: unknown = JSON.parse(raw)
-    if (!value || typeof value !== 'object' || Array.isArray(value) || !Object.values(value).every(isDraft)) throw new Error('Invalid snapshot')
+    if (
+      !value ||
+      typeof value !== 'object' ||
+      Array.isArray(value) ||
+      !Object.values(value).every(isDraft)
+    )
+      throw new Error('Invalid snapshot')
     snapshotCache = value as Record<string, Draft>
     return snapshotCache
   }
   return {
     replaceAll(drafts: Record<string, Draft>) {
-      if (!Object.values(drafts).every(isDraft)) throw new Error('Invalid snapshot')
+      if (!Object.values(drafts).every(isDraft))
+        throw new Error('Invalid snapshot')
       // A single setItem is atomic on failure; never commit memory before storage.
       getStorage().setItem(snapshotKey, JSON.stringify(drafts))
       snapshotCache = undefined
@@ -61,13 +81,21 @@ export function createDraftStore(getStorage: () => StorageAccess) {
       const cached = memory.get(id)
       if (cached) return cached
       let result: DraftResult = {
-        draft: { version: 1, code: original, notes: notesTemplate, updatedAt: '' },
+        draft: {
+          version: 1,
+          code: original,
+          notes: notesTemplate,
+          updatedAt: '',
+        },
         warning: null,
       }
       unstarted.add(id)
       try {
         const snapshot = readSnapshot()
-        const raw = snapshot && Object.hasOwn(snapshot, id) ? JSON.stringify(snapshot[id]) : getStorage().getItem(draftKey(id))
+        const raw =
+          snapshot && Object.hasOwn(snapshot, id)
+            ? JSON.stringify(snapshot[id])
+            : getStorage().getItem(draftKey(id))
         if (raw !== null) {
           const parsed: unknown = JSON.parse(raw)
           if (!isDraft(parsed)) throw new Error('Invalid saved draft')
@@ -83,7 +111,10 @@ export function createDraftStore(getStorage: () => StorageAccess) {
     begin(id: string, original: string, locale: Locale): DraftResult {
       const result = this.load(id, original)
       if (!unstarted.delete(id)) return result
-      const started = { ...result, draft: { ...result.draft, notes: notesTemplateFor(locale) } }
+      const started = {
+        ...result,
+        draft: { ...result.draft, notes: notesTemplateFor(locale) },
+      }
       memory.set(id, started)
       return started
     },
@@ -99,8 +130,7 @@ export function createDraftStore(getStorage: () => StorageAccess) {
           const nextSnapshot = { ...snapshot, [id]: result.draft }
           getStorage().setItem(snapshotKey, JSON.stringify(nextSnapshot))
           snapshotCache = nextSnapshot
-        }
-        else getStorage().setItem(draftKey(id), JSON.stringify(result.draft))
+        } else getStorage().setItem(draftKey(id), JSON.stringify(result.draft))
       } catch {
         result.warning = 'write-failed'
       }

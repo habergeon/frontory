@@ -19,16 +19,16 @@ Frontory의 실습 화면은 기존 `/#학습ID` 주소를 유지합니다. `#` 
 
 ## SEO 설정 위치
 
-| 항목 | 설정 | 수정할 파일 |
-| --- | --- | --- |
-| 사이트맵 | 한국어 671개와 영어 671개, 총 1,342개 canonical URL. `#` 실습 주소는 제외 | `scripts/search-pages.mjs` |
-| robots.txt | 크롤링 허용, 사이트맵 절대 주소 안내 | `scripts/search-pages.mjs` |
-| 제목·설명·canonical | 홈은 고정, 학습 문서는 각 단위의 제목과 목표로 생성 | `index.html`, `scripts/search-pages.mjs` |
-| Open Graph | 페이지별 제목·설명·주소, Frontory 사이트명, 언어별 `ko_KR`·`en_US`, 공통 이미지 | `index.html`, `scripts/social-meta.mjs` |
-| Twitter 카드 | `summary_large_image`, 제목·설명은 OG 값 사용 | `index.html`, `scripts/social-meta.mjs` |
-| 구조화 데이터 | ko/en 홈은 `WebSite`, 나머지 공개 문서는 `WebPage` | `index.html`, `scripts/search-pages.mjs` |
-| 언어 대응 | 실제 번역이 있는 페이지만 ko/en 상호 hreflang. 없는 영어 URL은 생성하지 않음 | `scripts/search-pages.mjs`, `vite.config.ts` |
-| 검색 제외 | 404 문서 `noindex`, 예제 파일 응답 `X-Robots-Tag: noindex` | `scripts/search-pages.mjs`, `public/_headers` |
+| 항목                | 설정                                                                            | 수정할 파일                                   |
+| ------------------- | ------------------------------------------------------------------------------- | --------------------------------------------- |
+| 사이트맵            | 한국어 671개와 영어 671개, 총 1,342개 canonical URL. `#` 실습 주소는 제외       | `scripts/search-pages.mjs`                    |
+| robots.txt          | 크롤링 허용, 사이트맵 절대 주소 안내                                            | `scripts/search-pages.mjs`                    |
+| 제목·설명·canonical | 홈은 고정, 학습 문서는 각 단위의 제목과 목표로 생성                             | `index.html`, `scripts/search-pages.mjs`      |
+| Open Graph          | 페이지별 제목·설명·주소, Frontory 사이트명, 언어별 `ko_KR`·`en_US`, 공통 이미지 | `index.html`, `scripts/social-meta.mjs`       |
+| Twitter 카드        | `summary_large_image`, 제목·설명은 OG 값 사용                                   | `index.html`, `scripts/social-meta.mjs`       |
+| 구조화 데이터       | ko/en 홈은 `WebSite`, 나머지 공개 문서는 `WebPage`                              | `index.html`, `scripts/search-pages.mjs`      |
+| 언어 대응           | 실제 번역이 있는 페이지만 ko/en 상호 hreflang. 없는 영어 URL은 생성하지 않음    | `scripts/search-pages.mjs`, `vite.config.ts`  |
+| 검색 제외           | 404 문서 `noindex`, 예제 파일 응답 `X-Robots-Tag: noindex`                      | `scripts/search-pages.mjs`, `public/_headers` |
 
 공유 이미지는 `public/og/frontory.png`에 있습니다. 크기는 1200×630이며 기존 로고와 색상을 사용합니다. Windows에서 `powershell -NoProfile -File scripts/build-og.ps1`로 다시 만들 수 있습니다. 배포 빌드에는 이미지 생성 도구가 필요하지 않습니다.
 

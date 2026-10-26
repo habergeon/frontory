@@ -7,6 +7,39 @@ import {
 } from '../src/app/learningSchema.ts'
 
 const fixture = () => readLearningContent()
+test('integrated HTML lesson documents keep every required task inside the site', async () => {
+  const fs = await import('node:fs')
+  for (const [locale, expected, excluded] of [
+    [
+      'ko',
+      /모든 필수 과제를 사이트 안에서 단계별로 수행/,
+      /별도 프로젝트에서 수행|별도 실습 파일을 만들/,
+    ],
+    [
+      'en',
+      /Complete every required task inside the site, step by step/,
+      /scope in a separate project|Create separate practice files/,
+    ],
+  ]) {
+    const prefix = locale === 'ko' ? 'docs/labs' : 'docs/en/labs'
+    const completed = fs.readFileSync(
+      prefix + '/graphics/threejs/01-foundations/README.md',
+      'utf8',
+    )
+    assert.match(completed, expected)
+    assert.doesNotMatch(completed, excluded)
+    const future = fs.readFileSync(
+      prefix + '/graphics/threejs/units/02/README.md',
+      'utf8',
+    )
+    assert.match(
+      future,
+      locale === 'ko'
+        ? /별도 프로젝트에서 수행/
+        : /scope in a separate project/,
+    )
+  }
+})
 test('optional lessons and APIs keep existing guide fallback; same source generates Markdown', () => {
   const { ko, en, readCode } = fixture()
   assert.equal(

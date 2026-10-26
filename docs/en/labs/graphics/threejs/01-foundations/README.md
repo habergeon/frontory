@@ -27,7 +27,7 @@ Multiply elapsed seconds by angular speed to get a rotation angle. child.positio
 
 Edit and run independent HTML examples inside the site. The site supplies Three.js 0.186.1; no separate installation, server, or external images are required. Saved JavaScript code is preserved. Loading a starter requires confirmation before replacement.
 
-The linked example is a starting point. It does not implement every task below. Complete work beyond its supported scope in a separate project.
+Complete every required task inside the site, step by step. Load a starter from the learning steps below, edit and run it, then record the actual results and reasons in the site notes.
 
 ## Practice tasks
 

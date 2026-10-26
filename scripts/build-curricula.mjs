@@ -145,6 +145,7 @@ for (const series of baseline.series) {
   content.units.forEach((unit, index) => {
     const entry = units[index]
     const old = baseline.units.some((item) => item.id === unit.id)
+    const lesson = learning.ko.lessons.find((item) => item.unitId === unit.id)
     const lines = [
       `# ${series.title} · ${String(unit.day).padStart(2, '0')} ${unit.title}`,
       '',
@@ -174,9 +175,11 @@ for (const series of baseline.series) {
       '',
       unit.environment,
       '',
-      hasExample(unit.id)
-        ? '연결된 예제는 출발점입니다. 아래 과제 전체가 완성된 코드는 아니며 예제의 지원 범위를 넘는 작업은 별도 프로젝트에서 수행하세요.'
-        : '이 단위에는 내장 실행 예제가 없습니다. 아래 절차에 따라 별도 실습 파일을 만들고 실행 결과를 필기에 남기세요.',
+      unit.sourceLanguage === 'html' && lesson
+        ? '모든 필수 과제를 사이트 안에서 단계별로 수행합니다. 아래 학습 단계의 시작 코드를 불러와 수정하고 실행한 뒤, 실제 결과와 이유를 사이트 필기에 남기세요.'
+        : hasExample(unit.id)
+          ? '연결된 예제는 출발점입니다. 아래 과제 전체가 완성된 코드는 아니며 예제의 지원 범위를 넘는 작업은 별도 프로젝트에서 수행하세요.'
+          : '이 단위에는 내장 실행 예제가 없습니다. 아래 절차에 따라 별도 실습 파일을 만들고 실행 결과를 필기에 남기세요.',
       '',
       '## 실습 과제',
       '',
@@ -257,7 +260,6 @@ for (const series of baseline.series) {
         '남은 질문',
       ].flatMap((title) => ['### ' + title, '']),
     ]
-    const lesson = learning.ko.lessons.find((item) => item.unitId === unit.id)
     if (lesson)
       lines.splice(
         lines.indexOf('## 다음 학습'),
@@ -425,6 +427,7 @@ for (const series of englishCatalog.series.filter(
     const entry = units.find((item) => item.id === unit.id)
     const previous = units.find((item) => item.day === unit.day - 1)
     const next = units.find((item) => item.day === unit.day + 1)
+    const lesson = learning.en.lessons.find((item) => item.unitId === unit.id)
     const lines = [
       `# ${series.title} · ${String(unit.day).padStart(2, '0')} ${unit.title}`,
       '',
@@ -454,9 +457,11 @@ for (const series of englishCatalog.series.filter(
       '',
       unit.environment,
       '',
-      hasExample(unit.id)
-        ? 'The linked example is a starting point. It does not implement every task below. Complete work beyond its supported scope in a separate project.'
-        : 'This unit has no built-in runnable example. Create separate practice files following the steps below and record the results in your notes.',
+      unit.sourceLanguage === 'html' && lesson
+        ? 'Complete every required task inside the site, step by step. Load a starter from the learning steps below, edit and run it, then record the actual results and reasons in the site notes.'
+        : hasExample(unit.id)
+          ? 'The linked example is a starting point. It does not implement every task below. Complete work beyond its supported scope in a separate project.'
+          : 'This unit has no built-in runnable example. Create separate practice files following the steps below and record the results in your notes.',
       '',
       '## ' + englishHeadings.tasks,
       '',
@@ -543,7 +548,6 @@ for (const series of englishCatalog.series.filter(
         'questions',
       ].flatMap((key) => ['### ' + englishHeadings[key], '']),
     ]
-    const lesson = learning.en.lessons.find((item) => item.unitId === unit.id)
     if (lesson)
       lines.splice(
         lines.indexOf('## Next learning'),

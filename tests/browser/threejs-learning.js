@@ -714,3 +714,316 @@ export async function runFormat(page, base) {
   )
   return checks
 }
+
+export async function runLearning(page, base) {
+  const checks = []
+  await page.goto(base + fixture + '?learning#threejs-01')
+  await readyEditor(page)
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page
+    .frameLocator('#panel-result iframe')
+    .locator('canvas')
+    .waitFor({ state: 'visible' })
+  const initialCanvas = []
+  for (const [width, height] of [
+    [1440, 900],
+    [1100, 768],
+  ]) {
+    await page.setViewportSize({ width, height })
+    await page.evaluate(() => window.scrollTo(0, 0))
+    const canvas = await page
+      .frameLocator('#panel-result iframe')
+      .locator('canvas')
+      .boundingBox()
+    const editor = await page.locator('.monaco-host').boundingBox()
+    assert.ok(
+      canvas && canvas.width > 0 && canvas.height > 0 && canvas.y < height,
+    )
+    assert.ok(editor && editor.y < height)
+    initialCanvas.push({ width, height, canvas, editor })
+    await page.screenshot({
+      path:
+        '.superpowers/sdd/2026-10-26-threejs-contained-learning/task-5-initial-canvas-' +
+        width +
+        '.png',
+    })
+  }
+  checks.push({ initialCanvas })
+  await page.setViewportSize({ width: 1440, height: 900 })
+  const draft =
+    '<!doctype html><html><input aria-label="state" value="initial"><script>console.log("learning-state")</script></html>'
+  await page.selectOption('#code-language', 'html')
+  await replaceText(page, draft)
+  const frame = page.locator('#panel-result iframe')
+  await page
+    .frameLocator('#panel-result iframe')
+    .getByRole('textbox')
+    .fill('kept-input')
+  await page.locator('.lesson-learning button').last().click()
+  await page.locator('.notes-editor').fill('learning notes')
+  await page.locator('.learning-status button').nth(2).click()
+  await page.evaluate(async () => {
+    const { monaco } = await import('/src/editor/monaco.ts')
+    const editor = monaco.editor.getEditors()[0]
+    editor.setSelection({
+      startLineNumber: 1,
+      startColumn: 3,
+      endLineNumber: 1,
+      endColumn: 8,
+    })
+    window.learningModel = editor.getModel()
+    window.learningSelection = editor.getSelection()
+    window.learningFrame = document.querySelector('#panel-result iframe')
+    window.learningWindow = window.learningFrame.contentWindow
+    window.learningSource = window.learningFrame.srcdoc
+    window.learningLoads = 0
+    window.learningFrame.addEventListener('load', () => window.learningLoads++)
+  })
+  const before = await editorState(page)
+  const storage = await page.evaluate(() =>
+    localStorage.getItem('web-gl-study:unit:v1:threejs-01'),
+  )
+  await page
+    .locator('.lesson-learning summary')
+    .filter({ hasText: '힌트' })
+    .click()
+  await page
+    .locator('.lesson-learning summary')
+    .filter({ hasText: '완성 코드와 해설' })
+    .click()
+  await page.locator('.api-reference summary').click()
+  const widths = []
+  for (const width of [320, 768, 1024, 1100, 1440]) {
+    await page.setViewportSize({ width, height: width === 1100 ? 768 : 900 })
+    if (width < 768) {
+      await page
+        .getByRole('tab', { name: '학습 내용', exact: true })
+        .count()
+        .then(async (count) => {
+          if (count)
+            await page
+              .getByRole('tab', { name: '학습 내용', exact: true })
+              .click()
+          else await page.locator('#tab-reading').click()
+        })
+      await page.locator('#tab-reading').press('ArrowRight')
+      assert.equal(
+        await page.locator('#tab-code').getAttribute('aria-selected'),
+        'true',
+      )
+      assert.equal(
+        await page.locator('.reading-panel').isVisible(),
+        false,
+        'hidden panel retains visibility',
+      )
+      assert.equal(
+        await page.locator('#panel-result').isVisible(),
+        false,
+        'hidden panel retains visibility',
+      )
+      await page.locator('#tab-code').press('Tab')
+      assert.equal(
+        await page.evaluate(
+          () =>
+            !!document.activeElement.closest('#panel-reading, #panel-result'),
+        ),
+        false,
+      )
+      await page.locator('#tab-reading').click()
+    } else if (width < 1100) {
+      await page.locator('.tablet-learning-tabs button').nth(1).click()
+      assert.equal(await page.locator('#panel-code').isVisible(), true)
+      assert.equal(await page.locator('#panel-result').isVisible(), true)
+      assert.equal(
+        await page.locator('#panel-reading').isVisible(),
+        false,
+        'hidden panel retains visibility',
+      )
+      await page.locator('.tablet-learning-tabs button').first().click()
+    }
+    await page.evaluate(() => {
+      window.scrollTo(0, 0)
+      document.querySelector('#panel-reading').scrollTop = 0
+    })
+    const measure = await page.evaluate(() => ({
+      width: innerWidth,
+      scroll: document.documentElement.scrollWidth,
+      panels: [
+        ...document.querySelectorAll('.contained-learning .workspace > .panel'),
+      ].map((el) => ({
+        id: el.id,
+        width: el.getBoundingClientRect().width,
+        top: el.getBoundingClientRect().top,
+        visible: !!el.getClientRects().length,
+      })),
+    }))
+    assert.ok(measure.scroll <= width, JSON.stringify(measure))
+    if (width >= 1100)
+      assert.ok(
+        measure.panels
+          .filter((p) =>
+            ['panel-reading', 'panel-code', 'panel-result'].includes(p.id),
+          )
+          .every(
+            (p) =>
+              p.visible &&
+              p.width >= 260 &&
+              p.top < (width === 1100 ? 648 : 780),
+          ),
+        JSON.stringify(measure),
+      )
+    widths.push(measure)
+    await page.screenshot({
+      path:
+        '.superpowers/sdd/2026-10-26-threejs-contained-learning/task-5-final-verified-width-' +
+        width +
+        '.png',
+      fullPage: false,
+    })
+  }
+  await page.getByRole('button', { name: 'English', exact: true }).click()
+  await page.getByRole('button', { name: '한국어', exact: true }).click()
+  const identity = await page.evaluate(async () => {
+    const { monaco } = await import('/src/editor/monaco.ts')
+    const editor = monaco.editor.getEditors()[0],
+      frame = document.querySelector('#panel-result iframe')
+    return {
+      model: editor.getModel() === window.learningModel,
+      selection: editor
+        .getSelection()
+        .equalsSelection(window.learningSelection),
+      frame: frame === window.learningFrame,
+      contentWindow: frame.contentWindow === window.learningWindow,
+      source: frame.srcdoc === window.learningSource,
+      loads: window.learningLoads,
+    }
+  })
+  assert.deepEqual(identity, {
+    model: true,
+    selection: true,
+    frame: true,
+    contentWindow: true,
+    source: true,
+    loads: 0,
+  })
+  assert.equal(
+    await page
+      .frameLocator('#panel-result iframe')
+      .getByRole('textbox')
+      .inputValue(),
+    'kept-input',
+  )
+  assert.equal((await editorState(page)).version, before.version)
+  assert.equal(
+    await page.locator('.notes-editor').inputValue(),
+    'learning notes',
+  )
+  assert.equal(
+    await page.evaluate(() =>
+      localStorage.getItem('web-gl-study:unit:v1:threejs-01'),
+    ),
+    storage,
+  )
+  checks.push({
+    readingPreserves: identity,
+    widths,
+    inputValue: 'kept-input',
+    modelVersion: before.version,
+    notesProgressStorage: 'unchanged',
+  })
+  await page.locator('.lesson-learning nav button').click()
+  await page.waitForSelector('.document-reader .markdown')
+  assert.equal(await page.evaluate(() => location.hash), '#threejs-01')
+  assert.equal((await editorState(page)).code, before.code)
+  await page
+    .getByRole('button', { name: '현재 단원으로 돌아가기', exact: true })
+    .click()
+  await page
+    .locator('.lesson-learning summary')
+    .filter({ hasText: '시작 코드' })
+    .click()
+  const load = page
+    .locator('.lesson-learning details')
+    .first()
+    .getByRole('button')
+  await load.click()
+  await page.locator('.example-confirm button').last().click()
+  assert.deepEqual(await editorState(page), before)
+  assert.equal(
+    await page.evaluate(() =>
+      localStorage.getItem('web-gl-study:unit:v1:threejs-01'),
+    ),
+    storage,
+  )
+  const undo = () =>
+    page.evaluate(async () => {
+      const { monaco } = await import('/src/editor/monaco.ts')
+      monaco.editor.getEditors()[0].trigger('fixture', 'undo', null)
+    })
+  for (const [language, code] of [
+    ['html', draft],
+    ['javascript', 'export function mount() { return 42 }'],
+    ['javascript', ''],
+  ]) {
+    await page.selectOption('#code-language', language)
+    await replaceText(page, code)
+    const prior = await editorState(page)
+    await load.click()
+    await page.locator('.example-confirm button').first().click()
+    const after = await editorState(page)
+    assert.equal(after.id, prior.id)
+    assert.equal(after.language, 'html')
+    assert.match(after.code, /Scene, Object3D/)
+    await undo()
+    const undone = await editorState(page)
+    assert.equal(undone.code, prior.code)
+    assert.equal(undone.language, prior.language)
+    assert.equal(
+      await page.locator('.notes-editor').inputValue(),
+      'learning notes',
+    )
+    assert.equal(
+      await page
+        .locator('.learning-status button')
+        .nth(2)
+        .getAttribute('aria-pressed'),
+      'true',
+    )
+    checks.push(
+      'Confirmed example and one Undo: ' +
+        language +
+        (code ? ' nonempty' : ' empty draft'),
+    )
+  }
+  await page.getByRole('button', { name: 'English', exact: true }).click()
+  await load.click()
+  await page.locator('.example-confirm button').first().click()
+  assert.match((await editorState(page)).code, /lang="en"/)
+  assert.match((await editorState(page)).code, /Scene experiment/)
+  assert.match(
+    await page.locator('#panel-code .panel-hint').textContent(),
+    /isolated preview/,
+  )
+
+  await undo()
+  assert.equal((await editorState(page)).code, '')
+  assert.equal((await editorState(page)).language, 'javascript')
+  await page.getByRole('button', { name: '한국어', exact: true }).click()
+  await load.click()
+  await page.locator('.example-confirm button').first().click()
+  assert.match((await editorState(page)).code, /lang="ko"/)
+  assert.match((await editorState(page)).code, /장면 구조 실험/)
+  assert.match(
+    await page.locator('#panel-code .panel-hint').textContent(),
+    /HTML 문서/,
+  )
+  await undo()
+  checks.push(
+    'Locale-aware English/Korean HTML source reading and confirmed loading with single Undo',
+  )
+  checks.push(
+    'Prerequisite reading keeps active unit; cancellation keeps model, Undo boundary, language and storage',
+  )
+  assert.equal(await frame.count(), 1)
+  return checks
+}

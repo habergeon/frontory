@@ -36,6 +36,11 @@ export function sourceHash(source) {
     .digest('hex')
 }
 
+export function assertSourceHash(source, actual, label) {
+  if (actual !== sourceHash(source))
+    throw Error('Stale ' + label + ' source hash')
+}
+
 export function validateExamplePresentation(source, record) {
   const exact = (value, expected) => {
     if (

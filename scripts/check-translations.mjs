@@ -1,3 +1,4 @@
+import { readLearningContent } from './learning-content.mjs'
 import { readEnglishContent } from './locale-content.mjs'
 
 try {
@@ -5,6 +6,7 @@ try {
   for (const argument of args)
     if (argument !== '--complete') throw Error(`Unknown argument: ${argument}`)
   const complete = args.includes('--complete')
+  readLearningContent()
   const review = []
   const content = readEnglishContent({ complete, review })
   console.log(

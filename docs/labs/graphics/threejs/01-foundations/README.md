@@ -63,6 +63,84 @@ Group의 변환은 자식의 world 좌표에 누적됩니다. 자식 position은
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
 
+## 단계별 학습
+
+Scene에 객체를 추가하고 자식 수가 어떻게 바뀌는지 확인합니다. 도형을 그리기 전, 장면의 구조를 살펴보는 짧은 실험입니다.
+
+### 선수 단원
+
+- `html-step-02`
+
+### 장면에 객체 추가하기
+
+Scene은 객체를 담는 장면입니다. 시작 코드는 빈 장면의 자식 수를 표시합니다. scene을 만든 다음 Object3D 하나를 추가해 보세요.
+
+**예상 결과**
+
+화면의 숫자가 0에서 1로 바뀝니다.
+
+```html
+<!doctype html>
+<html lang="ko">
+  <meta charset="utf-8" />
+  <title>장면 구조 실험</title>
+  <p id="count"></p>
+  <script type="module">
+    import { Scene, Object3D } from 'three'
+    const scene = new Scene()
+    // 이곳에서 장면에 Object3D를 추가하세요.
+    document.querySelector('#count').textContent = String(scene.children.length)
+  </script>
+</html>
+```
+
+<details>
+<summary>힌트</summary>
+
+- scene.add()에 새 Object3D를 전달하세요.
+
+</details>
+
+<details>
+<summary>완성 코드와 해설</summary>
+
+scene.add(new Object3D())가 객체를 장면의 자식으로 연결합니다. 따라서 scene.children.length가 0에서 1로 바뀝니다. 이 실험에는 renderer가 없어 도형을 그리지 않습니다.
+
+```html
+<!doctype html>
+<html lang="ko">
+  <meta charset="utf-8" />
+  <title>장면 구조 실험</title>
+  <p id="count"></p>
+  <script type="module">
+    import { Scene, Object3D } from 'three'
+    const scene = new Scene()
+    scene.add(new Object3D())
+    document.querySelector('#count').textContent = String(scene.children.length)
+  </script>
+</html>
+```
+
+</details>
+
+- 객체를 두 개 추가하면 어떤 숫자가 나올까요?
+
+### API · Object3D.add
+
+객체를 현재 객체의 자식으로 연결합니다. Scene도 Object3D를 상속하므로 같은 메서드를 사용합니다.
+
+- `object: Object3D` — 자식으로 추가할 객체입니다.
+
+호출한 객체 자신을 반환합니다.
+
+- 이미 다른 부모가 있으면 그 부모에서 제거한 뒤 연결합니다.
+
+```js
+scene.add(new Object3D())
+```
+
+[Object3D.add](https://threejs.org/docs/#api/en/core/Object3D.add) · three@0.186.1 · 2026-10-26
+
 ## 다음 학습
 
 [다음: 렌더러와 화면 크기](../units/02/README.md)

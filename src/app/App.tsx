@@ -13,6 +13,9 @@ import { BackupControls } from './BackupControls'
 import { LearningNavigator } from './LearningNavigator'
 import { UnitPagination } from './UnitPagination'
 import type { WorkspaceHandle } from './Workspace'
+import { LessonLearning } from './LessonLearning'
+import { getLessonLearning } from './learningContent'
+import { learningMessages } from '../i18n/messages'
 import { PracticeGuide } from './PracticeGuide'
 import { useLocale } from '../i18n/LocaleProvider'
 import { messages } from '../i18n/messages'
@@ -28,6 +31,8 @@ export function App() {
   const { locale, setLocale } = useLocale()
   const copy = messages[locale]
   const [selected, setSelected] = useState(fromHash)
+  const contained = selected?.seriesId === 'threejs' && selected.day <= 4
+  const learning = selected ? getLessonLearning(selected.id, locale) : null
   const localizedUnit = selected && getLocalizedUnit(locale, selected.id)
   useEffect(() => {
     document.documentElement.lang = locale
@@ -91,7 +96,8 @@ export function App() {
     }
   }
   const practice = () => {
-    if (readerView === 'practice' || !documentPath) workspace?.focusCode()
+    if (readerView === 'practice' || (!documentPath && !contained))
+      workspace?.focusCode()
     else {
       focusPractice.current = true
       setReaderView('practice')
@@ -110,7 +116,13 @@ export function App() {
     window.scrollTo(0, 0)
   }
   return (
-    <main className={'app-shell' + (!selected ? ' home-shell' : '')}>
+    <main
+      className={
+        'app-shell' +
+        (!selected ? ' home-shell' : '') +
+        (contained ? ' contained-shell' : '')
+      }
+    >
       <header className={'app-header' + (selected ? ' learning-header' : '')}>
         <a className="brand home-brand" href="#" aria-label={copy.brandHome}>
           <span className="brand-mark" aria-hidden="true">
@@ -178,7 +190,7 @@ export function App() {
               onPractice={workspace ? practice : undefined}
             />
           </div>
-          {documentPath && (
+          {documentPath && !contained && (
             <div
               className="reader-view-controls"
               role="group"
@@ -201,11 +213,13 @@ export function App() {
           <div
             className={
               'learning-layout' +
-              (documentPath ? ' reader-open view-' + readerView : '')
+              (!contained && documentPath
+                ? ' reader-open view-' + readerView
+                : '')
             }
           >
             <div className="practice-pane">
-              {localizedUnit && (
+              {localizedUnit && !contained && (
                 <PracticeGuide
                   key={selected.id}
                   unit={localizedUnit}
@@ -255,12 +269,58 @@ export function App() {
                   ref={setWorkspace}
                   key={selected.id + ':' + restoreRevision}
                   unit={selected}
+                  readingActive={readerView === 'reading'}
+                  onReadingChange={
+                    contained
+                      ? (active) =>
+                          setReaderView(active ? 'reading' : 'practice')
+                      : undefined
+                  }
+                  reading={
+                    contained
+                      ? (onLoadExample, onNotes) =>
+                          documentPath ? (
+                            <>
+                              <button onClick={() => setDocumentPath(null)}>
+                                {learningMessages[locale].back}
+                              </button>
+                              <DocumentDialog
+                                locale={locale}
+                                path={documentPath}
+                                requestedLocale={documentRequest!.locale}
+                                unitPath={selected.docPath}
+                                onNavigate={setDocumentPath}
+                                onClose={() => setDocumentPath(null)}
+                                inline
+                                active={readerView === 'reading'}
+                                readerRef={reader}
+                                onRestoreFocus={restoreDocumentFocus}
+                              />
+                            </>
+                          ) : learning ? (
+                            <LessonLearning
+                              key={selected.id}
+                              lesson={learning}
+                              locale={locale}
+                              onDocument={openDocument}
+                              onLoadExample={onLoadExample}
+                              onNotes={onNotes}
+                            />
+                          ) : localizedUnit ? (
+                            <PracticeGuide
+                              unit={localizedUnit}
+                              locale={locale}
+                              onDocument={openDocument}
+                            />
+                          ) : null
+                      : undefined
+                  }
                   onProgressChange={() => refreshProgress((value) => value + 1)}
                 />
               </Suspense>
               <UnitPagination selected={selected} onSelect={select} />
             </div>
-            {documentPath && (
+            {documentPath && !contained && (
               <DocumentDialog
                 locale={locale}
                 path={documentPath}

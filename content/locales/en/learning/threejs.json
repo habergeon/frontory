@@ -1,0 +1,50 @@
+{
+  "lessons": [
+    {
+      "unitId": "threejs-01",
+      "prerequisiteIds": ["html-step-02"],
+      "introduction": "Add an object to a Scene and observe its child count. This short experiment explores the scene structure before drawing shapes.",
+      "steps": [
+        {
+          "id": "threejs-01-scene",
+          "title": "Add an object to the scene",
+          "explanation": "A Scene holds objects. The starter displays the child count of an empty scene. Add one Object3D after creating the scene.",
+          "solutionExplanation": "scene.add(new Object3D()) attaches an object as a child of the scene. scene.children.length changes from 0 to 1. This experiment has no renderer and does not draw shapes.",
+          "starterPath": "src/labs/threejs-01/steps/scene-starter.html",
+          "expected": "The displayed number changes from 0 to 1.",
+          "hints": ["Pass a new Object3D to scene.add()."],
+          "solutionPath": "src/labs/threejs-01/steps/scene-solution.html",
+          "questions": ["What number would two added objects produce?"]
+        }
+      ],
+      "apiIds": ["object3d-add"]
+    }
+  ],
+  "apis": [
+    {
+      "id": "object3d-add",
+      "symbol": "Object3D.add",
+      "description": "Attaches an object as a child of this object. Scene inherits Object3D and uses the same method.",
+      "parameters": [
+        {
+          "name": "object",
+          "type": "Object3D",
+          "description": "The object to attach as a child."
+        }
+      ],
+      "result": "Returns the object on which the method was called.",
+      "cautions": [
+        "An object with an existing parent is removed from that parent first."
+      ],
+      "example": "scene.add(new Object3D())",
+      "sourceUrl": "https://threejs.org/docs/#api/en/core/Object3D.add",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-26"
+    }
+  ],
+  "sourceHash": "66f4d02a6d8ec62bc9fe3b2e2408dbec9db3214e493824ceb81259760ca2ab15",
+  "codeSourceHashes": {
+    "src/labs/threejs-01/steps/scene-starter.html": "5e6fc9ec5aaddf7db3dd88b331445418e89acabadcf1dc6ae1f39daa17bfd024",
+    "src/labs/threejs-01/steps/scene-solution.html": "0e4d3f8c86bab49998aeb40a672d38d698b24709585f4d6d7fc3881fbd1fe45f"
+  }
+}

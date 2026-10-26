@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="ko">
+  <meta charset="utf-8" />
+  <title>장면 구조 실험</title>
+  <p id="count"></p>
+  <script type="module">
+    import { Scene, Object3D } from 'three'
+    const scene = new Scene()
+    scene.add(new Object3D())
+    document.querySelector('#count').textContent = String(scene.children.length)
+  </script>
+</html>

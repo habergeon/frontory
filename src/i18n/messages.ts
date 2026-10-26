@@ -618,3 +618,54 @@ export const categoryLabels = {
   ko: categoriesFor('ko'),
   en: categoriesFor('en'),
 }
+
+export const learningMessages = {
+  ko: {
+    htmlRuntimeHint:
+      'HTML 문서와 문서 안의 CSS·JavaScript를 격리된 화면에서 실행합니다.',
+    learning: '학습 본문',
+    prerequisites: '선수 단원 읽기',
+    steps: '학습 단계',
+    expected: '예상 결과',
+    hints: '힌트',
+    starter: '시작 코드',
+    solution: '완성 코드와 해설',
+    load: '이 코드로 실습하기',
+    confirm:
+      '현재 코드와 언어를 HTML 예제로 바꿀까요? 필기와 완료 상태는 유지됩니다. 한 번 실행 취소하면 이전 코드로 돌아갑니다.',
+    replace: '코드 교체',
+    cancel: '취소',
+    questions: '자가 점검',
+    api: 'API 참고',
+    result: '반환값',
+    cautions: '주의할 점',
+    source: '공식 문서',
+    checked: '확인',
+    back: '현재 단원으로 돌아가기',
+    notes: '필기 열기',
+  },
+  en: {
+    htmlRuntimeHint:
+      'Runs the HTML document and its CSS and JavaScript in an isolated preview.',
+    learning: 'Lesson reading',
+    prerequisites: 'Read prerequisite units',
+    steps: 'Learning steps',
+    expected: 'Expected result',
+    hints: 'Hints',
+    starter: 'Starter code',
+    solution: 'Solution and explanation',
+    load: 'Practice with this code',
+    confirm:
+      'Replace your current code and language with this HTML example? Notes and completion stay saved. Undo once to restore your previous code.',
+    replace: 'Replace code',
+    cancel: 'Cancel',
+    questions: 'Self-check',
+    api: 'API reference',
+    result: 'Return value',
+    cautions: 'Cautions',
+    source: 'Official documentation',
+    checked: 'Checked',
+    back: 'Return to current lesson',
+    notes: 'Open notes',
+  },
+} as const

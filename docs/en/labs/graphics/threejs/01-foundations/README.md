@@ -63,6 +63,84 @@ Predictions in this table are not measured results. Change one condition at a ti
 
 Source code and records are not overwritten automatically. Resetting an existing example also preserves your notes.
 
+## Guided learning
+
+Add an object to a Scene and observe its child count. This short experiment explores the scene structure before drawing shapes.
+
+### Prerequisite units
+
+- `html-step-02`
+
+### Add an object to the scene
+
+A Scene holds objects. The starter displays the child count of an empty scene. Add one Object3D after creating the scene.
+
+**Expected result**
+
+The displayed number changes from 0 to 1.
+
+```html
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <title>Scene experiment</title>
+  <p id="count"></p>
+  <script type="module">
+    import { Scene, Object3D } from 'three'
+    const scene = new Scene()
+    // Add an Object3D to the scene here.
+    document.querySelector('#count').textContent = String(scene.children.length)
+  </script>
+</html>
+```
+
+<details>
+<summary>Hints</summary>
+
+- Pass a new Object3D to scene.add().
+
+</details>
+
+<details>
+<summary>Solution and explanation</summary>
+
+scene.add(new Object3D()) attaches an object as a child of the scene. scene.children.length changes from 0 to 1. This experiment has no renderer and does not draw shapes.
+
+```html
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <title>Scene experiment</title>
+  <p id="count"></p>
+  <script type="module">
+    import { Scene, Object3D } from 'three'
+    const scene = new Scene()
+    scene.add(new Object3D())
+    document.querySelector('#count').textContent = String(scene.children.length)
+  </script>
+</html>
+```
+
+</details>
+
+- What number would two added objects produce?
+
+### API · Object3D.add
+
+Attaches an object as a child of this object. Scene inherits Object3D and uses the same method.
+
+- `object: Object3D` — The object to attach as a child.
+
+Returns the object on which the method was called.
+
+- An object with an existing parent is removed from that parent first.
+
+```js
+scene.add(new Object3D())
+```
+
+[Object3D.add](https://threejs.org/docs/#api/en/core/Object3D.add) · three@0.186.1 · 2026-10-26
+
 ## Next learning
 
 [Next: Renderer and Display Size](../units/02/README.md)

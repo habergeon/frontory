@@ -1,7 +1,9 @@
 import { useLocale } from '../i18n/LocaleProvider'
-import { message, messages } from '../i18n/messages'
+import { message, messages, learningMessages } from '../i18n/messages'
 import {
   lazy,
+  useEffect,
+  type ReactNode,
   Suspense,
   useImperativeHandle,
   useLayoutEffect,
@@ -22,7 +24,7 @@ import { Preview } from '../preview/Preview'
 import type { Unit } from './curriculum'
 
 const panels = ['result', 'code', 'notes'] as const
-type Panel = (typeof panels)[number]
+type Panel = (typeof panels)[number] | 'reading'
 export interface WorkspaceHandle {
   focusCode: () => void
 }
@@ -31,10 +33,19 @@ export function Workspace({
   unit,
   onProgressChange,
   ref,
+  reading,
+  readingActive = true,
+  onReadingChange,
 }: {
   unit: Unit
   onProgressChange: () => void
   ref?: Ref<WorkspaceHandle>
+  reading?: (
+    load: (example: { code: string; language: 'html' }) => void,
+    notes: () => void,
+  ) => ReactNode
+  readingActive?: boolean
+  onReadingChange?: (reading: boolean) => void
 }) {
   const { locale } = useLocale()
   const text = messages[locale]
@@ -42,7 +53,18 @@ export function Workspace({
     draftStore.begin(unit.id, unit.source ?? '', locale, unit.sourceLanguage),
   )
   const editorHandle = useRef<CodeEditorHandle>(null)
-  const [panel, setPanel] = useState<Panel>('result')
+  const [panel, setPanel] = useState<Panel>(reading ? 'reading' : 'result')
+  const availablePanels: Panel[] = reading
+    ? ['reading', 'code', 'result', 'notes']
+    : [...panels]
+  const choosePanel = (value: Panel) => {
+    setPanel(value)
+    onReadingChange?.(value === 'reading')
+  }
+  useEffect(() => {
+    if (reading && readingActive && panel !== 'reading') setPanel('reading')
+    else if (reading && !readingActive && panel === 'reading') setPanel('code')
+  }, [readingActive, !!reading])
   const [wideCode, setWideCode] = useState(false)
   const [wrapCode, setWrapCode] = useState(true)
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([])
@@ -59,7 +81,7 @@ export function Workspace({
         if (panel === 'code') focusCodePanel()
         else {
           focusRequested.current = true
-          setPanel('code')
+          choosePanel('code')
         }
       },
     }),
@@ -112,7 +134,7 @@ export function Workspace({
     window.setTimeout(() => URL.revokeObjectURL(url), 1000)
   }
   return (
-    <>
+    <div className={reading ? 'contained-learning active-' + panel : undefined}>
       {(unit.exampleReadingSource || !!unit.exampleFiles?.length) && (
         <div className="learning-resources">
           {unit.exampleReadingSource && (
@@ -166,6 +188,16 @@ export function Workspace({
             {label}
           </button>
         ))}
+        {reading && (
+          <button
+            className="notes-toggle"
+            aria-expanded={panel === 'notes'}
+            aria-controls="panel-notes"
+            onClick={() => choosePanel(panel === 'notes' ? 'reading' : 'notes')}
+          >
+            {text.markdownNotes}
+          </button>
+        )}
         <small>{text.markCompletion}</small>
       </div>
       <div className="save-row">
@@ -195,8 +227,34 @@ export function Workspace({
       {unit.source && draft.code === '' && (
         <p className="example-note">{text.emptyCodePreserved}</p>
       )}
+      {reading && (
+        <div
+          className="tablet-learning-tabs"
+          role="group"
+          aria-label={text.learningView}
+        >
+          <button
+            aria-pressed={panel === 'reading'}
+            onClick={() => choosePanel('reading')}
+          >
+            {text.readingView}
+          </button>
+          <button
+            aria-pressed={panel !== 'reading'}
+            onClick={() => choosePanel('code')}
+          >
+            {text.practiceView}
+          </button>
+          <button
+            aria-pressed={panel === 'notes'}
+            onClick={() => choosePanel('notes')}
+          >
+            {text.markdownNotes}
+          </button>
+        </div>
+      )}
       <div className="mobile-tabs" role="tablist" aria-label={text.workspace}>
-        {panels.map((value, index) => (
+        {availablePanels.map((value, index) => (
           <button
             key={value}
             ref={(element) => {
@@ -210,74 +268,55 @@ export function Workspace({
             onKeyDown={(event) => {
               const next =
                 event.key === 'ArrowRight'
-                  ? (index + 1) % panels.length
+                  ? (index + 1) % availablePanels.length
                   : event.key === 'ArrowLeft'
-                    ? (index + panels.length - 1) % panels.length
+                    ? (index + availablePanels.length - 1) %
+                      availablePanels.length
                     : event.key === 'Home'
                       ? 0
                       : event.key === 'End'
-                        ? panels.length - 1
+                        ? availablePanels.length - 1
                         : null
               if (next === null) return
               event.preventDefault()
-              setPanel(panels[next])
+              choosePanel(availablePanels[next])
               tabRefs.current[next]?.focus()
             }}
-            onClick={() => setPanel(value)}
+            onClick={() => choosePanel(value)}
           >
-            {[text.practiceScreen, text.sourceCode, text.markdownNotes][index]}
+            {
+              {
+                result: text.practiceScreen,
+                code: text.sourceCode,
+                notes: text.markdownNotes,
+                reading: text.readingView,
+              }[value]
+            }
           </button>
         ))}
       </div>
       <div className={'workspace' + (wideCode ? ' wide-code' : '')}>
-        <section
-          id="panel-result"
-          role="tabpanel"
-          aria-labelledby="tab-result"
-          tabIndex={0}
-          className={'panel ' + (panel === 'result' ? 'mobile-active' : '')}
-        >
-          <header className="panel-header">
-            <div>
-              <span className="eyebrow">01 / PREVIEW</span>
-              <h2>{text.practiceScreen}</h2>
-            </div>
-            {unit.source !== undefined && (
-              <button onClick={() => setRevision((value) => value + 1)}>
-                {text.rerun}
-              </button>
+        {reading && (
+          <section
+            id="panel-reading"
+            role="tabpanel"
+            aria-label={text.readingView}
+            className={
+              'panel reading-panel ' +
+              (panel === 'reading' ? 'mobile-active' : '')
+            }
+          >
+            {reading(
+              (example) => editorHandle.current?.replace(example),
+              () => choosePanel('notes'),
             )}
-          </header>
-          {unit.source !== undefined ? (
-            executable !== null ? (
-              <Preview
-                locale={locale}
-                input={executable}
-                revision={revision}
-                notice={notice}
-              />
-            ) : (
-              <div className="empty-state">
-                <p>
-                  {compilation?.error
-                    ? text.fixCodeToRun
-                    : text.preparingEditor}
-                </p>
-              </div>
-            )
-          ) : (
-            <div className="empty-state">
-              <span>{text.documentPractice}</span>
-              <h3>{text.implementTask}</h3>
-              <p>{text.documentPracticeHint}</p>
-            </div>
-          )}
-        </section>
+          </section>
+        )}
         <section
           ref={codePanel}
           id="panel-code"
           role="tabpanel"
-          aria-labelledby="tab-code"
+          aria-label={text.sourceCode}
           tabIndex={0}
           className={'panel ' + (panel === 'code' ? 'mobile-active' : '')}
         >
@@ -389,13 +428,60 @@ export function Workspace({
             <div className="empty-state">{text.separateProjectHint}</div>
           )}
           <p className="panel-hint">
-            {unit.source !== undefined ? text.mountHint : text.separateCodeHint}
+            {unit.source !== undefined
+              ? language === 'html'
+                ? learningMessages[locale].htmlRuntimeHint
+                : text.mountHint
+              : text.separateCodeHint}
           </p>
+        </section>
+        <section
+          id="panel-result"
+          role="tabpanel"
+          aria-label={text.practiceScreen}
+          tabIndex={0}
+          className={'panel ' + (panel === 'result' ? 'mobile-active' : '')}
+        >
+          <header className="panel-header">
+            <div>
+              <span className="eyebrow">01 / PREVIEW</span>
+              <h2>{text.practiceScreen}</h2>
+            </div>
+            {unit.source !== undefined && (
+              <button onClick={() => setRevision((value) => value + 1)}>
+                {text.rerun}
+              </button>
+            )}
+          </header>
+          {unit.source !== undefined ? (
+            executable !== null ? (
+              <Preview
+                locale={locale}
+                input={executable}
+                revision={revision}
+                notice={notice}
+              />
+            ) : (
+              <div className="empty-state">
+                <p>
+                  {compilation?.error
+                    ? text.fixCodeToRun
+                    : text.preparingEditor}
+                </p>
+              </div>
+            )
+          ) : (
+            <div className="empty-state">
+              <span>{text.documentPractice}</span>
+              <h3>{text.implementTask}</h3>
+              <p>{text.documentPracticeHint}</p>
+            </div>
+          )}
         </section>
         <section
           id="panel-notes"
           role="tabpanel"
-          aria-labelledby="tab-notes"
+          aria-label={text.markdownNotes}
           tabIndex={0}
           className={'panel ' + (panel === 'notes' ? 'mobile-active' : '')}
         >
@@ -427,24 +513,20 @@ export function Workspace({
               })}
             </span>
           </div>
-          {notePreview ? (
-            <div className="notes-preview">
-              <MarkdownView locale={locale} text={draft.notes} />
-            </div>
-          ) : (
-            <textarea
-              aria-label={text.markdownNotes}
-              className="notes-editor"
-              spellCheck={false}
-              value={draft.notes}
-              onChange={(event) =>
-                save({ ...draft, notes: event.target.value })
-              }
-            />
-          )}
+          <div hidden={!notePreview} className="notes-preview">
+            <MarkdownView locale={locale} text={draft.notes} />
+          </div>
+          <textarea
+            hidden={notePreview}
+            aria-label={text.markdownNotes}
+            className="notes-editor"
+            spellCheck={false}
+            value={draft.notes}
+            onChange={(event) => save({ ...draft, notes: event.target.value })}
+          />
           <p className="panel-hint">{text.notesHint}</p>
         </section>
       </div>
-    </>
+    </div>
   )
 }

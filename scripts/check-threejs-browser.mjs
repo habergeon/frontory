@@ -9,8 +9,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 const args = process.argv.slice(2)
 const selected = args[args.indexOf('--case') + 1]
 assert.ok(
-  ['storage', 'runtime', 'format'].includes(selected),
-  'Use --case storage|runtime|format',
+  ['storage', 'runtime', 'format', 'learning'].includes(selected),
+  'Use --case storage|runtime|format|learning',
 )
 const totalMs = Number(process.env.THREEJS_TIMEOUT_MS ?? 120_000)
 const closeMs = Number(process.env.THREEJS_CLOSE_MS ?? 3_000)
@@ -154,7 +154,7 @@ if (!args.includes('--worker')) {
       }
     } else {
       const { createServer } = await import('vite')
-      const { runStorage, runRuntime, runFormat } =
+      const { runStorage, runRuntime, runFormat, runLearning } =
         await import('../tests/browser/threejs-learning.js')
       const { runHtmlRuntimeFixtures } =
         await import('../tests/browser/html-runtime.js')
@@ -198,11 +198,13 @@ if (!args.includes('--worker')) {
         evidence.errors.push({ message: error.message, stack: error.stack }),
       )
       evidence.checks = await (
-        selected === 'storage'
-          ? runStorage
-          : selected === 'format'
-            ? runFormat
-            : runRuntime
+        selected === 'learning'
+          ? runLearning
+          : selected === 'storage'
+            ? runStorage
+            : selected === 'format'
+              ? runFormat
+              : runRuntime
       )(page, base)
       if (selected === 'runtime')
         evidence.producer = await runHtmlRuntimeFixtures(page, base)

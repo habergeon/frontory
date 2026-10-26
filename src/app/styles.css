@@ -1524,3 +1524,286 @@ html[lang='ko'] :is(pre, code, .monaco-editor) {
   margin: 8px 0;
   padding-left: 20px;
 }
+
+/* Reading, editor and output share one mounted workspace. */
+.contained-learning {
+  min-width: 0;
+}
+.contained-learning .workspace {
+  grid-template-columns: minmax(260px, 0.85fr) minmax(360px, 1.2fr) minmax(
+      260px,
+      1fr
+    );
+}
+.contained-learning .panel {
+  height: max(480px, calc(100dvh - 340px));
+}
+.contained-learning #panel-reading {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  overflow: auto;
+}
+.contained-learning #panel-code {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+}
+.contained-learning #panel-result {
+  grid-column: 3;
+  grid-row: 1;
+  display: flex;
+}
+.contained-learning #panel-notes {
+  grid-column: 1 / -1;
+  height: 340px;
+  display: none;
+}
+.contained-learning.active-notes #panel-notes {
+  display: flex;
+}
+.contained-learning .learning-resources {
+  font-size: 12px;
+}
+.contained-learning .learning-resources > p {
+  display: inline;
+}
+.contained-learning .learning-resources details {
+  display: inline-block;
+  margin-left: 12px;
+}
+.contained-learning .learning-status {
+  margin-top: 8px;
+}
+.contained-learning .mobile-tabs,
+.tablet-learning-tabs {
+  display: none;
+}
+.reading-panel .document-reader {
+  position: static;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+  border: 0;
+}
+.reading-panel .document-reader article {
+  overflow: visible;
+  padding: 12px;
+}
+.reading-panel .practice-guide {
+  margin: 0;
+  padding: 12px;
+  border: 0;
+}
+.reading-panel .practice-guide-grid {
+  display: block;
+}
+.reading-panel .practice-guide-heading {
+  flex-wrap: wrap;
+}
+.lesson-learning {
+  padding: 16px;
+  overflow-wrap: anywhere;
+}
+.lesson-learning > * + * {
+  margin-top: 14px;
+}
+.lesson-learning h3 {
+  font-size: 15px;
+}
+.lesson-learning details {
+  border-top: 1px solid #d5dee7;
+  padding-top: 12px;
+}
+.lesson-learning summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.lesson-learning details > * + * {
+  margin-top: 12px;
+}
+.lesson-learning pre {
+  max-width: 100%;
+  overflow: auto;
+  font-size: 12px;
+  background: #f3f5f7;
+  padding: 12px;
+}
+.lesson-learning select {
+  display: block;
+  max-width: 100%;
+}
+.lesson-learning nav button {
+  display: block;
+  text-align: left;
+  white-space: normal;
+}
+.example-confirm {
+  border: 1px solid #8ba0b5;
+  border-radius: 6px;
+  padding: 12px;
+}
+.example-confirm button {
+  margin: 8px 8px 0 0;
+}
+@media (min-width: 1100px) {
+  .contained-learning .workspace.wide-code {
+    grid-template-columns: minmax(260px, 0.65fr) minmax(0, 2fr);
+  }
+  .contained-learning .workspace.wide-code #panel-result {
+    display: none;
+  }
+  .contained-learning .workspace.wide-code #panel-reading {
+    display: flex;
+  }
+  .contained-learning .workspace.wide-code #panel-code {
+    grid-column: 2;
+  }
+}
+@media (min-width: 768px) and (max-width: 1099px) {
+  .contained-learning .tablet-learning-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .contained-learning .workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .contained-learning #panel-reading {
+    display: none;
+    grid-column: 1 / -1;
+  }
+  .contained-learning.active-reading #panel-reading {
+    display: flex;
+  }
+  .contained-learning.active-reading #panel-code,
+  .contained-learning.active-reading #panel-result {
+    display: none;
+  }
+  .contained-learning #panel-code {
+    grid-column: 1;
+  }
+  .contained-learning #panel-result {
+    grid-column: 2;
+  }
+  .contained-learning.active-notes #panel-notes {
+    display: flex;
+  }
+}
+@media (max-width: 767px) {
+  .contained-learning .mobile-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .contained-learning .mobile-tabs button {
+    padding: 7px 6px;
+  }
+  .contained-learning .workspace,
+  .contained-learning .workspace.wide-code {
+    display: block;
+  }
+  .contained-learning
+    .workspace
+    > :is(#panel-reading, #panel-code, #panel-result, #panel-notes),
+  .contained-learning
+    .workspace.wide-code
+    > :is(#panel-reading, #panel-code, #panel-result, #panel-notes) {
+    display: none;
+  }
+  .contained-learning
+    .workspace
+    > :is(
+      #panel-reading,
+      #panel-code,
+      #panel-result,
+      #panel-notes
+    ).mobile-active,
+  .contained-learning
+    .workspace.wide-code
+    > :is(
+      #panel-reading,
+      #panel-code,
+      #panel-result,
+      #panel-notes
+    ).mobile-active {
+    display: flex;
+  }
+  .contained-learning .panel {
+    height: max(480px, calc(100dvh - 280px));
+  }
+  .contained-learning .panel-header {
+    padding: 12px;
+    flex-wrap: wrap;
+  }
+  .contained-learning .code-panel-actions {
+    flex-wrap: wrap;
+  }
+  .contained-learning .learning-status small {
+    width: 100%;
+  }
+}
+.workspace > #panel-result {
+  order: 1;
+}
+.workspace > #panel-code {
+  order: 2;
+}
+.workspace > #panel-notes {
+  order: 3;
+}
+@media (max-width: 767px) {
+  .contained-learning .notes-toggle {
+    display: none;
+  }
+}
+/* Keep secondary navigation and downloads outside the main reading space. */
+.contained-shell .learning-journey {
+  padding: 12px 16px;
+}
+.contained-shell .learning-journey > .unit-pagination,
+.contained-shell .current-unit-status {
+  display: none;
+}
+.contained-shell .journey-progress {
+  margin: 8px 0;
+}
+.contained-shell .journey-outline {
+  margin-top: 8px;
+}
+.contained-shell .journey-outline > summary {
+  padding-top: 8px;
+}
+.contained-shell .current-lesson h2 {
+  margin: 4px 0;
+}
+.contained-shell .current-lesson {
+  gap: 8px;
+}
+.contained-learning {
+  display: flex;
+  flex-direction: column;
+}
+.contained-learning > .learning-resources {
+  order: 5;
+  margin-top: 12px;
+}
+.contained-learning > .learning-status {
+  order: 1;
+}
+.contained-learning > .save-row {
+  order: 2;
+}
+.contained-learning > .mobile-tabs,
+.contained-learning > .tablet-learning-tabs {
+  order: 3;
+}
+.contained-learning > .workspace {
+  order: 4;
+}
+.contained-learning .notes-toggle {
+  font-size: 12px;
+  padding: 5px 10px;
+}

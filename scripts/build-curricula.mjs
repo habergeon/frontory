@@ -1,3 +1,5 @@
+import { readLearningContent } from './learning-content.mjs'
+import { learningMarkdown } from '../src/app/learningSchema.ts'
 import { formatGeneratedText } from './format-generated.mjs'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -18,6 +20,7 @@ const categories = {
   engineering: '엔지니어링',
   testing: '테스트',
 }
+const learning = readLearningContent(root)
 const outputs = new Map()
 const catalog = { series: [], units: [] }
 const relative = (from, to) => path.posix.relative(path.posix.dirname(from), to)
@@ -252,6 +255,13 @@ for (const series of baseline.series) {
         '남은 질문',
       ].flatMap((title) => ['### ' + title, '']),
     ]
+    const lesson = learning.ko.lessons.find((item) => item.unitId === unit.id)
+    if (lesson)
+      lines.splice(
+        lines.indexOf('## 다음 학습'),
+        0,
+        learningMarkdown(lesson, learning.ko.apis, learning.readCode, 'ko'),
+      )
     outputs.set(entry.docPath.slice(1), lines.join('\n'))
   })
 }
@@ -531,6 +541,13 @@ for (const series of englishCatalog.series.filter(
         'questions',
       ].flatMap((key) => ['### ' + englishHeadings[key], '']),
     ]
+    const lesson = learning.en.lessons.find((item) => item.unitId === unit.id)
+    if (lesson)
+      lines.splice(
+        lines.indexOf('## Next learning'),
+        0,
+        learningMarkdown(lesson, learning.en.apis, learning.readCode, 'en'),
+      )
     outputs.set(entry.docPath.slice(1), lines.join('\n'))
   }
 }

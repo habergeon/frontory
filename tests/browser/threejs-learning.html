@@ -12,9 +12,13 @@
       import { Workspace } from '/src/app/Workspace.tsx'
       import { Preview } from '/src/preview/Preview.tsx'
       import { LocaleProvider, useLocale } from '/src/i18n/LocaleProvider.tsx'
+      const learningCase = new URLSearchParams(location.search).has('learning')
+      const App = learningCase ? (await import('/src/app/App.tsx')).App : null
+      if (learningCase) await import('/src/app/styles.css')
       const unit = { id: 'fixture-threejs', day: 1, week: 1, title: 'fixture', goal: '', docPath: '', seriesId: 'fixture', sourceLanguage: 'html', runtimeProfile: 'threejs', source: '<h1>새 HTML 😀</h1><script>console.log("starter")<\/script>' }
       function Fixture() {
         const { locale, setLocale } = useLocale()
+        if (learningCase) return React.createElement(App)
         const [generation, setGeneration] = useState(0)
         const [activeUnit, setActiveUnit] = useState(unit)
         window.switchUnit = id => setActiveUnit({ ...unit, id })
@@ -31,7 +35,7 @@
       createRoot(document.getElementById('root')).render(React.createElement(LocaleProvider, null, React.createElement(Fixture)))
     </script>
     <style>
-      .monaco-host {height: 350px} .workspace {display: grid; grid-template-columns: repeat(3, 1fr)} iframe {width: 400px; height: 220px}
+      body:not(:has(.app-shell)) .monaco-host {height: 350px} body:not(:has(.app-shell)) .workspace {display: grid; grid-template-columns: repeat(3, 1fr)} body:not(:has(.app-shell)) iframe {width: 400px; height: 220px}
     </style>
   </body>
 </html>

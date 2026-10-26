@@ -116,6 +116,8 @@ const blocks = new Set([
 async function htmlStructure(source) {
   const ast = await html.html.parse(source)
   async function visit(node, sensitive = false) {
+    const whitespaceSensitive =
+      sensitive || ['pre', 'textarea'].includes(node.name)
     if (node.kind === 'text')
       return {
         kind: 'text',
@@ -137,7 +139,7 @@ async function htmlStructure(source) {
     } else if (node.children) {
       const children = node.children.filter((child, index, all) => {
         if (child.kind !== 'text' || child.value.trim()) return true
-        if (sensitive || ['pre', 'textarea'].includes(node.name)) return true
+        if (whitespaceSensitive) return true
         const adjacent = [all[index - 1], all[index + 1]].filter(Boolean)
         return (
           adjacent.length === 2 &&
@@ -150,11 +152,12 @@ async function htmlStructure(source) {
         )
       })
       result.children = await Promise.all(
-        children.map((child) =>
-          visit(child, sensitive || ['pre', 'textarea'].includes(node.name)),
-        ),
+        children.map((child) => visit(child, whitespaceSensitive)),
       )
-      if (blocks.has(node.name) || node.name === 'video') {
+      if (
+        !whitespaceSensitive &&
+        (blocks.has(node.name) || node.name === 'video')
+      ) {
         if (result.children[0]?.kind === 'text')
           result.children[0].value = result.children[0].value.trimStart()
         if (result.children.at(-1)?.kind === 'text')

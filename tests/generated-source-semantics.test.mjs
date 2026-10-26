@@ -39,6 +39,28 @@ test('HTML comparison preserves inline boundary spaces and whitespace-sensitive 
     )
 })
 
+for (const [name, before, after] of [
+  ['pre leading spaces', '<pre>  a\n b</pre>', '<pre>a\n b</pre>'],
+  ['pre trailing spaces', '<pre>a  </pre>', '<pre>a</pre>'],
+  [
+    'block leading spaces under pre',
+    '<pre><div>  a</div></pre>',
+    '<pre><div>a</div></pre>',
+  ],
+  [
+    'block trailing spaces under pre',
+    '<pre><div>a  </div></pre>',
+    '<pre><div>a</div></pre>',
+  ],
+]) {
+  test(`HTML comparison rejects changes to ${name}`, async () => {
+    await semantics.assertGeneratedSemantics('sensitive.html', before, before)
+    await assert.rejects(
+      semantics.assertGeneratedSemantics('sensitive.html', before, after),
+    )
+  })
+}
+
 test('Markdown prose spacing can change while inline code and fences retain exact content', async () => {
   await semantics.assertGeneratedSemantics(
     'a.md',

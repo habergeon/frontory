@@ -293,7 +293,7 @@ export async function runLesson01(page, base) {
       }
       await page.setViewportSize({ width: 320, height: 900 })
     }
-    for (const width of [320, 768, 1024, 1100, 1440]) {
+    for (const width of [320, 390, 768, 1024, 1100, 1440]) {
       await page.setViewportSize({ width, height: 900 })
       await showReading()
       await page.evaluate(() => window.scrollTo(0, 0))
@@ -814,7 +814,16 @@ export async function runFormat(page, base) {
   let input =
     '<main><script type="module">const raw=`a\nb`;const h=html`<b  id="x">Keep  spaces</b>`;</script><style>.a{--x:  a  b  ;color:red}</style><pre>  raw\n  keep</pre></main>'
   await replaceText(page, input)
+  await page.evaluate(async () => {
+    const { monaco } = await import('/src/editor/monaco.ts')
+    monaco.editor
+      .getEditors()[0]
+      .getModel()
+      .setEOL(monaco.editor.EndOfLineSequence.CRLF)
+  })
   const before = await editorState(page)
+  assert.equal(before.eol, String.fromCharCode(13, 10))
+  checks.push({ htmlFormatterEol: 'CRLF' })
   input = before.code
   const expected = (
     await page.evaluate(
@@ -1124,6 +1133,8 @@ const checkNotesPreview = async (page, value) => {
 
 export async function runLearning(page, base) {
   const checks = []
+  assert.ok(process.env.THREEJS_EVIDENCE, 'runner owns screenshot paths')
+  const prefix = process.env.THREEJS_EVIDENCE.replace(/\.json$/, '')
   await page.goto(base + fixture + '?learning#threejs-01')
   await readyEditor(page)
   await page.setViewportSize({ width: 1440, height: 900 })
@@ -1149,10 +1160,7 @@ export async function runLearning(page, base) {
     assert.ok(editor && editor.y < height)
     initialCanvas.push({ width, height, canvas, editor })
     await page.screenshot({
-      path:
-        '.superpowers/sdd/2026-10-26-threejs-contained-learning/task-5-fix1-initial-canvas-' +
-        width +
-        '.png',
+      path: prefix + '-learning-initial-canvas-' + width + '.png',
     })
   }
   checks.push({ initialCanvas })
@@ -1200,7 +1208,10 @@ export async function runLearning(page, base) {
     .locator('.lesson-learning summary')
     .filter({ hasText: '완성 코드와 해설' })
     .click()
-  await page.locator('.api-reference summary').click()
+  await page
+    .locator('.api-reference summary')
+    .filter({ hasText: 'THREE.Scene' })
+    .click()
   await page.locator('.wide-code-toggle').click()
   assert.equal(await page.locator('#panel-result').isVisible(), false)
   await page.setViewportSize({ width: 1024, height: 900 })
@@ -1228,7 +1239,7 @@ export async function runLearning(page, base) {
     'Wide-code desktop to 1024 and 320 keeps the chosen panels usable; returning to desktop preserves wide-code state',
   )
   const widths = []
-  for (const width of [320, 768, 1024, 1100, 1440]) {
+  for (const width of [320, 390, 768, 1024, 1100, 1440]) {
     await page.setViewportSize({ width, height: width === 1100 ? 768 : 900 })
     if (width < 768) {
       await page
@@ -1309,10 +1320,7 @@ export async function runLearning(page, base) {
       )
     widths.push(measure)
     await page.screenshot({
-      path:
-        '.superpowers/sdd/2026-10-26-threejs-contained-learning/task-5-fix1-width-' +
-        width +
-        '.png',
+      path: prefix + '-learning-width-' + width + '.png',
       fullPage: false,
     })
   }
@@ -1514,13 +1522,14 @@ export async function runLessons0204(page, base) {
   }
   const run = async (source, hidden = false) => {
     const tag = ++serial
-    const hook = `\nglobalThis.__sizing={tag:${tag},snapshot(){
-      renderer.render(scene,camera);
+    const hook = `\nlet productRenderCalls=0; const productRender=renderer.render.bind(renderer); renderer.render=(...args)=>{productRenderCalls++; return productRender(...args)};
+globalThis.__sizing={tag:${tag},get renderCalls(){return productRenderCalls},snapshot(){
+      productRender(scene,camera);
       const gl=renderer.getContext(),p=new Uint8Array(canvas.width*canvas.height*4);
       gl.readPixels(0,0,canvas.width,canvas.height,gl.RGBA,gl.UNSIGNED_BYTE,p);
       let minX=canvas.width,minY=canvas.height,maxX=-1,maxY=-1;
       for(let i=0;i<p.length;i+=4)if(p[i+2]>p[i]+30&&p[i+1]<200){const x=(i/4)%canvas.width,y=Math.floor(i/4/canvas.width);minX=Math.min(minX,x);maxX=Math.max(maxX,x);minY=Math.min(minY,y);maxY=Math.max(maxY,y);}
-      return {w:stage.clientWidth,h:stage.clientHeight,buffer:[canvas.width,canvas.height],aspect:camera.aspect,dpr:renderer.getPixelRatio(),pixelBox:[maxX-minX+1,maxY-minY+1],output:output.textContent};
+      return {productRenderCalls,w:stage.clientWidth,h:stage.clientHeight,buffer:[canvas.width,canvas.height],aspect:camera.aspect,dpr:renderer.getPixelRatio(),pixelBox:[maxX-minX+1,maxY-minY+1],output:output.textContent};
     }};`
     await replaceText(page, source.replace('</script>', hook + '\n</script>'))
     await page.waitForFunction(
@@ -1551,8 +1560,22 @@ export async function runLessons0204(page, base) {
         ),
     )
   const wide = async (f) => {
+    const before = await f.evaluate(() => globalThis.__sizing.renderCalls)
     await f.locator('#wide').click()
     await settle(f)
+    // display-buffer and the incomplete observer starter intentionally do not redraw.
+    const expectsRender = await f.evaluate(
+      () =>
+        document.querySelector('canvas').width ===
+        document.querySelector('#stage').clientWidth,
+    )
+    if (expectsRender) {
+      const after = await f.evaluate(() => globalThis.__sizing.renderCalls)
+      assert.ok(
+        after > before,
+        'resize triggers product render before pixel measurement',
+      )
+    }
     return snap(f)
   }
   for (const locale of ['ko', 'en']) {
@@ -1590,7 +1613,15 @@ export async function runLessons0204(page, base) {
       await f.waitForFunction(
         () => document.querySelector('canvas').width !== 300,
       )
+      const renderedBeforeMeasurement = await f.evaluate(
+        () => globalThis.__sizing.renderCalls,
+      )
+      assert.ok(
+        renderedBeforeMeasurement > hidden.productRenderCalls,
+        'show triggers product render before pixel measurement',
+      )
       const displayed = await snap(f)
+      checks.push({ locale, step, renderAfterShow: renderedBeforeMeasurement })
       assert.deepEqual(displayed.buffer, [displayed.w, displayed.h])
       checks.push({ locale, step, hidden, displayed })
       await page.setViewportSize({ width: 1920, height: 1000 })
@@ -1666,8 +1697,16 @@ export async function runLessons0204(page, base) {
         assert.equal(zero.h, 0)
         assert.ok(Number.isFinite(zero.aspect))
         assert.match(zero.output, /0 × 0/)
+        const renderBeforeShow = await ef.evaluate(
+          () => globalThis.__sizing.renderCalls,
+        )
         await ef.locator('#show').click()
         await settle(ef)
+        assert.ok(
+          (await ef.evaluate(() => globalThis.__sizing.renderCalls)) >
+            renderBeforeShow,
+          'restored stage redraws before measuring',
+        )
         const restored = await snap(ef)
         assert.equal(restored.w, 480)
         assert.equal(restored.aspect, 2)
@@ -1692,7 +1731,7 @@ export async function runLessons0204(page, base) {
         path: prefix + '-' + locale + '-' + step + '.png',
       })
     }
-    for (const width of [320, 768, 1024, 1100, 1440]) {
+    for (const width of [320, 390, 768, 1024, 1100, 1440]) {
       await page.setViewportSize({ width, height: 900 })
       await tab(true)
       await page.evaluate(() => scrollTo(0, 0))
@@ -1963,6 +2002,10 @@ async function runLesson03(page, base) {
         f = await run(source.replace('baselineFov = 50', 'baselineFov = 30'))
         const studentFov = await snap(f)
         assert.equal(studentFov.fov, 30)
+        assert.equal(await f.locator('#fov').inputValue(), '30')
+        const afterNearEdit = await apply(f, { near: 0.2 })
+        assert.equal(afterNearEdit.fov, 30)
+        assert.match(afterNearEdit.output, /30/)
         assert.deepEqual(studentFov.pixels.boxes, narrow.pixels.boxes)
         checks.push({ locale, distance, narrow, studentDistance, studentFov })
       }
@@ -2130,6 +2173,11 @@ async function runLesson03(page, base) {
           f.locator('#view').selectOption('overview'),
         )
         assert.deepEqual(edited.helper.points, narrow.helper.points)
+        assert.equal(await f.locator('#fov').inputValue(), '30')
+        const afterNearEdit = await apply(f, { near: 0.2 })
+        assert.equal(afterNearEdit.fov, 30)
+        assert.match(afterNearEdit.output, /30/)
+        checks.push({ locale, helperSourceFov: edited.fov, afterNearEdit })
         checks.push({ locale, overview, narrow, near, far, subject, edited })
       }
       const solution = await load(step, true)
@@ -2172,7 +2220,7 @@ async function runLesson03(page, base) {
       recovery.push({ kind, before, restored })
     }
     checks.push({ locale, recovery })
-    for (const width of [320, 768, 1024, 1100, 1440]) {
+    for (const width of [320, 390, 768, 1024, 1100, 1440]) {
       await page.setViewportSize({ width, height: 900 })
       await tab(true)
       await page.evaluate(() => scrollTo(0, 0))
@@ -2562,7 +2610,7 @@ async function runLesson04(page, base) {
     assert.deepEqual(restored.buffer, [restored.w, restored.h])
     assert.ok(Number.isFinite(restored.aspect))
     checks.push({ locale, recovery: { before, restored } })
-    for (const width of [320, 768, 1024, 1100, 1440]) {
+    for (const width of [320, 390, 768, 1024, 1100, 1440]) {
       await page.setViewportSize({ width, height: 900 })
       await tab(true)
       await page.evaluate(() => scrollTo(0, 0))
@@ -2649,6 +2697,10 @@ export async function runRoadmap(page, base) {
     )
     assert.equal(await rows.nth(13).getAttribute('data-unit-id'), 'threejs-02')
     assert.equal(await rows.nth(27).getAttribute('data-unit-id'), 'threejs-03')
+    assert.ok(
+      !(await rows.first().locator(':scope > a').innerText()).match(/^01/),
+      'unit number appears only in the ordered-list marker',
+    )
     assert.match(
       await roadmap.locator('p').innerText(),
       locale === 'ko'

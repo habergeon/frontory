@@ -611,12 +611,35 @@ test('complete mode accepts 23 translated series and 644 units only with all req
     'CI must require complete translations',
   )
   fs.mkdirSync(path.join(root, 'scripts'), { recursive: true })
-  for (const file of ['check-translations.mjs', 'locale-content.mjs']) {
+  for (const file of [
+    'check-translations.mjs',
+    'locale-content.mjs',
+    'learning-content.mjs',
+  ]) {
     fs.copyFileSync(
       new URL(`../scripts/${file}`, import.meta.url),
       path.join(root, 'scripts', file),
     )
   }
+  // The CLI also validates learning data through the real reader and schema.
+  for (const file of [
+    'src/app/learningSchema.ts',
+    'content/curricula/threejs.json',
+    'content/learning/threejs-roadmap.json',
+    'content/locales/en/learning/threejs-roadmap.json',
+  ]) {
+    fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true })
+    fs.copyFileSync(
+      new URL(`../${file}`, import.meta.url),
+      path.join(root, file),
+    )
+  }
+  const learning = { lessons: [], apis: [] }
+  write('content/learning/threejs.json', learning)
+  write('content/locales/en/learning/threejs.json', {
+    ...learning,
+    sourceHash: sourceHash(learning),
+  })
   const [runtime, ...args] =
     packageJson.scripts['check:translations'].split(' ')
   assert.equal(runtime, 'node')
@@ -986,12 +1009,14 @@ for (const file of [
         return '/README.en.md'
       const exampleId =
         file === 'examples.md' &&
-        resolved.match(/^\/src\/labs\/([^/]+)\/example\.js$/)?.[1]
+        resolved.match(/^\/src\/labs\/([^/]+)\/example\.(?:js|html)$/)?.[1]
       if (exampleId) {
         const companion = companions.find((item) => item.unitId === exampleId)
         assert.ok(result.exampleReadingSources[exampleId], exampleId)
         return [
-          resolved,
+          resolved.endsWith('.html')
+            ? resolved.replace(/\.html$/, '.en.html')
+            : resolved,
           '/public' + result.exampleReadingSources[exampleId],
           ...(companion ? ['/' + companion.guidancePath] : []),
         ]

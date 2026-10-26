@@ -1,6 +1,6 @@
 # Three.js 자체 완결 학습 Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** 기존 첫 4개 Three.js 단원을 사이트 안에서 학습·실습·기록할 수 있게 하고, 이후 24개 단원의 학습 목록과 개선 상태를 함께 제공한다.
 
@@ -9,6 +9,8 @@
 **Tech Stack:** React 19.3.1, TypeScript 7.0.2, Monaco 0.55.1, Three.js 0.186.1, Vite 8.3.4, esbuild, Prettier 3.9.10. Node >=22.18.0, 현행 24.16.0, pnpm 10.34.5.
 
 **Spec:** [학습 환경 설계](../specs/2026-10-26-threejs-contained-learning-design.md), [28개 단원 로드맵](../specs/2026-10-26-threejs-learning-roadmap.md).
+
+현재 상태: Tasks 1~7은 구현과 개별 검토를 마쳤다. 첫 4개 단원은 자체 완결 실습으로 제공하고, 후속 24개는 로드맵만 제공한다. Task 8에서 남은 소규모 수정과 CI를 연결했으며 최종 통합 검사와 독립 검토를 진행한다. 실제 학습자 평가·비 Chromium 브라우저 검증·배포는 수행하지 않았다. 아래 완료 표시는 이전 task 보고서와 검토 기록을 기준으로 갱신했다.
 
 ## Global Constraints
 
@@ -63,13 +65,13 @@ assert.equal(await formatGeneratedText('sample.js', once), once)
 await assert.rejects(() => formatGeneratedText('broken.js', 'const ='), /broken\.js/)
 ```
 
-- [ ] P01의 기존 보고서·검증 증거와 고정 범위를 독립 검토하고 실제 결함만 수정한다. 완료한 설치·양 Node 대표 검사를 이유 없이 반복하지 않는다.
-- [ ] helper 검사에 CLI와 같은 결과, 멱등, 비지원 WAT 원문 보존, 파싱 오류의 파일명 포함, Svelte tagged literal 보존을 추가하고 실패를 확인한다.
-- [ ] 공통 옵션과 Svelte adapter를 helper에 연결하고 모든 호출자에 await를 전파한다. 영어 주석 위치 번역은 정렬 전에 수행한다. engineering의 files object는 먼저 정렬하고 같은 문자열을 디스크와 preview에 쓴다.
-- [ ] companion의 originalSha256/originalByteSha256와 과거 sourceChange 증거를 보존한다. 변경 전 source와 해시, 변경 후 해시, 의미 비교 결과를 migration record로 남긴다. shallow checkout에서도 원본 검증이 가능하게 하고 locator·clock 검사를 AST/API·순서 계약으로 유지한다.
-- [ ] foundations→framework→graphics→gpu→engineering→수동 reading 순서로 생성한다. JS/TS AST·리터럴·주석과 Svelte/HTML 공백 의미를 비교하고 두 번째 생성 hash가 같은지 확인한다. 지원 파일 전체 정렬은 이 검증 뒤 별도 커밋으로 수행한다.
-- [ ] `.gitattributes`는 지원 확장자에만 `text eol=lf`를 지정한다. 전체 `* text=auto`나 사용자 Git config 변경은 하지 않는다. sourceHash는 실제 원문 기준으로 갱신하고 알고리즘을 바꾸지 않는다.
-- [ ] `pnpm format:check`, `pnpm test`, `pnpm build`, `pnpm check:deploy`와 관련 생성·번역 검사를 통과시킨다. 포맷·생성기·migration 변경을 검토 가능한 커밋으로 나눈다.
+- [x] P01의 기존 보고서·검증 증거와 고정 범위를 독립 검토하고 실제 결함만 수정한다. 완료한 설치·양 Node 대표 검사를 이유 없이 반복하지 않는다.
+- [x] helper 검사에 CLI와 같은 결과, 멱등, 비지원 WAT 원문 보존, 파싱 오류의 파일명 포함, Svelte tagged literal 보존을 추가하고 실패를 확인한다.
+- [x] 공통 옵션과 Svelte adapter를 helper에 연결하고 모든 호출자에 await를 전파한다. 영어 주석 위치 번역은 정렬 전에 수행한다. engineering의 files object는 먼저 정렬하고 같은 문자열을 디스크와 preview에 쓴다.
+- [x] companion의 originalSha256/originalByteSha256와 과거 sourceChange 증거를 보존한다. 변경 전 source와 해시, 변경 후 해시, 의미 비교 결과를 migration record로 남긴다. shallow checkout에서도 원본 검증이 가능하게 하고 locator·clock 검사를 AST/API·순서 계약으로 유지한다.
+- [x] foundations→framework→graphics→gpu→engineering→수동 reading 순서로 생성한다. JS/TS AST·리터럴·주석과 Svelte/HTML 공백 의미를 비교하고 두 번째 생성 hash가 같은지 확인한다. 지원 파일 전체 정렬은 이 검증 뒤 별도 커밋으로 수행한다.
+- [x] `.gitattributes`는 지원 확장자에만 `text eol=lf`를 지정한다. 전체 `* text=auto`나 사용자 Git config 변경은 하지 않는다. sourceHash는 실제 원문 기준으로 갱신하고 알고리즘을 바꾸지 않는다.
+- [x] `pnpm format:check`, `pnpm test`, `pnpm build`, `pnpm check:deploy`와 관련 생성·번역 검사를 통과시킨다. 포맷·생성기·migration 변경을 검토 가능한 커밋으로 나눈다.
 
 ## Task 2: HTML 문서와 표준 Three.js 모듈 실행
 
@@ -86,12 +88,12 @@ assert.equal(html.slice(parsed.blocks[0].start, parsed.blocks[0].end), 'const n=
 assert.equal(parsed.headInsertOffset, html.indexOf('><script') + 1)
 ```
 
-- [ ] 구현 시작 시 격리된 브라우저에서 두 ESM을 blob/import map으로 공급하는 최소 fixture를 만든다. core와 addon이 같은 인스턴스를 쓰고 외부 네트워크 없이 표준 import가 실행되는지 확인한다. 실패하면 이 작업의 대안을 기록한 뒤 다음 작업을 시작한다.
-- [ ] HTML parser는 DOM이나 네트워크를 실행하지 않고 source 위치를 제공하는 패키지를 선택·고정한다. `parseHtmlSource`의 full document·fragment·malformed·head 속성·script 안의 태그 문자열 검사부터 작성한다. 단순 prefix의 알려진 head 속성 유실을 회귀 fixture로 사용한다.
-- [ ] bootstrap과 import map을 사용자 module script보다 먼저 설치하되 html/head/body 속성·lang·title·meta·사용자 script 순서·CSS 의미를 보존한다. 부모 DOMParser와 정규식 경계 판정은 쓰지 않는다.
-- [ ] 오류 후 ready 억제, DOMContentLoaded 기반 상태, dispose ACK, blob 해제, 제한된 콘솔 메시지를 구현한다. 부모/source/token 계약과 CSP를 유지한다. 콘솔은 200개·항목당 4,000자이며 순환 객체를 안전하게 요약한다.
-- [ ] `node --test tests/html-source.test.mjs tests/html-preview.test.mjs tests/preview-document.test.mjs tests/runtime.test.mjs`를 통과시키고 실제 Chromium에서 정상 import·미지원 import·사용자 import map 충돌·error/rejection·통신 차단·재실행을 검증한다. 통신 차단 실패를 잡기 위해 frame 코드가 외부 URL을 요청하는 fixture도 실행한다.
-- [ ] 검증한 모듈/파서 선택과 문서 보존 근거를 기록하고 이 실행 기반만 커밋한다.
+- [x] 구현 시작 시 격리된 브라우저에서 두 ESM을 blob/import map으로 공급하는 최소 fixture를 만든다. core와 addon이 같은 인스턴스를 쓰고 외부 네트워크 없이 표준 import가 실행되는지 확인한다. 실패하면 이 작업의 대안을 기록한 뒤 다음 작업을 시작한다.
+- [x] HTML parser는 DOM이나 네트워크를 실행하지 않고 source 위치를 제공하는 패키지를 선택·고정한다. `parseHtmlSource`의 full document·fragment·malformed·head 속성·script 안의 태그 문자열 검사부터 작성한다. 단순 prefix의 알려진 head 속성 유실을 회귀 fixture로 사용한다.
+- [x] bootstrap과 import map을 사용자 module script보다 먼저 설치하되 html/head/body 속성·lang·title·meta·사용자 script 순서·CSS 의미를 보존한다. 부모 DOMParser와 정규식 경계 판정은 쓰지 않는다.
+- [x] 오류 후 ready 억제, DOMContentLoaded 기반 상태, dispose ACK, blob 해제, 제한된 콘솔 메시지를 구현한다. 부모/source/token 계약과 CSP를 유지한다. 콘솔은 200개·항목당 4,000자이며 순환 객체를 안전하게 요약한다.
+- [x] `node --test tests/html-source.test.mjs tests/html-preview.test.mjs tests/preview-document.test.mjs tests/runtime.test.mjs`를 통과시키고 실제 Chromium에서 정상 import·미지원 import·사용자 import map 충돌·error/rejection·통신 차단·재실행을 검증한다. 통신 차단 실패를 잡기 위해 frame 코드가 외부 URL을 요청하는 fixture도 실행한다.
+- [x] 검증한 모듈/파서 선택과 문서 보존 근거를 기록하고 이 실행 기반만 커밋한다.
 
 ## Task 3: HTML 편집·저장·기존 초안 호환
 
@@ -108,12 +110,12 @@ assert.equal(restored.notes, 'keep')
 assert.equal(restored.progress, 'completed')
 ```
 
-- [ ] 새 HTML 기본값, 저장된 언어 생략 JS, 빈 문자열, Unicode, 기존 backup v1/2/3, snapshot 읽기·쓰기 실패를 기존 storage fake로 검사한다. 코드·notes·progress가 입력대로 남는지 assert한다.
-- [ ] HTML worker와 .html URI, 미저장 상태의 기본 언어, HTML 원문 compile 경로를 구현한다. HTML을 타입 검사 완료로 표시하지 않는다. 언어 선택은 문자열을 바꾸지 않는다.
-- [ ] Workspace 실행 입력을 `PreviewInput`으로 바꾸고 source/language가 현재 값과 일치하는 compile만 적용한다. JS/TS는 기존 mount, HTML은 단원의 profile에 맞춰 실행한다. Preview 재생성 조건에 kind/profile을 넣고 locale만으로는 재생성하지 않는다.
-- [ ] 오류·console을 텍스트로 표시한다. 위조 메시지·이전 frame·과도한 출력을 걸러낸다. WebGL2 미지원 시 본문·코드는 읽을 수 있게 두고 실행 제한을 안내한다.
-- [ ] 전용 브라우저 runner는 자신이 시작한 server/browser만 관리하고 유한 timeout과 finally로 종료한다. `node scripts/check-threejs-browser.mjs --case storage`로 저장·reload·backup 왕복·언어 전환·기존 JS/TS를 확인한다. `--case runtime`은 Task 2의 브라우저 fixture도 실행한다.
-- [ ] 기존 Monaco Canceled의 dispose stack을 재현해 원인을 수정한다. global rejection 무시는 금지한다. `node --test tests/drafts.test.mjs tests/backup.test.mjs`와 `pnpm typecheck`를 통과시키고 호환 변경을 커밋한다.
+- [x] 새 HTML 기본값, 저장된 언어 생략 JS, 빈 문자열, Unicode, 기존 backup v1/2/3, snapshot 읽기·쓰기 실패를 기존 storage fake로 검사한다. 코드·notes·progress가 입력대로 남는지 assert한다.
+- [x] HTML worker와 .html URI, 미저장 상태의 기본 언어, HTML 원문 compile 경로를 구현한다. HTML을 타입 검사 완료로 표시하지 않는다. 언어 선택은 문자열을 바꾸지 않는다.
+- [x] Workspace 실행 입력을 `PreviewInput`으로 바꾸고 source/language가 현재 값과 일치하는 compile만 적용한다. JS/TS는 기존 mount, HTML은 단원의 profile에 맞춰 실행한다. Preview 재생성 조건에 kind/profile을 넣고 locale만으로는 재생성하지 않는다.
+- [x] 오류·console을 텍스트로 표시한다. 위조 메시지·이전 frame·과도한 출력을 걸러낸다. WebGL2 미지원 시 본문·코드는 읽을 수 있게 두고 실행 제한을 안내한다.
+- [x] 전용 브라우저 runner는 자신이 시작한 server/browser만 관리하고 유한 timeout과 finally로 종료한다. `node scripts/check-threejs-browser.mjs --case storage`로 저장·reload·backup 왕복·언어 전환·기존 JS/TS를 확인한다. `--case runtime`은 Task 2의 브라우저 fixture도 실행한다.
+- [x] 기존 Monaco Canceled의 dispose stack을 재현해 원인을 수정한다. global rejection 무시는 금지한다. `node --test tests/drafts.test.mjs tests/backup.test.mjs`와 `pnpm typecheck`를 통과시키고 호환 변경을 커밋한다.
 
 ## Task 4: HTML 내부까지 명시적으로 정렬
 
@@ -130,11 +132,11 @@ assert.equal(await formatCode(output, 'html'), output)
 await assert.rejects(() => formatCode('<script>const =</script>', 'html'))
 ```
 
-- [ ] HTML 내부 module JS/style, tagged HTML/CSS/GLSL 문자열, pre/textarea, 알 수 없는 script MIME, script src와 inline 본문 판정, 한 블록의 parse 실패를 fixture로 만든다. 성공 시 의미 보존·멱등, 실패 시 원문 유지를 검사한다.
-- [ ] 원본 JS/CSS/JSON 본문을 독립 정렬하고 script/style/pre/textarea/template의 content span을 충돌 없는 marker로 보호한다. CSS custom-property declaration은 설치된 postcss source offset으로 별도 보호한다. 바깥 HTML을 공통 off 설정으로 정렬한 뒤 재파싱하여 개수·순서·tag·속성·marker를 검증하고 본문 span 전체를 복원한다. 보호 조상은 자식 span을 억제하며, 복원 후 들여쓰기나 HTML 재정렬을 하지 않는다. 전체 pass 최대 3회 안에 연속 결과가 같아야 반환하고, 전체 성공과 model freshness 확인 전에는 편집기에 적용하지 않는다. JS/TS 단독 편집에도 공통 옵션과 같은 수렴 조건을 쓴다. Monaco 0.55.1에서 EOL과 본문 변경을 한 native Undo에 묶으면 Redo 손상 또는 inlineCompletions 오류가 재현되므로, 편집기 적용 직전에만 기존 model EOL에 맞추고 그 표현으로 같은 결과를 판정한다. pure formatter와 저장소의 LF 정책은 유지한다.
-- [ ] 버튼과 Monaco provider를 같은 함수에 연결한다. HTML 기본 provider 중복을 막는다. model URI/version/unit/language를 대조해 늦은 응답을 버린다. `executeEdits`와 undo stop으로 한 번 Undo를 보장한다.
-- [ ] `node --test tests/editor-format.test.mjs tests/formatter-config.test.mjs`, `node scripts/check-threejs-browser.mjs --case format`으로 정렬·실패·Undo·도중 입력·전환·같은 결과의 저장 억제를 확인한다.
-- [ ] `pnpm typecheck`와 변경 파일의 format check 후 커밋한다.
+- [x] HTML 내부 module JS/style, tagged HTML/CSS/GLSL 문자열, pre/textarea, 알 수 없는 script MIME, script src와 inline 본문 판정, 한 블록의 parse 실패를 fixture로 만든다. 성공 시 의미 보존·멱등, 실패 시 원문 유지를 검사한다.
+- [x] 원본 JS/CSS/JSON 본문을 독립 정렬하고 script/style/pre/textarea/template의 content span을 충돌 없는 marker로 보호한다. CSS custom-property declaration은 설치된 postcss source offset으로 별도 보호한다. 바깥 HTML을 공통 off 설정으로 정렬한 뒤 재파싱하여 개수·순서·tag·속성·marker를 검증하고 본문 span 전체를 복원한다. 보호 조상은 자식 span을 억제하며, 복원 후 들여쓰기나 HTML 재정렬을 하지 않는다. 전체 pass 최대 3회 안에 연속 결과가 같아야 반환하고, 전체 성공과 model freshness 확인 전에는 편집기에 적용하지 않는다. JS/TS 단독 편집에도 공통 옵션과 같은 수렴 조건을 쓴다. Monaco 0.55.1에서 EOL과 본문 변경을 한 native Undo에 묶으면 Redo 손상 또는 inlineCompletions 오류가 재현되므로, 편집기 적용 직전에만 기존 model EOL에 맞추고 그 표현으로 같은 결과를 판정한다. pure formatter와 저장소의 LF 정책은 유지한다.
+- [x] 버튼과 Monaco provider를 같은 함수에 연결한다. HTML 기본 provider 중복을 막는다. model URI/version/unit/language를 대조해 늦은 응답을 버린다. `executeEdits`와 undo stop으로 한 번 Undo를 보장한다.
+- [x] `node --test tests/editor-format.test.mjs tests/formatter-config.test.mjs`, `node scripts/check-threejs-browser.mjs --case format`으로 정렬·실패·Undo·도중 입력·전환·같은 결과의 저장 억제를 확인한다.
+- [x] `pnpm typecheck`와 변경 파일의 format check 후 커밋한다.
 
 ## Task 5: 학습 자료와 단계·힌트·API 표시
 
@@ -152,11 +154,11 @@ assert.equal(getApiReference('missing-api', 'ko'), null)
 assert.equal(getLessonLearning('threejs-01', 'ko').unitId, 'threejs-01')
 ```
 
-- [ ] 중복 step/API ID, 알 수 없는 API·선수 단원·코드 경로, 번역 누락·sourceHash 불일치를 거부하는 작은 fixture 검사를 만든다. 기존 단원은 null을 받아 기존 guide를 사용하는지 확인한다.
-- [ ] 새 필드는 선택 사항으로 읽고 같은 자료에서 화면과 Markdown을 생성한다. 기존 수동 예제와 companion provenance를 유지한다. 원문을 복제해 이중 관리하지 않는다.
-- [ ] 단계·힌트·해설·API를 읽는 동작은 코드를 바꾸지 않는다. 명시적 예제 불러오기는 확인 후 반영하며 한 번 Undo와 notes/progress 유지를 보장한다. 편집 이력을 통해 변경하고 단순 setValue로 이력을 지우지 않는다.
-- [ ] `node --test tests/learning-content.test.mjs tests/practice-guide.test.mjs tests/curricula.test.mjs`, `node scripts/check-threejs-browser.mjs --case learning`으로 읽기 중 코드 보존·불러오기 취소/확인/Undo·내부 선수 링크·키보드 조작을 확인한다.
-- [ ] `pnpm check:translations --complete`를 통과시키고 학습 화면과 검증용 최소 자료를 커밋한다. 실제 강의 완성은 Task 6에서 다룬다.
+- [x] 중복 step/API ID, 알 수 없는 API·선수 단원·코드 경로, 번역 누락·sourceHash 불일치를 거부하는 작은 fixture 검사를 만든다. 기존 단원은 null을 받아 기존 guide를 사용하는지 확인한다.
+- [x] 새 필드는 선택 사항으로 읽고 같은 자료에서 화면과 Markdown을 생성한다. 기존 수동 예제와 companion provenance를 유지한다. 원문을 복제해 이중 관리하지 않는다.
+- [x] 단계·힌트·해설·API를 읽는 동작은 코드를 바꾸지 않는다. 명시적 예제 불러오기는 확인 후 반영하며 한 번 Undo와 notes/progress 유지를 보장한다. 편집 이력을 통해 변경하고 단순 setValue로 이력을 지우지 않는다.
+- [x] `node --test tests/learning-content.test.mjs tests/practice-guide.test.mjs tests/curricula.test.mjs`, `node scripts/check-threejs-browser.mjs --case learning`으로 읽기 중 코드 보존·불러오기 취소/확인/Undo·내부 선수 링크·키보드 조작을 확인한다.
+- [x] `pnpm check:translations --complete`를 통과시키고 학습 화면과 검증용 최소 자료를 커밋한다. 실제 강의 완성은 Task 6에서 다룬다.
 
 ## Task 6: 첫 4개 단원 순차 완성
 
@@ -164,12 +166,12 @@ assert.equal(getLessonLearning('threejs-01', 'ko').unitId, 'threejs-01')
 
 **Interfaces:** 대상 ID는 `threejs-01`, `threejs-step-02`, `threejs-step-03`, `threejs-step-04`다. HTML source는 raw glob으로 읽고 metadata의 sourceLanguage/runtimeProfile로 기본값을 정한다. Task 5의 자료 구조를 사용하며 별도 schema를 만들지 않는다.
 
-- [ ] `threejs-01`의 모든 필수 과제를 설계 표에 대조한다. 학습 API·개념·오류 복구에 내부 설명이 있는지 검사하고 현재 부족한 내용을 기록한다.
-- [ ] 첫 강의에 canvas→cube→animation→local/world 단계, 실행 가능한 시작 코드, 힌트·해설·API·내부 기초 링크를 양언어로 작성한다. HTML output과 input은 HTML에 직접 쓰고 외부 프로젝트 요구를 제거한다.
-- [ ] `node scripts/check-threejs-browser.mjs --case lesson-01`로 각 단계와 부모 Y축 회전 0/PI÷2를 실행한다. 부모 원점·자식 (2,0,0)의 고정 fixture에서는 world가 (2,0,0)→(0,0,-2)이며 허용 오차는 1e-6이다. 다른 배치의 교재 예제와 혼동하지 않고 기대값을 명시한다. 화면·값·설명을 검토한 뒤 첫 강의를 커밋한다.
-- [ ] 같은 계약으로 02→03→04를 한 강의씩 만든다. 02는 CSS 너비/높이와 aspect·buffer, 03은 FOV/거리와 clipping, 04는 회전 중심과 world 좌표를 검증한다. 기기 의존 pixel 비율을 고정값으로 가정하지 않고 교재에서 설정한 DPR을 쓴다.
-- [ ] `node scripts/check-threejs-browser.mjs --case lessons-02-04`로 ko/en을 확인한다. 수치 조건과 화면을 함께 확인하고 외부 도구 없이 과제를 수행한 과정을 기록한다. 초기 예제를 보는 것만으로 검증을 끝내지 않는다.
-- [ ] `pnpm build:curricula`, 대상 generator 재실행, `pnpm check:curricula`, `pnpm check:translations --complete`, 관련 presentation 검사를 실행한다. 두 번째 생성에 차이가 없는지 확인하고 강의별로 커밋한다.
+- [x] `threejs-01`의 모든 필수 과제를 설계 표에 대조한다. 학습 API·개념·오류 복구에 내부 설명이 있는지 검사하고 현재 부족한 내용을 기록한다.
+- [x] 첫 강의에 canvas→cube→animation→local/world 단계, 실행 가능한 시작 코드, 힌트·해설·API·내부 기초 링크를 양언어로 작성한다. HTML output과 input은 HTML에 직접 쓰고 외부 프로젝트 요구를 제거한다.
+- [x] `node scripts/check-threejs-browser.mjs --case lesson-01`로 각 단계와 부모 Y축 회전 0/PI÷2를 실행한다. 부모 원점·자식 (2,0,0)의 고정 fixture에서는 world가 (2,0,0)→(0,0,-2)이며 허용 오차는 1e-6이다. 다른 배치의 교재 예제와 혼동하지 않고 기대값을 명시한다. 화면·값·설명을 검토한 뒤 첫 강의를 커밋한다.
+- [x] 같은 계약으로 02→03→04를 한 강의씩 만든다. 02는 CSS 너비/높이와 aspect·buffer, 03은 FOV/거리와 clipping, 04는 회전 중심과 world 좌표를 검증한다. 기기 의존 pixel 비율을 고정값으로 가정하지 않고 교재에서 설정한 DPR을 쓴다.
+- [x] `node scripts/check-threejs-browser.mjs --case lessons-02-04`로 ko/en을 확인한다. 수치 조건과 화면을 함께 확인하고 외부 도구 없이 과제를 수행한 과정을 기록한다. 초기 예제를 보는 것만으로 검증을 끝내지 않는다.
+- [x] `pnpm build:curricula`, 대상 generator 재실행, `pnpm check:curricula`, `pnpm check:translations --complete`, 관련 presentation 검사를 실행한다. 두 번째 생성에 차이가 없는지 확인하고 강의별로 커밋한다.
 
 ## Task 7: 사이트에 후속 24개 단원 목록 표시
 
@@ -185,11 +187,11 @@ assert.equal(entries[27].unitId, 'threejs-03')
 assert.equal(entries.slice(4).every(entry => entry.readiness === 'planned'), true)
 ```
 
-- [ ] 설계에 첨부한 24개 항목을 모두 기존 ID와 연결한다. 선수 참조에서 자기 자신과 알 수 없는 ID를 거부하고 순서와 28개 ID의 유일성을 검사한다. `threejs-02`는 14번, `threejs-03`은 28번임을 명시적으로 assert한다.
-- [ ] 01~04는 Task 6 검증 완료 후에만 verified로 바꾸고 05~28은 planned로 유지한다. 학습자의 완료 상태를 바꿔도 readiness가 달라지지 않는지 검사한다.
-- [ ] 기존 시리즈 학습 계획과 04번 단원 말미에 목록을 연결한다. 각 행에서 기존 강의로 이동할 수 있고 개선 예정이라는 이유로 링크를 막지 않는다. ‘개선 예정’의 뜻을 양언어로 설명한다.
-- [ ] `node --test tests/learning-roadmap.test.mjs tests/curricula.test.mjs`, `node scripts/check-threejs-browser.mjs --case roadmap`으로 전체 28행·후속 24개·14/28의 기존 ID·기존 강의 이동·돌아온 후 draft 보존을 확인한다.
-- [ ] 생성 문서와 사이트 목록의 일치, 번역 freshness, 키보드 조작을 확인하고 커밋한다.
+- [x] 설계에 첨부한 24개 항목을 모두 기존 ID와 연결한다. 선수 참조에서 자기 자신과 알 수 없는 ID를 거부하고 순서와 28개 ID의 유일성을 검사한다. `threejs-02`는 14번, `threejs-03`은 28번임을 명시적으로 assert한다.
+- [x] 01~04는 Task 6 검증 완료 후에만 verified로 바꾸고 05~28은 planned로 유지한다. 학습자의 완료 상태를 바꿔도 readiness가 달라지지 않는지 검사한다.
+- [x] 기존 시리즈 학습 계획과 04번 단원 말미에 목록을 연결한다. 각 행에서 기존 강의로 이동할 수 있고 개선 예정이라는 이유로 링크를 막지 않는다. ‘개선 예정’의 뜻을 양언어로 설명한다.
+- [x] `node --test tests/learning-roadmap.test.mjs tests/curricula.test.mjs`, `node scripts/check-threejs-browser.mjs --case roadmap`으로 전체 28행·후속 24개·14/28의 기존 ID·기존 강의 이동·돌아온 후 draft 보존을 확인한다.
+- [x] 생성 문서와 사이트 목록의 일치, 번역 freshness, 키보드 조작을 확인하고 커밋한다.
 
 ## Task 8: 통합·CI·완료 판정
 
@@ -197,10 +199,10 @@ assert.equal(entries.slice(4).every(entry => entry.readiness === 'planned'), tru
 
 **Interfaces:** `node scripts/check-threejs-browser.mjs --case all`은 Task 3~7의 대표 계약을 한 번씩 실행하고 유한 timeout·소유 process 종료·결과 artifact를 기록한다. 같은 코드의 기존 증거는 재사용한다.
 
-- [ ] CI에 `pnpm format:check`를 추가한다. 생성물을 일괄 ignore해 검사를 통과시키지 않는다.
+- [x] CI에 `pnpm format:check`를 추가한다. 생성물을 일괄 ignore해 검사를 통과시키지 않는다.
 - [ ] 최종 코드에서 `pnpm format:check`, `pnpm test`, `pnpm build`, `pnpm check:deploy`를 확인한다. build에 포함된 typecheck/examples/curricula/translations를 같은 HEAD에서 중복 실행하지 않는다.
 - [ ] `node scripts/check-threejs-browser.mjs --case all`로 ko/en·너비 390/1440·기존 JS/TS·HTML 실행·정렬 Undo·저장/backup·locale 보존·후속 목록을 확인한다. Chromium 이외 브라우저를 검증하지 않았다면 범위를 명시한다.
-- [ ] 학습 검토에서 지정한 기초 지식을 가진 사람이 외부 문서 없이 4개 단원의 과제와 설명 질문을 마칠 수 있는지 확인한다. 대리 교재 검토와 실제 학습자 평가를 구별해 보고한다.
+- [x] 내부 교재로 4개 단원의 수정 과제와 설명 질문을 대리 검토했다. 실제 학습자를 대상으로 한 완료 가능성·이해도 평가는 수행하지 않았으며 별도 검증이 필요하다.
 - [ ] 최종 차이를 독립 검토해 저장 호환·CSP·정렬의 의미 보존·재생성·학습 내용을 확인한다. 구현한 4개 단원, 목록을 준비한 24개 단원, 장래 후보를 구분해 보고한다. 커밋 후 자동 push/deploy는 하지 않는다.
 
 ## 계획 자체 점검

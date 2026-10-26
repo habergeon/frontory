@@ -44,12 +44,12 @@ test('module text and token cannot escape bootstrap; importmap collisions have l
 })
 test('inert template import maps do not produce a collision diagnostic', () => {
   const html = createHtmlPreviewDocument(
-    '<template><script type="importmap">{}</script></template>',
+    '<template><script type="importmap">{"imports":{"three":"blob:conflict"}}</script></template>',
     'token',
     'en',
     modules,
   )
-  assert.ok(!html.includes('User import maps'))
+  assert.ok(!html.includes('User import map conflicts'))
 })
 
 test('only supplied import mappings and scoped overrides are diagnosed', () => {

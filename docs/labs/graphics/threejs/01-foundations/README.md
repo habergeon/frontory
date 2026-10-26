@@ -356,7 +356,7 @@ geometry와 material로 Mesh를 만들고 Scene에 연결한 뒤 물체를 볼 �
 
 ### 시간을 회전 각도로 바꾸기
 
-시작 예제는 cube와 camera를 포함하고 speed=0이라 정지해 있습니다. renderFrame(timeMs)를 renderer.setAnimationLoop에 전달하면 renderer가 프레임마다 이 함수를 호출합니다. 이렇게 나중에 호출하도록 전달한 함수를 callback이라고 합니다.
+시작 예제는 cube와 camera를 포함하고 speed=0이라 정지해 있습니다. renderer.setAnimationLoop(renderFrame)으로 함수 renderFrame을 등록하면 renderer가 프레임마다 timestamp를 인자로 넣어 renderFrame(timeMs)를 호출합니다. 이렇게 나중에 호출하도록 전달한 함수를 callback이라고 합니다.
 
 timeMs는 millisecond 단위 timestamp입니다. 첫 값을 start에 저장하고 seconds = (timeMs - start) / 1000으로 지난 초를 계산합니다. cube.rotation.y = seconds * speed에서 speed 단위는 rad/s입니다. rotation은 radian을 씁니다. Math.PI는 180°, Math.PI / 2는 90°, 2 * Math.PI는 한 바퀴입니다. camera.fov는 degree라는 차이도 기억하세요.
 
@@ -1037,8 +1037,8 @@ output.textContent = `${w} × ${h}; ${canvas.width} × ${canvas.height}`;
 
 요소 크기 변화를 callback으로 알리는 Web API입니다. window 크기가 그대로여도 stage 변화에 반응합니다.
 
-- `callback: function` — 크기가 변할 때 실행할 함수입니다. 예제는 resizeScene을 전달합니다.
-- `target: Element` — observe(target)로 관찰할 stage 요소입니다.
+- `callback: function` — 크기가 변할 때 실행할 함수입니다. 아래 공용 예시는 resizeScene을 전달하며, 01 단원은 draw를 전달합니다.
+- `target: Element` — observe(target)로 관찰할 요소입니다. 아래 예시는 stage, 01 단원은 canvas를 관찰합니다.
 
 생성자는 observer를 반환합니다. observe와 disconnect는 반환값이 없습니다. disconnect는 관찰을 중지합니다.
 

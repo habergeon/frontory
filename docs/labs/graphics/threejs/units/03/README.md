@@ -586,6 +586,7 @@ camera.z=13에서는 두 물체가 작아지고 상대 크기 차이도 달라�
       const baselineDistance = 9;
       document.querySelector('#distance').value = String(baselineDistance);
       const baselineFov = 50;
+      document.querySelector('#fov').value = String(baselineFov);
       const subjectCamera = new THREE.PerspectiveCamera(baselineFov, 1, 0.1, 30);
       subjectCamera.position.set(0, 0, baselineDistance);
       subjectCamera.lookAt(0, 0, 0);
@@ -2417,6 +2418,7 @@ overview에서 subject 절두체가 보입니다. fov=30이면 fov=50보다 좁�
       const baselineDistance = 9;
       document.querySelector('#distance').value = String(baselineDistance);
       const baselineFov = 50;
+      document.querySelector('#fov').value = String(baselineFov);
       const subjectCamera = new THREE.PerspectiveCamera(baselineFov, 1, 0.1, 12);
       subjectCamera.position.set(0, 0, baselineDistance);
       subjectCamera.lookAt(0, 0, 0);
@@ -3018,8 +3020,8 @@ output.textContent = `${w} × ${h}; ${canvas.width} × ${canvas.height}`;
 
 요소 크기 변화를 callback으로 알리는 Web API입니다. window 크기가 그대로여도 stage 변화에 반응합니다.
 
-- `callback: function` — 크기가 변할 때 실행할 함수입니다. 예제는 resizeScene을 전달합니다.
-- `target: Element` — observe(target)로 관찰할 stage 요소입니다.
+- `callback: function` — 크기가 변할 때 실행할 함수입니다. 아래 공용 예시는 resizeScene을 전달하며, 01 단원은 draw를 전달합니다.
+- `target: Element` — observe(target)로 관찰할 요소입니다. 아래 예시는 stage, 01 단원은 canvas를 관찰합니다.
 
 생성자는 observer를 반환합니다. observe와 disconnect는 반환값이 없습니다. disconnect는 관찰을 중지합니다.
 

@@ -103,11 +103,6 @@ Parent +Y rotation π/2: offset +X → -Z, body (1,-2)</pre>
         input('order').value = body.rotation.order;
       }
       function applySettings() {
-        for (const field of document.querySelectorAll('input')) {
-          if (!field.checkValidity() || !Number.isFinite(Number(field.value))) {
-            error.textContent = 'Enter finite numbers.'; return;
-          }
-        }
         error.textContent = '';
         body.rotation.order = input('order').value;
         draw();

@@ -64,15 +64,29 @@ test('all 644 readings and 111 companion execution guides are reachable from the
     550,
   )
   const combined = manual + generated
+  const korean = read('docs/examples.md') + read('docs/examples-expanded.md')
+  assert.equal(
+    catalog.units.filter((unit) => unit.sourceLanguage === 'html').length,
+    4,
+  )
+  assert.equal(
+    catalog.units.filter((unit) => unit.sourceLanguage !== 'html').length,
+    640,
+  )
   for (const unit of catalog.units) {
     assert.ok(
       combined.includes(`](../../public${unit.exampleReadingSource})`),
       unit.id,
     )
-    assert.ok(
-      combined.includes(`](../../src/labs/${unit.id}/example.js)`),
-      unit.id,
-    )
+    const original = `src/labs/${unit.id}/${unit.sourceLanguage === 'html' ? 'example.html' : 'example.js'}`
+    const english =
+      unit.sourceLanguage === 'html'
+        ? original.replace(/\.html$/, '.en.html')
+        : original
+    assert.ok(combined.includes(`](../../${english})`), unit.id)
+    assert.ok(korean.includes(`](../${original})`), unit.id)
+    assert.ok(fs.existsSync(original), original)
+    assert.ok(fs.existsSync(english), english)
   }
   const guides = new Set(companions.map((entry) => entry.guidancePath))
   assert.equal(guides.size, 111)

@@ -193,10 +193,17 @@ test('all bilingual lesson bodies, navigation, original and reading downloads re
           unit.id,
         )
         assert.ok(
-          html.includes(`href="/examples/${unit.id}/example.js" download`),
+          html.includes(
+            `href="/examples/${unit.id}/${unit.sourceLanguage === 'html' ? 'example.html' : 'example.js'}" download`,
+          ),
           unit.id,
         )
-        assert.ok(fs.existsSync(`src/labs/${unit.id}/example.js`), unit.id)
+        assert.ok(
+          fs.existsSync(
+            `src/labs/${unit.id}/${unit.sourceLanguage === 'html' ? 'example.html' : 'example.js'}`,
+          ),
+          unit.id,
+        )
         if (locale === 'en') {
           assert.equal(
             unit.exampleReadingSource,

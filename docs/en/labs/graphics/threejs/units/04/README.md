@@ -1730,11 +1730,6 @@ Parent +Y rotation π/2: offset +X → -Z, body (1,-2)</pre>
         input('order').value = body.rotation.order;
       }
       function applySettings() {
-        for (const field of document.querySelectorAll('input')) {
-          if (!field.checkValidity() || !Number.isFinite(Number(field.value))) {
-            error.textContent = 'Enter finite numbers.'; return;
-          }
-        }
         error.textContent = '';
         body.rotation.order = input('order').value;
         draw();
@@ -1878,11 +1873,6 @@ Parent +Y rotation π/2: offset +X → -Z, body (1,-2)</pre>
         input('order').value = body.rotation.order;
       }
       function applySettings() {
-        for (const field of document.querySelectorAll('input')) {
-          if (!field.checkValidity() || !Number.isFinite(Number(field.value))) {
-            error.textContent = 'Enter finite numbers.'; return;
-          }
-        }
         error.textContent = '';
         body.rotation.order = input('order').value;
         draw();
@@ -2192,8 +2182,8 @@ output.textContent = `${w} × ${h}; ${canvas.width} × ${canvas.height}`;
 
 Web API that reports element size changes through a callback, including stage changes without window resizing.
 
-- `callback: function` — Function called for size changes; the example passes resizeScene.
-- `target: Element` — The stage element observed with observe(target).
+- `callback: function` — Function called for size changes. The generic snippet below passes resizeScene; unit 01 passes draw.
+- `target: Element` — Element observed with observe(target). The snippet uses stage; unit 01 observes canvas.
 
 The constructor returns an observer. observe and disconnect return no value. disconnect stops observation.
 

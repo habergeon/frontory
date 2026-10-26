@@ -12,6 +12,7 @@ jobs:
           node-version-file: .node-version
       - run: npm install --global pnpm@10.34.5
       - run: pnpm install --frozen-lockfile
+      - run: pnpm format:check
       - run: pnpm check:translations --complete
       - run: pnpm test
       - run: pnpm build

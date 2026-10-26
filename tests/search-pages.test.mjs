@@ -180,6 +180,14 @@ test('public reading pages omit empty worksheets but preserve written experiment
   const empty = renderDocument(content + worksheet, '/docs/test.md')
   assert.match(empty, /코드와 설명은 유지합니다/)
   assert.doesNotMatch(empty, /실험 기록 — 직접 작성/)
+  const roadmap = '\n## 다음 학습 목록\n\n05~28 단원은 개선 예정입니다.\n'
+  const followed = renderDocument(
+    content + worksheet + roadmap,
+    '/docs/test.md',
+  )
+  assert.doesNotMatch(followed, /실험 기록 — 직접 작성/)
+  assert.match(followed, /다음 학습 목록/)
+  assert.match(followed, /05~28 단원은 개선 예정/)
   const written = renderDocument(
     content +
       worksheet.replace(
@@ -190,6 +198,18 @@ test('public reading pages omit empty worksheets but preserve written experiment
   )
   assert.match(written, /실험 기록 — 직접 작성/)
   assert.match(written, /실측 너비는 244px입니다/)
+  const writtenFollowed = renderDocument(
+    content +
+      worksheet.replace(
+        '### 실제 결과',
+        '### 실제 결과\n\n실측 너비는 244px입니다.',
+      ) +
+      roadmap,
+    '/docs/test.md',
+  )
+  assert.match(writtenFollowed, /실험 기록 — 직접 작성/)
+  assert.match(writtenFollowed, /실측 너비는 244px입니다/)
+  assert.match(writtenFollowed, /다음 학습 목록/)
 })
 
 test('only actual English pages are published with reciprocal locale metadata', async () => {
@@ -331,8 +351,16 @@ test('only actual English pages are published with reciprocal locale metadata', 
     assert.ok(html.includes(`href="${unit.exampleReadingSource}" download`))
     assert.ok(fs.existsSync('public' + unit.exampleReadingSource))
     assert.match(html, /Download source with English comments · for reading/)
-    assert.ok(html.includes(`href="/examples/${unit.id}/example.js" download`))
-    assert.ok(fs.existsSync(`src/labs/${unit.id}/example.js`))
+    assert.ok(
+      html.includes(
+        `href="/examples/${unit.id}/${unit.sourceLanguage === 'html' ? 'example.html' : 'example.js'}" download`,
+      ),
+    )
+    assert.ok(
+      fs.existsSync(
+        `src/labs/${unit.id}/${unit.sourceLanguage === 'html' ? 'example.html' : 'example.js'}`,
+      ),
+    )
   }
   for (const id of [
     'javascript-step-02',
@@ -405,6 +433,15 @@ test('English worksheets use shared headings and preserve every written field', 
     renderDocument('# Lesson\n' + worksheet, '/docs/en/test.md', 'en'),
     /Experiment notes/,
   )
+  const roadmap = '\n## Next learning\n\nUnits 05–28 remain planned.\n'
+  const followed = renderDocument(
+    '# Lesson\n' + worksheet + roadmap,
+    '/docs/en/test.md',
+    'en',
+  )
+  assert.doesNotMatch(followed, /Experiment notes/)
+  assert.match(followed, /Units 05–28 remain planned/)
+
   for (const field of fields) {
     const written = worksheet.replace(
       `### ${h[field]}\n`,
@@ -417,6 +454,14 @@ test('English worksheets use shared headings and preserve every written field', 
     )
     assert.match(html, /Experiment notes/)
     assert.match(html, /My measured width is 244px/)
+    const followed = renderDocument(
+      '# Lesson\n' + written + roadmap,
+      '/docs/en/test.md',
+      'en',
+    )
+    assert.match(followed, /Experiment notes/)
+    assert.match(followed, /My measured width is 244px/)
+    assert.match(followed, /Units 05–28 remain planned/)
   }
 })
 

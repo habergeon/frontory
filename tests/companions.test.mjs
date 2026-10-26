@@ -44,7 +44,37 @@ test('companion inventory covers original paths and every actual English artifac
         !Object.hasOwn(outputs, file),
     )
     .sort()
-  assert.deepEqual(actual, originals)
+  // Guided HTML has its own bilingual source/freshness contract; historical companions keep theirs.
+  const { ko, en } = (
+    await import('../scripts/learning-content.mjs')
+  ).readLearningContent()
+  const curriculum = read('content/curricula/threejs.json')
+  const learningSources = new Set(
+    ko.lessons.flatMap((lesson) => {
+      const unit = curriculum.units.find((unit) => unit.id === lesson.unitId)
+      assert.equal(unit.sourceLanguage, 'html')
+      const paths = [
+        `src/labs/${lesson.unitId}/example.html`,
+        ...lesson.steps.flatMap((step) => [
+          step.starterPath,
+          step.solutionPath,
+        ]),
+      ]
+      return paths.flatMap((file) => {
+        assert.ok(Object.hasOwn(en.codeSourceHashes, file), file)
+        return [file, file.replace(/\.html$/, '.en.html')]
+      })
+    }),
+  )
+  assert.equal(learningSources.size, 92)
+  assert.deepEqual(
+    actual.filter((file) => learningSources.has(file)),
+    [...learningSources].sort(),
+  )
+  assert.deepEqual(
+    actual.filter((file) => !learningSources.has(file)),
+    originals,
+  )
   assert.equal(new Set(originals).size, 233)
   assert.deepEqual(
     Object.fromEntries(

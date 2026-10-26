@@ -356,7 +356,7 @@ create a Mesh from geometry and material, connect it to Scene, and render with a
 
 ### Turn time into rotation
 
-The starter contains the cube and camera and begins with speed=0, so it is stationary. Passing renderFrame(timeMs) to renderer.setAnimationLoop makes the renderer call it each frame. A function passed for later invocation is called a callback.
+The starter contains the cube and camera and begins with speed=0, so it is stationary. Register the function with renderer.setAnimationLoop(renderFrame). The renderer later calls renderFrame(timeMs) each frame, passing the timestamp as its argument. A function passed for later invocation is called a callback.
 
 timeMs is a timestamp in milliseconds. Save its first value in start and calculate elapsed seconds with seconds = (timeMs - start) / 1000. In cube.rotation.y = seconds * speed, speed is in rad/s. rotation uses radians: Math.PI is 180°, Math.PI / 2 is 90°, and 2 * Math.PI is one turn. Remember that camera.fov uses degrees instead.
 
@@ -1041,8 +1041,8 @@ output.textContent = `${w} × ${h}; ${canvas.width} × ${canvas.height}`;
 
 Web API that reports element size changes through a callback, including stage changes without window resizing.
 
-- `callback: function` — Function called for size changes; the example passes resizeScene.
-- `target: Element` — The stage element observed with observe(target).
+- `callback: function` — Function called for size changes. The generic snippet below passes resizeScene; unit 01 passes draw.
+- `target: Element` — Element observed with observe(target). The snippet uses stage; unit 01 observes canvas.
 
 The constructor returns an observer. observe and disconnect return no value. disconnect stops observation.
 

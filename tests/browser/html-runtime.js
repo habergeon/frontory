@@ -53,11 +53,12 @@ const cases = {
 }
 
 /** Task 2 producer contracts, sharing the caller's owned server/browser/deadline. */
-export async function runHtmlRuntimeFixtures(page, base) {
+export async function runHtmlRuntimeFixtures(page, base, onFixture = () => {}) {
   await page.goto(base + '/tests/browser/html-runtime.html')
   await page.waitForFunction(() => window.makeHtmlPreview)
   const evidence = {}
   for (const [name, source] of Object.entries(cases)) {
+    onFixture(name)
     await page.evaluate(
       ({ name, source }) => {
         document.querySelector('iframe')?.remove()

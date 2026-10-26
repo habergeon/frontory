@@ -10,6 +10,7 @@ const args = process.argv.slice(2)
 const selected = args[args.indexOf('--case') + 1]
 assert.ok(
   [
+    'all',
     'storage',
     'runtime',
     'format',
@@ -18,9 +19,11 @@ assert.ok(
     'lesson-01',
     'lessons-02-04',
   ].includes(selected),
-  'Use --case storage|runtime|format|learning|roadmap|lesson-01|lessons-02-04',
+  'Use --case all|storage|runtime|format|learning|roadmap|lesson-01|lessons-02-04',
 )
-const totalMs = Number(process.env.THREEJS_TIMEOUT_MS ?? 120_000)
+const totalMs = Number(
+  process.env.THREEJS_TIMEOUT_MS ?? (selected === 'all' ? 1_200_000 : 120_000),
+)
 const closeMs = Number(process.env.THREEJS_CLOSE_MS ?? 3_000)
 assert.ok(Number.isFinite(totalMs) && totalMs > 0)
 assert.ok(Number.isFinite(closeMs) && closeMs > 0)
@@ -124,7 +127,10 @@ if (!args.includes('--worker')) {
   const evidence = {
     case: selected,
     checks: [],
+    cases: [],
+    console: [],
     errors: [],
+    totalBudgetMs: totalMs,
     cleanup: {},
     output,
   }
@@ -205,30 +211,123 @@ if (!args.includes('--worker')) {
         ).send('SystemInfo.getProcessInfo')
       ).processInfo.map((item) => item.id)
       publish()
-      const page = await browser.newPage({
-        viewport: { width: 1500, height: 1000 },
-      })
-      page.setDefaultTimeout(20_000)
-      page.on('pageerror', (error) =>
-        evidence.errors.push({ message: error.message, stack: error.stack }),
-      )
-      evidence.checks = await (
-        selected === 'roadmap'
-          ? runRoadmap
-          : selected === 'lessons-02-04'
-            ? runLessons0204
-            : selected === 'lesson-01'
-              ? runLesson01
-              : selected === 'learning'
-                ? runLearning
-                : selected === 'storage'
-                  ? runStorage
-                  : selected === 'format'
-                    ? runFormat
-                    : runRuntime
-      )(page, base)
-      if (selected === 'runtime')
-        evidence.producer = await runHtmlRuntimeFixtures(page, base)
+      const jobs =
+        selected === 'all'
+          ? [
+              ['storage', runStorage, 120_000],
+              ['runtime', runRuntime, 120_000],
+              ['format', runFormat, 120_000],
+              ['learning', runLearning, 120_000],
+              ['lesson-01', runLesson01, 180_000, '01'],
+              ['lesson-02', runLessons0204, 240_000, '02'],
+              ['lesson-03', runLessons0204, 240_000, '03'],
+              ['lesson-04', runLessons0204, 300_000, '04'],
+              ['roadmap', runRoadmap, 120_000],
+            ]
+          : [
+              [
+                selected,
+                {
+                  storage: runStorage,
+                  runtime: runRuntime,
+                  format: runFormat,
+                  learning: runLearning,
+                  roadmap: runRoadmap,
+                  'lesson-01': runLesson01,
+                  'lessons-02-04': runLessons0204,
+                }[selected],
+                totalMs,
+              ],
+            ]
+      if (selected === 'all') {
+        evidence.ignoredSelectors = {
+          lesson: process.env.THREEJS_LESSON ?? null,
+          cameraSteps: process.env.THREEJS_CAMERA_STEPS ?? null,
+        }
+        delete process.env.THREEJS_CAMERA_STEPS
+      }
+      for (const [name, run, budgetMs, lessonId] of jobs) {
+        if (selected === 'all' && lessonId)
+          process.env.THREEJS_LESSON = lessonId
+        const context = await browser.newContext({
+          viewport: { width: 1440, height: 900 },
+        })
+        const page = await context.newPage()
+        page.setDefaultTimeout(20_000)
+        let fixtureName = null
+        page.on('pageerror', (error) =>
+          evidence.errors.push({
+            case: name,
+            fixture: fixtureName,
+            message: error.message,
+            stack: error.stack,
+          }),
+        )
+        page.on('console', (message) => {
+          if (!['warning', 'error'].includes(message.type())) return
+          const text = message.text()
+          const location = message.location()
+          const classification = /GPU stall due to ReadPixels/.test(text)
+            ? 'swiftshader-readpixels'
+            : name === 'runtime' &&
+                fixtureName === 'network' &&
+                /Content Security Policy|connect-src/.test(text)
+              ? 'expected-csp-negative-fixture'
+              : name === 'runtime' && /import map|importmap/i.test(text)
+                ? 'expected-importmap-fixture'
+                : name === 'runtime' && fixtureName === null && text === 'later'
+                  ? 'expected-console-error-fixture'
+                  : location.url.endsWith('/favicon.ico') && /404/.test(text)
+                    ? 'fixture-favicon-404'
+                    : 'unclassified'
+          evidence.console.push({
+            case: name,
+            fixture: fixtureName,
+            type: message.type(),
+            classification,
+            location,
+            message: text,
+          })
+        })
+        const result = {
+          case: name,
+          lessonId: lessonId ?? null,
+          budgetMs,
+          status: 'RUNNING',
+        }
+        evidence.cases.push(result)
+        publish()
+        const start = Date.now()
+        console.log('START', name, 'budgetMs=' + budgetMs)
+        try {
+          await bounded(
+            async () => {
+              const checks = await run(page, base)
+              evidence.checks.push({ case: name, checks })
+              if (name === 'runtime')
+                evidence.producer = await runHtmlRuntimeFixtures(
+                  page,
+                  base,
+                  (name) => {
+                    fixtureName = name
+                  },
+                )
+            },
+            budgetMs,
+            name,
+          )
+          result.status = 'PASS'
+        } catch (error) {
+          result.status = 'FAIL'
+          result.failure = error.message
+          throw error
+        } finally {
+          result.elapsedMs = Date.now() - start
+          publish()
+        }
+        await bounded(() => context.close(), closeMs, name + ' context close')
+        console.log('PASS', name, 'elapsedMs=' + result.elapsedMs)
+      }
       assert.deepEqual(evidence.errors, [])
     }
   } catch (error) {
@@ -281,7 +380,12 @@ if (!args.includes('--worker')) {
       JSON.stringify({
         result: 'PASS',
         case: selected,
-        checks: evidence.checks,
+        cases: evidence.cases,
+        checks: evidence.checks.length,
+        consoleClassifications: evidence.console.reduce((counts, entry) => {
+          counts[entry.classification] = (counts[entry.classification] ?? 0) + 1
+          return counts
+        }, {}),
         producerCases: Object.keys(evidence.producer ?? {}).length,
         cleanup: evidence.cleanup,
         output,

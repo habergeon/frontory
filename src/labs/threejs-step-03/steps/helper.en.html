@@ -99,6 +99,7 @@
       const baselineDistance = 9;
       document.querySelector('#distance').value = String(baselineDistance);
       const baselineFov = 50;
+      document.querySelector('#fov').value = String(baselineFov);
       const subjectCamera = new THREE.PerspectiveCamera(baselineFov, 1, 0.1, 12);
       subjectCamera.position.set(0, 0, baselineDistance);
       subjectCamera.lookAt(0, 0, 0);

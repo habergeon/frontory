@@ -338,3 +338,17 @@ test('HTML snapshot read/write failures preserve memory and original snapshot by
   assert.equal(result.draft.language, 'html')
   assert.equal(result.draft.code, '<p>원문</p>')
 })
+
+test('first JavaScript begin replaces an unstarted HTML preload only once', () => {
+  const storage = fixture()
+  const store = createDraftStore(() => storage)
+  store.load('reverse', '<p>preload</p>', 'html')
+  const first = store.begin('reverse', 'export function mount() {}', 'en')
+  assert.equal(first.draft.language, undefined)
+  assert.equal(first.draft.code, 'export function mount() {}')
+  assert.strictEqual(
+    store.begin('reverse', '<p>later</p>', 'ko', 'html'),
+    first,
+  )
+  assert.deepEqual([...storage.data], [])
+})

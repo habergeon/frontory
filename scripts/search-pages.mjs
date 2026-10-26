@@ -85,7 +85,7 @@ export const escape = (value) =>
     .replaceAll("'", '&#39;')
 
 export function renderDocument(markdown, docPath, locale = 'ko') {
-  // Omit only the untouched worksheet tail; retain any written experiment record.
+  // Omit only the untouched worksheet section; retain written records and following sections.
   const h = headings[locale]
   const literal = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   const worksheet = [
@@ -103,7 +103,7 @@ export function renderDocument(markdown, docPath, locale = 'ko') {
     new RegExp(
       String.raw`\n` +
         worksheet.map(literal).join(String.raw`\s+`) +
-        String.raw`\s*$`,
+        String.raw`\s*(?=\n## |$)`,
     ),
     '\n',
   )

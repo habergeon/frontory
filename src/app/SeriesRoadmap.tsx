@@ -10,14 +10,13 @@ export function SeriesRoadmap({ locale }: { locale: Locale }) {
       <summary>{copy.title}</summary>
       <p>{copy.explanation}</p>
       <ol>
-        {getSeriesRoadmap(locale).map((entry, index) => (
+        {getSeriesRoadmap(locale).map((entry) => (
           <li
             key={entry.unitId}
             data-unit-id={entry.unitId}
             data-readiness={entry.readiness}
           >
             <a href={'#' + entry.unitId}>
-              {String(index + 1).padStart(2, '0')} ·{' '}
               {getLocalizedUnit(locale, entry.unitId)!.title}
             </a>{' '}
             <span className="badge">{copy[entry.readiness]}</span>

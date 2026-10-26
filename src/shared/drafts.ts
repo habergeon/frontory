@@ -126,10 +126,12 @@ export function createDraftStore(getStorage: () => StorageAccess) {
     ): DraftResult {
       const result = this.load(id, original, language)
       if (!unstarted.delete(id)) return result
+      const draft = { ...result.draft }
+      delete draft.language
       const started = {
         ...result,
         draft: {
-          ...result.draft,
+          ...draft,
           code: original,
           ...(language !== 'javascript' ? { language } : {}),
           notes: notesTemplateFor(locale),

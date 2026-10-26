@@ -53,7 +53,7 @@
         {
           "id": "threejs-01-animation",
           "title": "Turn time into rotation",
-          "explanation": "The starter contains the cube and camera and begins with speed=0, so it is stationary. Passing renderFrame(timeMs) to renderer.setAnimationLoop makes the renderer call it each frame. A function passed for later invocation is called a callback.\n\ntimeMs is a timestamp in milliseconds. Save its first value in start and calculate elapsed seconds with seconds = (timeMs - start) / 1000. In cube.rotation.y = seconds * speed, speed is in rad/s. rotation uses radians: Math.PI is 180°, Math.PI / 2 is 90°, and 2 * Math.PI is one turn. Remember that camera.fov uses degrees instead.\n\nSet speed to .5, run again, and read angle when output seconds is near 2. Run again with speed=1 and compare near the same 2 seconds. A frame might not occur at exactly 2 seconds; record the actual time and angle together. Adding a fixed angle per frame can make rotation per second depend on display refresh rate. This example calculates the angle from time.\n\nrenderFrame calls draw(). renderer.render(scene, camera) inside draw paints the updated rotation. Repeated calls reuse the same objects.",
+          "explanation": "The starter contains the cube and camera and begins with speed=0, so it is stationary. Register the function with renderer.setAnimationLoop(renderFrame). The renderer later calls renderFrame(timeMs) each frame, passing the timestamp as its argument. A function passed for later invocation is called a callback.\n\ntimeMs is a timestamp in milliseconds. Save its first value in start and calculate elapsed seconds with seconds = (timeMs - start) / 1000. In cube.rotation.y = seconds * speed, speed is in rad/s. rotation uses radians: Math.PI is 180°, Math.PI / 2 is 90°, and 2 * Math.PI is one turn. Remember that camera.fov uses degrees instead.\n\nSet speed to .5, run again, and read angle when output seconds is near 2. Run again with speed=1 and compare near the same 2 seconds. A frame might not occur at exactly 2 seconds; record the actual time and angle together. Adding a fixed angle per frame can make rotation per second depend on display refresh rate. This example calculates the angle from time.\n\nrenderFrame calls draw(). renderer.render(scene, camera) inside draw paints the updated rotation. Repeated calls reuse the same objects.",
           "solutionExplanation": ".5rad/s for 2 seconds gives 1rad; 1rad/s for 2 seconds gives 2rad. Without converting 2000ms into seconds, the angle is 1000 times larger. renderer.render(scene, camera) must also run inside renderFrame after changing rotation. The same cube is updated, rather than recreated each frame. renderer.setAnimationLoop(null) stops repeated calls.",
           "starterPath": "src/labs/threejs-01/steps/animation.html",
           "expected": "speed=0 is stationary. Near 2 seconds, speed=.5 gives angle≈1rad and speed=1 gives angle≈2rad. Both output and image change.",
@@ -988,12 +988,12 @@
         {
           "name": "callback",
           "type": "function",
-          "description": "Function called for size changes; the example passes resizeScene."
+          "description": "Function called for size changes. The generic snippet below passes resizeScene; unit 01 passes draw."
         },
         {
           "name": "target",
           "type": "Element",
-          "description": "The stage element observed with observe(target)."
+          "description": "Element observed with observe(target). The snippet uses stage; unit 01 observes canvas."
         }
       ],
       "result": "The constructor returns an observer. observe and disconnect return no value. disconnect stops observation.",
@@ -1241,7 +1241,7 @@
       "checkedAt": "2026-10-26"
     }
   ],
-  "sourceHash": "f546d6f539486174c858a132fc8de6b5783fbe308f5cc15b3b020e6c34638b0c",
+  "sourceHash": "77dfa6b7d662bd2efdefe108f7d5de4b502144fd1e3bb7b198bdfcb14c9048f0",
   "codeSourceHashes": {
     "src/labs/threejs-01/example.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
     "src/labs/threejs-01/steps/canvas.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
@@ -1266,7 +1266,7 @@
     "src/labs/threejs-step-03/example.html": "c089b685dceee79146dab52e84fda6fb81763c813a21148ba32e7c1b8dca50aa",
     "src/labs/threejs-step-03/steps/perspective-depth.html": "c089b685dceee79146dab52e84fda6fb81763c813a21148ba32e7c1b8dca50aa",
     "src/labs/threejs-step-03/solutions/perspective-depth.html": "c089b685dceee79146dab52e84fda6fb81763c813a21148ba32e7c1b8dca50aa",
-    "src/labs/threejs-step-03/steps/distance-fov.html": "694d92dceb494559203bfb3b5b5cfab748501a919525e64ee4374316a96782c1",
+    "src/labs/threejs-step-03/steps/distance-fov.html": "a8363be7680d6d928181f48c462101765ba2a3d80f707ca27b69c7484e08a836",
     "src/labs/threejs-step-03/solutions/distance-fov.html": "35b52a34b23662c96ee69601e05245e1af42715c77b1e33c3563c88518964b5b",
     "src/labs/threejs-step-03/steps/orthographic.html": "d58fc29c3b65c5277a93ae659ed43d749a7f456f9e4c7535065c78de27d4263f",
     "src/labs/threejs-step-03/solutions/orthographic.html": "8da98903d276e6913766be99b625f01acc03f484d724fe5b446636078e7d3215",
@@ -1274,7 +1274,7 @@
     "src/labs/threejs-step-03/solutions/clipping.html": "b2c2bb6d85c92341390815b25afb1fb854f9e1c420ad27a143216883523369d7",
     "src/labs/threejs-step-03/steps/controls.html": "ccdc99953ceae659b21f935641d70ef425065526c8573937d85641a89ae4f11d",
     "src/labs/threejs-step-03/solutions/controls.html": "8ca3a91a0b2d735fe30c173f3173acc6755f8f2d905b2e5a155a7c78b522188f",
-    "src/labs/threejs-step-03/steps/helper.html": "daa8435d56e130da42330f6e966a14c0fe7ae65b07ba78b4bbc128dd7bed1369",
+    "src/labs/threejs-step-03/steps/helper.html": "3000af56458bd45164385865f90b92e8ddb6ee6f580d4156104670127228f687",
     "src/labs/threejs-step-03/solutions/helper.html": "e0426962a2f64eb77722350b6e10bf90709fab9dadf79a021257ccab0e63461d",
     "src/labs/threejs-step-04/example.html": "b08c69fb25eaa2242069a4123085120ffa6af812f301be6483a98d0d5bd63722",
     "src/labs/threejs-step-04/steps/axes.html": "b08c69fb25eaa2242069a4123085120ffa6af812f301be6483a98d0d5bd63722",
@@ -1287,7 +1287,7 @@
     "src/labs/threejs-step-04/solutions/combined.html": "c1e03819e56fa56072c3d964dbe1250dca86fc2ebacc205f31632da66383babf",
     "src/labs/threejs-step-04/steps/hinge.html": "06caa39a74f8b2f266e8f0bb15d27fdd29eb283abb13d96a53a12754476bb540",
     "src/labs/threejs-step-04/solutions/hinge.html": "4494c02b7f4116b090ebceeb8ef39d3d5d0b12c672a400b2101bd071fcd0acf0",
-    "src/labs/threejs-step-04/steps/euler-supplement.html": "7bc026d3063d1de3d466a669d2d6fb23f7aa05fc1842e5e33668c3c2a4a4aec6",
-    "src/labs/threejs-step-04/solutions/euler-supplement.html": "a70d2312aea4f90ab34e061e115bd11bdec407dbf7028633c77e176c195cd0dc"
+    "src/labs/threejs-step-04/steps/euler-supplement.html": "aed3511c2e2e21ce5c57ec3b20e4d75d80a8395423397c5db3916ccbb688d5ac",
+    "src/labs/threejs-step-04/solutions/euler-supplement.html": "737c7f226bde0855384a0006a50374b28c44c87b2399ed980edd857c5022e8c7"
   }
 }

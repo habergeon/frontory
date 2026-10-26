@@ -16,3 +16,5 @@ public/assets/*
 *.ksplat
 *.spz
 *.sog
+src/preview/three-core.generated.js
+src/preview/three-controls.generated.js

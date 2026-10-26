@@ -12,3 +12,5 @@ await build({
   legalComments: 'inline',
 })
 console.log('Preview runtime bundled locally.')
+
+await import('./build-three-preview.mjs')

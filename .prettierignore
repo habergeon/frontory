@@ -1,0 +1,28 @@
+# Dependencies, build output, and generated preview runtime.
+node_modules/
+dist/
+src/preview/runtime.generated.js
+
+# Temporary workspace and execution evidence.
+_workspace/
+.superpowers/
+
+# pnpm owns the lockfile format.
+pnpm-lock.yaml
+
+# Unsupported source formats and assets; SVG has no bundled XML parser.
+**/*.svg
+**/*.wat
+**/*.wgsl
+**/*.glsl
+**/*.ps1
+**/*.vtt
+**/*.txt
+**/*.wasm
+**/*.mp4
+**/*.png
+**/*.ply
+**/*.splat
+**/*.ksplat
+**/*.spz
+**/*.sog

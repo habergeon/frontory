@@ -9,7 +9,7 @@ test('home and learning pages provide complete social metadata and site identity
   for (const html of pages) {
     assert.match(html, /property="og:site_name" content="Frontory"/)
     assert.match(html, new RegExp(`property="og:locale" content="${html.includes('<html lang="en"') ? 'en_US' : 'ko_KR'}"`))
-    assert.match(html, /property="og:image" content="https:\/\/frontory.pages.dev\/og\/frontory.png"/)
+    assert.match(html, /property="og:image"\s+content="https:\/\/frontory.pages.dev\/og\/frontory.png"/)
     assert.match(html, /name="twitter:card" content="summary_large_image"/)
     assert.match(html, /property="og:image:alt"/)
   }

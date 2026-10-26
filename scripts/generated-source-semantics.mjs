@@ -4,6 +4,7 @@ import { parsers as babel } from 'prettier/plugins/babel'
 import { parsers as html } from 'prettier/plugins/html'
 import { parsers as markdown } from 'prettier/plugins/markdown'
 import { parsers as postcss } from 'prettier/plugins/postcss'
+import { parsers as yaml } from 'prettier/plugins/yaml'
 import { parse, compile } from 'svelte/compiler'
 
 const metadata = new Set([
@@ -29,11 +30,26 @@ const metadata = new Set([
   '__contentEnd',
 ])
 // TemplateElement.value.raw is deliberately retained: tagged templates observe it.
-function project(value) {
-  if (Array.isArray(value))
-    return value
-      .map(project)
+function project(value, hostChildren = false, nativeContext = false) {
+  if (Array.isArray(value)) {
+    const children = value
+      .map((child) => project(child, false, nativeContext))
       .filter((child) => child?.type !== 'JSXText' || child.value)
+    if (!hostChildren) return children
+    const result = []
+    for (let child of children) {
+      if (
+        child?.type === 'JSXExpressionContainer' &&
+        child.expression?.type === 'StringLiteral' &&
+        child.expression.value === ' '
+      )
+        child = { type: 'JSXText', value: ' ' }
+      if (child?.type === 'JSXText' && result.at(-1)?.type === 'JSXText')
+        result.at(-1).value += child.value
+      else result.push(child)
+    }
+    return result
+  }
   if (!value || typeof value !== 'object') return value
   if (value.type === 'JSXText') {
     const lines = value.value
@@ -55,19 +71,43 @@ function project(value) {
   if (value.type === 'text')
     return { type: 'text', value: value.value.replace(/\s+/g, ' ') }
   const result = {}
+  const nativeElement =
+    value.type === 'JSXElement' &&
+    value.openingElement.name.type === 'JSXIdentifier' &&
+    /^[a-z]/.test(value.openingElement.name.name)
+  const renderExpression =
+    nativeContext &&
+    [
+      'JSXFragment',
+      'JSXExpressionContainer',
+      'ConditionalExpression',
+      'LogicalExpression',
+    ].includes(value.type)
   for (const [key, child] of Object.entries(value)) {
     if (metadata.has(key) || key.endsWith('Span')) continue
+    if (value.type === 'Program' && key === 'body') {
+      result.body = project(
+        child.filter((statement) => statement.type !== 'EmptyStatement'),
+      )
+      continue
+    }
     result[key] =
       key === 'value' && value.type === 'TemplateElement'
         ? child
-        : project(child)
+        : project(
+            child,
+            key === 'children' &&
+              (nativeElement ||
+                (value.type === 'JSXFragment' && nativeContext)),
+            (nativeElement && key === 'children') || renderExpression,
+          )
   }
   if (
     ['ObjectProperty', 'ObjectMethod', 'Property'].includes(value.type) &&
     !value.computed &&
     value.key
   ) {
-    result.key = { name: value.key.name ?? value.key.value }
+    result.key = { name: String(value.key.name ?? value.key.value) }
   }
   return result
 }
@@ -127,9 +167,19 @@ async function htmlStructure(source) {
     delete result.children
     if (node.isVoid) delete result.isSelfClosing
     if (node.name === 'script') {
-      result.script = await javascriptStructure(
-        node.children.map((child) => child.value ?? '').join(''),
-      )
+      const script = node.children.map((child) => child.value ?? '').join('')
+      const type = node.attrs?.find(
+        (attribute) => attribute.name === 'type',
+      )?.value
+      result.script =
+        type === 'application/ld+json'
+          ? JSON.parse(script)
+          : !type ||
+              ['module', 'text/javascript', 'application/javascript'].includes(
+                type,
+              )
+            ? await javascriptStructure(script)
+            : script
     } else if (node.name === 'style') {
       result.css = project(
         await postcss.css.parse(
@@ -217,10 +267,42 @@ function svelteStructure(source) {
             )
     }
     if (node.type === 'Property' && !node.computed)
-      result.key = { name: node.key.name ?? node.key.value }
+      result.key = { name: String(node.key.name ?? node.key.value) }
     return result
   }
   return visit(ast)
+}
+
+function cssStructure(node) {
+  if (Array.isArray(node)) return node.map(cssStructure)
+  if (!node || typeof node !== 'object') return node
+  const result = {}
+  if (node.type === 'css-decl' && node.prop.startsWith('--'))
+    result.customValue = node.value.text
+  const media = node.type?.startsWith('media-')
+  for (const [key, value] of Object.entries(node)) {
+    if (
+      media &&
+      (['before', 'after'].includes(key) || (key === 'value' && node.nodes))
+    )
+      continue
+    if (node.type === 'selector-attribute' && key === 'quoted') continue
+    if (node.type === 'selector-attribute' && key === 'value') {
+      result.value = /^(['"])[a-zA-Z0-9_-]+\1$/.test(value)
+        ? value.slice(1, -1)
+        : value
+      continue
+    }
+    if (metadata.has(key) || ['inputs', 'sourceIndex', 'spaces'].includes(key))
+      continue
+    // Parsed child tokens retain values; text repeats their unformatted spelling.
+    if (node.type === 'value-root' && key === 'text') continue
+    result[key] =
+      node.type === 'value-number' && key === 'value'
+        ? value.replace(/^(-?)0\./, '$1.')
+        : cssStructure(value)
+  }
+  return result
 }
 
 export async function assertGeneratedSemantics(file, before, after) {
@@ -250,7 +332,23 @@ export async function assertGeneratedSemantics(file, before, after) {
     right = project(
       await markdown.markdown.parse(after.replaceAll('\r\n', '\n')),
     )
-  } else if (['.wat', '.vtt', '.yml'].includes(extension)) {
+  } else if (extension === '.css') {
+    kind = 'css-ast'
+    left = cssStructure(await postcss.css.parse(before))
+    right = cssStructure(await postcss.css.parse(after))
+  } else if (['.yml', '.yaml'].includes(extension)) {
+    const oldText = before.replaceAll('\r\n', '\n')
+    const newText = after.replaceAll('\r\n', '\n')
+    if (oldText === newText) {
+      kind = 'exact-lf-text'
+      left = oldText
+      right = newText
+    } else {
+      kind = 'yaml-ast'
+      left = project(await yaml.yaml.parse(before))
+      right = project(await yaml.yaml.parse(after))
+    }
+  } else if (['.wat', '.vtt'].includes(extension)) {
     kind = 'exact-lf-text'
     left = before.replaceAll('\r\n', '\n')
     right = after.replaceAll('\r\n', '\n')

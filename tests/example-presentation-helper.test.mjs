@@ -124,22 +124,117 @@ for (const id of ['javascript-step-02', 'css-step-04', 'react-step-03', 'gsap-st
   })
 }
 
-test('approved foundations and framework inline/indented source forms translate with executable parity', () => {
+test('approved foundations and framework inline/indented source forms translate with executable parity', async () => {
   const cases = [
-    ['typescript-02', '      const lesson = first(value) // Lesson | undefined: 제네릭이 입력 요소의 타입을 보존합니다.', 'Lesson | undefined: 제네릭이 입력 요소의 타입을 보존합니다.', 'Lesson | undefined: Generics preserve the input element type.'],
-    ['typescript-03', '      if (closed) return // 멱등성: 중복 호출은 아무 효과가 없습니다.', '멱등성: 중복 호출은 아무 효과가 없습니다.', 'Idempotence: Duplicate calls have no effect.'],
-    ['html-03', '    // 잘못된 로컬 data URI로 네트워크 없이 이미지 실패를 만듭니다.', '잘못된 로컬 data URI로 네트워크 없이 이미지 실패를 만듭니다.', 'An invalid local data URI causes image failure without network access.'],
-    ['react-03', '    const renders = React.useRef(0); renders.current++ // 학습용 렌더 시도 계수, 시간 측정값이 아닙니다.', '학습용 렌더 시도 계수, 시간 측정값이 아닙니다.', 'Learning render attempt counter, not a time measurement.'],
-    ['react-03', '      // 개발/profiling 빌드에서만 콜백을 보장합니다. 결과를 state에 넣으면 추가 렌더가 생깁니다.', '개발/profiling 빌드에서만 콜백을 보장합니다. 결과를 state에 넣으면 추가 렌더가 생깁니다.', 'Callbacks are guaranteed only in development/profiling builds. Storing results in state triggers extra renders.'],
-    ['vue-02', '    // 단위와 문자열을 스냅샷으로 잡아, 늦은 타이머가 새 단위에 쓰지 못하게 합니다.', '단위와 문자열을 스냅샷으로 잡아, 늦은 타이머가 새 단위에 쓰지 못하게 합니다.', 'Snapshot the unit and string so late timers cannot write to a new unit.'],
-    ['vue-02', '      onCleanup(() => clearTimeout(timer)) // 재실행과 컴포넌트 해제에서 모두 정리', '재실행과 컴포넌트 해제에서 모두 정리', 'Clean up on rerun and component disposal.'],
-    ['vue-03', '        frame = requestAnimationFrame(draw) // angle은 지역 변수: 매 프레임 Vue 렌더를 요청하지 않습니다.', 'angle은 지역 변수: 매 프레임 Vue 렌더를 요청하지 않습니다.', 'angle is local: It does not request a Vue render every frame.'],
+    [
+      'typescript-02',
+      '      const lesson = first(value) // Lesson | undefined: 제네릭이 입력 요소의 타입을 보존합니다.',
+      'Lesson | undefined: 제네릭이 입력 요소의 타입을 보존합니다.',
+      'Lesson | undefined: Generics preserve the input element type.',
+    ],
+    [
+      'typescript-03',
+      '      if (closed) return // 멱등성: 중복 호출은 아무 효과가 없습니다.',
+      '멱등성: 중복 호출은 아무 효과가 없습니다.',
+      'Idempotence: Duplicate calls have no effect.',
+    ],
+    [
+      'html-03',
+      '    // 잘못된 로컬 data URI로 네트워크 없이 이미지 실패를 만듭니다.',
+      '잘못된 로컬 data URI로 네트워크 없이 이미지 실패를 만듭니다.',
+      'An invalid local data URI causes image failure without network access.',
+    ],
+    [
+      'react-03',
+      '    const renders = React.useRef(0); renders.current++ // 학습용 렌더 시도 계수, 시간 측정값이 아닙니다.',
+      '학습용 렌더 시도 계수, 시간 측정값이 아닙니다.',
+      'Learning render attempt counter, not a time measurement.',
+    ],
+    [
+      'react-03',
+      '      // 개발/profiling 빌드에서만 콜백을 보장합니다. 결과를 state에 넣으면 추가 렌더가 생깁니다.',
+      '개발/profiling 빌드에서만 콜백을 보장합니다. 결과를 state에 넣으면 추가 렌더가 생깁니다.',
+      'Callbacks are guaranteed only in development/profiling builds. Storing results in state triggers extra renders.',
+    ],
+    [
+      'vue-02',
+      '    // 단위와 문자열을 스냅샷으로 잡아, 늦은 타이머가 새 단위에 쓰지 못하게 합니다.',
+      '단위와 문자열을 스냅샷으로 잡아, 늦은 타이머가 새 단위에 쓰지 못하게 합니다.',
+      'Snapshot the unit and string so late timers cannot write to a new unit.',
+    ],
+    [
+      'vue-02',
+      '      onCleanup(() => clearTimeout(timer)) // 재실행과 컴포넌트 해제에서 모두 정리',
+      '재실행과 컴포넌트 해제에서 모두 정리',
+      'Clean up on rerun and component disposal.',
+    ],
+    [
+      'vue-03',
+      '        frame = requestAnimationFrame(draw) // angle은 지역 변수: 매 프레임 Vue 렌더를 요청하지 않습니다.',
+      'angle은 지역 변수: 매 프레임 Vue 렌더를 요청하지 않습니다.',
+      'angle is local: It does not request a Vue render every frame.',
+    ],
   ]
   for (const [id, line, from, to] of cases) {
     const source = fs.readFileSync(`src/labs/${id}/example.js`, 'utf8')
-    assert.ok(source.split(/\r?\n/).includes(line), id)
-    const column = line.indexOf('//')
-    const reading = helper.translateExampleComments(id, source, { comments: { approved: from } }, { comments: { approved: to } }, { approved: { line, column, kind: 'line' } })
+    const fixture = helper.translateExampleComments(
+      id,
+      line,
+      { comments: { approved: from } },
+      { comments: { approved: to } },
+      { approved: { line, column: line.indexOf('//'), kind: 'line' } },
+    )
+    assert.equal(fixture.replace('// ' + to, '// ' + from), line, id)
+    const ast = await parsers.babel.parse(source)
+    const comments = ast.comments.filter(
+      (comment) =>
+        comment.type === 'CommentLine' && comment.value.trim() === from,
+    )
+    assert.equal(comments.length, 1, id)
+    const actualLine = source.split(/\r?\n/)[comments[0].loc.start.line - 1]
+    const column = comments[0].loc.start.column
+    const prefix = line.slice(0, line.indexOf('//')).trim()
+    if (prefix) {
+      const wrap = (code) => `function context() {\n${code}\n}`
+      const expected = await parsers.babel.parse(wrap(prefix))
+      const count = expected.program.body[0].body.body.length
+      const contexts = []
+      function visit(node) {
+        if (!node || typeof node !== 'object') return
+        if (Array.isArray(node.body)) {
+          const index = node.body.findIndex(
+            (statement) =>
+              statement.end <= comments[0].start &&
+              !source.slice(statement.end, comments[0].start).trim(),
+          )
+          if (index >= count - 1)
+            contexts.push(
+              source.slice(
+                node.body[index - count + 1].start,
+                node.body[index].end,
+              ),
+            )
+        }
+        for (const value of Object.values(node)) {
+          if (Array.isArray(value)) value.forEach(visit)
+          else if (value && typeof value === 'object') visit(value)
+        }
+      }
+      visit(ast.program)
+      assert.equal(contexts.length, 1, id)
+      await assertGeneratedSemantics(
+        'context.js',
+        wrap(prefix),
+        wrap(contexts[0]),
+      )
+    } else assert.equal(actualLine.slice(0, column).trim(), '', id)
+    const reading = helper.translateExampleComments(
+      id,
+      source,
+      { comments: { approved: from } },
+      { comments: { approved: to } },
+      { approved: { line: actualLine, column, kind: 'line' } },
+    )
     assert.equal(reading.replace('// ' + to, '// ' + from), source, id)
     assert.equal(transformSync(reading).code, transformSync(source).code, id)
   }

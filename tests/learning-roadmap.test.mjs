@@ -181,3 +181,16 @@ test('the approved follow-up topics, outcomes and capability text remain represe
     assert.ok(entry.requiredCapabilities.includes(rows[index][4]))
   }
 })
+
+test('current KO/EN roadmap explanation matches all 28 verified units', () => {
+  assert.match(
+    roadmapMessages.ko.explanation,
+    /^01~28은 사이트 안의 필수 실습 검증과 단원별 내용 검토를 마쳤습니다/,
+  )
+  assert.match(
+    roadmapMessages.en.explanation,
+    /^Units 01–28 have completed verification of the required in-site exercises and unit content review/,
+  )
+  assert.doesNotMatch(roadmapMessages.ko.explanation, /검증이 남았/)
+  assert.doesNotMatch(roadmapMessages.en.explanation, /still pending/)
+})

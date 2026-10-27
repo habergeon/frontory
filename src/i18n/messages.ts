@@ -674,7 +674,7 @@ export const roadmapMessages = {
   ko: {
     title: 'Three.js 전체 28개 단원 로드맵',
     explanation:
-      '01~04는 사이트 안의 필수 실습 검증을 마쳤습니다. 05~28의 개선 예정은 기존 자료를 읽을 수 있지만 사이트 안에서 실습을 끝낼 수 있는지 검증이 남았다는 뜻입니다. 이 상태는 나의 학습 진도와 별개입니다.',
+      '01~28은 사이트 안의 필수 실습 검증과 단원별 내용 검토를 마쳤습니다. 이 구현 상태는 나의 학습 진도와 별개이며 운영 배포 상태를 뜻하지 않습니다.',
     verified: '실습 검증 완료',
     planned: '개선 예정',
     prerequisites: '선수 단원',
@@ -686,7 +686,7 @@ export const roadmapMessages = {
   en: {
     title: 'Three.js roadmap: all 28 units',
     explanation:
-      'Units 01–04 have passed verification of the required in-site exercises. Planned improvements for units 05–28 mean existing lessons remain available, while verification that their exercises can be completed inside the site is still pending. This status is separate from your learning progress.',
+      'Units 01–28 have completed verification of the required in-site exercises and unit content review. This implementation status is separate from your learning progress and does not indicate deployment status.',
     verified: 'Practice verified',
     planned: 'Improvements planned',
     prerequisites: 'Prerequisite units',

@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict'
 import { readLearningContent } from '../../scripts/learning-content.mjs'
+import { roadmapMessages } from '../../src/i18n/messages.ts'
 
 const fixture = '/tests/browser/threejs-learning.html'
 const editorState = (page) =>
@@ -2934,12 +2935,34 @@ export async function runRoadmap(page, base) {
       !(await rows.first().locator(':scope > a').innerText()).match(/^01/),
       'unit number appears only in the ordered-list marker',
     )
-    assert.match(
+    assert.equal(
       await roadmap.locator('p').innerText(),
-      locale === 'ko'
-        ? /검증이 남았.*학습 진도와 별개/
-        : /verification.*still pending.*separate from your learning progress/s,
+      roadmapMessages[locale].explanation,
     )
+    await page.locator('.current-lesson-actions button').first().click()
+    await page.waitForSelector('.document-reader .markdown')
+    const explanation = page
+      .locator('.document-reader .markdown')
+      .getByText(roadmapMessages[locale].explanation, { exact: true })
+    await explanation.scrollIntoViewIfNeeded()
+    assert.equal(await explanation.isVisible(), true)
+    await page.screenshot({ path: prefix + '-document-' + locale + '.png' })
+    const seriesPath =
+      '/docs/' +
+      (locale === 'en' ? 'en/' : '') +
+      'labs/graphics/threejs/README.md'
+    const response = await page.request.get(base + seriesPath)
+    assert.equal(response.status(), 200)
+    assert.ok(
+      (await response.text()).includes(roadmapMessages[locale].explanation),
+    )
+    await page.locator('.document-reader .dialog-header button').click()
+    checks.push({
+      locale,
+      explanation: roadmapMessages[locale].explanation,
+      documentVisible: true,
+      publicSeriesPath: seriesPath,
+    })
     assert.equal(
       await page.locator('.lesson-learning > .series-roadmap').count(),
       1,

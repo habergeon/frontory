@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import fs from 'node:fs'
 import { readLearningContent } from '../scripts/learning-content.mjs'
+import { roadmapMessages } from '../src/i18n/messages.ts'
 const read = (p) => JSON.parse(fs.readFileSync(p, 'utf8'))
 test('complete course preserves all 28 HTML defaults, ordered lessons and verified KO/EN parity', () => {
   const data = readLearningContent()
@@ -18,6 +19,14 @@ test('complete course preserves all 28 HTML defaults, ordered lessons and verifi
     for (const entry of (locale === 'ko' ? data.roadmapKo : data.roadmapEn)
       .entries)
       assert.equal(entry.readiness, 'verified')
+    assert.match(
+      roadmapMessages[locale].explanation,
+      locale === 'ko' ? /^01~28은/ : /^Units 01–28 have completed verification/,
+    )
+    assert.doesNotMatch(
+      roadmapMessages[locale].explanation,
+      /검증이 남았|still pending/,
+    )
     for (const unit of units) {
       assert.equal(unit.sourceLanguage, 'html')
       const suffix = locale === 'en' ? '.en' : ''

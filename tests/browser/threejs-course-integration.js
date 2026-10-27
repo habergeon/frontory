@@ -55,11 +55,37 @@ export async function runGroup(page, base) {
         await page.locator('#learning-step option').count(),
         lessons.find((l) => l.unitId === unit.id).steps.length,
       )
-      await page.locator('.lesson-learning nav button').first().click()
+      const expectedDocPath = (locale === 'en' ? englishUnits : units).find(
+        (u) => u.id === unit.id,
+      ).docPath
+      const loadedDocument = page.waitForResponse(
+        (response) => new URL(response.url()).pathname === expectedDocPath,
+      )
+      await page.locator('.current-lesson-actions button').first().click()
+      const documentResponse = await loadedDocument
+      assert.equal(documentResponse.status(), 200)
+      assert.equal(new URL(documentResponse.url()).pathname, expectedDocPath)
       await page.waitForSelector('.document-reader .markdown h1')
       assert.equal(
         await page.locator('.document-reader .markdown h1').count(),
         1,
+      )
+      const expectedHeading = fs
+        .readFileSync(expectedDocPath.slice(1), 'utf8')
+        .split(String.fromCharCode(10))[0]
+        .slice(2)
+        .trim()
+      assert.equal(
+        await page.locator('.document-reader .markdown h1').innerText(),
+        expectedHeading,
+      )
+      assert.equal(
+        await page
+          .locator('.document-reader .markdown > p code')
+          .filter({ hasText: unit.id })
+          .first()
+          .innerText(),
+        unit.id,
       )
       assert.equal(await page.evaluate(() => location.hash), '#' + unit.id)
       await page.locator('.document-reader .dialog-header button').click()
@@ -68,6 +94,10 @@ export async function runGroup(page, base) {
         locale,
         htmlDefault: true,
         documentOpened: true,
+        expectedDocPath,
+        actualDocumentURL: documentResponse.url(),
+        heading: expectedHeading,
+        documentStorageId: unit.id,
       })
     }
     if (process.env.THREEJS_COURSE_FLOW_ONLY === '1') {
@@ -113,7 +143,7 @@ export async function runGroup(page, base) {
       editor.trigger('task7', 'undo', null)
     })
     assert.equal(await editorCode(page), code)
-    await page.locator('.lesson-learning nav button').first().click()
+    await page.locator('.current-lesson-actions button').first().click()
     await page.waitForSelector('.document-reader .markdown')
     for (const index of [1, 2, 0]) {
       await page.locator('.document-nav button').nth(index).click()

@@ -193,7 +193,7 @@
       "topics": ["InstancedMesh", "matrix", "needsUpdate", "draw call"],
       "outcome": "같은 배치를 개별 Mesh와 인스턴싱으로 비교",
       "requiredCapabilities": ["renderer.info의 해당 지표 설명·출력"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-20",
@@ -201,7 +201,7 @@
       "topics": ["instanceId", "색·위치 갱신", "경계"],
       "outcome": "한 인스턴스를 바꾼 뒤 새 위치에서 선택",
       "requiredCapabilities": ["인스턴스 ID·변환·경계 관찰"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-21",
@@ -213,7 +213,7 @@
       "topics": ["frustum culling", "bounds", "LOD"],
       "outcome": "거리별 품질·비용을 비교하고 잘못된 컬링 수정",
       "requiredCapabilities": ["bounds·상세도 상태·삼각형 수 표시"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-22",
@@ -225,7 +225,7 @@
       "topics": ["offscreen render", "texture", "target 복원"],
       "outcome": "메인 화면과 미니맵을 갱신하고 렌더 상태 복원",
       "requiredCapabilities": ["두 카메라·render target 실습"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-23",

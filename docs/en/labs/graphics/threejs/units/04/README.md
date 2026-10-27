@@ -2546,7 +2546,7 @@ Completion task: Explain intersecting surfaces and the limits of object sorting
 
 Required practice capabilities: The same scene and viewpoint for comparison and notes
 
-### [19. Instancing Basics](../19/README.md) · Improvements planned
+### [19. Instancing Basics](../19/README.md) · Practice verified
 
 ID: `threejs-step-19`
 
@@ -2558,7 +2558,7 @@ Completion task: Compare individual meshes with instancing for the same layout
 
 Required practice capabilities: Explanation and output of relevant renderer.info metrics
 
-### [20. Instance Selection and Updates](../20/README.md) · Improvements planned
+### [20. Instance Selection and Updates](../20/README.md) · Practice verified
 
 ID: `threejs-step-20`
 
@@ -2570,7 +2570,7 @@ Completion task: Move one instance and select it at its new position
 
 Required practice capabilities: Instance ID, transform and bounds observation
 
-### [21. Offscreen Objects and Level of Detail](../21/README.md) · Improvements planned
+### [21. Offscreen Objects and Level of Detail](../21/README.md) · Practice verified
 
 ID: `threejs-step-21`
 
@@ -2582,7 +2582,7 @@ Completion task: Compare quality and cost by distance and fix incorrect culling
 
 Required practice capabilities: Bounds, detail level and triangle count display
 
-### [22. Render Targets and Minimap](../22/README.md) · Improvements planned
+### [22. Render Targets and Minimap](../22/README.md) · Practice verified
 
 ID: `threejs-step-22`
 

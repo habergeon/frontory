@@ -103,26 +103,26 @@
   "threejs-step-19": {
     "readingSource": "/examples-en/threejs-step-19/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-19/example.js"]
+    "note": "사이트 안에서 독립 HTML을 편집·실행합니다. 실제 관찰을 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-19/example.html"]
   },
   "threejs-step-20": {
     "readingSource": "/examples-en/threejs-step-20/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-20/example.js"]
+    "note": "사이트 안에서 독립 HTML을 편집·실행합니다. 실제 관찰을 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-20/example.html"]
   },
   "threejs-step-21": {
     "readingSource": "/examples-en/threejs-step-21/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-21/example.js"]
+    "note": "사이트 안에서 독립 HTML을 편집·실행합니다. 실제 관찰을 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-21/example.html"]
   },
   "threejs-step-22": {
     "readingSource": "/examples-en/threejs-step-22/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-22/example.js"]
+    "note": "사이트 안에서 독립 HTML을 편집·실행합니다. 실제 관찰을 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-22/example.html"]
   },
   "threejs-step-23": {
     "readingSource": "/examples-en/threejs-step-23/example.js",

@@ -5,6 +5,25 @@ import { readLearningContent } from '../scripts/learning-content.mjs'
 const owned = [5, 6, 7, 8, 9].map(
   (n) => 'threejs-step-' + String(n).padStart(2, '0'),
 )
+test('19–22 expose independent bilingual instancing and multiple-view experiments', () => {
+  const data = readLearningContent()
+  for (const n of [19, 20, 21, 22]) {
+    const lesson = data.ko.lessons.find((l) => l.unitId === 'threejs-step-' + n)
+    assert.ok(lesson, n + ' missing HTML lesson')
+    assert.ok(lesson.steps.length >= 3)
+    for (const locale of ['ko', 'en'])
+      for (const step of lesson.steps) {
+        const starter = data.readCode(step.starterPath, locale)
+        const solution = data.readCode(step.solutionPath, locale)
+        assert.notEqual(starter, solution)
+        for (const source of [starter, solution])
+          transformSync(
+            source.split('<script type="module">')[1].split('</script>')[0],
+            { loader: 'js' },
+          )
+      }
+  }
+})
 test('10–13 expose independent localized HTML experiments', () => {
   const data = readLearningContent()
   for (const n of [10, 11, 12, 13]) {

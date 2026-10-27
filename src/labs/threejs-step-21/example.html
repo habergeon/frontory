@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>낡은 geometry 경계</title>
+    <style>
+      body{margin:0;padding:12px;font:14px/1.5 system-ui,sans-serif;color:#172554;background:white}h1{font-size:22px}#stage{width:480px;max-width:100%;height:280px}canvas{display:block;width:100%;height:100%;touch-action:none}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}input[type=number]{width:70px}button{padding:6px}output{display:block;white-space:pre-wrap;overflow-wrap:anywhere}
+    </style>
+  </head>
+  <body>
+    <h1>낡은 geometry 경계</h1>
+    <p>
+      정점은 X=8에 있지만 시작의 낡은 sphere는 원점에 있습니다. 카메라는 X=8을
+      봅니다. 경계 재계산과 컬링을 구별하고 LOD에서 거리 4와 12를 비교하세요.
+    </p>
+    <div class="controls">
+      <label
+        >실험<select id="mode">
+          <option value="bounds" selected>경계</option>
+          <option value="lod">LOD</option>
+        </select></label
+      ><label><input id="bounds" type="checkbox" />경계 재계산</label
+      ><label><input id="culling" type="checkbox" checked />frustumCulled</label
+      ><label
+        >카메라 거리<input
+          id="value"
+          type="number"
+          value="4"
+          min="4"
+          max="12"
+          step="1" /></label
+      ><button id="apply">적용</button><button id="cleanup">자원 정리</button>
+    </div>
+    <div id="stage"><canvas aria-label="낡은 geometry 경계"></canvas></div>
+    <output aria-live="polite"></output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage=document.querySelector('#stage'),canvas=document.querySelector('canvas'),output=document.querySelector('output');
+      const scene=new THREE.Scene();scene.background=new THREE.Color('#edf2f7');
+      const camera=new THREE.PerspectiveCamera(45,1,.1,100);
+      const renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(1);
+      const ownedGeometry=new Set(),ownedMaterial=new Set(),ownedTargets=new Set(),ownedInstances=new Set();
+      const events=new AbortController();let disposed=false,frames=0;
+      const on=(s,t,f)=>document.querySelector(s).addEventListener(t,f,{signal:events.signal});
+      camera.position.set(8,0,4);camera.lookAt(8,0,0);
+      const material=new THREE.MeshNormalMaterial({flatShading:true});ownedMaterial.add(material);
+      const geometry=new THREE.BoxGeometry(1.5,1.5,1.5);ownedGeometry.add(geometry);geometry.computeBoundingBox();geometry.computeBoundingSphere();geometry.translate(8,0,0);
+      const staleBox=new THREE.Box3(new THREE.Vector3(-.75,-.75,-.75),new THREE.Vector3(.75,.75,.75)),staleSphere=new THREE.Sphere(new THREE.Vector3(),Math.sqrt(3)*.75);
+      const mesh=new THREE.Mesh(geometry,material);scene.add(mesh);
+      const lod=new THREE.LOD();lod.position.x=8;lod.addLevel(new THREE.Mesh(new THREE.IcosahedronGeometry(1,2),material),0);lod.addLevel(new THREE.Mesh(new THREE.IcosahedronGeometry(1,0),material),8);for(const l of lod.levels)ownedGeometry.add(l.object.geometry);scene.add(lod);let stats={calls:0,triangles:0};
+
+      function configure(){const input=document.querySelector('#value');if(!input.value||!input.checkValidity())return;mesh.visible=document.querySelector('#mode').value==='bounds';lod.visible=!mesh.visible;mesh.frustumCulled=document.querySelector('#culling').checked;geometry.boundingBox.copy(staleBox);geometry.boundingSphere.copy(staleSphere);if(document.querySelector('#bounds').checked){geometry.computeBoundingBox();geometry.computeBoundingSphere();}camera.position.set(8,0,Number(input.value));camera.lookAt(8,0,0);}
+      function draw(){if(disposed||!stage.clientWidth)return;renderer.render(scene,camera);frames++;stats={calls:renderer.info.render.calls,triangles:renderer.info.render.triangles};output.textContent='bounds center: '+geometry.boundingSphere.center.toArray()+' / LOD: '+lod.getCurrentLevel()+' / distance: '+camera.position.distanceTo(lod.position)+' / calls: '+stats.calls+' / triangles: '+stats.triangles;}
+      on('#apply','click',()=>{configure();draw();});configure();
+
+      function resizeScene(){const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h||disposed)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();draw();}
+      const observer=new ResizeObserver(resizeScene);observer.observe(stage);resizeScene();
+      function cleanup(){if(disposed)return;disposed=true;observer.disconnect();events.abort();renderer.setAnimationLoop(null);for(const x of ownedInstances)x.dispose();for(const x of ownedTargets)x.dispose();for(const x of ownedGeometry)x.dispose();for(const x of ownedMaterial)x.dispose();renderer.dispose();scene.clear();output.textContent='정리 완료';}
+      on('#cleanup','click',cleanup);window.addEventListener('pagehide',cleanup,{once:true,signal:events.signal});
+    </script>
+  </body>
+</html>

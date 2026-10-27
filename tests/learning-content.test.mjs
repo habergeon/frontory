@@ -36,7 +36,7 @@ test('integrated HTML lesson documents keep every required task inside the site'
     assert.match(second, expected)
     assert.doesNotMatch(second, excluded)
     const future = fs.readFileSync(
-      prefix + '/graphics/threejs/units/19/README.md',
+      prefix + '/graphics/threejs/units/23/README.md',
       'utf8',
     )
     assert.match(
@@ -230,7 +230,7 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
       'src/labs/threejs-step-02/example.html',
       'src/labs/threejs-step-03/example.html',
       'src/labs/threejs-step-04/example.html',
-      ...[5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18].map(
+      ...[5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22].map(
         (n) =>
           'src/labs/threejs-step-' +
           String(n).padStart(2, '0') +
@@ -405,12 +405,12 @@ test('generated source links select localized HTML while unconverted JavaScript 
         'units/' + n,
         locale === 'ko' ? 'html' : 'en.html',
       ]),
-      ...[15, 16, 17, 18].map((n) => [
+      ...[15, 16, 17, 18, 19, 20, 21, 22].map((n) => [
         'threejs-step-' + n,
         'units/' + n,
         locale === 'ko' ? 'html' : 'en.html',
       ]),
-      ['threejs-step-19', 'units/19', 'js'],
+      ['threejs-step-23', 'units/23', 'js'],
     ]) {
       const file = root + '/labs/graphics/threejs/' + doc + '/README.md'
       const text = fs.readFileSync(file, 'utf8')

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>텍스처로 렌더링</title>
+    <style>
+      body{margin:0;padding:12px;font:14px/1.5 system-ui,sans-serif;color:#172554;background:white}h1{font-size:22px}#stage{width:480px;max-width:100%;height:280px}canvas{display:block;width:100%;height:100%;touch-action:none}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}input[type=number]{width:70px}button{padding:6px}output{display:block;white-space:pre-wrap;overflow-wrap:anywhere}
+    </style>
+  </head>
+  <body>
+    <h1>텍스처로 렌더링</h1>
+    <p>
+      같은 장면을 메인 perspective 카메라와 위에서 보는 orthographic 카메라로
+      그립니다. 미니맵은 render target의 texture를 평면에 붙입니다. 타깃 갱신이
+      꺼져 있으면 미니맵만 이전 상태에 남습니다. 복원이 꺼져 있으면 화면 대신
+      타깃에 후속 패스가 그려집니다.
+    </p>
+    <div class="controls">
+      <label
+        >빨강 큐브 X<input
+          id="value"
+          type="number"
+          value="0"
+          min="-2"
+          max="2"
+          step="0.25" /></label
+      ><label><input id="update" type="checkbox" />타깃 갱신</label
+      ><label><input id="overlay" type="checkbox" checked />미니맵 표시</label
+      ><label><input id="restore" type="checkbox" checked />상태 복원</label
+      ><button id="apply">적용</button><button id="cleanup">자원 정리</button>
+    </div>
+    <div id="stage"><canvas aria-label="텍스처로 렌더링"></canvas></div>
+    <output aria-live="polite"></output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage=document.querySelector('#stage'),canvas=document.querySelector('canvas'),output=document.querySelector('output');
+      const scene=new THREE.Scene();scene.background=new THREE.Color('#edf2f7');
+      const camera=new THREE.PerspectiveCamera(45,1,.1,100);
+      const renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(1);
+      const ownedGeometry=new Set(),ownedMaterial=new Set(),ownedTargets=new Set(),ownedInstances=new Set();
+      const events=new AbortController();let disposed=false,frames=0;
+      const on=(s,t,f)=>document.querySelector(s).addEventListener(t,f,{signal:events.signal});
+      camera.position.set(5,5,7);camera.lookAt(0,0,0);
+      const geometry=new THREE.BoxGeometry(1,1,1);ownedGeometry.add(geometry);const redMaterial=new THREE.MeshBasicMaterial({color:'#ef4444'}),blueMaterial=new THREE.MeshBasicMaterial({color:'#2563eb'});ownedMaterial.add(redMaterial);ownedMaterial.add(blueMaterial);const red=new THREE.Mesh(geometry,redMaterial),blue=new THREE.Mesh(geometry,blueMaterial);red.position.x=-1.5;blue.position.set(1.5,0,-1.5);scene.add(red,blue);
+      const miniCamera=new THREE.OrthographicCamera(-4,4,4,-4,.1,30);miniCamera.position.set(0,8,0);miniCamera.up.set(0,0,-1);miniCamera.lookAt(0,0,0);
+      const target=new THREE.WebGLRenderTarget(128,128);ownedTargets.add(target);
+      const overlayScene=new THREE.Scene(),overlayCamera=new THREE.OrthographicCamera(-1,1,1,-1,0,2);overlayCamera.position.z=1;
+      const planeGeometry=new THREE.PlaneGeometry(2,2),planeMaterial=new THREE.MeshBasicMaterial({map:target.texture,depthTest:false,depthWrite:false});ownedGeometry.add(planeGeometry);ownedMaterial.add(planeMaterial);overlayScene.add(new THREE.Mesh(planeGeometry,planeMaterial));
+      let beforeState,afterState,stats={calls:0,triangles:0};
+      function state(){return {target:renderer.getRenderTarget(),face:renderer.getActiveCubeFace(),mip:renderer.getActiveMipmapLevel(),viewport:renderer.getViewport(new THREE.Vector4()),scissor:renderer.getScissor(new THREE.Vector4()),test:renderer.getScissorTest()};}
+      function restoreState(s){renderer.setRenderTarget(s.target,s.face,s.mip);renderer.setViewport(s.viewport);renderer.setScissor(s.scissor);renderer.setScissorTest(s.test);}
+      function renderMap(){const saved=state();beforeState=saved;try{renderer.setRenderTarget(target);renderer.setViewport(0,0,128,128);renderer.setScissor(0,0,128,128);renderer.setScissorTest(false);renderer.render(scene,miniCamera);}finally{if(document.querySelector('#restore').checked)restoreState(saved);afterState=state();}}
+
+      function draw(){if(disposed||!stage.clientWidth)return;renderer.setRenderTarget(null);renderer.setViewport(0,0,canvas.width,canvas.height);renderer.setScissor(0,0,canvas.width,canvas.height);renderer.setScissorTest(false);renderer.info.autoReset=false;renderer.info.reset();if(document.querySelector('#update').checked)renderMap();renderer.render(scene,camera);if(document.querySelector('#overlay').checked&&renderer.getRenderTarget()===null){const saved=state();try{const size=Math.min(112,Math.floor(canvas.width*.35));renderer.setViewport(canvas.width-size-8,8,size,size);renderer.setScissor(canvas.width-size-8,8,size,size);renderer.setScissorTest(true);renderer.autoClear=false;renderer.render(overlayScene,overlayCamera);}finally{renderer.autoClear=true;restoreState(saved);}}stats={calls:renderer.info.render.calls,triangles:renderer.info.render.triangles};renderer.info.autoReset=true;frames++;output.textContent='target: '+(renderer.getRenderTarget()===null?'screen':'texture')+' / viewport: '+renderer.getViewport(new THREE.Vector4()).toArray()+' / calls: '+stats.calls+' / triangles: '+stats.triangles;}
+      on('#apply','click',()=>{const input=document.querySelector('#value');if(!input.value||!input.checkValidity())return;red.position.x=Number(input.value);draw();});red.position.x=Number(document.querySelector('#value').value);
+
+      function resizeScene(){const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h||disposed)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();draw();}
+      const observer=new ResizeObserver(resizeScene);observer.observe(stage);resizeScene();
+      function cleanup(){if(disposed)return;disposed=true;observer.disconnect();events.abort();renderer.setAnimationLoop(null);for(const x of ownedInstances)x.dispose();for(const x of ownedTargets)x.dispose();for(const x of ownedGeometry)x.dispose();for(const x of ownedMaterial)x.dispose();renderer.dispose();scene.clear();output.textContent='정리 완료';}
+      on('#cleanup','click',cleanup);window.addEventListener('pagehide',cleanup,{once:true,signal:events.signal});
+    </script>
+  </body>
+</html>

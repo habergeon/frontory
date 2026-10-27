@@ -304,7 +304,7 @@ ID: `threejs-step-18`
 
 필요한 실습 기능: 동일 장면·시점 비교와 관찰 기록
 
-### [19. 인스턴싱 기초](units/19/README.md) · 개선 예정
+### [19. 인스턴싱 기초](units/19/README.md) · 실습 검증 완료
 
 ID: `threejs-step-19`
 
@@ -316,7 +316,7 @@ ID: `threejs-step-19`
 
 필요한 실습 기능: renderer.info의 해당 지표 설명·출력
 
-### [20. 인스턴스 선택과 갱신](units/20/README.md) · 개선 예정
+### [20. 인스턴스 선택과 갱신](units/20/README.md) · 실습 검증 완료
 
 ID: `threejs-step-20`
 
@@ -328,7 +328,7 @@ ID: `threejs-step-20`
 
 필요한 실습 기능: 인스턴스 ID·변환·경계 관찰
 
-### [21. 화면 밖 객체와 상세도](units/21/README.md) · 개선 예정
+### [21. 화면 밖 객체와 상세도](units/21/README.md) · 실습 검증 완료
 
 ID: `threejs-step-21`
 
@@ -340,7 +340,7 @@ ID: `threejs-step-21`
 
 필요한 실습 기능: bounds·상세도 상태·삼각형 수 표시
 
-### [22. 렌더 타깃과 미니맵](units/22/README.md) · 개선 예정
+### [22. 렌더 타깃과 미니맵](units/22/README.md) · 실습 검증 완료
 
 ID: `threejs-step-22`
 

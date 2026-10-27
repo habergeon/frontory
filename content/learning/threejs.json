@@ -1316,6 +1316,238 @@
         }
       ],
       "apiIds": ["model-opacity", "model-depth", "model-order"]
+    },
+    {
+      "unitId": "threejs-step-19",
+      "prerequisiteIds": [
+        "threejs-step-04",
+        "threejs-step-05",
+        "threejs-step-07"
+      ],
+      "introduction": "04·05·07의 변환·geometry·공유 자원을 이어갑니다. 25열×20행의 큐브 500개가 같은 geometry와 material을 공유합니다. 표현을 Mesh→InstancedMesh로 바꾸고 적용하세요. 카메라·좌표·개수를 유지하며 calls·triangles와 화면을 기록합니다.",
+      "steps": [
+        {
+          "id": "threejs-step-19-mesh",
+          "title": "같은 배치의 개별 Mesh",
+          "explanation": "04·05·07의 변환·geometry·공유 자원을 이어갑니다. 25열×20행의 큐브 500개가 같은 geometry와 material을 공유합니다. 표현을 Mesh→InstancedMesh로 바꾸고 적용하세요. 카메라·좌표·개수를 유지하며 calls·triangles와 화면을 기록합니다.",
+          "solutionExplanation": "공유 참조만으로 호출이 합쳐지지는 않습니다. InstancedMesh는 한 geometry를 여러 행렬로 그립니다.",
+          "expected": "Mesh calls=500, InstancedMesh calls=1이며 둘 다 triangles=6000입니다.",
+          "hints": [
+            "두 표현이 같은 positions 배열을 읽는지 확인하세요.",
+            "geometry·material·카메라를 유지한 채 표현만 바꾸세요.",
+            "500개에서 calls=500과 1을 비교하고 triangles=6000이 유지되는지 읽으세요."
+          ],
+          "questions": ["배치가 달라지면 어떤 비교 조건을 확인하나요?"],
+          "starterPath": "src/labs/threejs-step-19/steps/mesh.html",
+          "solutionPath": "src/labs/threejs-step-19/solutions/mesh.html"
+        },
+        {
+          "id": "threejs-step-19-instances",
+          "title": "CPU 행렬과 GPU 업로드",
+          "explanation": "시작은 InstancedMesh이며 upload가 꺼져 있습니다. X 이동을 0.8로 적용하세요. CPU X[0]는 -1.6으로 바뀌지만 화면은 그대로입니다. upload를 체크하고 다시 적용하세요. 첫 렌더 전에는 초기 행렬을 한 번 업로드합니다.",
+          "solutionExplanation": "setMatrixAt은 CPU 배열을 씁니다. 반복문 뒤 needsUpdate=true를 한 번 설정해 업로드합니다.",
+          "expected": "upload가 꺼지면 version과 화면은 유지됩니다. 켜면 version이 증가하고 500개가 이동합니다.",
+          "hints": [
+            "CPU X[0]와 화면을 따로 읽으세요.",
+            "setMatrixAt 뒤 instanceMatrix.version이 증가했는지 확인하세요.",
+            "upload를 체크하고 X=0.8을 다시 적용하세요."
+          ],
+          "questions": ["CPU와 화면의 위치가 다르면 무엇이 빠졌나요?"],
+          "starterPath": "src/labs/threejs-step-19/steps/instances.html",
+          "solutionPath": "src/labs/threejs-step-19/solutions/instances.html"
+        },
+        {
+          "id": "threejs-step-19-stats",
+          "title": "동일 조건의 통계",
+          "explanation": "시작 개수는 100입니다. 개수를 500으로 바꾸고 Mesh와 InstancedMesh를 비교하세요. 100개는 triangles=1200, 500개는 6000입니다. 호출 감소가 FPS 향상을 보장하지 않는 이유를 적으세요. 이 장면은 한 프레임에 한 패스입니다.",
+          "solutionExplanation": "renderer.info.render는 실제 호출 통계입니다. 단일 패스의 기본 autoReset을 쓰며 시간이나 GPU 사용량으로 해석하지 않습니다.",
+          "expected": "500개에서 calls는 500→1, triangles는 6000→6000입니다.",
+          "hints": [
+            "현재 개수가 100인지 500인지 먼저 확인하세요.",
+            "큐브 한 개는 12개 삼각형입니다.",
+            "500개로 고정하고 Mesh와 InstancedMesh의 실제 통계를 각각 기록하세요."
+          ],
+          "questions": ["호출 수와 삼각형 수를 각각 줄이는 변경은 무엇인가요?"],
+          "starterPath": "src/labs/threejs-step-19/steps/stats.html",
+          "solutionPath": "src/labs/threejs-step-19/solutions/stats.html"
+        }
+      ],
+      "apiIds": ["view-19-0", "view-19-1", "view-19-2"]
+    },
+    {
+      "unitId": "threejs-step-20",
+      "prerequisiteIds": ["threejs-step-13", "threejs-step-19"],
+      "introduction": "13·19의 raycast와 인스턴싱을 연결합니다. 시작은 포인터 선택이 꺼져 있습니다. 체크한 뒤 중앙 큐브를 누르세요. 셋 모두 같은 object지만 왼쪽·중앙·오른쪽의 instanceId는 0·1·2입니다. canvas의 실제 사각형으로 NDC를 계산하므로 여백과 resize 뒤에도 선택을 확인하세요.",
+      "steps": [
+        {
+          "id": "threejs-step-20-select",
+          "title": "객체와 instanceId",
+          "explanation": "13·19의 raycast와 인스턴싱을 연결합니다. 시작은 포인터 선택이 꺼져 있습니다. 체크한 뒤 중앙 큐브를 누르세요. 셋 모두 같은 object지만 왼쪽·중앙·오른쪽의 instanceId는 0·1·2입니다. canvas의 실제 사각형으로 NDC를 계산하므로 여백과 resize 뒤에도 선택을 확인하세요.",
+          "solutionExplanation": "intersection.object만 저장하면 어느 인스턴스인지 잃습니다. intersection.instanceId를 함께 저장합니다.",
+          "expected": "중앙을 누르면 instanceId=1입니다. 빈 곳을 누르면 null입니다.",
+          "hints": [
+            "포인터 선택 체크가 꺼져 있으면 먼저 켜세요.",
+            "교차 결과의 object와 instanceId를 구별하세요.",
+            "중앙 큐브를 누르고 instanceId=1을 확인하세요."
+          ],
+          "questions": ["같은 object에서 큐브를 구별하는 값은 무엇인가요?"],
+          "starterPath": "src/labs/threejs-step-20/steps/select.html",
+          "solutionPath": "src/labs/threejs-step-20/solutions/select.html"
+        },
+        {
+          "id": "threejs-step-20-update",
+          "title": "선택한 행렬과 색 업로드",
+          "explanation": "중앙을 선택한 뒤 X=4를 적용하세요. 시작의 업로드는 꺼져 있어 CPU 행렬·색만 바뀝니다. 체크하고 다시 적용해 이동과 빨강을 확인하세요. 나머지 0·2번은 그대로여야 합니다. matrix와 color의 needsUpdate를 각각 설정합니다.",
+          "solutionExplanation": "setMatrixAt과 setColorAt은 서로 다른 버퍼를 씁니다. 위치만 올리면 색이 이전 상태에 남을 수 있습니다.",
+          "expected": "두 버퍼를 업로드하면 1번만 X=4의 빨강 큐브가 됩니다.",
+          "hints": [
+            "이동 전에 중앙 큐브가 선택됐는지 확인하세요.",
+            "matrix와 color 버퍼에는 별도 업로드 플래그가 있습니다.",
+            "upload를 켜고 X=4를 적용해 선택한 큐브만 옮기세요."
+          ],
+          "questions": ["행렬만 업로드하면 색도 바뀌나요?"],
+          "starterPath": "src/labs/threejs-step-20/steps/update.html",
+          "solutionPath": "src/labs/threejs-step-20/solutions/update.html"
+        },
+        {
+          "id": "threejs-step-20-bounds",
+          "title": "새 경계에서 다시 선택",
+          "explanation": "시작은 경계 재계산이 꺼져 있습니다. 중앙 선택→X=4 적용→새 빨강 큐브 클릭을 실행하세요. 옛 sphere가 raycast를 먼저 거르므로 null이 됩니다. 경계 재계산을 켜고 배치 복구→중앙 선택→적용→새 위치 선택을 반복하세요.",
+          "solutionExplanation": "행렬 업로드와 CPU bounds 갱신은 별개입니다. setMatrixAt 뒤 computeBoundingBox와 computeBoundingSphere를 호출합니다.",
+          "expected": "경계 갱신 전 새 위치는 null, 갱신 뒤에는 instanceId=1입니다. sphere center와 radius도 바뀝니다.",
+          "hints": [
+            "보이는 새 위치에서 선택이 실패하는지 확인하세요.",
+            "raycast는 인스턴스보다 전체 boundingSphere를 먼저 검사합니다.",
+            "경계 재계산을 켠 뒤 복구→중앙 선택→X=4 적용→새 위치 선택을 반복하세요."
+          ],
+          "questions": [
+            "화면에 보이는 큐브를 raycast가 놓치는 이유는 무엇인가요?"
+          ],
+          "starterPath": "src/labs/threejs-step-20/steps/bounds.html",
+          "solutionPath": "src/labs/threejs-step-20/solutions/bounds.html"
+        }
+      ],
+      "apiIds": ["view-20-0", "view-20-1", "view-20-2"]
+    },
+    {
+      "unitId": "threejs-step-21",
+      "prerequisiteIds": [
+        "threejs-step-03",
+        "threejs-step-05",
+        "threejs-step-20"
+      ],
+      "introduction": "03·05·20의 카메라·정점·경계를 이어갑니다. 실제 정점은 X=8인데 시작 sphere는 원점에 남아 있습니다. 카메라도 X=8을 보므로 화면이 비고 calls=0입니다. 경계 재계산을 켜고 적용하세요. sphere center와 화면을 함께 확인합니다.",
+      "steps": [
+        {
+          "id": "threejs-step-21-bounds",
+          "title": "정점과 낡은 경계",
+          "explanation": "03·05·20의 카메라·정점·경계를 이어갑니다. 실제 정점은 X=8인데 시작 sphere는 원점에 남아 있습니다. 카메라도 X=8을 보므로 화면이 비고 calls=0입니다. 경계 재계산을 켜고 적용하세요. sphere center와 화면을 함께 확인합니다.",
+          "solutionExplanation": "position attribute와 boundingSphere는 별도 데이터입니다. 정점을 바꾸면 기존 경계를 다시 계산해야 합니다.",
+          "expected": "재계산 뒤 center.x=8이고 큐브가 다시 보입니다.",
+          "hints": [
+            "정점 X=8과 sphere center.x를 비교하세요.",
+            "카메라는 이미 X=8을 향합니다. 위치를 바꾸지 마세요.",
+            "경계 재계산을 켜고 적용해 center.x=8과 호출 복구를 확인하세요."
+          ],
+          "questions": ["정점이 화면 안인데도 호출이 0인 이유는 무엇인가요?"],
+          "starterPath": "src/labs/threejs-step-21/steps/bounds.html",
+          "solutionPath": "src/labs/threejs-step-21/solutions/bounds.html"
+        },
+        {
+          "id": "threejs-step-21-culling",
+          "title": "컬링 우회와 실제 수정",
+          "explanation": "시작은 frustumCulled=false라 잘못된 경계여도 큐브가 보입니다. 경계 재계산을 끄고 컬링을 켜서 사라짐을 재현하세요. 이어 재계산을 켜고 적용해 컬링을 유지한 채 복구하세요. 화면 밖 객체를 계속 그리는 우회와 정확한 경계 수정을 구별해 기록합니다.",
+          "solutionExplanation": "frustumCulled=false는 디버깅 비교에 씁니다. 정점 위치를 반영하는 경계를 복구하는 것이 이 과제의 해결입니다.",
+          "expected": "낡은 경계+컬링 on에서는 빈 화면, off에서는 표시, 새 경계+on에서도 표시됩니다.",
+          "hints": [
+            "낡은 경계를 유지한 상태에서 컬링만 켜고 끄세요.",
+            "컬링 off는 경계를 고치지 않고 검사를 우회합니다.",
+            "컬링을 켠 채 경계 재계산을 적용해 큐브를 복구하세요."
+          ],
+          "questions": [
+            "컬링을 끄는 것과 경계를 고치는 것은 비용에서 어떻게 다른가요?"
+          ],
+          "starterPath": "src/labs/threejs-step-21/steps/culling.html",
+          "solutionPath": "src/labs/threejs-step-21/solutions/culling.html"
+        },
+        {
+          "id": "threejs-step-21-lod",
+          "title": "거리와 실제 삼각형 수",
+          "explanation": "LOD를 선택하고 거리 4→12를 각각 적용하세요. 모델 중심과 시선은 X=8로 고정하고 카메라 Z만 바꿉니다. 임계 거리 8에서 detail=2의 정이십면체를 detail=0으로 교체합니다. 화면의 모서리·LOD index·triangles를 함께 적으세요.",
+          "solutionExplanation": "IcosahedronGeometry detail=2는 각 면을 9개 삼각형으로 나눠 총 180개입니다. addLevel의 거리는 모델 세계 위치에서 카메라까지입니다.",
+          "expected": "거리 4에서는 level=0·triangles=180, 거리 12에서는 level=1·triangles=20입니다.",
+          "hints": [
+            "실험 선택을 LOD로 바꾸세요.",
+            "모델과 target은 X=8이며 거리만 4→12로 바꿉니다.",
+            "임계값 8 양쪽에서 level과 실제 triangles=180/20을 비교하세요."
+          ],
+          "questions": [
+            "화질과 비용을 비교할 때 카메라·모델의 어떤 조건을 기록하나요?"
+          ],
+          "starterPath": "src/labs/threejs-step-21/steps/lod.html",
+          "solutionPath": "src/labs/threejs-step-21/solutions/lod.html"
+        }
+      ],
+      "apiIds": ["view-21-0", "view-21-1", "view-21-2"]
+    },
+    {
+      "unitId": "threejs-step-22",
+      "prerequisiteIds": [
+        "threejs-step-02",
+        "threejs-step-03",
+        "threejs-step-10"
+      ],
+      "introduction": "02·03·10의 렌더러·카메라·텍스처를 연결합니다. 시작은 타깃 갱신이 꺼져 있습니다. 켜고 적용해 미니맵을 채우세요. X=1.5를 적용한 뒤 갱신을 끄고 X=-1.5를 적용합니다. 메인은 움직이지만 미니맵은 옛 위치에 남습니다. 다시 갱신을 켜서 동기화하세요.",
+      "steps": [
+        {
+          "id": "threejs-step-22-target",
+          "title": "화면 대신 텍스처에 그리기",
+          "explanation": "02·03·10의 렌더러·카메라·텍스처를 연결합니다. 시작은 타깃 갱신이 꺼져 있습니다. 켜고 적용해 미니맵을 채우세요. X=1.5를 적용한 뒤 갱신을 끄고 X=-1.5를 적용합니다. 메인은 움직이지만 미니맵은 옛 위치에 남습니다. 다시 갱신을 켜서 동기화하세요.",
+          "solutionExplanation": "setRenderTarget(target)은 이후 렌더 목적지를 바꿉니다. texture를 사용하는 재질이 다른 패스에서 결과를 표시합니다.",
+          "expected": "갱신 on에서 두 화면이 같은 X를 반영하고 off에서는 미니맵만 멈춥니다.",
+          "hints": [
+            "미니맵이 비면 타깃 갱신 체크를 읽으세요.",
+            "갱신 off에서 X를 바꿔 메인과 미니맵의 차이를 보세요.",
+            "갱신을 다시 켜고 적용하면 target.texture에 새 시점이 들어갑니다."
+          ],
+          "questions": ["메인만 움직일 때 어떤 패스가 멈췄나요?"],
+          "starterPath": "src/labs/threejs-step-22/steps/target.html",
+          "solutionPath": "src/labs/threejs-step-22/solutions/target.html"
+        },
+        {
+          "id": "threejs-step-22-minimap",
+          "title": "두 카메라와 표시 패스",
+          "explanation": "미니맵 표시를 켜고 적용하세요. 메인 카메라는 (5,5,7), 미니 카메라는 (0,8,0)에서 원점을 봅니다. miniCamera.up=(0,0,-1)로 위쪽 방향을 고정합니다. X=-1.5→1.5를 비교하며 같은 큐브의 시점 차이를 관찰하세요. 파랑은 (1.5,0,-1.5)에 고정해 목표 X에서 빨강과 완전히 겹치지 않습니다.",
+          "solutionExplanation": "overlay 평면은 별도 scene의 orthographic 카메라로 그립니다. 같은 타깃을 그리면서 그 texture를 샘플링하지 않습니다.",
+          "expected": "메인에서는 큐브 옆면이 보이고 미니맵에서는 윗면이 보입니다. 128×128 타깃을 오른쪽 아래에 표시합니다.",
+          "hints": [
+            "미니맵 표시를 체크하세요.",
+            "미니 카메라는 Y=8에서 내려다보며 up은 -Z입니다.",
+            "X=-1.5와 1.5를 적용해 같은 큐브의 옆면과 윗면을 비교하세요."
+          ],
+          "questions": [
+            "같은 카메라를 두 화면에서 쓰면 무엇이 달라지지 않나요?"
+          ],
+          "starterPath": "src/labs/threejs-step-22/steps/minimap.html",
+          "solutionPath": "src/labs/threejs-step-22/solutions/minimap.html"
+        },
+        {
+          "id": "threejs-step-22-restore",
+          "title": "target·viewport·scissor 복원",
+          "explanation": "시작은 상태 복원이 꺼져 있어 메인 화면이 비거나 이전 결과에 남습니다. 켜고 적용하세요. helper는 진입할 때 target·active face·mipmap level·viewport·scissor·scissorTest를 저장하고 finally에서 돌려놓습니다. null로 고정 복원하면 이미 다른 타깃을 쓰던 호출자를 망가뜨릴 수 있습니다.",
+          "solutionExplanation": "타깃이 texture를 소유하므로 target.dispose를 한 번 호출합니다. 공유 map을 별도로 dispose하지 않습니다. 통계는 autoReset=false로 프레임의 패스를 누적한 뒤 기본값으로 복구합니다.",
+          "expected": "복원 on 뒤 target=screen이며 메인과 미니맵이 다시 갱신됩니다. helper 전후 상태가 같습니다.",
+          "hints": [
+            "output의 target이 screen인지 texture인지 읽으세요.",
+            "setRenderTarget(null)만으로는 호출자의 모든 상태를 복원하지 못합니다.",
+            "저장한 target·face·mip·viewport·scissor·test를 finally에서 복원하세요."
+          ],
+          "questions": ["이전 타깃이 null이 아니라면 어떻게 복원하나요?"],
+          "starterPath": "src/labs/threejs-step-22/steps/restore.html",
+          "solutionPath": "src/labs/threejs-step-22/solutions/restore.html"
+        }
+      ],
+      "apiIds": ["view-22-0", "view-22-1", "view-22-2"]
     }
   ],
   "apis": [
@@ -2720,6 +2952,234 @@
       ],
       "example": "const original=mesh.material; mesh.material=original.clone(); mesh.material.color.set(0xf97316);",
       "sourceUrl": "https://threejs.org/docs/pages/Material.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-19-0",
+      "symbol": "InstancedMesh",
+      "description": "같은 geometry와 material을 여러 변환으로 그립니다.",
+      "parameters": [
+        {
+          "name": "geometry",
+          "type": "BufferGeometry",
+          "description": "모든 인스턴스가 공유할 geometry"
+        },
+        {
+          "name": "material",
+          "type": "Material|Material[]",
+          "description": "공유할 material 또는 material 배열"
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "description": "인스턴스 최대 개수"
+        }
+      ],
+      "result": "새 InstancedMesh를 반환합니다.",
+      "cautions": ["개별 인스턴스에 다른 geometry를 넣지 않습니다."],
+      "example": "const mesh=new THREE.InstancedMesh(geometry,material,500);",
+      "sourceUrl": "https://threejs.org/docs/pages/InstancedMesh.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-19-1",
+      "symbol": "InstancedMesh.setMatrixAt",
+      "description": "CPU 인스턴스 행렬을 씁니다.",
+      "parameters": [
+        {
+          "name": "index",
+          "type": "number",
+          "description": "0부터 count-1까지의 번호"
+        },
+        {
+          "name": "matrix",
+          "type": "Matrix4",
+          "description": "로컬 변환"
+        }
+      ],
+      "result": "반환값은 없습니다.",
+      "cautions": ["변경 뒤 instanceMatrix.needsUpdate=true를 설정합니다."],
+      "example": "mesh.setMatrixAt(0,new THREE.Matrix4().makeTranslation(1,0,0));mesh.instanceMatrix.needsUpdate=true;",
+      "sourceUrl": "https://threejs.org/docs/pages/InstancedMesh.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-19-2",
+      "symbol": "WebGLRenderer.info",
+      "description": "실제 렌더 호출과 삼각형 수를 읽습니다.",
+      "parameters": [],
+      "result": "info.render의 calls와 triangles는 숫자입니다.",
+      "cautions": [
+        "기본 autoReset은 매 render마다 초기화합니다. 여러 패스는 별도 누적이 필요합니다."
+      ],
+      "example": "renderer.render(scene,camera);console.log(renderer.info.render.calls,renderer.info.render.triangles);",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-20-0",
+      "symbol": "Raycaster.intersectObject",
+      "description": "메시의 교차 목록에서 instanceId를 읽습니다.",
+      "parameters": [
+        {
+          "name": "object",
+          "type": "Object3D",
+          "description": "검사할 메시"
+        }
+      ],
+      "result": "가까운 순서의 교차 배열을 반환합니다.",
+      "cautions": ["InstancedMesh는 여러 교차가 같은 object를 가리킵니다."],
+      "example": "const id=raycaster.intersectObject(mesh)[0]?.instanceId;",
+      "sourceUrl": "https://threejs.org/docs/pages/Raycaster.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-20-1",
+      "symbol": "InstancedMesh.setColorAt",
+      "description": "인스턴스 색을 CPU 버퍼에 씁니다.",
+      "parameters": [
+        {
+          "name": "index",
+          "type": "number",
+          "description": "인스턴스 번호"
+        },
+        {
+          "name": "color",
+          "type": "Color",
+          "description": "색 객체"
+        }
+      ],
+      "result": "반환값은 없습니다.",
+      "cautions": ["instanceColor.needsUpdate를 별도로 설정합니다."],
+      "example": "mesh.setColorAt(1,new THREE.Color(0xff0000));mesh.instanceColor.needsUpdate=true;",
+      "sourceUrl": "https://threejs.org/docs/pages/InstancedMesh.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-20-2",
+      "symbol": "InstancedMesh.computeBoundingSphere",
+      "description": "모든 인스턴스의 새 경계를 계산합니다.",
+      "parameters": [],
+      "result": "boundingSphere를 갱신합니다. boundingBox는 computeBoundingBox로 계산합니다.",
+      "cautions": ["기존 sphere가 있으면 raycast가 자동 갱신하지 않습니다."],
+      "example": "mesh.computeBoundingBox();mesh.computeBoundingSphere();",
+      "sourceUrl": "https://threejs.org/docs/pages/InstancedMesh.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-21-0",
+      "symbol": "BufferGeometry.computeBoundingSphere",
+      "description": "정점으로 geometry 구 경계를 계산합니다.",
+      "parameters": [],
+      "result": "boundingSphere를 갱신합니다.",
+      "cautions": ["기존 경계는 정점 변경만으로 자동 갱신되지 않습니다."],
+      "example": "geometry.computeBoundingBox();geometry.computeBoundingSphere();",
+      "sourceUrl": "https://threejs.org/docs/pages/BufferGeometry.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-21-1",
+      "symbol": "Object3D.frustumCulled",
+      "description": "카메라 절두체 경계 검사를 선택합니다.",
+      "parameters": [],
+      "result": "boolean 속성입니다. 기본값은 true입니다.",
+      "cautions": ["false로 보이는 현상이 경계 정확성을 입증하지는 않습니다."],
+      "example": "mesh.frustumCulled=true;",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-21-2",
+      "symbol": "LOD.addLevel",
+      "description": "거리별 객체를 등록합니다.",
+      "parameters": [
+        {
+          "name": "object",
+          "type": "Object3D",
+          "description": "해당 거리의 객체"
+        },
+        {
+          "name": "distance",
+          "type": "number",
+          "description": "카메라와 객체 사이 거리"
+        }
+      ],
+      "result": "현재 LOD를 반환합니다.",
+      "cautions": ["기본 autoUpdate=true일 때 렌더러가 level을 선택합니다."],
+      "example": "lod.addLevel(high,0);lod.addLevel(low,8);",
+      "sourceUrl": "https://threejs.org/docs/pages/LOD.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-22-0",
+      "symbol": "WebGLRenderTarget",
+      "description": "렌더 결과를 texture로 보관합니다.",
+      "parameters": [
+        {
+          "name": "width",
+          "type": "number",
+          "description": "픽셀 너비"
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": "픽셀 높이"
+        }
+      ],
+      "result": "새 WebGLRenderTarget을 반환합니다.",
+      "cautions": [
+        "target이 texture를 소유하므로 target을 한 번 dispose합니다."
+      ],
+      "example": "const target=new THREE.WebGLRenderTarget(128,128);",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderTarget.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-22-1",
+      "symbol": "WebGLRenderer.setRenderTarget",
+      "description": "이후 렌더의 목적지를 바꿉니다.",
+      "parameters": [
+        {
+          "name": "renderTarget",
+          "type": "WebGLRenderTarget|null",
+          "description": "타깃 또는 화면을 뜻하는 null"
+        }
+      ],
+      "result": "반환값은 없습니다.",
+      "cautions": ["진입 시 target·face·mipmap을 저장해서 복원합니다."],
+      "example": "const old=renderer.getRenderTarget();renderer.setRenderTarget(target);renderer.render(scene,camera);renderer.setRenderTarget(old);",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-22-2",
+      "symbol": "WebGLRenderer.setViewport / setScissor",
+      "description": "그릴 영역과 조각 제한 영역을 정합니다.",
+      "parameters": [
+        {
+          "name": "x,y,width,height",
+          "type": "number",
+          "description": "논리 픽셀 사각형"
+        }
+      ],
+      "result": "viewport/scissor 상태를 변경합니다.",
+      "cautions": [
+        "getViewport·getScissor·getScissorTest 값을 저장하고 모두 복원합니다."
+      ],
+      "example": "const v=renderer.getViewport(new THREE.Vector4());renderer.setViewport(0,0,128,128);renderer.setViewport(v);",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
       "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     }

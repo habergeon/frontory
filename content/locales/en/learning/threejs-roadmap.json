@@ -232,7 +232,7 @@
       "requiredCapabilities": [
         "Explanation and output of relevant renderer.info metrics"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-20",
@@ -240,7 +240,7 @@
       "topics": ["instanceId", "color and position updates", "bounds"],
       "outcome": "Move one instance and select it at its new position",
       "requiredCapabilities": ["Instance ID, transform and bounds observation"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-21",
@@ -254,7 +254,7 @@
       "requiredCapabilities": [
         "Bounds, detail level and triangle count display"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-22",
@@ -266,7 +266,7 @@
       "topics": ["offscreen rendering", "textures", "target restoration"],
       "outcome": "Update the main view and minimap and restore rendering state",
       "requiredCapabilities": ["Two-camera and render target practice"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-23",
@@ -375,5 +375,5 @@
       "readiness": "planned"
     }
   ],
-  "sourceHash": "0cf00887cd9c32c05fc1321172934044d3ff96476f433207405e6b33db0ccbf3"
+  "sourceHash": "e190f8d0438d41595abb9614cac4c7f423eb38569e91e86a6e0f1b016183ce80"
 }

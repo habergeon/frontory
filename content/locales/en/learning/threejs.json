@@ -1309,6 +1309,246 @@
         }
       ],
       "apiIds": ["model-opacity", "model-depth", "model-order"]
+    },
+    {
+      "unitId": "threejs-step-19",
+      "prerequisiteIds": [
+        "threejs-step-04",
+        "threejs-step-05",
+        "threejs-step-07"
+      ],
+      "introduction": "Continue transforms, geometry, and sharing from 04, 05, and 07. A 25-column by 20-row grid contains 500 cubes sharing geometry and material. Apply Mesh then InstancedMesh. Keep camera, coordinates, and count fixed; record calls, triangles, and layout.",
+      "steps": [
+        {
+          "id": "threejs-step-19-mesh",
+          "title": "Individual Mesh objects",
+          "explanation": "Continue transforms, geometry, and sharing from 04, 05, and 07. A 25-column by 20-row grid contains 500 cubes sharing geometry and material. Apply Mesh then InstancedMesh. Keep camera, coordinates, and count fixed; record calls, triangles, and layout.",
+          "solutionExplanation": "Shared references alone do not merge calls. InstancedMesh draws one geometry with multiple matrices.",
+          "expected": "Mesh calls=500, InstancedMesh calls=1; both have triangles=6000.",
+          "hints": [
+            "Check that both representations read the same positions array.",
+            "Keep geometry, material, and camera fixed; change only representation.",
+            "At 500 cubes compare calls=500 and 1 while triangles stay 6000."
+          ],
+          "questions": [
+            "Which comparison condition should you check if layout changes?"
+          ],
+          "starterPath": "src/labs/threejs-step-19/steps/mesh.html",
+          "solutionPath": "src/labs/threejs-step-19/solutions/mesh.html"
+        },
+        {
+          "id": "threejs-step-19-instances",
+          "title": "CPU matrices and GPU uploads",
+          "explanation": "The starter uses InstancedMesh with upload unchecked. Apply X shift=0.8. CPU X[0] becomes -1.6 but the image stays unchanged. Check upload and Apply again. Initial matrices are uploaded once before the first render.",
+          "solutionExplanation": "setMatrixAt writes the CPU array. Set needsUpdate=true once after the loop to upload it.",
+          "expected": "With upload off, version and image remain unchanged. With upload on, version increases and all 500 cubes move.",
+          "hints": [
+            "Read CPU X[0] separately from the image.",
+            "Check whether instanceMatrix.version increases after setMatrixAt.",
+            "Check upload and Apply X=0.8 again."
+          ],
+          "questions": ["What is missing when CPU and image positions differ?"],
+          "starterPath": "src/labs/threejs-step-19/steps/instances.html",
+          "solutionPath": "src/labs/threejs-step-19/solutions/instances.html"
+        },
+        {
+          "id": "threejs-step-19-stats",
+          "title": "Statistics under equal conditions",
+          "explanation": "The starter count is 100. Set 500 and compare Mesh with InstancedMesh. 100 cubes give triangles=1200; 500 give 6000. Explain why fewer calls do not guarantee improved FPS. This scene has one pass per frame.",
+          "solutionExplanation": "renderer.info.render reports actual counts. This single pass uses default autoReset; counts are neither timing nor GPU utilization.",
+          "expected": "At 500 cubes, calls change 500→1 while triangles remain 6000→6000.",
+          "hints": [
+            "First check whether count is 100 or 500.",
+            "Each cube contains 12 triangles.",
+            "Fix count at 500 and record actual statistics for Mesh and InstancedMesh separately."
+          ],
+          "questions": [
+            "Which changes reduce calls and triangles respectively?"
+          ],
+          "starterPath": "src/labs/threejs-step-19/steps/stats.html",
+          "solutionPath": "src/labs/threejs-step-19/solutions/stats.html"
+        }
+      ],
+      "apiIds": ["view-19-0", "view-19-1", "view-19-2"]
+    },
+    {
+      "unitId": "threejs-step-20",
+      "prerequisiteIds": ["threejs-step-13", "threejs-step-19"],
+      "introduction": "Continue raycasting and instancing from 13 and 19. Pointer selection starts disabled. Enable it and click the center cube. All three share one object, but left/center/right instanceId values are 0/1/2. NDC uses the actual canvas rectangle; check selection after margins and resize.",
+      "steps": [
+        {
+          "id": "threejs-step-20-select",
+          "title": "Object and instanceId",
+          "explanation": "Continue raycasting and instancing from 13 and 19. Pointer selection starts disabled. Enable it and click the center cube. All three share one object, but left/center/right instanceId values are 0/1/2. NDC uses the actual canvas rectangle; check selection after margins and resize.",
+          "solutionExplanation": "Keeping only intersection.object loses the instance identity. Keep intersection.instanceId too.",
+          "expected": "Clicking center yields instanceId=1; empty space yields null.",
+          "hints": [
+            "Enable pointer selection if unchecked.",
+            "Distinguish object from instanceId in the intersection.",
+            "Click the center cube and verify instanceId=1."
+          ],
+          "questions": [
+            "Which value distinguishes cubes sharing the same object?"
+          ],
+          "starterPath": "src/labs/threejs-step-20/steps/select.html",
+          "solutionPath": "src/labs/threejs-step-20/solutions/select.html"
+        },
+        {
+          "id": "threejs-step-20-update",
+          "title": "Upload selected matrix and color",
+          "explanation": "Select center and Apply X=4. Upload starts off, changing only CPU matrix/color data. Enable upload and Apply again to see movement and red color. Instances 0 and 2 must stay unchanged. Set matrix and color needsUpdate separately.",
+          "solutionExplanation": "setMatrixAt and setColorAt write different buffers. Uploading only position can leave the old color.",
+          "expected": "Uploading both buffers turns only instance 1 into a red cube at X=4.",
+          "hints": [
+            "Select the center cube before moving it.",
+            "Matrix and color buffers have separate upload flags.",
+            "Enable upload and Apply X=4 to move only the selected cube."
+          ],
+          "questions": ["Does uploading the matrix also upload color?"],
+          "starterPath": "src/labs/threejs-step-20/steps/update.html",
+          "solutionPath": "src/labs/threejs-step-20/solutions/update.html"
+        },
+        {
+          "id": "threejs-step-20-bounds",
+          "title": "Reselect using refreshed bounds",
+          "explanation": "Bounds recomputation starts off. Select center, Apply X=4, then click the red cube at its new position. The old sphere rejects the ray first, giving null. Enable recomputation, reset, and repeat selection, Apply, and reselect.",
+          "solutionExplanation": "Uploading matrices and refreshing CPU bounds are separate. Call computeBoundingBox and computeBoundingSphere after setMatrixAt.",
+          "expected": "The new position gives null with stale bounds and instanceId=1 after refresh. Sphere center and radius change too.",
+          "hints": [
+            "Check whether selection misses the visible new position.",
+            "Raycast tests the aggregate boundingSphere before individual instances.",
+            "Enable bounds recomputation, reset, select center, Apply X=4, then select the new position."
+          ],
+          "questions": ["Why can raycast miss a visible cube?"],
+          "starterPath": "src/labs/threejs-step-20/steps/bounds.html",
+          "solutionPath": "src/labs/threejs-step-20/solutions/bounds.html"
+        }
+      ],
+      "apiIds": ["view-20-0", "view-20-1", "view-20-2"]
+    },
+    {
+      "unitId": "threejs-step-21",
+      "prerequisiteIds": [
+        "threejs-step-03",
+        "threejs-step-05",
+        "threejs-step-20"
+      ],
+      "introduction": "Continue cameras, vertices, and bounds from 03, 05, and 20. Actual vertices are at X=8 but the starter sphere stays at the origin. The camera targets X=8, leaving an empty image and calls=0. Enable recomputation and Apply; compare sphere center and image.",
+      "steps": [
+        {
+          "id": "threejs-step-21-bounds",
+          "title": "Vertices and stale bounds",
+          "explanation": "Continue cameras, vertices, and bounds from 03, 05, and 20. Actual vertices are at X=8 but the starter sphere stays at the origin. The camera targets X=8, leaving an empty image and calls=0. Enable recomputation and Apply; compare sphere center and image.",
+          "solutionExplanation": "Position attributes and boundingSphere are separate data. Recompute existing bounds after vertex edits.",
+          "expected": "After recomputation, center.x=8 and the cube reappears.",
+          "hints": [
+            "Compare vertex X=8 with sphere center.x.",
+            "The camera already targets X=8; keep it fixed.",
+            "Enable bounds recomputation and Apply to obtain center.x=8 and restore drawing."
+          ],
+          "questions": [
+            "Why can calls be zero when vertices are inside the view?"
+          ],
+          "starterPath": "src/labs/threejs-step-21/steps/bounds.html",
+          "solutionPath": "src/labs/threejs-step-21/solutions/bounds.html"
+        },
+        {
+          "id": "threejs-step-21-culling",
+          "title": "Culling bypass and actual repair",
+          "explanation": "The starter has frustumCulled=false, so the cube remains visible despite stale bounds. Disable recomputation and enable culling to reproduce disappearance. Then enable recomputation and Apply to restore it while keeping culling. Distinguish bypassing culling from correcting bounds.",
+          "solutionExplanation": "Use frustumCulled=false for diagnosis. This exercise fixes the bounds to match vertex positions.",
+          "expected": "Stale bounds with culling on give an empty image; off shows the cube. Fresh bounds with culling on show it too.",
+          "hints": [
+            "Toggle culling while keeping stale bounds.",
+            "Culling off bypasses the test without correcting bounds.",
+            "Keep culling on and Apply bounds recomputation to restore the cube."
+          ],
+          "questions": [
+            "How do bypassing culling and fixing bounds differ in cost?"
+          ],
+          "starterPath": "src/labs/threejs-step-21/steps/culling.html",
+          "solutionPath": "src/labs/threejs-step-21/solutions/culling.html"
+        },
+        {
+          "id": "threejs-step-21-lod",
+          "title": "Distance and actual triangle counts",
+          "explanation": "Select LOD and Apply distances 4 then 12. Model center and target stay at X=8; only camera Z changes. At distance 8, an icosahedron with detail=2 switches to detail=0. Record silhouette edges, LOD index, and triangles.",
+          "solutionExplanation": "IcosahedronGeometry detail=2 divides each face into 9 triangles, totaling 180. addLevel distance is measured from world model position to the camera.",
+          "expected": "Distance 4 gives level=0 and triangles=180; distance 12 gives level=1 and triangles=20.",
+          "hints": [
+            "Select the LOD experiment.",
+            "Model and target remain X=8; change only distance from 4 to 12.",
+            "Compare level and actual triangles=180/20 across threshold 8."
+          ],
+          "questions": [
+            "Which camera/model conditions should accompany quality and cost observations?"
+          ],
+          "starterPath": "src/labs/threejs-step-21/steps/lod.html",
+          "solutionPath": "src/labs/threejs-step-21/solutions/lod.html"
+        }
+      ],
+      "apiIds": ["view-21-0", "view-21-1", "view-21-2"]
+    },
+    {
+      "unitId": "threejs-step-22",
+      "prerequisiteIds": [
+        "threejs-step-02",
+        "threejs-step-03",
+        "threejs-step-10"
+      ],
+      "introduction": "Continue renderer, cameras, and textures from 02, 03, and 10. Target updates start disabled. Enable and Apply to populate the minimap. Apply X=1.5, disable updates, then Apply X=-1.5. The main view moves while the minimap keeps the old position. Reenable updates to synchronize.",
+      "steps": [
+        {
+          "id": "threejs-step-22-target",
+          "title": "Draw into a texture",
+          "explanation": "Continue renderer, cameras, and textures from 02, 03, and 10. Target updates start disabled. Enable and Apply to populate the minimap. Apply X=1.5, disable updates, then Apply X=-1.5. The main view moves while the minimap keeps the old position. Reenable updates to synchronize.",
+          "solutionExplanation": "setRenderTarget(target) changes the destination of subsequent renders. A material using its texture displays the result in another pass.",
+          "expected": "With updates on both views reflect the same X; off freezes only the minimap.",
+          "hints": [
+            "If the map is empty, check Update target.",
+            "Change X with updates off and compare main and map.",
+            "Reenable updates and Apply to refresh target.texture."
+          ],
+          "questions": ["Which pass stopped when only the main view moves?"],
+          "starterPath": "src/labs/threejs-step-22/steps/target.html",
+          "solutionPath": "src/labs/threejs-step-22/solutions/target.html"
+        },
+        {
+          "id": "threejs-step-22-minimap",
+          "title": "Two cameras and a display pass",
+          "explanation": "Enable Show minimap and Apply. Main camera at (5,5,7) and mini camera at (0,8,0) target the origin. miniCamera.up=(0,0,-1) fixes map orientation. Compare X=-1.5 then 1.5 to observe the same cube from two views. Blue stays at (1.5,0,-1.5), so red does not overlap it at the assigned X values.",
+          "solutionExplanation": "An orthographic camera renders the overlay plane in a separate scene. Do not sample a target texture while rendering into that same target.",
+          "expected": "Main view shows cube sides; the map shows top faces. A 128×128 target is displayed at bottom right.",
+          "hints": [
+            "Check Show minimap.",
+            "The mini camera looks down from Y=8 with up along -Z.",
+            "Apply X=-1.5 and 1.5 to compare side and top views of the same cube."
+          ],
+          "questions": [
+            "What would remain identical if both views used the same camera?"
+          ],
+          "starterPath": "src/labs/threejs-step-22/steps/minimap.html",
+          "solutionPath": "src/labs/threejs-step-22/solutions/minimap.html"
+        },
+        {
+          "id": "threejs-step-22-restore",
+          "title": "Restore target, viewport, and scissor",
+          "explanation": "Restoration starts disabled, leaving the main canvas empty or stale. Enable it and Apply. The helper saves target, active face, mipmap level, viewport, scissor, and scissorTest on entry and restores them in finally. Restoring to a hardcoded null can break a caller already using another target.",
+          "solutionExplanation": "The target owns its texture, so dispose the target once without separately disposing the shared map. Accumulate all frame passes with autoReset=false, then restore the default.",
+          "expected": "With restoration on, target=screen and both views update again. State before and after the helper matches.",
+          "hints": [
+            "Read whether output target is screen or texture.",
+            "setRenderTarget(null) alone cannot restore all caller state.",
+            "Restore saved target, face, mip, viewport, scissor, and test in finally."
+          ],
+          "questions": [
+            "How should you restore a caller whose previous target was not null?"
+          ],
+          "starterPath": "src/labs/threejs-step-22/steps/restore.html",
+          "solutionPath": "src/labs/threejs-step-22/solutions/restore.html"
+        }
+      ],
+      "apiIds": ["view-22-0", "view-22-1", "view-22-2"]
     }
   ],
   "apis": [
@@ -2719,9 +2959,241 @@
       "sourceUrl": "https://threejs.org/docs/pages/Material.html",
       "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-19-0",
+      "symbol": "InstancedMesh",
+      "description": "Draw shared geometry and material with multiple transforms.",
+      "parameters": [
+        {
+          "name": "geometry",
+          "type": "BufferGeometry",
+          "description": "Shared geometry"
+        },
+        {
+          "name": "material",
+          "type": "Material|Material[]",
+          "description": "Shared material"
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "description": "Maximum instance count"
+        }
+      ],
+      "result": "Returns a new InstancedMesh.",
+      "cautions": ["Instances do not have separate geometry."],
+      "example": "const mesh=new THREE.InstancedMesh(geometry,material,500);",
+      "sourceUrl": "https://threejs.org/docs/pages/InstancedMesh.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-19-1",
+      "symbol": "InstancedMesh.setMatrixAt",
+      "description": "Write a CPU instance matrix.",
+      "parameters": [
+        {
+          "name": "index",
+          "type": "number",
+          "description": "Index from 0 to count-1"
+        },
+        {
+          "name": "matrix",
+          "type": "Matrix4",
+          "description": "Local transform"
+        }
+      ],
+      "result": "Returns undefined.",
+      "cautions": ["Set instanceMatrix.needsUpdate=true after edits."],
+      "example": "mesh.setMatrixAt(0,new THREE.Matrix4().makeTranslation(1,0,0));mesh.instanceMatrix.needsUpdate=true;",
+      "sourceUrl": "https://threejs.org/docs/pages/InstancedMesh.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-19-2",
+      "symbol": "WebGLRenderer.info",
+      "description": "Read actual calls and triangles.",
+      "parameters": [],
+      "result": "info.render.calls and triangles are numbers.",
+      "cautions": [
+        "Default autoReset resets per render. Multiple passes need explicit accumulation."
+      ],
+      "example": "renderer.render(scene,camera);console.log(renderer.info.render.calls,renderer.info.render.triangles);",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-20-0",
+      "symbol": "Raycaster.intersectObject",
+      "description": "Read instanceId from mesh intersections.",
+      "parameters": [
+        {
+          "name": "object",
+          "type": "Object3D",
+          "description": "Mesh to test"
+        }
+      ],
+      "result": "Returns intersections sorted nearest first.",
+      "cautions": ["InstancedMesh intersections share the same object."],
+      "example": "const id=raycaster.intersectObject(mesh)[0]?.instanceId;",
+      "sourceUrl": "https://threejs.org/docs/pages/Raycaster.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-20-1",
+      "symbol": "InstancedMesh.setColorAt",
+      "description": "Write an instance color into the CPU buffer.",
+      "parameters": [
+        {
+          "name": "index",
+          "type": "number",
+          "description": "Instance index"
+        },
+        {
+          "name": "color",
+          "type": "Color",
+          "description": "Color object"
+        }
+      ],
+      "result": "Returns undefined.",
+      "cautions": ["Set instanceColor.needsUpdate separately."],
+      "example": "mesh.setColorAt(1,new THREE.Color(0xff0000));mesh.instanceColor.needsUpdate=true;",
+      "sourceUrl": "https://threejs.org/docs/pages/InstancedMesh.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-20-2",
+      "symbol": "InstancedMesh.computeBoundingSphere",
+      "description": "Recompute bounds for all instances.",
+      "parameters": [],
+      "result": "Updates boundingSphere; call computeBoundingBox for boundingBox.",
+      "cautions": [
+        "Raycast does not refresh an existing sphere automatically."
+      ],
+      "example": "mesh.computeBoundingBox();mesh.computeBoundingSphere();",
+      "sourceUrl": "https://threejs.org/docs/pages/InstancedMesh.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-21-0",
+      "symbol": "BufferGeometry.computeBoundingSphere",
+      "description": "Compute geometry sphere bounds from vertices.",
+      "parameters": [],
+      "result": "Updates boundingSphere.",
+      "cautions": [
+        "Existing bounds are not automatically refreshed by vertex edits."
+      ],
+      "example": "geometry.computeBoundingBox();geometry.computeBoundingSphere();",
+      "sourceUrl": "https://threejs.org/docs/pages/BufferGeometry.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-21-1",
+      "symbol": "Object3D.frustumCulled",
+      "description": "Control camera frustum checks.",
+      "parameters": [],
+      "result": "A boolean property, true by default.",
+      "cautions": ["Visibility with false does not prove correct bounds."],
+      "example": "mesh.frustumCulled=true;",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-21-2",
+      "symbol": "LOD.addLevel",
+      "description": "Register an object for a distance.",
+      "parameters": [
+        {
+          "name": "object",
+          "type": "Object3D",
+          "description": "Object for this distance"
+        },
+        {
+          "name": "distance",
+          "type": "number",
+          "description": "Distance between camera and object"
+        }
+      ],
+      "result": "Returns this LOD.",
+      "cautions": [
+        "With default autoUpdate=true the renderer chooses the level."
+      ],
+      "example": "lod.addLevel(high,0);lod.addLevel(low,8);",
+      "sourceUrl": "https://threejs.org/docs/pages/LOD.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-22-0",
+      "symbol": "WebGLRenderTarget",
+      "description": "Store rendering results in a texture.",
+      "parameters": [
+        {
+          "name": "width",
+          "type": "number",
+          "description": "Pixel width"
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "description": "Pixel height"
+        }
+      ],
+      "result": "Returns a new WebGLRenderTarget.",
+      "cautions": ["The target owns its texture; dispose the target once."],
+      "example": "const target=new THREE.WebGLRenderTarget(128,128);",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderTarget.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-22-1",
+      "symbol": "WebGLRenderer.setRenderTarget",
+      "description": "Change the destination for subsequent rendering.",
+      "parameters": [
+        {
+          "name": "renderTarget",
+          "type": "WebGLRenderTarget|null",
+          "description": "Target, or null for the screen"
+        }
+      ],
+      "result": "Returns undefined.",
+      "cautions": ["Save and restore the entry target, face, and mipmap."],
+      "example": "const old=renderer.getRenderTarget();renderer.setRenderTarget(target);renderer.render(scene,camera);renderer.setRenderTarget(old);",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "view-22-2",
+      "symbol": "WebGLRenderer.setViewport / setScissor",
+      "description": "Set drawing and fragment clipping rectangles.",
+      "parameters": [
+        {
+          "name": "x,y,width,height",
+          "type": "number",
+          "description": "Rectangle in logical pixels"
+        }
+      ],
+      "result": "Changes viewport/scissor state.",
+      "cautions": [
+        "Save getViewport, getScissor, and getScissorTest and restore all."
+      ],
+      "example": "const v=renderer.getViewport(new THREE.Vector4());renderer.setViewport(0,0,128,128);renderer.setViewport(v);",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
     }
   ],
-  "sourceHash": "09ec1b13ca75c163d15dd4534d6694fa7f82aeac04c0ceafbc348bbe17a8ff41",
+  "sourceHash": "b96e7ed2af6f55f0c4f3449487ff906a0bfa3470cf97cbc36fdb5de62370d137",
   "codeSourceHashes": {
     "src/labs/threejs-01/example.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
     "src/labs/threejs-01/steps/canvas.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
@@ -2866,6 +3338,34 @@
     "src/labs/threejs-step-18/steps/depth-write.html": "b954eb321fd0f15bb787adfacd78c13d30510498ed9358cc73e8349964954866",
     "src/labs/threejs-step-18/solutions/depth-write.html": "7db509834a5f9dd2d9ae72bd324efed9e8694050b8f45edc95223d52d8fe56d3",
     "src/labs/threejs-step-18/steps/sorting.html": "eb267a5d725c35a3383d308fb21bc9a1f4b0ef215b3126e6aede6d47ef63aa81",
-    "src/labs/threejs-step-18/solutions/sorting.html": "3ed0f6ee61ad7bc8f66af965a1770f5d6d3690c004bf5f5947e9ab41e3794996"
+    "src/labs/threejs-step-18/solutions/sorting.html": "3ed0f6ee61ad7bc8f66af965a1770f5d6d3690c004bf5f5947e9ab41e3794996",
+    "src/labs/threejs-step-19/example.html": "a0e8dc17b486486c6d157ec850564b16919d6e86774e52e56611c4a574d4c85d",
+    "src/labs/threejs-step-19/steps/mesh.html": "a0e8dc17b486486c6d157ec850564b16919d6e86774e52e56611c4a574d4c85d",
+    "src/labs/threejs-step-19/solutions/mesh.html": "828b4a4dd294cbfe3b15bc5aee07fb66ba3e72533a59f0ebd3d7179cf7098669",
+    "src/labs/threejs-step-19/steps/instances.html": "a72d3c541c357634c32216f8f44e41522682c0ad1266806b6a9e3a08e3eb46f8",
+    "src/labs/threejs-step-19/solutions/instances.html": "0ecca852744c7c1c1d6ee9865a0cc1863e927625bae8eb25f96a78d13ee59186",
+    "src/labs/threejs-step-19/steps/stats.html": "67e9878754cf7bfffe773408ae09e714e3266dc0fbdadafc40ced23d53e45525",
+    "src/labs/threejs-step-19/solutions/stats.html": "11f31cec635a75e25709eb6f243ad9aa1d7d844412a3cd0c7961d61eff94f9c1",
+    "src/labs/threejs-step-20/example.html": "042cb6c97cbe270c647e45a59a8079ac463fc731e61729a277a6e28c368dfed6",
+    "src/labs/threejs-step-20/steps/select.html": "042cb6c97cbe270c647e45a59a8079ac463fc731e61729a277a6e28c368dfed6",
+    "src/labs/threejs-step-20/solutions/select.html": "9326f40dd0ee075ba047a6cbffe99223562eb1b6c7e588b888d76242430a24e7",
+    "src/labs/threejs-step-20/steps/update.html": "4e976ee4106655251ee26475b7ccb93cbe5f6212adc05d351e3d5edaf4e0e54b",
+    "src/labs/threejs-step-20/solutions/update.html": "6d50482e43ed228ccb674a859a3f368039f48bb5f0715651467745693e5c8e07",
+    "src/labs/threejs-step-20/steps/bounds.html": "5e05cb1ec40ecca07d6b6beec683cd66ee9a4987c7f1db4fc8ee2f5bc927c363",
+    "src/labs/threejs-step-20/solutions/bounds.html": "073091408de1e481d7932497283780313d5e5cead478a8f74d112e4511a0e474",
+    "src/labs/threejs-step-21/example.html": "7c3d95c9503bf5abb7f5489514983a1bbfc4b9266de483d1e0eeedcaf1a68b9a",
+    "src/labs/threejs-step-21/steps/bounds.html": "7c3d95c9503bf5abb7f5489514983a1bbfc4b9266de483d1e0eeedcaf1a68b9a",
+    "src/labs/threejs-step-21/solutions/bounds.html": "70a0245e1354f5ee733745f5c5e4863e01b5c314515aaac26d0ed467f4bdad5f",
+    "src/labs/threejs-step-21/steps/culling.html": "0252c086dd655e211f7a91c25cddb439cfbe1a2960f3998d9187cc1b83289c57",
+    "src/labs/threejs-step-21/solutions/culling.html": "fcd82f41828511efaccc02a1c9a90264f764d2e2de48eedce4322f56fe4ec7c5",
+    "src/labs/threejs-step-21/steps/lod.html": "399431ff6561a99ab913d473e9c0b6cf01917d2232da8ba14e5ff68844af1513",
+    "src/labs/threejs-step-21/solutions/lod.html": "ae8d8044d109a283bb22594e33145bd81c721b1665ee338d5b9d38b2a5a25a77",
+    "src/labs/threejs-step-22/example.html": "6145b9172371ee856286612b704e858afd1d2c126c83088705167a655c3e2486",
+    "src/labs/threejs-step-22/steps/target.html": "6145b9172371ee856286612b704e858afd1d2c126c83088705167a655c3e2486",
+    "src/labs/threejs-step-22/solutions/target.html": "42cdcb7edd18b19073199e3b6fced4557721da64bef120347b6a1a1d5ef19c64",
+    "src/labs/threejs-step-22/steps/minimap.html": "c407dde5f66be9a7e990026930c7746393b34e60a8270f0d3f6aea41c50760ab",
+    "src/labs/threejs-step-22/solutions/minimap.html": "4d079da8076f4f4f77346ee5f291d485aba43f2cf41a6323c005db6340526a78",
+    "src/labs/threejs-step-22/steps/restore.html": "515bb524e5dc401ba7dc33e80f90eae5fd124abcf4ba335eda8586959037e6a4",
+    "src/labs/threejs-step-22/solutions/restore.html": "6e4959803616925ed5b5b9eddabb844a7be7cb73c8b4d26931e83a4dfe23bc93"
   }
 }

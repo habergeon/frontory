@@ -3345,9 +3345,11 @@
       "day": 19,
       "week": 3,
       "title": "인스턴싱 기초",
-      "goal": "화면 배치와 개수가 두 방식에서 같다. 업로드 플래그 누락을 재현한다.",
+      "goal": "Mesh calls=500, InstancedMesh calls=1이며 둘 다 triangles=6000입니다. upload가 꺼지면 version과 화면은 유지됩니다. 켜면 version이 증가하고 500개가 이동합니다.",
       "docPath": "/docs/labs/graphics/threejs/units/19/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-19/example.js"
     },
     {
@@ -3355,9 +3357,11 @@
       "day": 20,
       "week": 3,
       "title": "인스턴스 선택과 갱신",
-      "goal": "선택 후 다른 인스턴스 색이 보존된다. 이동한 인스턴스도 새 위치에서 선택된다.",
+      "goal": "중앙을 누르면 instanceId=1입니다. 빈 곳을 누르면 null입니다. 두 버퍼를 업로드하면 1번만 X=4의 빨강 큐브가 됩니다.",
       "docPath": "/docs/labs/graphics/threejs/units/20/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-20/example.js"
     },
     {
@@ -3365,9 +3369,11 @@
       "day": 21,
       "week": 3,
       "title": "화면 밖 객체와 상세도",
-      "goal": "거리별 품질 차이를 기록한다. 컬링 문제와 실제 삭제를 구별한다.",
+      "goal": "재계산 뒤 center.x=8이고 큐브가 다시 보입니다. 낡은 경계+컬링 on에서는 빈 화면, off에서는 표시, 새 경계+on에서도 표시됩니다.",
       "docPath": "/docs/labs/graphics/threejs/units/21/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-21/example.js"
     },
     {
@@ -3375,9 +3381,11 @@
       "day": 22,
       "week": 4,
       "title": "렌더 타깃과 미니맵",
-      "goal": "메인 화면과 미니맵이 각각 갱신된다. 렌더 타깃과 화면 상태를 복원한다.",
+      "goal": "갱신 on에서 두 화면이 같은 X를 반영하고 off에서는 미니맵만 멈춥니다. 메인에서는 큐브 옆면이 보이고 미니맵에서는 윗면이 보입니다. 128×128 타깃을 오른쪽 아래에 표시합니다.",
       "docPath": "/docs/labs/graphics/threejs/units/22/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-22/example.js"
     },
     {

@@ -3600,44 +3600,52 @@
       "day": 19,
       "week": 3,
       "title": "Instancing Basics",
-      "goal": "Keep the screen layout and count identical in both approaches. Reproduce a missing upload flag.",
+      "goal": "Mesh calls=500, InstancedMesh calls=1; both have triangles=6000. With upload off, version and image remain unchanged. With upload on, version increases and all 500 cubes move.",
       "docPath": "/docs/en/labs/graphics/threejs/units/19/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-19/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run independent HTML inside the site. Record actual observations in the site notes."
     },
     {
       "id": "threejs-step-20",
       "day": 20,
       "week": 3,
       "title": "Instance Selection and Updates",
-      "goal": "Preserve other instances’ colors after selection. Select moved instances at their new positions.",
+      "goal": "Clicking center yields instanceId=1; empty space yields null. Uploading both buffers turns only instance 1 into a red cube at X=4.",
       "docPath": "/docs/en/labs/graphics/threejs/units/20/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-20/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run independent HTML inside the site. Record actual observations in the site notes."
     },
     {
       "id": "threejs-step-21",
       "day": 21,
       "week": 3,
       "title": "Offscreen Objects and Level of Detail",
-      "goal": "Record quality differences at different distances. Distinguish a culling problem from actual deletion.",
+      "goal": "After recomputation, center.x=8 and the cube reappears. Stale bounds with culling on give an empty image; off shows the cube. Fresh bounds with culling on show it too.",
       "docPath": "/docs/en/labs/graphics/threejs/units/21/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-21/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run independent HTML inside the site. Record actual observations in the site notes."
     },
     {
       "id": "threejs-step-22",
       "day": 22,
       "week": 4,
       "title": "Render Targets and Minimap",
-      "goal": "Update the main view and minimap separately. Restore the render target and screen state.",
+      "goal": "With updates on both views reflect the same X; off freezes only the minimap. Main view shows cube sides; the map shows top faces. A 128×128 target is displayed at bottom right.",
       "docPath": "/docs/en/labs/graphics/threejs/units/22/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-22/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run independent HTML inside the site. Record actual observations in the site notes."
     },
     {
       "id": "threejs-step-23",

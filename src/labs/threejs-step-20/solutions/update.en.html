@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Update position and color</title>
+    <style>
+      body{margin:0;padding:12px;font:14px/1.5 system-ui,sans-serif;color:#172554;background:white}h1{font-size:22px}#stage{width:480px;max-width:100%;height:280px}canvas{display:block;width:100%;height:100%;touch-action:none}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}input[type=number]{width:70px}button{padding:6px}output{display:block;white-space:pre-wrap;overflow-wrap:anywhere}
+    </style>
+  </head>
+  <body>
+    <h1>Update position and color</h1>
+    <p>
+      Click the center blue cube to select instanceId=1. Apply X=4 to move only
+      that cube right and color it red. Click its new position again. A stale
+      bounding sphere can make raycast miss a visible cube. After reset, select
+      the center again.
+    </p>
+    <div class="controls">
+      <label
+        >Selected X<input
+          id="value"
+          type="number"
+          value="4"
+          min="-4"
+          max="4"
+          step="0.25" /></label
+      ><label
+        ><input id="picking" type="checkbox" checked />Pointer selection</label
+      ><label
+        ><input id="upload" type="checkbox" checked />Upload matrix/color</label
+      ><label
+        ><input id="bounds" type="checkbox" checked />Recompute bounds</label
+      ><button id="reset">Reset layout</button><button id="apply">Apply</button
+      ><button id="cleanup">Dispose resources</button>
+    </div>
+    <div id="stage">
+      <canvas aria-label="Update position and color"></canvas>
+    </div>
+    <output aria-live="polite"></output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage=document.querySelector('#stage'),canvas=document.querySelector('canvas'),output=document.querySelector('output');
+      const scene=new THREE.Scene();scene.background=new THREE.Color('#edf2f7');
+      const camera=new THREE.PerspectiveCamera(45,1,.1,100);
+      const renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(1);
+      const ownedGeometry=new Set(),ownedMaterial=new Set(),ownedTargets=new Set(),ownedInstances=new Set();
+      const events=new AbortController();let disposed=false,frames=0;
+      const on=(s,t,f)=>document.querySelector(s).addEventListener(t,f,{signal:events.signal});
+      camera.position.set(1.25,0,10);camera.lookAt(1.25,0,0);
+      const geometry=new THREE.BoxGeometry(.7,.7,.7),material=new THREE.MeshBasicMaterial({color:'white'});ownedGeometry.add(geometry);ownedMaterial.add(material);
+      const instances=new THREE.InstancedMesh(geometry,material,3);ownedInstances.add(instances);scene.add(instances);
+      const matrix=new THREE.Matrix4(),raycaster=new THREE.Raycaster(),pointer=new THREE.Vector2();let selected=null,hits=[];
+      function reset(){for(let i=0;i<3;i++){instances.setMatrixAt(i,matrix.makeTranslation((i-1)*1.5,0,0));instances.setColorAt(i,new THREE.Color('#2563eb'));}instances.instanceMatrix.needsUpdate=true;instances.instanceColor.needsUpdate=true;instances.computeBoundingBox();instances.computeBoundingSphere();selected=null;hits=[];draw();}
+      function pick(event){const r=canvas.getBoundingClientRect();pointer.set((event.clientX-r.left)/r.width*2-1,-(event.clientY-r.top)/r.height*2+1);if(!document.querySelector('#picking').checked)return;scene.updateMatrixWorld(true);camera.updateMatrixWorld();raycaster.setFromCamera(pointer,camera);hits=raycaster.intersectObject(instances);selected=hits[0]?.instanceId??null;draw();}
+      canvas.addEventListener('pointerdown',pick,{signal:events.signal});
+
+      function draw(){if(disposed||!stage.clientWidth)return;renderer.render(scene,camera);frames++;output.textContent='instanceId: '+selected+' / matrix.version: '+instances.instanceMatrix.version+' / color.version: '+instances.instanceColor.version+' / bounds center: '+instances.boundingSphere.center.toArray()+' / radius: '+instances.boundingSphere.radius.toFixed(3);}
+      on('#apply','click',()=>{const input=document.querySelector('#value');if(selected===null||!input.value||!input.checkValidity())return;instances.setMatrixAt(selected,matrix.makeTranslation(Number(input.value),0,0));instances.setColorAt(selected,new THREE.Color('#ef4444'));if(document.querySelector('#upload').checked){instances.instanceMatrix.needsUpdate=true;instances.instanceColor.needsUpdate=true;}if(document.querySelector('#bounds').checked){instances.computeBoundingBox();instances.computeBoundingSphere();}draw();});on('#reset','click',reset);reset();
+
+      function resizeScene(){const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h||disposed)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();draw();}
+      const observer=new ResizeObserver(resizeScene);observer.observe(stage);resizeScene();
+      function cleanup(){if(disposed)return;disposed=true;observer.disconnect();events.abort();renderer.setAnimationLoop(null);for(const x of ownedInstances)x.dispose();for(const x of ownedTargets)x.dispose();for(const x of ownedGeometry)x.dispose();for(const x of ownedMaterial)x.dispose();renderer.dispose();scene.clear();output.textContent='Resources disposed';}
+      on('#cleanup','click',cleanup);window.addEventListener('pagehide',cleanup,{once:true,signal:events.signal});
+    </script>
+  </body>
+</html>

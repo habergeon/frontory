@@ -275,16 +275,42 @@ export async function runGroup(page, base, unitId) {
                     ? -3
                     : 6
                 : step.id.endsWith('roughness')
-                  ? 0.4
+                  ? 0.15
                   : step.id.endsWith('metalness')
                     ? 0.7
                     : 2.5
+            if (n === 9 && step.id.endsWith('roughness')) {
+              assert.equal(
+                await frame
+                  .locator('#value')
+                  .evaluate((input) => input.checkValidity()),
+                true,
+                'initial roughness input must be valid',
+              )
+              await frame.locator('#apply').click()
+              assert.equal(await frame.locator('#error').textContent(), '')
+              await frame.locator('#value').fill('0.4')
+              await frame.locator('#apply').click()
+              assert.equal((await snapshot(frame)).actual.right[0], 0.4)
+            }
             const before = await snapshot(frame)
             await frame.locator('#value').fill(String(value))
             await frame.locator('#apply').click()
             const changed = await snapshot(frame)
             assert.notDeepEqual(changed.actual, before.actual)
             assert.notEqual(changed.sum, before.sum)
+            if (n === 9 && step.id.endsWith('roughness')) {
+              assert.equal(await frame.locator('#error').textContent(), '')
+              assert.equal(
+                await frame
+                  .locator('#value')
+                  .evaluate((input) => input.checkValidity()),
+                true,
+              )
+              assert.equal(changed.actual.right[0], 0.15)
+              assert.equal(changed.halfHash[0], before.halfHash[0])
+              assert.notEqual(changed.halfHash[1], before.halfHash[1])
+            }
             checks.push({
               unit: id,
               step: step.id,

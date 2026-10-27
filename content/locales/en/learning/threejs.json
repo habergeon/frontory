@@ -1814,12 +1814,12 @@
     "src/labs/threejs-step-08/steps/point.html": "899e6172d590329022e9f16c0a110f741e69ef3137f1633ed8ae5043c4b17655",
     "src/labs/threejs-step-08/solutions/point.html": "ad1da82fe4a409159a25d28a9f36192d1e64bcdae56094659880e725ccdfa10b",
     "src/labs/threejs-step-08/example.html": "5fe1a3f36ddfc0b41ec89f6830f9138112afc9a2dd25a4582fb6ba51622f1151",
-    "src/labs/threejs-step-09/steps/roughness.html": "8ed6a4c4d6894f0e1f57a5bd8cb0cd771f9b29b77dd5f8515e29a06725b51209",
-    "src/labs/threejs-step-09/solutions/roughness.html": "06d437e08d73e0448ca3469123ffb1a1893087a86b89b6e0fc368a2c8bb304c1",
+    "src/labs/threejs-step-09/steps/roughness.html": "819cd9b6cae375e60783f389c434ba05022b46b4a1aca9e48e87275130b8353f",
+    "src/labs/threejs-step-09/solutions/roughness.html": "373eb9b588a6c816f6a747e84bedb343e37bf3265de5352ba5fc5ab431b12af1",
     "src/labs/threejs-step-09/steps/metalness.html": "a0a9b727338c6ff17c153db96b63f1383a7e61a93489e7d621250eb744d10ada",
     "src/labs/threejs-step-09/solutions/metalness.html": "e08d514a432c1cdd36f087253f4e867d4559533a916244b0a8650a7bb24726dc",
     "src/labs/threejs-step-09/steps/environment.html": "580037b0978af2c72fe067eb34f7078d8d34e6befde732f134b21695901a8c3c",
     "src/labs/threejs-step-09/solutions/environment.html": "421415d32d95d82f2bb2651fe6f021b0da35c3e64fad33874c55f722cb218dbd",
-    "src/labs/threejs-step-09/example.html": "8ed6a4c4d6894f0e1f57a5bd8cb0cd771f9b29b77dd5f8515e29a06725b51209"
+    "src/labs/threejs-step-09/example.html": "819cd9b6cae375e60783f389c434ba05022b46b4a1aca9e48e87275130b8353f"
   }
 }

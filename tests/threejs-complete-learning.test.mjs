@@ -29,3 +29,31 @@ test('05–09 contain runnable localized HTML lessons with distinct learning cor
       }
   }
 })
+
+test('roughness HTML inputs accept the documented 0.15 task value', () => {
+  const data = readLearningContent()
+  const lesson = data.ko.lessons.find((l) => l.unitId === 'threejs-step-09')
+  const step = lesson.steps.find((s) => s.id.endsWith('roughness'))
+  for (const locale of ['ko', 'en'])
+    for (const file of [
+      'src/labs/threejs-step-09/example.html',
+      step.starterPath,
+      step.solutionPath,
+    ]) {
+      const input = data
+        .readCode(file, locale)
+        .match(/<input\s+id="value"[\s\S]*?\/>/)[0]
+      const attr = (name) => input.match(new RegExp(name + '="([^"]+)"'))[1]
+      const min = Number(attr('min')),
+        max = Number(attr('max')),
+        target = 0.15
+      assert.ok(target >= min && target <= max)
+      if (attr('step') !== 'any') {
+        const offset = (target - min) / Number(attr('step'))
+        assert.ok(
+          Math.abs(offset - Math.round(offset)) < 1e-9,
+          locale + ' ' + file + ' rejects 0.15',
+        )
+      }
+    }
+})

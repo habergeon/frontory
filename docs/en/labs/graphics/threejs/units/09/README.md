@@ -107,7 +107,7 @@ Left stays .8; right changes .8→.15. metalness=0 and environment intensity=1 s
           type="number"
           min="0"
           max="1"
-          step="0.1"
+          step="0.01"
           value="0.8" /></label
       ><button id="apply">Apply</button
       ><button id="cleanup">Release resources</button>
@@ -299,7 +299,7 @@ roughness in 0–1 changes the spread of reflection, not base color or light int
           type="number"
           min="0"
           max="1"
-          step="0.1"
+          step="0.01"
           value="0.15" /></label
       ><button id="apply">Apply</button
       ><button id="cleanup">Release resources</button>

@@ -107,7 +107,7 @@ metalness는 금속과 비금속의 반응을 구분합니다. 환경 반사가 
           type="number"
           min="0"
           max="1"
-          step="0.1"
+          step="0.01"
           value="0.8" /></label
       ><button id="apply">적용</button><button id="cleanup">자원 정리</button>
     </div>
@@ -300,7 +300,7 @@ roughness는 0~1 범위에서 표면 반사의 퍼짐을 바꿉니다. 색이나
           type="number"
           min="0"
           max="1"
-          step="0.1"
+          step="0.01"
           value="0.15" /></label
       ><button id="apply">적용</button><button id="cleanup">자원 정리</button>
     </div>

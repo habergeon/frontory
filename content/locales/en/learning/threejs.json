@@ -769,6 +769,227 @@
         }
       ],
       "apiIds": ["standard-pbr", "pmrem-scene"]
+    },
+    {
+      "unitId": "threejs-step-10",
+      "prerequisiteIds": ["threejs-step-05", "threejs-step-09"],
+      "introduction": "UV connects image locations to vertices; world coordinates place objects. Use an original 8×8 PNG and real TextureLoader to separate coordinate mapping, repetition, and recovery.",
+      "steps": [
+        {
+          "id": "threejs-step-10-uv",
+          "title": "Reduce only the UV range",
+          "explanation": "The plane has world width 3.6. Change uvScale=1 to .5. Also apply U range .5 through the input. The left half of the image should cover the entire plane without changing mesh position or scale.",
+          "solutionExplanation": "U and V identify horizontal and vertical image locations, usually in 0–1. Halving U stretches the left image half across the same world surface. Position and UV attributes are separate arrays.",
+          "expected": "Maximum U 1→.5; world width remains 3.6. Only blue and yellow cover the plane.",
+          "hints": [
+            "Change uvScale to .5.",
+            "Read the uv attribute, not position."
+          ],
+          "questions": ["What do UV and world coordinates each control?"],
+          "starterPath": "src/labs/threejs-step-10/steps/uv.html",
+          "solutionPath": "src/labs/threejs-step-10/solutions/uv.html"
+        },
+        {
+          "id": "threejs-step-10-repeat",
+          "title": "Connect repeat counts to wrapping",
+          "explanation": "The repeat inputs already contain 4,2, but the starter uses ClampToEdgeWrapping. Enable RepeatWrapping and apply. Compare stretched edge colors with four horizontal and two vertical image copies.",
+          "solutionExplanation": "repeat multiplies UV coordinates. wrapS and wrapT determine how coordinates outside 0–1 are sampled. Clamp extends edge colors; RepeatWrapping repeats the image. Set needsUpdate after changing wrapping on an uploaded texture.",
+          "expected": "repeat=[4,2] stays fixed; both axes change clamp→repeat, producing 4×2 quadrant tiles.",
+          "hints": [
+            "Enable the RepeatWrapping checkbox.",
+            "Check both wrapS and wrapT."
+          ],
+          "questions": ["Why can repeat 4,2 still stretch edge colors?"],
+          "starterPath": "src/labs/threejs-step-10/steps/repeat.html",
+          "solutionPath": "src/labs/threejs-step-10/solutions/repeat.html"
+        },
+        {
+          "id": "threejs-step-10-load-recovery",
+          "title": "Recover from an invalid image",
+          "explanation": "The starter loads corrupt data PNG and displays an error. Change loadImage(invalid) to loadImage(sample). Select real PNG and JPEG files, then try a corrupt image and restore the sample.",
+          "solutionExplanation": "TextureLoader decodes asynchronously. Only a successful result replaces material.map; failures keep the last valid image. Dispose replaced or failed textures and revoke object URLs on success, failure, or cleanup. Selected files belong only to this running iframe and cannot be restored from backup.",
+          "expected": "error→ready with an 8×8 sample. Inputs survive decode errors and sample recovery works. Re-run requires file reselection.",
+          "hints": [
+            "Pass sample to the initial loadImage call.",
+            "A corrupt file with a PNG extension still fails decoding."
+          ],
+          "questions": [
+            "Which resources do Texture.dispose and URL.revokeObjectURL release?"
+          ],
+          "starterPath": "src/labs/threejs-step-10/steps/load-recovery.html",
+          "solutionPath": "src/labs/threejs-step-10/solutions/load-recovery.html"
+        }
+      ],
+      "apiIds": ["texture-image", "texture-uv"]
+    },
+    {
+      "unitId": "threejs-step-11",
+      "prerequisiteIds": ["threejs-step-09", "threejs-step-10"],
+      "introduction": "The same byte 128 has different meaning as color and as roughness. Separate decoding into the Linear-sRGB working space from final display encoding. Tone mapping is disabled and neutral lights stay fixed.",
+      "steps": [
+        {
+          "id": "threejs-step-11-color-map",
+          "title": "Annotate a color image as sRGB",
+          "explanation": "The original 2×2 gray image encodes sRGB color 128. Change inputSpace=\"none\" to \"srgb\". Also apply srgb through the selector and compare brightness.",
+          "solutionExplanation": "Annotating a color map with SRGBColorSpace decodes sRGB into the linear working space. NoColorSpace instead treats 128/255 as already linear, making display output brighter. MeshBasicMaterial avoids lighting so this experiment isolates color conversion.",
+          "expected": "NoColorSpace→srgb. The same source byte produces approximately 188→128 at output.",
+          "hints": ["Find inputSpace.", "Keep the output at srgb."],
+          "questions": [
+            "Why can input colorSpace change brightness without changing bytes?"
+          ],
+          "starterPath": "src/labs/threejs-step-11/steps/color-map.html",
+          "solutionPath": "src/labs/threejs-step-11/solutions/color-map.html"
+        },
+        {
+          "id": "threejs-step-11-data-map",
+          "title": "Preserve numeric roughness data",
+          "explanation": "The green channel 128/255 encodes a roughness coefficient, not color. Change inputSpace=\"srgb\" to \"none\" and compare reflections under a fixed point light. Keep roughness=1 and metalness=.25.",
+          "solutionExplanation": "roughnessMap multiplies material.roughness by the green channel. NoColorSpace preserves that numeric value. Incorrect sRGB decoding changes .502 to about .216, narrowing reflections. normalMap also encodes numeric direction components and uses NoColorSpace. This experiment runs roughnessMap and explains the separate normalMap role.",
+          "expected": "NoColorSpace preserves 128/255≈.502, spreading the reflection. Color-image rules do not apply to every texture.",
+          "hints": [
+            "Select none for numeric data.",
+            "Consider green multiplied by roughness=1."
+          ],
+          "questions": [
+            "What direction information would sRGB decoding damage in a normal map?"
+          ],
+          "starterPath": "src/labs/threejs-step-11/steps/data-map.html",
+          "solutionPath": "src/labs/threejs-step-11/solutions/data-map.html"
+        },
+        {
+          "id": "threejs-step-11-output",
+          "title": "Separate working space and output encoding",
+          "explanation": "Use Linear-sRGB (.5,.5,.5) directly on a plane without an image. Change renderer.outputColorSpace from LinearSRGBColorSpace to SRGBColorSpace. Also apply srgb through the selector.",
+          "solutionExplanation": "Three.js performs lighting and color calculations in Linear-sRGB. outputColorSpace controls final encoding and does not repair texture semantics. Linear .5 displays as about 188 on a normal sRGB display. Distinguishing input, working, and output stages avoids double conversion.",
+          "expected": "Working .5 stays fixed; linear→srgb output changes approximately 128→188. NoToneMapping remains enabled.",
+          "hints": [
+            "Find renderer.outputColorSpace.",
+            "material.color .5 is a linear value."
+          ],
+          "questions": [
+            "Why does compensating for bad input through output settings break other colors?"
+          ],
+          "starterPath": "src/labs/threejs-step-11/steps/output.html",
+          "solutionPath": "src/labs/threejs-step-11/solutions/output.html"
+        }
+      ],
+      "apiIds": ["texture-space", "renderer-output"]
+    },
+    {
+      "unitId": "threejs-step-12",
+      "prerequisiteIds": ["threejs-step-03", "threejs-step-08"],
+      "introduction": "Shadows require renderer, light, caster, and receiver settings together. Keep box, floor, and light fixed while testing shadow presence, camera clipping, and map resolution separately.",
+      "steps": [
+        {
+          "id": "threejs-step-12-flags",
+          "title": "Connect caster and receiver",
+          "explanation": "renderer.shadowMap.enabled, light.castShadow, and floor receiveShadow are already true. Change caster.castShadow=false to true. Enable the castShadow input, apply, then disable only receiveShadow for comparison.",
+          "solutionExplanation": "A caster writes depth from the light viewpoint. A receiver compares that map to determine blocked light. Either missing flag can remove the shadow. Receiving a shadow is separate from casting one.",
+          "expected": "cast false→true adds a floor shadow. receive false removes it again.",
+          "hints": [
+            "Find caster.castShadow.",
+            "Check why the light and renderer also need flags."
+          ],
+          "questions": [
+            "Which four settings should you check when a visible object has no shadow?"
+          ],
+          "starterPath": "src/labs/threejs-step-12/steps/flags.html",
+          "solutionPath": "src/labs/threejs-step-12/solutions/flags.html"
+        },
+        {
+          "id": "threejs-step-12-shadow-frustum",
+          "title": "Fix clipping with the camera frustum",
+          "explanation": "Keep mapSize=512 and change extent=.5 to 4. Apply half extent 4 through the input. Enable the helper to see the depth region expand to include the box and floor. After recovery, compare half extents 8 and 4 to inspect finer edges over narrower coverage at the same map resolution.",
+          "solutionExplanation": "Directional-light shadows use an orthographic camera. Only the region inside left/right/top/bottom and near/far enters the depth map. Update its projection matrix and helper after changes. Raising mapSize cannot recover missing coverage.",
+          "expected": "Half extent .5→4; mapSize stays 512. The clipped shadow recovers and the helper region expands.",
+          "hints": [
+            "Change all four side planes.",
+            "Compare coverage while keeping resolution fixed."
+          ],
+          "questions": [
+            "How do missing shadow regions differ from blocky shadow edges?"
+          ],
+          "starterPath": "src/labs/threejs-step-12/steps/shadow-frustum.html",
+          "solutionPath": "src/labs/threejs-step-12/solutions/shadow-frustum.html"
+        },
+        {
+          "id": "threejs-step-12-map-size",
+          "title": "Compare resolution at fixed coverage",
+          "explanation": "Keep extent=4 and change mapSize=32 to 512. Apply 512 through the input and compare blocky edges. Then explain how wider and smaller camera regions divide the same map pixels.",
+          "solutionExplanation": "32→512 increases each side 16 times and texel count 256 times. Depth storage and render cost may rise. BasicShadowMap avoids filter blur. Dividing 8 world units by the map width changes units/texel from .25 to .015625.",
+          "expected": "Half extent stays 4; actual map changes 32×32→512×512. Distinguish resolution from repairing camera clipping.",
+          "hints": [
+            "Set both map dimensions.",
+            "Dispose an existing map and set it to null so the next draw allocates the new size."
+          ],
+          "questions": [
+            "How do mapSize and camera extent trade quality against cost?"
+          ],
+          "starterPath": "src/labs/threejs-step-12/steps/map-size.html",
+          "solutionPath": "src/labs/threejs-step-12/solutions/map-size.html"
+        }
+      ],
+      "apiIds": ["shadow-flags", "shadow-camera", "shadow-resolution"]
+    },
+    {
+      "unitId": "threejs-step-13",
+      "prerequisiteIds": [
+        "threejs-step-02",
+        "threejs-step-03",
+        "threejs-step-04"
+      ],
+      "introduction": "Convert client coordinates into canvas NDC and cast a ray from the camera. Use overlapping boxes and their distance list to select the nearest object after margin and size changes.",
+      "steps": [
+        {
+          "id": "threejs-step-13-canvas-ndc",
+          "title": "Compute NDC from the canvas rectangle",
+          "explanation": "The starter normalizes by innerWidth/innerHeight. Change canvasRelative=false to true. Click center and top-left, press Change margin and width, then click center again.",
+          "solutionExplanation": "getBoundingClientRect returns the current canvas client position and CSS size. NDC x is 2*(clientX-left)/width-1. Since up is +1, y is 1-2*(clientY-top)/height. Do not confuse CSS dimensions with buffer pixels or window size.",
+          "expected": "Center NDC≈(0,0); top-left≈(-1,1). Center still selects front after margin/width changes.",
+          "hints": [
+            "Set canvasRelative to true.",
+            "Read a fresh rectangle on every click."
+          ],
+          "questions": [
+            "Why can dividing by canvas.width fail with DPR or page margins?"
+          ],
+          "starterPath": "src/labs/threejs-step-13/steps/canvas-ndc.html",
+          "solutionPath": "src/labs/threejs-step-13/solutions/canvas-ndc.html"
+        },
+        {
+          "id": "threejs-step-13-intersections",
+          "title": "Select the first distance-sorted hit",
+          "explanation": "The input array is [back,front]. The starter chooses the last hit. Change nearest=false to true and click the overlapping center. Compare every reported name and distance.",
+          "solutionExplanation": "intersectObjects sorts intersections by distance from the ray origin, independently of input array order. hits[0] is nearest. A shared triangle edge can yield two coincident hits on one object, so hit count is not object count.",
+          "expected": "The list puts front before back; selection changes back→front.",
+          "hints": [
+            "Use hits[0].object.",
+            "Do not repair this by reversing the input array."
+          ],
+          "questions": [
+            "How does recursive=true differ from choosing the nearest object?"
+          ],
+          "starterPath": "src/labs/threejs-step-13/steps/intersections.html",
+          "solutionPath": "src/labs/threejs-step-13/solutions/intersections.html"
+        },
+        {
+          "id": "threejs-step-13-selection",
+          "title": "Clear selection on empty space",
+          "explanation": "Change clearOnMiss=false to true. Select front, then click empty top-left space. Change margin and width, select front again, and also try Clear selection.",
+          "solutionExplanation": "Selection connects intersections to application state. An empty list sets null and restores original colors. Each box owns a distinct material here, preventing selection color from propagating. Ray computation and highlight updates serve separate purposes.",
+          "expected": "Center selects green front; an empty click selects none and restores orange.",
+          "hints": [
+            "Call highlight(null) when there are no hits.",
+            "Connect independent materials to unit 07."
+          ],
+          "questions": [
+            "Does Raycaster decide whether a missed click keeps the previous selection?"
+          ],
+          "starterPath": "src/labs/threejs-step-13/steps/selection.html",
+          "solutionPath": "src/labs/threejs-step-13/solutions/selection.html"
+        }
+      ],
+      "apiIds": ["ray-ndc", "ray-hits"]
     }
   ],
   "apis": [
@@ -1051,8 +1272,16 @@
           "type": "number",
           "description": "Target world X. An overload accepts a single Vector3."
         },
-        { "name": "y", "type": "number", "description": "Target world Y." },
-        { "name": "z", "type": "number", "description": "Target world Z." }
+        {
+          "name": "y",
+          "type": "number",
+          "description": "Target world Y."
+        },
+        {
+          "name": "z",
+          "type": "number",
+          "description": "Target world Z."
+        }
       ],
       "result": "No return value. Changes camera rotation without moving its position.",
       "cautions": [
@@ -1720,7 +1949,11 @@
       "symbol": "PMREMGenerator.fromScene",
       "description": "Capture a scene and prefilter it for roughness-dependent environment reflections.",
       "parameters": [
-        { "name": "scene", "type": "Scene", "description": "Scene to capture" },
+        {
+          "name": "scene",
+          "type": "Scene",
+          "description": "Scene to capture"
+        },
         {
           "name": "sigma",
           "type": "number",
@@ -1736,9 +1969,219 @@
       "sourceUrl": "https://threejs.org/docs/pages/PMREMGenerator.html",
       "packageVersion": "three@0.186.1",
       "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "texture-image",
+      "symbol": "TextureLoader.load",
+      "description": "Loads an image asynchronously and reports success or failure.",
+      "parameters": [
+        {
+          "name": "url",
+          "type": "string",
+          "description": "A data URI or object URL"
+        },
+        {
+          "name": "onLoad",
+          "type": "function",
+          "description": "Receives the decoded Texture"
+        },
+        {
+          "name": "onError",
+          "type": "function",
+          "description": "Handles a decode failure"
+        }
+      ],
+      "result": "Returns a Texture immediately; onLoad signals image readiness.",
+      "cautions": [
+        "onProgress is unsupported. Texture disposal and object URL revocation are separate."
+      ],
+      "example": "loader.load(url, texture => { material.map=texture; material.needsUpdate=true; }, undefined, showError);",
+      "sourceUrl": "https://threejs.org/docs/pages/TextureLoader.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "texture-uv",
+      "symbol": "Texture.repeat / wrapS / wrapT",
+      "description": "Controls UV scale and sampling outside the unit range.",
+      "parameters": [
+        {
+          "name": "repeat",
+          "type": "Vector2",
+          "description": "Horizontal and vertical UV scale; default (1,1)"
+        },
+        {
+          "name": "wrapS / wrapT",
+          "type": "number",
+          "description": "U/V wrapping; default ClampToEdgeWrapping"
+        }
+      ],
+      "result": "repeat.set(x,y) returns the same Vector2.",
+      "cautions": [
+        "repeat alone does not enable repetition. Set needsUpdate after changing wrapping."
+      ],
+      "example": "texture.wrapS=texture.wrapT=THREE.RepeatWrapping; texture.repeat.set(4,2); texture.needsUpdate=true;",
+      "sourceUrl": "https://threejs.org/docs/pages/Texture.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "texture-space",
+      "symbol": "Texture.colorSpace",
+      "description": "Declares color-image encoding or numeric-data semantics.",
+      "parameters": [
+        {
+          "name": "colorSpace",
+          "type": "string",
+          "description": "SRGBColorSpace for color maps; NoColorSpace for numeric maps"
+        }
+      ],
+      "result": "Sets the annotation used to interpret GPU texture input.",
+      "cautions": [
+        "roughnessMap uses green. normalMap also encodes directions rather than photographic color."
+      ],
+      "example": "texture.colorSpace=THREE.NoColorSpace; texture.needsUpdate=true;",
+      "sourceUrl": "https://threejs.org/docs/pages/Texture.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "renderer-output",
+      "symbol": "WebGLRenderer.outputColorSpace",
+      "description": "Encodes linear working results for display.",
+      "parameters": [
+        {
+          "name": "outputColorSpace",
+          "type": "string",
+          "description": "Default SRGBColorSpace; LinearSRGBColorSpace for comparison"
+        }
+      ],
+      "result": "Property assignment changes render output encoding.",
+      "cautions": [
+        "Do not repair incorrect texture semantics through output settings. Use NoToneMapping for this controlled comparison."
+      ],
+      "example": "renderer.outputColorSpace=THREE.SRGBColorSpace; renderer.toneMapping=THREE.NoToneMapping;",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "shadow-flags",
+      "symbol": "Object3D.castShadow / receiveShadow",
+      "description": "Separates depth casters from surfaces that receive shadow comparisons.",
+      "parameters": [
+        {
+          "name": "castShadow",
+          "type": "boolean",
+          "description": "Whether the object casts; default false"
+        },
+        {
+          "name": "receiveShadow",
+          "type": "boolean",
+          "description": "Whether its surface receives shadows; default false"
+        }
+      ],
+      "result": "Property assignments have no return value.",
+      "cautions": [
+        "Also enable renderer.shadowMap.enabled and light.castShadow."
+      ],
+      "example": "renderer.shadowMap.enabled=true; light.castShadow=true; box.castShadow=true; floor.receiveShadow=true;",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "shadow-camera",
+      "symbol": "LightShadow.camera",
+      "description": "Defines the light-view region captured by the depth map.",
+      "parameters": [
+        {
+          "name": "camera",
+          "type": "Camera",
+          "description": "OrthographicCamera for a directional light"
+        }
+      ],
+      "result": "Read the camera reference to change its bounds and update projection.",
+      "cautions": [
+        "More map pixels cannot fix missing coverage. Wider bounds increase world units per texel."
+      ],
+      "example": "const c=light.shadow.camera; c.left=c.bottom=-4; c.right=c.top=4; c.updateProjectionMatrix(); helper.update();",
+      "sourceUrl": "https://threejs.org/docs/pages/LightShadow.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "shadow-resolution",
+      "symbol": "LightShadow.mapSize",
+      "description": "Sets the depth texture width and height in pixels.",
+      "parameters": [
+        {
+          "name": "mapSize",
+          "type": "Vector2",
+          "description": "Default (512,512); compare 32 and 512 here"
+        }
+      ],
+      "result": "Configured dimensions apply when the map is allocated.",
+      "cautions": [
+        "A 16× side increase means 256× texels. Dispose an existing map and set it to null when resizing."
+      ],
+      "example": "light.shadow.mapSize.set(512,512); light.shadow.map?.dispose(); light.shadow.map=null;",
+      "sourceUrl": "https://threejs.org/docs/pages/LightShadow.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "ray-ndc",
+      "symbol": "Raycaster.setFromCamera",
+      "description": "Updates the ray origin and direction from NDC and a camera.",
+      "parameters": [
+        {
+          "name": "coords",
+          "type": "Vector2",
+          "description": "Canvas-relative -1–1, with y=1 at the top"
+        },
+        {
+          "name": "camera",
+          "type": "Camera",
+          "description": "The camera used to render the current view"
+        }
+      ],
+      "result": "Updates the internal ray without a return value.",
+      "cautions": [
+        "Use the current getBoundingClientRect for client coordinates. Distinguish CSS size from buffer pixels."
+      ],
+      "example": "const r=canvas.getBoundingClientRect(); pointer.set(2*(e.clientX-r.left)/r.width-1,1-2*(e.clientY-r.top)/r.height); raycaster.setFromCamera(pointer,camera);",
+      "sourceUrl": "https://threejs.org/docs/pages/Raycaster.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "ray-hits",
+      "symbol": "Raycaster.intersectObjects",
+      "description": "Reads real intersections sorted nearest first.",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "Object3D[]",
+          "description": "Objects to test"
+        },
+        {
+          "name": "recursive",
+          "type": "boolean",
+          "description": "Whether to inspect descendants; default true, false here"
+        }
+      ],
+      "result": "Returns Intersection records with object, distance, point, and more.",
+      "cautions": [
+        "Coincident triangle hits are possible. Define your own selection policy for an empty array."
+      ],
+      "example": "const hits=raycaster.intersectObjects([back,front],false); highlight(hits[0]?.object??null);",
+      "sourceUrl": "https://threejs.org/docs/pages/Raycaster.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
     }
   ],
-  "sourceHash": "b50be82cfaa3f8975ff249de0cc84f88ca906aa8f323f63348b97556e926a124",
+  "sourceHash": "59317d23f669d8bdd2090aa1353718221d825df91e1bcbd1cbc55b9d65aab64e",
   "codeSourceHashes": {
     "src/labs/threejs-01/example.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
     "src/labs/threejs-01/steps/canvas.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
@@ -1820,6 +2263,34 @@
     "src/labs/threejs-step-09/solutions/metalness.html": "e08d514a432c1cdd36f087253f4e867d4559533a916244b0a8650a7bb24726dc",
     "src/labs/threejs-step-09/steps/environment.html": "580037b0978af2c72fe067eb34f7078d8d34e6befde732f134b21695901a8c3c",
     "src/labs/threejs-step-09/solutions/environment.html": "421415d32d95d82f2bb2651fe6f021b0da35c3e64fad33874c55f722cb218dbd",
-    "src/labs/threejs-step-09/example.html": "819cd9b6cae375e60783f389c434ba05022b46b4a1aca9e48e87275130b8353f"
+    "src/labs/threejs-step-09/example.html": "819cd9b6cae375e60783f389c434ba05022b46b4a1aca9e48e87275130b8353f",
+    "src/labs/threejs-step-10/example.html": "749a707179fcbe09a99877e39f8f75a377e12660a4afabeb550497cf54407ad9",
+    "src/labs/threejs-step-10/steps/uv.html": "749a707179fcbe09a99877e39f8f75a377e12660a4afabeb550497cf54407ad9",
+    "src/labs/threejs-step-10/solutions/uv.html": "6b4d50d4e868d5d90cc445d571c2f12314e2fe2dd6c6c74dbac872485816073e",
+    "src/labs/threejs-step-10/steps/repeat.html": "25db6e44fb847c4260c9b623e5757c3b53fab70d89038e5a460434774503588e",
+    "src/labs/threejs-step-10/solutions/repeat.html": "baf528406d1ee7d518cd1a2caf21c4eb4e7c113909b89d1ce9391979e4c0e396",
+    "src/labs/threejs-step-10/steps/load-recovery.html": "a2a02837809b8902caa21643807362425fa94802af944074481d1d5c6e873853",
+    "src/labs/threejs-step-10/solutions/load-recovery.html": "d98b0d1bc1fc06a78b3a5353543ed532847daa718e19a422da501b5581829e2d",
+    "src/labs/threejs-step-11/example.html": "4e1b2c8caf24a8a6af4af09378a3520b356fbd77fbae91c5fd44514ed25d4bca",
+    "src/labs/threejs-step-11/steps/color-map.html": "4e1b2c8caf24a8a6af4af09378a3520b356fbd77fbae91c5fd44514ed25d4bca",
+    "src/labs/threejs-step-11/solutions/color-map.html": "aa2313ed4988f41edff202cc03147f692b5c8ed456e5829e1b89411d9ddc8621",
+    "src/labs/threejs-step-11/steps/data-map.html": "878bba64b78c42941085c629b9ba126a6697c64a8f70dfe1571a10d52bc38d4c",
+    "src/labs/threejs-step-11/solutions/data-map.html": "64c6b3cbd2379dc36e26ca92363578b3ce881bff8d3fbd2ac0f6145e58f1b37f",
+    "src/labs/threejs-step-11/steps/output.html": "f30fc111cdb6abfe84b6d46aaec358505439c71b7433df66dbafa1fe5e0048aa",
+    "src/labs/threejs-step-11/solutions/output.html": "a14de57791b0401a93cafff297ef8571991c63765be8d4ef41a1f77ebdfcc946",
+    "src/labs/threejs-step-12/example.html": "d2717d04c756108a9c40073e89e9462098cf643575ce16307225d5ad56dcea93",
+    "src/labs/threejs-step-12/steps/flags.html": "d2717d04c756108a9c40073e89e9462098cf643575ce16307225d5ad56dcea93",
+    "src/labs/threejs-step-12/solutions/flags.html": "e4c3c844ba41fbf8a3df0b9d189dfa90b3d594471a1efba0ae4b5c8e34b0c5ab",
+    "src/labs/threejs-step-12/steps/shadow-frustum.html": "7eb95dee76981a499e2d51b70bd11a363dca73f36d8f6eca84a9ded8540cf73c",
+    "src/labs/threejs-step-12/solutions/shadow-frustum.html": "acc1cd03e47f0a0bb6cdbb1727bd34aad7695601a59d6872972e39cf04e9111d",
+    "src/labs/threejs-step-12/steps/map-size.html": "385a20c687f26693234ba8e72b3c4426c71f6ef8c1a5f630ff7b540fb3e370cd",
+    "src/labs/threejs-step-12/solutions/map-size.html": "ef7cc54172583ab4493128831fdf5d1ca708e6f2e3fb3c6521986ff8883a9aca",
+    "src/labs/threejs-step-13/example.html": "71dba7ad96f59f466271d9d820f7e96946622eee1158cfdc43cecaef57eb3a10",
+    "src/labs/threejs-step-13/steps/canvas-ndc.html": "71dba7ad96f59f466271d9d820f7e96946622eee1158cfdc43cecaef57eb3a10",
+    "src/labs/threejs-step-13/solutions/canvas-ndc.html": "a0fe49560fe5a52f69d23ee3bb8a0596a94fd0191d4d83e5ee626a66524fa072",
+    "src/labs/threejs-step-13/steps/intersections.html": "434c6c523436deb1d50c69520775a06886b3ff572000f9bfb733627b34ef934b",
+    "src/labs/threejs-step-13/solutions/intersections.html": "97e08375bdbe3f858694f0f61127a00eb0f1151baa1da68a632b3006210eb36b",
+    "src/labs/threejs-step-13/steps/selection.html": "c62ce634888fc1f703e197bdc0dffd788d82ab1e641d9459c745b3e527045410",
+    "src/labs/threejs-step-13/solutions/selection.html": "ceaee01c3ad02fba53953b65100a442946702c317472e35c1ba2310bccf53e92"
   }
 }

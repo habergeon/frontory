@@ -153,9 +153,9 @@
     }
   },
   "threejs-step-10": {
-    "sourceHash": "d3bd5738598ac1da1496708bcf839085ad1c4fd0a2c50df6a4d32da31eafa625",
+    "sourceHash": "716b98a4c152dd7dca27aeda863a76c35a37dc81f14cc9fce84285e883ea6e8c",
     "values": {
-      "note": "Checks UV repeat with a generated checker DataTexture instead of an external image. Extend network TextureLoader error handling in an external project."
+      "note": "Edit and run the HTML starter inside the site. Complete each experiment and record actual images and values in notes."
     },
     "presentation": {
       "sourceHash": "3d79ec40a3f324680fd6cd6260ba593bc7c104ef7fa2a9a94104ffa43891b628",
@@ -171,9 +171,9 @@
     }
   },
   "threejs-step-11": {
-    "sourceHash": "d47f7601f62282984bbb37a8b3863e7ee22c1cee25c56fdcee40252b48af95c5",
+    "sourceHash": "c2d25e0121a3470f971af88e8204dfa2e655dbb6977b1d5574fa9fa90d12fec6",
     "values": {
-      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "note": "Edit and run the HTML starter inside the site. Complete each experiment and record actual images and values in notes."
     },
     "presentation": {
       "sourceHash": "7aaea76500289d70a72369b04b2daa08a8638381bdc57dd3661a16b007f01335",
@@ -189,9 +189,9 @@
     }
   },
   "threejs-step-12": {
-    "sourceHash": "8a29ba5314e1d219c4e197dc390f1f1e8b01933a7088b9a22bc90f6fa140d413",
+    "sourceHash": "c9b6ac9c803afff73ea794d61f565ddaa9a1d8984adc7bb1640261bb865d927b",
     "values": {
-      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "note": "Edit and run the HTML starter inside the site. Complete each experiment and record actual images and values in notes."
     },
     "presentation": {
       "sourceHash": "19bb606a7b67ce9e65b874c217037a8964f52c5c48c4f3d289b71bb463a3577d",
@@ -208,9 +208,9 @@
     }
   },
   "threejs-step-13": {
-    "sourceHash": "8e7ae537affa165897d7d034673c15dc14bcd35934771d29d625e0d0afd31e6c",
+    "sourceHash": "29a4259c8d70892d3bdbec9d4cfc7d9564782cdfca1d9c5223e706a54ab85d3b",
     "values": {
-      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "note": "Edit and run the HTML starter inside the site. Complete each experiment and record actual images and values in notes."
     },
     "presentation": {
       "sourceHash": "2668575516773c415cb747ccc12a57c8649ad5c5cc7f369483e33ac78fb91d12",

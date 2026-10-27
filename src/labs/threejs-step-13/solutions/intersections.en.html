@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Intersection order and distance</title>
+    <style>
+      body { margin:0; padding:12px; font:14px/1.5 system-ui,sans-serif; color:#172554; background:white; } h1{font-size:22px} #stage { width:480px; max-width:100%; height:280px; } canvas { display:block; width:100%; height:100%; } .controls { display:flex; flex-wrap:wrap; align-items:center; gap:8px; } input[type=number] { width:85px; } input[type=file]{max-width:100%;width:240px} output { display:block; white-space:pre-wrap; overflow-wrap:anywhere; } #error { color:#b91c1c; } button { padding:6px; }
+    </style>
+  </head>
+  <body>
+    <h1>Intersection order and distance</h1>
+    <p>
+      Click the overlapping boxes. front is at z=.6 and back at z=-.6. The input
+      array is [back,front], while intersections are sorted by distance. Compare
+      center, top-left, and positions after margin/width changes.
+    </p>
+    <div class="controls">
+      <button id="layout">Change margin and width</button
+      ><button id="clear">Clear selection</button
+      ><button id="cleanup">Dispose resources</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage">
+      <canvas aria-label="Intersection order and distance"></canvas>
+    </div>
+    <output>Waiting for preview size</output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage = document.querySelector('#stage'),
+        canvas = document.querySelector('canvas'),
+        output = document.querySelector('output'),
+        error = document.querySelector('#error');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 50);
+      camera.position.set(0, 0, 6);
+      camera.lookAt(0, 0, 0);
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setPixelRatio(1);
+      const ownedGeometry = new Set(),
+        ownedMaterial = new Set(),
+        ownedTargets = new Set(),
+        ownedTextures = new Set();
+      const ownMesh = (m) => {
+        ownedGeometry.add(m.geometry);
+        ownedMaterial.add(m.material);
+        return m;
+      };
+      const events = new AbortController();
+      let disposed = false;
+      const geometry = new THREE.BoxGeometry(1.8, 1.8, 0.5),
+        backMaterial = new THREE.MeshBasicMaterial({ color: '#2563eb' }),
+        frontMaterial = new THREE.MeshBasicMaterial({ color: '#f97316' });
+      const back = ownMesh(new THREE.Mesh(geometry, backMaterial)),
+        front = ownMesh(new THREE.Mesh(geometry, frontMaterial));
+      back.name = 'back';
+      front.name = 'front';
+      back.position.set(-0.35, 0, -0.6);
+      front.position.set(0.35, 0, 0.6);
+      scene.add(back, front);
+      const raycaster = new THREE.Raycaster(),
+        pointer = new THREE.Vector2();
+      let hits = [],
+        selected = null,
+        compact = false;
+      const canvasRelative = true;
+      const nearest = true;
+      const clearOnMiss = true;
+      function highlight(object) {
+        selected = object;
+        backMaterial.color.set(object === back ? '#22c55e' : '#2563eb');
+        frontMaterial.color.set(object === front ? '#22c55e' : '#f97316');
+      }
+      canvas.addEventListener(
+        'pointerdown',
+        (e) => {
+          const r = canvasRelative
+            ? canvas.getBoundingClientRect()
+            : { left: 0, top: 0, width: innerWidth, height: innerHeight };
+          pointer.set(
+            ((e.clientX - r.left) / r.width) * 2 - 1,
+            1 - ((e.clientY - r.top) / r.height) * 2,
+          );
+          scene.updateMatrixWorld(true);
+          camera.updateMatrixWorld(true);
+          raycaster.setFromCamera(pointer, camera);
+          hits = raycaster.intersectObjects([back, front], false);
+          const next = hits.length
+            ? (nearest ? hits[0] : hits[hits.length - 1]).object
+            : null;
+          if (next || clearOnMiss) highlight(next);
+          draw();
+        },
+        { signal: events.signal },
+      );
+      document.querySelector('#layout').addEventListener(
+        'click',
+        () => {
+          compact = !compact;
+          stage.style.width = compact ? '300px' : '480px';
+          stage.style.marginLeft = compact ? '20px' : '0';
+          stage.style.maxWidth = compact ? 'calc(100% - 20px)' : '100%';
+          resizeScene();
+        },
+        { signal: events.signal },
+      );
+      document.querySelector('#clear').addEventListener(
+        'click',
+        () => {
+          highlight(null);
+          hits = [];
+          draw();
+        },
+        { signal: events.signal },
+      );
+      function report() {
+        output.textContent =
+          'NDC: ' +
+          pointer.toArray().map((v) => v.toFixed(3)) +
+          ' / hits: ' +
+          hits.map((h) => h.object.name + ':' + h.distance.toFixed(3)).join(' → ') +
+          ' / selected: ' +
+          (selected?.name ?? 'none');
+      }
+      function draw() {
+        if (disposed || !stage.clientWidth || !stage.clientHeight) return;
+        renderer.render(scene, camera);
+        report();
+      }
+      function resizeScene() {
+        const w = stage.clientWidth,
+          h = stage.clientHeight;
+        if (!w || !h || disposed) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        draw();
+      }
+      const observer = new ResizeObserver(resizeScene);
+      observer.observe(stage);
+      resizeScene();
+      function cleanup() {
+        if (disposed) return;
+        disposed = true;
+        observer.disconnect();
+        events.abort();
+        renderer.setAnimationLoop(null);
+        for (const t of ownedTextures) t.dispose();
+        ownedTextures.clear();
+        for (const t of ownedTargets) t.dispose();
+        for (const g of ownedGeometry) g.dispose();
+        for (const m of ownedMaterial) m.dispose();
+        renderer.dispose();
+        scene.clear();
+        output.textContent = 'Disposed';
+      }
+      document
+        .querySelector('#cleanup')
+        .addEventListener('click', cleanup, { signal: events.signal });
+      window.addEventListener('pagehide', cleanup, {
+        once: true,
+        signal: events.signal,
+      });
+    </script>
+  </body>
+</html>

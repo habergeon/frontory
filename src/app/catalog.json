@@ -3240,6 +3240,8 @@
       "goal": "UV와 world 좌표를 구별한다. 실패한 텍스처 URL을 오류 UI로 알린다.",
       "docPath": "/docs/labs/graphics/threejs/units/10/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-10/example.js"
     },
     {
@@ -3250,6 +3252,8 @@
       "goal": "색 맵과 normal·roughness 맵을 구분한다. 입력·작업·출력 색 공간을 설명한다.",
       "docPath": "/docs/labs/graphics/threejs/units/11/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-11/example.js"
     },
     {
@@ -3260,6 +3264,8 @@
       "goal": "캐스터와 리시버 설정을 구별한다. 그림자 잘림과 해상도 저하를 구별한다.",
       "docPath": "/docs/labs/graphics/threejs/units/12/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-12/example.js"
     },
     {
@@ -3270,6 +3276,8 @@
       "goal": "페이지 여백이 있어도 선택 위치가 맞는다. 가장 가까운 교차 대상을 선택한다.",
       "docPath": "/docs/labs/graphics/threejs/units/13/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-13/example.js"
     },
     {

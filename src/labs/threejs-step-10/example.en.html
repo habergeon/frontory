@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UV and world coordinates</title>
+    <style>
+      body { margin:0; padding:12px; font:14px/1.5 system-ui,sans-serif; color:#172554; background:white; } h1{font-size:22px} #stage { width:480px; max-width:100%; height:280px; } canvas { display:block; width:100%; height:100%; } .controls { display:flex; flex-wrap:wrap; align-items:center; gap:8px; } input[type=number] { width:85px; } input[type=file]{max-width:100%;width:240px} output { display:block; white-space:pre-wrap; overflow-wrap:anywhere; } #error { color:#b91c1c; } button { padding:6px; }
+    </style>
+  </head>
+  <body>
+    <h1>UV and world coordinates</h1>
+    <p>
+      Uses an original 8×8 quadrant PNG. Selected files exist only in this
+      running preview and are excluded from backups. Re-run or reload starts the
+      sample; select your file again.
+    </p>
+    <div class="controls">
+      <label
+        >U range
+        <input
+          id="value"
+          type="number"
+          min="0.25"
+          max="1"
+          step="0.25"
+          value="1" /></label
+      ><button id="apply">Apply</button
+      ><label
+        >Choose PNG/JPEG
+        <input id="file" type="file" accept="image/png,image/jpeg" /></label
+      ><button id="sample">Restore sample</button
+      ><button id="invalid">Try corrupt image</button
+      ><button id="cleanup">Dispose resources</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage">
+      <canvas aria-label="UV and world coordinates"></canvas>
+    </div>
+    <output>Waiting for preview size</output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage = document.querySelector('#stage'),
+        canvas = document.querySelector('canvas'),
+        output = document.querySelector('output'),
+        error = document.querySelector('#error');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 50);
+      camera.position.set(0, 0, 6);
+      camera.lookAt(0, 0, 0);
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setPixelRatio(1);
+      const ownedGeometry = new Set(),
+        ownedMaterial = new Set(),
+        ownedTargets = new Set(),
+        ownedTextures = new Set();
+      const ownMesh = (m) => {
+        ownedGeometry.add(m.geometry);
+        ownedMaterial.add(m.material);
+        return m;
+      };
+      const events = new AbortController();
+      let disposed = false;
+      const sample =
+          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAJElEQVR4nGNQTX79Hxn/LBZDwQx0UPDrjOh/ZKx0NA4F00EBAIGeoRHacAfoAAAAAElFTkSuQmCC',
+        invalid = 'data:image/png;base64,YnJva2Vu';
+      const geometry = new THREE.PlaneGeometry(3.6, 2.4),
+        material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+      const mesh = ownMesh(new THREE.Mesh(geometry, material));
+      scene.add(mesh);
+      const uvScale = 1;
+      const uv = geometry.getAttribute('uv');
+      for (let i = 0; i < uv.count; i++) uv.setX(i, uv.getX(i) * uvScale);
+      uv.needsUpdate = true;
+      let status = 'loading',
+        current = null,
+        request = 0;
+      const urls = new Set();
+      function release(texture) {
+        if (ownedTextures.delete(texture)) texture.dispose();
+      }
+      function revoke(url) {
+        if (urls.delete(url)) URL.revokeObjectURL(url);
+      }
+      function configure(texture) {
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.magFilter = THREE.NearestFilter;
+        texture.minFilter = THREE.NearestFilter;
+        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set(1, 1);
+        texture.needsUpdate = true;
+      }
+      function loadImage(url) {
+        const token = ++request;
+        status = 'loading';
+        error.textContent = '';
+        const texture = new THREE.TextureLoader().load(
+          url,
+          (loaded) => {
+            revoke(url);
+            if (disposed || token !== request) {
+              release(loaded);
+              return;
+            }
+            configure(loaded);
+            const previous = current;
+            current = loaded;
+            material.map = loaded;
+            material.needsUpdate = true;
+            if (previous) release(previous);
+            status = 'ready';
+            draw();
+          },
+          undefined,
+          () => {
+            revoke(url);
+            release(texture);
+            if (disposed || token !== request) return;
+            status = 'error';
+            error.textContent =
+              'Could not decode image. Choose a valid PNG/JPEG or restore the sample.';
+            draw();
+          },
+        );
+        ownedTextures.add(texture);
+        draw();
+      }
+      document.querySelector('#file').addEventListener(
+        'change',
+        (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+          const url = URL.createObjectURL(file);
+          urls.add(url);
+          loadImage(url);
+        },
+        { signal: events.signal },
+      );
+      document.querySelector('#sample').addEventListener(
+        'click',
+        () => {
+          document.querySelector('#file').value = '';
+          loadImage(sample);
+        },
+        { signal: events.signal },
+      );
+      document
+        .querySelector('#invalid')
+        .addEventListener('click', () => loadImage(invalid), {
+          signal: events.signal,
+        });
+      document.querySelector('#apply').addEventListener(
+        'click',
+        () => {
+          const input = document.querySelector('#value');
+          if (!input.value || !input.checkValidity()) return;
+          for (let i = 0; i < uv.count; i++)
+            uv.setX(i, (i % 2) * Number(input.value));
+          uv.needsUpdate = true;
+          draw();
+        },
+        { signal: events.signal },
+      );
+      loadImage(sample);
+      function report() {
+        output.textContent =
+          'State: ' +
+          status +
+          ' / UV: ' +
+          Array.from(uv.array).join(',') +
+          ' / world width: ' +
+          geometry.parameters.width * mesh.scale.x +
+          ' / repeat: ' +
+          (current ? current.repeat.toArray() : '—') +
+          ' / wrap: ' +
+          (current ? current.wrapS : '—') +
+          ' / image: ' +
+          (current ? current.image.width + '×' + current.image.height : '—');
+      }
+      function draw() {
+        if (disposed || !stage.clientWidth || !stage.clientHeight) return;
+        renderer.render(scene, camera);
+        report();
+      }
+      function resizeScene() {
+        const w = stage.clientWidth,
+          h = stage.clientHeight;
+        if (!w || !h || disposed) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        draw();
+      }
+      const observer = new ResizeObserver(resizeScene);
+      observer.observe(stage);
+      resizeScene();
+      function cleanup() {
+        if (disposed) return;
+        disposed = true;
+        observer.disconnect();
+        events.abort();
+        renderer.setAnimationLoop(null);
+        request++;
+        for (const url of urls) URL.revokeObjectURL(url);
+        urls.clear();
+        for (const t of ownedTextures) t.dispose();
+        ownedTextures.clear();
+        for (const t of ownedTargets) t.dispose();
+        for (const g of ownedGeometry) g.dispose();
+        for (const m of ownedMaterial) m.dispose();
+        renderer.dispose();
+        scene.clear();
+        output.textContent = 'Disposed';
+      }
+      document
+        .querySelector('#cleanup')
+        .addEventListener('click', cleanup, { signal: events.signal });
+      window.addEventListener('pagehide', cleanup, {
+        once: true,
+        signal: events.signal,
+      });
+    </script>
+  </body>
+</html>

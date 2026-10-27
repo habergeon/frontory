@@ -116,7 +116,7 @@
       "requiredCapabilities": [
         "Sample images, local file selection, TextureLoader support and failure fixtures"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-11",
@@ -129,7 +129,7 @@
       "requiredCapabilities": [
         "Comparison assets with documented sources and color spaces"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-12",
@@ -141,7 +141,7 @@
       ],
       "outcome": "Distinguish clipped shadows from low resolution and adjust them",
       "requiredCapabilities": ["Shadow camera display and settings inputs"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-13",
@@ -153,7 +153,7 @@
       "topics": ["canvas-relative NDC", "Raycaster", "intersection order"],
       "outcome": "Select the nearest object after margin and size changes",
       "requiredCapabilities": ["Pointer position and intersection output"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-02",
@@ -375,5 +375,5 @@
       "readiness": "planned"
     }
   ],
-  "sourceHash": "5cb09709e85d36e19e515f917197eef4fe968b7088a721f2fe80ed5e4fbcce41"
+  "sourceHash": "fb5a0c4490a5ab1136479f77ee562aa3a11156541bb144942fbe6d86bce14929"
 }

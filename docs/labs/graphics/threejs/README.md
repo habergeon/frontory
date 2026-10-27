@@ -193,7 +193,7 @@ ID: `threejs-step-09`
 
 필요한 실습 기능: 고정 조명·환경 조건의 비교 예제
 
-### [10. 텍스처와 UV](units/10/README.md) · 개선 예정
+### [10. 텍스처와 UV](units/10/README.md) · 실습 검증 완료
 
 ID: `threejs-step-10`
 
@@ -205,7 +205,7 @@ ID: `threejs-step-10`
 
 필요한 실습 기능: 샘플 이미지·로컬 파일 선택·TextureLoader 지원·실패 fixture
 
-### [11. 색 공간과 출력](units/11/README.md) · 개선 예정
+### [11. 색 공간과 출력](units/11/README.md) · 실습 검증 완료
 
 ID: `threejs-step-11`
 
@@ -217,7 +217,7 @@ ID: `threejs-step-11`
 
 필요한 실습 기능: 출처와 색 공간이 명시된 비교 자산
 
-### [12. 그림자 지도](units/12/README.md) · 개선 예정
+### [12. 그림자 지도](units/12/README.md) · 실습 검증 완료
 
 ID: `threejs-step-12`
 
@@ -229,7 +229,7 @@ ID: `threejs-step-12`
 
 필요한 실습 기능: 그림자 카메라 표시·설정 입력
 
-### [13. 정규화 좌표와 선택](units/13/README.md) · 개선 예정
+### [13. 정규화 좌표와 선택](units/13/README.md) · 실습 검증 완료
 
 ID: `threejs-step-13`
 

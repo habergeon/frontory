@@ -33,7 +33,9 @@ test('roadmap retains all 28 existing IDs in exact order and independent readine
   assert.ok(
     ko.entries.slice(0, 4).every((entry) => entry.readiness === 'verified'),
   )
-  assert.ok(ko.entries.slice(9).every((entry) => entry.readiness === 'planned'))
+  assert.ok(
+    ko.entries.slice(13).every((entry) => entry.readiness === 'planned'),
+  )
   const before = JSON.stringify(ko)
   const storage = new Map()
   const store = createDraftStore(() => ({
@@ -90,15 +92,19 @@ test('validator rejects unknown, duplicate, self and incorrect sequence/status d
 test('readiness accepts either status at any position and verified requires a real lesson', () => {
   const data = mutated((e) => {
     e[0].readiness = 'planned'
-    e[9].readiness = 'verified'
+    e[13].readiness = 'verified'
   })
   validateLearningRoadmap(data, ids)
-  const { ko: learning } = readLearningContent()
+  const { ko: originalLearning } = readLearningContent()
+  const learning = {
+    ...originalLearning,
+    lessons: originalLearning.lessons.filter((l) => l.unitId !== 'threejs-02'),
+  }
   assert.throws(
     () => validateRoadmapLessons(data, learning),
-    /Verified roadmap unit has no lesson: threejs-step-10/,
+    /Verified roadmap unit has no lesson: threejs-02/,
   )
-  const lesson = { ...learning.lessons[0], unitId: 'threejs-step-10' }
+  const lesson = { ...learning.lessons[0], unitId: 'threejs-02' }
   validateRoadmapLessons(data, {
     ...learning,
     lessons: [...learning.lessons, lesson],

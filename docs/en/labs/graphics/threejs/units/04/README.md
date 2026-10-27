@@ -2438,7 +2438,7 @@ Completion task: Change each variable separately under the same lighting
 
 Required practice capabilities: Comparison examples with fixed lighting and environment
 
-### [10. Textures and UVs](../10/README.md) · Improvements planned
+### [10. Textures and UVs](../10/README.md) · Practice verified
 
 ID: `threejs-step-10`
 
@@ -2450,7 +2450,7 @@ Completion task: Distinguish UV from world coordinates and recover from invalid 
 
 Required practice capabilities: Sample images, local file selection, TextureLoader support and failure fixtures
 
-### [11. Color Spaces and Output](../11/README.md) · Improvements planned
+### [11. Color Spaces and Output](../11/README.md) · Practice verified
 
 ID: `threejs-step-11`
 
@@ -2462,7 +2462,7 @@ Completion task: Explain how color images differ from normal and roughness data
 
 Required practice capabilities: Comparison assets with documented sources and color spaces
 
-### [12. Shadow Maps](../12/README.md) · Improvements planned
+### [12. Shadow Maps](../12/README.md) · Practice verified
 
 ID: `threejs-step-12`
 
@@ -2474,7 +2474,7 @@ Completion task: Distinguish clipped shadows from low resolution and adjust them
 
 Required practice capabilities: Shadow camera display and settings inputs
 
-### [13. Normalized Coordinates and Selection](../13/README.md) · Improvements planned
+### [13. Normalized Coordinates and Selection](../13/README.md) · Practice verified
 
 ID: `threejs-step-13`
 

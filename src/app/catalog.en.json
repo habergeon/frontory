@@ -3486,8 +3486,10 @@
       "goal": "Distinguish UVs from world coordinates. Report a failed texture URL through an error UI.",
       "docPath": "/docs/en/labs/graphics/threejs/units/10/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-10/example.js",
-      "exampleNote": "Checks UV repeat with a generated checker DataTexture instead of an external image. Extend network TextureLoader error handling in an external project."
+      "exampleNote": "Edit and run the HTML starter inside the site. Complete each experiment and record actual images and values in notes."
     },
     {
       "id": "threejs-step-11",
@@ -3497,8 +3499,10 @@
       "goal": "Distinguish color maps from normal and roughness maps. Explain input, working, and output color spaces.",
       "docPath": "/docs/en/labs/graphics/threejs/units/11/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-11/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run the HTML starter inside the site. Complete each experiment and record actual images and values in notes."
     },
     {
       "id": "threejs-step-12",
@@ -3508,8 +3512,10 @@
       "goal": "Distinguish caster and receiver settings. Distinguish clipped shadows from reduced resolution.",
       "docPath": "/docs/en/labs/graphics/threejs/units/12/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-12/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run the HTML starter inside the site. Complete each experiment and record actual images and values in notes."
     },
     {
       "id": "threejs-step-13",
@@ -3519,8 +3525,10 @@
       "goal": "Keep selection positions correct even with page margins. Select the nearest intersected target.",
       "docPath": "/docs/en/labs/graphics/threejs/units/13/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-13/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run the HTML starter inside the site. Complete each experiment and record actual images and values in notes."
     },
     {
       "id": "threejs-02",

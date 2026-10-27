@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>색 이미지의 입력 색 공간</title>
+    <style>
+      body { margin:0; padding:12px; font:14px/1.5 system-ui,sans-serif; color:#172554; background:white; } h1{font-size:22px} #stage { width:480px; max-width:100%; height:280px; } canvas { display:block; width:100%; height:100%; } .controls { display:flex; flex-wrap:wrap; align-items:center; gap:8px; } input[type=number] { width:85px; } input[type=file]{max-width:100%;width:240px} output { display:block; white-space:pre-wrap; overflow-wrap:anywhere; } #error { color:#b91c1c; } button { padding:6px; }
+    </style>
+  </head>
+  <body>
+    <h1>색 이미지의 입력 색 공간</h1>
+    <p>
+      직접 만든 2×2 RGBA [128,128,128,255] 자산입니다. 색 단계는 sRGB 색
+      이미지로, 수치 단계는 green=128/255 거칠기 데이터로 정의합니다. 출력
+      단계는 Linear-sRGB .5를 표시합니다.
+    </p>
+    <div class="controls">
+      <label
+        >색 공간
+        <select id="space">
+          <option value="none" selected>none</option>
+          <option value="srgb">srgb</option>
+        </select></label
+      ><button id="apply">적용</button><button id="cleanup">자원 정리</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage">
+      <canvas aria-label="색 이미지의 입력 색 공간"></canvas>
+    </div>
+    <output>미리보기 크기를 기다리는 중</output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage = document.querySelector('#stage'),
+        canvas = document.querySelector('canvas'),
+        output = document.querySelector('output'),
+        error = document.querySelector('#error');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 50);
+      camera.position.set(0, 0, 6);
+      camera.lookAt(0, 0, 0);
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setPixelRatio(1);
+      const ownedGeometry = new Set(),
+        ownedMaterial = new Set(),
+        ownedTargets = new Set(),
+        ownedTextures = new Set();
+      const ownMesh = (m) => {
+        ownedGeometry.add(m.geometry);
+        ownedMaterial.add(m.material);
+        return m;
+      };
+      const events = new AbortController();
+      let disposed = false;
+      const pixels = new Uint8Array([
+        128, 128, 128, 255, 128, 128, 128, 255, 128, 128, 128, 255, 128, 128, 128,
+        255,
+      ]);
+      const texture = new THREE.DataTexture(pixels, 2, 2);
+      texture.magFilter = texture.minFilter = THREE.NearestFilter;
+      ownedTextures.add(texture);
+      const inputSpace = 'none';
+      texture.colorSpace =
+        inputSpace === 'srgb' ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+      texture.needsUpdate = true;
+      const geometry = new THREE.PlaneGeometry(3.6, 2.4);
+      const material = new THREE.MeshBasicMaterial({ map: texture });
+      scene.add(ownMesh(new THREE.Mesh(geometry, material)));
+
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.NoToneMapping;
+      document.querySelector('#apply').addEventListener(
+        'click',
+        () => {
+          const space = document.querySelector('#space').value;
+          texture.colorSpace =
+            space === 'srgb' ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+          texture.needsUpdate = true;
+          material.needsUpdate = true;
+          draw();
+        },
+        { signal: events.signal },
+      );
+      function report() {
+        output.textContent =
+          'input: ' +
+          (texture.colorSpace || 'NoColorSpace') +
+          ' / working: Linear-sRGB / output: ' +
+          renderer.outputColorSpace +
+          ' / source byte: ' +
+          pixels[1] +
+          ' / roughness: ' +
+          (material.roughness ?? '—');
+      }
+      function draw() {
+        if (disposed || !stage.clientWidth || !stage.clientHeight) return;
+        renderer.render(scene, camera);
+        report();
+      }
+      function resizeScene() {
+        const w = stage.clientWidth,
+          h = stage.clientHeight;
+        if (!w || !h || disposed) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        draw();
+      }
+      const observer = new ResizeObserver(resizeScene);
+      observer.observe(stage);
+      resizeScene();
+      function cleanup() {
+        if (disposed) return;
+        disposed = true;
+        observer.disconnect();
+        events.abort();
+        renderer.setAnimationLoop(null);
+        for (const t of ownedTextures) t.dispose();
+        ownedTextures.clear();
+        for (const t of ownedTargets) t.dispose();
+        for (const g of ownedGeometry) g.dispose();
+        for (const m of ownedMaterial) m.dispose();
+        renderer.dispose();
+        scene.clear();
+        output.textContent = '정리 완료';
+      }
+      document
+        .querySelector('#cleanup')
+        .addEventListener('click', cleanup, { signal: events.signal });
+      window.addEventListener('pagehide', cleanup, {
+        once: true,
+        signal: events.signal,
+      });
+    </script>
+  </body>
+</html>

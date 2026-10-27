@@ -5,6 +5,58 @@ import { readLearningContent } from '../scripts/learning-content.mjs'
 const owned = [5, 6, 7, 8, 9].map(
   (n) => 'threejs-step-' + String(n).padStart(2, '0'),
 )
+test('10–13 expose independent localized HTML experiments', () => {
+  const data = readLearningContent()
+  for (const n of [10, 11, 12, 13]) {
+    const id = 'threejs-step-' + n
+    const lesson = data.ko.lessons.find((l) => l.unitId === id)
+    assert.ok(lesson, id + ' missing HTML learning lesson')
+    assert.ok(lesson.steps.length >= 3)
+    for (const locale of ['ko', 'en'])
+      for (const step of lesson.steps) {
+        const starter = data.readCode(step.starterPath, locale)
+        const solution = data.readCode(step.solutionPath, locale)
+        assert.notEqual(starter, solution)
+        for (const source of [starter, solution]) {
+          assert.match(source, new RegExp('lang="' + locale + '"'))
+          assert.match(source, /ResizeObserver/)
+          assert.match(source, /dispose\(/)
+          transformSync(
+            source.split('<script type="module">')[1].split('</script>')[0],
+            { loader: 'js' },
+          )
+        }
+      }
+  }
+})
+test('image and shadow numeric inputs accept every assigned exercise target', () => {
+  const data = readLearningContent()
+  for (const [n, name, targets] of [
+    [10, 'uv', { value: 0.5 }],
+    [10, 'repeat', { repeatX: 4, repeatY: 2 }],
+    [12, 'shadow-frustum', { value: 4 }],
+    [12, 'map-size', { value: 512 }],
+  ]) {
+    const lesson = data.ko.lessons.find((l) => l.unitId === 'threejs-step-' + n)
+    const step = lesson.steps.find((s) => s.id.endsWith('-' + name))
+    for (const locale of ['ko', 'en'])
+      for (const path of [step.starterPath, step.solutionPath])
+        for (const [id, target] of Object.entries(targets)) {
+          const source = data.readCode(path, locale),
+            input = source.match(
+              new RegExp('<input\\s+id="' + id + '"[\\s\\S]*?/>'),
+            )[0]
+          const attr = (name) =>
+            Number(input.match(new RegExp(name + '="([^"]+)"'))[1])
+          assert.ok(target >= attr('min') && target <= attr('max'))
+          const interval = (target - attr('min')) / attr('step')
+          assert.ok(
+            Math.abs(interval - Math.round(interval)) < 1e-9,
+            locale + ' ' + path + ' rejects ' + target,
+          )
+        }
+  }
+})
 test('05–09 contain runnable localized HTML lessons with distinct learning corrections', () => {
   const data = readLearningContent()
   for (const id of owned) {

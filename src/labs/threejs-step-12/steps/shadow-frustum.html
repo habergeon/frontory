@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>그림자 카메라의 범위</title>
+    <style>
+      body { margin:0; padding:12px; font:14px/1.5 system-ui,sans-serif; color:#172554; background:white; } h1{font-size:22px} #stage { width:480px; max-width:100%; height:280px; } canvas { display:block; width:100%; height:100%; } .controls { display:flex; flex-wrap:wrap; align-items:center; gap:8px; } input[type=number] { width:85px; } input[type=file]{max-width:100%;width:240px} output { display:block; white-space:pre-wrap; overflow-wrap:anywhere; } #error { color:#b91c1c; } button { padding:6px; }
+    </style>
+  </head>
+  <body>
+    <h1>그림자 카메라의 범위</h1>
+    <p>
+      BasicShadowMap으로 필터 흐림을 배제합니다. 범위 밖 그림자 잘림과 같은 범위
+      안의 계단 현상을 따로 비교하세요. 카메라 범위 표시는 관찰용이며 그림자를
+      받지 않습니다.
+    </p>
+    <div class="controls">
+      <label
+        >반범위
+        <input
+          id="value"
+          type="number"
+          min="0.5"
+          max="8"
+          step="0.5"
+          value="0.5" /></label
+      ><button id="apply">적용</button
+      ><label><input id="helper" type="checkbox" />카메라 범위 표시</label
+      ><button id="cleanup">자원 정리</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage"><canvas aria-label="그림자 카메라의 범위"></canvas></div>
+    <output>미리보기 크기를 기다리는 중</output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage = document.querySelector('#stage'),
+        canvas = document.querySelector('canvas'),
+        output = document.querySelector('output'),
+        error = document.querySelector('#error');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 50);
+      camera.position.set(0, 0, 6);
+      camera.lookAt(0, 0, 0);
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setPixelRatio(1);
+      const ownedGeometry = new Set(),
+        ownedMaterial = new Set(),
+        ownedTargets = new Set(),
+        ownedTextures = new Set();
+      const ownMesh = (m) => {
+        ownedGeometry.add(m.geometry);
+        ownedMaterial.add(m.material);
+        return m;
+      };
+      const events = new AbortController();
+      let disposed = false;
+      camera.position.set(4, 3.5, 6);
+      camera.lookAt(0, -0.2, 0);
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.BasicShadowMap;
+      const geometry = new THREE.BoxGeometry(1.3, 1.3, 1.3),
+        material = new THREE.MeshLambertMaterial({ color: '#2563eb' }),
+        caster = ownMesh(new THREE.Mesh(geometry, material));
+      caster.position.set(1, 0, 0);
+      caster.castShadow = true;
+      scene.add(caster);
+      const floor = ownMesh(
+        new THREE.Mesh(
+          new THREE.PlaneGeometry(10, 8),
+          new THREE.MeshLambertMaterial({ color: 0xffffff }),
+        ),
+      );
+      floor.rotation.x = -Math.PI / 2;
+      floor.position.y = -0.7;
+      floor.receiveShadow = true;
+      scene.add(floor);
+      scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+      const light = new THREE.DirectionalLight(0xffffff, 2);
+      light.position.set(2, 5, 3);
+      light.target.position.set(0, 0, 0);
+      light.castShadow = true;
+      scene.add(light, light.target);
+      const extent = 0.5,
+        mapSize = 512;
+      const shadowCamera = light.shadow.camera;
+      shadowCamera.left = shadowCamera.bottom = -extent;
+      shadowCamera.right = shadowCamera.top = extent;
+      shadowCamera.near = 0.1;
+      shadowCamera.far = 20;
+      shadowCamera.updateProjectionMatrix();
+      light.shadow.mapSize.set(mapSize, mapSize);
+      const helper = new THREE.CameraHelper(shadowCamera);
+      helper.visible = false;
+      scene.add(helper);
+      document.querySelector('#helper').addEventListener(
+        'change',
+        (e) => {
+          helper.visible = e.target.checked;
+          helper.update();
+          draw();
+        },
+        { signal: events.signal },
+      );
+      document.querySelector('#apply').addEventListener(
+        'click',
+        () => {
+          const input = document.querySelector('#value');
+          if (!input.value || !input.checkValidity()) return;
+          const v = Number(input.value);
+          shadowCamera.left = shadowCamera.bottom = -v;
+          shadowCamera.right = shadowCamera.top = v;
+          shadowCamera.updateProjectionMatrix();
+          helper.update();
+          draw();
+        },
+        { signal: events.signal },
+      );
+      function report() {
+        output.textContent =
+          'cast: ' +
+          caster.castShadow +
+          ' / receive: ' +
+          floor.receiveShadow +
+          ' / extent: ' +
+          shadowCamera.right +
+          ' / mapSize: ' +
+          light.shadow.mapSize.toArray() +
+          ' / actual map: ' +
+          (light.shadow.map
+            ? [light.shadow.map.width, light.shadow.map.height]
+            : '—') +
+          ' / world units per texel: ' +
+          (shadowCamera.right - shadowCamera.left) / light.shadow.mapSize.x;
+      }
+      function draw() {
+        if (disposed || !stage.clientWidth || !stage.clientHeight) return;
+        renderer.render(scene, camera);
+        report();
+      }
+      function resizeScene() {
+        const w = stage.clientWidth,
+          h = stage.clientHeight;
+        if (!w || !h || disposed) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        draw();
+      }
+      const observer = new ResizeObserver(resizeScene);
+      observer.observe(stage);
+      resizeScene();
+      function cleanup() {
+        if (disposed) return;
+        disposed = true;
+        observer.disconnect();
+        events.abort();
+        renderer.setAnimationLoop(null);
+        helper.dispose();
+        light.shadow.dispose();
+        for (const t of ownedTextures) t.dispose();
+        ownedTextures.clear();
+        for (const t of ownedTargets) t.dispose();
+        for (const g of ownedGeometry) g.dispose();
+        for (const m of ownedMaterial) m.dispose();
+        renderer.dispose();
+        scene.clear();
+        output.textContent = '정리 완료';
+      }
+      document
+        .querySelector('#cleanup')
+        .addEventListener('click', cleanup, { signal: events.signal });
+      window.addEventListener('pagehide', cleanup, {
+        once: true,
+        signal: events.signal,
+      });
+    </script>
+  </body>
+</html>

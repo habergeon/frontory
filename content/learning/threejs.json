@@ -774,6 +774,229 @@
         }
       ],
       "apiIds": ["standard-pbr", "pmrem-scene"]
+    },
+    {
+      "unitId": "threejs-step-10",
+      "prerequisiteIds": ["threejs-step-05", "threejs-step-09"],
+      "introduction": "UV는 이미지 위치를 정점에 연결하고 world 좌표는 물체의 배치를 나타냅니다. 직접 만든 8×8 PNG와 실제 TextureLoader로 두 좌표, 반복 설정, 파일 오류 복구를 따로 실험합니다.",
+      "steps": [
+        {
+          "id": "threejs-step-10-uv",
+          "title": "UV 범위만 줄이기",
+          "explanation": "평면의 world 너비는 3.6입니다. uvScale=1을 .5로 바꾸고 적용하세요. U 범위 입력도 .5로 맞춰 이미지 왼쪽 절반이 평면 전체를 덮는지 확인합니다. 물체의 position이나 scale은 바꾸지 마세요.",
+          "solutionExplanation": "UV는 이미지의 가로 U, 세로 V 위치이며 보통 0~1로 씁니다. U를 절반으로 줄이면 같은 world 표면에 이미지 왼쪽 절반만 표시됩니다. 정점 위치와 UV attribute는 서로 다른 배열입니다.",
+          "expected": "UV의 U 최댓값 1→.5, world 너비 3.6 유지. 파란색·노란색 영역만 평면을 채웁니다.",
+          "hints": [
+            "uvScale 상수를 .5로 바꾸세요.",
+            "geometry position 대신 uv를 읽습니다."
+          ],
+          "questions": ["UV와 world 좌표가 각각 무엇을 바꾸나요?"],
+          "starterPath": "src/labs/threejs-step-10/steps/uv.html",
+          "solutionPath": "src/labs/threejs-step-10/solutions/uv.html"
+        },
+        {
+          "id": "threejs-step-10-repeat",
+          "title": "반복 횟수와 wrap 연결하기",
+          "explanation": "repeat 입력은 4,2인데 시작 코드는 ClampToEdgeWrapping입니다. RepeatWrapping을 켜고 적용하세요. 반복 횟수만으로 패턴이 반복되지 않는 상태와 가로 네 번·세로 두 번 반복되는 상태를 비교합니다.",
+          "solutionExplanation": "repeat는 UV를 곱하는 값입니다. wrapS와 wrapT는 0~1 밖의 좌표를 어떻게 읽을지 정합니다. clamp는 모서리 색을 늘리고 RepeatWrapping은 이미지를 반복합니다. 이미 업로드한 텍스처의 wrap 변경 후 needsUpdate를 설정합니다.",
+          "expected": "repeat=[4,2] 유지, 양축 clamp→repeat. 모서리 색 늘어짐이 4×2 사분면 타일로 바뀝니다.",
+          "hints": [
+            "RepeatWrapping 체크박스를 켜세요.",
+            "wrapS와 wrapT를 함께 확인하세요."
+          ],
+          "questions": [
+            "repeat만 4,2로 바꾸었을 때 모서리 색이 늘어나는 이유는 무엇인가요?"
+          ],
+          "starterPath": "src/labs/threejs-step-10/steps/repeat.html",
+          "solutionPath": "src/labs/threejs-step-10/solutions/repeat.html"
+        },
+        {
+          "id": "threejs-step-10-load-recovery",
+          "title": "실패한 이미지에서 복구하기",
+          "explanation": "시작 코드는 손상된 data PNG를 읽어 오류를 표시합니다. loadImage(invalid)를 loadImage(sample)로 바꾸세요. PNG와 JPEG를 직접 선택한 뒤 손상 이미지 시험, 샘플 복구를 차례로 누르세요.",
+          "solutionExplanation": "TextureLoader는 비동기로 이미지를 디코딩합니다. 성공한 결과만 material.map에 연결하며 실패하면 마지막 정상 이미지를 남깁니다. 교체된 texture와 실패한 texture를 dispose하고 object URL은 성공·실패·종료 때 revoke합니다. 선택 파일은 현재 iframe에만 있으며 백업에서 복원되지 않습니다.",
+          "expected": "error→ready, 기본 이미지 8×8. 손상 파일 뒤에도 입력이 남고 샘플 복구가 작동합니다. 다시 실행하면 파일을 다시 골라야 합니다.",
+          "hints": [
+            "초기 loadImage 호출의 인수를 sample로 바꾸세요.",
+            "확장자만 PNG인 손상 파일도 디코딩에 실패합니다."
+          ],
+          "questions": [
+            "Texture.dispose와 URL.revokeObjectURL은 각각 어떤 자원을 정리하나요?"
+          ],
+          "starterPath": "src/labs/threejs-step-10/steps/load-recovery.html",
+          "solutionPath": "src/labs/threejs-step-10/solutions/load-recovery.html"
+        }
+      ],
+      "apiIds": ["texture-image", "texture-uv"]
+    },
+    {
+      "unitId": "threejs-step-11",
+      "prerequisiteIds": ["threejs-step-09", "threejs-step-10"],
+      "introduction": "동일한 128 바이트도 색을 뜻할 때와 거칠기를 뜻할 때 해석이 다릅니다. 입력을 Linear-sRGB 작업 공간으로 읽는 과정과 화면 출력 변환을 분리합니다. toneMapping은 끄고 중성 광원을 고정합니다.",
+      "steps": [
+        {
+          "id": "threejs-step-11-color-map",
+          "title": "색 이미지에 sRGB 지정하기",
+          "explanation": "직접 만든 2×2 회색 이미지는 sRGB 색 128을 담았습니다. 시작 코드 inputSpace=\"none\"을 \"srgb\"로 바꾸세요. 선택 입력에서도 srgb를 적용하고 두 화면의 밝기를 비교합니다.",
+          "solutionExplanation": "색 이미지의 map은 SRGBColorSpace로 표시해야 sRGB 값을 선형 작업 값으로 디코딩합니다. NoColorSpace로 읽으면 128/255를 이미 선형인 값으로 취급해 화면이 더 밝아집니다. 이 예제의 MeshBasicMaterial은 조명을 받지 않아 변환 차이만 관찰합니다.",
+          "expected": "NoColorSpace→srgb. 같은 128 바이트가 출력에서 대략 188→128로 어두워집니다.",
+          "hints": ["inputSpace 상수를 찾으세요.", "출력은 srgb로 유지하세요."],
+          "questions": [
+            "이미지 바이트가 같아도 입력 colorSpace가 밝기를 바꾸는 이유는 무엇인가요?"
+          ],
+          "starterPath": "src/labs/threejs-step-11/steps/color-map.html",
+          "solutionPath": "src/labs/threejs-step-11/solutions/color-map.html"
+        },
+        {
+          "id": "threejs-step-11-data-map",
+          "title": "거칠기 데이터의 의미 유지하기",
+          "explanation": "green=128/255는 색이 아니라 거칠기 계수입니다. inputSpace=\"srgb\"를 \"none\"으로 바꾸고 고정 점광원 아래 구의 반사를 비교하세요. roughness=1과 metalness=.25는 유지합니다.",
+          "solutionExplanation": "roughnessMap은 green 채널을 material.roughness에 곱합니다. NoColorSpace는 이 수치를 그대로 읽습니다. 잘못 sRGB 디코딩하면 .502가 약 .216이 되어 반사가 더 좁아집니다. normalMap도 방향 성분을 담는 수치 맵이므로 NoColorSpace를 사용합니다. 여기서는 roughnessMap을 실행하고 normalMap은 역할을 구별합니다.",
+          "expected": "128/255≈.502를 유지하는 NoColorSpace에서 반사가 더 퍼집니다. 색 맵의 규칙을 모든 texture에 적용하지 않습니다.",
+          "hints": [
+            "수치 맵에는 none을 선택하세요.",
+            "green 채널과 roughness=1의 곱을 생각하세요."
+          ],
+          "questions": [
+            "normal map의 RGB를 사진의 RGB처럼 sRGB로 읽으면 어떤 의미가 손상되나요?"
+          ],
+          "starterPath": "src/labs/threejs-step-11/steps/data-map.html",
+          "solutionPath": "src/labs/threejs-step-11/solutions/data-map.html"
+        },
+        {
+          "id": "threejs-step-11-output",
+          "title": "작업 공간과 출력 변환 분리하기",
+          "explanation": "입력 이미지 대신 Linear-sRGB (.5,.5,.5)로 평면을 칠합니다. renderer.outputColorSpace를 LinearSRGBColorSpace에서 SRGBColorSpace로 바꾸세요. 선택 입력의 srgb도 적용합니다.",
+          "solutionExplanation": "Three.js의 조명·색 계산은 Linear-sRGB 작업 공간을 씁니다. outputColorSpace는 최종 화면 인코딩을 정하며 texture의 의미를 고치지 않습니다. 일반 sRGB 화면에서는 선형 .5가 약 188로 표시됩니다. 입력·작업·출력을 구분하면 이중 변환을 피할 수 있습니다.",
+          "expected": "작업 값 .5 유지, linear→srgb 출력에서 대략 128→188. NoToneMapping 유지.",
+          "hints": [
+            "renderer.outputColorSpace를 찾으세요.",
+            "material.color의 .5는 선형 값입니다."
+          ],
+          "questions": [
+            "입력 colorSpace 오류를 출력 설정으로 상쇄하면 왜 다른 색도 틀리나요?"
+          ],
+          "starterPath": "src/labs/threejs-step-11/steps/output.html",
+          "solutionPath": "src/labs/threejs-step-11/solutions/output.html"
+        }
+      ],
+      "apiIds": ["texture-space", "renderer-output"]
+    },
+    {
+      "unitId": "threejs-step-12",
+      "prerequisiteIds": ["threejs-step-03", "threejs-step-08"],
+      "introduction": "그림자에는 렌더러, 광원, 캐스터, 리시버의 설정이 함께 필요합니다. 같은 상자·바닥·광원에서 그림자의 유무, 카메라 잘림, 지도 해상도를 따로 바꿉니다.",
+      "steps": [
+        {
+          "id": "threejs-step-12-flags",
+          "title": "캐스터와 리시버 연결하기",
+          "explanation": "renderer.shadowMap.enabled와 light.castShadow, 바닥 receiveShadow는 이미 true입니다. caster.castShadow=false를 true로 바꾸세요. HTML castShadow를 켜서 적용한 뒤 receiveShadow만 꺼 비교하세요.",
+          "solutionExplanation": "캐스터는 광원 시점의 깊이 지도에 자신을 기록합니다. 리시버는 그 지도를 읽어 가려진 빛을 계산합니다. 어느 하나가 꺼지면 그림자가 사라질 수 있습니다. 바닥이 그림자를 받는 것과 만드는 것은 별개입니다.",
+          "expected": "cast false→true에서 바닥에 그림자가 나타납니다. receive false에서 다시 사라집니다.",
+          "hints": [
+            "caster.castShadow를 찾으세요.",
+            "광원과 renderer 설정도 필요한 이유를 확인하세요."
+          ],
+          "questions": [
+            "물체가 보이는데 그림자가 없으면 어떤 네 가지 설정부터 확인하나요?"
+          ],
+          "starterPath": "src/labs/threejs-step-12/steps/flags.html",
+          "solutionPath": "src/labs/threejs-step-12/solutions/flags.html"
+        },
+        {
+          "id": "threejs-step-12-shadow-frustum",
+          "title": "카메라 잘림을 범위로 고치기",
+          "explanation": "mapSize=512를 고정하고 extent=.5를 4로 바꾸세요. 반범위 입력에도 4를 적용합니다. 카메라 범위 표시를 켜서 잘린 깊이 영역이 상자와 바닥을 포함하도록 넓어지는지 관찰합니다. 복구 뒤에는 반범위 8과 4를 비교해 같은 지도에서 좁은 영역의 경계가 더 세밀한지도 확인하세요.",
+          "solutionExplanation": "방향광의 그림자 카메라는 직교 투영입니다. left/right/top/bottom과 near/far 안에 있는 영역만 깊이 지도에 담깁니다. 범위 변경 뒤 updateProjectionMatrix와 helper.update를 호출합니다. 잘림은 mapSize를 키워도 복구되지 않습니다.",
+          "expected": "반범위 .5→4, mapSize=512 유지. 잘린 그림자가 복구되며 표시한 카메라 영역도 넓어집니다.",
+          "hints": [
+            "좌우·상하 네 면을 함께 바꾸세요.",
+            "해상도를 바꾸지 않고 먼저 범위만 비교하세요."
+          ],
+          "questions": [
+            "그림자가 통째로 잘린 현상과 경계의 계단 현상은 원인이 어떻게 다른가요?"
+          ],
+          "starterPath": "src/labs/threejs-step-12/steps/shadow-frustum.html",
+          "solutionPath": "src/labs/threejs-step-12/solutions/shadow-frustum.html"
+        },
+        {
+          "id": "threejs-step-12-map-size",
+          "title": "같은 범위에서 지도 해상도 비교하기",
+          "explanation": "extent=4를 고정하고 mapSize=32를 512로 바꾸세요. 입력 512를 적용하고 계단 모양 경계를 비교합니다. 그다음 반범위 단계의 넓은 범위와 작은 범위가 같은 지도 픽셀을 나누는 방식도 설명하세요.",
+          "solutionExplanation": "지도 한 변의 픽셀을 32→512로 늘리면 한 변은 16배, 총 texel은 256배입니다. 깊이 저장과 추가 렌더 비용이 늘 수 있습니다. 이 예제는 BasicShadowMap으로 필터 흐림을 배제합니다. 범위 8 world units를 같은 지도에서 나누므로 units/texel이 .25→.015625입니다.",
+          "expected": "반범위 4 유지, 실제 map 32×32→512×512. 그림자 잘림을 고치는 실험과 해상도 실험을 구별합니다.",
+          "hints": [
+            "mapSize를 양축 모두 설정하세요.",
+            "이미 만든 map은 해제하고 null로 두어 다음 draw에서 새 크기로 만듭니다."
+          ],
+          "questions": [
+            "mapSize를 늘리거나 카메라 범위를 줄일 때 품질과 비용은 어떻게 달라지나요?"
+          ],
+          "starterPath": "src/labs/threejs-step-12/steps/map-size.html",
+          "solutionPath": "src/labs/threejs-step-12/solutions/map-size.html"
+        }
+      ],
+      "apiIds": ["shadow-flags", "shadow-camera", "shadow-resolution"]
+    },
+    {
+      "unitId": "threejs-step-13",
+      "prerequisiteIds": [
+        "threejs-step-02",
+        "threejs-step-03",
+        "threejs-step-04"
+      ],
+      "introduction": "페이지의 client 좌표를 캔버스의 NDC로 바꾸고 카메라에서 광선을 만듭니다. 서로 겹친 두 상자와 거리 목록을 보면서 여백·크기 변경 뒤에도 가까운 물체를 선택합니다.",
+      "steps": [
+        {
+          "id": "threejs-step-13-canvas-ndc",
+          "title": "캔버스 사각형으로 NDC 계산하기",
+          "explanation": "시작 코드는 innerWidth/innerHeight로 정규화합니다. canvasRelative=false를 true로 바꾸세요. 중앙과 왼쪽 위를 클릭하고 여백·너비 바꾸기 버튼을 누른 뒤 다시 중앙을 클릭하세요.",
+          "solutionExplanation": "getBoundingClientRect는 현재 canvas의 client 위치와 CSS 크기를 반환합니다. clientX-left를 width로 나눈 뒤 2를 곱하고 1을 빼면 NDC x입니다. y는 위쪽이 +1이므로 1-2*(clientY-top)/height입니다. 버퍼 픽셀 크기나 window 크기와 혼동하지 마세요.",
+          "expected": "중앙 NDC≈(0,0), 왼쪽 위≈(-1,1). 여백·너비 변경 뒤에도 중앙 선택이 front입니다.",
+          "hints": [
+            "canvasRelative를 true로 바꾸세요.",
+            "각 클릭마다 새 사각형을 읽습니다."
+          ],
+          "questions": [
+            "DPR이나 페이지 여백이 바뀔 때 canvas.width로 나누면 왜 틀리나요?"
+          ],
+          "starterPath": "src/labs/threejs-step-13/steps/canvas-ndc.html",
+          "solutionPath": "src/labs/threejs-step-13/solutions/canvas-ndc.html"
+        },
+        {
+          "id": "threejs-step-13-intersections",
+          "title": "거리순 결과의 첫 물체 선택하기",
+          "explanation": "객체 입력 배열은 [back,front]입니다. 시작 코드는 hits의 마지막 교차를 고릅니다. nearest=false를 true로 바꾸고 겹친 중앙을 클릭하세요. 출력의 이름·거리를 모두 비교합니다.",
+          "solutionExplanation": "intersectObjects는 객체 배열 순서가 아니라 광선 시작점부터의 거리순으로 교차를 반환합니다. hits[0]이 가장 가까운 교차입니다. 한 면의 경계에서는 같은 물체의 두 삼각형 교차가 겹쳐 나타날 수 있으므로 교차 수를 물체 수로 해석하지 않습니다.",
+          "expected": "교차 목록은 front가 back보다 먼저입니다. 선택이 back→front로 바뀝니다.",
+          "hints": [
+            "hits[0].object를 사용하세요.",
+            "배열을 뒤집는 것으로 고치지 마세요."
+          ],
+          "questions": [
+            "recursive=true와 가장 가까운 객체를 고르는 규칙은 어떻게 다른가요?"
+          ],
+          "starterPath": "src/labs/threejs-step-13/steps/intersections.html",
+          "solutionPath": "src/labs/threejs-step-13/solutions/intersections.html"
+        },
+        {
+          "id": "threejs-step-13-selection",
+          "title": "빈 공간에서 선택 해제하기",
+          "explanation": "clearOnMiss=false를 true로 바꾸세요. front를 고른 다음 왼쪽 위 빈 공간을 클릭합니다. 여백·너비를 바꿔 다시 front를 선택하고 선택 해제 버튼도 확인하세요.",
+          "solutionExplanation": "선택은 교차 결과를 제품 상태에 연결하는 규칙입니다. 빈 배열이면 null을 넣고 원래 재질색을 돌려줍니다. 여기서는 각 상자 재질을 따로 소유하므로 선택색이 다른 상자에 전파되지 않습니다. 광선 교차 계산과 강조 상태 갱신을 분리합니다.",
+          "expected": "중앙 클릭은 front·초록색. 빈 공간 클릭은 selected 없음·원래 주황색 복구.",
+          "hints": [
+            "교차가 없을 때도 highlight(null)을 호출하세요.",
+            "재질 공유 여부는 07단원과 연결됩니다."
+          ],
+          "questions": [
+            "이전 선택을 유지할지 해제할지는 Raycaster API가 정하나요?"
+          ],
+          "starterPath": "src/labs/threejs-step-13/steps/selection.html",
+          "solutionPath": "src/labs/threejs-step-13/solutions/selection.html"
+        }
+      ],
+      "apiIds": ["ray-ndc", "ray-hits"]
     }
   ],
   "apis": [
@@ -1748,6 +1971,216 @@
       "example": "const target=pmrem.fromScene(room,0,.1,20,{size:64}); scene.environment=target.texture;",
       "sourceUrl": "https://threejs.org/docs/pages/PMREMGenerator.html",
       "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "texture-image",
+      "symbol": "TextureLoader.load",
+      "description": "이미지를 비동기로 읽고 성공·실패 콜백으로 상태를 바꿉니다.",
+      "parameters": [
+        {
+          "name": "url",
+          "type": "string",
+          "description": "data URI 또는 object URL"
+        },
+        {
+          "name": "onLoad",
+          "type": "function",
+          "description": "디코딩 성공 후 Texture를 받는 함수"
+        },
+        {
+          "name": "onError",
+          "type": "function",
+          "description": "디코딩 실패를 처리하는 함수"
+        }
+      ],
+      "result": "즉시 Texture를 반환하며 onLoad에서 이미지 준비를 알립니다.",
+      "cautions": [
+        "onProgress는 지원하지 않습니다. Texture.dispose와 object URL 해제는 별개입니다."
+      ],
+      "example": "loader.load(url, texture => { material.map=texture; material.needsUpdate=true; }, undefined, showError);",
+      "sourceUrl": "https://threejs.org/docs/pages/TextureLoader.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "texture-uv",
+      "symbol": "Texture.repeat / wrapS / wrapT",
+      "description": "UV 배율과 범위 밖 좌표의 처리 방법을 설정합니다.",
+      "parameters": [
+        {
+          "name": "repeat",
+          "type": "Vector2",
+          "description": "가로·세로 UV 배율, 기본 (1,1)"
+        },
+        {
+          "name": "wrapS / wrapT",
+          "type": "number",
+          "description": "U/V 경계 처리, 기본 ClampToEdgeWrapping"
+        }
+      ],
+      "result": "repeat.set(x,y)는 같은 Vector2를 반환합니다.",
+      "cautions": [
+        "repeat만으로 반복을 켜지 못합니다. wrap 변경 후 needsUpdate를 설정하세요."
+      ],
+      "example": "texture.wrapS=texture.wrapT=THREE.RepeatWrapping; texture.repeat.set(4,2); texture.needsUpdate=true;",
+      "sourceUrl": "https://threejs.org/docs/pages/Texture.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "texture-space",
+      "symbol": "Texture.colorSpace",
+      "description": "색 이미지의 인코딩과 수치 데이터의 의미를 선언합니다.",
+      "parameters": [
+        {
+          "name": "colorSpace",
+          "type": "string",
+          "description": "색 map은 SRGBColorSpace, 수치 map은 NoColorSpace"
+        }
+      ],
+      "result": "값을 설정하며 GPU 업로드 때 입력 해석에 쓰입니다.",
+      "cautions": [
+        "roughnessMap은 green을 곱합니다. normalMap도 색 사진이 아닌 방향 데이터입니다."
+      ],
+      "example": "texture.colorSpace=THREE.NoColorSpace; texture.needsUpdate=true;",
+      "sourceUrl": "https://threejs.org/docs/pages/Texture.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "renderer-output",
+      "symbol": "WebGLRenderer.outputColorSpace",
+      "description": "선형 작업 결과를 화면에 표시할 색 공간으로 변환합니다.",
+      "parameters": [
+        {
+          "name": "outputColorSpace",
+          "type": "string",
+          "description": "기본 SRGBColorSpace, 비교용 LinearSRGBColorSpace"
+        }
+      ],
+      "result": "프로퍼티 설정이며 render 결과의 인코딩에 반영됩니다.",
+      "cautions": [
+        "출력 설정으로 잘못된 입력 텍스처의 의미를 고치지 마세요. NoToneMapping으로 비교 조건을 고정합니다."
+      ],
+      "example": "renderer.outputColorSpace=THREE.SRGBColorSpace; renderer.toneMapping=THREE.NoToneMapping;",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "shadow-flags",
+      "symbol": "Object3D.castShadow / receiveShadow",
+      "description": "광원 시점의 깊이 기록과 그 지도를 읽는 표면을 구별합니다.",
+      "parameters": [
+        {
+          "name": "castShadow",
+          "type": "boolean",
+          "description": "물체가 그림자 깊이에 참여, 기본 false"
+        },
+        {
+          "name": "receiveShadow",
+          "type": "boolean",
+          "description": "표면이 그림자를 받음, 기본 false"
+        }
+      ],
+      "result": "반환값 없는 프로퍼티 설정입니다.",
+      "cautions": [
+        "renderer.shadowMap.enabled와 light.castShadow도 켜야 합니다."
+      ],
+      "example": "renderer.shadowMap.enabled=true; light.castShadow=true; box.castShadow=true; floor.receiveShadow=true;",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "shadow-camera",
+      "symbol": "LightShadow.camera",
+      "description": "광원에서 깊이 지도로 담는 영역을 정합니다.",
+      "parameters": [
+        {
+          "name": "camera",
+          "type": "Camera",
+          "description": "방향광에는 OrthographicCamera"
+        }
+      ],
+      "result": "camera 참조를 읽어 범위와 투영 행렬을 갱신합니다.",
+      "cautions": [
+        "잘림은 mapSize 증가로 고쳐지지 않습니다. 범위를 넓히면 같은 지도의 world units/texel이 커집니다."
+      ],
+      "example": "const c=light.shadow.camera; c.left=c.bottom=-4; c.right=c.top=4; c.updateProjectionMatrix(); helper.update();",
+      "sourceUrl": "https://threejs.org/docs/pages/LightShadow.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "shadow-resolution",
+      "symbol": "LightShadow.mapSize",
+      "description": "그림자 깊이 텍스처의 가로·세로 픽셀 수를 정합니다.",
+      "parameters": [
+        {
+          "name": "mapSize",
+          "type": "Vector2",
+          "description": "기본 (512,512), 예제 32와 512 비교"
+        }
+      ],
+      "result": "설정한 크기는 다음 지도 생성 때 적용됩니다.",
+      "cautions": [
+        "한 변 16배는 texel 256배입니다. 크기 변경 때 기존 map을 dispose하고 null로 두세요."
+      ],
+      "example": "light.shadow.mapSize.set(512,512); light.shadow.map?.dispose(); light.shadow.map=null;",
+      "sourceUrl": "https://threejs.org/docs/pages/LightShadow.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "ray-ndc",
+      "symbol": "Raycaster.setFromCamera",
+      "description": "NDC와 카메라로 광선의 시작점·방향을 갱신합니다.",
+      "parameters": [
+        {
+          "name": "coords",
+          "type": "Vector2",
+          "description": "canvas 기준 -1~1, 위쪽 y=1"
+        },
+        {
+          "name": "camera",
+          "type": "Camera",
+          "description": "현재 화면을 렌더한 카메라"
+        }
+      ],
+      "result": "반환값 없이 내부 ray를 갱신합니다.",
+      "cautions": [
+        "client 좌표에는 현재 getBoundingClientRect를 사용합니다. CSS 크기와 버퍼 크기를 혼동하지 마세요."
+      ],
+      "example": "const r=canvas.getBoundingClientRect(); pointer.set(2*(e.clientX-r.left)/r.width-1,1-2*(e.clientY-r.top)/r.height); raycaster.setFromCamera(pointer,camera);",
+      "sourceUrl": "https://threejs.org/docs/pages/Raycaster.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "ray-hits",
+      "symbol": "Raycaster.intersectObjects",
+      "description": "가까운 거리부터 정렬한 실제 교차 목록을 읽습니다.",
+      "parameters": [
+        {
+          "name": "objects",
+          "type": "Object3D[]",
+          "description": "교차 검사 대상 배열"
+        },
+        {
+          "name": "recursive",
+          "type": "boolean",
+          "description": "자식도 검사할지, 기본 true; 예제 false"
+        }
+      ],
+      "result": "object, distance, point 등을 담은 Intersection 배열입니다.",
+      "cautions": [
+        "중복 삼각형 교차가 있을 수 있습니다. 빈 배열일 때의 선택 규칙은 직접 정합니다."
+      ],
+      "example": "const hits=raycaster.intersectObjects([back,front],false); highlight(hits[0]?.object??null);",
+      "sourceUrl": "https://threejs.org/docs/pages/Raycaster.html",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     }
   ]

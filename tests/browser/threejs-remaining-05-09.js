@@ -397,17 +397,17 @@ export async function runGroup(page, base, unitId) {
     'threejs-step-02',
     'threejs-step-03',
     'threejs-step-04',
-    'threejs-step-10',
   ]) {
     await page.goto(
       base + '/tests/browser/threejs-learning.html?learning#' + id,
     )
     await ready(page)
-    assert.equal(
-      await page.locator('#tab-reading').count(),
-      id === 'threejs-step-10' ? 0 : 1,
-    )
-    checks.push({ branch: id, contained: id !== 'threejs-step-10' })
+    assert.equal(await page.locator('#tab-reading').count(), 1)
+    checks.push({ branch: id, contained: true })
   }
+  await page.goto(base + '/tests/browser/threejs-learning.html')
+  await ready(page)
+  assert.equal(await page.locator('#tab-reading').count(), 0)
+  checks.push({ branch: 'fixture-without-learning', contained: false })
   return checks
 }

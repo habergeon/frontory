@@ -55,26 +55,26 @@
   "threejs-step-10": {
     "readingSource": "/examples-en/threejs-step-10/example.js",
     "mode": "browser",
-    "note": "외부 이미지 대신 생성한 체크 DataTexture로 UV repeat를 검증합니다. 네트워크 TextureLoader 오류 처리는 외부 프로젝트에서 확장하세요.",
-    "files": ["src/labs/threejs-step-10/example.js"]
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-10/example.html"]
   },
   "threejs-step-11": {
     "readingSource": "/examples-en/threejs-step-11/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-11/example.js"]
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-11/example.html"]
   },
   "threejs-step-12": {
     "readingSource": "/examples-en/threejs-step-12/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-12/example.js"]
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-12/example.html"]
   },
   "threejs-step-13": {
     "readingSource": "/examples-en/threejs-step-13/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-13/example.js"]
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-13/example.html"]
   },
   "threejs-step-15": {
     "readingSource": "/examples-en/threejs-step-15/example.js",

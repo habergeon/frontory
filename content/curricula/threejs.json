@@ -499,7 +499,7 @@
       "day": 10,
       "id": "threejs-step-10",
       "title": "텍스처와 UV",
-      "prerequisites": "선수 개념: 거칠기, 금속성. 9단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "prerequisites": "선수 단원: 05, 09. 앞 단원의 개념을 이어서 실험합니다.",
       "concepts": [
         {
           "title": "UV 매핑",
@@ -515,9 +515,9 @@
         "실패한 텍스처 URL을 오류 UI로 알린다."
       ],
       "steps": [
-        "외부 실습 프로젝트의 day-10.js와 index.html을 준비하세요. 로컬 체크 이미지를 TextureLoader로 읽어 평면 map에 지정하세요.",
-        "wrapS와 wrapT를 RepeatWrapping으로 바꾸고 repeat.set 값을 입력받으세요.",
-        "입력 조건 1,1에서 출력을 저장한 뒤 4,2 조건으로 다시 실행하세요. 예상: 표면 위 체크 패턴이 가로 네 번 세로 두 번 반복됩니다. 실제 화면·로그와 대조하고 day-10-notes.md에 실제 결과와 차이의 원인을 남기세요."
+        "평면의 world 너비는 3.6입니다. uvScale=1을 .5로 바꾸고 적용하세요. U 범위 입력도 .5로 맞춰 이미지 왼쪽 절반이 평면 전체를 덮는지 확인합니다. 물체의 position이나 scale은 바꾸지 마세요.",
+        "repeat 입력은 4,2인데 시작 코드는 ClampToEdgeWrapping입니다. RepeatWrapping을 켜고 적용하세요. 반복 횟수만으로 패턴이 반복되지 않는 상태와 가로 네 번·세로 두 번 반복되는 상태를 비교합니다.",
+        "시작 코드는 손상된 data PNG를 읽어 오류를 표시합니다. loadImage(invalid)를 loadImage(sample)로 바꾸세요. PNG와 JPEG를 직접 선택한 뒤 손상 이미지 시험, 샘플 복구를 차례로 누르세요."
       ],
       "variables": [
         {
@@ -545,13 +545,15 @@
           "url": "https://threejs.org/manual/pages/color-management.html"
         }
       ],
-      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+      "environment": "사이트에서 HTML을 편집하고 실행합니다. Three.js 0.186.1을 제공하며 별도 설치나 외부 서버가 필요 없습니다. 기존 JavaScript 초안은 보존됩니다.",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs"
     },
     {
       "day": 11,
       "id": "threejs-step-11",
       "title": "색 공간과 출력",
-      "prerequisites": "선수 개념: UV 매핑, 반복 설정. 10단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "prerequisites": "선수 단원: 09, 10. 앞 단원의 개념을 이어서 실험합니다.",
       "concepts": [
         {
           "title": "색 데이터",
@@ -567,9 +569,9 @@
         "입력·작업·출력 색 공간을 설명한다."
       ],
       "steps": [
-        "외부 실습 프로젝트의 day-11.js와 index.html을 준비하세요. 컬러 체크 텍스처에 SRGBColorSpace를 지정하고 중성 조명에서 표시하세요.",
-        "같은 재질에 잘못된 입력 색 공간을 적용한 비교를 만들고 설정값을 표로 기록하세요.",
-        "입력 조건 SRGBColorSpace에서 출력을 저장한 뒤 NoColorSpace 조건으로 다시 실행하세요. 예상: 동일 이미지의 밝기 해석이 달라질 수 있습니다. 실제 화면·로그와 대조하고 day-11-notes.md에 실제 결과와 차이의 원인을 남기세요."
+        "직접 만든 2×2 회색 이미지는 sRGB 색 128을 담았습니다. 시작 코드 inputSpace=\"none\"을 \"srgb\"로 바꾸세요. 선택 입력에서도 srgb를 적용하고 두 화면의 밝기를 비교합니다.",
+        "green=128/255는 색이 아니라 거칠기 계수입니다. inputSpace=\"srgb\"를 \"none\"으로 바꾸고 고정 점광원 아래 구의 반사를 비교하세요. roughness=1과 metalness=.25는 유지합니다.",
+        "입력 이미지 대신 Linear-sRGB (.5,.5,.5)로 평면을 칠합니다. renderer.outputColorSpace를 LinearSRGBColorSpace에서 SRGBColorSpace로 바꾸세요. 선택 입력의 srgb도 적용합니다."
       ],
       "variables": [
         {
@@ -593,13 +595,15 @@
           "url": "https://threejs.org/manual/pages/color-management.html"
         }
       ],
-      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+      "environment": "사이트에서 HTML을 편집하고 실행합니다. Three.js 0.186.1을 제공하며 별도 설치나 외부 서버가 필요 없습니다. 기존 JavaScript 초안은 보존됩니다.",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs"
     },
     {
       "day": 12,
       "id": "threejs-step-12",
       "title": "그림자 지도",
-      "prerequisites": "선수 개념: 색 데이터, 출력 변환. 11단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "prerequisites": "선수 단원: 03, 08. 앞 단원의 개념을 이어서 실험합니다.",
       "concepts": [
         {
           "title": "추가 렌더링",
@@ -615,9 +619,9 @@
         "그림자 잘림과 해상도 저하를 구별한다."
       ],
       "steps": [
-        "외부 실습 프로젝트의 day-12.js와 index.html을 준비하세요. renderer.shadowMap.enabled와 castShadow·receiveShadow를 설정하세요.",
-        "DirectionalLight의 shadow camera helper를 띄우고 범위를 좁힌 전후를 비교하세요.",
-        "입력 조건 넓은 영역에서 출력을 저장한 뒤 대상 주변 작은 영역 조건으로 다시 실행하세요. 예상: 동일 mapSize에서 대상 부근 그림자가 더 세밀해질 수 있습니다. 실제 화면·로그와 대조하고 day-12-notes.md에 실제 결과와 차이의 원인을 남기세요."
+        "renderer.shadowMap.enabled와 light.castShadow, 바닥 receiveShadow는 이미 true입니다. caster.castShadow=false를 true로 바꾸세요. HTML castShadow를 켜서 적용한 뒤 receiveShadow만 꺼 비교하세요.",
+        "mapSize=512를 고정하고 extent=.5를 4로 바꾸세요. 반범위 입력에도 4를 적용합니다. 카메라 범위 표시를 켜서 잘린 깊이 영역이 상자와 바닥을 포함하도록 넓어지는지 관찰합니다. 복구 뒤에는 반범위 8과 4를 비교해 같은 지도에서 좁은 영역의 경계가 더 세밀한지도 확인하세요.",
+        "extent=4를 고정하고 mapSize=32를 512로 바꾸세요. 입력 512를 적용하고 계단 모양 경계를 비교합니다. 그다음 반범위 단계의 넓은 범위와 작은 범위가 같은 지도 픽셀을 나누는 방식도 설명하세요."
       ],
       "variables": [
         {
@@ -645,13 +649,15 @@
           "url": "https://threejs.org/docs/pages/WebGLRenderer.html"
         }
       ],
-      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+      "environment": "사이트에서 HTML을 편집하고 실행합니다. Three.js 0.186.1을 제공하며 별도 설치나 외부 서버가 필요 없습니다. 기존 JavaScript 초안은 보존됩니다.",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs"
     },
     {
       "day": 13,
       "id": "threejs-step-13",
       "title": "정규화 좌표와 선택",
-      "prerequisites": "선수 개념: 추가 렌더링, 그림자 범위. 12단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "prerequisites": "선수 단원: 02, 03, 04. 앞 단원의 개념을 이어서 실험합니다.",
       "concepts": [
         {
           "title": "NDC 입력",
@@ -667,9 +673,9 @@
         "가장 가까운 교차 대상을 선택한다."
       ],
       "steps": [
-        "외부 실습 프로젝트의 day-13.js와 index.html을 준비하세요. pointerdown의 client 좌표를 NDC로 바꾸고 raycaster.setFromCamera를 호출하세요.",
-        "겹친 두 Mesh의 교차 거리와 이름을 HTML 목록으로 표시하세요.",
-        "입력 조건 캔버스 중앙에서 출력을 저장한 뒤 왼쪽 상단 조건으로 다시 실행하세요. 예상: NDC는 대략 0,0에서 -1,1로 바뀝니다. 실제 화면·로그와 대조하고 day-13-notes.md에 실제 결과와 차이의 원인을 남기세요."
+        "시작 코드는 innerWidth/innerHeight로 정규화합니다. canvasRelative=false를 true로 바꾸세요. 중앙과 왼쪽 위를 클릭하고 여백·너비 바꾸기 버튼을 누른 뒤 다시 중앙을 클릭하세요.",
+        "객체 입력 배열은 [back,front]입니다. 시작 코드는 hits의 마지막 교차를 고릅니다. nearest=false를 true로 바꾸고 겹친 중앙을 클릭하세요. 출력의 이름·거리를 모두 비교합니다.",
+        "clearOnMiss=false를 true로 바꾸세요. front를 고른 다음 왼쪽 위 빈 공간을 클릭합니다. 여백·너비를 바꿔 다시 front를 선택하고 선택 해제 버튼도 확인하세요."
       ],
       "variables": [
         {
@@ -693,7 +699,9 @@
           "url": "https://threejs.org/docs/pages/Raycaster.html"
         }
       ],
-      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+      "environment": "사이트에서 HTML을 편집하고 실행합니다. Three.js 0.186.1을 제공하며 별도 설치나 외부 서버가 필요 없습니다. 기존 JavaScript 초안은 보존됩니다.",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs"
     },
     {
       "day": 14,

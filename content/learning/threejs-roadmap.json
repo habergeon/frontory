@@ -104,7 +104,7 @@
       "requiredCapabilities": [
         "샘플 이미지·로컬 파일 선택·TextureLoader 지원·실패 fixture"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-11",
@@ -112,7 +112,7 @@
       "topics": ["색 맵과 데이터 맵", "입력·작업·출력 색 공간"],
       "outcome": "색 이미지와 normal·roughness 데이터의 처리 차이 설명",
       "requiredCapabilities": ["출처와 색 공간이 명시된 비교 자산"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-12",
@@ -120,7 +120,7 @@
       "topics": ["caster·receiver", "shadow camera", "해상도·비용"],
       "outcome": "그림자 잘림과 해상도 저하를 구별해 조정",
       "requiredCapabilities": ["그림자 카메라 표시·설정 입력"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-13",
@@ -132,7 +132,7 @@
       "topics": ["canvas 기준 NDC", "Raycaster", "교차 순서"],
       "outcome": "여백·크기 변경 후에도 가장 가까운 물체 선택",
       "requiredCapabilities": ["포인터 위치와 교차 결과 출력"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-02",

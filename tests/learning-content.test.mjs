@@ -36,7 +36,7 @@ test('integrated HTML lesson documents keep every required task inside the site'
     assert.match(second, expected)
     assert.doesNotMatch(second, excluded)
     const future = fs.readFileSync(
-      prefix + '/graphics/threejs/units/10/README.md',
+      prefix + '/graphics/threejs/02-experiments/README.md',
       'utf8',
     )
     assert.match(
@@ -158,7 +158,7 @@ test('browser lookup adapter exposes optional data without a Node filesystem dep
           : '../../content/locales/en/learning/threejs-roadmap.json',
       ),
     )
-    invalidRoadmap.entries[9].readiness = 'verified'
+    invalidRoadmap.entries[13].readiness = 'verified'
     const other = { exports: {} }
     assert.throws(
       () =>
@@ -169,11 +169,20 @@ test('browser lookup adapter exposes optional data without a Node filesystem dep
               ? '../../content/learning/threejs-roadmap.json'
               : '../../content/locales/en/learning/threejs-roadmap.json')
               ? invalidRoadmap
-              : require(id === './learningSchema' ? './learningSchema.ts' : id),
+              : id.endsWith('/learning/threejs.json')
+                ? {
+                    ...require(id),
+                    lessons: require(id).lessons.filter(
+                      (l) => l.unitId !== 'threejs-02',
+                    ),
+                  }
+                : require(
+                    id === './learningSchema' ? './learningSchema.ts' : id,
+                  ),
           other.exports,
           other,
         ),
-      /Verified roadmap unit has no lesson: threejs-step-10/,
+      /Verified roadmap unit has no lesson: threejs-02/,
     )
   }
   assert.match(
@@ -220,8 +229,11 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
       'src/labs/threejs-step-02/example.html',
       'src/labs/threejs-step-03/example.html',
       'src/labs/threejs-step-04/example.html',
-      ...[5, 6, 7, 8, 9].map(
-        (n) => 'src/labs/threejs-step-0' + n + '/example.html',
+      ...[5, 6, 7, 8, 9, 10, 11, 12, 13].map(
+        (n) =>
+          'src/labs/threejs-step-' +
+          String(n).padStart(2, '0') +
+          '/example.html',
       ),
       ...original.ko.lessons.flatMap((l) =>
         l.steps.flatMap((s) => [s.starterPath, s.solutionPath]),
@@ -253,15 +265,30 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
       structuredClone(original.roadmapEn),
     ]
     roadmaps.forEach((data) => {
-      data.entries[9].readiness = 'verified'
+      data.entries[13].readiness = 'verified'
     })
     roadmaps[1].sourceHash = sourceHash(roadmaps[0])
     roadmapFiles.forEach((file, i) =>
       fs.writeFileSync(path.join(root, file), JSON.stringify(roadmaps[i])),
     )
+    const learningFiles = [
+      'content/learning/threejs.json',
+      'content/locales/en/learning/threejs.json',
+    ]
+    learningFiles.forEach((file, i) => {
+      const data = structuredClone(i === 0 ? original.ko : original.en)
+      data.lessons = data.lessons.filter((l) => l.unitId !== 'threejs-02')
+      fs.writeFileSync(path.join(root, file), JSON.stringify(data))
+    })
     assert.throws(
       () => readLearningContent(root),
-      /Verified roadmap unit has no lesson: threejs-step-10/,
+      /Verified roadmap unit has no lesson: threejs-02/,
+    )
+    learningFiles.forEach((file, i) =>
+      fs.writeFileSync(
+        path.join(root, file),
+        JSON.stringify(i === 0 ? original.ko : original.en),
+      ),
     )
     roadmapFiles.forEach((file, i) =>
       fs.writeFileSync(
@@ -372,7 +399,12 @@ test('generated source links select localized HTML while unconverted JavaScript 
         'units/0' + n,
         locale === 'ko' ? 'html' : 'en.html',
       ]),
-      ['threejs-step-10', 'units/10', 'js'],
+      ...[10, 11, 12, 13].map((n) => [
+        'threejs-step-' + n,
+        'units/' + n,
+        locale === 'ko' ? 'html' : 'en.html',
+      ]),
+      ['threejs-step-15', 'units/15', 'js'],
     ]) {
       const file = root + '/labs/graphics/threejs/' + doc + '/README.md'
       const text = fs.readFileSync(file, 'utf8')

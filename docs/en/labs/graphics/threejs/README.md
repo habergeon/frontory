@@ -80,7 +80,10 @@ Keep the implementation, run instructions, baseline and changed conditions, fail
 - [Three.js Raycaster](https://threejs.org/docs/pages/Raycaster.html)
 - [Three.js GLTFLoader](https://threejs.org/docs/pages/GLTFLoader.html)
 - [Three.js OrbitControls](https://threejs.org/docs/pages/OrbitControls.html)
+- [Three.js Box3](https://threejs.org/docs/pages/Box3.html)
 - [Three.js AnimationMixer](https://threejs.org/docs/pages/AnimationMixer.html)
+- [Three.js Material](https://threejs.org/docs/pages/Material.html)
+- [Three.js Transparency](https://threejs.org/manual/pages/transparency.html)
 - [Three.js InstancedMesh](https://threejs.org/docs/pages/InstancedMesh.html)
 
 ## Three.js roadmap: all 28 units
@@ -243,7 +246,7 @@ Completion task: Select the nearest object after margin and size changes
 
 Required practice capabilities: Pointer position and intersection output
 
-### [14. Materials, Loading, and Selection](02-experiments/README.md) · Improvements planned
+### [14. Materials, Loading, and Selection](02-experiments/README.md) · Practice verified
 
 ID: `threejs-02`
 
@@ -255,7 +258,7 @@ Completion task: Keep the UI usable after failures and highlight only the select
 
 Required practice capabilities: GLTFLoader, sample GLB, local files and error fixtures
 
-### [15. Model Size and Camera Fitting](units/15/README.md) · Improvements planned
+### [15. Model Size and Camera Fitting](units/15/README.md) · Practice verified
 
 ID: `threejs-step-15`
 
@@ -267,7 +270,7 @@ Completion task: Frame a model far from the origin and handle empty models
 
 Required practice capabilities: Fixtures with varied sizes, positions and empty models
 
-### [16. Orbit Controls and On-Demand Rendering](units/16/README.md) · Improvements planned
+### [16. Orbit Controls and On-Demand Rendering](units/16/README.md) · Practice verified
 
 ID: `threejs-step-16`
 
@@ -279,7 +282,7 @@ Completion task: Reduce idle rendering while keeping controls responsive
 
 Required practice capabilities: Frame count and input state observation
 
-### [17. Clip Animation](units/17/README.md) · Improvements planned
+### [17. Clip Animation](units/17/README.md) · Practice verified
 
 ID: `threejs-step-17`
 
@@ -291,7 +294,7 @@ Completion task: Control clip playback and handle models without clips
 
 Required practice capabilities: GLB files with and without animation and playback UI
 
-### [18. Transparency and Depth](units/18/README.md) · Improvements planned
+### [18. Transparency and Depth](units/18/README.md) · Practice verified
 
 ID: `threejs-step-18`
 

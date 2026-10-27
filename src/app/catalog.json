@@ -3288,6 +3288,8 @@
       "goal": "실패 시 UI가 유지되고 선택한 객체만 강조된다. 공유 재질의 다른 객체가 변하지 않는다.",
       "docPath": "/docs/labs/graphics/threejs/02-experiments/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-02/example.js"
     },
     {
@@ -3295,9 +3297,11 @@
       "day": 15,
       "week": 3,
       "title": "모델 크기와 카메라 맞춤",
-      "goal": "원점에서 먼 모델도 화면 중심에 맞춘다. 0 크기나 빈 모델을 오류로 처리한다.",
+      "goal": "원점에서 먼 모델도 화면 중심에 맞춘다. 빈 모델에서 카메라를 유지하고 작은 모델과 빈 경계를 구별한다.",
       "docPath": "/docs/labs/graphics/threejs/units/15/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-15/example.js"
     },
     {
@@ -3308,6 +3312,8 @@
       "goal": "입력과 리사이즈 후 화면이 갱신된다. damping 중 프레임이 끊기지 않는다.",
       "docPath": "/docs/labs/graphics/threejs/units/16/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-16/example.js"
     },
     {
@@ -3318,6 +3324,8 @@
       "goal": "클립 없는 모델에도 UI가 유지된다. 초 단위 시간과 재생 속도를 구별한다.",
       "docPath": "/docs/labs/graphics/threejs/units/17/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-17/example.js"
     },
     {
@@ -3328,6 +3336,8 @@
       "goal": "불투명 깊이와 투명 합성을 구별한다. 남는 정렬 한계를 스크린샷으로 설명한다.",
       "docPath": "/docs/labs/graphics/threejs/units/18/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-18/example.js"
     },
     {

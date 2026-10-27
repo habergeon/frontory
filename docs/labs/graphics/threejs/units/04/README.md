@@ -2426,7 +2426,7 @@ ID: `threejs-step-13`
 
 필요한 실습 기능: 포인터 위치와 교차 결과 출력
 
-### [14. 재질·로딩·선택](../../02-experiments/README.md) · 개선 예정
+### [14. 재질·로딩·선택](../../02-experiments/README.md) · 실습 검증 완료
 
 ID: `threejs-02`
 
@@ -2438,7 +2438,7 @@ ID: `threejs-02`
 
 필요한 실습 기능: GLTFLoader·샘플 GLB·로컬 파일·오류 fixture
 
-### [15. 모델 크기와 카메라 맞춤](../15/README.md) · 개선 예정
+### [15. 모델 크기와 카메라 맞춤](../15/README.md) · 실습 검증 완료
 
 ID: `threejs-step-15`
 
@@ -2450,7 +2450,7 @@ ID: `threejs-step-15`
 
 필요한 실습 기능: 다양한 크기·위치·빈 모델 fixture
 
-### [16. 궤도 제어와 요구 렌더링](../16/README.md) · 개선 예정
+### [16. 궤도 제어와 요구 렌더링](../16/README.md) · 실습 검증 완료
 
 ID: `threejs-step-16`
 
@@ -2462,7 +2462,7 @@ ID: `threejs-step-16`
 
 필요한 실습 기능: 프레임 횟수·입력 상태 관찰
 
-### [17. 클립 애니메이션](../17/README.md) · 개선 예정
+### [17. 클립 애니메이션](../17/README.md) · 실습 검증 완료
 
 ID: `threejs-step-17`
 
@@ -2474,7 +2474,7 @@ ID: `threejs-step-17`
 
 필요한 실습 기능: 애니메이션 포함·미포함 GLB와 재생 UI
 
-### [18. 투명도와 깊이](../18/README.md) · 개선 예정
+### [18. 투명도와 깊이](../18/README.md) · 실습 검증 완료
 
 ID: `threejs-step-18`
 

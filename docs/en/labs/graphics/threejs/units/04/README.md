@@ -2486,7 +2486,7 @@ Completion task: Select the nearest object after margin and size changes
 
 Required practice capabilities: Pointer position and intersection output
 
-### [14. Materials, Loading, and Selection](../../02-experiments/README.md) · Improvements planned
+### [14. Materials, Loading, and Selection](../../02-experiments/README.md) · Practice verified
 
 ID: `threejs-02`
 
@@ -2498,7 +2498,7 @@ Completion task: Keep the UI usable after failures and highlight only the select
 
 Required practice capabilities: GLTFLoader, sample GLB, local files and error fixtures
 
-### [15. Model Size and Camera Fitting](../15/README.md) · Improvements planned
+### [15. Model Size and Camera Fitting](../15/README.md) · Practice verified
 
 ID: `threejs-step-15`
 
@@ -2510,7 +2510,7 @@ Completion task: Frame a model far from the origin and handle empty models
 
 Required practice capabilities: Fixtures with varied sizes, positions and empty models
 
-### [16. Orbit Controls and On-Demand Rendering](../16/README.md) · Improvements planned
+### [16. Orbit Controls and On-Demand Rendering](../16/README.md) · Practice verified
 
 ID: `threejs-step-16`
 
@@ -2522,7 +2522,7 @@ Completion task: Reduce idle rendering while keeping controls responsive
 
 Required practice capabilities: Frame count and input state observation
 
-### [17. Clip Animation](../17/README.md) · Improvements planned
+### [17. Clip Animation](../17/README.md) · Practice verified
 
 ID: `threejs-step-17`
 
@@ -2534,7 +2534,7 @@ Completion task: Control clip playback and handle models without clips
 
 Required practice capabilities: GLB files with and without animation and playback UI
 
-### [18. Transparency and Depth](../18/README.md) · Improvements planned
+### [18. Transparency and Depth](../18/README.md) · Practice verified
 
 ID: `threejs-step-18`
 

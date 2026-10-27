@@ -3538,18 +3538,23 @@
       "goal": "Keep the UI usable after failure and highlight only the selected object. Leave other objects with a shared material unchanged.",
       "docPath": "/docs/en/labs/graphics/threejs/02-experiments/README.md",
       "seriesId": "threejs",
-      "exampleReadingSource": "/examples-en/threejs-02/example.js"
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
+      "exampleReadingSource": "/examples-en/threejs-02/example.js",
+      "exampleNote": "Edit and run HTML starters inside the site. Complete the experiments and record actual results in notes."
     },
     {
       "id": "threejs-step-15",
       "day": 15,
       "week": 3,
       "title": "Model Size and Camera Fitting",
-      "goal": "Center a model on screen even when it is far from the origin. Treat models with a size of 0 or empty models as errors.",
+      "goal": "Center a model on screen even when it is far from the origin. Preserve the camera for an empty model and distinguish small models from empty bounds.",
       "docPath": "/docs/en/labs/graphics/threejs/units/15/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-15/example.js",
-      "exampleNote": "Reproduces Box3 framing with basic shapes. An arbitrary glTF loader is not injected into the preview runtime."
+      "exampleNote": "Edit and run HTML starters inside the site. Complete the experiments and record actual results in notes."
     },
     {
       "id": "threejs-step-16",
@@ -3559,8 +3564,10 @@
       "goal": "Update the screen after input and resizing. Keep frames running during damping.",
       "docPath": "/docs/en/labs/graphics/threejs/units/16/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-16/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run HTML starters inside the site. Complete the experiments and record actual results in notes."
     },
     {
       "id": "threejs-step-17",
@@ -3570,8 +3577,10 @@
       "goal": "Keep the UI available for models without clips. Distinguish time in seconds from playback speed.",
       "docPath": "/docs/en/labs/graphics/threejs/units/17/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-17/example.js",
-      "exampleNote": "Runs a procedurally created AnimationClip and AnimationMixer. Extend glTF clip-list loading in an external project with GLTFLoader."
+      "exampleNote": "Edit and run HTML starters inside the site. Complete the experiments and record actual results in notes."
     },
     {
       "id": "threejs-step-18",
@@ -3581,8 +3590,10 @@
       "goal": "Distinguish opaque depth handling from transparent compositing. Explain remaining sorting limitations with screenshots.",
       "docPath": "/docs/en/labs/graphics/threejs/units/18/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-18/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run HTML starters inside the site. Complete the experiments and record actual results in notes."
     },
     {
       "id": "threejs-step-19",

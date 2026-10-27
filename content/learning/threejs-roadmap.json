@@ -145,7 +145,7 @@
       "topics": ["glTF 로딩 상태", "모델 선택", "공유 재질 강조"],
       "outcome": "실패 후에도 UI를 유지하고 선택한 물체만 강조",
       "requiredCapabilities": ["GLTFLoader·샘플 GLB·로컬 파일·오류 fixture"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-15",
@@ -153,7 +153,7 @@
       "topics": ["Box3", "모델 중심·크기", "FOV 기반 프레이밍"],
       "outcome": "원점에서 먼 모델을 화면에 맞추고 빈 모델 처리",
       "requiredCapabilities": ["다양한 크기·위치·빈 모델 fixture"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-16",
@@ -165,7 +165,7 @@
       "topics": ["target", "damping", "입력 시 렌더링"],
       "outcome": "정지 화면의 불필요한 렌더를 줄이되 조작 유지",
       "requiredCapabilities": ["프레임 횟수·입력 상태 관찰"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-17",
@@ -173,7 +173,7 @@
       "topics": ["clip·action·mixer", "초 단위 delta", "속도"],
       "outcome": "클립 재생을 조작하고 클립 없는 모델도 처리",
       "requiredCapabilities": ["애니메이션 포함·미포함 GLB와 재생 UI"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-18",
@@ -181,7 +181,7 @@
       "topics": ["opacity", "transparent", "depthWrite", "정렬 한계"],
       "outcome": "교차 표면의 결과와 객체 정렬의 한계를 설명",
       "requiredCapabilities": ["동일 장면·시점 비교와 관찰 기록"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-19",

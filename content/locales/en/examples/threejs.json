@@ -228,9 +228,9 @@
     }
   },
   "threejs-step-15": {
-    "sourceHash": "c1d07aa7d2cb29fb08bf05037877622e511c189c67ae62a9254c5808fb75e098",
+    "sourceHash": "1ad0f64edc870af39e809e0db82f793266201ab79fbcabcb526993cdc4a6a545",
     "values": {
-      "note": "Reproduces Box3 framing with basic shapes. An arbitrary glTF loader is not injected into the preview runtime."
+      "note": "Edit and run HTML starters inside the site. Complete the experiments and record actual results in notes."
     },
     "presentation": {
       "sourceHash": "dfe5dcbd1208c3e75c1e588b4613bfeb784ff702103cae5c5f2d1c3ead10ada8",
@@ -247,9 +247,9 @@
     }
   },
   "threejs-step-16": {
-    "sourceHash": "0c9cd6e3471bd3fd3aa27321d5344bff6ab1ed0351487f156cb4ab844b347702",
+    "sourceHash": "a101d976dc7e7f9d10f9c3babbb237382747342a89a492f85fc5ca5c6eb06af7",
     "values": {
-      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "note": "Edit and run HTML starters inside the site. Complete the experiments and record actual results in notes."
     },
     "presentation": {
       "sourceHash": "adc10c8f0ed5740a4dce8d43f329d55391ea0b0ef79547be7f9296e727eb0142",
@@ -267,9 +267,9 @@
     }
   },
   "threejs-step-17": {
-    "sourceHash": "cd2668698e3907ebbe1bdd73b68c4814a008f68c3cf3e9ea919da911cbb4d071",
+    "sourceHash": "24c8ef1367f05af73968c63f2dbc8e9510ab23b25f7f8af7dfa309a2e9668eca",
     "values": {
-      "note": "Runs a procedurally created AnimationClip and AnimationMixer. Extend glTF clip-list loading in an external project with GLTFLoader."
+      "note": "Edit and run HTML starters inside the site. Complete the experiments and record actual results in notes."
     },
     "presentation": {
       "sourceHash": "fde02ea0b4849123dbc19f732329a3bde3765c2c8440ed7931b930ebbcd6317b",
@@ -285,9 +285,9 @@
     }
   },
   "threejs-step-18": {
-    "sourceHash": "b1ff7ece0041b8967029ad9142d7f0a85bd820434d19a2828d93e4c54635b3f9",
+    "sourceHash": "795f42a013e50288bc89dc5485611d1ccf81712b6265d8cfe4f636b85d56cb32",
     "values": {
-      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "note": "Edit and run HTML starters inside the site. Complete the experiments and record actual results in notes."
     },
     "presentation": {
       "sourceHash": "6475da39183cd1b5b0dd07f2aa60d87a3138890e98a723a5cb22b86689a72e76",
@@ -518,7 +518,11 @@
         "messages.display010": "Selection cleared",
         "comments.comment001": "An embedded JSON model exercises asynchronous loading without network access."
       }
-    }
+    },
+    "values": {
+      "note": "Edit and run HTML starters inside the site. Complete the experiments and record actual results in notes."
+    },
+    "sourceHash": "32eef76e1f927542d85cb1b931b145503d1ea949920013a1e5970dadec468404"
   },
   "threejs-03": {
     "presentation": {

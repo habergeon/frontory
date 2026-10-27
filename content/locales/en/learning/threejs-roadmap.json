@@ -172,7 +172,7 @@
       "requiredCapabilities": [
         "GLTFLoader, sample GLB, local files and error fixtures"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-15",
@@ -182,7 +182,7 @@
       "requiredCapabilities": [
         "Fixtures with varied sizes, positions and empty models"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-16",
@@ -194,7 +194,7 @@
       "topics": ["target", "damping", "rendering on input"],
       "outcome": "Reduce idle rendering while keeping controls responsive",
       "requiredCapabilities": ["Frame count and input state observation"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-17",
@@ -208,7 +208,7 @@
       "requiredCapabilities": [
         "GLB files with and without animation and playback UI"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-18",
@@ -218,7 +218,7 @@
       "requiredCapabilities": [
         "The same scene and viewpoint for comparison and notes"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-19",
@@ -375,5 +375,5 @@
       "readiness": "planned"
     }
   ],
-  "sourceHash": "fb5a0c4490a5ab1136479f77ee562aa3a11156541bb144942fbe6d86bce14929"
+  "sourceHash": "0cf00887cd9c32c05fc1321172934044d3ff96476f433207405e6b33db0ccbf3"
 }

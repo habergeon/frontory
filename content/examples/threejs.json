@@ -79,26 +79,26 @@
   "threejs-step-15": {
     "readingSource": "/examples-en/threejs-step-15/example.js",
     "mode": "browser",
-    "note": "기본 도형으로 Box3 프레이밍을 재현합니다. 임의 glTF 로더는 preview runtime에 주입되지 않습니다.",
-    "files": ["src/labs/threejs-step-15/example.js"]
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-15/example.html"]
   },
   "threejs-step-16": {
     "readingSource": "/examples-en/threejs-step-16/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-16/example.js"]
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-16/example.html"]
   },
   "threejs-step-17": {
     "readingSource": "/examples-en/threejs-step-17/example.js",
     "mode": "browser",
-    "note": "절차적으로 만든 AnimationClip과 AnimationMixer를 실행합니다. glTF 클립 목록 로딩은 GLTFLoader가 있는 외부 프로젝트에서 확장하세요.",
-    "files": ["src/labs/threejs-step-17/example.js"]
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-17/example.html"]
   },
   "threejs-step-18": {
     "readingSource": "/examples-en/threejs-step-18/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-18/example.js"]
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-18/example.html"]
   },
   "threejs-step-19": {
     "readingSource": "/examples-en/threejs-step-19/example.js",
@@ -153,5 +153,10 @@
     "mode": "browser",
     "note": "기본 도형 검사기의 선택·재생성·JSON·회전 수명을 실행합니다. glTF 로딩과 미니맵 통합은 외부 캡스톤 확장입니다.",
     "files": ["src/labs/threejs-step-27/example.js"]
+  },
+  "threejs-02": {
+    "mode": "browser",
+    "files": ["src/labs/threejs-02/example.html"],
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요."
   }
 }

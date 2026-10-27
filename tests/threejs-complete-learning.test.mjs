@@ -109,3 +109,35 @@ test('roughness HTML inputs accept the documented 0.15 task value', () => {
       }
     }
 })
+test('14–18 provide independent bilingual model and motion lessons', () => {
+  const data = readLearningContent()
+  for (const id of [
+    'threejs-02',
+    ...[15, 16, 17, 18].map((n) => 'threejs-step-' + n),
+  ]) {
+    const lesson = data.ko.lessons.find((l) => l.unitId === id)
+    assert.ok(lesson, id + ' missing model lesson')
+    assert.ok(lesson.steps.length >= 3)
+    for (const locale of ['ko', 'en'])
+      for (const step of lesson.steps) {
+        const starter = data.readCode(step.starterPath, locale),
+          solution = data.readCode(step.solutionPath, locale)
+        assert.notEqual(starter, solution)
+        for (const source of [starter, solution]) {
+          assert.match(source, new RegExp('lang="' + locale + '"'))
+          assert.match(source, /ResizeObserver/)
+          assert.match(source, /dispose\(/)
+          transformSync(
+            source.split('<script type="module">')[1].split('</script>')[0],
+            { loader: 'js' },
+          )
+          if (id !== 'threejs-step-18') {
+            assert.match(source, /GLTFLoader/)
+            assert.match(source, /parseAsync\(/)
+            assert.match(source, /arrayBuffer\(/)
+            assert.doesNotMatch(source, /tests\/browser/)
+          }
+        }
+      }
+  }
+})

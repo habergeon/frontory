@@ -964,7 +964,7 @@ damping을 켜면 손을 뗀 뒤에도 camera와 frames가 잠깐 변하고 이�
 
       import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
       const controls = new OrbitControls(camera, canvas);
-      controls.enableDamping = true;
+      controls.enableDamping = document.querySelector('#damping').checked;
       controls.dampingFactor = 0.15;
       const box = new THREE.Box3(),
         center = new THREE.Vector3(),

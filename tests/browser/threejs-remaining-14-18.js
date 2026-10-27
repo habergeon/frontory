@@ -530,6 +530,48 @@ export async function runGroup(page, base, unitId) {
             checks.push({ ...meta, fitted })
           }
           if (n === 16) {
+            const initialCheckbox = await frame.locator('#damping').isChecked()
+            assert.equal(
+              a.actual.damping,
+              initialCheckbox,
+              'initial controls damping matches checkbox before Apply',
+            )
+            if (step.id.endsWith('damping')) {
+              assert.equal(a.actual.damping, kind === 'solution')
+              if (kind === 'starter') {
+                const offIdle = await idleFrames(frame)
+                const offBefore = await frame.evaluate(() =>
+                  globalThis.__renderProbe(),
+                )
+                await drag(frame, page)
+                const offReleased = await frame.evaluate(() =>
+                  globalThis.__renderProbe(),
+                )
+                const offLast = await idleFrames(frame)
+                const offSettled = await frame.evaluate(() =>
+                  globalThis.__renderProbe(),
+                )
+                assert.notDeepEqual(offReleased.position, offBefore.position)
+                assert.ok(offReleased.frames > offIdle)
+                assert.ok(
+                  offLast - offReleased.frames <= 1,
+                  'damping off has no settling loop after release',
+                )
+                assert.deepEqual(offSettled.position, offReleased.position)
+                checks.push({
+                  ...meta,
+                  dampingOff: {
+                    initial: a.actual,
+                    checkbox: initialCheckbox,
+                    offIdle,
+                    offBefore,
+                    offReleased,
+                    offLast,
+                    offSettled,
+                  },
+                })
+              }
+            }
             await frame.locator('#value').fill('4')
             await frame.locator('#damping').check()
             await frame.locator('#demand').check()

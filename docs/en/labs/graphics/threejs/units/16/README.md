@@ -961,7 +961,7 @@ With damping, camera and frames continue briefly after release, then stop. Witho
 
       import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
       const controls = new OrbitControls(camera, canvas);
-      controls.enableDamping = true;
+      controls.enableDamping = document.querySelector('#damping').checked;
       controls.dampingFactor = 0.15;
       const box = new THREE.Box3(),
         center = new THREE.Vector3(),

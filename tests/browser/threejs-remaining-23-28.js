@@ -16,10 +16,10 @@ const lessons = JSON.parse(
 const hash = (s) => createHash('sha256').update(s).digest('hex')
 const expressions = {
   23: '({counts,refs:[...ledger.values()].map(e=>e.refs),children:scene.children.length,parents:[!!a.parent,!!b.parent]})',
-  24: '({counts,current,status,generation,completions,books:books.size,selected,camera:camera.position.toArray(),names:meshes.map(o=>o.name),playing,time:mixer?.time??0,x:meshes[0]?.position.x,stats})',
+  24: '({frames,counts,current,status,generation,completions,books:books.size,selected,camera:camera.position.toArray(),names:meshes.map(o=>o.name),playing,time:mixer?.time??0,x:meshes[0]?.position.x,stats})',
   25: '({counts,selected,status,camera:camera.position.toArray(),target:target.toArray()})',
   26: '({counts,stats})',
-  27: '({counts,current,status,generation,completions,books:books.size,selected,camera:camera.position.toArray(),target:targetPoint.toArray(),names:meshes.map(o=>o.name),playing,time:mixer?.time??0,x:meshes[0]?.position.x,stats})',
+  27: '({frames,counts,current,status,generation,completions,books:books.size,selected,camera:camera.position.toArray(),target:targetPoint.toArray(),names:meshes.map(o=>o.name),playing,time:mixer?.time??0,x:meshes[0]?.position.x,stats})',
   28: '({counts,stats,records})',
 }
 function auditSource(source) {
@@ -41,6 +41,184 @@ async function settle(frame, n) {
         return false
       }
     })
+}
+const rawState = async (frame) =>
+  JSON.parse(await frame.locator('output').textContent())
+async function rawRace(frame, n, identity) {
+  const initial = await rawState(frame)
+  const initialFlags = {
+    guard: await frame.locator('#guard').isChecked(),
+    stale: await frame.locator('#stale').isChecked(),
+  }
+  await frame.locator('#guard').check()
+  await frame.locator('#stale').check()
+  await frame.locator('#race').click()
+  await frame.waitForFunction(() => {
+    const s = JSON.parse(document.querySelector('output').textContent)
+    return s.current === 'B' && s.status === 'ready'
+  })
+  await frame.locator('#objects').selectOption('1')
+  if (n === 27) await frame.locator('#pause').click()
+  const beforeA = await rawState(frame)
+  assert.equal(
+    beforeA.completions.at(-1),
+    'B',
+    'Pause/selection must occur before late A',
+  )
+  await frame.waitForTimeout(650)
+  // Read the original DOM before any snapshot(), injected hook, draw(), or extra input.
+  const afterA = await rawState(frame)
+  console.log(
+    'RAW_STALE',
+    JSON.stringify({ identity, initialFlags, beforeA, afterA }),
+  )
+  assert.equal(
+    afterA.completions.at(-1),
+    'A',
+    'original output must show late A without an extra draw',
+  )
+  assert.equal(afterA.current, 'B')
+  assert.equal(afterA.status, 'ready')
+  assert.equal(
+    afterA.selected,
+    1,
+    'late cleanup preserves the current selection',
+  )
+  assert.equal(afterA.name, 'Right')
+  assert.equal(afterA.stale, initial.stale + 1)
+  assert.equal(afterA.texture, initial.texture + 1)
+  assert.equal(afterA.bitmap, initial.bitmap + 1)
+  assert.ok(afterA.geometry > beforeA.geometry)
+  assert.ok(afterA.material > beforeA.material)
+  if (n === 27)
+    assert.equal(afterA.playing, false, 'late A cannot resume a paused B')
+  return { identity, initialFlags, beforeA, afterA, originalDOMOnly: true }
+}
+async function desktopActions(page, frame, n, identity) {
+  await page.setViewportSize({ width: 1440, height: 900 })
+  let result
+  if (n === 23) {
+    await frame.locator('#remove').click()
+    const removed = await rawState(frame)
+    assert.equal(removed.children, 1)
+    assert.equal(removed.disposed, 0)
+    await frame.locator('#attach').click()
+    const attached = await rawState(frame)
+    assert.equal(attached.children, 2)
+    result = { removed, attached }
+  } else if (n === 24 || n === 27) {
+    const raced = await rawRace(frame, n, { ...identity, width: 1440 })
+    await frame.locator('#invalid').click()
+    await frame.waitForFunction(
+      () =>
+        JSON.parse(document.querySelector('output').textContent).status ===
+        'error',
+    )
+    const failed = await rawState(frame)
+    assert.equal(failed.current, 'B')
+    assert.equal(failed.selected, 1)
+    await frame.locator('#recover').click()
+    await settle(frame, n)
+    const recovered = await rawState(frame)
+    assert.equal(recovered.current, 'recovered')
+    if (n === 27) {
+      await frame.locator('#objects').selectOption('1')
+      await frame.locator('#frame').click()
+      await frame.locator('#speed').fill('1')
+      await frame.locator('#apply').click()
+      await frame.locator('#play').click()
+      const start = await rawState(frame)
+      await frame.waitForTimeout(100)
+      const playing = await rawState(frame)
+      assert.ok(playing.time > start.time)
+      await frame.locator('#pause').click()
+      await frame.locator('#minimap').uncheck()
+      await frame.locator('#apply').click()
+      const plain = await rawState(frame)
+      await frame.locator('#minimap').check()
+      await frame.locator('#apply').click()
+      const map = await rawState(frame)
+      assert.ok(map.stats.calls > plain.stats.calls)
+      result = { raced, failed, recovered, playing, plain, map }
+    } else result = { raced, failed, recovered }
+  } else if (n === 25) {
+    for (const id of ['wiring', 'keys', 'announce'])
+      await frame.locator('#' + id).check()
+    await frame.locator('#apply').click()
+    await keyboardTo(page, frame, '#objects')
+    await page.keyboard.press('Home')
+    await page.keyboard.press('ArrowDown')
+    await page.keyboard.press('Tab')
+    assert.equal((await rawState(frame)).selected, 1)
+    const before = await rawState(frame)
+    await keyboardTo(page, frame, '#right')
+    await page.keyboard.press('Enter')
+    const moved = await rawState(frame)
+    assert.equal(moved.camera[0], before.camera[0] + 1)
+    await keyboardTo(page, frame, '#zoom')
+    await page.keyboard.press('Enter')
+    assert.equal((await rawState(frame)).camera[2], before.camera[2] - 1)
+    await keyboardTo(page, frame, '#fail')
+    await page.keyboard.press('Enter')
+    const failed = await rawState(frame)
+    assert.equal(failed.status, 'error')
+    await keyboardTo(page, frame, '#recover')
+    await page.keyboard.press('Enter')
+    const recovered = await rawState(frame)
+    assert.equal(recovered.status, 'ready')
+    assert.equal(
+      await frame.evaluate(() => document.activeElement.id),
+      'objects',
+    )
+    result = { before, moved, failed, recovered, keyboard: true }
+  } else {
+    await frame.locator('#totals').check()
+    await frame.locator('#passes').fill('1')
+    await frame.locator('#apply').click()
+    const baseline = await rawState(frame)
+    if (n === 26) {
+      await frame.locator('#passes').fill('2')
+      await frame.locator('#apply').click()
+      const multi = await rawState(frame)
+      assert.equal(baseline.calls, 2)
+      assert.equal(baseline.triangles, 24)
+      assert.equal(multi.calls, 4)
+      assert.equal(multi.triangles, 48)
+      result = { baseline, multi }
+    } else {
+      await frame.locator('#segments').fill('8')
+      await frame.locator('#apply').click()
+      const lower = await rawState(frame)
+      assert.ok(lower.triangles < baseline.triangles)
+      for (let i = 0; i < 3; i++) await frame.locator('#cycle').click()
+      const cycles = await rawState(frame)
+      assert.equal(cycles.createdGeometry - cycles.geometry, 1)
+      await frame.locator('#select-report').click()
+      assert.ok(
+        (await frame.evaluate(() => getSelection().toString())).includes(
+          'records',
+        ),
+      )
+      result = {
+        baseline,
+        lower,
+        cycles,
+        report: await frame.locator('#report').textContent(),
+      }
+    }
+  }
+  const prefix = process.env.THREEJS_EVIDENCE?.replace(/\.json$/, '')
+  if (prefix)
+    await page.screenshot({
+      path: prefix + '-desktop-' + identity.id + '-' + identity.locale + '.png',
+    })
+  console.log(
+    'DESKTOP_ACTIONS',
+    JSON.stringify({ identity, width: 1440, result }),
+  )
+  await page.setViewportSize({ width: 390, height: 900 })
+  await preview(page)
+  return { identity, width: 1440, result, originalDOMOnly: true }
 }
 async function keyboardTo(page, frame, selector) {
   await frame
@@ -145,6 +323,28 @@ export async function runGroup(page, base, unitId) {
         rawOutput: await defaultFrame.locator('output').textContent(),
         hiddenStartup: true,
       })
+      if (n === 24 || n === 27)
+        checks.push({
+          rawStale: await rawRace(defaultFrame, n, {
+            id,
+            locale,
+            path: defaultPath,
+            sha256: hash(fs.readFileSync(defaultPath, 'utf8')),
+            kind: 'default',
+          }),
+        })
+      if (process.env.THREEJS_TASK6_DESKTOP === '1') {
+        checks.push({
+          desktop: await desktopActions(page, defaultFrame, n, {
+            id,
+            locale,
+            path: defaultPath,
+            sha256: hash(fs.readFileSync(defaultPath, 'utf8')),
+          }),
+        })
+        await defaultFrame.locator('#cleanup').click()
+        continue
+      }
       for (const step of lesson.steps)
         for (const kind of ['starter', 'solution']) {
           phase = { id, locale, step: step.id, kind }
@@ -160,6 +360,20 @@ export async function runGroup(page, base, unitId) {
           )
           await settle(raw, n)
           const rawOutput = await raw.locator('output').textContent()
+          if (n === 24 || n === 27)
+            checks.push({
+              rawStale: await rawRace(raw, n, {
+                id,
+                locale,
+                step: step.id,
+                kind,
+                path: (kind === 'starter'
+                  ? step.starterPath
+                  : step.solutionPath
+                ).replace('.html', locale === 'en' ? '.en.html' : '.html'),
+                sha256: hash(source),
+              }),
+            })
           let frame = await instrument(
             page,
             auditSource(source),
@@ -505,6 +719,8 @@ export async function runGroup(page, base, unitId) {
           }
           const cleanup = await frame.evaluate(async () => {
             globalThis.__remaining.cleanup()
+            const cleanupFrames =
+              globalThis.__remaining.snapshot().actual.frames
             await new Promise((r) => setTimeout(r, 400))
             const before = Object.fromEntries(
               Object.entries(globalThis.__disposeAudit).map(([k, v]) => [
@@ -526,6 +742,7 @@ export async function runGroup(page, base, unitId) {
               output: document.querySelector('output').textContent,
               report: document.querySelector('#report')?.textContent,
               actual: globalThis.__remaining.snapshot().actual,
+              cleanupFrames,
             }
           })
           assert.match(cleanup.output, /Cleanup|정리/)
@@ -538,6 +755,11 @@ export async function runGroup(page, base, unitId) {
             )
           if (n === 28) assert.ok(cleanup.report.includes('geometry'))
           if (n === 24 || n === 27) {
+            assert.equal(
+              cleanup.actual.frames,
+              cleanup.cleanupFrames,
+              'disposed source cannot render after late async completion',
+            )
             assert.equal(cleanup.actual.books, 0)
             assert.equal(
               cleanup.actual.counts.createdGeometry,

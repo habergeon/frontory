@@ -2594,7 +2594,7 @@ Completion task: Update the main view and minimap and restore rendering state
 
 Required practice capabilities: Two-camera and render target practice
 
-### [23. Resource Ownership Ledger](../23/README.md) · Improvements planned
+### [23. Resource Ownership Ledger](../23/README.md) · Practice verified
 
 ID: `threejs-step-23`
 
@@ -2606,7 +2606,7 @@ Completion task: Record resource owners and prevent duplicate disposal
 
 Required practice capabilities: Creation and cleanup counts and ownership observation
 
-### [24. Asynchronous Scene Replacement](../24/README.md) · Improvements planned
+### [24. Asynchronous Scene Replacement](../24/README.md) · Practice verified
 
 ID: `threejs-step-24`
 
@@ -2618,7 +2618,7 @@ Completion task: Prevent late models from replacing a newer scene and clean up r
 
 Required practice capabilities: Local asset delay, failure and out-of-order completion experiments
 
-### [25. HTML Controls and Accessibility](../25/README.md) · Improvements planned
+### [25. HTML Controls and Accessibility](../25/README.md) · Practice verified
 
 ID: `threejs-step-25`
 
@@ -2630,7 +2630,7 @@ Completion task: Select objects, control cameras and understand errors without a
 
 Required practice capabilities: Real HTML controls, keyboard support and status announcements · HTML accessibility basics required
 
-### [26. Render Statistics and Profiling](../26/README.md) · Improvements planned
+### [26. Render Statistics and Profiling](../26/README.md) · Practice verified
 
 ID: `threejs-step-26`
 
@@ -2642,7 +2642,7 @@ Completion task: Compare whole-frame statistics and explain measurement limits
 
 Required practice capabilities: In-site tables and logs · precise GPU timing is not required
 
-### [27. Integrating the Scene Inspector](../27/README.md) · Improvements planned
+### [27. Integrating the Scene Inspector](../27/README.md) · Practice verified
 
 ID: `threejs-step-27`
 
@@ -2654,7 +2654,7 @@ Completion task: Build an inspector that remains usable after failures
 
 Required practice capabilities: A starter project connecting earlier assets, controls and observation tools
 
-### [28. Rendering Resources and Measurement](../../03-project/README.md) · Improvements planned
+### [28. Rendering Resources and Measurement](../../03-project/README.md) · Practice verified
 
 ID: `threejs-03`
 

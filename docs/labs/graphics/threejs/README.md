@@ -352,7 +352,7 @@ ID: `threejs-step-22`
 
 필요한 실습 기능: 두 카메라·render target 실습
 
-### [23. 자원 소유권 장부](units/23/README.md) · 개선 예정
+### [23. 자원 소유권 장부](units/23/README.md) · 실습 검증 완료
 
 ID: `threejs-step-23`
 
@@ -364,7 +364,7 @@ ID: `threejs-step-23`
 
 필요한 실습 기능: 생성·정리 횟수와 소유 관계 관찰
 
-### [24. 비동기 장면 교체](units/24/README.md) · 개선 예정
+### [24. 비동기 장면 교체](units/24/README.md) · 실습 검증 완료
 
 ID: `threejs-step-24`
 
@@ -376,7 +376,7 @@ ID: `threejs-step-24`
 
 필요한 실습 기능: 로컬 자산의 지연·실패·순서 역전 실험
 
-### [25. HTML 제어와 접근성](units/25/README.md) · 개선 예정
+### [25. HTML 제어와 접근성](units/25/README.md) · 실습 검증 완료
 
 ID: `threejs-step-25`
 
@@ -388,7 +388,7 @@ ID: `threejs-step-25`
 
 필요한 실습 기능: 실제 HTML controls·키보드·상태 알림 · HTML 접근성 기초
 
-### [26. 렌더 통계와 프로파일](units/26/README.md) · 개선 예정
+### [26. 렌더 통계와 프로파일](units/26/README.md) · 실습 검증 완료
 
 ID: `threejs-step-26`
 
@@ -400,7 +400,7 @@ ID: `threejs-step-26`
 
 필요한 실습 기능: 사이트 내 표·로그; 정확한 GPU 시간 측정을 필수로 요구하지 않음
 
-### [27. 장면 검사기 통합](units/27/README.md) · 개선 예정
+### [27. 장면 검사기 통합](units/27/README.md) · 실습 검증 완료
 
 ID: `threejs-step-27`
 
@@ -412,7 +412,7 @@ ID: `threejs-step-27`
 
 필요한 실습 기능: 앞선 자산·조작·관찰 기능을 연결한 시작 프로젝트
 
-### [28. 렌더링 자원과 측정](03-project/README.md) · 개선 예정
+### [28. 렌더링 자원과 측정](03-project/README.md) · 실습 검증 완료
 
 ID: `threejs-03`
 

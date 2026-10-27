@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>움직임과 미니맵 연결</title>
+    <style>
+      body{margin:0;padding:12px;font:14px/1.5 system-ui,sans-serif;color:#172554;background:white}h1{font-size:22px}#stage{width:480px;max-width:100%;height:280px}canvas{display:block;width:100%;height:100%}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}input[type=number]{width:70px}input[type=file]{max-width:100%;width:240px}button,select{padding:6px}output,pre{display:block;white-space:pre-wrap;overflow-wrap:anywhere}:focus-visible{outline:3px solid #c2410c;outline-offset:2px}#error{color:#b91c1c}
+    </style>
+  </head>
+  <body>
+    <h1>움직임과 미니맵 연결</h1>
+    <p>
+      미니맵을 켜고 적용하세요. 같은 장면을 별도 카메라로 target에 그린 뒤
+      오른쪽 아래에 표시합니다. 선택·애니메이션을 바꾸며 두 화면이 함께
+      갱신되는지 보세요.
+    </p>
+    <p>
+      자체 제작한 두 패널 GLB입니다. 선택 파일은 실행 중에만 사용하며 백업에
+      넣지 않습니다. 다시 실행한 뒤 재선택하세요. 2 MiB 이하 self-contained
+      비압축 GLB와 내장 PNG/JPEG만 받습니다. 외부 URI·다중 파일
+      glTF·Draco·Meshopt·KTX2는 지원하지 않습니다.
+    </p>
+    <div class="controls">
+      <label
+        >내장 모델<select id="model">
+          <option>static</option>
+          <option selected>animated</option>
+          <option>textured</option>
+          <option>empty</option>
+        </select></label
+      ><button id="sample">샘플 불러오기</button
+      ><button id="race">slow A then fast B</button
+      ><button id="invalid">손상 GLB</button
+      ><button id="recover">샘플 복구</button
+      ><label
+        >GLB 파일<input
+          id="file"
+          type="file"
+          accept=".glb,model/gltf-binary" /></label
+      ><label><input id="guard" type="checkbox" checked />generation 보호</label
+      ><label><input id="stale" type="checkbox" checked />stale 정리</label
+      ><label><input id="framing" type="checkbox" checked />맞춤 허용</label
+      ><label><input id="minimap" type="checkbox" />미니맵</label
+      ><label>객체 목록<select id="objects"></select></label
+      ><button id="frame">선택 맞춤</button
+      ><button id="right">카메라 오른쪽</button><button id="zoom">확대</button
+      ><button id="play">재생</button><button id="pause">일시정지</button
+      ><button id="stop">정지·되감기</button
+      ><label
+        >속도<input
+          id="speed"
+          type="number"
+          value="1"
+          min="0"
+          max="3"
+          step="0.25" /></label
+      ><button id="apply">적용</button><button id="cleanup">자원 정리</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage"><canvas aria-label="움직임과 미니맵 연결"></canvas></div>
+    <output aria-live="polite"></output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage=document.querySelector('#stage'),canvas=document.querySelector('canvas'),output=document.querySelector('output');
+      const scene=new THREE.Scene();scene.background=new THREE.Color('#edf2f7');const camera=new THREE.PerspectiveCamera(45,1,.01,1000);camera.position.set(0,2,7);camera.lookAt(0,0,0);const renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(1);
+      const events=new AbortController();let disposed=false,frames=0;const ownedGeometry=new Set(),ownedMaterial=new Set(),ownedTargets=new Set();const on=(s,t,f)=>document.querySelector(s).addEventListener(t,f,{signal:events.signal});
+
+      import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+      const samples = {
+              static:
+                'Z2xURgIAAAAkAwAAwAIAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfV0sImJ1ZmZlclZpZXdzIjpbeyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjAsImJ5dGVMZW5ndGgiOjcyfV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JGYWN0b3IiOlswLjAzLDAuMiwwLjgsMV0sIm1ldGFsbGljRmFjdG9yIjowfSwiZXh0ZW5zaW9ucyI6eyJLSFJfbWF0ZXJpYWxzX3VubGl0Ijp7fX19XSwibWVzaGVzIjpbeyJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowfSwibWF0ZXJpYWwiOjB9XX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkxlZnQiLCJ0cmFuc2xhdGlvbiI6Wy0xLjEsMCwwXX0seyJtZXNoIjowLCJuYW1lIjoiUmlnaHQiLCJ0cmFuc2xhdGlvbiI6WzEuMSwwLDBdfV0sImJ1ZmZlcnMiOlt7ImJ5dGVMZW5ndGgiOjcyfV19IEgAAABCSU4AzcxMv83MTL8AAAAAzcxMP83MTL8AAAAAzcxMv83MTD8AAAAAzcxMv83MTD8AAAAAzcxMP83MTL8AAAAAzcxMP83MTD8AAAAA',
+              animated:
+                'Z2xURgIAAADUBAAAUAQAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJTQ0FMQVIiLCJjb3VudCI6MiwibWluIjpbMF0sIm1heCI6WzFdfSx7ImJ1ZmZlclZpZXciOjIsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiY291bnQiOjJ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MCwiYnl0ZUxlbmd0aCI6NzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MiwiYnl0ZUxlbmd0aCI6OH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjgwLCJieXRlTGVuZ3RoIjoyNH1dLCJleHRlbnNpb25zVXNlZCI6WyJLSFJfbWF0ZXJpYWxzX3VubGl0Il0sIm1hdGVyaWFscyI6W3sibmFtZSI6IlNoYXJlZEJsdWUiLCJkb3VibGVTaWRlZCI6dHJ1ZSwicGJyTWV0YWxsaWNSb3VnaG5lc3MiOnsiYmFzZUNvbG9yRmFjdG9yIjpbMC4wMywwLjIsMC44LDFdLCJtZXRhbGxpY0ZhY3RvciI6MH0sImV4dGVuc2lvbnMiOnsiS0hSX21hdGVyaWFsc191bmxpdCI6e319fV0sIm1lc2hlcyI6W3sicHJpbWl0aXZlcyI6W3siYXR0cmlidXRlcyI6eyJQT1NJVElPTiI6MH0sIm1hdGVyaWFsIjowfV19XSwibm9kZXMiOlt7Im1lc2giOjAsIm5hbWUiOiJMZWZ0IiwidHJhbnNsYXRpb24iOlstMS4xLDAsMF19LHsibWVzaCI6MCwibmFtZSI6IlJpZ2h0IiwidHJhbnNsYXRpb24iOlsxLjEsMCwwXX1dLCJhbmltYXRpb25zIjpbeyJuYW1lIjoiU2xpZGVMZWZ0Iiwic2FtcGxlcnMiOlt7ImlucHV0IjoxLCJvdXRwdXQiOjIsImludGVycG9sYXRpb24iOiJMSU5FQVIifV0sImNoYW5uZWxzIjpbeyJzYW1wbGVyIjowLCJ0YXJnZXQiOnsibm9kZSI6MCwicGF0aCI6InRyYW5zbGF0aW9uIn19XX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxMDR9XX1oAAAAQklOAM3MTL/NzEy/AAAAAM3MTD/NzEy/AAAAAM3MTL/NzEw/AAAAAM3MTL/NzEw/AAAAAM3MTD/NzEy/AAAAAM3MTD/NzEw/AAAAAAAAAAAAAIA/zcyMvwAAAAAAAAAAzczMvQAAAAAAAAAA',
+              empty:
+                'Z2xURgIAAAB4AAAAZAAAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOltdfV19',
+              textured:
+                'Z2xURgIAAACUBAAAtAMAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMyIiwiY291bnQiOjZ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MCwiYnl0ZUxlbmd0aCI6NzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MiwiYnl0ZUxlbmd0aCI6NDh9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0IjoxMjAsImJ5dGVMZW5ndGgiOjc2fV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JUZXh0dXJlIjp7ImluZGV4IjowfSwibWV0YWxsaWNGYWN0b3IiOjB9LCJleHRlbnNpb25zIjp7IktIUl9tYXRlcmlhbHNfdW5saXQiOnt9fX1dLCJtZXNoZXMiOlt7InByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjAsIlRFWENPT1JEXzAiOjF9LCJtYXRlcmlhbCI6MH1dfV0sIm5vZGVzIjpbeyJtZXNoIjowLCJuYW1lIjoiTGVmdCIsInRyYW5zbGF0aW9uIjpbLTEuMSwwLDBdfSx7Im1lc2giOjAsIm5hbWUiOiJSaWdodCIsInRyYW5zbGF0aW9uIjpbMS4xLDAsMF19XSwiaW1hZ2VzIjpbeyJidWZmZXJWaWV3IjoyLCJtaW1lVHlwZSI6ImltYWdlL3BuZyJ9XSwidGV4dHVyZXMiOlt7InNvdXJjZSI6MH1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxOTZ9XX0gICDEAAAAQklOAM3MTL/NzEy/AAAAAM3MTD/NzEy/AAAAAM3MTL/NzEw/AAAAAM3MTL/NzEw/AAAAAM3MTD/NzEy/AAAAAM3MTD/NzEw/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AACAP4lQTkcNChoKAAAADUlIRFIAAAACAAAAAggGAAAAcrYNJAAAABNJREFUeJxj+M/A8B8MGRj+gwEAScgJ9xRjMp0AAAAASUVORK5CYII=',
+              offset:
+                'Z2xURgIAAABIAwAA5AIAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfV0sImJ1ZmZlclZpZXdzIjpbeyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjAsImJ5dGVMZW5ndGgiOjcyfV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JGYWN0b3IiOlswLjAzLDAuMiwwLjgsMV0sIm1ldGFsbGljRmFjdG9yIjowfSwiZXh0ZW5zaW9ucyI6eyJLSFJfbWF0ZXJpYWxzX3VubGl0Ijp7fX19XSwibWVzaGVzIjpbeyJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowfSwibWF0ZXJpYWwiOjB9XX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkxlZnQiLCJ0cmFuc2xhdGlvbiI6WzMxLjIsLTE1LDNdLCJzY2FsZSI6WzgsOCw4XX0seyJtZXNoIjowLCJuYW1lIjoiUmlnaHQiLCJ0cmFuc2xhdGlvbiI6WzQ4LjgsLTE1LDNdLCJzY2FsZSI6WzgsOCw4XX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjo3Mn1dfUgAAABCSU4AzcxMv83MTL8AAAAAzcxMP83MTL8AAAAAzcxMv83MTD8AAAAAzcxMv83MTD8AAAAAzcxMP83MTL8AAAAAzcxMP83MTD8AAAAA',
+            };
+
+      function validateGlb(buffer) {
+              if (buffer.byteLength > 2 * 1024 * 1024) throw Error('GLB exceeds 2 MiB');
+              const view = new DataView(buffer);
+              if (
+                view.getUint32(0, true) !== 0x46546c67 ||
+                view.getUint32(4, true) !== 2 ||
+                view.getUint32(8, true) !== buffer.byteLength ||
+                view.getUint32(16, true) !== 0x4e4f534a
+              )
+                throw Error('Invalid GLB');
+              const json = JSON.parse(
+                new TextDecoder().decode(
+                  new Uint8Array(buffer, 20, view.getUint32(12, true)),
+                ),
+              );
+              if (
+                [...(json.buffers ?? []), ...(json.images ?? [])].some(
+                  (x) => x.uri && !x.uri.startsWith('data:'),
+                )
+              )
+                throw Error('External URI unsupported');
+              if ((json.extensionsUsed ?? []).some((x) => /draco|meshopt|basisu/i.test(x)))
+                throw Error('Compression unsupported');
+            }
+
+      const loader=new GLTFLoader();const counts={createdGeometry:0,createdMaterial:0,createdTexture:0,geometry:0,material:0,texture:0,bitmap:0,mixer:0,timer:0,stale:0};const books=new Set();let root=null,meshes=[],generation=0,current='',status='loading',selected=0,mixer=null,action=null,playing=false,last=0,completions=[],stats={};const timers=new Map(),retained=new Set();const targetPoint=new THREE.Vector3();
+      function book(gltf){const geometry=new Set(),material=new Set(),texture=new Set(),images=new Set();for(const scene of gltf.scenes)scene.traverse(o=>{if(o.geometry)geometry.add(o.geometry);for(const m of Array.isArray(o.material)?o.material:o.material?[o.material]:[]){material.add(m);for(const value of Object.values(m))if(value?.isTexture){texture.add(value);if(value.image?.close)images.add(value.image);}}});const b={geometry,material,texture,images,gltf};for(const [name,set]of Object.entries({geometry,material,texture})){counts['created'+name[0].toUpperCase()+name.slice(1)]+=set.size;for(const r of set)r.addEventListener('dispose',()=>counts[name]++);}books.add(b);return b;}
+      function release(b){if(!books.delete(b))return;for(const set of [b.geometry,b.material,b.texture])for(const r of set)r.dispose();for(const image of b.images){image.close();counts.bitmap++;}retained.delete(b);}
+      let activeBook=null;function clearMixer(){if(mixer&&root){mixer.stopAllAction();mixer.uncacheRoot(root);counts.mixer++;}mixer=null;action=null;playing=false;}
+      function wait(ms){if(!ms)return Promise.resolve();return new Promise(resolve=>{const id=setTimeout(()=>{timers.delete(id);counts.timer++;resolve();},ms);timers.set(id,resolve);});}
+      async function loadModel(readBuffer,name,delay=0){const token=++generation;status='loading';document.querySelector('#error').textContent='';draw();let b;try{const buffer=await readBuffer();validateGlb(buffer);const gltf=await loader.parseAsync(buffer,'');b=book(gltf);await wait(delay);completions.push(name);if(disposed||document.querySelector('#guard').checked&&token!==generation){counts.stale++;if(disposed||document.querySelector('#stale').checked)release(b);else retained.add(b);return;}clearMixer();if(root)scene.remove(root);if(activeBook)release(activeBook);activeBook=b;root=gltf.scene;scene.add(root);meshes=[];root.traverse(o=>{if(o.isMesh)meshes.push(o);});selected=0;document.querySelector('#objects').replaceChildren(...meshes.map((o,i)=>new Option(o.name||'Mesh '+i,String(i))));if(gltf.animations.length){mixer=new THREE.AnimationMixer(root);action=mixer.clipAction(gltf.animations[0]);action.play();mixer.timeScale=Number(document.querySelector('#speed').value);playing=true;}current=name;status='ready';draw();}catch(cause){if(b)release(b);if(disposed||token!==generation)return;status='error';document.querySelector('#error').textContent="GLB를 읽지 못했습니다. 샘플 복구 또는 다른 파일을 선택하세요. 상세: "+cause.message;draw();}}
+      const bytes=kind=>Uint8Array.from(atob(samples[kind]),c=>c.charCodeAt(0)).buffer;
+      on('#sample','click',()=>{document.querySelector('#file').value='';const kind=document.querySelector('#model').value;void loadModel(()=>bytes(kind),kind);});on('#race','click',()=>{void loadModel(()=>bytes('textured'),'A',300);void loadModel(()=>bytes('animated'),'B',20);});on('#invalid','click',()=>void loadModel(()=>new TextEncoder().encode('invalid').buffer,'invalid'));on('#recover','click',()=>void loadModel(()=>bytes('animated'),'recovered'));on('#file','change',()=>{const file=document.querySelector('#file').files[0];if(file)void loadModel(()=>file.arrayBuffer(),file.name);});
+      on('#objects','change',()=>{selected=document.querySelector('#objects').selectedIndex;draw();});on('#frame','click',()=>{if(document.querySelector('#framing').checked&&meshes[selected]){const box=new THREE.Box3().setFromObject(meshes[selected]);if(!box.isEmpty()){box.getCenter(targetPoint);const size=box.getSize(new THREE.Vector3()).length();camera.position.copy(targetPoint).add(new THREE.Vector3(0,size*.3,size*1.8));}}draw();});on('#right','click',()=>{camera.position.x++;draw();});on('#zoom','click',()=>{camera.position.z--;draw();});on('#play','click',()=>{if(action){action.paused=false;action.play();playing=true;}draw();});on('#pause','click',()=>{playing=false;if(action)action.paused=true;draw();});on('#stop','click',()=>{playing=false;if(action)action.stop();draw();});on('#apply','click',()=>{const input=document.querySelector('#speed');if(!input.value||!input.checkValidity())return;if(mixer)mixer.timeScale=Number(input.value);for(const b of [...retained])if(document.querySelector('#stale').checked)release(b);draw();});
+      const miniCamera=new THREE.PerspectiveCamera(45,1,.01,100);miniCamera.position.set(0,4,7);miniCamera.lookAt(0,0,0);const target=new THREE.WebGLRenderTarget(128,128);ownedTargets.add(target);const overlayScene=new THREE.Scene(),overlayCamera=new THREE.OrthographicCamera(-1,1,1,-1,0,2);overlayCamera.position.z=1;const plane=new THREE.PlaneGeometry(2,2),planeMaterial=new THREE.MeshBasicMaterial({map:target.texture,depthTest:false,depthWrite:false});ownedGeometry.add(plane);ownedMaterial.add(planeMaterial);overlayScene.add(new THREE.Mesh(plane,planeMaterial));
+      function renderMap(){const saved={target:renderer.getRenderTarget(),face:renderer.getActiveCubeFace(),mip:renderer.getActiveMipmapLevel(),viewport:renderer.getViewport(new THREE.Vector4()),scissor:renderer.getScissor(new THREE.Vector4()),test:renderer.getScissorTest()};try{renderer.setRenderTarget(target);renderer.setViewport(0,0,128,128);renderer.setScissorTest(false);renderer.render(scene,miniCamera);}finally{renderer.setRenderTarget(saved.target,saved.face,saved.mip);renderer.setViewport(saved.viewport);renderer.setScissor(saved.scissor);renderer.setScissorTest(saved.test);}}
+      function draw(){if(disposed||!stage.clientWidth)return;renderer.info.autoReset=false;renderer.info.reset();camera.lookAt(targetPoint);if(document.querySelector('#minimap').checked)renderMap();renderer.setRenderTarget(null);renderer.setViewport(0,0,canvas.width,canvas.height);renderer.render(scene,camera);if(document.querySelector('#minimap').checked){const saved=renderer.getViewport(new THREE.Vector4()),scissor=renderer.getScissor(new THREE.Vector4()),test=renderer.getScissorTest();try{const size=Math.min(100,canvas.width*.3);renderer.setViewport(canvas.width-size-4,4,size,size);renderer.setScissor(canvas.width-size-4,4,size,size);renderer.setScissorTest(true);renderer.autoClear=false;renderer.render(overlayScene,overlayCamera);}finally{renderer.autoClear=true;renderer.setViewport(saved);renderer.setScissor(scissor);renderer.setScissorTest(test);}}stats={calls:renderer.info.render.calls,triangles:renderer.info.render.triangles};frames++;output.textContent=JSON.stringify({status,current,generation,completions,selected,name:meshes[selected]?.name,clips:activeBook?.gltf.animations.length??0,playing,time:mixer?.time??0,x:meshes[0]?.position.x,camera:camera.position.toArray(),target:targetPoint.toArray(),stats,...counts});}
+      renderer.setAnimationLoop(now=>{const dt=last?(now-last)/1000:0;last=now;if(playing&&mixer){mixer.update(dt);draw();}});function releaseAll(){generation++;for(const [id,resolve]of timers){clearTimeout(id);counts.timer++;resolve();}timers.clear();clearMixer();if(root)scene.remove(root);for(const b of [...books])release(b);root=null;meshes=[];}void loadModel(()=>bytes(document.querySelector('#model').value),document.querySelector('#model').value);
+      function resizeScene(){if(disposed)return;const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();draw();}const observer=new ResizeObserver(resizeScene);observer.observe(stage);resizeScene();
+      function cleanup(){if(disposed)return;disposed=true;observer.disconnect();events.abort();renderer.setAnimationLoop(null);releaseAll();for(const x of ownedTargets)x.dispose();for(const x of ownedGeometry)x.dispose();for(const x of ownedMaterial)x.dispose();renderer.dispose();scene.clear();output.textContent="정리 완료"+' '+JSON.stringify(counts);}
+      on('#cleanup','click',cleanup);window.addEventListener('pagehide',cleanup,{once:true,signal:events.signal});
+    </script>
+  </body>
+</html>

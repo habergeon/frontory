@@ -1549,6 +1549,343 @@
         }
       ],
       "apiIds": ["view-22-0", "view-22-1", "view-22-2"]
+    },
+    {
+      "unitId": "threejs-step-23",
+      "prerequisiteIds": [
+        "threejs-step-07",
+        "threejs-step-10",
+        "threejs-02",
+        "threejs-step-22"
+      ],
+      "introduction": "Press remove. The left cube disappears while geometry and material disposal counts remain 0. Reattach renders the same references. Removal only breaks the parent connection.",
+      "steps": [
+        {
+          "id": "threejs-step-23-remove",
+          "title": "Detach and GPU resources",
+          "explanation": "Press remove. The left cube disappears while geometry and material disposal counts remain 0. Reattach renders the same references. Removal only breaks the parent connection.",
+          "solutionExplanation": "After remove: children=1, disposed=0; reattach restores children=2. Observe a.parent separately from dispose events.",
+          "expected": "After remove: children=1, disposed=0; reattach restores children=2.",
+          "hints": ["Observe a.parent separately from dispose events."],
+          "questions": ["Why can the detached object be reused?"],
+          "starterPath": "src/labs/threejs-step-23/steps/remove.html",
+          "solutionPath": "src/labs/threejs-step-23/solutions/remove.html"
+        },
+        {
+          "id": "threejs-step-23-dispose",
+          "title": "Release the last user",
+          "explanation": "Press release A then release B. With disposal disabled initially, dropping the last reference emits no GPU disposal event. Enable disposal and press collect to dispose geometry and material once each.",
+          "solutionExplanation": "First release: ref=1, disposed=0. Collect after the final release: ref=0, disposed=2. Collect only entries whose ref count is 0.",
+          "expected": "First release: ref=1, disposed=0. Collect after the final release: ref=0, disposed=2.",
+          "hints": ["Collect only entries whose ref count is 0."],
+          "questions": ["Does remove alone clean GPU resources?"],
+          "starterPath": "src/labs/threejs-step-23/steps/dispose.html",
+          "solutionPath": "src/labs/threejs-step-23/solutions/dispose.html"
+        },
+        {
+          "id": "threejs-step-23-shared",
+          "title": "Shared ownership and repeated cleanup",
+          "explanation": "Enable the shared ledger. A and B use the same geometry and material, giving ref=2. Inspect B after release A, then release B. Press cycle 3 times: each creates and disposes one geometry and one material. Calling full cleanup twice must not dispose twice.",
+          "solutionExplanation": "B survives release A; after 3 cycles, created minus disposed equals live resources. The starter without the ledger retains ref=2 after A is removed.",
+          "expected": "B survives release A; after 3 cycles, created minus disposed equals live resources.",
+          "hints": [
+            "The starter without the ledger retains ref=2 after A is removed."
+          ],
+          "questions": [
+            "What fails if each mesh disposes its shared resources immediately?"
+          ],
+          "starterPath": "src/labs/threejs-step-23/steps/shared.html",
+          "solutionPath": "src/labs/threejs-step-23/solutions/shared.html"
+        }
+      ],
+      "apiIds": ["life-23", "life-23-0", "life-23-1"]
+    },
+    {
+      "unitId": "threejs-step-24",
+      "prerequisiteIds": ["threejs-02", "threejs-step-17", "threejs-step-23"],
+      "introduction": "Enable generation protection. Press slow A then fast B. A waits 300ms after real textured GLB parsing; B waits 20ms after animated parsing. The unprotected starter lets A overwrite the scene. Repeat with protection and confirm B remains.",
+      "steps": [
+        {
+          "id": "threejs-step-24-race",
+          "title": "Request and completion order",
+          "explanation": "Enable generation protection. Press slow A then fast B. A waits 300ms after real textured GLB parsing; B waits 20ms after animated parsing. The unprotected starter lets A overwrite the scene. Repeat with protection and confirm B remains.",
+          "solutionExplanation": "Completion log is B then A; current model remains B. Compare the request token with the current generation.",
+          "expected": "Completion log is B then A; current model remains B.",
+          "hints": ["Compare the request token with the current generation."],
+          "questions": ["Does starting first guarantee permission to apply?"],
+          "starterPath": "src/labs/threejs-step-24/steps/race.html",
+          "solutionPath": "src/labs/threejs-step-24/solutions/race.html"
+        },
+        {
+          "id": "threejs-step-24-stale",
+          "title": "Own and release stale parse results",
+          "explanation": "Enable stale cleanup and reverse completion order. Parsed textured A owns real geometry, material, texture and ImageBitmap resources. Release late A without attaching it. Inspect bitmap close and disposal counts.",
+          "solutionExplanation": "B remains; A geometry, material, texture and bitmap are released. Release the ownership ledger before returning.",
+          "expected": "B remains; A geometry, material, texture and bitmap are released.",
+          "hints": ["Release the ownership ledger before returning."],
+          "questions": ["Is preserving the UI sufficient stale handling?"],
+          "starterPath": "src/labs/threejs-step-24/steps/stale.html",
+          "solutionPath": "src/labs/threejs-step-24/solutions/stale.html"
+        },
+        {
+          "id": "threejs-step-24-failure",
+          "title": "Keep the current scene after failure",
+          "explanation": "Press invalid GLB and confirm the current model and object list remain. Recover sample loads animated again. Continue using the same controls after failure. Local files pass through the same validation and parseAsync.",
+          "solutionExplanation": "The current model remains visible in error; recovery returns to ready. Do not clear root before a load succeeds.",
+          "expected": "The current model remains visible in error; recovery returns to ready.",
+          "hints": ["Do not clear root before a load succeeds."],
+          "questions": [
+            "May an older failure change the latest successful state?"
+          ],
+          "starterPath": "src/labs/threejs-step-24/steps/failure.html",
+          "solutionPath": "src/labs/threejs-step-24/solutions/failure.html"
+        }
+      ],
+      "apiIds": ["life-24", "life-24-0", "life-24-1"]
+    },
+    {
+      "unitId": "threejs-step-25",
+      "prerequisiteIds": ["threejs-step-13", "threejs-02", "threejs-step-16"],
+      "introduction": "Enable list wiring and apply. Tab to Objects and select Right with ArrowDown. The list change updates selection and text together. The canvas image alone does not name the selection.",
+      "steps": [
+        {
+          "id": "threejs-step-25-list",
+          "title": "Object list outside canvas",
+          "explanation": "Enable list wiring and apply. Tab to Objects and select Right with ArrowDown. The list change updates selection and text together. The canvas image alone does not name the selection.",
+          "solutionExplanation": "Selection status names Right and index 1. Check the label, select change handler and status text.",
+          "expected": "Selection status names Right and index 1.",
+          "hints": ["Check the label, select change handler and status text."],
+          "questions": [
+            "How is the 3D object name exposed to assistive technology?"
+          ],
+          "starterPath": "src/labs/threejs-step-25/steps/list.html",
+          "solutionPath": "src/labs/threejs-step-25/solutions/list.html"
+        },
+        {
+          "id": "threejs-step-25-camera",
+          "title": "Keyboard camera controls",
+          "explanation": "Enable keyboard camera controls and apply. Tab to camera buttons and use Enter for right, zoom in and frame selected. Read the image and camera coordinates. Controls are native buttons.",
+          "solutionExplanation": "Right increases camera.x by 1; zoom in reduces z by 1. Avoid hiding every command behind canvas keydown.",
+          "expected": "Right increases camera.x by 1; zoom in reduces z by 1.",
+          "hints": ["Avoid hiding every command behind canvas keydown."],
+          "questions": ["How does a keyboard user locate focus?"],
+          "starterPath": "src/labs/threejs-step-25/steps/camera.html",
+          "solutionPath": "src/labs/threejs-step-25/solutions/camera.html"
+        },
+        {
+          "id": "threejs-step-25-status",
+          "title": "Error announcements and recovery focus",
+          "explanation": "Enable status announcements and apply. Use only Tab and Enter to trigger failure and recovery. The list and camera controls remain after failure; role=status announces the error and recovery guidance. Recovery focuses the list.",
+          "solutionExplanation": "Failure is announced as text; recovery focuses Objects. aria-live needs changed text to announce.",
+          "expected": "Failure is announced as text; recovery focuses Objects.",
+          "hints": ["aria-live needs changed text to announce."],
+          "questions": [
+            "What is lost when an error is conveyed only by color?"
+          ],
+          "starterPath": "src/labs/threejs-step-25/steps/status.html",
+          "solutionPath": "src/labs/threejs-step-25/solutions/status.html"
+        }
+      ],
+      "apiIds": ["life-25", "life-25-0", "life-25-1"]
+    },
+    {
+      "unitId": "threejs-step-26",
+      "prerequisiteIds": [
+        "threejs-step-16",
+        "threejs-step-19",
+        "threejs-step-22",
+        "threejs-step-23"
+      ],
+      "introduction": "Enable frame totals and apply. In one pass two cubes give calls=2 and triangles=24. Two measurements should agree. Reset once at the start of each logical frame.",
+      "steps": [
+        {
+          "id": "threejs-step-26-single-pass",
+          "title": "Draw calls in one pass",
+          "explanation": "Enable frame totals and apply. In one pass two cubes give calls=2 and triangles=24. Two measurements should agree. Reset once at the start of each logical frame.",
+          "solutionExplanation": "At fixed size, camera and count: calls=2, triangles=24. Interpret info.render only with its accumulation interval.",
+          "expected": "At fixed size, camera and count: calls=2, triangles=24.",
+          "hints": [
+            "Interpret info.render only with its accumulation interval."
+          ],
+          "questions": ["What happens if frames accumulate without reset?"],
+          "starterPath": "src/labs/threejs-step-26/steps/single-pass.html",
+          "solutionPath": "src/labs/threejs-step-26/solutions/single-pass.html"
+        },
+        {
+          "id": "threejs-step-26-multi-pass",
+          "title": "Whole-frame totals across passes",
+          "explanation": "The multi-pass starter uses autoReset=true and shows only the last pass calls=2. Enable frame totals and apply. Mini and main cameras each draw both cubes.",
+          "solutionExplanation": "Frame totals are calls=4 and triangles=48. Do not reset before every render.",
+          "expected": "Frame totals are calls=4 and triangles=48.",
+          "hints": ["Do not reset before every render."],
+          "questions": [
+            "Which comparison fails if the last pass is mistaken for the whole frame?"
+          ],
+          "starterPath": "src/labs/threejs-step-26/steps/multi-pass.html",
+          "solutionPath": "src/labs/threejs-step-26/solutions/multi-pass.html"
+        },
+        {
+          "id": "threejs-step-26-baseline",
+          "title": "Measure under fixed conditions",
+          "explanation": "Measure passes 1 then 2. Keep count=2, DPR=1, CSS size up to 480×280 and the same camera. CPU ms is elapsed performance.now call time, not exact GPU duration or an improvement rate.",
+          "solutionExplanation": "Doubling passes doubles this scene calls and triangles; CPU ms may vary between runs. Record JIT, uploads, SwiftShader and canvas size as conditions.",
+          "expected": "Doubling passes doubles this scene calls and triangles; CPU ms may vary between runs.",
+          "hints": [
+            "Record JIT, uploads, SwiftShader and canvas size as conditions."
+          ],
+          "questions": [
+            "Does reducing triangles always preserve visual quality?"
+          ],
+          "starterPath": "src/labs/threejs-step-26/steps/baseline.html",
+          "solutionPath": "src/labs/threejs-step-26/solutions/baseline.html"
+        }
+      ],
+      "apiIds": ["life-26", "life-26-0", "life-26-1"]
+    },
+    {
+      "unitId": "threejs-step-27",
+      "prerequisiteIds": [
+        "threejs-02",
+        "threejs-step-15",
+        "threejs-step-16",
+        "threejs-step-17",
+        "threejs-step-18",
+        "threejs-step-19",
+        "threejs-step-20",
+        "threejs-step-21",
+        "threejs-step-22",
+        "threejs-step-23",
+        "threejs-step-24",
+        "threejs-step-25",
+        "threejs-step-26"
+      ],
+      "introduction": "Change sample static to animated and load. Scene, list and mixer change together only after success. Files exist only during this execution.",
+      "steps": [
+        {
+          "id": "threejs-step-27-loading",
+          "title": "Load a model into the inspector",
+          "explanation": "Change sample static to animated and load. Scene, list and mixer change together only after success. Files exist only during this execution.",
+          "solutionExplanation": "Animated has Left and Right plus one SlideLeft clip. Finish parsing before replacing the owned scene.",
+          "expected": "Animated has Left and Right plus one SlideLeft clip.",
+          "hints": ["Finish parsing before replacing the owned scene."],
+          "questions": ["What must survive a fallible load?"],
+          "starterPath": "src/labs/threejs-step-27/steps/loading.html",
+          "solutionPath": "src/labs/threejs-step-27/solutions/loading.html"
+        },
+        {
+          "id": "threejs-step-27-select-camera",
+          "title": "Connect selection and camera",
+          "explanation": "Select Right and press frame selected. Enable framing and apply because it starts disabled. Update camera position and direction from the Box3 center and size.",
+          "solutionExplanation": "Target becomes the selected object center and it appears at screen center. Position alone may leave the camera facing the old origin.",
+          "expected": "Target becomes the selected object center and it appears at screen center.",
+          "hints": [
+            "Position alone may leave the camera facing the old origin."
+          ],
+          "questions": ["How is selection connected to the camera target?"],
+          "starterPath": "src/labs/threejs-step-27/steps/select-camera.html",
+          "solutionPath": "src/labs/threejs-step-27/solutions/select-camera.html"
+        },
+        {
+          "id": "threejs-step-27-animation",
+          "title": "Control the loaded clip",
+          "explanation": "Load animated and press play. Change the starter speed 0 to 1 and apply. Left X changes with time. Inspect pause, then stop to rewind.",
+          "solutionExplanation": "At speed=1 Left moves; pause keeps time and stop restores the initial position. Pass seconds to mixer.update.",
+          "expected": "At speed=1 Left moves; pause keeps time and stop restores the initial position.",
+          "hints": ["Pass seconds to mixer.update."],
+          "questions": ["Why uncache the mixer before model replacement?"],
+          "starterPath": "src/labs/threejs-step-27/steps/animation.html",
+          "solutionPath": "src/labs/threejs-step-27/solutions/animation.html"
+        },
+        {
+          "id": "threejs-step-27-minimap",
+          "title": "Connect motion to the minimap",
+          "explanation": "Enable the minimap and apply. Render the same scene to a target with a separate camera, then display it at bottom right. Change selection and animation and inspect both views.",
+          "solutionExplanation": "Minimap on adds target and display passes to frame totals. Restore target, viewport and scissor in finally.",
+          "expected": "Minimap on adds target and display passes to frame totals.",
+          "hints": ["Restore target, viewport and scissor in finally."],
+          "questions": ["Which update do you inspect when the minimap stops?"],
+          "starterPath": "src/labs/threejs-step-27/steps/minimap.html",
+          "solutionPath": "src/labs/threejs-step-27/solutions/minimap.html"
+        },
+        {
+          "id": "threejs-step-27-recovery",
+          "title": "Recover the inspector",
+          "explanation": "Trigger invalid GLB, slow A then fast B and recover sample. List, selection, camera, playback and minimap controls survive failure and stale results. After recovery use keyboard selection, framing and playback again.",
+          "solutionExplanation": "Failure preserves the current scene; late A is released after B. Rebuild the list only on successful commit.",
+          "expected": "Failure preserves the current scene; late A is released after B.",
+          "hints": ["Rebuild the list only on successful commit."],
+          "questions": [
+            "Which features must continue working together after failure?"
+          ],
+          "starterPath": "src/labs/threejs-step-27/steps/recovery.html",
+          "solutionPath": "src/labs/threejs-step-27/solutions/recovery.html"
+        }
+      ],
+      "apiIds": ["life-27", "life-27-0", "life-27-1"]
+    },
+    {
+      "unitId": "threejs-03",
+      "prerequisiteIds": [
+        "threejs-step-19",
+        "threejs-step-23",
+        "threejs-step-24",
+        "threejs-step-26",
+        "threejs-step-27"
+      ],
+      "introduction": "Measure to create a baseline. Keep count=8, segments=16 and passes=1. Read camera, buffer, DPR, calls, triangles and CPU ms. No initial record means no measurement yet.",
+      "steps": [
+        {
+          "id": "threejs-03-baseline",
+          "title": "Capture a real comparison baseline",
+          "explanation": "Measure to create a baseline. Keep count=8, segments=16 and passes=1. Read camera, buffer, DPR, calls, triangles and CPU ms. No initial record means no measurement yet.",
+          "solutionExplanation": "The first measurement and conditions are appended to the record. Capture the actual frame when Measure is pressed.",
+          "expected": "The first measurement and conditions are appended to the record.",
+          "hints": ["Capture the actual frame when Measure is pressed."],
+          "questions": ["Can a number without conditions be compared later?"],
+          "starterPath": "src/labs/threejs-03/steps/baseline.html",
+          "solutionPath": "src/labs/threejs-03/solutions/baseline.html"
+        },
+        {
+          "id": "threejs-03-quality-cost",
+          "title": "Compare quality and cost",
+          "explanation": "Measure segments 16 then change to 8 and measure again. Fix count, passes and camera. Compare sphere silhouettes alongside triangles. The starter and solution shapes illustrate quality cost.",
+          "solutionExplanation": "At 8, triangles decrease and silhouettes change. No invented improvement rate is calculated. Change geometry within the same layout.",
+          "expected": "At 8, triangles decrease and silhouettes change. No invented improvement rate is calculated.",
+          "hints": ["Change geometry within the same layout."],
+          "questions": ["Does a lower triangle count prove preserved quality?"],
+          "starterPath": "src/labs/threejs-03/steps/quality-cost.html",
+          "solutionPath": "src/labs/threejs-03/solutions/quality-cost.html"
+        },
+        {
+          "id": "threejs-03-cycles",
+          "title": "Ledger for repeated creation and release",
+          "explanation": "Press cycle 3 times. Each releases current resources and rebuilds under the same conditions. Created minus disposed is 1 for geometry and material each. After cleanup record whether the difference is 0.",
+          "solutionExplanation": "After 3 cycles each disposed count increases by 3; cleanup makes it equal created. renderer.info.memory includes internal caches, so do not demand zero.",
+          "expected": "After 3 cycles each disposed count increases by 3; cleanup makes it equal created.",
+          "hints": [
+            "renderer.info.memory includes internal caches, so do not demand zero."
+          ],
+          "questions": [
+            "How does the ownership ledger differ from renderer.info.memory?"
+          ],
+          "starterPath": "src/labs/threejs-03/steps/cycles.html",
+          "solutionPath": "src/labs/threejs-03/solutions/cycles.html"
+        },
+        {
+          "id": "threejs-03-report",
+          "title": "Transfer observations into existing notes",
+          "explanation": "Create 16 versus 8 segment measurements and 3 cycle results. Press Select report and copy with Ctrl+C, then paste into the site Notes tab. Add conditions, actual values, visual differences, cleanup results and measurement limits in your own words; use existing save and backup.",
+          "solutionExplanation": "The report contains actual measurements and release counts and is preserved in site notes. The example iframe does not directly access parent storage.",
+          "expected": "The report contains actual measurements and release counts and is preserved in site notes.",
+          "hints": [
+            "The example iframe does not directly access parent storage."
+          ],
+          "questions": ["Why is CPU call time not exact GPU execution time?"],
+          "starterPath": "src/labs/threejs-03/steps/report.html",
+          "solutionPath": "src/labs/threejs-03/solutions/report.html"
+        }
+      ],
+      "apiIds": ["life-28", "life-28-0", "life-28-1"]
     }
   ],
   "apis": [
@@ -3191,9 +3528,367 @@
       "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
       "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-23",
+      "symbol": "Object3D.remove / BufferGeometry.dispose",
+      "description": "After remove: children=1, disposed=0; reattach restores children=2. Observe a.parent separately from dispose events.",
+      "parameters": [
+        {
+          "name": "...objects (remove only)",
+          "type": "Object3D[]",
+          "description": "Children to remove. dispose takes no arguments."
+        }
+      ],
+      "result": "remove returns its Object3D receiver. geometry.dispose returns undefined and signals release of GPU resources.",
+      "cautions": [
+        "The starter without the ledger retains ref=2 after A is removed."
+      ],
+      "example": "scene.remove(mesh); if(--entry.refs===0) geometry.dispose();",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-24",
+      "symbol": "GLTFLoader.parseAsync",
+      "description": "Completion log is B then A; current model remains B. Compare the request token with the current generation.",
+      "parameters": [
+        {
+          "name": "data, path",
+          "type": "ArrayBuffer, string",
+          "description": "GLB bytes and empty base path"
+        }
+      ],
+      "result": "Promise resolves to the glTF result.",
+      "cautions": ["Do not clear root before a load succeeds."],
+      "example": "const gltf=await loader.parseAsync(buffer,''); if(token!==generation) release(book(gltf));",
+      "sourceUrl": "https://threejs.org/docs/pages/GLTFLoader.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-25",
+      "symbol": "HTMLSelectElement / addEventListener",
+      "description": "Selection status names Right and index 1. Check the label, select change handler and status text.",
+      "parameters": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "The change event in this example."
+        },
+        {
+          "name": "listener",
+          "type": "EventListener",
+          "description": "Reads selectedIndex and updates status text."
+        }
+      ],
+      "result": "addEventListener returns undefined. select.selectedIndex is the selected index or -1; value is a string.",
+      "cautions": ["aria-live needs changed text to announce."],
+      "example": "select.addEventListener('change',()=>{status.textContent=select.value;});",
+      "sourceUrl": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-26",
+      "symbol": "WebGLRenderer.info / reset",
+      "description": "At fixed size, camera and count: calls=2, triangles=24. Interpret info.render only with its accumulation interval.",
+      "parameters": [],
+      "result": "info is the render and memory statistics object. info.reset() resets render counters and returns undefined; it does not free memory resources.",
+      "cautions": [
+        "Record JIT, uploads, SwiftShader and canvas size as conditions."
+      ],
+      "example": "renderer.info.autoReset=false;renderer.info.reset();renderer.render(scene,camera);const calls=renderer.info.render.calls;",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-27",
+      "symbol": "AnimationMixer.update / uncacheRoot",
+      "description": "Animated has Left and Right plus one SlideLeft clip. Finish parsing before replacing the owned scene.",
+      "parameters": [
+        {
+          "name": "deltaTime (update)",
+          "type": "number",
+          "description": "Elapsed seconds."
+        },
+        {
+          "name": "root (uncacheRoot)",
+          "type": "Object3D",
+          "description": "Animation root to uncache after stopping its actions."
+        }
+      ],
+      "result": "update returns the AnimationMixer. uncacheRoot returns undefined and releases cached data for that root.",
+      "cautions": ["Rebuild the list only on successful commit."],
+      "example": "mixer.update(deltaMs/1000); mixer.stopAllAction(); mixer.uncacheRoot(root);",
+      "sourceUrl": "https://threejs.org/docs/pages/AnimationMixer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-28",
+      "symbol": "WebGLRenderer.info / reset",
+      "description": "The first measurement and conditions are appended to the record. Capture the actual frame when Measure is pressed.",
+      "parameters": [],
+      "result": "info is the render and memory statistics object. info.reset() resets render counters and returns undefined; it does not free memory resources.",
+      "cautions": [
+        "The example iframe does not directly access parent storage."
+      ],
+      "example": "renderer.info.autoReset=false;renderer.info.reset();renderer.render(scene,camera);const calls=renderer.info.render.calls;",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-23-0",
+      "symbol": "Material.dispose / Texture.dispose",
+      "description": "Disposing a material does not dispose its map. After texture.dispose, only the last owner closes its ImageBitmap. A render target owns its own texture.",
+      "parameters": [],
+      "result": "material.dispose, texture.dispose and image.close return undefined. Material disposal does not dispose its textures.",
+      "cautions": [
+        "Disposing a material does not dispose its map. After texture.dispose, only the last owner closes its ImageBitmap. A render target owns its own texture."
+      ],
+      "example": "texture.dispose(); texture.image?.close?.();",
+      "sourceUrl": "https://threejs.org/docs/pages/Texture.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-23-1",
+      "symbol": "release(mesh) — example ownership helper",
+      "description": "Collect identical references in Set and track users in Map. remove does not decrement users; release detaches and decrements the ref count together.",
+      "parameters": [
+        {
+          "name": "mesh",
+          "type": "Mesh",
+          "description": "One mesh owner passed to this example release helper."
+        }
+      ],
+      "result": "The release helper returns undefined. It detaches and decrements refs, releasing resources only after their final user.",
+      "cautions": [
+        "Collect identical references in Set and track users in Map. remove does not decrement users; release detaches and decrements the ref count together."
+      ],
+      "example": "if (--entry.refs === 0) { resource.dispose(); ledger.delete(resource); }",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-24-0",
+      "symbol": "loadModel(readBuffer, name, delay) — example helper",
+      "description": "generation is an example-owned variable. Increment it at request start and compare after awaits before committing. Old success and failure must not change current state.",
+      "parameters": [
+        {
+          "name": "readBuffer",
+          "type": "() => ArrayBuffer | Promise<ArrayBuffer>",
+          "description": "Reads sample or file bytes."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Request and current scene display name."
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "description": "Delay in ms after parsing; default 0."
+        }
+      ],
+      "result": "The example loadModel returns Promise<void>. Success replaces the scene; stale results release owned resources.",
+      "cautions": [
+        "generation is an example-owned variable. Increment it at request start and compare after awaits before committing. Old success and failure must not change current state."
+      ],
+      "example": "const token=++generation; const gltf=await loader.parseAsync(buffer, \"\"); if(token!==generation){release(book(gltf));return;}",
+      "sourceUrl": "https://threejs.org/docs/pages/GLTFLoader.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-24-1",
+      "symbol": "ImageBitmap.close / clearTimeout",
+      "description": "A parseAsync result may still arrive after cancellation. Release late results; on teardown cancel timers and resolve pending delays so they reach the release branch.",
+      "parameters": [
+        {
+          "name": "id (clearTimeout only)",
+          "type": "number",
+          "description": "ID returned by setTimeout. ImageBitmap.close takes no arguments."
+        }
+      ],
+      "result": "Both return undefined. Cancelling a timer alone does not release parsed results.",
+      "cautions": [
+        "A parseAsync result may still arrive after cancellation. Release late results; on teardown cancel timers and resolve pending delays so they reach the release branch."
+      ],
+      "example": "clearTimeout(id); resolve(); image.close();",
+      "sourceUrl": "https://threejs.org/docs/pages/GLTFLoader.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-25-0",
+      "symbol": "HTMLButtonElement / focus",
+      "description": "Reach native buttons with Tab and activate with Enter or Space. select.focus returns focus to Objects after recovery. Preserve accessible names and visible focus.",
+      "parameters": [
+        {
+          "name": "options",
+          "type": "FocusOptions | undefined",
+          "description": "Optional focus options; omitted in this example."
+        }
+      ],
+      "result": "HTMLElement.focus returns undefined. On success document.activeElement becomes that list.",
+      "cautions": [
+        "Reach native buttons with Tab and activate with Enter or Space. select.focus returns focus to Objects after recovery. Preserve accessible names and visible focus."
+      ],
+      "example": "select.focus();",
+      "sourceUrl": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/status_role",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-25-1",
+      "symbol": "role=status / aria-live",
+      "description": "role=status announces status changes. Provide error details and recovery guidance as text while retaining list and camera controls.",
+      "parameters": [
+        {
+          "name": "role / aria-live",
+          "type": "string",
+          "description": "Uses role=status and aria-live=polite or off."
+        }
+      ],
+      "result": "These are HTML attributes with no function return value. They expose changed status text in the DOM.",
+      "cautions": [
+        "role=status announces status changes. Provide error details and recovery guidance as text while retaining list and camera controls."
+      ],
+      "example": "status.textContent = \"Load failed. Use Recover.\";",
+      "sourceUrl": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/status_role",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-26-0",
+      "symbol": "WebGLRenderer.info.reset",
+      "description": "With autoReset=false, reset once at frame start and read calls and triangles after all passes. memory is not GPU bytes; reset does not release resources.",
+      "parameters": [],
+      "result": "reset returns undefined. render.calls, triangles and lines accumulate again for the next frame.",
+      "cautions": [
+        "With autoReset=false, reset once at frame start and read calls and triangles after all passes. memory is not GPU bytes; reset does not release resources."
+      ],
+      "example": "renderer.info.autoReset=false;renderer.info.reset();renderMap();renderer.render(scene,camera);",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-26-1",
+      "symbol": "performance.now",
+      "description": "Timestamp differences measure elapsed JavaScript call time. GPU work is asynchronous, so do not label this exact GPU time. Record uploads, JIT, device and resolution.",
+      "parameters": [],
+      "result": "performance.now returns a number in ms relative to the time origin. Use the difference between calls as elapsed duration.",
+      "cautions": [
+        "Timestamp differences measure elapsed JavaScript call time. GPU work is asynchronous, so do not label this exact GPU time. Record uploads, JIT, device and resolution."
+      ],
+      "example": "const start=performance.now();renderer.render(scene,camera);const cpuMs=performance.now()-start;",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-27-0",
+      "symbol": "Box3.setFromObject / getCenter",
+      "description": "setFromObject computes world bounds. Reject empty bounds; use getCenter(target) and getSize(size) to update position and direction together.",
+      "parameters": [
+        {
+          "name": "object (setFromObject)",
+          "type": "Object3D",
+          "description": "Scene object for world bounds."
+        },
+        {
+          "name": "target (getCenter)",
+          "type": "Vector3",
+          "description": "Vector receiving the center."
+        }
+      ],
+      "result": "setFromObject returns its Box3; getCenter returns the supplied Vector3. Check isEmpty before framing empty bounds.",
+      "cautions": [
+        "setFromObject computes world bounds. Reject empty bounds; use getCenter(target) and getSize(size) to update position and direction together."
+      ],
+      "example": "const box=new THREE.Box3().setFromObject(mesh);if(!box.isEmpty()){box.getCenter(targetPoint);camera.lookAt(targetPoint);}",
+      "sourceUrl": "https://threejs.org/docs/pages/Box3.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-27-1",
+      "symbol": "WebGLRenderTarget / setRenderTarget",
+      "description": "Render the same scene into a target with another camera. A separate display scene samples target.texture. Save and restore state and dispose the target once.",
+      "parameters": [
+        {
+          "name": "width, height (constructor)",
+          "type": "number",
+          "description": "The example uses 128×128."
+        },
+        {
+          "name": "renderTarget (setRenderTarget)",
+          "type": "WebGLRenderTarget | null",
+          "description": "null means canvas; a target selects its texture destination."
+        }
+      ],
+      "result": "new WebGLRenderTarget returns the target object. setRenderTarget and target.dispose return undefined.",
+      "cautions": [
+        "Render the same scene into a target with another camera. A separate display scene samples target.texture. Save and restore state and dispose the target once."
+      ],
+      "example": "const previous=renderer.getRenderTarget();try{renderer.setRenderTarget(target);renderer.render(scene,miniCamera);}finally{renderer.setRenderTarget(previous);}",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderTarget.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-28-0",
+      "symbol": "SphereGeometry / dispose",
+      "description": "Keep radius, height segments and layout fixed while changing widthSegments from 16 to 8. Dispose old geometry and material before rebuilding. Lower triangles alone do not prove equal quality.",
+      "parameters": [
+        {
+          "name": "radius",
+          "type": "number",
+          "description": "Radius .35."
+        },
+        {
+          "name": "widthSegments",
+          "type": "number",
+          "description": "Width segments 16 or 8; minimum 3."
+        },
+        {
+          "name": "heightSegments",
+          "type": "number",
+          "description": "Height segments stay at 8; minimum 2."
+        }
+      ],
+      "result": "The constructor returns SphereGeometry. dispose returns undefined; call when finished with that geometry.",
+      "cautions": [
+        "Keep radius, height segments and layout fixed while changing widthSegments from 16 to 8. Dispose old geometry and material before rebuilding. Lower triangles alone do not prove equal quality."
+      ],
+      "example": "const geometry=new THREE.SphereGeometry(.35,8,8); geometry.dispose();",
+      "sourceUrl": "https://threejs.org/docs/pages/SphereGeometry.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "life-28-1",
+      "symbol": "WebGLRenderer.info.memory / getPixelRatio",
+      "description": "memory.geometries and textures are renderer-tracked counts, not VRAM bytes. Record owned create/dispose counts separately with buffer, DPR, camera and passes in site notes.",
+      "parameters": [],
+      "result": "getPixelRatio returns the current DPR number. info.memory contains geometries and textures counts, not GPU bytes.",
+      "cautions": [
+        "memory.geometries and textures are renderer-tracked counts, not VRAM bytes. Record owned create/dispose counts separately with buffer, DPR, camera and passes in site notes."
+      ],
+      "example": "const conditions={buffer:[canvas.width,canvas.height],dpr:renderer.getPixelRatio(),memory:{...renderer.info.memory}};",
+      "sourceUrl": "https://threejs.org/docs/pages/WebGLRenderer.html",
+      "packageVersion": "0.186.1",
+      "checkedAt": "2026-10-27"
     }
   ],
-  "sourceHash": "b96e7ed2af6f55f0c4f3449487ff906a0bfa3470cf97cbc36fdb5de62370d137",
+  "sourceHash": "a2a8720c1708314e7c6b01e295c1aa4d7de70f692ed85a193c4fea4968f88c0a",
   "codeSourceHashes": {
     "src/labs/threejs-01/example.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
     "src/labs/threejs-01/steps/canvas.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
@@ -3366,6 +4061,54 @@
     "src/labs/threejs-step-22/steps/minimap.html": "c407dde5f66be9a7e990026930c7746393b34e60a8270f0d3f6aea41c50760ab",
     "src/labs/threejs-step-22/solutions/minimap.html": "4d079da8076f4f4f77346ee5f291d485aba43f2cf41a6323c005db6340526a78",
     "src/labs/threejs-step-22/steps/restore.html": "515bb524e5dc401ba7dc33e80f90eae5fd124abcf4ba335eda8586959037e6a4",
-    "src/labs/threejs-step-22/solutions/restore.html": "6e4959803616925ed5b5b9eddabb844a7be7cb73c8b4d26931e83a4dfe23bc93"
+    "src/labs/threejs-step-22/solutions/restore.html": "6e4959803616925ed5b5b9eddabb844a7be7cb73c8b4d26931e83a4dfe23bc93",
+    "src/labs/threejs-step-23/example.html": "c0d2104b8aeb5141a482053f59d3eed3dde0d41be4f2911ba876cfce65524e97",
+    "src/labs/threejs-step-23/steps/remove.html": "c0d2104b8aeb5141a482053f59d3eed3dde0d41be4f2911ba876cfce65524e97",
+    "src/labs/threejs-step-23/solutions/remove.html": "345ef332ec0358956b67465b8f1d0cdd133e33004d8e764db13a2ee4dbe70737",
+    "src/labs/threejs-step-23/steps/dispose.html": "4568f1bcc021e631337beb86c3e1c1036dbb18bcca3d2d3bf27d1c1995cd0f6c",
+    "src/labs/threejs-step-23/solutions/dispose.html": "4c15fea0a75c000ee5ab9ca5a9fb108e8563d3f5597eb4ce7399a8ece319d214",
+    "src/labs/threejs-step-23/steps/shared.html": "c996c2d4762d471be475f7aa32988d99f919b4286860dff4db0757f923d9121f",
+    "src/labs/threejs-step-23/solutions/shared.html": "b20f7860c088154a9bacdfb9d1c4dc50c969b696a02df1debe6598a75a759bff",
+    "src/labs/threejs-step-24/example.html": "5b68fe09865d1285ad8452e44845420d09c9a3c8ddc668ac255bf74bb6c6b374",
+    "src/labs/threejs-step-24/steps/race.html": "5b68fe09865d1285ad8452e44845420d09c9a3c8ddc668ac255bf74bb6c6b374",
+    "src/labs/threejs-step-24/solutions/race.html": "93538579f51a7a13d762cd951530d2e4c05524a5c0f98bf0d5cccc8d88611126",
+    "src/labs/threejs-step-24/steps/stale.html": "f1b3ac530b580a827cde84070a3f4de7c902d6cd9b32e5df1fbcc1bfe135e505",
+    "src/labs/threejs-step-24/solutions/stale.html": "bb005b9512158064a8d718b6f8040089b46ea902975b413c0d8893d17ae85dba",
+    "src/labs/threejs-step-24/steps/failure.html": "a8654a858bc0304ac5df29ab576b9e16411a35e352dd6cb23e16aadb87e8f4fb",
+    "src/labs/threejs-step-24/solutions/failure.html": "a0202e223ba135fd5347f8cb8a8f11ed733448576eb3f3147fe0f0b504399967",
+    "src/labs/threejs-step-25/example.html": "d0e8d6c6834d26de504f37a361b624b77a8794de216d2f7d4471420de83d9e68",
+    "src/labs/threejs-step-25/steps/list.html": "d0e8d6c6834d26de504f37a361b624b77a8794de216d2f7d4471420de83d9e68",
+    "src/labs/threejs-step-25/solutions/list.html": "8c09bb9103fab33de3c48575b36983bd5c8498726970dce5f05540ce0d6f0764",
+    "src/labs/threejs-step-25/steps/camera.html": "268d7a9406213e15f087f78bd378658ce0c33296bc688493bfb1f6b7075a97e6",
+    "src/labs/threejs-step-25/solutions/camera.html": "fd6a15bcd99bec2cff6025bbbddc13012bfd0f64ef0ecd589a756e12b7c72140",
+    "src/labs/threejs-step-25/steps/status.html": "7737ca06a6fb65e2ed9b960128867ea13b2c9f1726d604cf72bb596ce3a57f90",
+    "src/labs/threejs-step-25/solutions/status.html": "ad792ca0b759afc41d7080b1312ae71558b0da2a7a8b73ed1ba28b5d09b56bb2",
+    "src/labs/threejs-step-26/example.html": "817ccb49bdab89a692306eff6b91a087af8f9da1220fb1ec2ee3da1d7a85af2c",
+    "src/labs/threejs-step-26/steps/single-pass.html": "817ccb49bdab89a692306eff6b91a087af8f9da1220fb1ec2ee3da1d7a85af2c",
+    "src/labs/threejs-step-26/solutions/single-pass.html": "85d0cfb41e9afa17656a51732717aec5548c287f5ecc3484eb1e2f8d0df69729",
+    "src/labs/threejs-step-26/steps/multi-pass.html": "1147659fcf973615fd31ddaea971246709f16d0637f20cd8b9ed4688fc39b770",
+    "src/labs/threejs-step-26/solutions/multi-pass.html": "8a6a1e85ffa27c802317e04b4588f8c70a127845a7358561531195b57c52210b",
+    "src/labs/threejs-step-26/steps/baseline.html": "f247baaa992e649edd12bd100bdd5547bbf4720a2528c16c008e95eba493c4b4",
+    "src/labs/threejs-step-26/solutions/baseline.html": "49497d66bd688787d465405e48ab00ccaff620d407e80fb483f9c777156a0e2e",
+    "src/labs/threejs-step-27/example.html": "020923b726238853458b505c0742f2b0f25ca1be850da2c7ab0801011511988d",
+    "src/labs/threejs-step-27/steps/loading.html": "020923b726238853458b505c0742f2b0f25ca1be850da2c7ab0801011511988d",
+    "src/labs/threejs-step-27/solutions/loading.html": "c609ec94ae2350685455dd71ceeaaecf40b5d21a28bf38a78f3a1de613014dd3",
+    "src/labs/threejs-step-27/steps/select-camera.html": "c01544274fa8db7e7b785113ba341d9d5d188a962963adbd806f7e9800cac5c5",
+    "src/labs/threejs-step-27/solutions/select-camera.html": "a73d3411ff7cf2679c6cd64ad898b394109098eb260e692487246514cd2af809",
+    "src/labs/threejs-step-27/steps/animation.html": "2798c64841418b4dbc265a1babba80cc659687c46b2407a4b1f109be347eaa3b",
+    "src/labs/threejs-step-27/solutions/animation.html": "7a974ec61cd0842d42ba302f833e02fb851f561b3c3749f2cffe77f4f7819c60",
+    "src/labs/threejs-step-27/steps/minimap.html": "7149666409f2a0cba79182ca65e08b2601702c78a0eab2aad1a29b9415b5ccf0",
+    "src/labs/threejs-step-27/solutions/minimap.html": "64b39470a648d229db33c1f6b0fc31e93a2e9e3e5f95d24f1788fadded4b6564",
+    "src/labs/threejs-step-27/steps/recovery.html": "2e5e483beb97229b12cf7628e2d7a616d6f8557fc5630e78eded94cc6b296f77",
+    "src/labs/threejs-step-27/solutions/recovery.html": "2b3b10e5875eeb035b0f036053a0909bbf3d96526d7561fd86818fccb4ace81f",
+    "src/labs/threejs-03/example.html": "c993665f8738899a598c1f4b957067cd1a8c7c8844695774a359472e71c4bfba",
+    "src/labs/threejs-03/steps/baseline.html": "c993665f8738899a598c1f4b957067cd1a8c7c8844695774a359472e71c4bfba",
+    "src/labs/threejs-03/solutions/baseline.html": "2c0753ab29a08d99e7885e2ec508068539fc1f845d62655ec07e25a425be99b8",
+    "src/labs/threejs-03/steps/quality-cost.html": "98ccd6c291399237d49140980c302acce91895e63f0e3a988ccddb5c59895cb5",
+    "src/labs/threejs-03/solutions/quality-cost.html": "d22f7af905b8807a0be6a9f02a1d8f06ffb35dbc44e6fca8d7ef16725036abcc",
+    "src/labs/threejs-03/steps/cycles.html": "17b5b6d554d8684207625f54122964baeb55b7e9177ffb7da7d7f55dddf3f8d2",
+    "src/labs/threejs-03/solutions/cycles.html": "19d84318c4ba78ba6bc280f656ddb37bfa031bbf3dc1d4701622bc595c84ca1b",
+    "src/labs/threejs-03/steps/report.html": "6c6d1a76a87afb19a28b65caa76c6482707ea39ccd20cefd7b4fe894e3a7dcb8",
+    "src/labs/threejs-03/solutions/report.html": "c64dda152645ba3dad284873253850cfeee5f7f1c0148807caf88520438858f6"
   }
 }

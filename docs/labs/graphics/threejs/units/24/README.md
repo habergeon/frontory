@@ -6,52 +6,53 @@
 
 ## 목표와 학습 후 역량
 
-- 늦은 응답이 새 모델을 바꾸지 않는다.
-- 버린 결과의 정리 경로가 있다.
+- 완료 로그는 B 다음 A이며 현재 모델은 B입니다.
+- B가 유지되고 A의 geometry·material·texture 및 bitmap이 각각 정리됩니다.
 
 ## 선수 지식
 
-선수 개념: 명시적 해제, 공유 수명. 23단위의 결과 파일과 관찰 기록을 준비하세요.
+선수 단원: 14, 17, 23. 이번 실험에서 이어갑니다.
 
 ## 핵심 개념과 설명
 
-### 오래된 결과
+### 요청 순서와 완료 순서
 
-이전 요청의 모델이 늦게 도착할 수 있습니다. 요청 토큰을 비교해 현재 장면에 붙일지 결정합니다.
+generation 보호를 켜세요. slow A then fast B를 누릅니다. A는 실제 textured GLB 파싱 후 300ms, B는 animated 파싱 후 20ms 기다립니다. 시작은 보호가 꺼져 A가 마지막에 장면을 덮습니다. 켠 뒤 다시 실행해 B가 유지되는지 확인하세요.
 
-### 버려진 자원
+### 늦은 파싱 결과의 소유 수명
 
-사용하지 않는 로딩 결과도 자원을 가질 수 있습니다. 화면에 붙이지 않았더라도 소유한 자원을 정리해야 합니다.
+stale 정리를 켜고 순서 역전을 실행하세요. A의 textured GLB는 파싱이 끝난 실제 geometry·material·texture와 ImageBitmap을 가집니다. 늦은 A를 장면에 넣지 않고 자원을 정리합니다. 닫은 bitmap 횟수와 dispose 횟수를 확인하세요.
 
 ## 실습 준비
 
-예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요.
+사이트에서 독립 HTML을 편집·실행합니다. Three.js 0.186.1을 사용하며 별도 설치·서버가 필요 없습니다. 기존 JavaScript 초안은 보존됩니다.
 
-연결된 예제는 출발점입니다. 아래 과제 전체가 완성된 코드는 아니며 예제의 지원 범위를 넘는 작업은 별도 프로젝트에서 수행하세요.
+모든 필수 과제를 사이트 안에서 단계별로 수행합니다. 아래 학습 단계의 시작 코드를 불러와 수정하고 실행한 뒤, 실제 결과와 이유를 사이트 필기에 남기세요.
 
 ## 실습 과제
 
-1. 외부 실습 프로젝트의 day-24.js와 index.html을 준비하세요. 모델 선택마다 증가하는 requestId를 저장하고 loadAsync 완료 시 비교하세요.
-2. 느린 모델 A와 빠른 B를 교대로 요청해 B만 보이며 A의 자원이 정리되는지 로그를 남기세요.
-3. 입력 조건 요청순에서 출력을 저장한 뒤 역순 조건으로 다시 실행하세요. 예상: 현재 요청과 다른 결과는 장면을 덮지 않습니다. 실제 화면·로그와 대조하고 day-24-notes.md에 실제 결과와 차이의 원인을 남기세요.
+1. generation 보호를 켜세요. slow A then fast B를 누릅니다. A는 실제 textured GLB 파싱 후 300ms, B는 animated 파싱 후 20ms 기다립니다. 시작은 보호가 꺼져 A가 마지막에 장면을 덮습니다. 켠 뒤 다시 실행해 B가 유지되는지 확인하세요.
+2. stale 정리를 켜고 순서 역전을 실행하세요. A의 textured GLB는 파싱이 끝난 실제 geometry·material·texture와 ImageBitmap을 가집니다. 늦은 A를 장면에 넣지 않고 자원을 정리합니다. 닫은 bitmap 횟수와 dispose 횟수를 확인하세요.
+3. 손상 GLB를 누른 뒤 현재 모델·객체 목록이 유지되는지 확인하세요. 샘플 복구를 누르면 animated 모델을 다시 읽습니다. 실패 뒤 같은 컨트롤을 계속 사용하세요. 로컬 파일도 같은 검사와 parseAsync를 거칩니다.
 
 ## 관찰할 변수
 
-| 변수      | 기준 조건 | 바꿀 조건 | 예상할 변화·검증 가설                        |
-| --------- | --------- | --------- | -------------------------------------------- |
-| 완료 순서 | 요청순    | 역순      | 현재 요청과 다른 결과는 장면을 덮지 않습니다 |
+| 변수                  | 기준 조건 | 바꿀 조건 | 예상할 변화·검증 가설                         |
+| --------------------- | --------- | --------- | --------------------------------------------- |
+| 요청 순서와 완료 순서 | starter   | solution  | 완료 로그는 B 다음 A이며 현재 모델은 B입니다. |
 
 표의 예상은 측정 결과가 아닙니다. 한 번에 한 조건만 바꾸고 실제 결과가 다르면 원인을 기록하세요.
 
 ## 완료 조건
 
-- [ ] 늦은 응답이 새 모델을 바꾸지 않는다.
-- [ ] 버린 결과의 정리 경로가 있다.
+- [ ] 완료 로그는 B 다음 A이며 현재 모델은 B입니다.
+- [ ] B가 유지되고 A의 geometry·material·texture 및 bitmap이 각각 정리됩니다.
 
 ## 자가 점검
 
-1. 토큰 검사가 네트워크 요청도 취소하나요?
-2. 실패한 이전 요청의 오류를 현재 UI에 보여야 하나요?
+1. 요청이 먼저 시작됐다는 사실이 적용 권한도 보장하나요?
+2. UI를 안 바꾸는 것만으로 stale 처리에 충분한가요?
+3. 이전 요청 실패가 최신 성공 상태를 바꿔도 되나요?
 
 ## 공식 참고
 
@@ -60,13 +61,925 @@
 
 ## 연결된 예제와 실행 범위
 
-[예제 원본](../../../../../../src/labs/threejs-step-24/example.js) · [실행 환경과 제한](../../../../../examples.md)
+[예제 원본](../../../../../../src/labs/threejs-step-24/example.html) · [실행 환경과 제한](../../../../../examples.md)
 
-지연된 절차적 지오메트리로 완료 역순과 오래된 결과 해제를 재현합니다. 네트워크 모델 로딩 자체는 포함하지 않습니다.
+HTML 시작 코드에서 과제를 수행하고 실제 관찰값과 조건을 기존 필기에 남기세요.
 
-- [example.js](../../../../../../src/labs/threejs-step-24/example.js)
+- [example.html](../../../../../../src/labs/threejs-step-24/example.html)
 
 원본 코드·기록은 자동으로 덮어쓰지 않습니다. 기존 예제를 초기화할 때도 필기는 유지됩니다.
+
+## 단계별 학습
+
+generation 보호를 켜세요. slow A then fast B를 누릅니다. A는 실제 textured GLB 파싱 후 300ms, B는 animated 파싱 후 20ms 기다립니다. 시작은 보호가 꺼져 A가 마지막에 장면을 덮습니다. 켠 뒤 다시 실행해 B가 유지되는지 확인하세요.
+
+### 선수 단원
+
+- `threejs-02`
+- `threejs-step-17`
+- `threejs-step-23`
+
+### 요청 순서와 완료 순서
+
+generation 보호를 켜세요. slow A then fast B를 누릅니다. A는 실제 textured GLB 파싱 후 300ms, B는 animated 파싱 후 20ms 기다립니다. 시작은 보호가 꺼져 A가 마지막에 장면을 덮습니다. 켠 뒤 다시 실행해 B가 유지되는지 확인하세요.
+
+**예상 결과**
+
+완료 로그는 B 다음 A이며 현재 모델은 B입니다.
+
+```html
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>요청 순서와 완료 순서</title>
+    <style>
+      body{margin:0;padding:12px;font:14px/1.5 system-ui,sans-serif;color:#172554;background:white}h1{font-size:22px}#stage{width:480px;max-width:100%;height:280px}canvas{display:block;width:100%;height:100%}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}input[type=number]{width:70px}input[type=file]{max-width:100%;width:240px}button,select{padding:6px}output,pre{display:block;white-space:pre-wrap;overflow-wrap:anywhere}:focus-visible{outline:3px solid #c2410c;outline-offset:2px}#error{color:#b91c1c}
+    </style>
+  </head>
+  <body>
+    <h1>요청 순서와 완료 순서</h1>
+    <p>
+      generation 보호를 켜세요. slow A then fast B를 누릅니다. A는 실제 textured
+      GLB 파싱 후 300ms, B는 animated 파싱 후 20ms 기다립니다. 시작은 보호가
+      꺼져 A가 마지막에 장면을 덮습니다. 켠 뒤 다시 실행해 B가 유지되는지
+      확인하세요.
+    </p>
+    <p>
+      자체 제작한 두 패널 GLB입니다. 선택 파일은 실행 중에만 사용하며 백업에
+      넣지 않습니다. 다시 실행한 뒤 재선택하세요. 2 MiB 이하 self-contained
+      비압축 GLB와 내장 PNG/JPEG만 받습니다. 외부 URI·다중 파일
+      glTF·Draco·Meshopt·KTX2는 지원하지 않습니다.
+    </p>
+    <div class="controls">
+      <label
+        >내장 모델<select id="model">
+          <option>static</option>
+          <option selected>animated</option>
+          <option>textured</option>
+          <option>empty</option>
+        </select></label
+      ><button id="sample">샘플 불러오기</button
+      ><button id="race">slow A then fast B</button
+      ><button id="invalid">손상 GLB</button
+      ><button id="recover">샘플 복구</button
+      ><label
+        >GLB 파일<input
+          id="file"
+          type="file"
+          accept=".glb,model/gltf-binary" /></label
+      ><label><input id="guard" type="checkbox" />generation 보호</label
+      ><label><input id="stale" type="checkbox" checked />stale 정리</label
+      ><label><input id="framing" type="checkbox" checked />맞춤 허용</label
+      ><label><input id="minimap" type="checkbox" />미니맵</label
+      ><label>객체 목록<select id="objects"></select></label
+      ><button id="frame">선택 맞춤</button
+      ><button id="right">카메라 오른쪽</button><button id="zoom">확대</button
+      ><button id="play">재생</button><button id="pause">일시정지</button
+      ><button id="stop">정지·되감기</button
+      ><label
+        >속도<input
+          id="speed"
+          type="number"
+          value="1"
+          min="0"
+          max="3"
+          step="0.25" /></label
+      ><button id="apply">적용</button><button id="cleanup">자원 정리</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage"><canvas aria-label="요청 순서와 완료 순서"></canvas></div>
+    <output aria-live="polite"></output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage=document.querySelector('#stage'),canvas=document.querySelector('canvas'),output=document.querySelector('output');
+      const scene=new THREE.Scene();scene.background=new THREE.Color('#edf2f7');const camera=new THREE.PerspectiveCamera(45,1,.01,1000);camera.position.set(0,2,7);camera.lookAt(0,0,0);const renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(1);
+      const events=new AbortController();let disposed=false,frames=0;const ownedGeometry=new Set(),ownedMaterial=new Set(),ownedTargets=new Set();const on=(s,t,f)=>document.querySelector(s).addEventListener(t,f,{signal:events.signal});
+
+      import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+      const samples = {
+              static:
+                'Z2xURgIAAAAkAwAAwAIAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfV0sImJ1ZmZlclZpZXdzIjpbeyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjAsImJ5dGVMZW5ndGgiOjcyfV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JGYWN0b3IiOlswLjAzLDAuMiwwLjgsMV0sIm1ldGFsbGljRmFjdG9yIjowfSwiZXh0ZW5zaW9ucyI6eyJLSFJfbWF0ZXJpYWxzX3VubGl0Ijp7fX19XSwibWVzaGVzIjpbeyJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowfSwibWF0ZXJpYWwiOjB9XX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkxlZnQiLCJ0cmFuc2xhdGlvbiI6Wy0xLjEsMCwwXX0seyJtZXNoIjowLCJuYW1lIjoiUmlnaHQiLCJ0cmFuc2xhdGlvbiI6WzEuMSwwLDBdfV0sImJ1ZmZlcnMiOlt7ImJ5dGVMZW5ndGgiOjcyfV19IEgAAABCSU4AzcxMv83MTL8AAAAAzcxMP83MTL8AAAAAzcxMv83MTD8AAAAAzcxMv83MTD8AAAAAzcxMP83MTL8AAAAAzcxMP83MTD8AAAAA',
+              animated:
+                'Z2xURgIAAADUBAAAUAQAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJTQ0FMQVIiLCJjb3VudCI6MiwibWluIjpbMF0sIm1heCI6WzFdfSx7ImJ1ZmZlclZpZXciOjIsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiY291bnQiOjJ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MCwiYnl0ZUxlbmd0aCI6NzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MiwiYnl0ZUxlbmd0aCI6OH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjgwLCJieXRlTGVuZ3RoIjoyNH1dLCJleHRlbnNpb25zVXNlZCI6WyJLSFJfbWF0ZXJpYWxzX3VubGl0Il0sIm1hdGVyaWFscyI6W3sibmFtZSI6IlNoYXJlZEJsdWUiLCJkb3VibGVTaWRlZCI6dHJ1ZSwicGJyTWV0YWxsaWNSb3VnaG5lc3MiOnsiYmFzZUNvbG9yRmFjdG9yIjpbMC4wMywwLjIsMC44LDFdLCJtZXRhbGxpY0ZhY3RvciI6MH0sImV4dGVuc2lvbnMiOnsiS0hSX21hdGVyaWFsc191bmxpdCI6e319fV0sIm1lc2hlcyI6W3sicHJpbWl0aXZlcyI6W3siYXR0cmlidXRlcyI6eyJQT1NJVElPTiI6MH0sIm1hdGVyaWFsIjowfV19XSwibm9kZXMiOlt7Im1lc2giOjAsIm5hbWUiOiJMZWZ0IiwidHJhbnNsYXRpb24iOlstMS4xLDAsMF19LHsibWVzaCI6MCwibmFtZSI6IlJpZ2h0IiwidHJhbnNsYXRpb24iOlsxLjEsMCwwXX1dLCJhbmltYXRpb25zIjpbeyJuYW1lIjoiU2xpZGVMZWZ0Iiwic2FtcGxlcnMiOlt7ImlucHV0IjoxLCJvdXRwdXQiOjIsImludGVycG9sYXRpb24iOiJMSU5FQVIifV0sImNoYW5uZWxzIjpbeyJzYW1wbGVyIjowLCJ0YXJnZXQiOnsibm9kZSI6MCwicGF0aCI6InRyYW5zbGF0aW9uIn19XX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxMDR9XX1oAAAAQklOAM3MTL/NzEy/AAAAAM3MTD/NzEy/AAAAAM3MTL/NzEw/AAAAAM3MTL/NzEw/AAAAAM3MTD/NzEy/AAAAAM3MTD/NzEw/AAAAAAAAAAAAAIA/zcyMvwAAAAAAAAAAzczMvQAAAAAAAAAA',
+              empty:
+                'Z2xURgIAAAB4AAAAZAAAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOltdfV19',
+              textured:
+                'Z2xURgIAAACUBAAAtAMAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMyIiwiY291bnQiOjZ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MCwiYnl0ZUxlbmd0aCI6NzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MiwiYnl0ZUxlbmd0aCI6NDh9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0IjoxMjAsImJ5dGVMZW5ndGgiOjc2fV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JUZXh0dXJlIjp7ImluZGV4IjowfSwibWV0YWxsaWNGYWN0b3IiOjB9LCJleHRlbnNpb25zIjp7IktIUl9tYXRlcmlhbHNfdW5saXQiOnt9fX1dLCJtZXNoZXMiOlt7InByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjAsIlRFWENPT1JEXzAiOjF9LCJtYXRlcmlhbCI6MH1dfV0sIm5vZGVzIjpbeyJtZXNoIjowLCJuYW1lIjoiTGVmdCIsInRyYW5zbGF0aW9uIjpbLTEuMSwwLDBdfSx7Im1lc2giOjAsIm5hbWUiOiJSaWdodCIsInRyYW5zbGF0aW9uIjpbMS4xLDAsMF19XSwiaW1hZ2VzIjpbeyJidWZmZXJWaWV3IjoyLCJtaW1lVHlwZSI6ImltYWdlL3BuZyJ9XSwidGV4dHVyZXMiOlt7InNvdXJjZSI6MH1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxOTZ9XX0gICDEAAAAQklOAM3MTL/NzEy/AAAAAM3MTD/NzEy/AAAAAM3MTL/NzEw/AAAAAM3MTL/NzEw/AAAAAM3MTD/NzEy/AAAAAM3MTD/NzEw/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AACAP4lQTkcNChoKAAAADUlIRFIAAAACAAAAAggGAAAAcrYNJAAAABNJREFUeJxj+M/A8B8MGRj+gwEAScgJ9xRjMp0AAAAASUVORK5CYII=',
+              offset:
+                'Z2xURgIAAABIAwAA5AIAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfV0sImJ1ZmZlclZpZXdzIjpbeyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjAsImJ5dGVMZW5ndGgiOjcyfV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JGYWN0b3IiOlswLjAzLDAuMiwwLjgsMV0sIm1ldGFsbGljRmFjdG9yIjowfSwiZXh0ZW5zaW9ucyI6eyJLSFJfbWF0ZXJpYWxzX3VubGl0Ijp7fX19XSwibWVzaGVzIjpbeyJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowfSwibWF0ZXJpYWwiOjB9XX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkxlZnQiLCJ0cmFuc2xhdGlvbiI6WzMxLjIsLTE1LDNdLCJzY2FsZSI6WzgsOCw4XX0seyJtZXNoIjowLCJuYW1lIjoiUmlnaHQiLCJ0cmFuc2xhdGlvbiI6WzQ4LjgsLTE1LDNdLCJzY2FsZSI6WzgsOCw4XX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjo3Mn1dfUgAAABCSU4AzcxMv83MTL8AAAAAzcxMP83MTL8AAAAAzcxMv83MTD8AAAAAzcxMv83MTD8AAAAAzcxMP83MTL8AAAAAzcxMP83MTD8AAAAA',
+            };
+
+      function validateGlb(buffer) {
+              if (buffer.byteLength > 2 * 1024 * 1024) throw Error('GLB exceeds 2 MiB');
+              const view = new DataView(buffer);
+              if (
+                view.getUint32(0, true) !== 0x46546c67 ||
+                view.getUint32(4, true) !== 2 ||
+                view.getUint32(8, true) !== buffer.byteLength ||
+                view.getUint32(16, true) !== 0x4e4f534a
+              )
+                throw Error('Invalid GLB');
+              const json = JSON.parse(
+                new TextDecoder().decode(
+                  new Uint8Array(buffer, 20, view.getUint32(12, true)),
+                ),
+              );
+              if (
+                [...(json.buffers ?? []), ...(json.images ?? [])].some(
+                  (x) => x.uri && !x.uri.startsWith('data:'),
+                )
+              )
+                throw Error('External URI unsupported');
+              if ((json.extensionsUsed ?? []).some((x) => /draco|meshopt|basisu/i.test(x)))
+                throw Error('Compression unsupported');
+            }
+
+      const loader=new GLTFLoader();const counts={createdGeometry:0,createdMaterial:0,createdTexture:0,geometry:0,material:0,texture:0,bitmap:0,mixer:0,timer:0,stale:0};const books=new Set();let root=null,meshes=[],generation=0,current='',status='loading',selected=0,mixer=null,action=null,playing=false,last=0,completions=[],stats={};const timers=new Map(),retained=new Set();const targetPoint=new THREE.Vector3();
+      function book(gltf){const geometry=new Set(),material=new Set(),texture=new Set(),images=new Set();for(const scene of gltf.scenes)scene.traverse(o=>{if(o.geometry)geometry.add(o.geometry);for(const m of Array.isArray(o.material)?o.material:o.material?[o.material]:[]){material.add(m);for(const value of Object.values(m))if(value?.isTexture){texture.add(value);if(value.image?.close)images.add(value.image);}}});const b={geometry,material,texture,images,gltf};for(const [name,set]of Object.entries({geometry,material,texture})){counts['created'+name[0].toUpperCase()+name.slice(1)]+=set.size;for(const r of set)r.addEventListener('dispose',()=>counts[name]++);}books.add(b);return b;}
+      function release(b){if(!books.delete(b))return;for(const set of [b.geometry,b.material,b.texture])for(const r of set)r.dispose();for(const image of b.images){image.close();counts.bitmap++;}retained.delete(b);}
+      let activeBook=null;function clearMixer(){if(mixer&&root){mixer.stopAllAction();mixer.uncacheRoot(root);counts.mixer++;}mixer=null;action=null;playing=false;}
+      function wait(ms){if(!ms)return Promise.resolve();return new Promise(resolve=>{const id=setTimeout(()=>{timers.delete(id);counts.timer++;resolve();},ms);timers.set(id,resolve);});}
+      async function loadModel(readBuffer,name,delay=0){const token=++generation;status='loading';document.querySelector('#error').textContent='';draw();let b;try{const buffer=await readBuffer();validateGlb(buffer);const gltf=await loader.parseAsync(buffer,'');b=book(gltf);await wait(delay);completions.push(name);if(disposed||document.querySelector('#guard').checked&&token!==generation){counts.stale++;if(disposed||document.querySelector('#stale').checked)release(b);else retained.add(b);return;}clearMixer();if(root)scene.remove(root);if(activeBook)release(activeBook);activeBook=b;root=gltf.scene;scene.add(root);meshes=[];root.traverse(o=>{if(o.isMesh)meshes.push(o);});selected=0;document.querySelector('#objects').replaceChildren(...meshes.map((o,i)=>new Option(o.name||'Mesh '+i,String(i))));if(gltf.animations.length){mixer=new THREE.AnimationMixer(root);action=mixer.clipAction(gltf.animations[0]);action.play();mixer.timeScale=Number(document.querySelector('#speed').value);playing=false;}current=name;status='ready';draw();}catch(cause){if(b)release(b);if(disposed||token!==generation)return;status='error';document.querySelector('#error').textContent="GLB를 읽지 못했습니다. 샘플 복구 또는 다른 파일을 선택하세요. 상세: "+cause.message;draw();}}
+      const bytes=kind=>Uint8Array.from(atob(samples[kind]),c=>c.charCodeAt(0)).buffer;
+      on('#sample','click',()=>{document.querySelector('#file').value='';const kind=document.querySelector('#model').value;void loadModel(()=>bytes(kind),kind);});on('#race','click',()=>{void loadModel(()=>bytes('textured'),'A',300);void loadModel(()=>bytes('animated'),'B',20);});on('#invalid','click',()=>void loadModel(()=>new TextEncoder().encode('invalid').buffer,'invalid'));on('#recover','click',()=>void loadModel(()=>bytes('animated'),'recovered'));on('#file','change',()=>{const file=document.querySelector('#file').files[0];if(file)void loadModel(()=>file.arrayBuffer(),file.name);});
+      on('#objects','change',()=>{selected=document.querySelector('#objects').selectedIndex;draw();});on('#frame','click',()=>{if(document.querySelector('#framing').checked&&meshes[selected]){const box=new THREE.Box3().setFromObject(meshes[selected]);if(!box.isEmpty()){box.getCenter(targetPoint);const size=box.getSize(new THREE.Vector3()).length();camera.position.copy(targetPoint).add(new THREE.Vector3(0,size*.3,size*1.8));}}draw();});on('#right','click',()=>{camera.position.x++;draw();});on('#zoom','click',()=>{camera.position.z--;draw();});on('#play','click',()=>{if(action){action.paused=false;action.play();playing=true;}draw();});on('#pause','click',()=>{playing=false;if(action)action.paused=true;draw();});on('#stop','click',()=>{playing=false;if(action)action.stop();draw();});on('#apply','click',()=>{const input=document.querySelector('#speed');if(!input.value||!input.checkValidity())return;if(mixer)mixer.timeScale=Number(input.value);for(const b of [...retained])if(document.querySelector('#stale').checked)release(b);draw();});
+      const miniCamera=new THREE.PerspectiveCamera(45,1,.01,100);miniCamera.position.set(0,4,7);miniCamera.lookAt(0,0,0);const target=new THREE.WebGLRenderTarget(128,128);ownedTargets.add(target);const overlayScene=new THREE.Scene(),overlayCamera=new THREE.OrthographicCamera(-1,1,1,-1,0,2);overlayCamera.position.z=1;const plane=new THREE.PlaneGeometry(2,2),planeMaterial=new THREE.MeshBasicMaterial({map:target.texture,depthTest:false,depthWrite:false});ownedGeometry.add(plane);ownedMaterial.add(planeMaterial);overlayScene.add(new THREE.Mesh(plane,planeMaterial));
+      function renderMap(){const saved={target:renderer.getRenderTarget(),face:renderer.getActiveCubeFace(),mip:renderer.getActiveMipmapLevel(),viewport:renderer.getViewport(new THREE.Vector4()),scissor:renderer.getScissor(new THREE.Vector4()),test:renderer.getScissorTest()};try{renderer.setRenderTarget(target);renderer.setViewport(0,0,128,128);renderer.setScissorTest(false);renderer.render(scene,miniCamera);}finally{renderer.setRenderTarget(saved.target,saved.face,saved.mip);renderer.setViewport(saved.viewport);renderer.setScissor(saved.scissor);renderer.setScissorTest(saved.test);}}
+      function draw(){if(disposed||!stage.clientWidth)return;renderer.info.autoReset=false;renderer.info.reset();camera.lookAt(targetPoint);if(document.querySelector('#minimap').checked)renderMap();renderer.setRenderTarget(null);renderer.setViewport(0,0,canvas.width,canvas.height);renderer.render(scene,camera);if(document.querySelector('#minimap').checked){const saved=renderer.getViewport(new THREE.Vector4()),scissor=renderer.getScissor(new THREE.Vector4()),test=renderer.getScissorTest();try{const size=Math.min(100,canvas.width*.3);renderer.setViewport(canvas.width-size-4,4,size,size);renderer.setScissor(canvas.width-size-4,4,size,size);renderer.setScissorTest(true);renderer.autoClear=false;renderer.render(overlayScene,overlayCamera);}finally{renderer.autoClear=true;renderer.setViewport(saved);renderer.setScissor(scissor);renderer.setScissorTest(test);}}stats={calls:renderer.info.render.calls,triangles:renderer.info.render.triangles};frames++;output.textContent=JSON.stringify({status,current,generation,completions,selected,name:meshes[selected]?.name,clips:activeBook?.gltf.animations.length??0,playing,time:mixer?.time??0,x:meshes[0]?.position.x,camera:camera.position.toArray(),target:targetPoint.toArray(),stats,...counts});}
+      renderer.setAnimationLoop(now=>{const dt=last?(now-last)/1000:0;last=now;if(playing&&mixer){mixer.update(dt);draw();}});function releaseAll(){generation++;for(const [id,resolve]of timers){clearTimeout(id);counts.timer++;resolve();}timers.clear();clearMixer();if(root)scene.remove(root);for(const b of [...books])release(b);root=null;meshes=[];}void loadModel(()=>bytes(document.querySelector('#model').value),document.querySelector('#model').value);
+      function resizeScene(){if(disposed)return;const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();draw();}const observer=new ResizeObserver(resizeScene);observer.observe(stage);resizeScene();
+      function cleanup(){if(disposed)return;disposed=true;observer.disconnect();events.abort();renderer.setAnimationLoop(null);releaseAll();for(const x of ownedTargets)x.dispose();for(const x of ownedGeometry)x.dispose();for(const x of ownedMaterial)x.dispose();renderer.dispose();scene.clear();output.textContent="정리 완료"+' '+JSON.stringify(counts);}
+      on('#cleanup','click',cleanup);window.addEventListener('pagehide',cleanup,{once:true,signal:events.signal});
+    </script>
+  </body>
+</html>
+```
+
+<details>
+<summary>힌트</summary>
+
+- 요청 token과 현재 generation을 비교하세요.
+
+</details>
+
+<details>
+<summary>완성 코드와 해설</summary>
+
+완료 로그는 B 다음 A이며 현재 모델은 B입니다. 요청 token과 현재 generation을 비교하세요.
+
+```html
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>요청 순서와 완료 순서</title>
+    <style>
+      body{margin:0;padding:12px;font:14px/1.5 system-ui,sans-serif;color:#172554;background:white}h1{font-size:22px}#stage{width:480px;max-width:100%;height:280px}canvas{display:block;width:100%;height:100%}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}input[type=number]{width:70px}input[type=file]{max-width:100%;width:240px}button,select{padding:6px}output,pre{display:block;white-space:pre-wrap;overflow-wrap:anywhere}:focus-visible{outline:3px solid #c2410c;outline-offset:2px}#error{color:#b91c1c}
+    </style>
+  </head>
+  <body>
+    <h1>요청 순서와 완료 순서</h1>
+    <p>
+      generation 보호를 켜세요. slow A then fast B를 누릅니다. A는 실제 textured
+      GLB 파싱 후 300ms, B는 animated 파싱 후 20ms 기다립니다. 시작은 보호가
+      꺼져 A가 마지막에 장면을 덮습니다. 켠 뒤 다시 실행해 B가 유지되는지
+      확인하세요.
+    </p>
+    <p>
+      자체 제작한 두 패널 GLB입니다. 선택 파일은 실행 중에만 사용하며 백업에
+      넣지 않습니다. 다시 실행한 뒤 재선택하세요. 2 MiB 이하 self-contained
+      비압축 GLB와 내장 PNG/JPEG만 받습니다. 외부 URI·다중 파일
+      glTF·Draco·Meshopt·KTX2는 지원하지 않습니다.
+    </p>
+    <div class="controls">
+      <label
+        >내장 모델<select id="model">
+          <option>static</option>
+          <option selected>animated</option>
+          <option>textured</option>
+          <option>empty</option>
+        </select></label
+      ><button id="sample">샘플 불러오기</button
+      ><button id="race">slow A then fast B</button
+      ><button id="invalid">손상 GLB</button
+      ><button id="recover">샘플 복구</button
+      ><label
+        >GLB 파일<input
+          id="file"
+          type="file"
+          accept=".glb,model/gltf-binary" /></label
+      ><label><input id="guard" type="checkbox" checked />generation 보호</label
+      ><label><input id="stale" type="checkbox" checked />stale 정리</label
+      ><label><input id="framing" type="checkbox" checked />맞춤 허용</label
+      ><label><input id="minimap" type="checkbox" />미니맵</label
+      ><label>객체 목록<select id="objects"></select></label
+      ><button id="frame">선택 맞춤</button
+      ><button id="right">카메라 오른쪽</button><button id="zoom">확대</button
+      ><button id="play">재생</button><button id="pause">일시정지</button
+      ><button id="stop">정지·되감기</button
+      ><label
+        >속도<input
+          id="speed"
+          type="number"
+          value="1"
+          min="0"
+          max="3"
+          step="0.25" /></label
+      ><button id="apply">적용</button><button id="cleanup">자원 정리</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage"><canvas aria-label="요청 순서와 완료 순서"></canvas></div>
+    <output aria-live="polite"></output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage=document.querySelector('#stage'),canvas=document.querySelector('canvas'),output=document.querySelector('output');
+      const scene=new THREE.Scene();scene.background=new THREE.Color('#edf2f7');const camera=new THREE.PerspectiveCamera(45,1,.01,1000);camera.position.set(0,2,7);camera.lookAt(0,0,0);const renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(1);
+      const events=new AbortController();let disposed=false,frames=0;const ownedGeometry=new Set(),ownedMaterial=new Set(),ownedTargets=new Set();const on=(s,t,f)=>document.querySelector(s).addEventListener(t,f,{signal:events.signal});
+
+      import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+      const samples = {
+              static:
+                'Z2xURgIAAAAkAwAAwAIAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfV0sImJ1ZmZlclZpZXdzIjpbeyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjAsImJ5dGVMZW5ndGgiOjcyfV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JGYWN0b3IiOlswLjAzLDAuMiwwLjgsMV0sIm1ldGFsbGljRmFjdG9yIjowfSwiZXh0ZW5zaW9ucyI6eyJLSFJfbWF0ZXJpYWxzX3VubGl0Ijp7fX19XSwibWVzaGVzIjpbeyJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowfSwibWF0ZXJpYWwiOjB9XX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkxlZnQiLCJ0cmFuc2xhdGlvbiI6Wy0xLjEsMCwwXX0seyJtZXNoIjowLCJuYW1lIjoiUmlnaHQiLCJ0cmFuc2xhdGlvbiI6WzEuMSwwLDBdfV0sImJ1ZmZlcnMiOlt7ImJ5dGVMZW5ndGgiOjcyfV19IEgAAABCSU4AzcxMv83MTL8AAAAAzcxMP83MTL8AAAAAzcxMv83MTD8AAAAAzcxMv83MTD8AAAAAzcxMP83MTL8AAAAAzcxMP83MTD8AAAAA',
+              animated:
+                'Z2xURgIAAADUBAAAUAQAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJTQ0FMQVIiLCJjb3VudCI6MiwibWluIjpbMF0sIm1heCI6WzFdfSx7ImJ1ZmZlclZpZXciOjIsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiY291bnQiOjJ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MCwiYnl0ZUxlbmd0aCI6NzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MiwiYnl0ZUxlbmd0aCI6OH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjgwLCJieXRlTGVuZ3RoIjoyNH1dLCJleHRlbnNpb25zVXNlZCI6WyJLSFJfbWF0ZXJpYWxzX3VubGl0Il0sIm1hdGVyaWFscyI6W3sibmFtZSI6IlNoYXJlZEJsdWUiLCJkb3VibGVTaWRlZCI6dHJ1ZSwicGJyTWV0YWxsaWNSb3VnaG5lc3MiOnsiYmFzZUNvbG9yRmFjdG9yIjpbMC4wMywwLjIsMC44LDFdLCJtZXRhbGxpY0ZhY3RvciI6MH0sImV4dGVuc2lvbnMiOnsiS0hSX21hdGVyaWFsc191bmxpdCI6e319fV0sIm1lc2hlcyI6W3sicHJpbWl0aXZlcyI6W3siYXR0cmlidXRlcyI6eyJQT1NJVElPTiI6MH0sIm1hdGVyaWFsIjowfV19XSwibm9kZXMiOlt7Im1lc2giOjAsIm5hbWUiOiJMZWZ0IiwidHJhbnNsYXRpb24iOlstMS4xLDAsMF19LHsibWVzaCI6MCwibmFtZSI6IlJpZ2h0IiwidHJhbnNsYXRpb24iOlsxLjEsMCwwXX1dLCJhbmltYXRpb25zIjpbeyJuYW1lIjoiU2xpZGVMZWZ0Iiwic2FtcGxlcnMiOlt7ImlucHV0IjoxLCJvdXRwdXQiOjIsImludGVycG9sYXRpb24iOiJMSU5FQVIifV0sImNoYW5uZWxzIjpbeyJzYW1wbGVyIjowLCJ0YXJnZXQiOnsibm9kZSI6MCwicGF0aCI6InRyYW5zbGF0aW9uIn19XX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxMDR9XX1oAAAAQklOAM3MTL/NzEy/AAAAAM3MTD/NzEy/AAAAAM3MTL/NzEw/AAAAAM3MTL/NzEw/AAAAAM3MTD/NzEy/AAAAAM3MTD/NzEw/AAAAAAAAAAAAAIA/zcyMvwAAAAAAAAAAzczMvQAAAAAAAAAA',
+              empty:
+                'Z2xURgIAAAB4AAAAZAAAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOltdfV19',
+              textured:
+                'Z2xURgIAAACUBAAAtAMAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMyIiwiY291bnQiOjZ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MCwiYnl0ZUxlbmd0aCI6NzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MiwiYnl0ZUxlbmd0aCI6NDh9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0IjoxMjAsImJ5dGVMZW5ndGgiOjc2fV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JUZXh0dXJlIjp7ImluZGV4IjowfSwibWV0YWxsaWNGYWN0b3IiOjB9LCJleHRlbnNpb25zIjp7IktIUl9tYXRlcmlhbHNfdW5saXQiOnt9fX1dLCJtZXNoZXMiOlt7InByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjAsIlRFWENPT1JEXzAiOjF9LCJtYXRlcmlhbCI6MH1dfV0sIm5vZGVzIjpbeyJtZXNoIjowLCJuYW1lIjoiTGVmdCIsInRyYW5zbGF0aW9uIjpbLTEuMSwwLDBdfSx7Im1lc2giOjAsIm5hbWUiOiJSaWdodCIsInRyYW5zbGF0aW9uIjpbMS4xLDAsMF19XSwiaW1hZ2VzIjpbeyJidWZmZXJWaWV3IjoyLCJtaW1lVHlwZSI6ImltYWdlL3BuZyJ9XSwidGV4dHVyZXMiOlt7InNvdXJjZSI6MH1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxOTZ9XX0gICDEAAAAQklOAM3MTL/NzEy/AAAAAM3MTD/NzEy/AAAAAM3MTL/NzEw/AAAAAM3MTL/NzEw/AAAAAM3MTD/NzEy/AAAAAM3MTD/NzEw/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AACAP4lQTkcNChoKAAAADUlIRFIAAAACAAAAAggGAAAAcrYNJAAAABNJREFUeJxj+M/A8B8MGRj+gwEAScgJ9xRjMp0AAAAASUVORK5CYII=',
+              offset:
+                'Z2xURgIAAABIAwAA5AIAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfV0sImJ1ZmZlclZpZXdzIjpbeyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjAsImJ5dGVMZW5ndGgiOjcyfV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JGYWN0b3IiOlswLjAzLDAuMiwwLjgsMV0sIm1ldGFsbGljRmFjdG9yIjowfSwiZXh0ZW5zaW9ucyI6eyJLSFJfbWF0ZXJpYWxzX3VubGl0Ijp7fX19XSwibWVzaGVzIjpbeyJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowfSwibWF0ZXJpYWwiOjB9XX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkxlZnQiLCJ0cmFuc2xhdGlvbiI6WzMxLjIsLTE1LDNdLCJzY2FsZSI6WzgsOCw4XX0seyJtZXNoIjowLCJuYW1lIjoiUmlnaHQiLCJ0cmFuc2xhdGlvbiI6WzQ4LjgsLTE1LDNdLCJzY2FsZSI6WzgsOCw4XX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjo3Mn1dfUgAAABCSU4AzcxMv83MTL8AAAAAzcxMP83MTL8AAAAAzcxMv83MTD8AAAAAzcxMv83MTD8AAAAAzcxMP83MTL8AAAAAzcxMP83MTD8AAAAA',
+            };
+
+      function validateGlb(buffer) {
+              if (buffer.byteLength > 2 * 1024 * 1024) throw Error('GLB exceeds 2 MiB');
+              const view = new DataView(buffer);
+              if (
+                view.getUint32(0, true) !== 0x46546c67 ||
+                view.getUint32(4, true) !== 2 ||
+                view.getUint32(8, true) !== buffer.byteLength ||
+                view.getUint32(16, true) !== 0x4e4f534a
+              )
+                throw Error('Invalid GLB');
+              const json = JSON.parse(
+                new TextDecoder().decode(
+                  new Uint8Array(buffer, 20, view.getUint32(12, true)),
+                ),
+              );
+              if (
+                [...(json.buffers ?? []), ...(json.images ?? [])].some(
+                  (x) => x.uri && !x.uri.startsWith('data:'),
+                )
+              )
+                throw Error('External URI unsupported');
+              if ((json.extensionsUsed ?? []).some((x) => /draco|meshopt|basisu/i.test(x)))
+                throw Error('Compression unsupported');
+            }
+
+      const loader=new GLTFLoader();const counts={createdGeometry:0,createdMaterial:0,createdTexture:0,geometry:0,material:0,texture:0,bitmap:0,mixer:0,timer:0,stale:0};const books=new Set();let root=null,meshes=[],generation=0,current='',status='loading',selected=0,mixer=null,action=null,playing=false,last=0,completions=[],stats={};const timers=new Map(),retained=new Set();const targetPoint=new THREE.Vector3();
+      function book(gltf){const geometry=new Set(),material=new Set(),texture=new Set(),images=new Set();for(const scene of gltf.scenes)scene.traverse(o=>{if(o.geometry)geometry.add(o.geometry);for(const m of Array.isArray(o.material)?o.material:o.material?[o.material]:[]){material.add(m);for(const value of Object.values(m))if(value?.isTexture){texture.add(value);if(value.image?.close)images.add(value.image);}}});const b={geometry,material,texture,images,gltf};for(const [name,set]of Object.entries({geometry,material,texture})){counts['created'+name[0].toUpperCase()+name.slice(1)]+=set.size;for(const r of set)r.addEventListener('dispose',()=>counts[name]++);}books.add(b);return b;}
+      function release(b){if(!books.delete(b))return;for(const set of [b.geometry,b.material,b.texture])for(const r of set)r.dispose();for(const image of b.images){image.close();counts.bitmap++;}retained.delete(b);}
+      let activeBook=null;function clearMixer(){if(mixer&&root){mixer.stopAllAction();mixer.uncacheRoot(root);counts.mixer++;}mixer=null;action=null;playing=false;}
+      function wait(ms){if(!ms)return Promise.resolve();return new Promise(resolve=>{const id=setTimeout(()=>{timers.delete(id);counts.timer++;resolve();},ms);timers.set(id,resolve);});}
+      async function loadModel(readBuffer,name,delay=0){const token=++generation;status='loading';document.querySelector('#error').textContent='';draw();let b;try{const buffer=await readBuffer();validateGlb(buffer);const gltf=await loader.parseAsync(buffer,'');b=book(gltf);await wait(delay);completions.push(name);if(disposed||document.querySelector('#guard').checked&&token!==generation){counts.stale++;if(disposed||document.querySelector('#stale').checked)release(b);else retained.add(b);return;}clearMixer();if(root)scene.remove(root);if(activeBook)release(activeBook);activeBook=b;root=gltf.scene;scene.add(root);meshes=[];root.traverse(o=>{if(o.isMesh)meshes.push(o);});selected=0;document.querySelector('#objects').replaceChildren(...meshes.map((o,i)=>new Option(o.name||'Mesh '+i,String(i))));if(gltf.animations.length){mixer=new THREE.AnimationMixer(root);action=mixer.clipAction(gltf.animations[0]);action.play();mixer.timeScale=Number(document.querySelector('#speed').value);playing=false;}current=name;status='ready';draw();}catch(cause){if(b)release(b);if(disposed||token!==generation)return;status='error';document.querySelector('#error').textContent="GLB를 읽지 못했습니다. 샘플 복구 또는 다른 파일을 선택하세요. 상세: "+cause.message;draw();}}
+      const bytes=kind=>Uint8Array.from(atob(samples[kind]),c=>c.charCodeAt(0)).buffer;
+      on('#sample','click',()=>{document.querySelector('#file').value='';const kind=document.querySelector('#model').value;void loadModel(()=>bytes(kind),kind);});on('#race','click',()=>{void loadModel(()=>bytes('textured'),'A',300);void loadModel(()=>bytes('animated'),'B',20);});on('#invalid','click',()=>void loadModel(()=>new TextEncoder().encode('invalid').buffer,'invalid'));on('#recover','click',()=>void loadModel(()=>bytes('animated'),'recovered'));on('#file','change',()=>{const file=document.querySelector('#file').files[0];if(file)void loadModel(()=>file.arrayBuffer(),file.name);});
+      on('#objects','change',()=>{selected=document.querySelector('#objects').selectedIndex;draw();});on('#frame','click',()=>{if(document.querySelector('#framing').checked&&meshes[selected]){const box=new THREE.Box3().setFromObject(meshes[selected]);if(!box.isEmpty()){box.getCenter(targetPoint);const size=box.getSize(new THREE.Vector3()).length();camera.position.copy(targetPoint).add(new THREE.Vector3(0,size*.3,size*1.8));}}draw();});on('#right','click',()=>{camera.position.x++;draw();});on('#zoom','click',()=>{camera.position.z--;draw();});on('#play','click',()=>{if(action){action.paused=false;action.play();playing=true;}draw();});on('#pause','click',()=>{playing=false;if(action)action.paused=true;draw();});on('#stop','click',()=>{playing=false;if(action)action.stop();draw();});on('#apply','click',()=>{const input=document.querySelector('#speed');if(!input.value||!input.checkValidity())return;if(mixer)mixer.timeScale=Number(input.value);for(const b of [...retained])if(document.querySelector('#stale').checked)release(b);draw();});
+      const miniCamera=new THREE.PerspectiveCamera(45,1,.01,100);miniCamera.position.set(0,4,7);miniCamera.lookAt(0,0,0);const target=new THREE.WebGLRenderTarget(128,128);ownedTargets.add(target);const overlayScene=new THREE.Scene(),overlayCamera=new THREE.OrthographicCamera(-1,1,1,-1,0,2);overlayCamera.position.z=1;const plane=new THREE.PlaneGeometry(2,2),planeMaterial=new THREE.MeshBasicMaterial({map:target.texture,depthTest:false,depthWrite:false});ownedGeometry.add(plane);ownedMaterial.add(planeMaterial);overlayScene.add(new THREE.Mesh(plane,planeMaterial));
+      function renderMap(){const saved={target:renderer.getRenderTarget(),face:renderer.getActiveCubeFace(),mip:renderer.getActiveMipmapLevel(),viewport:renderer.getViewport(new THREE.Vector4()),scissor:renderer.getScissor(new THREE.Vector4()),test:renderer.getScissorTest()};try{renderer.setRenderTarget(target);renderer.setViewport(0,0,128,128);renderer.setScissorTest(false);renderer.render(scene,miniCamera);}finally{renderer.setRenderTarget(saved.target,saved.face,saved.mip);renderer.setViewport(saved.viewport);renderer.setScissor(saved.scissor);renderer.setScissorTest(saved.test);}}
+      function draw(){if(disposed||!stage.clientWidth)return;renderer.info.autoReset=false;renderer.info.reset();camera.lookAt(targetPoint);if(document.querySelector('#minimap').checked)renderMap();renderer.setRenderTarget(null);renderer.setViewport(0,0,canvas.width,canvas.height);renderer.render(scene,camera);if(document.querySelector('#minimap').checked){const saved=renderer.getViewport(new THREE.Vector4()),scissor=renderer.getScissor(new THREE.Vector4()),test=renderer.getScissorTest();try{const size=Math.min(100,canvas.width*.3);renderer.setViewport(canvas.width-size-4,4,size,size);renderer.setScissor(canvas.width-size-4,4,size,size);renderer.setScissorTest(true);renderer.autoClear=false;renderer.render(overlayScene,overlayCamera);}finally{renderer.autoClear=true;renderer.setViewport(saved);renderer.setScissor(scissor);renderer.setScissorTest(test);}}stats={calls:renderer.info.render.calls,triangles:renderer.info.render.triangles};frames++;output.textContent=JSON.stringify({status,current,generation,completions,selected,name:meshes[selected]?.name,clips:activeBook?.gltf.animations.length??0,playing,time:mixer?.time??0,x:meshes[0]?.position.x,camera:camera.position.toArray(),target:targetPoint.toArray(),stats,...counts});}
+      renderer.setAnimationLoop(now=>{const dt=last?(now-last)/1000:0;last=now;if(playing&&mixer){mixer.update(dt);draw();}});function releaseAll(){generation++;for(const [id,resolve]of timers){clearTimeout(id);counts.timer++;resolve();}timers.clear();clearMixer();if(root)scene.remove(root);for(const b of [...books])release(b);root=null;meshes=[];}void loadModel(()=>bytes(document.querySelector('#model').value),document.querySelector('#model').value);
+      function resizeScene(){if(disposed)return;const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();draw();}const observer=new ResizeObserver(resizeScene);observer.observe(stage);resizeScene();
+      function cleanup(){if(disposed)return;disposed=true;observer.disconnect();events.abort();renderer.setAnimationLoop(null);releaseAll();for(const x of ownedTargets)x.dispose();for(const x of ownedGeometry)x.dispose();for(const x of ownedMaterial)x.dispose();renderer.dispose();scene.clear();output.textContent="정리 완료"+' '+JSON.stringify(counts);}
+      on('#cleanup','click',cleanup);window.addEventListener('pagehide',cleanup,{once:true,signal:events.signal});
+    </script>
+  </body>
+</html>
+```
+
+</details>
+
+- 요청이 먼저 시작됐다는 사실이 적용 권한도 보장하나요?
+
+### 늦은 파싱 결과의 소유 수명
+
+stale 정리를 켜고 순서 역전을 실행하세요. A의 textured GLB는 파싱이 끝난 실제 geometry·material·texture와 ImageBitmap을 가집니다. 늦은 A를 장면에 넣지 않고 자원을 정리합니다. 닫은 bitmap 횟수와 dispose 횟수를 확인하세요.
+
+**예상 결과**
+
+B가 유지되고 A의 geometry·material·texture 및 bitmap이 각각 정리됩니다.
+
+```html
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>늦은 파싱 결과의 소유 수명</title>
+    <style>
+      body{margin:0;padding:12px;font:14px/1.5 system-ui,sans-serif;color:#172554;background:white}h1{font-size:22px}#stage{width:480px;max-width:100%;height:280px}canvas{display:block;width:100%;height:100%}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}input[type=number]{width:70px}input[type=file]{max-width:100%;width:240px}button,select{padding:6px}output,pre{display:block;white-space:pre-wrap;overflow-wrap:anywhere}:focus-visible{outline:3px solid #c2410c;outline-offset:2px}#error{color:#b91c1c}
+    </style>
+  </head>
+  <body>
+    <h1>늦은 파싱 결과의 소유 수명</h1>
+    <p>
+      stale 정리를 켜고 순서 역전을 실행하세요. A의 textured GLB는 파싱이 끝난
+      실제 geometry·material·texture와 ImageBitmap을 가집니다. 늦은 A를 장면에
+      넣지 않고 자원을 정리합니다. 닫은 bitmap 횟수와 dispose 횟수를 확인하세요.
+    </p>
+    <p>
+      자체 제작한 두 패널 GLB입니다. 선택 파일은 실행 중에만 사용하며 백업에
+      넣지 않습니다. 다시 실행한 뒤 재선택하세요. 2 MiB 이하 self-contained
+      비압축 GLB와 내장 PNG/JPEG만 받습니다. 외부 URI·다중 파일
+      glTF·Draco·Meshopt·KTX2는 지원하지 않습니다.
+    </p>
+    <div class="controls">
+      <label
+        >내장 모델<select id="model">
+          <option>static</option>
+          <option selected>animated</option>
+          <option>textured</option>
+          <option>empty</option>
+        </select></label
+      ><button id="sample">샘플 불러오기</button
+      ><button id="race">slow A then fast B</button
+      ><button id="invalid">손상 GLB</button
+      ><button id="recover">샘플 복구</button
+      ><label
+        >GLB 파일<input
+          id="file"
+          type="file"
+          accept=".glb,model/gltf-binary" /></label
+      ><label><input id="guard" type="checkbox" checked />generation 보호</label
+      ><label><input id="stale" type="checkbox" />stale 정리</label
+      ><label><input id="framing" type="checkbox" checked />맞춤 허용</label
+      ><label><input id="minimap" type="checkbox" />미니맵</label
+      ><label>객체 목록<select id="objects"></select></label
+      ><button id="frame">선택 맞춤</button
+      ><button id="right">카메라 오른쪽</button><button id="zoom">확대</button
+      ><button id="play">재생</button><button id="pause">일시정지</button
+      ><button id="stop">정지·되감기</button
+      ><label
+        >속도<input
+          id="speed"
+          type="number"
+          value="1"
+          min="0"
+          max="3"
+          step="0.25" /></label
+      ><button id="apply">적용</button><button id="cleanup">자원 정리</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage">
+      <canvas aria-label="늦은 파싱 결과의 소유 수명"></canvas>
+    </div>
+    <output aria-live="polite"></output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage=document.querySelector('#stage'),canvas=document.querySelector('canvas'),output=document.querySelector('output');
+      const scene=new THREE.Scene();scene.background=new THREE.Color('#edf2f7');const camera=new THREE.PerspectiveCamera(45,1,.01,1000);camera.position.set(0,2,7);camera.lookAt(0,0,0);const renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(1);
+      const events=new AbortController();let disposed=false,frames=0;const ownedGeometry=new Set(),ownedMaterial=new Set(),ownedTargets=new Set();const on=(s,t,f)=>document.querySelector(s).addEventListener(t,f,{signal:events.signal});
+
+      import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+      const samples = {
+              static:
+                'Z2xURgIAAAAkAwAAwAIAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfV0sImJ1ZmZlclZpZXdzIjpbeyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjAsImJ5dGVMZW5ndGgiOjcyfV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JGYWN0b3IiOlswLjAzLDAuMiwwLjgsMV0sIm1ldGFsbGljRmFjdG9yIjowfSwiZXh0ZW5zaW9ucyI6eyJLSFJfbWF0ZXJpYWxzX3VubGl0Ijp7fX19XSwibWVzaGVzIjpbeyJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowfSwibWF0ZXJpYWwiOjB9XX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkxlZnQiLCJ0cmFuc2xhdGlvbiI6Wy0xLjEsMCwwXX0seyJtZXNoIjowLCJuYW1lIjoiUmlnaHQiLCJ0cmFuc2xhdGlvbiI6WzEuMSwwLDBdfV0sImJ1ZmZlcnMiOlt7ImJ5dGVMZW5ndGgiOjcyfV19IEgAAABCSU4AzcxMv83MTL8AAAAAzcxMP83MTL8AAAAAzcxMv83MTD8AAAAAzcxMv83MTD8AAAAAzcxMP83MTL8AAAAAzcxMP83MTD8AAAAA',
+              animated:
+                'Z2xURgIAAADUBAAAUAQAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJTQ0FMQVIiLCJjb3VudCI6MiwibWluIjpbMF0sIm1heCI6WzFdfSx7ImJ1ZmZlclZpZXciOjIsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiY291bnQiOjJ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MCwiYnl0ZUxlbmd0aCI6NzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MiwiYnl0ZUxlbmd0aCI6OH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjgwLCJieXRlTGVuZ3RoIjoyNH1dLCJleHRlbnNpb25zVXNlZCI6WyJLSFJfbWF0ZXJpYWxzX3VubGl0Il0sIm1hdGVyaWFscyI6W3sibmFtZSI6IlNoYXJlZEJsdWUiLCJkb3VibGVTaWRlZCI6dHJ1ZSwicGJyTWV0YWxsaWNSb3VnaG5lc3MiOnsiYmFzZUNvbG9yRmFjdG9yIjpbMC4wMywwLjIsMC44LDFdLCJtZXRhbGxpY0ZhY3RvciI6MH0sImV4dGVuc2lvbnMiOnsiS0hSX21hdGVyaWFsc191bmxpdCI6e319fV0sIm1lc2hlcyI6W3sicHJpbWl0aXZlcyI6W3siYXR0cmlidXRlcyI6eyJQT1NJVElPTiI6MH0sIm1hdGVyaWFsIjowfV19XSwibm9kZXMiOlt7Im1lc2giOjAsIm5hbWUiOiJMZWZ0IiwidHJhbnNsYXRpb24iOlstMS4xLDAsMF19LHsibWVzaCI6MCwibmFtZSI6IlJpZ2h0IiwidHJhbnNsYXRpb24iOlsxLjEsMCwwXX1dLCJhbmltYXRpb25zIjpbeyJuYW1lIjoiU2xpZGVMZWZ0Iiwic2FtcGxlcnMiOlt7ImlucHV0IjoxLCJvdXRwdXQiOjIsImludGVycG9sYXRpb24iOiJMSU5FQVIifV0sImNoYW5uZWxzIjpbeyJzYW1wbGVyIjowLCJ0YXJnZXQiOnsibm9kZSI6MCwicGF0aCI6InRyYW5zbGF0aW9uIn19XX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxMDR9XX1oAAAAQklOAM3MTL/NzEy/AAAAAM3MTD/NzEy/AAAAAM3MTL/NzEw/AAAAAM3MTL/NzEw/AAAAAM3MTD/NzEy/AAAAAM3MTD/NzEw/AAAAAAAAAAAAAIA/zcyMvwAAAAAAAAAAzczMvQAAAAAAAAAA',
+              empty:
+                'Z2xURgIAAAB4AAAAZAAAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOltdfV19',
+              textured:
+                'Z2xURgIAAACUBAAAtAMAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMyIiwiY291bnQiOjZ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MCwiYnl0ZUxlbmd0aCI6NzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MiwiYnl0ZUxlbmd0aCI6NDh9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0IjoxMjAsImJ5dGVMZW5ndGgiOjc2fV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JUZXh0dXJlIjp7ImluZGV4IjowfSwibWV0YWxsaWNGYWN0b3IiOjB9LCJleHRlbnNpb25zIjp7IktIUl9tYXRlcmlhbHNfdW5saXQiOnt9fX1dLCJtZXNoZXMiOlt7InByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjAsIlRFWENPT1JEXzAiOjF9LCJtYXRlcmlhbCI6MH1dfV0sIm5vZGVzIjpbeyJtZXNoIjowLCJuYW1lIjoiTGVmdCIsInRyYW5zbGF0aW9uIjpbLTEuMSwwLDBdfSx7Im1lc2giOjAsIm5hbWUiOiJSaWdodCIsInRyYW5zbGF0aW9uIjpbMS4xLDAsMF19XSwiaW1hZ2VzIjpbeyJidWZmZXJWaWV3IjoyLCJtaW1lVHlwZSI6ImltYWdlL3BuZyJ9XSwidGV4dHVyZXMiOlt7InNvdXJjZSI6MH1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxOTZ9XX0gICDEAAAAQklOAM3MTL/NzEy/AAAAAM3MTD/NzEy/AAAAAM3MTL/NzEw/AAAAAM3MTL/NzEw/AAAAAM3MTD/NzEy/AAAAAM3MTD/NzEw/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AACAP4lQTkcNChoKAAAADUlIRFIAAAACAAAAAggGAAAAcrYNJAAAABNJREFUeJxj+M/A8B8MGRj+gwEAScgJ9xRjMp0AAAAASUVORK5CYII=',
+              offset:
+                'Z2xURgIAAABIAwAA5AIAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfV0sImJ1ZmZlclZpZXdzIjpbeyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjAsImJ5dGVMZW5ndGgiOjcyfV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JGYWN0b3IiOlswLjAzLDAuMiwwLjgsMV0sIm1ldGFsbGljRmFjdG9yIjowfSwiZXh0ZW5zaW9ucyI6eyJLSFJfbWF0ZXJpYWxzX3VubGl0Ijp7fX19XSwibWVzaGVzIjpbeyJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowfSwibWF0ZXJpYWwiOjB9XX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkxlZnQiLCJ0cmFuc2xhdGlvbiI6WzMxLjIsLTE1LDNdLCJzY2FsZSI6WzgsOCw4XX0seyJtZXNoIjowLCJuYW1lIjoiUmlnaHQiLCJ0cmFuc2xhdGlvbiI6WzQ4LjgsLTE1LDNdLCJzY2FsZSI6WzgsOCw4XX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjo3Mn1dfUgAAABCSU4AzcxMv83MTL8AAAAAzcxMP83MTL8AAAAAzcxMv83MTD8AAAAAzcxMv83MTD8AAAAAzcxMP83MTL8AAAAAzcxMP83MTD8AAAAA',
+            };
+
+      function validateGlb(buffer) {
+              if (buffer.byteLength > 2 * 1024 * 1024) throw Error('GLB exceeds 2 MiB');
+              const view = new DataView(buffer);
+              if (
+                view.getUint32(0, true) !== 0x46546c67 ||
+                view.getUint32(4, true) !== 2 ||
+                view.getUint32(8, true) !== buffer.byteLength ||
+                view.getUint32(16, true) !== 0x4e4f534a
+              )
+                throw Error('Invalid GLB');
+              const json = JSON.parse(
+                new TextDecoder().decode(
+                  new Uint8Array(buffer, 20, view.getUint32(12, true)),
+                ),
+              );
+              if (
+                [...(json.buffers ?? []), ...(json.images ?? [])].some(
+                  (x) => x.uri && !x.uri.startsWith('data:'),
+                )
+              )
+                throw Error('External URI unsupported');
+              if ((json.extensionsUsed ?? []).some((x) => /draco|meshopt|basisu/i.test(x)))
+                throw Error('Compression unsupported');
+            }
+
+      const loader=new GLTFLoader();const counts={createdGeometry:0,createdMaterial:0,createdTexture:0,geometry:0,material:0,texture:0,bitmap:0,mixer:0,timer:0,stale:0};const books=new Set();let root=null,meshes=[],generation=0,current='',status='loading',selected=0,mixer=null,action=null,playing=false,last=0,completions=[],stats={};const timers=new Map(),retained=new Set();const targetPoint=new THREE.Vector3();
+      function book(gltf){const geometry=new Set(),material=new Set(),texture=new Set(),images=new Set();for(const scene of gltf.scenes)scene.traverse(o=>{if(o.geometry)geometry.add(o.geometry);for(const m of Array.isArray(o.material)?o.material:o.material?[o.material]:[]){material.add(m);for(const value of Object.values(m))if(value?.isTexture){texture.add(value);if(value.image?.close)images.add(value.image);}}});const b={geometry,material,texture,images,gltf};for(const [name,set]of Object.entries({geometry,material,texture})){counts['created'+name[0].toUpperCase()+name.slice(1)]+=set.size;for(const r of set)r.addEventListener('dispose',()=>counts[name]++);}books.add(b);return b;}
+      function release(b){if(!books.delete(b))return;for(const set of [b.geometry,b.material,b.texture])for(const r of set)r.dispose();for(const image of b.images){image.close();counts.bitmap++;}retained.delete(b);}
+      let activeBook=null;function clearMixer(){if(mixer&&root){mixer.stopAllAction();mixer.uncacheRoot(root);counts.mixer++;}mixer=null;action=null;playing=false;}
+      function wait(ms){if(!ms)return Promise.resolve();return new Promise(resolve=>{const id=setTimeout(()=>{timers.delete(id);counts.timer++;resolve();},ms);timers.set(id,resolve);});}
+      async function loadModel(readBuffer,name,delay=0){const token=++generation;status='loading';document.querySelector('#error').textContent='';draw();let b;try{const buffer=await readBuffer();validateGlb(buffer);const gltf=await loader.parseAsync(buffer,'');b=book(gltf);await wait(delay);completions.push(name);if(disposed||document.querySelector('#guard').checked&&token!==generation){counts.stale++;if(disposed||document.querySelector('#stale').checked)release(b);else retained.add(b);return;}clearMixer();if(root)scene.remove(root);if(activeBook)release(activeBook);activeBook=b;root=gltf.scene;scene.add(root);meshes=[];root.traverse(o=>{if(o.isMesh)meshes.push(o);});selected=0;document.querySelector('#objects').replaceChildren(...meshes.map((o,i)=>new Option(o.name||'Mesh '+i,String(i))));if(gltf.animations.length){mixer=new THREE.AnimationMixer(root);action=mixer.clipAction(gltf.animations[0]);action.play();mixer.timeScale=Number(document.querySelector('#speed').value);playing=false;}current=name;status='ready';draw();}catch(cause){if(b)release(b);if(disposed||token!==generation)return;status='error';document.querySelector('#error').textContent="GLB를 읽지 못했습니다. 샘플 복구 또는 다른 파일을 선택하세요. 상세: "+cause.message;draw();}}
+      const bytes=kind=>Uint8Array.from(atob(samples[kind]),c=>c.charCodeAt(0)).buffer;
+      on('#sample','click',()=>{document.querySelector('#file').value='';const kind=document.querySelector('#model').value;void loadModel(()=>bytes(kind),kind);});on('#race','click',()=>{void loadModel(()=>bytes('textured'),'A',300);void loadModel(()=>bytes('animated'),'B',20);});on('#invalid','click',()=>void loadModel(()=>new TextEncoder().encode('invalid').buffer,'invalid'));on('#recover','click',()=>void loadModel(()=>bytes('animated'),'recovered'));on('#file','change',()=>{const file=document.querySelector('#file').files[0];if(file)void loadModel(()=>file.arrayBuffer(),file.name);});
+      on('#objects','change',()=>{selected=document.querySelector('#objects').selectedIndex;draw();});on('#frame','click',()=>{if(document.querySelector('#framing').checked&&meshes[selected]){const box=new THREE.Box3().setFromObject(meshes[selected]);if(!box.isEmpty()){box.getCenter(targetPoint);const size=box.getSize(new THREE.Vector3()).length();camera.position.copy(targetPoint).add(new THREE.Vector3(0,size*.3,size*1.8));}}draw();});on('#right','click',()=>{camera.position.x++;draw();});on('#zoom','click',()=>{camera.position.z--;draw();});on('#play','click',()=>{if(action){action.paused=false;action.play();playing=true;}draw();});on('#pause','click',()=>{playing=false;if(action)action.paused=true;draw();});on('#stop','click',()=>{playing=false;if(action)action.stop();draw();});on('#apply','click',()=>{const input=document.querySelector('#speed');if(!input.value||!input.checkValidity())return;if(mixer)mixer.timeScale=Number(input.value);for(const b of [...retained])if(document.querySelector('#stale').checked)release(b);draw();});
+      const miniCamera=new THREE.PerspectiveCamera(45,1,.01,100);miniCamera.position.set(0,4,7);miniCamera.lookAt(0,0,0);const target=new THREE.WebGLRenderTarget(128,128);ownedTargets.add(target);const overlayScene=new THREE.Scene(),overlayCamera=new THREE.OrthographicCamera(-1,1,1,-1,0,2);overlayCamera.position.z=1;const plane=new THREE.PlaneGeometry(2,2),planeMaterial=new THREE.MeshBasicMaterial({map:target.texture,depthTest:false,depthWrite:false});ownedGeometry.add(plane);ownedMaterial.add(planeMaterial);overlayScene.add(new THREE.Mesh(plane,planeMaterial));
+      function renderMap(){const saved={target:renderer.getRenderTarget(),face:renderer.getActiveCubeFace(),mip:renderer.getActiveMipmapLevel(),viewport:renderer.getViewport(new THREE.Vector4()),scissor:renderer.getScissor(new THREE.Vector4()),test:renderer.getScissorTest()};try{renderer.setRenderTarget(target);renderer.setViewport(0,0,128,128);renderer.setScissorTest(false);renderer.render(scene,miniCamera);}finally{renderer.setRenderTarget(saved.target,saved.face,saved.mip);renderer.setViewport(saved.viewport);renderer.setScissor(saved.scissor);renderer.setScissorTest(saved.test);}}
+      function draw(){if(disposed||!stage.clientWidth)return;renderer.info.autoReset=false;renderer.info.reset();camera.lookAt(targetPoint);if(document.querySelector('#minimap').checked)renderMap();renderer.setRenderTarget(null);renderer.setViewport(0,0,canvas.width,canvas.height);renderer.render(scene,camera);if(document.querySelector('#minimap').checked){const saved=renderer.getViewport(new THREE.Vector4()),scissor=renderer.getScissor(new THREE.Vector4()),test=renderer.getScissorTest();try{const size=Math.min(100,canvas.width*.3);renderer.setViewport(canvas.width-size-4,4,size,size);renderer.setScissor(canvas.width-size-4,4,size,size);renderer.setScissorTest(true);renderer.autoClear=false;renderer.render(overlayScene,overlayCamera);}finally{renderer.autoClear=true;renderer.setViewport(saved);renderer.setScissor(scissor);renderer.setScissorTest(test);}}stats={calls:renderer.info.render.calls,triangles:renderer.info.render.triangles};frames++;output.textContent=JSON.stringify({status,current,generation,completions,selected,name:meshes[selected]?.name,clips:activeBook?.gltf.animations.length??0,playing,time:mixer?.time??0,x:meshes[0]?.position.x,camera:camera.position.toArray(),target:targetPoint.toArray(),stats,...counts});}
+      renderer.setAnimationLoop(now=>{const dt=last?(now-last)/1000:0;last=now;if(playing&&mixer){mixer.update(dt);draw();}});function releaseAll(){generation++;for(const [id,resolve]of timers){clearTimeout(id);counts.timer++;resolve();}timers.clear();clearMixer();if(root)scene.remove(root);for(const b of [...books])release(b);root=null;meshes=[];}void loadModel(()=>bytes(document.querySelector('#model').value),document.querySelector('#model').value);
+      function resizeScene(){if(disposed)return;const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();draw();}const observer=new ResizeObserver(resizeScene);observer.observe(stage);resizeScene();
+      function cleanup(){if(disposed)return;disposed=true;observer.disconnect();events.abort();renderer.setAnimationLoop(null);releaseAll();for(const x of ownedTargets)x.dispose();for(const x of ownedGeometry)x.dispose();for(const x of ownedMaterial)x.dispose();renderer.dispose();scene.clear();output.textContent="정리 완료"+' '+JSON.stringify(counts);}
+      on('#cleanup','click',cleanup);window.addEventListener('pagehide',cleanup,{once:true,signal:events.signal});
+    </script>
+  </body>
+</html>
+```
+
+<details>
+<summary>힌트</summary>
+
+- return 전에 소유 장부를 해제하세요.
+
+</details>
+
+<details>
+<summary>완성 코드와 해설</summary>
+
+B가 유지되고 A의 geometry·material·texture 및 bitmap이 각각 정리됩니다. return 전에 소유 장부를 해제하세요.
+
+```html
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>늦은 파싱 결과의 소유 수명</title>
+    <style>
+      body{margin:0;padding:12px;font:14px/1.5 system-ui,sans-serif;color:#172554;background:white}h1{font-size:22px}#stage{width:480px;max-width:100%;height:280px}canvas{display:block;width:100%;height:100%}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}input[type=number]{width:70px}input[type=file]{max-width:100%;width:240px}button,select{padding:6px}output,pre{display:block;white-space:pre-wrap;overflow-wrap:anywhere}:focus-visible{outline:3px solid #c2410c;outline-offset:2px}#error{color:#b91c1c}
+    </style>
+  </head>
+  <body>
+    <h1>늦은 파싱 결과의 소유 수명</h1>
+    <p>
+      stale 정리를 켜고 순서 역전을 실행하세요. A의 textured GLB는 파싱이 끝난
+      실제 geometry·material·texture와 ImageBitmap을 가집니다. 늦은 A를 장면에
+      넣지 않고 자원을 정리합니다. 닫은 bitmap 횟수와 dispose 횟수를 확인하세요.
+    </p>
+    <p>
+      자체 제작한 두 패널 GLB입니다. 선택 파일은 실행 중에만 사용하며 백업에
+      넣지 않습니다. 다시 실행한 뒤 재선택하세요. 2 MiB 이하 self-contained
+      비압축 GLB와 내장 PNG/JPEG만 받습니다. 외부 URI·다중 파일
+      glTF·Draco·Meshopt·KTX2는 지원하지 않습니다.
+    </p>
+    <div class="controls">
+      <label
+        >내장 모델<select id="model">
+          <option>static</option>
+          <option selected>animated</option>
+          <option>textured</option>
+          <option>empty</option>
+        </select></label
+      ><button id="sample">샘플 불러오기</button
+      ><button id="race">slow A then fast B</button
+      ><button id="invalid">손상 GLB</button
+      ><button id="recover">샘플 복구</button
+      ><label
+        >GLB 파일<input
+          id="file"
+          type="file"
+          accept=".glb,model/gltf-binary" /></label
+      ><label><input id="guard" type="checkbox" checked />generation 보호</label
+      ><label><input id="stale" type="checkbox" checked />stale 정리</label
+      ><label><input id="framing" type="checkbox" checked />맞춤 허용</label
+      ><label><input id="minimap" type="checkbox" />미니맵</label
+      ><label>객체 목록<select id="objects"></select></label
+      ><button id="frame">선택 맞춤</button
+      ><button id="right">카메라 오른쪽</button><button id="zoom">확대</button
+      ><button id="play">재생</button><button id="pause">일시정지</button
+      ><button id="stop">정지·되감기</button
+      ><label
+        >속도<input
+          id="speed"
+          type="number"
+          value="1"
+          min="0"
+          max="3"
+          step="0.25" /></label
+      ><button id="apply">적용</button><button id="cleanup">자원 정리</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage">
+      <canvas aria-label="늦은 파싱 결과의 소유 수명"></canvas>
+    </div>
+    <output aria-live="polite"></output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage=document.querySelector('#stage'),canvas=document.querySelector('canvas'),output=document.querySelector('output');
+      const scene=new THREE.Scene();scene.background=new THREE.Color('#edf2f7');const camera=new THREE.PerspectiveCamera(45,1,.01,1000);camera.position.set(0,2,7);camera.lookAt(0,0,0);const renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(1);
+      const events=new AbortController();let disposed=false,frames=0;const ownedGeometry=new Set(),ownedMaterial=new Set(),ownedTargets=new Set();const on=(s,t,f)=>document.querySelector(s).addEventListener(t,f,{signal:events.signal});
+
+      import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+      const samples = {
+              static:
+                'Z2xURgIAAAAkAwAAwAIAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfV0sImJ1ZmZlclZpZXdzIjpbeyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjAsImJ5dGVMZW5ndGgiOjcyfV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JGYWN0b3IiOlswLjAzLDAuMiwwLjgsMV0sIm1ldGFsbGljRmFjdG9yIjowfSwiZXh0ZW5zaW9ucyI6eyJLSFJfbWF0ZXJpYWxzX3VubGl0Ijp7fX19XSwibWVzaGVzIjpbeyJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowfSwibWF0ZXJpYWwiOjB9XX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkxlZnQiLCJ0cmFuc2xhdGlvbiI6Wy0xLjEsMCwwXX0seyJtZXNoIjowLCJuYW1lIjoiUmlnaHQiLCJ0cmFuc2xhdGlvbiI6WzEuMSwwLDBdfV0sImJ1ZmZlcnMiOlt7ImJ5dGVMZW5ndGgiOjcyfV19IEgAAABCSU4AzcxMv83MTL8AAAAAzcxMP83MTL8AAAAAzcxMv83MTD8AAAAAzcxMv83MTD8AAAAAzcxMP83MTL8AAAAAzcxMP83MTD8AAAAA',
+              animated:
+                'Z2xURgIAAADUBAAAUAQAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJTQ0FMQVIiLCJjb3VudCI6MiwibWluIjpbMF0sIm1heCI6WzFdfSx7ImJ1ZmZlclZpZXciOjIsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiY291bnQiOjJ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MCwiYnl0ZUxlbmd0aCI6NzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MiwiYnl0ZUxlbmd0aCI6OH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjgwLCJieXRlTGVuZ3RoIjoyNH1dLCJleHRlbnNpb25zVXNlZCI6WyJLSFJfbWF0ZXJpYWxzX3VubGl0Il0sIm1hdGVyaWFscyI6W3sibmFtZSI6IlNoYXJlZEJsdWUiLCJkb3VibGVTaWRlZCI6dHJ1ZSwicGJyTWV0YWxsaWNSb3VnaG5lc3MiOnsiYmFzZUNvbG9yRmFjdG9yIjpbMC4wMywwLjIsMC44LDFdLCJtZXRhbGxpY0ZhY3RvciI6MH0sImV4dGVuc2lvbnMiOnsiS0hSX21hdGVyaWFsc191bmxpdCI6e319fV0sIm1lc2hlcyI6W3sicHJpbWl0aXZlcyI6W3siYXR0cmlidXRlcyI6eyJQT1NJVElPTiI6MH0sIm1hdGVyaWFsIjowfV19XSwibm9kZXMiOlt7Im1lc2giOjAsIm5hbWUiOiJMZWZ0IiwidHJhbnNsYXRpb24iOlstMS4xLDAsMF19LHsibWVzaCI6MCwibmFtZSI6IlJpZ2h0IiwidHJhbnNsYXRpb24iOlsxLjEsMCwwXX1dLCJhbmltYXRpb25zIjpbeyJuYW1lIjoiU2xpZGVMZWZ0Iiwic2FtcGxlcnMiOlt7ImlucHV0IjoxLCJvdXRwdXQiOjIsImludGVycG9sYXRpb24iOiJMSU5FQVIifV0sImNoYW5uZWxzIjpbeyJzYW1wbGVyIjowLCJ0YXJnZXQiOnsibm9kZSI6MCwicGF0aCI6InRyYW5zbGF0aW9uIn19XX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxMDR9XX1oAAAAQklOAM3MTL/NzEy/AAAAAM3MTD/NzEy/AAAAAM3MTL/NzEw/AAAAAM3MTL/NzEw/AAAAAM3MTD/NzEy/AAAAAM3MTD/NzEw/AAAAAAAAAAAAAIA/zcyMvwAAAAAAAAAAzczMvQAAAAAAAAAA',
+              empty:
+                'Z2xURgIAAAB4AAAAZAAAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOltdfV19',
+              textured:
+                'Z2xURgIAAACUBAAAtAMAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMyIiwiY291bnQiOjZ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MCwiYnl0ZUxlbmd0aCI6NzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MiwiYnl0ZUxlbmd0aCI6NDh9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0IjoxMjAsImJ5dGVMZW5ndGgiOjc2fV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JUZXh0dXJlIjp7ImluZGV4IjowfSwibWV0YWxsaWNGYWN0b3IiOjB9LCJleHRlbnNpb25zIjp7IktIUl9tYXRlcmlhbHNfdW5saXQiOnt9fX1dLCJtZXNoZXMiOlt7InByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjAsIlRFWENPT1JEXzAiOjF9LCJtYXRlcmlhbCI6MH1dfV0sIm5vZGVzIjpbeyJtZXNoIjowLCJuYW1lIjoiTGVmdCIsInRyYW5zbGF0aW9uIjpbLTEuMSwwLDBdfSx7Im1lc2giOjAsIm5hbWUiOiJSaWdodCIsInRyYW5zbGF0aW9uIjpbMS4xLDAsMF19XSwiaW1hZ2VzIjpbeyJidWZmZXJWaWV3IjoyLCJtaW1lVHlwZSI6ImltYWdlL3BuZyJ9XSwidGV4dHVyZXMiOlt7InNvdXJjZSI6MH1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxOTZ9XX0gICDEAAAAQklOAM3MTL/NzEy/AAAAAM3MTD/NzEy/AAAAAM3MTL/NzEw/AAAAAM3MTL/NzEw/AAAAAM3MTD/NzEy/AAAAAM3MTD/NzEw/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AACAP4lQTkcNChoKAAAADUlIRFIAAAACAAAAAggGAAAAcrYNJAAAABNJREFUeJxj+M/A8B8MGRj+gwEAScgJ9xRjMp0AAAAASUVORK5CYII=',
+              offset:
+                'Z2xURgIAAABIAwAA5AIAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfV0sImJ1ZmZlclZpZXdzIjpbeyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjAsImJ5dGVMZW5ndGgiOjcyfV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JGYWN0b3IiOlswLjAzLDAuMiwwLjgsMV0sIm1ldGFsbGljRmFjdG9yIjowfSwiZXh0ZW5zaW9ucyI6eyJLSFJfbWF0ZXJpYWxzX3VubGl0Ijp7fX19XSwibWVzaGVzIjpbeyJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowfSwibWF0ZXJpYWwiOjB9XX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkxlZnQiLCJ0cmFuc2xhdGlvbiI6WzMxLjIsLTE1LDNdLCJzY2FsZSI6WzgsOCw4XX0seyJtZXNoIjowLCJuYW1lIjoiUmlnaHQiLCJ0cmFuc2xhdGlvbiI6WzQ4LjgsLTE1LDNdLCJzY2FsZSI6WzgsOCw4XX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjo3Mn1dfUgAAABCSU4AzcxMv83MTL8AAAAAzcxMP83MTL8AAAAAzcxMv83MTD8AAAAAzcxMv83MTD8AAAAAzcxMP83MTL8AAAAAzcxMP83MTD8AAAAA',
+            };
+
+      function validateGlb(buffer) {
+              if (buffer.byteLength > 2 * 1024 * 1024) throw Error('GLB exceeds 2 MiB');
+              const view = new DataView(buffer);
+              if (
+                view.getUint32(0, true) !== 0x46546c67 ||
+                view.getUint32(4, true) !== 2 ||
+                view.getUint32(8, true) !== buffer.byteLength ||
+                view.getUint32(16, true) !== 0x4e4f534a
+              )
+                throw Error('Invalid GLB');
+              const json = JSON.parse(
+                new TextDecoder().decode(
+                  new Uint8Array(buffer, 20, view.getUint32(12, true)),
+                ),
+              );
+              if (
+                [...(json.buffers ?? []), ...(json.images ?? [])].some(
+                  (x) => x.uri && !x.uri.startsWith('data:'),
+                )
+              )
+                throw Error('External URI unsupported');
+              if ((json.extensionsUsed ?? []).some((x) => /draco|meshopt|basisu/i.test(x)))
+                throw Error('Compression unsupported');
+            }
+
+      const loader=new GLTFLoader();const counts={createdGeometry:0,createdMaterial:0,createdTexture:0,geometry:0,material:0,texture:0,bitmap:0,mixer:0,timer:0,stale:0};const books=new Set();let root=null,meshes=[],generation=0,current='',status='loading',selected=0,mixer=null,action=null,playing=false,last=0,completions=[],stats={};const timers=new Map(),retained=new Set();const targetPoint=new THREE.Vector3();
+      function book(gltf){const geometry=new Set(),material=new Set(),texture=new Set(),images=new Set();for(const scene of gltf.scenes)scene.traverse(o=>{if(o.geometry)geometry.add(o.geometry);for(const m of Array.isArray(o.material)?o.material:o.material?[o.material]:[]){material.add(m);for(const value of Object.values(m))if(value?.isTexture){texture.add(value);if(value.image?.close)images.add(value.image);}}});const b={geometry,material,texture,images,gltf};for(const [name,set]of Object.entries({geometry,material,texture})){counts['created'+name[0].toUpperCase()+name.slice(1)]+=set.size;for(const r of set)r.addEventListener('dispose',()=>counts[name]++);}books.add(b);return b;}
+      function release(b){if(!books.delete(b))return;for(const set of [b.geometry,b.material,b.texture])for(const r of set)r.dispose();for(const image of b.images){image.close();counts.bitmap++;}retained.delete(b);}
+      let activeBook=null;function clearMixer(){if(mixer&&root){mixer.stopAllAction();mixer.uncacheRoot(root);counts.mixer++;}mixer=null;action=null;playing=false;}
+      function wait(ms){if(!ms)return Promise.resolve();return new Promise(resolve=>{const id=setTimeout(()=>{timers.delete(id);counts.timer++;resolve();},ms);timers.set(id,resolve);});}
+      async function loadModel(readBuffer,name,delay=0){const token=++generation;status='loading';document.querySelector('#error').textContent='';draw();let b;try{const buffer=await readBuffer();validateGlb(buffer);const gltf=await loader.parseAsync(buffer,'');b=book(gltf);await wait(delay);completions.push(name);if(disposed||document.querySelector('#guard').checked&&token!==generation){counts.stale++;if(disposed||document.querySelector('#stale').checked)release(b);else retained.add(b);return;}clearMixer();if(root)scene.remove(root);if(activeBook)release(activeBook);activeBook=b;root=gltf.scene;scene.add(root);meshes=[];root.traverse(o=>{if(o.isMesh)meshes.push(o);});selected=0;document.querySelector('#objects').replaceChildren(...meshes.map((o,i)=>new Option(o.name||'Mesh '+i,String(i))));if(gltf.animations.length){mixer=new THREE.AnimationMixer(root);action=mixer.clipAction(gltf.animations[0]);action.play();mixer.timeScale=Number(document.querySelector('#speed').value);playing=false;}current=name;status='ready';draw();}catch(cause){if(b)release(b);if(disposed||token!==generation)return;status='error';document.querySelector('#error').textContent="GLB를 읽지 못했습니다. 샘플 복구 또는 다른 파일을 선택하세요. 상세: "+cause.message;draw();}}
+      const bytes=kind=>Uint8Array.from(atob(samples[kind]),c=>c.charCodeAt(0)).buffer;
+      on('#sample','click',()=>{document.querySelector('#file').value='';const kind=document.querySelector('#model').value;void loadModel(()=>bytes(kind),kind);});on('#race','click',()=>{void loadModel(()=>bytes('textured'),'A',300);void loadModel(()=>bytes('animated'),'B',20);});on('#invalid','click',()=>void loadModel(()=>new TextEncoder().encode('invalid').buffer,'invalid'));on('#recover','click',()=>void loadModel(()=>bytes('animated'),'recovered'));on('#file','change',()=>{const file=document.querySelector('#file').files[0];if(file)void loadModel(()=>file.arrayBuffer(),file.name);});
+      on('#objects','change',()=>{selected=document.querySelector('#objects').selectedIndex;draw();});on('#frame','click',()=>{if(document.querySelector('#framing').checked&&meshes[selected]){const box=new THREE.Box3().setFromObject(meshes[selected]);if(!box.isEmpty()){box.getCenter(targetPoint);const size=box.getSize(new THREE.Vector3()).length();camera.position.copy(targetPoint).add(new THREE.Vector3(0,size*.3,size*1.8));}}draw();});on('#right','click',()=>{camera.position.x++;draw();});on('#zoom','click',()=>{camera.position.z--;draw();});on('#play','click',()=>{if(action){action.paused=false;action.play();playing=true;}draw();});on('#pause','click',()=>{playing=false;if(action)action.paused=true;draw();});on('#stop','click',()=>{playing=false;if(action)action.stop();draw();});on('#apply','click',()=>{const input=document.querySelector('#speed');if(!input.value||!input.checkValidity())return;if(mixer)mixer.timeScale=Number(input.value);for(const b of [...retained])if(document.querySelector('#stale').checked)release(b);draw();});
+      const miniCamera=new THREE.PerspectiveCamera(45,1,.01,100);miniCamera.position.set(0,4,7);miniCamera.lookAt(0,0,0);const target=new THREE.WebGLRenderTarget(128,128);ownedTargets.add(target);const overlayScene=new THREE.Scene(),overlayCamera=new THREE.OrthographicCamera(-1,1,1,-1,0,2);overlayCamera.position.z=1;const plane=new THREE.PlaneGeometry(2,2),planeMaterial=new THREE.MeshBasicMaterial({map:target.texture,depthTest:false,depthWrite:false});ownedGeometry.add(plane);ownedMaterial.add(planeMaterial);overlayScene.add(new THREE.Mesh(plane,planeMaterial));
+      function renderMap(){const saved={target:renderer.getRenderTarget(),face:renderer.getActiveCubeFace(),mip:renderer.getActiveMipmapLevel(),viewport:renderer.getViewport(new THREE.Vector4()),scissor:renderer.getScissor(new THREE.Vector4()),test:renderer.getScissorTest()};try{renderer.setRenderTarget(target);renderer.setViewport(0,0,128,128);renderer.setScissorTest(false);renderer.render(scene,miniCamera);}finally{renderer.setRenderTarget(saved.target,saved.face,saved.mip);renderer.setViewport(saved.viewport);renderer.setScissor(saved.scissor);renderer.setScissorTest(saved.test);}}
+      function draw(){if(disposed||!stage.clientWidth)return;renderer.info.autoReset=false;renderer.info.reset();camera.lookAt(targetPoint);if(document.querySelector('#minimap').checked)renderMap();renderer.setRenderTarget(null);renderer.setViewport(0,0,canvas.width,canvas.height);renderer.render(scene,camera);if(document.querySelector('#minimap').checked){const saved=renderer.getViewport(new THREE.Vector4()),scissor=renderer.getScissor(new THREE.Vector4()),test=renderer.getScissorTest();try{const size=Math.min(100,canvas.width*.3);renderer.setViewport(canvas.width-size-4,4,size,size);renderer.setScissor(canvas.width-size-4,4,size,size);renderer.setScissorTest(true);renderer.autoClear=false;renderer.render(overlayScene,overlayCamera);}finally{renderer.autoClear=true;renderer.setViewport(saved);renderer.setScissor(scissor);renderer.setScissorTest(test);}}stats={calls:renderer.info.render.calls,triangles:renderer.info.render.triangles};frames++;output.textContent=JSON.stringify({status,current,generation,completions,selected,name:meshes[selected]?.name,clips:activeBook?.gltf.animations.length??0,playing,time:mixer?.time??0,x:meshes[0]?.position.x,camera:camera.position.toArray(),target:targetPoint.toArray(),stats,...counts});}
+      renderer.setAnimationLoop(now=>{const dt=last?(now-last)/1000:0;last=now;if(playing&&mixer){mixer.update(dt);draw();}});function releaseAll(){generation++;for(const [id,resolve]of timers){clearTimeout(id);counts.timer++;resolve();}timers.clear();clearMixer();if(root)scene.remove(root);for(const b of [...books])release(b);root=null;meshes=[];}void loadModel(()=>bytes(document.querySelector('#model').value),document.querySelector('#model').value);
+      function resizeScene(){if(disposed)return;const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();draw();}const observer=new ResizeObserver(resizeScene);observer.observe(stage);resizeScene();
+      function cleanup(){if(disposed)return;disposed=true;observer.disconnect();events.abort();renderer.setAnimationLoop(null);releaseAll();for(const x of ownedTargets)x.dispose();for(const x of ownedGeometry)x.dispose();for(const x of ownedMaterial)x.dispose();renderer.dispose();scene.clear();output.textContent="정리 완료"+' '+JSON.stringify(counts);}
+      on('#cleanup','click',cleanup);window.addEventListener('pagehide',cleanup,{once:true,signal:events.signal});
+    </script>
+  </body>
+</html>
+```
+
+</details>
+
+- UI를 안 바꾸는 것만으로 stale 처리에 충분한가요?
+
+### 실패해도 현재 장면 유지
+
+손상 GLB를 누른 뒤 현재 모델·객체 목록이 유지되는지 확인하세요. 샘플 복구를 누르면 animated 모델을 다시 읽습니다. 실패 뒤 같은 컨트롤을 계속 사용하세요. 로컬 파일도 같은 검사와 parseAsync를 거칩니다.
+
+**예상 결과**
+
+error 상태에서도 현재 모델이 보이고 recover 뒤 ready로 돌아갑니다.
+
+```html
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>실패해도 현재 장면 유지</title>
+    <style>
+      body{margin:0;padding:12px;font:14px/1.5 system-ui,sans-serif;color:#172554;background:white}h1{font-size:22px}#stage{width:480px;max-width:100%;height:280px}canvas{display:block;width:100%;height:100%}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}input[type=number]{width:70px}input[type=file]{max-width:100%;width:240px}button,select{padding:6px}output,pre{display:block;white-space:pre-wrap;overflow-wrap:anywhere}:focus-visible{outline:3px solid #c2410c;outline-offset:2px}#error{color:#b91c1c}
+    </style>
+  </head>
+  <body>
+    <h1>실패해도 현재 장면 유지</h1>
+    <p>
+      손상 GLB를 누른 뒤 현재 모델·객체 목록이 유지되는지 확인하세요. 샘플
+      복구를 누르면 animated 모델을 다시 읽습니다. 실패 뒤 같은 컨트롤을 계속
+      사용하세요. 로컬 파일도 같은 검사와 parseAsync를 거칩니다.
+    </p>
+    <p>
+      자체 제작한 두 패널 GLB입니다. 선택 파일은 실행 중에만 사용하며 백업에
+      넣지 않습니다. 다시 실행한 뒤 재선택하세요. 2 MiB 이하 self-contained
+      비압축 GLB와 내장 PNG/JPEG만 받습니다. 외부 URI·다중 파일
+      glTF·Draco·Meshopt·KTX2는 지원하지 않습니다.
+    </p>
+    <div class="controls">
+      <label
+        >내장 모델<select id="model">
+          <option selected>static</option>
+          <option>animated</option>
+          <option>textured</option>
+          <option>empty</option>
+        </select></label
+      ><button id="sample">샘플 불러오기</button
+      ><button id="race">slow A then fast B</button
+      ><button id="invalid">손상 GLB</button
+      ><button id="recover">샘플 복구</button
+      ><label
+        >GLB 파일<input
+          id="file"
+          type="file"
+          accept=".glb,model/gltf-binary" /></label
+      ><label><input id="guard" type="checkbox" checked />generation 보호</label
+      ><label><input id="stale" type="checkbox" checked />stale 정리</label
+      ><label><input id="framing" type="checkbox" checked />맞춤 허용</label
+      ><label><input id="minimap" type="checkbox" />미니맵</label
+      ><label>객체 목록<select id="objects"></select></label
+      ><button id="frame">선택 맞춤</button
+      ><button id="right">카메라 오른쪽</button><button id="zoom">확대</button
+      ><button id="play">재생</button><button id="pause">일시정지</button
+      ><button id="stop">정지·되감기</button
+      ><label
+        >속도<input
+          id="speed"
+          type="number"
+          value="1"
+          min="0"
+          max="3"
+          step="0.25" /></label
+      ><button id="apply">적용</button><button id="cleanup">자원 정리</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage"><canvas aria-label="실패해도 현재 장면 유지"></canvas></div>
+    <output aria-live="polite"></output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage=document.querySelector('#stage'),canvas=document.querySelector('canvas'),output=document.querySelector('output');
+      const scene=new THREE.Scene();scene.background=new THREE.Color('#edf2f7');const camera=new THREE.PerspectiveCamera(45,1,.01,1000);camera.position.set(0,2,7);camera.lookAt(0,0,0);const renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(1);
+      const events=new AbortController();let disposed=false,frames=0;const ownedGeometry=new Set(),ownedMaterial=new Set(),ownedTargets=new Set();const on=(s,t,f)=>document.querySelector(s).addEventListener(t,f,{signal:events.signal});
+
+      import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+      const samples = {
+              static:
+                'Z2xURgIAAAAkAwAAwAIAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfV0sImJ1ZmZlclZpZXdzIjpbeyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjAsImJ5dGVMZW5ndGgiOjcyfV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JGYWN0b3IiOlswLjAzLDAuMiwwLjgsMV0sIm1ldGFsbGljRmFjdG9yIjowfSwiZXh0ZW5zaW9ucyI6eyJLSFJfbWF0ZXJpYWxzX3VubGl0Ijp7fX19XSwibWVzaGVzIjpbeyJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowfSwibWF0ZXJpYWwiOjB9XX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkxlZnQiLCJ0cmFuc2xhdGlvbiI6Wy0xLjEsMCwwXX0seyJtZXNoIjowLCJuYW1lIjoiUmlnaHQiLCJ0cmFuc2xhdGlvbiI6WzEuMSwwLDBdfV0sImJ1ZmZlcnMiOlt7ImJ5dGVMZW5ndGgiOjcyfV19IEgAAABCSU4AzcxMv83MTL8AAAAAzcxMP83MTL8AAAAAzcxMv83MTD8AAAAAzcxMv83MTD8AAAAAzcxMP83MTL8AAAAAzcxMP83MTD8AAAAA',
+              animated:
+                'Z2xURgIAAADUBAAAUAQAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJTQ0FMQVIiLCJjb3VudCI6MiwibWluIjpbMF0sIm1heCI6WzFdfSx7ImJ1ZmZlclZpZXciOjIsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiY291bnQiOjJ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MCwiYnl0ZUxlbmd0aCI6NzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MiwiYnl0ZUxlbmd0aCI6OH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjgwLCJieXRlTGVuZ3RoIjoyNH1dLCJleHRlbnNpb25zVXNlZCI6WyJLSFJfbWF0ZXJpYWxzX3VubGl0Il0sIm1hdGVyaWFscyI6W3sibmFtZSI6IlNoYXJlZEJsdWUiLCJkb3VibGVTaWRlZCI6dHJ1ZSwicGJyTWV0YWxsaWNSb3VnaG5lc3MiOnsiYmFzZUNvbG9yRmFjdG9yIjpbMC4wMywwLjIsMC44LDFdLCJtZXRhbGxpY0ZhY3RvciI6MH0sImV4dGVuc2lvbnMiOnsiS0hSX21hdGVyaWFsc191bmxpdCI6e319fV0sIm1lc2hlcyI6W3sicHJpbWl0aXZlcyI6W3siYXR0cmlidXRlcyI6eyJQT1NJVElPTiI6MH0sIm1hdGVyaWFsIjowfV19XSwibm9kZXMiOlt7Im1lc2giOjAsIm5hbWUiOiJMZWZ0IiwidHJhbnNsYXRpb24iOlstMS4xLDAsMF19LHsibWVzaCI6MCwibmFtZSI6IlJpZ2h0IiwidHJhbnNsYXRpb24iOlsxLjEsMCwwXX1dLCJhbmltYXRpb25zIjpbeyJuYW1lIjoiU2xpZGVMZWZ0Iiwic2FtcGxlcnMiOlt7ImlucHV0IjoxLCJvdXRwdXQiOjIsImludGVycG9sYXRpb24iOiJMSU5FQVIifV0sImNoYW5uZWxzIjpbeyJzYW1wbGVyIjowLCJ0YXJnZXQiOnsibm9kZSI6MCwicGF0aCI6InRyYW5zbGF0aW9uIn19XX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxMDR9XX1oAAAAQklOAM3MTL/NzEy/AAAAAM3MTD/NzEy/AAAAAM3MTL/NzEw/AAAAAM3MTL/NzEw/AAAAAM3MTD/NzEy/AAAAAM3MTD/NzEw/AAAAAAAAAAAAAIA/zcyMvwAAAAAAAAAAzczMvQAAAAAAAAAA',
+              empty:
+                'Z2xURgIAAAB4AAAAZAAAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOltdfV19',
+              textured:
+                'Z2xURgIAAACUBAAAtAMAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMyIiwiY291bnQiOjZ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MCwiYnl0ZUxlbmd0aCI6NzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MiwiYnl0ZUxlbmd0aCI6NDh9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0IjoxMjAsImJ5dGVMZW5ndGgiOjc2fV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JUZXh0dXJlIjp7ImluZGV4IjowfSwibWV0YWxsaWNGYWN0b3IiOjB9LCJleHRlbnNpb25zIjp7IktIUl9tYXRlcmlhbHNfdW5saXQiOnt9fX1dLCJtZXNoZXMiOlt7InByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjAsIlRFWENPT1JEXzAiOjF9LCJtYXRlcmlhbCI6MH1dfV0sIm5vZGVzIjpbeyJtZXNoIjowLCJuYW1lIjoiTGVmdCIsInRyYW5zbGF0aW9uIjpbLTEuMSwwLDBdfSx7Im1lc2giOjAsIm5hbWUiOiJSaWdodCIsInRyYW5zbGF0aW9uIjpbMS4xLDAsMF19XSwiaW1hZ2VzIjpbeyJidWZmZXJWaWV3IjoyLCJtaW1lVHlwZSI6ImltYWdlL3BuZyJ9XSwidGV4dHVyZXMiOlt7InNvdXJjZSI6MH1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxOTZ9XX0gICDEAAAAQklOAM3MTL/NzEy/AAAAAM3MTD/NzEy/AAAAAM3MTL/NzEw/AAAAAM3MTL/NzEw/AAAAAM3MTD/NzEy/AAAAAM3MTD/NzEw/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AACAP4lQTkcNChoKAAAADUlIRFIAAAACAAAAAggGAAAAcrYNJAAAABNJREFUeJxj+M/A8B8MGRj+gwEAScgJ9xRjMp0AAAAASUVORK5CYII=',
+              offset:
+                'Z2xURgIAAABIAwAA5AIAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfV0sImJ1ZmZlclZpZXdzIjpbeyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjAsImJ5dGVMZW5ndGgiOjcyfV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JGYWN0b3IiOlswLjAzLDAuMiwwLjgsMV0sIm1ldGFsbGljRmFjdG9yIjowfSwiZXh0ZW5zaW9ucyI6eyJLSFJfbWF0ZXJpYWxzX3VubGl0Ijp7fX19XSwibWVzaGVzIjpbeyJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowfSwibWF0ZXJpYWwiOjB9XX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkxlZnQiLCJ0cmFuc2xhdGlvbiI6WzMxLjIsLTE1LDNdLCJzY2FsZSI6WzgsOCw4XX0seyJtZXNoIjowLCJuYW1lIjoiUmlnaHQiLCJ0cmFuc2xhdGlvbiI6WzQ4LjgsLTE1LDNdLCJzY2FsZSI6WzgsOCw4XX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjo3Mn1dfUgAAABCSU4AzcxMv83MTL8AAAAAzcxMP83MTL8AAAAAzcxMv83MTD8AAAAAzcxMv83MTD8AAAAAzcxMP83MTL8AAAAAzcxMP83MTD8AAAAA',
+            };
+
+      function validateGlb(buffer) {
+              if (buffer.byteLength > 2 * 1024 * 1024) throw Error('GLB exceeds 2 MiB');
+              const view = new DataView(buffer);
+              if (
+                view.getUint32(0, true) !== 0x46546c67 ||
+                view.getUint32(4, true) !== 2 ||
+                view.getUint32(8, true) !== buffer.byteLength ||
+                view.getUint32(16, true) !== 0x4e4f534a
+              )
+                throw Error('Invalid GLB');
+              const json = JSON.parse(
+                new TextDecoder().decode(
+                  new Uint8Array(buffer, 20, view.getUint32(12, true)),
+                ),
+              );
+              if (
+                [...(json.buffers ?? []), ...(json.images ?? [])].some(
+                  (x) => x.uri && !x.uri.startsWith('data:'),
+                )
+              )
+                throw Error('External URI unsupported');
+              if ((json.extensionsUsed ?? []).some((x) => /draco|meshopt|basisu/i.test(x)))
+                throw Error('Compression unsupported');
+            }
+
+      const loader=new GLTFLoader();const counts={createdGeometry:0,createdMaterial:0,createdTexture:0,geometry:0,material:0,texture:0,bitmap:0,mixer:0,timer:0,stale:0};const books=new Set();let root=null,meshes=[],generation=0,current='',status='loading',selected=0,mixer=null,action=null,playing=false,last=0,completions=[],stats={};const timers=new Map(),retained=new Set();const targetPoint=new THREE.Vector3();
+      function book(gltf){const geometry=new Set(),material=new Set(),texture=new Set(),images=new Set();for(const scene of gltf.scenes)scene.traverse(o=>{if(o.geometry)geometry.add(o.geometry);for(const m of Array.isArray(o.material)?o.material:o.material?[o.material]:[]){material.add(m);for(const value of Object.values(m))if(value?.isTexture){texture.add(value);if(value.image?.close)images.add(value.image);}}});const b={geometry,material,texture,images,gltf};for(const [name,set]of Object.entries({geometry,material,texture})){counts['created'+name[0].toUpperCase()+name.slice(1)]+=set.size;for(const r of set)r.addEventListener('dispose',()=>counts[name]++);}books.add(b);return b;}
+      function release(b){if(!books.delete(b))return;for(const set of [b.geometry,b.material,b.texture])for(const r of set)r.dispose();for(const image of b.images){image.close();counts.bitmap++;}retained.delete(b);}
+      let activeBook=null;function clearMixer(){if(mixer&&root){mixer.stopAllAction();mixer.uncacheRoot(root);counts.mixer++;}mixer=null;action=null;playing=false;}
+      function wait(ms){if(!ms)return Promise.resolve();return new Promise(resolve=>{const id=setTimeout(()=>{timers.delete(id);counts.timer++;resolve();},ms);timers.set(id,resolve);});}
+      async function loadModel(readBuffer,name,delay=0){const token=++generation;status='loading';document.querySelector('#error').textContent='';draw();let b;try{const buffer=await readBuffer();validateGlb(buffer);const gltf=await loader.parseAsync(buffer,'');b=book(gltf);await wait(delay);completions.push(name);if(disposed||document.querySelector('#guard').checked&&token!==generation){counts.stale++;if(disposed||document.querySelector('#stale').checked)release(b);else retained.add(b);return;}clearMixer();if(root)scene.remove(root);if(activeBook)release(activeBook);activeBook=b;root=gltf.scene;scene.add(root);meshes=[];root.traverse(o=>{if(o.isMesh)meshes.push(o);});selected=0;document.querySelector('#objects').replaceChildren(...meshes.map((o,i)=>new Option(o.name||'Mesh '+i,String(i))));if(gltf.animations.length){mixer=new THREE.AnimationMixer(root);action=mixer.clipAction(gltf.animations[0]);action.play();mixer.timeScale=Number(document.querySelector('#speed').value);playing=false;}current=name;status='ready';draw();}catch(cause){if(b)release(b);if(disposed||token!==generation)return;status='error';document.querySelector('#error').textContent="GLB를 읽지 못했습니다. 샘플 복구 또는 다른 파일을 선택하세요. 상세: "+cause.message;draw();}}
+      const bytes=kind=>Uint8Array.from(atob(samples[kind]),c=>c.charCodeAt(0)).buffer;
+      on('#sample','click',()=>{document.querySelector('#file').value='';const kind=document.querySelector('#model').value;void loadModel(()=>bytes(kind),kind);});on('#race','click',()=>{void loadModel(()=>bytes('textured'),'A',300);void loadModel(()=>bytes('animated'),'B',20);});on('#invalid','click',()=>void loadModel(()=>new TextEncoder().encode('invalid').buffer,'invalid'));on('#recover','click',()=>void loadModel(()=>bytes('animated'),'recovered'));on('#file','change',()=>{const file=document.querySelector('#file').files[0];if(file)void loadModel(()=>file.arrayBuffer(),file.name);});
+      on('#objects','change',()=>{selected=document.querySelector('#objects').selectedIndex;draw();});on('#frame','click',()=>{if(document.querySelector('#framing').checked&&meshes[selected]){const box=new THREE.Box3().setFromObject(meshes[selected]);if(!box.isEmpty()){box.getCenter(targetPoint);const size=box.getSize(new THREE.Vector3()).length();camera.position.copy(targetPoint).add(new THREE.Vector3(0,size*.3,size*1.8));}}draw();});on('#right','click',()=>{camera.position.x++;draw();});on('#zoom','click',()=>{camera.position.z--;draw();});on('#play','click',()=>{if(action){action.paused=false;action.play();playing=true;}draw();});on('#pause','click',()=>{playing=false;if(action)action.paused=true;draw();});on('#stop','click',()=>{playing=false;if(action)action.stop();draw();});on('#apply','click',()=>{const input=document.querySelector('#speed');if(!input.value||!input.checkValidity())return;if(mixer)mixer.timeScale=Number(input.value);for(const b of [...retained])if(document.querySelector('#stale').checked)release(b);draw();});
+      const miniCamera=new THREE.PerspectiveCamera(45,1,.01,100);miniCamera.position.set(0,4,7);miniCamera.lookAt(0,0,0);const target=new THREE.WebGLRenderTarget(128,128);ownedTargets.add(target);const overlayScene=new THREE.Scene(),overlayCamera=new THREE.OrthographicCamera(-1,1,1,-1,0,2);overlayCamera.position.z=1;const plane=new THREE.PlaneGeometry(2,2),planeMaterial=new THREE.MeshBasicMaterial({map:target.texture,depthTest:false,depthWrite:false});ownedGeometry.add(plane);ownedMaterial.add(planeMaterial);overlayScene.add(new THREE.Mesh(plane,planeMaterial));
+      function renderMap(){const saved={target:renderer.getRenderTarget(),face:renderer.getActiveCubeFace(),mip:renderer.getActiveMipmapLevel(),viewport:renderer.getViewport(new THREE.Vector4()),scissor:renderer.getScissor(new THREE.Vector4()),test:renderer.getScissorTest()};try{renderer.setRenderTarget(target);renderer.setViewport(0,0,128,128);renderer.setScissorTest(false);renderer.render(scene,miniCamera);}finally{renderer.setRenderTarget(saved.target,saved.face,saved.mip);renderer.setViewport(saved.viewport);renderer.setScissor(saved.scissor);renderer.setScissorTest(saved.test);}}
+      function draw(){if(disposed||!stage.clientWidth)return;renderer.info.autoReset=false;renderer.info.reset();camera.lookAt(targetPoint);if(document.querySelector('#minimap').checked)renderMap();renderer.setRenderTarget(null);renderer.setViewport(0,0,canvas.width,canvas.height);renderer.render(scene,camera);if(document.querySelector('#minimap').checked){const saved=renderer.getViewport(new THREE.Vector4()),scissor=renderer.getScissor(new THREE.Vector4()),test=renderer.getScissorTest();try{const size=Math.min(100,canvas.width*.3);renderer.setViewport(canvas.width-size-4,4,size,size);renderer.setScissor(canvas.width-size-4,4,size,size);renderer.setScissorTest(true);renderer.autoClear=false;renderer.render(overlayScene,overlayCamera);}finally{renderer.autoClear=true;renderer.setViewport(saved);renderer.setScissor(scissor);renderer.setScissorTest(test);}}stats={calls:renderer.info.render.calls,triangles:renderer.info.render.triangles};frames++;output.textContent=JSON.stringify({status,current,generation,completions,selected,name:meshes[selected]?.name,clips:activeBook?.gltf.animations.length??0,playing,time:mixer?.time??0,x:meshes[0]?.position.x,camera:camera.position.toArray(),target:targetPoint.toArray(),stats,...counts});}
+      renderer.setAnimationLoop(now=>{const dt=last?(now-last)/1000:0;last=now;if(playing&&mixer){mixer.update(dt);draw();}});function releaseAll(){generation++;for(const [id,resolve]of timers){clearTimeout(id);counts.timer++;resolve();}timers.clear();clearMixer();if(root)scene.remove(root);for(const b of [...books])release(b);root=null;meshes=[];}void loadModel(()=>bytes(document.querySelector('#model').value),document.querySelector('#model').value);
+      function resizeScene(){if(disposed)return;const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();draw();}const observer=new ResizeObserver(resizeScene);observer.observe(stage);resizeScene();
+      function cleanup(){if(disposed)return;disposed=true;observer.disconnect();events.abort();renderer.setAnimationLoop(null);releaseAll();for(const x of ownedTargets)x.dispose();for(const x of ownedGeometry)x.dispose();for(const x of ownedMaterial)x.dispose();renderer.dispose();scene.clear();output.textContent="정리 완료"+' '+JSON.stringify(counts);}
+      on('#cleanup','click',cleanup);window.addEventListener('pagehide',cleanup,{once:true,signal:events.signal});
+    </script>
+  </body>
+</html>
+```
+
+<details>
+<summary>힌트</summary>
+
+- 실패 시 root를 먼저 지우지 마세요.
+
+</details>
+
+<details>
+<summary>완성 코드와 해설</summary>
+
+error 상태에서도 현재 모델이 보이고 recover 뒤 ready로 돌아갑니다. 실패 시 root를 먼저 지우지 마세요.
+
+```html
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>실패해도 현재 장면 유지</title>
+    <style>
+      body{margin:0;padding:12px;font:14px/1.5 system-ui,sans-serif;color:#172554;background:white}h1{font-size:22px}#stage{width:480px;max-width:100%;height:280px}canvas{display:block;width:100%;height:100%}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}input[type=number]{width:70px}input[type=file]{max-width:100%;width:240px}button,select{padding:6px}output,pre{display:block;white-space:pre-wrap;overflow-wrap:anywhere}:focus-visible{outline:3px solid #c2410c;outline-offset:2px}#error{color:#b91c1c}
+    </style>
+  </head>
+  <body>
+    <h1>실패해도 현재 장면 유지</h1>
+    <p>
+      손상 GLB를 누른 뒤 현재 모델·객체 목록이 유지되는지 확인하세요. 샘플
+      복구를 누르면 animated 모델을 다시 읽습니다. 실패 뒤 같은 컨트롤을 계속
+      사용하세요. 로컬 파일도 같은 검사와 parseAsync를 거칩니다.
+    </p>
+    <p>
+      자체 제작한 두 패널 GLB입니다. 선택 파일은 실행 중에만 사용하며 백업에
+      넣지 않습니다. 다시 실행한 뒤 재선택하세요. 2 MiB 이하 self-contained
+      비압축 GLB와 내장 PNG/JPEG만 받습니다. 외부 URI·다중 파일
+      glTF·Draco·Meshopt·KTX2는 지원하지 않습니다.
+    </p>
+    <div class="controls">
+      <label
+        >내장 모델<select id="model">
+          <option>static</option>
+          <option selected>animated</option>
+          <option>textured</option>
+          <option>empty</option>
+        </select></label
+      ><button id="sample">샘플 불러오기</button
+      ><button id="race">slow A then fast B</button
+      ><button id="invalid">손상 GLB</button
+      ><button id="recover">샘플 복구</button
+      ><label
+        >GLB 파일<input
+          id="file"
+          type="file"
+          accept=".glb,model/gltf-binary" /></label
+      ><label><input id="guard" type="checkbox" checked />generation 보호</label
+      ><label><input id="stale" type="checkbox" checked />stale 정리</label
+      ><label><input id="framing" type="checkbox" checked />맞춤 허용</label
+      ><label><input id="minimap" type="checkbox" />미니맵</label
+      ><label>객체 목록<select id="objects"></select></label
+      ><button id="frame">선택 맞춤</button
+      ><button id="right">카메라 오른쪽</button><button id="zoom">확대</button
+      ><button id="play">재생</button><button id="pause">일시정지</button
+      ><button id="stop">정지·되감기</button
+      ><label
+        >속도<input
+          id="speed"
+          type="number"
+          value="1"
+          min="0"
+          max="3"
+          step="0.25" /></label
+      ><button id="apply">적용</button><button id="cleanup">자원 정리</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage"><canvas aria-label="실패해도 현재 장면 유지"></canvas></div>
+    <output aria-live="polite"></output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage=document.querySelector('#stage'),canvas=document.querySelector('canvas'),output=document.querySelector('output');
+      const scene=new THREE.Scene();scene.background=new THREE.Color('#edf2f7');const camera=new THREE.PerspectiveCamera(45,1,.01,1000);camera.position.set(0,2,7);camera.lookAt(0,0,0);const renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(1);
+      const events=new AbortController();let disposed=false,frames=0;const ownedGeometry=new Set(),ownedMaterial=new Set(),ownedTargets=new Set();const on=(s,t,f)=>document.querySelector(s).addEventListener(t,f,{signal:events.signal});
+
+      import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+      const samples = {
+              static:
+                'Z2xURgIAAAAkAwAAwAIAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfV0sImJ1ZmZlclZpZXdzIjpbeyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjAsImJ5dGVMZW5ndGgiOjcyfV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JGYWN0b3IiOlswLjAzLDAuMiwwLjgsMV0sIm1ldGFsbGljRmFjdG9yIjowfSwiZXh0ZW5zaW9ucyI6eyJLSFJfbWF0ZXJpYWxzX3VubGl0Ijp7fX19XSwibWVzaGVzIjpbeyJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowfSwibWF0ZXJpYWwiOjB9XX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkxlZnQiLCJ0cmFuc2xhdGlvbiI6Wy0xLjEsMCwwXX0seyJtZXNoIjowLCJuYW1lIjoiUmlnaHQiLCJ0cmFuc2xhdGlvbiI6WzEuMSwwLDBdfV0sImJ1ZmZlcnMiOlt7ImJ5dGVMZW5ndGgiOjcyfV19IEgAAABCSU4AzcxMv83MTL8AAAAAzcxMP83MTL8AAAAAzcxMv83MTD8AAAAAzcxMv83MTD8AAAAAzcxMP83MTL8AAAAAzcxMP83MTD8AAAAA',
+              animated:
+                'Z2xURgIAAADUBAAAUAQAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJTQ0FMQVIiLCJjb3VudCI6MiwibWluIjpbMF0sIm1heCI6WzFdfSx7ImJ1ZmZlclZpZXciOjIsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMzIiwiY291bnQiOjJ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MCwiYnl0ZUxlbmd0aCI6NzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MiwiYnl0ZUxlbmd0aCI6OH0seyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjgwLCJieXRlTGVuZ3RoIjoyNH1dLCJleHRlbnNpb25zVXNlZCI6WyJLSFJfbWF0ZXJpYWxzX3VubGl0Il0sIm1hdGVyaWFscyI6W3sibmFtZSI6IlNoYXJlZEJsdWUiLCJkb3VibGVTaWRlZCI6dHJ1ZSwicGJyTWV0YWxsaWNSb3VnaG5lc3MiOnsiYmFzZUNvbG9yRmFjdG9yIjpbMC4wMywwLjIsMC44LDFdLCJtZXRhbGxpY0ZhY3RvciI6MH0sImV4dGVuc2lvbnMiOnsiS0hSX21hdGVyaWFsc191bmxpdCI6e319fV0sIm1lc2hlcyI6W3sicHJpbWl0aXZlcyI6W3siYXR0cmlidXRlcyI6eyJQT1NJVElPTiI6MH0sIm1hdGVyaWFsIjowfV19XSwibm9kZXMiOlt7Im1lc2giOjAsIm5hbWUiOiJMZWZ0IiwidHJhbnNsYXRpb24iOlstMS4xLDAsMF19LHsibWVzaCI6MCwibmFtZSI6IlJpZ2h0IiwidHJhbnNsYXRpb24iOlsxLjEsMCwwXX1dLCJhbmltYXRpb25zIjpbeyJuYW1lIjoiU2xpZGVMZWZ0Iiwic2FtcGxlcnMiOlt7ImlucHV0IjoxLCJvdXRwdXQiOjIsImludGVycG9sYXRpb24iOiJMSU5FQVIifV0sImNoYW5uZWxzIjpbeyJzYW1wbGVyIjowLCJ0YXJnZXQiOnsibm9kZSI6MCwicGF0aCI6InRyYW5zbGF0aW9uIn19XX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxMDR9XX1oAAAAQklOAM3MTL/NzEy/AAAAAM3MTD/NzEy/AAAAAM3MTL/NzEw/AAAAAM3MTL/NzEw/AAAAAM3MTD/NzEy/AAAAAM3MTD/NzEw/AAAAAAAAAAAAAIA/zcyMvwAAAAAAAAAAzczMvQAAAAAAAAAA',
+              empty:
+                'Z2xURgIAAAB4AAAAZAAAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOltdfV19',
+              textured:
+                'Z2xURgIAAACUBAAAtAMAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsInR5cGUiOiJWRUMyIiwiY291bnQiOjZ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZU9mZnNldCI6MCwiYnl0ZUxlbmd0aCI6NzJ9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0Ijo3MiwiYnl0ZUxlbmd0aCI6NDh9LHsiYnVmZmVyIjowLCJieXRlT2Zmc2V0IjoxMjAsImJ5dGVMZW5ndGgiOjc2fV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JUZXh0dXJlIjp7ImluZGV4IjowfSwibWV0YWxsaWNGYWN0b3IiOjB9LCJleHRlbnNpb25zIjp7IktIUl9tYXRlcmlhbHNfdW5saXQiOnt9fX1dLCJtZXNoZXMiOlt7InByaW1pdGl2ZXMiOlt7ImF0dHJpYnV0ZXMiOnsiUE9TSVRJT04iOjAsIlRFWENPT1JEXzAiOjF9LCJtYXRlcmlhbCI6MH1dfV0sIm5vZGVzIjpbeyJtZXNoIjowLCJuYW1lIjoiTGVmdCIsInRyYW5zbGF0aW9uIjpbLTEuMSwwLDBdfSx7Im1lc2giOjAsIm5hbWUiOiJSaWdodCIsInRyYW5zbGF0aW9uIjpbMS4xLDAsMF19XSwiaW1hZ2VzIjpbeyJidWZmZXJWaWV3IjoyLCJtaW1lVHlwZSI6ImltYWdlL3BuZyJ9XSwidGV4dHVyZXMiOlt7InNvdXJjZSI6MH1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjoxOTZ9XX0gICDEAAAAQklOAM3MTL/NzEy/AAAAAM3MTD/NzEy/AAAAAM3MTL/NzEw/AAAAAM3MTL/NzEw/AAAAAM3MTD/NzEy/AAAAAM3MTD/NzEw/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AACAP4lQTkcNChoKAAAADUlIRFIAAAACAAAAAggGAAAAcrYNJAAAABNJREFUeJxj+M/A8B8MGRj+gwEAScgJ9xRjMp0AAAAASUVORK5CYII=',
+              offset:
+                'Z2xURgIAAABIAwAA5AIAAEpTT057ImFzc2V0Ijp7InZlcnNpb24iOiIyLjAiLCJnZW5lcmF0b3IiOiJGcm9udG9yeSBhdXRob3JlZCBwYW5lbHMifSwic2NlbmUiOjAsInNjZW5lcyI6W3sibm9kZXMiOlswLDFdfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwidHlwZSI6IlZFQzMiLCJjb3VudCI6NiwibWluIjpbLTAuOCwtMC44LDBdLCJtYXgiOlswLjgsMC44LDBdfV0sImJ1ZmZlclZpZXdzIjpbeyJidWZmZXIiOjAsImJ5dGVPZmZzZXQiOjAsImJ5dGVMZW5ndGgiOjcyfV0sImV4dGVuc2lvbnNVc2VkIjpbIktIUl9tYXRlcmlhbHNfdW5saXQiXSwibWF0ZXJpYWxzIjpbeyJuYW1lIjoiU2hhcmVkQmx1ZSIsImRvdWJsZVNpZGVkIjp0cnVlLCJwYnJNZXRhbGxpY1JvdWdobmVzcyI6eyJiYXNlQ29sb3JGYWN0b3IiOlswLjAzLDAuMiwwLjgsMV0sIm1ldGFsbGljRmFjdG9yIjowfSwiZXh0ZW5zaW9ucyI6eyJLSFJfbWF0ZXJpYWxzX3VubGl0Ijp7fX19XSwibWVzaGVzIjpbeyJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowfSwibWF0ZXJpYWwiOjB9XX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkxlZnQiLCJ0cmFuc2xhdGlvbiI6WzMxLjIsLTE1LDNdLCJzY2FsZSI6WzgsOCw4XX0seyJtZXNoIjowLCJuYW1lIjoiUmlnaHQiLCJ0cmFuc2xhdGlvbiI6WzQ4LjgsLTE1LDNdLCJzY2FsZSI6WzgsOCw4XX1dLCJidWZmZXJzIjpbeyJieXRlTGVuZ3RoIjo3Mn1dfUgAAABCSU4AzcxMv83MTL8AAAAAzcxMP83MTL8AAAAAzcxMv83MTD8AAAAAzcxMv83MTD8AAAAAzcxMP83MTL8AAAAAzcxMP83MTD8AAAAA',
+            };
+
+      function validateGlb(buffer) {
+              if (buffer.byteLength > 2 * 1024 * 1024) throw Error('GLB exceeds 2 MiB');
+              const view = new DataView(buffer);
+              if (
+                view.getUint32(0, true) !== 0x46546c67 ||
+                view.getUint32(4, true) !== 2 ||
+                view.getUint32(8, true) !== buffer.byteLength ||
+                view.getUint32(16, true) !== 0x4e4f534a
+              )
+                throw Error('Invalid GLB');
+              const json = JSON.parse(
+                new TextDecoder().decode(
+                  new Uint8Array(buffer, 20, view.getUint32(12, true)),
+                ),
+              );
+              if (
+                [...(json.buffers ?? []), ...(json.images ?? [])].some(
+                  (x) => x.uri && !x.uri.startsWith('data:'),
+                )
+              )
+                throw Error('External URI unsupported');
+              if ((json.extensionsUsed ?? []).some((x) => /draco|meshopt|basisu/i.test(x)))
+                throw Error('Compression unsupported');
+            }
+
+      const loader=new GLTFLoader();const counts={createdGeometry:0,createdMaterial:0,createdTexture:0,geometry:0,material:0,texture:0,bitmap:0,mixer:0,timer:0,stale:0};const books=new Set();let root=null,meshes=[],generation=0,current='',status='loading',selected=0,mixer=null,action=null,playing=false,last=0,completions=[],stats={};const timers=new Map(),retained=new Set();const targetPoint=new THREE.Vector3();
+      function book(gltf){const geometry=new Set(),material=new Set(),texture=new Set(),images=new Set();for(const scene of gltf.scenes)scene.traverse(o=>{if(o.geometry)geometry.add(o.geometry);for(const m of Array.isArray(o.material)?o.material:o.material?[o.material]:[]){material.add(m);for(const value of Object.values(m))if(value?.isTexture){texture.add(value);if(value.image?.close)images.add(value.image);}}});const b={geometry,material,texture,images,gltf};for(const [name,set]of Object.entries({geometry,material,texture})){counts['created'+name[0].toUpperCase()+name.slice(1)]+=set.size;for(const r of set)r.addEventListener('dispose',()=>counts[name]++);}books.add(b);return b;}
+      function release(b){if(!books.delete(b))return;for(const set of [b.geometry,b.material,b.texture])for(const r of set)r.dispose();for(const image of b.images){image.close();counts.bitmap++;}retained.delete(b);}
+      let activeBook=null;function clearMixer(){if(mixer&&root){mixer.stopAllAction();mixer.uncacheRoot(root);counts.mixer++;}mixer=null;action=null;playing=false;}
+      function wait(ms){if(!ms)return Promise.resolve();return new Promise(resolve=>{const id=setTimeout(()=>{timers.delete(id);counts.timer++;resolve();},ms);timers.set(id,resolve);});}
+      async function loadModel(readBuffer,name,delay=0){const token=++generation;status='loading';document.querySelector('#error').textContent='';draw();let b;try{const buffer=await readBuffer();validateGlb(buffer);const gltf=await loader.parseAsync(buffer,'');b=book(gltf);await wait(delay);completions.push(name);if(disposed||document.querySelector('#guard').checked&&token!==generation){counts.stale++;if(disposed||document.querySelector('#stale').checked)release(b);else retained.add(b);return;}clearMixer();if(root)scene.remove(root);if(activeBook)release(activeBook);activeBook=b;root=gltf.scene;scene.add(root);meshes=[];root.traverse(o=>{if(o.isMesh)meshes.push(o);});selected=0;document.querySelector('#objects').replaceChildren(...meshes.map((o,i)=>new Option(o.name||'Mesh '+i,String(i))));if(gltf.animations.length){mixer=new THREE.AnimationMixer(root);action=mixer.clipAction(gltf.animations[0]);action.play();mixer.timeScale=Number(document.querySelector('#speed').value);playing=false;}current=name;status='ready';draw();}catch(cause){if(b)release(b);if(disposed||token!==generation)return;status='error';document.querySelector('#error').textContent="GLB를 읽지 못했습니다. 샘플 복구 또는 다른 파일을 선택하세요. 상세: "+cause.message;draw();}}
+      const bytes=kind=>Uint8Array.from(atob(samples[kind]),c=>c.charCodeAt(0)).buffer;
+      on('#sample','click',()=>{document.querySelector('#file').value='';const kind=document.querySelector('#model').value;void loadModel(()=>bytes(kind),kind);});on('#race','click',()=>{void loadModel(()=>bytes('textured'),'A',300);void loadModel(()=>bytes('animated'),'B',20);});on('#invalid','click',()=>void loadModel(()=>new TextEncoder().encode('invalid').buffer,'invalid'));on('#recover','click',()=>void loadModel(()=>bytes('animated'),'recovered'));on('#file','change',()=>{const file=document.querySelector('#file').files[0];if(file)void loadModel(()=>file.arrayBuffer(),file.name);});
+      on('#objects','change',()=>{selected=document.querySelector('#objects').selectedIndex;draw();});on('#frame','click',()=>{if(document.querySelector('#framing').checked&&meshes[selected]){const box=new THREE.Box3().setFromObject(meshes[selected]);if(!box.isEmpty()){box.getCenter(targetPoint);const size=box.getSize(new THREE.Vector3()).length();camera.position.copy(targetPoint).add(new THREE.Vector3(0,size*.3,size*1.8));}}draw();});on('#right','click',()=>{camera.position.x++;draw();});on('#zoom','click',()=>{camera.position.z--;draw();});on('#play','click',()=>{if(action){action.paused=false;action.play();playing=true;}draw();});on('#pause','click',()=>{playing=false;if(action)action.paused=true;draw();});on('#stop','click',()=>{playing=false;if(action)action.stop();draw();});on('#apply','click',()=>{const input=document.querySelector('#speed');if(!input.value||!input.checkValidity())return;if(mixer)mixer.timeScale=Number(input.value);for(const b of [...retained])if(document.querySelector('#stale').checked)release(b);draw();});
+      const miniCamera=new THREE.PerspectiveCamera(45,1,.01,100);miniCamera.position.set(0,4,7);miniCamera.lookAt(0,0,0);const target=new THREE.WebGLRenderTarget(128,128);ownedTargets.add(target);const overlayScene=new THREE.Scene(),overlayCamera=new THREE.OrthographicCamera(-1,1,1,-1,0,2);overlayCamera.position.z=1;const plane=new THREE.PlaneGeometry(2,2),planeMaterial=new THREE.MeshBasicMaterial({map:target.texture,depthTest:false,depthWrite:false});ownedGeometry.add(plane);ownedMaterial.add(planeMaterial);overlayScene.add(new THREE.Mesh(plane,planeMaterial));
+      function renderMap(){const saved={target:renderer.getRenderTarget(),face:renderer.getActiveCubeFace(),mip:renderer.getActiveMipmapLevel(),viewport:renderer.getViewport(new THREE.Vector4()),scissor:renderer.getScissor(new THREE.Vector4()),test:renderer.getScissorTest()};try{renderer.setRenderTarget(target);renderer.setViewport(0,0,128,128);renderer.setScissorTest(false);renderer.render(scene,miniCamera);}finally{renderer.setRenderTarget(saved.target,saved.face,saved.mip);renderer.setViewport(saved.viewport);renderer.setScissor(saved.scissor);renderer.setScissorTest(saved.test);}}
+      function draw(){if(disposed||!stage.clientWidth)return;renderer.info.autoReset=false;renderer.info.reset();camera.lookAt(targetPoint);if(document.querySelector('#minimap').checked)renderMap();renderer.setRenderTarget(null);renderer.setViewport(0,0,canvas.width,canvas.height);renderer.render(scene,camera);if(document.querySelector('#minimap').checked){const saved=renderer.getViewport(new THREE.Vector4()),scissor=renderer.getScissor(new THREE.Vector4()),test=renderer.getScissorTest();try{const size=Math.min(100,canvas.width*.3);renderer.setViewport(canvas.width-size-4,4,size,size);renderer.setScissor(canvas.width-size-4,4,size,size);renderer.setScissorTest(true);renderer.autoClear=false;renderer.render(overlayScene,overlayCamera);}finally{renderer.autoClear=true;renderer.setViewport(saved);renderer.setScissor(scissor);renderer.setScissorTest(test);}}stats={calls:renderer.info.render.calls,triangles:renderer.info.render.triangles};frames++;output.textContent=JSON.stringify({status,current,generation,completions,selected,name:meshes[selected]?.name,clips:activeBook?.gltf.animations.length??0,playing,time:mixer?.time??0,x:meshes[0]?.position.x,camera:camera.position.toArray(),target:targetPoint.toArray(),stats,...counts});}
+      renderer.setAnimationLoop(now=>{const dt=last?(now-last)/1000:0;last=now;if(playing&&mixer){mixer.update(dt);draw();}});function releaseAll(){generation++;for(const [id,resolve]of timers){clearTimeout(id);counts.timer++;resolve();}timers.clear();clearMixer();if(root)scene.remove(root);for(const b of [...books])release(b);root=null;meshes=[];}void loadModel(()=>bytes(document.querySelector('#model').value),document.querySelector('#model').value);
+      function resizeScene(){if(disposed)return;const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();draw();}const observer=new ResizeObserver(resizeScene);observer.observe(stage);resizeScene();
+      function cleanup(){if(disposed)return;disposed=true;observer.disconnect();events.abort();renderer.setAnimationLoop(null);releaseAll();for(const x of ownedTargets)x.dispose();for(const x of ownedGeometry)x.dispose();for(const x of ownedMaterial)x.dispose();renderer.dispose();scene.clear();output.textContent="정리 완료"+' '+JSON.stringify(counts);}
+      on('#cleanup','click',cleanup);window.addEventListener('pagehide',cleanup,{once:true,signal:events.signal});
+    </script>
+  </body>
+</html>
+```
+
+</details>
+
+- 이전 요청 실패가 최신 성공 상태를 바꿔도 되나요?
+
+### API · GLTFLoader.parseAsync
+
+완료 로그는 B 다음 A이며 현재 모델은 B입니다. 요청 token과 현재 generation을 비교하세요.
+
+- `data, path: ArrayBuffer, string` — GLB 바이트와 빈 base path
+
+Promise가 glTF 결과를 반환합니다.
+
+- 실패 시 root를 먼저 지우지 마세요.
+
+```js
+const gltf=await loader.parseAsync(buffer,''); if(token!==generation) release(book(gltf));
+```
+
+[GLTFLoader.parseAsync](https://threejs.org/docs/pages/GLTFLoader.html) · three@0.186.1 · 2026-10-27
+
+### API · loadModel(readBuffer, name, delay) — example helper
+
+이 예제의 generation은 자체 변수입니다. 요청 시작마다 증가시키고 모든 await 뒤 최종 적용 직전에 비교합니다. 오래된 성공·실패는 최신 상태를 변경하지 않습니다.
+
+- `readBuffer: () => ArrayBuffer | Promise<ArrayBuffer>` — 내장 또는 파일 바이트를 읽습니다.
+- `name: string` — 요청과 현재 장면의 표시 이름입니다.
+- `delay: number` — 파싱 후 기다릴 ms입니다. 기본 0입니다.
+
+이 예제의 loadModel은 Promise<void>입니다. 성공은 장면을 교체하고 stale 결과는 소유 자원을 해제합니다.
+
+- 이 예제의 generation은 자체 변수입니다. 요청 시작마다 증가시키고 모든 await 뒤 최종 적용 직전에 비교합니다. 오래된 성공·실패는 최신 상태를 변경하지 않습니다.
+
+```js
+const token=++generation; const gltf=await loader.parseAsync(buffer, ""); if(token!==generation){release(book(gltf));return;}
+```
+
+[loadModel(readBuffer, name, delay) — example helper](https://threejs.org/docs/pages/GLTFLoader.html) · three@0.186.1 · 2026-10-27
+
+### API · ImageBitmap.close / clearTimeout
+
+취소해도 parseAsync 결과가 도착할 수 있습니다. 늦은 결과를 해제하고, 종료 시 타이머를 취소한 뒤 대기 Promise를 완료해 자원 정리 분기로 보냅니다.
+
+- `id (clearTimeout only): number` — setTimeout이 반환한 ID입니다. ImageBitmap.close에는 인자가 없습니다.
+
+clearTimeout과 ImageBitmap.close는 undefined입니다. 취소만으로 파싱 결과를 해제하지는 않습니다.
+
+- 취소해도 parseAsync 결과가 도착할 수 있습니다. 늦은 결과를 해제하고, 종료 시 타이머를 취소한 뒤 대기 Promise를 완료해 자원 정리 분기로 보냅니다.
+
+```js
+clearTimeout(id); resolve(); image.close();
+```
+
+[ImageBitmap.close / clearTimeout](https://threejs.org/docs/pages/GLTFLoader.html) · three@0.186.1 · 2026-10-27
 
 ## 다음 학습
 

@@ -5,6 +5,29 @@ import { readLearningContent } from '../scripts/learning-content.mjs'
 const owned = [5, 6, 7, 8, 9].map(
   (n) => 'threejs-step-' + String(n).padStart(2, '0'),
 )
+test('23–28 provide lifecycle, race, accessible inspector and measured report experiments', () => {
+  const data = readLearningContent()
+  for (const n of [23, 24, 25, 26, 27, 28]) {
+    const id = n === 28 ? 'threejs-03' : 'threejs-step-' + n
+    const lesson = data.ko.lessons.find((l) => l.unitId === id)
+    assert.ok(lesson, id + ' missing lifecycle experiment')
+    assert.equal(lesson.steps.length, n === 27 ? 5 : n === 28 ? 4 : 3)
+    for (const locale of ['ko', 'en'])
+      for (const step of lesson.steps) {
+        const a = data.readCode(step.starterPath, locale),
+          b = data.readCode(step.solutionPath, locale)
+        assert.notEqual(a, b)
+        for (const source of [a, b]) {
+          assert.match(source, /ResizeObserver/)
+          assert.match(source, /dispose\(/)
+          transformSync(
+            source.split('<script type="module">')[1].split('</script>')[0],
+            { loader: 'js' },
+          )
+        }
+      }
+  }
+})
 test('19–22 expose independent bilingual instancing and multiple-view experiments', () => {
   const data = readLearningContent()
   for (const n of [19, 20, 21, 22]) {
@@ -159,4 +182,29 @@ test('14–18 provide independent bilingual model and motion lessons', () => {
         }
       }
   }
+})
+
+test('explicit preserved legacy JavaScript sources remain available after all HTML defaults', async () => {
+  const fs = await import('node:fs')
+  const { createHash } = await import('node:crypto')
+  const hashes = {
+    'src/labs/threejs-step-23/example.js':
+      '7b1540b4d2553fac69f6a22e95b78ef51227d9d1bca7f6ab76c856223dc46fdd',
+    'src/labs/threejs-step-24/example.js':
+      'b1d2dae37ce6f0390311beaf821df9e3568452d2dc4d0c917ef0144455834948',
+    'src/labs/threejs-step-25/example.js':
+      'e663ddaed7900a647f5250dcb845e7fccd4e29e6d29505cca5a9a6e05071b732',
+    'src/labs/threejs-step-26/example.js':
+      '83badd47572f25bc7f8ae4c209f768ca5f4fe88110146a9c7c5fa605bb13b0ee',
+    'src/labs/threejs-step-27/example.js':
+      '6daba29d0c79076ac9f74ef79b3bd7c514ac171ec3398e7f30bbba7db9815baa',
+    'src/labs/threejs-03/example.js':
+      '17b910d97117d7d96c2727f5fdbf4369308d685d71ce1761965f6f2476d8f00e',
+  }
+  for (const [file, expected] of Object.entries(hashes))
+    assert.equal(
+      createHash('sha256').update(fs.readFileSync(file)).digest('hex'),
+      expected,
+      file,
+    )
 })

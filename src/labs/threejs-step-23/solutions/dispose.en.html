@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Release the last user</title>
+    <style>
+      body{margin:0;padding:12px;font:14px/1.5 system-ui,sans-serif;color:#172554;background:white}h1{font-size:22px}#stage{width:480px;max-width:100%;height:280px}canvas{display:block;width:100%;height:100%}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}input[type=number]{width:70px}input[type=file]{max-width:100%;width:240px}button,select{padding:6px}output,pre{display:block;white-space:pre-wrap;overflow-wrap:anywhere}:focus-visible{outline:3px solid #c2410c;outline-offset:2px}#error{color:#b91c1c}
+    </style>
+  </head>
+  <body>
+    <h1>Release the last user</h1>
+    <p>
+      Press release A then release B. With disposal disabled initially, dropping
+      the last reference emits no GPU disposal event. Enable disposal and press
+      collect to dispose geometry and material once each.
+    </p>
+    <div class="controls">
+      <label
+        ><input id="disposal" type="checkbox" checked />Enable disposal</label
+      ><label><input id="ledger" type="checkbox" checked />Shared ledger</label
+      ><button id="remove">remove</button><button id="attach">Reattach</button
+      ><button id="release-a">release A</button
+      ><button id="release-b">release B</button
+      ><button id="collect">collect</button><button id="cycle">cycle</button
+      ><button id="cleanup">Cleanup</button>
+    </div>
+    <div id="stage"><canvas aria-label="Release the last user"></canvas></div>
+    <output aria-live="polite"></output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage=document.querySelector('#stage'),canvas=document.querySelector('canvas'),output=document.querySelector('output');
+      const scene=new THREE.Scene();scene.background=new THREE.Color('#edf2f7');const camera=new THREE.PerspectiveCamera(45,1,.01,1000);camera.position.set(0,2,7);camera.lookAt(0,0,0);const renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(1);
+      const events=new AbortController();let disposed=false,frames=0;const ownedGeometry=new Set(),ownedMaterial=new Set(),ownedTargets=new Set();const on=(s,t,f)=>document.querySelector(s).addEventListener(t,f,{signal:events.signal});
+
+      const counts={createdGeometry:0,createdMaterial:0,geometry:0,material:0,cycles:0};const ledger=new Map();const released=new Set();
+      function own(resource,type){ledger.set(resource,{refs:2,type});counts[type==='geometry'?'createdGeometry':'createdMaterial']++;resource.addEventListener('dispose',()=>counts[type]++);return resource;}
+      const geometry=own(new THREE.BoxGeometry(),'geometry'),material=own(new THREE.MeshBasicMaterial({color:'#2563eb'}),'material');const a=new THREE.Mesh(geometry,material),b=new THREE.Mesh(geometry,material);a.position.x=-1.2;b.position.x=1.2;scene.add(a,b);
+      function collect(){if(!document.querySelector('#disposal').checked)return;for(const [r,e]of ledger)if(e.refs===0){r.dispose();ledger.delete(r);}}
+      function release(mesh){if(released.has(mesh))return;released.add(mesh);scene.remove(mesh);if(document.querySelector('#ledger').checked)for(const r of [mesh.geometry,mesh.material]){const e=ledger.get(r);if(e)e.refs--;}collect();}
+      function draw(){if(disposed||!stage.clientWidth)return;renderer.render(scene,camera);frames++;output.textContent=JSON.stringify({children:scene.children.length,refs:[...ledger.values()].map(e=>e.refs),disposed:counts.geometry+counts.material,...counts});}
+      on('#remove','click',()=>{scene.remove(a);draw();});on('#attach','click',()=>{if(!released.has(a))scene.add(a);draw();});on('#release-a','click',()=>{release(a);draw();});on('#release-b','click',()=>{release(b);draw();});on('#collect','click',()=>{collect();draw();});
+      on('#cycle','click',()=>{const g=new THREE.BoxGeometry(),m=new THREE.MeshBasicMaterial({color:'#f97316'});counts.createdGeometry++;counts.createdMaterial++;g.addEventListener('dispose',()=>counts.geometry++);m.addEventListener('dispose',()=>counts.material++);const pair=[new THREE.Mesh(g,m),new THREE.Mesh(g,m)];pair[0].position.x=-1;pair[1].position.x=1;scene.add(...pair);renderer.render(scene,camera);scene.remove(...pair);g.dispose();m.dispose();counts.cycles++;draw();});function releaseAll(){for(const r of ledger.keys())r.dispose();ledger.clear();}
+      function resizeScene(){if(disposed)return;const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();draw();}const observer=new ResizeObserver(resizeScene);observer.observe(stage);resizeScene();
+      function cleanup(){if(disposed)return;disposed=true;observer.disconnect();events.abort();renderer.setAnimationLoop(null);releaseAll();for(const x of ownedTargets)x.dispose();for(const x of ownedGeometry)x.dispose();for(const x of ownedMaterial)x.dispose();renderer.dispose();scene.clear();output.textContent="Cleanup complete"+' '+JSON.stringify(counts);}
+      on('#cleanup','click',cleanup);window.addEventListener('pagehide',cleanup,{once:true,signal:events.signal});
+    </script>
+  </body>
+</html>

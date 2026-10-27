@@ -281,7 +281,7 @@
       "requiredCapabilities": [
         "Creation and cleanup counts and ownership observation"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-24",
@@ -291,7 +291,7 @@
       "requiredCapabilities": [
         "Local asset delay, failure and out-of-order completion experiments"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-25",
@@ -306,7 +306,7 @@
         "Real HTML controls, keyboard support and status announcements",
         "HTML accessibility basics required"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-26",
@@ -326,7 +326,7 @@
         "In-site tables and logs",
         "precise GPU timing is not required"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-27",
@@ -352,7 +352,7 @@
       "requiredCapabilities": [
         "A starter project connecting earlier assets, controls and observation tools"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-03",
@@ -372,8 +372,8 @@
       "requiredCapabilities": [
         "Repeated runs, statistics comparison, notes and backup"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     }
   ],
-  "sourceHash": "e190f8d0438d41595abb9614cac4c7f423eb38569e91e86a6e0f1b016183ce80"
+  "sourceHash": "6635ce6d6568de41673104ce46dc651740e0fc8cf5c3b9644fbdff2f6ce3af74"
 }

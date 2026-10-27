@@ -39,12 +39,8 @@ test('integrated HTML lesson documents keep every required task inside the site'
       prefix + '/graphics/threejs/units/23/README.md',
       'utf8',
     )
-    assert.match(
-      future,
-      locale === 'ko'
-        ? /별도 프로젝트에서 수행/
-        : /scope in a separate project/,
-    )
+    assert.match(future, expected)
+    assert.doesNotMatch(future, excluded)
   }
 })
 test('optional lessons and APIs keep existing guide fallback; same source generates Markdown', () => {
@@ -227,10 +223,14 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
     const paths = [
       'src/labs/threejs-01/example.html',
       'src/labs/threejs-02/example.html',
+      'src/labs/threejs-03/example.html',
       'src/labs/threejs-step-02/example.html',
       'src/labs/threejs-step-03/example.html',
       'src/labs/threejs-step-04/example.html',
-      ...[5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22].map(
+      ...[
+        5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+        25, 26, 27,
+      ].map(
         (n) =>
           'src/labs/threejs-step-' +
           String(n).padStart(2, '0') +
@@ -385,7 +385,7 @@ test('sizing lesson keeps bootstrap separate from deliberately missing student b
   }
 })
 
-test('generated source links select localized HTML while unconverted JavaScript links remain intact', async () => {
+test('generated source links select localized HTML and preserve explicit English JavaScript downloads', async () => {
   const fs = await import('node:fs')
   const path = await import('node:path')
   for (const locale of ['ko', 'en']) {
@@ -405,12 +405,12 @@ test('generated source links select localized HTML while unconverted JavaScript 
         'units/' + n,
         locale === 'ko' ? 'html' : 'en.html',
       ]),
-      ...[15, 16, 17, 18, 19, 20, 21, 22].map((n) => [
+      ...[15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27].map((n) => [
         'threejs-step-' + n,
         'units/' + n,
         locale === 'ko' ? 'html' : 'en.html',
       ]),
-      ['threejs-step-23', 'units/23', 'js'],
+      ['threejs-03', '03-project', locale === 'ko' ? 'html' : 'en.html'],
     ]) {
       const file = root + '/labs/graphics/threejs/' + doc + '/README.md'
       const text = fs.readFileSync(file, 'utf8')
@@ -425,7 +425,7 @@ test('generated source links select localized HTML while unconverted JavaScript 
         path.resolve('src/labs/' + id + '/example.' + extension),
       )
       assert.ok(fs.existsSync(resolved))
-      if (id !== 'threejs-01') {
+      if (id !== 'threejs-01' && id !== 'threejs-03') {
         const index = root + '/examples-expanded.md'
         const row = fs
           .readFileSync(index, 'utf8')
@@ -437,8 +437,18 @@ test('generated source links select localized HTML while unconverted JavaScript 
             : /\[Source code\]\(([^)]+)\)/,
         )[1]
         assert.equal(path.resolve(path.dirname(index), link), resolved)
-        if (locale === 'en')
+        if (locale === 'en') {
           assert.match(row, /English reading-source download/)
+          const legacy = row.match(
+            /\[English reading-source download\]\(([^)]+)\)/,
+          )[1]
+          const resolvedLegacy = path.resolve(path.dirname(index), legacy)
+          assert.equal(
+            resolvedLegacy,
+            path.resolve('public/examples-en/' + id + '/example.js'),
+          )
+          assert.ok(fs.existsSync(resolvedLegacy))
+        }
       }
     }
   }

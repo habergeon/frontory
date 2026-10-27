@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Transfer observations into existing notes</title>
+    <style>
+      body{margin:0;padding:12px;font:14px/1.5 system-ui,sans-serif;color:#172554;background:white}h1{font-size:22px}#stage{width:480px;max-width:100%;height:280px}canvas{display:block;width:100%;height:100%}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}input[type=number]{width:70px}input[type=file]{max-width:100%;width:240px}button,select{padding:6px}output,pre{display:block;white-space:pre-wrap;overflow-wrap:anywhere}:focus-visible{outline:3px solid #c2410c;outline-offset:2px}#error{color:#b91c1c}
+    </style>
+  </head>
+  <body>
+    <h1>Transfer observations into existing notes</h1>
+    <p>
+      Create 16 versus 8 segment measurements and 3 cycle results. Press Select
+      report and copy with Ctrl+C, then paste into the site Notes tab. Add
+      conditions, actual values, visual differences, cleanup results and
+      measurement limits in your own words; use existing save and backup.
+    </p>
+    <div class="controls">
+      <label
+        >Count<input
+          id="count"
+          type="number"
+          value="8"
+          min="1"
+          max="12"
+          step="1" /></label
+      ><label
+        >Segments<input
+          id="segments"
+          type="number"
+          value="16"
+          min="8"
+          max="32"
+          step="8" /></label
+      ><label
+        >Passes<input
+          id="passes"
+          type="number"
+          value="1"
+          min="1"
+          max="2"
+          step="1" /></label
+      ><label><input id="totals" type="checkbox" checked />Frame totals</label
+      ><button id="apply">Apply and measure</button
+      ><button id="cycle">cycle</button
+      ><button id="select-report">Select report</button
+      ><button id="cleanup">Cleanup</button>
+    </div>
+    <p>
+      CPU ms is elapsed call time, not GPU completion time or an improvement
+      rate. Compare on the same device, size and camera.
+    </p>
+
+    <div id="stage">
+      <canvas aria-label="Transfer observations into existing notes"></canvas>
+    </div>
+    <output aria-live="polite"></output>
+    <pre id="report" tabindex="0"></pre>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage=document.querySelector('#stage'),canvas=document.querySelector('canvas'),output=document.querySelector('output');
+      const scene=new THREE.Scene();scene.background=new THREE.Color('#edf2f7');const camera=new THREE.PerspectiveCamera(45,1,.01,1000);camera.position.set(0,2,7);camera.lookAt(0,0,0);const renderer=new THREE.WebGLRenderer({canvas,antialias:true});renderer.setPixelRatio(1);
+      const events=new AbortController();let disposed=false,frames=0;const ownedGeometry=new Set(),ownedMaterial=new Set(),ownedTargets=new Set();const on=(s,t,f)=>document.querySelector(s).addEventListener(t,f,{signal:events.signal});
+
+      const counts={createdGeometry:0,createdMaterial:0,geometry:0,material:0,cycles:0};let meshes=[],g=null,m=null,stats={},records=[];const target=new THREE.WebGLRenderTarget(128,128);ownedTargets.add(target);const miniCamera=new THREE.PerspectiveCamera(45,1,.01,100);miniCamera.position.set(0,4,7);miniCamera.lookAt(0,0,0);
+      function rebuild(){releaseAll();g=new THREE.SphereGeometry(.35,Number(document.querySelector("#segments").value),8);m=new THREE.MeshBasicMaterial({color:'#2563eb',wireframe:false});counts.createdGeometry++;counts.createdMaterial++;g.addEventListener('dispose',()=>counts.geometry++);m.addEventListener('dispose',()=>counts.material++);const count=Number(document.querySelector('#count').value);meshes=Array.from({length:count},(_,i)=>{const o=new THREE.Mesh(g,m);o.position.set((i%4-1.5)*1.1,Math.floor(i/4)-.5,0);scene.add(o);return o;});}
+      function draw(){if(disposed||!stage.clientWidth)return;renderer.info.autoReset=!document.querySelector('#totals').checked;renderer.info.reset();const start=performance.now();const passes=Number(document.querySelector('#passes').value);if(passes===2){renderer.setRenderTarget(target);renderer.render(scene,miniCamera);}renderer.setRenderTarget(null);renderer.render(scene,camera);stats={calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,lines:renderer.info.render.lines,cpuMs:performance.now()-start,count:meshes.length,segments:Number(document.querySelector('#segments').value),passes,buffer:[canvas.width,canvas.height],dpr:renderer.getPixelRatio(),camera:camera.position.toArray(),memory:{...renderer.info.memory},...counts};frames++;output.textContent=JSON.stringify(stats);}
+      function record(){records.push(JSON.parse(JSON.stringify(stats)));document.querySelector('#report').textContent=JSON.stringify({conditions:"Same device, size and camera. CPU call duration differs from GPU time. Add visual differences and cleanup results to site notes.",records,cleanup:counts},null,2);}
+      on('#apply','click',()=>{for(const id of ['count','segments','passes'])if(!document.querySelector('#'+id).checkValidity()||!document.querySelector('#'+id).value)return;rebuild();draw();record();});on('#cycle','click',()=>{counts.cycles++;rebuild();draw();record();});on('#select-report','click',()=>{const range=document.createRange();range.selectNodeContents(document.querySelector('#report'));const selection=getSelection();selection.removeAllRanges();selection.addRange(range);document.querySelector('#report').focus();});function releaseAll(){for(const mesh of meshes)scene.remove(mesh);meshes=[];if(g){g.dispose();g=null;}if(m){m.dispose();m=null;}if(disposed)record();}rebuild();queueMicrotask(()=>{draw();record();});
+
+      function resizeScene(){if(disposed)return;const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();draw();}const observer=new ResizeObserver(resizeScene);observer.observe(stage);resizeScene();
+      function cleanup(){if(disposed)return;disposed=true;observer.disconnect();events.abort();renderer.setAnimationLoop(null);releaseAll();for(const x of ownedTargets)x.dispose();for(const x of ownedGeometry)x.dispose();for(const x of ownedMaterial)x.dispose();renderer.dispose();scene.clear();output.textContent="Cleanup complete"+' '+JSON.stringify(counts);}
+      on('#cleanup','click',cleanup);window.addEventListener('pagehide',cleanup,{once:true,signal:events.signal});
+    </script>
+  </body>
+</html>

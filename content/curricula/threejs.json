@@ -1214,41 +1214,42 @@
       "day": 23,
       "id": "threejs-step-23",
       "title": "자원 소유권 장부",
-      "prerequisites": "선수 개념: 오프스크린 출력, 상태 복원. 22단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "prerequisites": "선수 단원: 07, 10, 14, 22. 이번 실험에서 이어갑니다.",
       "concepts": [
         {
-          "title": "명시적 해제",
-          "explanation": "scene.remove는 장면 연결만 끊습니다. geometry·material·texture의 GPU 관련 자원은 별도 dispose가 필요합니다."
+          "title": "연결 해제와 GPU 자원",
+          "explanation": "remove 버튼을 누르세요. 왼쪽 큐브는 사라지지만 geometry와 material의 dispose 횟수는 0입니다. 다시 연결하면 같은 참조로 그립니다. 제거는 부모 연결만 끊습니다."
         },
         {
-          "title": "공유 수명",
-          "explanation": "한 자원을 여러 객체가 쓸 수 있습니다. 마지막 사용자가 끝나기 전에 해제하지 않도록 소유자와 참조 범위를 기록합니다."
+          "title": "마지막 사용자의 해제",
+          "explanation": "release A 다음 release B를 누르세요. 시작의 해제 허용이 꺼져 있으면 마지막 참조가 없어져도 GPU 해제 이벤트는 없습니다. 해제 허용을 켠 뒤 collect를 눌러 geometry와 material을 각각 한 번 해제하세요."
         }
       ],
       "outcomes": [
-        "객체 제거와 자원 해제를 구별한다.",
-        "같은 자원을 중복 dispose하지 않는다."
+        "remove 후 children=1, disposed=0이며 다시 연결하면 children=2입니다.",
+        "첫 소유자 해제는 ref=1·disposed=0, 마지막 해제 후 collect는 ref=0·disposed=2입니다."
       ],
       "steps": [
-        "외부 실습 프로젝트의 day-23.js와 index.html을 준비하세요. 생성한 geometry,material,texture를 Set으로 추적하는 resourceTracker를 작성하세요.",
-        "공유 재질 두 Mesh 중 하나만 제거한 뒤 나머지 렌더를 유지하고 최종 종료 때 한 번씩 해제하세요.",
-        "입력 조건 한 사용자만에서 출력을 저장한 뒤 모든 사용자 조건으로 다시 실행하세요. 예상: 공유 자원은 마지막 사용자 종료 뒤 해제해야 합니다. 실제 화면·로그와 대조하고 day-23-notes.md에 실제 결과와 차이의 원인을 남기세요."
+        "remove 버튼을 누르세요. 왼쪽 큐브는 사라지지만 geometry와 material의 dispose 횟수는 0입니다. 다시 연결하면 같은 참조로 그립니다. 제거는 부모 연결만 끊습니다.",
+        "release A 다음 release B를 누르세요. 시작의 해제 허용이 꺼져 있으면 마지막 참조가 없어져도 GPU 해제 이벤트는 없습니다. 해제 허용을 켠 뒤 collect를 눌러 geometry와 material을 각각 한 번 해제하세요.",
+        "공유 장부를 켜세요. A와 B는 같은 geometry와 material을 사용하므로 ref=2입니다. release A 후 B를 확인하고 release B를 누르세요. cycle을 3회 누르면 매회 geometry·material 각 1개 생성·해제됩니다. 전체 정리를 두 번 호출해도 중복 해제는 없어야 합니다."
       ],
       "variables": [
         {
-          "name": "삭제 범위",
-          "baseline": "한 사용자만",
-          "change": "모든 사용자",
-          "expected": "공유 자원은 마지막 사용자 종료 뒤 해제해야 합니다"
+          "name": "연결 해제와 GPU 자원",
+          "baseline": "starter",
+          "change": "solution",
+          "expected": "remove 후 children=1, disposed=0이며 다시 연결하면 children=2입니다."
         }
       ],
       "criteria": [
-        "객체 제거와 자원 해제를 구별한다.",
-        "같은 자원을 중복 dispose하지 않는다."
+        "remove 후 children=1, disposed=0이며 다시 연결하면 children=2입니다.",
+        "첫 소유자 해제는 ref=1·disposed=0, 마지막 해제 후 collect는 ref=0·disposed=2입니다."
       ],
       "questions": [
-        "material.dispose가 texture도 자동 해제하나요?",
-        "glTF ImageBitmap의 수명에는 무엇을 추가 확인하나요?"
+        "장면에서 빠진 객체를 다시 쓸 수 있는 이유는 무엇인가요?",
+        "remove만 호출하면 GPU 자원 정리가 끝나나요?",
+        "공유 자원을 각 Mesh가 바로 dispose하면 무엇이 잘못되나요?"
       ],
       "references": [
         {
@@ -1260,47 +1261,50 @@
           "url": "https://threejs.org/docs/pages/GLTFLoader.html"
         }
       ],
-      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+      "environment": "사이트에서 독립 HTML을 편집·실행합니다. Three.js 0.186.1을 사용하며 별도 설치·서버가 필요 없습니다. 기존 JavaScript 초안은 보존됩니다.",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs"
     },
     {
       "day": 24,
       "id": "threejs-step-24",
       "title": "비동기 장면 교체",
-      "prerequisites": "선수 개념: 명시적 해제, 공유 수명. 23단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "prerequisites": "선수 단원: 14, 17, 23. 이번 실험에서 이어갑니다.",
       "concepts": [
         {
-          "title": "오래된 결과",
-          "explanation": "이전 요청의 모델이 늦게 도착할 수 있습니다. 요청 토큰을 비교해 현재 장면에 붙일지 결정합니다."
+          "title": "요청 순서와 완료 순서",
+          "explanation": "generation 보호를 켜세요. slow A then fast B를 누릅니다. A는 실제 textured GLB 파싱 후 300ms, B는 animated 파싱 후 20ms 기다립니다. 시작은 보호가 꺼져 A가 마지막에 장면을 덮습니다. 켠 뒤 다시 실행해 B가 유지되는지 확인하세요."
         },
         {
-          "title": "버려진 자원",
-          "explanation": "사용하지 않는 로딩 결과도 자원을 가질 수 있습니다. 화면에 붙이지 않았더라도 소유한 자원을 정리해야 합니다."
+          "title": "늦은 파싱 결과의 소유 수명",
+          "explanation": "stale 정리를 켜고 순서 역전을 실행하세요. A의 textured GLB는 파싱이 끝난 실제 geometry·material·texture와 ImageBitmap을 가집니다. 늦은 A를 장면에 넣지 않고 자원을 정리합니다. 닫은 bitmap 횟수와 dispose 횟수를 확인하세요."
         }
       ],
       "outcomes": [
-        "늦은 응답이 새 모델을 바꾸지 않는다.",
-        "버린 결과의 정리 경로가 있다."
+        "완료 로그는 B 다음 A이며 현재 모델은 B입니다.",
+        "B가 유지되고 A의 geometry·material·texture 및 bitmap이 각각 정리됩니다."
       ],
       "steps": [
-        "외부 실습 프로젝트의 day-24.js와 index.html을 준비하세요. 모델 선택마다 증가하는 requestId를 저장하고 loadAsync 완료 시 비교하세요.",
-        "느린 모델 A와 빠른 B를 교대로 요청해 B만 보이며 A의 자원이 정리되는지 로그를 남기세요.",
-        "입력 조건 요청순에서 출력을 저장한 뒤 역순 조건으로 다시 실행하세요. 예상: 현재 요청과 다른 결과는 장면을 덮지 않습니다. 실제 화면·로그와 대조하고 day-24-notes.md에 실제 결과와 차이의 원인을 남기세요."
+        "generation 보호를 켜세요. slow A then fast B를 누릅니다. A는 실제 textured GLB 파싱 후 300ms, B는 animated 파싱 후 20ms 기다립니다. 시작은 보호가 꺼져 A가 마지막에 장면을 덮습니다. 켠 뒤 다시 실행해 B가 유지되는지 확인하세요.",
+        "stale 정리를 켜고 순서 역전을 실행하세요. A의 textured GLB는 파싱이 끝난 실제 geometry·material·texture와 ImageBitmap을 가집니다. 늦은 A를 장면에 넣지 않고 자원을 정리합니다. 닫은 bitmap 횟수와 dispose 횟수를 확인하세요.",
+        "손상 GLB를 누른 뒤 현재 모델·객체 목록이 유지되는지 확인하세요. 샘플 복구를 누르면 animated 모델을 다시 읽습니다. 실패 뒤 같은 컨트롤을 계속 사용하세요. 로컬 파일도 같은 검사와 parseAsync를 거칩니다."
       ],
       "variables": [
         {
-          "name": "완료 순서",
-          "baseline": "요청순",
-          "change": "역순",
-          "expected": "현재 요청과 다른 결과는 장면을 덮지 않습니다"
+          "name": "요청 순서와 완료 순서",
+          "baseline": "starter",
+          "change": "solution",
+          "expected": "완료 로그는 B 다음 A이며 현재 모델은 B입니다."
         }
       ],
       "criteria": [
-        "늦은 응답이 새 모델을 바꾸지 않는다.",
-        "버린 결과의 정리 경로가 있다."
+        "완료 로그는 B 다음 A이며 현재 모델은 B입니다.",
+        "B가 유지되고 A의 geometry·material·texture 및 bitmap이 각각 정리됩니다."
       ],
       "questions": [
-        "토큰 검사가 네트워크 요청도 취소하나요?",
-        "실패한 이전 요청의 오류를 현재 UI에 보여야 하나요?"
+        "요청이 먼저 시작됐다는 사실이 적용 권한도 보장하나요?",
+        "UI를 안 바꾸는 것만으로 stale 처리에 충분한가요?",
+        "이전 요청 실패가 최신 성공 상태를 바꿔도 되나요?"
       ],
       "references": [
         {
@@ -1312,47 +1316,50 @@
           "url": "https://threejs.org/manual/pages/cleanup.html"
         }
       ],
-      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+      "environment": "사이트에서 독립 HTML을 편집·실행합니다. Three.js 0.186.1을 사용하며 별도 설치·서버가 필요 없습니다. 기존 JavaScript 초안은 보존됩니다.",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs"
     },
     {
       "day": 25,
       "id": "threejs-step-25",
       "title": "HTML 제어와 접근성",
-      "prerequisites": "선수 개념: 오래된 결과, 버려진 자원. 24단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "prerequisites": "선수 단원: 13, 14, 16. 이번 실험에서 이어갑니다.",
       "concepts": [
         {
-          "title": "대체 조작",
-          "explanation": "3D 픽셀만으로 개별 물체 의미가 전달되지는 않습니다. HTML 객체 목록과 버튼으로 선택과 카메라 이동을 제공할 수 있습니다."
+          "title": "canvas 밖의 객체 목록",
+          "explanation": "객체 목록 연결을 켜고 적용하세요. Tab으로 객체 목록에 도달해 ArrowDown으로 Right를 선택합니다. 목록 change가 선택 상태와 텍스트를 함께 갱신합니다. canvas 이미지만으로는 선택 이름을 알 수 없습니다."
         },
         {
-          "title": "상태 알림",
-          "explanation": "선택 이름과 로딩 오류는 텍스트로 전달해야 합니다. 매 프레임 좌표를 알리면 중요한 알림이 묻힐 수 있습니다."
+          "title": "키보드로 카메라 조작",
+          "explanation": "키보드 카메라를 켜고 적용하세요. Tab으로 카메라 버튼에 도달한 뒤 Enter로 오른쪽, 확대, 선택 맞춤을 실행합니다. 화면과 camera 좌표를 함께 읽으세요. 조작 버튼은 native button입니다."
         }
       ],
       "outcomes": [
-        "마우스 없이 주요 기능을 사용한다.",
-        "오류와 선택이 색 외 텍스트로 전달된다."
+        "선택 상태에 Right와 인덱스 1이 표시됩니다.",
+        "오른쪽은 camera.x를 1 증가시키고 확대는 z를 1 줄입니다."
       ],
       "steps": [
-        "외부 실습 프로젝트의 day-25.js와 index.html을 준비하세요. 객체별 HTML 버튼과 선택 설명 영역을 만들고 raycast와 같은 selectObject를 호출하세요.",
-        "키보드로 객체 선택·카메라 맞춤·일시정지를 실행하고 포커스 복귀를 확인하세요.",
-        "입력 조건 포인터에서 출력을 저장한 뒤 키보드만 조건으로 다시 실행하세요. 예상: 같은 객체와 카메라 목표를 선택할 수 있습니다. 실제 화면·로그와 대조하고 day-25-notes.md에 실제 결과와 차이의 원인을 남기세요."
+        "객체 목록 연결을 켜고 적용하세요. Tab으로 객체 목록에 도달해 ArrowDown으로 Right를 선택합니다. 목록 change가 선택 상태와 텍스트를 함께 갱신합니다. canvas 이미지만으로는 선택 이름을 알 수 없습니다.",
+        "키보드 카메라를 켜고 적용하세요. Tab으로 카메라 버튼에 도달한 뒤 Enter로 오른쪽, 확대, 선택 맞춤을 실행합니다. 화면과 camera 좌표를 함께 읽으세요. 조작 버튼은 native button입니다.",
+        "상태 알림을 켜고 적용하세요. Tab·Enter만으로 실패, 복구 버튼을 실행합니다. 실패 뒤 목록과 카메라 버튼이 남고 role=status가 오류와 복구 안내를 읽습니다. 복구 후 목록으로 초점을 돌립니다."
       ],
       "variables": [
         {
-          "name": "입력",
-          "baseline": "포인터",
-          "change": "키보드만",
-          "expected": "같은 객체와 카메라 목표를 선택할 수 있습니다"
+          "name": "canvas 밖의 객체 목록",
+          "baseline": "starter",
+          "change": "solution",
+          "expected": "선택 상태에 Right와 인덱스 1이 표시됩니다."
         }
       ],
       "criteria": [
-        "마우스 없이 주요 기능을 사용한다.",
-        "오류와 선택이 색 외 텍스트로 전달된다."
+        "선택 상태에 Right와 인덱스 1이 표시됩니다.",
+        "오른쪽은 camera.x를 1 증가시키고 확대는 z를 1 줄입니다."
       ],
       "questions": [
-        "캔버스 aria-label만으로 객체 목록이 제공되나요?",
-        "장면 교체 후 사라진 버튼의 포커스는 어디로 옮기나요?"
+        "3D 객체의 이름을 화면 낭독기에 어떻게 전하나요?",
+        "키보드 사용자가 현재 초점 위치를 어떻게 확인하나요?",
+        "색 변화만으로 오류를 표현하면 무엇을 놓치나요?"
       ],
       "references": [
         {
@@ -1364,47 +1371,50 @@
           "url": "https://threejs.org/docs/pages/OrbitControls.html"
         }
       ],
-      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+      "environment": "사이트에서 독립 HTML을 편집·실행합니다. Three.js 0.186.1을 사용하며 별도 설치·서버가 필요 없습니다. 기존 JavaScript 초안은 보존됩니다.",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs"
     },
     {
       "day": 26,
       "id": "threejs-step-26",
       "title": "렌더 통계와 프로파일",
-      "prerequisites": "선수 개념: 대체 조작, 상태 알림. 25단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "prerequisites": "선수 단원: 16, 19, 22, 23. 이번 실험에서 이어갑니다.",
       "concepts": [
         {
-          "title": "통계 범위",
-          "explanation": "renderer.info는 렌더 호출·삼각형·일부 자원 수를 보여 줍니다. 전체 GPU VRAM이나 정확한 GPU 실행 시간을 측정하는 도구는 아닙니다."
+          "title": "한 패스의 draw call",
+          "explanation": "프레임 누적을 켜고 적용하세요. 한 패스에서 큐브 두 개는 calls=2, triangles=24입니다. 측정 버튼을 2회 눌러도 같은 값이어야 합니다. reset은 새 논리 프레임 시작 때 한 번 호출합니다."
         },
         {
-          "title": "다중 패스",
-          "explanation": "한 프레임에 여러 render가 있으면 초기화 시점이 중요합니다. autoReset을 조정하고 프레임 단위로 reset하면 합계를 비교할 수 있습니다."
+          "title": "다중 패스의 프레임 총계",
+          "explanation": "다중 패스 시작은 autoReset=true여서 마지막 패스의 calls=2만 보입니다. 프레임 누적을 켜고 적용하세요. 미니 카메라와 메인 카메라가 각각 큐브 두 개를 그립니다."
         }
       ],
       "outcomes": [
-        "통계가 프레임 전체를 포함하는지 명시한다.",
-        "자원 수를 바이트나 전체 VRAM으로 표현하지 않는다."
+        "같은 크기·카메라·개수에서 calls=2, triangles=24입니다.",
+        "한 프레임 총계는 calls=4, triangles=48입니다."
       ],
       "steps": [
-        "외부 실습 프로젝트의 day-26.js와 index.html을 준비하세요. 메인 화면과 미니맵의 렌더를 묶어 info.autoReset=false로 통계를 수집하세요.",
-        "프레임 시작에 info.reset을 호출하고 calls·triangles·memory 항목과 CPU 프레임 간격을 따로 저장하세요.",
-        "입력 조건 메인만에서 출력을 저장한 뒤 메인과 미니맵 조건으로 다시 실행하세요. 예상: 한 프레임의 호출·삼각형 합계가 증가할 수 있습니다. 실제 화면·로그와 대조하고 day-26-notes.md에 실제 결과와 차이의 원인을 남기세요."
+        "프레임 누적을 켜고 적용하세요. 한 패스에서 큐브 두 개는 calls=2, triangles=24입니다. 측정 버튼을 2회 눌러도 같은 값이어야 합니다. reset은 새 논리 프레임 시작 때 한 번 호출합니다.",
+        "다중 패스 시작은 autoReset=true여서 마지막 패스의 calls=2만 보입니다. 프레임 누적을 켜고 적용하세요. 미니 카메라와 메인 카메라가 각각 큐브 두 개를 그립니다.",
+        "패스를 1→2로 바꾸며 각각 측정하세요. 개수=2, DPR=1, 480×280 이하 CSS 크기와 같은 카메라를 유지합니다. CPU ms는 performance.now로 잰 호출 경과 시간이며 정확한 GPU 시간이나 개선율이 아닙니다."
       ],
       "variables": [
         {
-          "name": "렌더 패스",
-          "baseline": "메인만",
-          "change": "메인과 미니맵",
-          "expected": "한 프레임의 호출·삼각형 합계가 증가할 수 있습니다"
+          "name": "한 패스의 draw call",
+          "baseline": "starter",
+          "change": "solution",
+          "expected": "같은 크기·카메라·개수에서 calls=2, triangles=24입니다."
         }
       ],
       "criteria": [
-        "통계가 프레임 전체를 포함하는지 명시한다.",
-        "자원 수를 바이트나 전체 VRAM으로 표현하지 않는다."
+        "같은 크기·카메라·개수에서 calls=2, triangles=24입니다.",
+        "한 프레임 총계는 calls=4, triangles=48입니다."
       ],
       "questions": [
-        "렌더 호출 시간이 GPU 완료 시간과 다른 이유는 무엇인가요?",
-        "내부 캐시 때문에 dispose 뒤 0이 아닐 수 있나요?"
+        "reset을 빠뜨리고 여러 프레임을 더하면 어떤 값이 되나요?",
+        "마지막 패스의 수치를 프레임 전체로 오해하면 어떤 비교가 틀리나요?",
+        "triangles가 줄면 화면 품질도 항상 같나요?"
       ],
       "references": [
         {
@@ -1416,47 +1426,54 @@
           "url": "https://threejs.org/manual/pages/cleanup.html"
         }
       ],
-      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+      "environment": "사이트에서 독립 HTML을 편집·실행합니다. Three.js 0.186.1을 사용하며 별도 설치·서버가 필요 없습니다. 기존 JavaScript 초안은 보존됩니다.",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs"
     },
     {
       "day": 27,
       "id": "threejs-step-27",
       "title": "장면 검사기 통합",
-      "prerequisites": "선수 개념: 통계 범위, 다중 패스. 26단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "prerequisites": "선수 단원: 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26. 이번 실험에서 이어갑니다.",
       "concepts": [
         {
-          "title": "기능 계약",
-          "explanation": "로딩·선택·카메라·애니메이션을 한 상태 모델로 연결해야 합니다. 각각의 오류 경로가 다른 기능까지 멈추지 않도록 나눕니다."
+          "title": "검사기에 모델 불러오기",
+          "explanation": "샘플을 static에서 animated로 바꾸고 불러오세요. 모델 교체 성공 뒤에만 장면·목록·mixer가 함께 바뀝니다. 파일은 실행 중에만 사용합니다."
         },
         {
-          "title": "재실행 검증",
-          "explanation": "정리 누락은 첫 실행에서 드러나지 않을 수 있습니다. 생성과 종료를 반복하며 이벤트와 자원 수의 추세를 확인합니다."
+          "title": "선택과 카메라 연결",
+          "explanation": "객체 목록에서 Right를 선택하고 선택 맞춤을 누르세요. 시작은 맞춤이 꺼져 있으므로 맞춤 허용을 켜고 적용합니다. Box3 중심·크기로 카메라 위치와 시선을 함께 갱신합니다."
         }
       ],
       "outcomes": [
-        "오류 후에도 카메라와 UI가 반응한다.",
-        "종료 후 렌더 루프가 멈춘다."
+        "animated는 Left·Right 2개와 SlideLeft 클립 1개를 가집니다.",
+        "target이 선택 객체의 중심으로 바뀌고 그 객체가 화면 중심에 옵니다."
       ],
       "steps": [
-        "외부 실습 프로젝트의 day-27.js와 index.html을 준비하세요. 모델 검사기에 로컬 로딩·fallback·선택 목록·미니맵·통계 패널을 결합하세요.",
-        "생성→선택→모델 교체→오류→종료를 5회 반복하고 루프와 controls·observer 정리를 기록하세요.",
-        "입력 조건 1회에서 출력을 저장한 뒤 5회 조건으로 다시 실행하세요. 예상: 수명 관리가 맞으면 이벤트와 활성 루프가 누적되지 않습니다. 실제 화면·로그와 대조하고 day-27-notes.md에 실제 결과와 차이의 원인을 남기세요."
+        "샘플을 static에서 animated로 바꾸고 불러오세요. 모델 교체 성공 뒤에만 장면·목록·mixer가 함께 바뀝니다. 파일은 실행 중에만 사용합니다.",
+        "객체 목록에서 Right를 선택하고 선택 맞춤을 누르세요. 시작은 맞춤이 꺼져 있으므로 맞춤 허용을 켜고 적용합니다. Box3 중심·크기로 카메라 위치와 시선을 함께 갱신합니다.",
+        "animated를 불러온 뒤 재생을 누르세요. 시작의 속도 0을 1로 바꾸고 적용합니다. Left의 X가 시간에 따라 달라집니다. pause 뒤 정지 위치를 보고 stop으로 되감으세요.",
+        "미니맵을 켜고 적용하세요. 같은 장면을 별도 카메라로 target에 그린 뒤 오른쪽 아래에 표시합니다. 선택·애니메이션을 바꾸며 두 화면이 함께 갱신되는지 보세요.",
+        "손상 GLB, slow A then fast B, 샘플 복구를 차례로 실행하세요. 로딩 실패·stale에도 객체 목록·선택·카메라·재생·미니맵 컨트롤이 남습니다. 복구 후 키보드로 Right 선택·맞춤·재생을 다시 실행하세요."
       ],
       "variables": [
         {
-          "name": "실행 횟수",
-          "baseline": "1회",
-          "change": "5회",
-          "expected": "수명 관리가 맞으면 이벤트와 활성 루프가 누적되지 않습니다"
+          "name": "검사기에 모델 불러오기",
+          "baseline": "starter",
+          "change": "solution",
+          "expected": "animated는 Left·Right 2개와 SlideLeft 클립 1개를 가집니다."
         }
       ],
       "criteria": [
-        "오류 후에도 카메라와 UI가 반응한다.",
-        "종료 후 렌더 루프가 멈춘다."
+        "animated는 Left·Right 2개와 SlideLeft 클립 1개를 가집니다.",
+        "target이 선택 객체의 중심으로 바뀌고 그 객체가 화면 중심에 옵니다."
       ],
       "questions": [
-        "자원 수 증가가 항상 누수를 뜻하나요?",
-        "사용자 설정과 GPU 자원은 각각 어디에 보관하나요?"
+        "실패할 수 있는 작업 전에 무엇을 보존해야 하나요?",
+        "선택한 객체와 카메라 target은 어떻게 연결되나요?",
+        "모델 교체 전에 mixer 캐시를 왜 해제하나요?",
+        "미니맵이 멈췄을 때 어떤 갱신을 점검하나요?",
+        "오류 뒤에도 함께 작동해야 하는 기능은 무엇인가요?"
       ],
       "references": [
         {
@@ -1472,47 +1489,52 @@
           "url": "https://threejs.org/docs/pages/WebGLRenderer.html"
         }
       ],
-      "environment": "예제 화면의 실행 범위 안내를 먼저 확인하세요. 다음은 과제를 별도 프로젝트로 확장할 때의 준비 환경입니다. 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+      "environment": "사이트에서 독립 HTML을 편집·실행합니다. Three.js 0.186.1을 사용하며 별도 설치·서버가 필요 없습니다. 기존 JavaScript 초안은 보존됩니다.",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs"
     },
     {
       "day": 28,
       "id": "threejs-03",
       "title": "렌더링 자원과 측정",
-      "prerequisites": "선수 개념: 기능 계약, 재실행 검증. 27단위의 결과 파일과 관찰 기록을 준비하세요.",
+      "prerequisites": "선수 단원: 19, 23, 24, 26, 27. 이번 실험에서 이어갑니다.",
       "concepts": [
         {
-          "title": "병목 분리",
-          "explanation": "draw call 감소와 픽셀 비용 감소는 서로 다른 개선입니다. 같은 장면에서 한 변수씩 바꿔야 효과를 해석할 수 있습니다."
+          "title": "비교 기준을 실제로 저장",
+          "explanation": "측정 버튼을 눌러 기준을 만드세요. 개수=8, 세그먼트=16, 패스=1을 유지하고 카메라·buffer·DPR·calls·triangles·CPU ms를 읽습니다. 초기 기록 없음 상태는 아직 측정하지 않았다는 뜻입니다."
         },
         {
-          "title": "반복 정리",
-          "explanation": "종료 시 루프·컨트롤·관찰자와 소유 자원을 함께 해제합니다. renderer.info의 안정 추세는 참고 자료이며 전체 VRAM의 해제 증명은 아닙니다."
+          "title": "품질과 비용을 따로 비교",
+          "explanation": "세그먼트 16으로 측정한 뒤 8로 바꾸고 다시 측정하세요. 개수·패스·카메라는 고정합니다. 구의 윤곽과 triangles를 함께 보세요. 시작과 완성의 모양 차이가 품질 비용 비교입니다."
         }
       ],
       "outcomes": [
-        "동일 조건의 지표와 자원 정리 과정을 기록한다.",
-        "성능 개선과 품질·선택 기능의 유지 여부를 함께 설명한다."
+        "첫 측정 결과와 조건이 기록 영역에 추가됩니다.",
+        "8에서는 삼각형 수가 줄지만 윤곽도 달라집니다. 임의 개선율은 계산하지 않습니다."
       ],
       "steps": [
-        "외부 실습 프로젝트의 day-28.js와 index.html을 준비하세요. 기존 threejs-03 출발 코드에 장면 생성·삭제와 개별 Mesh/InstancedMesh 전환을 연결하세요.",
-        "같은 카메라·수량·DPR로 전후 calls와 프레임 분포를 기록하고 geometry·material·texture·render target 정리 장부를 제출하세요.",
-        "입력 조건 개별 Mesh에서 출력을 저장한 뒤 InstancedMesh 조건으로 다시 실행하세요. 예상: 동일 geometry와 material 조건에서 호출 수를 줄일 수 있으나 전체 프레임 효과는 측정해야 합니다. 실제 화면·로그와 대조하고 day-28-notes.md에 실제 결과와 차이의 원인을 남기세요."
+        "측정 버튼을 눌러 기준을 만드세요. 개수=8, 세그먼트=16, 패스=1을 유지하고 카메라·buffer·DPR·calls·triangles·CPU ms를 읽습니다. 초기 기록 없음 상태는 아직 측정하지 않았다는 뜻입니다.",
+        "세그먼트 16으로 측정한 뒤 8로 바꾸고 다시 측정하세요. 개수·패스·카메라는 고정합니다. 구의 윤곽과 triangles를 함께 보세요. 시작과 완성의 모양 차이가 품질 비용 비교입니다.",
+        "cycle을 3회 누르세요. 각 회차는 현재 자원을 해제하고 같은 조건으로 다시 만듭니다. geometry·material 생성과 해제 차이는 각각 1입니다. 자원 정리 후에는 차이가 0인지 기록하세요.",
+        "16·8 세그먼트 비교와 3 cycles 결과를 만드세요. 보고서 선택 버튼을 누르고 Ctrl+C로 복사한 뒤 사이트 필기 탭에 붙여넣으세요. 조건·실제 수치·모양 차이·cleanup 결과·측정 한계를 자신의 말로 보충하고 기존 저장·백업을 사용하세요."
       ],
       "variables": [
         {
-          "name": "반복 객체 표현",
-          "baseline": "개별 Mesh",
-          "change": "InstancedMesh",
-          "expected": "동일 geometry와 material 조건에서 호출 수를 줄일 수 있으나 전체 프레임 효과는 측정해야 합니다"
+          "name": "비교 기준을 실제로 저장",
+          "baseline": "starter",
+          "change": "solution",
+          "expected": "첫 측정 결과와 조건이 기록 영역에 추가됩니다."
         }
       ],
       "criteria": [
-        "동일 조건의 지표와 자원 정리 과정을 기록한다.",
-        "성능 개선과 품질·선택 기능의 유지 여부를 함께 설명한다."
+        "첫 측정 결과와 조건이 기록 영역에 추가됩니다.",
+        "8에서는 삼각형 수가 줄지만 윤곽도 달라집니다. 임의 개선율은 계산하지 않습니다."
       ],
       "questions": [
-        "draw call은 줄었는데 프레임이 같다면 무엇을 의심하나요?",
-        "renderer.info로 알 수 없는 메모리 정보는 무엇인가요?"
+        "조건을 빠뜨린 숫자를 나중에 비교할 수 있나요?",
+        "낮은 삼각형 수를 품질 유지라고 바로 말할 수 있나요?",
+        "자원 장부와 renderer.info.memory는 무엇이 다른가요?",
+        "CPU 호출 시간과 정확한 GPU 실행 시간은 왜 같지 않나요?"
       ],
       "references": [
         {
@@ -1528,7 +1550,9 @@
           "url": "https://threejs.org/manual/pages/cleanup.html"
         }
       ],
-      "environment": "기존 내장 예제는 출발점만 제공합니다. 확장 요구사항 전체가 구현된 예제가 아니며 별도 로컬 HTTP 개발 서버의 HTML·ES 모듈 프로젝트에서 직접 구현합니다. three와 addons를 같은 설치 버전으로 고정하고 기록하세요."
+      "environment": "사이트에서 독립 HTML을 편집·실행합니다. Three.js 0.186.1을 사용하며 별도 설치·서버가 필요 없습니다. 기존 JavaScript 초안은 보존됩니다.",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs"
     }
   ]
 }

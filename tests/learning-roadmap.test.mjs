@@ -30,11 +30,10 @@ test('roadmap retains all 28 existing IDs in exact order and independent readine
   )
   assert.equal(ko.entries[13].unitId, 'threejs-02')
   assert.equal(ko.entries[27].unitId, 'threejs-03')
-  assert.ok(
-    ko.entries.slice(0, 22).every((entry) => entry.readiness === 'verified'),
-  )
-  assert.ok(
-    ko.entries.slice(22).every((entry) => entry.readiness === 'planned'),
+  assert.ok(ko.entries.every((entry) => entry.readiness === 'verified'))
+  assert.equal(
+    ko.entries.filter((entry) => entry.readiness === 'planned').length,
+    0,
   )
   const before = JSON.stringify(ko)
   const storage = new Map()

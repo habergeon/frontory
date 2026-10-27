@@ -238,7 +238,7 @@
       "topics": ["remove와 dispose", "공유 자원 수명"],
       "outcome": "자원 소유자를 기록하고 중복 해제 방지",
       "requiredCapabilities": ["생성·정리 횟수와 소유 관계 관찰"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-24",
@@ -246,7 +246,7 @@
       "topics": ["요청 순서·완료 순서", "stale 결과", "정리"],
       "outcome": "늦은 모델이 새 장면을 덮지 않고 자원도 정리",
       "requiredCapabilities": ["로컬 자산의 지연·실패·순서 역전 실험"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-25",
@@ -257,7 +257,7 @@
         "실제 HTML controls·키보드·상태 알림",
         "HTML 접근성 기초"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-26",
@@ -272,7 +272,7 @@
       "requiredCapabilities": [
         "사이트 내 표·로그; 정확한 GPU 시간 측정을 필수로 요구하지 않음"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-27",
@@ -296,7 +296,7 @@
       "requiredCapabilities": [
         "앞선 자산·조작·관찰 기능을 연결한 시작 프로젝트"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-03",
@@ -310,7 +310,7 @@
       "topics": ["병목 분리", "품질 유지", "반복 생성·종료"],
       "outcome": "동일 조건의 성능·품질·자원 정리 보고서 작성",
       "requiredCapabilities": ["반복 실행·통계 비교·필기·백업"],
-      "readiness": "planned"
+      "readiness": "verified"
     }
   ]
 }

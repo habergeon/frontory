@@ -3393,9 +3393,11 @@
       "day": 23,
       "week": 4,
       "title": "자원 소유권 장부",
-      "goal": "객체 제거와 자원 해제를 구별한다. 같은 자원을 중복 dispose하지 않는다.",
+      "goal": "remove 후 children=1, disposed=0이며 다시 연결하면 children=2입니다. 첫 소유자 해제는 ref=1·disposed=0, 마지막 해제 후 collect는 ref=0·disposed=2입니다.",
       "docPath": "/docs/labs/graphics/threejs/units/23/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-23/example.js"
     },
     {
@@ -3403,9 +3405,11 @@
       "day": 24,
       "week": 4,
       "title": "비동기 장면 교체",
-      "goal": "늦은 응답이 새 모델을 바꾸지 않는다. 버린 결과의 정리 경로가 있다.",
+      "goal": "완료 로그는 B 다음 A이며 현재 모델은 B입니다. B가 유지되고 A의 geometry·material·texture 및 bitmap이 각각 정리됩니다.",
       "docPath": "/docs/labs/graphics/threejs/units/24/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-24/example.js"
     },
     {
@@ -3413,9 +3417,11 @@
       "day": 25,
       "week": 4,
       "title": "HTML 제어와 접근성",
-      "goal": "마우스 없이 주요 기능을 사용한다. 오류와 선택이 색 외 텍스트로 전달된다.",
+      "goal": "선택 상태에 Right와 인덱스 1이 표시됩니다. 오른쪽은 camera.x를 1 증가시키고 확대는 z를 1 줄입니다.",
       "docPath": "/docs/labs/graphics/threejs/units/25/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-25/example.js"
     },
     {
@@ -3423,9 +3429,11 @@
       "day": 26,
       "week": 4,
       "title": "렌더 통계와 프로파일",
-      "goal": "통계가 프레임 전체를 포함하는지 명시한다. 자원 수를 바이트나 전체 VRAM으로 표현하지 않는다.",
+      "goal": "같은 크기·카메라·개수에서 calls=2, triangles=24입니다. 한 프레임 총계는 calls=4, triangles=48입니다.",
       "docPath": "/docs/labs/graphics/threejs/units/26/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-26/example.js"
     },
     {
@@ -3433,9 +3441,11 @@
       "day": 27,
       "week": 4,
       "title": "장면 검사기 통합",
-      "goal": "오류 후에도 카메라와 UI가 반응한다. 종료 후 렌더 루프가 멈춘다.",
+      "goal": "animated는 Left·Right 2개와 SlideLeft 클립 1개를 가집니다. target이 선택 객체의 중심으로 바뀌고 그 객체가 화면 중심에 옵니다.",
       "docPath": "/docs/labs/graphics/threejs/units/27/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-27/example.js"
     },
     {
@@ -3443,9 +3453,11 @@
       "day": 28,
       "week": 4,
       "title": "렌더링 자원과 측정",
-      "goal": "동일 조건의 지표와 자원 정리 과정을 기록한다. 성능 개선과 품질·선택 기능의 유지 여부를 함께 설명한다.",
+      "goal": "첫 측정 결과와 조건이 기록 영역에 추가됩니다. 8에서는 삼각형 수가 줄지만 윤곽도 달라집니다. 임의 개선율은 계산하지 않습니다.",
       "docPath": "/docs/labs/graphics/threejs/03-project/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-03/example.js"
     },
     {

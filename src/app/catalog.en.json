@@ -3652,65 +3652,78 @@
       "day": 23,
       "week": 4,
       "title": "Resource Ownership Ledger",
-      "goal": "Distinguish removing an object from releasing resources. Avoid duplicate dispose calls for the same resource.",
+      "goal": "After remove: children=1, disposed=0; reattach restores children=2. First release: ref=1, disposed=0. Collect after the final release: ref=0, disposed=2.",
       "docPath": "/docs/en/labs/graphics/threejs/units/23/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-23/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Complete the HTML exercises and record actual observations and conditions in the existing site notes."
     },
     {
       "id": "threejs-step-24",
       "day": 24,
       "week": 4,
       "title": "Asynchronous Scene Replacement",
-      "goal": "Prevent a late response from replacing the new model. Provide a cleanup path for discarded results.",
+      "goal": "Completion log is B then A; current model remains B. B remains; A geometry, material, texture and bitmap are released.",
       "docPath": "/docs/en/labs/graphics/threejs/units/24/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-24/example.js",
-      "exampleNote": "Reproduces reverse completion order and disposal of stale results with delayed procedural geometry. Network model loading itself is not included."
+      "exampleNote": "Complete the HTML exercises and record actual observations and conditions in the existing site notes."
     },
     {
       "id": "threejs-step-25",
       "day": 25,
       "week": 4,
       "title": "HTML Controls and Accessibility",
-      "goal": "Use the main features without a mouse. Convey errors and selection with text as well as color.",
+      "goal": "Selection status names Right and index 1. Right increases camera.x by 1; zoom in reduces z by 1.",
       "docPath": "/docs/en/labs/graphics/threejs/units/25/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-25/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Complete the HTML exercises and record actual observations and conditions in the existing site notes."
     },
     {
       "id": "threejs-step-26",
       "day": 26,
       "week": 4,
       "title": "Render Statistics and Profiling",
-      "goal": "State whether statistics include the whole frame. Do not express resource counts as bytes or total VRAM.",
+      "goal": "At fixed size, camera and count: calls=2, triangles=24. Frame totals are calls=4 and triangles=48.",
       "docPath": "/docs/en/labs/graphics/threejs/units/26/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-26/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Complete the HTML exercises and record actual observations and conditions in the existing site notes."
     },
     {
       "id": "threejs-step-27",
       "day": 27,
       "week": 4,
       "title": "Integrating the Scene Inspector",
-      "goal": "Keep the camera and UI responsive after errors. Stop the render loop after shutdown.",
+      "goal": "Animated has Left and Right plus one SlideLeft clip. Target becomes the selected object center and it appears at screen center.",
       "docPath": "/docs/en/labs/graphics/threejs/units/27/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-27/example.js",
-      "exampleNote": "Runs selection, rebuilding, JSON, and rotation lifetimes in a basic-shape inspector. glTF loading and minimap integration are external capstone extensions."
+      "exampleNote": "Complete the HTML exercises and record actual observations and conditions in the existing site notes."
     },
     {
       "id": "threejs-03",
       "day": 28,
       "week": 4,
       "title": "Rendering Resources and Measurement",
-      "goal": "Record metrics under identical conditions and the resource cleanup process. Explain performance changes together with whether quality and selection features are preserved.",
+      "goal": "The first measurement and conditions are appended to the record. At 8, triangles decrease and silhouettes change. No invented improvement rate is calculated.",
       "docPath": "/docs/en/labs/graphics/threejs/03-project/README.md",
       "seriesId": "threejs",
-      "exampleReadingSource": "/examples-en/threejs-03/example.js"
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
+      "exampleReadingSource": "/examples-en/threejs-03/example.js",
+      "exampleNote": "Complete the HTML exercises and record actual observations and conditions in the existing site notes."
     },
     {
       "id": "gaussian-splatting-01",

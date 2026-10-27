@@ -127,36 +127,41 @@
   "threejs-step-23": {
     "readingSource": "/examples-en/threejs-step-23/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-23/example.js"]
+    "note": "HTML 시작 코드에서 과제를 수행하고 실제 관찰값과 조건을 기존 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-23/example.html"]
   },
   "threejs-step-24": {
     "readingSource": "/examples-en/threejs-step-24/example.js",
     "mode": "browser",
-    "note": "지연된 절차적 지오메트리로 완료 역순과 오래된 결과 해제를 재현합니다. 네트워크 모델 로딩 자체는 포함하지 않습니다.",
-    "files": ["src/labs/threejs-step-24/example.js"]
+    "note": "HTML 시작 코드에서 과제를 수행하고 실제 관찰값과 조건을 기존 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-24/example.html"]
   },
   "threejs-step-25": {
     "readingSource": "/examples-en/threejs-step-25/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-25/example.js"]
+    "note": "HTML 시작 코드에서 과제를 수행하고 실제 관찰값과 조건을 기존 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-25/example.html"]
   },
   "threejs-step-26": {
     "readingSource": "/examples-en/threejs-step-26/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-26/example.js"]
+    "note": "HTML 시작 코드에서 과제를 수행하고 실제 관찰값과 조건을 기존 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-26/example.html"]
   },
   "threejs-step-27": {
     "readingSource": "/examples-en/threejs-step-27/example.js",
     "mode": "browser",
-    "note": "기본 도형 검사기의 선택·재생성·JSON·회전 수명을 실행합니다. glTF 로딩과 미니맵 통합은 외부 캡스톤 확장입니다.",
-    "files": ["src/labs/threejs-step-27/example.js"]
+    "note": "HTML 시작 코드에서 과제를 수행하고 실제 관찰값과 조건을 기존 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-27/example.html"]
   },
   "threejs-02": {
     "mode": "browser",
     "files": ["src/labs/threejs-02/example.html"],
     "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요."
+  },
+  "threejs-03": {
+    "mode": "browser",
+    "note": "HTML 시작 코드에서 과제를 수행하고 실제 관찰값과 조건을 기존 필기에 남기세요.",
+    "files": ["src/labs/threejs-03/example.html"]
   }
 }

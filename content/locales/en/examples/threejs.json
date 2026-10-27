@@ -380,9 +380,9 @@
     }
   },
   "threejs-step-23": {
-    "sourceHash": "2a128e1b1f861a1be04b84cf4adba1c64fd61f08c4bb3576e4d6b3332463873c",
+    "sourceHash": "4086dbf4df825548af1b92d4935ae8c61fb000680169a97e1afa6cef83ebb19a",
     "values": {
-      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "note": "Complete the HTML exercises and record actual observations and conditions in the existing site notes."
     },
     "presentation": {
       "sourceHash": "dcad666e0e84c0c6a500da888d0702ac261ce231d80187bbd91b325581e3b1df",
@@ -402,9 +402,9 @@
     }
   },
   "threejs-step-24": {
-    "sourceHash": "4e045d093a391c75a2328fc9448858101312f3f7faf6f324159216fe2f0923bf",
+    "sourceHash": "73d276d971e4add2c1d091f7920b2a4a3c647e73cacacb183da4d2ef3d04d6d1",
     "values": {
-      "note": "Reproduces reverse completion order and disposal of stale results with delayed procedural geometry. Network model loading itself is not included."
+      "note": "Complete the HTML exercises and record actual observations and conditions in the existing site notes."
     },
     "presentation": {
       "sourceHash": "226a32d494a985ecb7cd04aa22ed53811e17d530a34ac28c431424c93f449f30",
@@ -424,9 +424,9 @@
     }
   },
   "threejs-step-25": {
-    "sourceHash": "6900a3ace61464f254284a137aae45c9295b0d27e197f4698886047c72bdc35a",
+    "sourceHash": "6046c8afd9a0c4561c231c8a6d7ae1e6d48a075ad2c1b861ad467eaf146e1aaa",
     "values": {
-      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "note": "Complete the HTML exercises and record actual observations and conditions in the existing site notes."
     },
     "presentation": {
       "sourceHash": "2c3c281f38c9a3791f98ef8f8e47d94a2741eafa7cc3f8d991d56fca3ab763c0",
@@ -444,9 +444,9 @@
     }
   },
   "threejs-step-26": {
-    "sourceHash": "9d7b79eb26e370e62ea2661be11d3482e490c442cae175b631a014dbb6499f26",
+    "sourceHash": "6ac75b682675d068e0e6f7f1b13284abe2ea7ebf1f05e071a33cd16e018250a3",
     "values": {
-      "note": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "note": "Complete the HTML exercises and record actual observations and conditions in the existing site notes."
     },
     "presentation": {
       "sourceHash": "44c7c4d73f857d1c87fa8d855e528b22d8d17b44c6c4100ae55f6d7782b028f6",
@@ -464,9 +464,9 @@
     }
   },
   "threejs-step-27": {
-    "sourceHash": "ce8e0cf55f612410f10d242d4e49e823a414ab50734c11f506f977cd98472bfe",
+    "sourceHash": "ca3cf84ecc04959687586f4138ac5fac939e11dbe476b84025903b96e5b5fa03",
     "values": {
-      "note": "Runs selection, rebuilding, JSON, and rotation lifetimes in a basic-shape inspector. glTF loading and minimap integration are external capstone extensions."
+      "note": "Complete the HTML exercises and record actual observations and conditions in the existing site notes."
     },
     "presentation": {
       "sourceHash": "ffe370224791461048da2820b82429f754a554cdd14f326921793a0686b1c9d4",
@@ -540,6 +540,10 @@
         "messages.display010": "Switch to individual meshes",
         "comments.comment001": "renderer.info reports draw calls/resources, not GPU VRAM or GPU elapsed time."
       }
+    },
+    "sourceHash": "6950fbb738ca9a3b6ce1d2237cf0c23d939d0f25a54fbba6a8e3e3ff0fd0d422",
+    "values": {
+      "note": "Complete the HTML exercises and record actual observations and conditions in the existing site notes."
     }
   }
 }

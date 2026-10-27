@@ -291,8 +291,8 @@ export function validateLearningRoadmap(
     throw Error('Invalid roadmap sequence')
   if (ids[13] !== 'threejs-02' || ids[27] !== 'threejs-03')
     throw Error('Invalid historical roadmap positions')
-  for (const [index, entry] of data.entries.entries()) {
-    if (entry.readiness !== (index < 4 ? 'verified' : 'planned'))
+  for (const entry of data.entries) {
+    if (!['verified', 'planned'].includes(entry.readiness))
       throw Error('Invalid roadmap readiness: ' + entry.unitId)
     for (const key of ['topics', 'requiredCapabilities'] as const)
       if (
@@ -312,6 +312,18 @@ export function validateLearningRoadmap(
       if (id === entry.unitId || !ids.includes(id))
         throw Error('Invalid roadmap prerequisite: ' + id)
   }
+}
+
+export function validateRoadmapLessons(
+  roadmap: LearningRoadmap,
+  learning: LearningContent,
+) {
+  for (const entry of roadmap.entries)
+    if (
+      entry.readiness === 'verified' &&
+      !learning.lessons.some((lesson) => lesson.unitId === entry.unitId)
+    )
+      throw Error('Verified roadmap unit has no lesson: ' + entry.unitId)
 }
 
 export function validateRoadmapParity(

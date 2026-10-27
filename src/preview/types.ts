@@ -7,4 +7,5 @@ export interface PreviewInput {
 export interface HtmlPreviewModules {
   core?: string
   controls?: string
+  gltf?: string
 }

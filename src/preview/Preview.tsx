@@ -7,6 +7,7 @@ import { createHtmlPreviewDocument } from './html-document'
 import type { PreviewInput } from './types'
 import core from './three-core.generated.js?raw'
 import controls from './three-controls.generated.js?raw'
+import gltf from './three-gltf.generated.js?raw'
 import { ConsoleOutput, type ConsoleItem } from './ConsoleOutput'
 
 interface Frame {
@@ -73,7 +74,7 @@ export function Preview({
                 code,
                 token,
                 locale,
-                profile === 'threejs' ? { core, controls } : {},
+                profile === 'threejs' ? { core, controls, gltf } : {},
               )
             : createPreviewDocument(code, token, runtime, locale),
         input: { code, kind, profile },

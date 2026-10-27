@@ -5,6 +5,7 @@ import { parseHtmlSource } from '../src/shared/htmlSource.ts'
 const modules = {
   core: 'export const REVISION="186"',
   controls: 'export class OrbitControls {}',
+  gltf: 'export class GLTFLoader {}',
 }
 test('insertion preserves source bytes and precedes user scripts without added wrappers', () => {
   for (const source of [
@@ -21,8 +22,27 @@ test('insertion preserves source bytes and precedes user scripts without added w
       html.slice(offset).indexOf('<meta http-equiv="Content-Security-Policy"'),
       0,
     )
-    assert.ok(html.includes("connect-src 'none'"))
+    assert.ok(html.includes('connect-src blob: data:;'))
     assert.ok(!html.includes('unsafe-eval'))
+  }
+})
+test('only supplying core permits local asset fetch; HTTP(S) and self stay blocked', () => {
+  for (const supplied of [
+    {},
+    { controls: modules.controls, gltf: modules.gltf },
+  ]) {
+    assert.ok(
+      createHtmlPreviewDocument('', 'token', 'en', supplied).includes(
+        "connect-src 'none';",
+      ),
+    )
+  }
+  for (const supplied of [{ core: modules.core }, modules]) {
+    assert.ok(
+      createHtmlPreviewDocument('', 'token', 'en', supplied).includes(
+        'connect-src blob: data:;',
+      ),
+    )
   }
 })
 test('module text and token cannot escape bootstrap; importmap collisions have localized diagnostics', () => {
@@ -32,6 +52,7 @@ test('module text and token cannot escape bootstrap; importmap collisions have l
     const html = createHtmlPreviewDocument(source, '</script>token', locale, {
       ...modules,
       core: '/* </script><script>bad */',
+      gltf: '/* </script><script>bad-gltf */',
     })
     assert.equal((html.match(/<script>/g) || []).length, 1)
     assert.ok(
@@ -56,8 +77,10 @@ test('only supplied import mappings and scoped overrides are diagnosed', () => {
   for (const map of [
     { imports: { three: 'blob:other' } },
     { imports: { 'three/addons/controls/OrbitControls.js': 'blob:other' } },
+    { imports: { 'three/addons/loaders/GLTFLoader.js': 'blob:other' } },
     { scopes: { 'about:srcdoc': { three: 'blob:other' } } },
     { scopes: { 'blob:': { 'three/addons/': 'blob:other/' } } },
+    { scopes: { 'blob:': { 'three/addons/loaders/': 'blob:other/' } } },
   ]) {
     const html = createHtmlPreviewDocument(
       `<script type="importmap">${JSON.stringify(map)}</script>`,
@@ -84,6 +107,7 @@ test('empty and absent supplied modules preserve nonconflicting user maps', () =
     {},
     { imports: {} },
     { imports: { three: 'blob:user' } },
+    { imports: { 'three/addons/loaders/GLTFLoader.js': 'blob:user' } },
     { scopes: { 'about:srcdoc': { three: 'blob:user' } } },
   ]) {
     const source = `<script type="importmap">${JSON.stringify(mapping)}</script>`
@@ -146,7 +170,10 @@ test('HTML runtime bounds console, validates disposal and keeps error state', as
     Error,
     Blob,
     URL: {
-      createObjectURL: () => `blob:${maps.length}`,
+      createObjectURL: (() => {
+        let id = 0
+        return () => `blob:${id++}`
+      })(),
       revokeObjectURL: (url) => revoked.push(url),
     },
     document: {
@@ -178,6 +205,11 @@ test('HTML runtime bounds console, validates disposal and keeps error state', as
     scripts: parseHtmlSource(source).blocks,
   })
   assert.equal(maps.length, 1)
+  assert.deepEqual(JSON.parse(maps[0].textContent).imports, {
+    three: 'blob:0',
+    'three/addons/controls/OrbitControls.js': 'blob:1',
+    'three/addons/loaders/GLTFLoader.js': 'blob:2',
+  })
   assert.deepEqual(removed, ['map', 'policy', 'bootstrap'])
   listeners.get('error')({
     filename: 'about:srcdoc',
@@ -227,7 +259,7 @@ test('HTML runtime bounds console, validates disposal and keeps error state', as
     data: { type: 'study-dispose', token: 'token' },
   })
   listeners.get('pagehide')()
-  assert.equal(revoked.length, 2)
+  assert.deepEqual(revoked, ['blob:0', 'blob:1', 'blob:2'])
   assert.equal(messages.filter((m) => m.status === 'disposed').length, 1)
   const count = messages.length
   context.console.log('after disposal')

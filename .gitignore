@@ -18,3 +18,4 @@ public/assets/*
 *.sog
 src/preview/three-core.generated.js
 src/preview/three-controls.generated.js
+src/preview/three-gltf.generated.js

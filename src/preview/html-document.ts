@@ -15,6 +15,9 @@ export function createHtmlPreviewDocument(
     ...(modules.controls !== undefined
       ? ['three/addons/controls/OrbitControls.js']
       : []),
+    ...(modules.gltf !== undefined
+      ? ['three/addons/loaders/GLTFLoader.js']
+      : []),
   ]
   const isRecord = (value: unknown): value is Record<string, unknown> =>
     value !== null && typeof value === 'object' && !Array.isArray(value)
@@ -58,8 +61,8 @@ export function createHtmlPreviewDocument(
       return false
     }
   })
-  const prefix =
-    "<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline' blob:; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'\">"
+  const connect = modules.core !== undefined ? 'blob: data:' : "'none'"
+  const prefix = `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' blob:; style-src 'unsafe-inline'; img-src data: blob:; connect-src ${connect}; base-uri 'none'; form-action 'none'; frame-src 'none'">`
   const options = JSON.stringify({
     token,
     modules,
@@ -69,8 +72,8 @@ export function createHtmlPreviewDocument(
         : '사용자 import map이 올바르지 않습니다. JSON과 매핑 구조를 확인하세요.'
       : collision
         ? locale === 'en'
-          ? 'User import map conflicts with the provided three or OrbitControls modules. Remove the conflicting mapping.'
-          : '사용자 import map이 제공된 three 또는 OrbitControls 모듈과 충돌합니다. 충돌하는 매핑을 제거하세요.'
+          ? 'User import map conflicts with the provided modules. Remove the conflicting mapping.'
+          : '사용자 import map이 제공된 모듈과 충돌합니다. 충돌하는 매핑을 제거하세요.'
         : null,
     source,
     insertionOffset: parsed.bootstrapInsertOffset,

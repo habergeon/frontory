@@ -7,6 +7,7 @@ import type { Locale } from '../i18n/locale'
 import {
   validateLearningRoadmap,
   validateRoadmapParity,
+  validateRoadmapLessons,
   type LearningRoadmap,
   validateLearningContent,
   validateLearningParity,
@@ -58,6 +59,8 @@ const roadmapIds = catalog.units
   .map((unit) => unit.id)
 validateLearningRoadmap(roadmapKo as LearningRoadmap, roadmapIds)
 validateLearningRoadmap(roadmapEn as LearningRoadmap, roadmapIds)
+validateRoadmapLessons(roadmapKo as LearningRoadmap, ko)
+validateRoadmapLessons(roadmapEn as LearningRoadmap, en)
 validateRoadmapParity(
   roadmapKo as LearningRoadmap,
   roadmapEn as LearningRoadmap,

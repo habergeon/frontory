@@ -9,8 +9,9 @@
       import { createHtmlPreviewDocument } from '/src/preview/html-document.ts'
       import core from '/src/preview/three-core.generated.js?raw'
       import controls from '/src/preview/three-controls.generated.js?raw'
+      import gltf from '/src/preview/three-gltf.generated.js?raw'
       window.makeHtmlPreview = createHtmlPreviewDocument
-      window.previewModules = { core, controls }
+      window.previewModules = { core, controls, gltf }
       window.runtimeMessages = []
       addEventListener('message', event => {
         if (event.source === document.querySelector('iframe')?.contentWindow && event.data?.token === 'fixture') window.runtimeMessages.push(event.data)

@@ -1,6 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readLearningContent } from '../scripts/learning-content.mjs'
+import { sourceHash } from '../scripts/locale-content.mjs'
 import {
   validateLearningContent,
   learningMarkdown,
@@ -149,6 +150,32 @@ test('browser lookup adapter exposes optional data without a Node filesystem dep
     module.exports,
     module,
   )
+  for (const locale of ['ko', 'en']) {
+    const invalidRoadmap = structuredClone(
+      require(
+        locale === 'ko'
+          ? '../../content/learning/threejs-roadmap.json'
+          : '../../content/locales/en/learning/threejs-roadmap.json',
+      ),
+    )
+    invalidRoadmap.entries[4].readiness = 'verified'
+    const other = { exports: {} }
+    assert.throws(
+      () =>
+        new Function('require', 'exports', 'module', compiled)(
+          (id) =>
+            id ===
+            (locale === 'ko'
+              ? '../../content/learning/threejs-roadmap.json'
+              : '../../content/locales/en/learning/threejs-roadmap.json')
+              ? invalidRoadmap
+              : require(id === './learningSchema' ? './learningSchema.ts' : id),
+          other.exports,
+          other,
+        ),
+      /Verified roadmap unit has no lesson: threejs-step-05/,
+    )
+  }
   assert.match(
     module.exports.readLearningCode(ko.lessons[0].steps[0].starterPath, 'ko'),
     /lang="ko"/,
@@ -214,6 +241,31 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
     const save = (data) => fs.writeFileSync(enPath, JSON.stringify(data))
     const logical = paths[0]
     const positive = readLearningContent(root)
+    const roadmapFiles = [
+      'content/learning/threejs-roadmap.json',
+      'content/locales/en/learning/threejs-roadmap.json',
+    ]
+    const roadmaps = [
+      structuredClone(original.roadmapKo),
+      structuredClone(original.roadmapEn),
+    ]
+    roadmaps.forEach((data) => {
+      data.entries[4].readiness = 'verified'
+    })
+    roadmaps[1].sourceHash = sourceHash(roadmaps[0])
+    roadmapFiles.forEach((file, i) =>
+      fs.writeFileSync(path.join(root, file), JSON.stringify(roadmaps[i])),
+    )
+    assert.throws(
+      () => readLearningContent(root),
+      /Verified roadmap unit has no lesson: threejs-step-05/,
+    )
+    roadmapFiles.forEach((file, i) =>
+      fs.writeFileSync(
+        path.join(root, file),
+        JSON.stringify(i === 0 ? original.roadmapKo : original.roadmapEn),
+      ),
+    )
     assert.match(positive.readCode(logical, 'ko'), /lang="ko"/)
     assert.match(positive.readCode(logical, 'en'), /lang="en"/)
     let en = structuredClone(original.en)

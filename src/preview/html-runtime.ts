@@ -1,6 +1,6 @@
 interface HtmlRuntimeOptions {
   token: string
-  modules: { core?: string; controls?: string }
+  modules: { core?: string; controls?: string; gltf?: string }
   diagnostic: string | null
   source: string
   insertionOffset: number
@@ -149,6 +149,10 @@ export function startHtmlRuntime(options: HtmlRuntimeOptions) {
   if (options.modules.controls !== undefined)
     imports['three/addons/controls/OrbitControls.js'] = makeModule(
       options.modules.controls,
+    )
+  if (options.modules.gltf !== undefined)
+    imports['three/addons/loaders/GLTFLoader.js'] = makeModule(
+      options.modules.gltf,
     )
   if (Object.keys(imports).length) {
     const map = document.createElement('script')

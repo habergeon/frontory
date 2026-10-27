@@ -1,6 +1,6 @@
 import { build } from 'esbuild'
 
-for (const name of ['core', 'controls']) {
+for (const name of ['core', 'controls', 'gltf']) {
   await build({
     entryPoints: [`src/preview/three-${name}-entry.ts`],
     outfile: `src/preview/three-${name}.generated.js`,
@@ -11,7 +11,7 @@ for (const name of ['core', 'controls']) {
     target: ['es2022'],
     legalComments: 'inline',
     plugins:
-      name === 'controls'
+      name !== 'core'
         ? [
             {
               name: 'exact-three-external',

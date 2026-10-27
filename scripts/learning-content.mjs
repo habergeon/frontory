@@ -4,6 +4,7 @@ import { assertSourceHash } from './locale-content.mjs'
 import {
   validateLearningRoadmap,
   validateRoadmapParity,
+  validateRoadmapLessons,
   validateLearningContent,
   validateLearningParity,
   localizedLearningCodePath,
@@ -31,6 +32,8 @@ export function readLearningContent(
   assertSourceHash(roadmapKo, roadmapEn.sourceHash, 'roadmap')
   const ko = read('content/learning/threejs.json')
   const en = read('content/locales/en/learning/threejs.json')
+  validateRoadmapLessons(roadmapKo, ko)
+  validateRoadmapLessons(roadmapEn, en)
   const unitIds = read('src/app/catalog.json').units.map((unit) => unit.id)
   const readCode = (file, locale = 'ko') => {
     const target = localizedLearningCodePath(

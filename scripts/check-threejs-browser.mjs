@@ -270,7 +270,7 @@ if (!args.includes('--worker')) {
           const classification = /GPU stall due to ReadPixels/.test(text)
             ? 'swiftshader-readpixels'
             : name === 'runtime' &&
-                fixtureName === 'network' &&
+                ['network', 'plainNetwork'].includes(fixtureName) &&
                 /Content Security Policy|connect-src/.test(text)
               ? 'expected-csp-negative-fixture'
               : name === 'runtime' && /import map|importmap/i.test(text)

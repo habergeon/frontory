@@ -6,6 +6,7 @@ import { sourceHash, assertSourceHash } from '../scripts/locale-content.mjs'
 import {
   validateLearningRoadmap,
   validateRoadmapParity,
+  validateRoadmapLessons,
 } from '../src/app/learningSchema.ts'
 import { createDraftStore } from '../src/shared/drafts.ts'
 import { roadmapMessages } from '../src/i18n/messages.ts'
@@ -64,10 +65,7 @@ test('validator rejects unknown, duplicate, self and incorrect sequence/status d
       e[4].prerequisiteIds = [e[4].unitId]
     },
     (e) => {
-      e[4].readiness = 'verified'
-    },
-    (e) => {
-      e[0].readiness = 'planned'
+      e[4].readiness = 'unknown'
     },
     (e) => {
       e[0].topics = []
@@ -88,6 +86,23 @@ test('validator rejects unknown, duplicate, self and incorrect sequence/status d
       ),
     /historical/,
   )
+})
+test('readiness accepts either status at any position and verified requires a real lesson', () => {
+  const data = mutated((e) => {
+    e[0].readiness = 'planned'
+    e[4].readiness = 'verified'
+  })
+  validateLearningRoadmap(data, ids)
+  const { ko: learning } = readLearningContent()
+  assert.throws(
+    () => validateRoadmapLessons(data, learning),
+    /Verified roadmap unit has no lesson: threejs-step-05/,
+  )
+  const lesson = { ...learning.lessons[0], unitId: 'threejs-step-05' }
+  validateRoadmapLessons(data, {
+    ...learning,
+    lessons: [...learning.lessons, lesson],
+  })
 })
 test('both locale data and generated documents retain roadmap content and fresh source hash', () => {
   validateLearningRoadmap(en, ids)

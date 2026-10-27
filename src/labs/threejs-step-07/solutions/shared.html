@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>같은 자원을 참조하는 두 물체</title>
+    <style>
+      body { margin:0; padding:12px; font:14px/1.5 system-ui,sans-serif; color:#172554; background:white; } #stage { width:480px; max-width:100%; height:260px; } canvas { display:block; width:100%; height:100%; } .controls { display:flex; flex-wrap:wrap; align-items:center; gap:8px; } input { width:110px; max-width:100%; } output { display:block; white-space:pre-wrap; overflow-wrap:anywhere; } #error { color:#b91c1c; } button { padding:6px; }
+    </style>
+  </head>
+  <body>
+    <h1>같은 자원을 참조하는 두 물체</h1>
+    <div class="controls"><button id="cleanup">자원 정리</button></div>
+    <p id="error" role="status"></p>
+    <div id="stage">
+      <canvas aria-label="같은 자원을 참조하는 두 물체"></canvas>
+    </div>
+    <output>미리보기 크기를 기다리는 중</output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage = document.querySelector('#stage'),
+        canvas = document.querySelector('canvas'),
+        output = document.querySelector('output'),
+        error = document.querySelector('#error');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 50);
+      camera.position.set(0, 0, 6);
+      camera.lookAt(0, 0, 0);
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setPixelRatio(1);
+      const ownedGeometry = new Set(),
+        ownedMaterial = new Set(),
+        ownedTargets = new Set();
+      const ownMesh = (mesh) => {
+        ownedGeometry.add(mesh.geometry);
+        ownedMaterial.add(mesh.material);
+        return mesh;
+      };
+      const events = new AbortController();
+      let disposed = false;
+      const geometry = new THREE.BoxGeometry(1, 1, 1);
+      const material = new THREE.MeshBasicMaterial({ color: '#2563eb' });
+      const a = new THREE.Mesh(geometry, material);
+      a.position.x = -1;
+      const b = a.clone();
+      b.position.x = 1;
+      const stretch = 1.5;
+      a.geometry.scale(1, stretch, 1);
+      for (const m of [a, b]) {
+        m.geometry.computeBoundingBox();
+        scene.add(ownMesh(m));
+      }
+      function report() {
+        output.textContent =
+          'geometry 공유: ' +
+          (a.geometry === b.geometry) +
+          ' / material 공유: ' +
+          (a.material === b.material) +
+          ' / 높이: ' +
+          [
+            a.geometry.boundingBox.max.y - a.geometry.boundingBox.min.y,
+            b.geometry.boundingBox.max.y - b.geometry.boundingBox.min.y,
+          ] +
+          ' / 색: ' +
+          [a.material.color.getHexString(), b.material.color.getHexString()] +
+          ' / CSS: ' +
+          stage.clientWidth +
+          ' × ' +
+          stage.clientHeight +
+          ' / buffer: ' +
+          canvas.width +
+          ' × ' +
+          canvas.height;
+      }
+      function draw() {
+        if (disposed || !stage.clientWidth || !stage.clientHeight) return;
+        renderer.render(scene, camera);
+        report();
+      }
+      // 지원 코드: 숨김 중에는 기다리고 표시되면 버퍼와 카메라를 맞춥니다.
+      function resizeScene() {
+        const w = stage.clientWidth,
+          h = stage.clientHeight;
+        if (!w || !h || disposed) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        draw();
+      }
+
+      const observer = new ResizeObserver(resizeScene);
+      observer.observe(stage);
+      resizeScene();
+      // 이 HTML이 소유한 자원과 이벤트를 한 번씩 정리합니다.
+      function cleanup() {
+        if (disposed) return;
+        disposed = true;
+        observer.disconnect();
+        events.abort();
+        renderer.setAnimationLoop(null);
+        for (const target of ownedTargets) target.dispose();
+        for (const geometry of ownedGeometry) geometry.dispose();
+        for (const material of ownedMaterial) material.dispose();
+        renderer.dispose();
+        scene.clear();
+        output.textContent = '정리 완료';
+      }
+      document
+        .querySelector('#cleanup')
+        .addEventListener('click', cleanup, { signal: events.signal });
+      window.addEventListener('pagehide', cleanup, { once: true, signal: events.signal });
+    </script>
+  </body>
+</html>

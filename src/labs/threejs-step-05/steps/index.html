@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>정점 네 개로 두 면 연결하기</title>
+    <style>
+      body { margin:0; padding:12px; font:14px/1.5 system-ui,sans-serif; color:#172554; background:white; } #stage { width:480px; max-width:100%; height:260px; } canvas { display:block; width:100%; height:100%; } .controls { display:flex; flex-wrap:wrap; align-items:center; gap:8px; } input { width:110px; max-width:100%; } output { display:block; white-space:pre-wrap; overflow-wrap:anywhere; } #error { color:#b91c1c; } button { padding:6px; }
+    </style>
+  </head>
+  <body>
+    <h1>정점 네 개로 두 면 연결하기</h1>
+    <div class="controls">
+      <label>인덱스 배열 <input id="indices" value="0,1,2,3,4,5" /></label
+      ><button id="applyIndices">배열 적용</button
+      ><button id="cleanup">자원 정리</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage">
+      <canvas aria-label="정점 네 개로 두 면 연결하기"></canvas>
+    </div>
+    <output>미리보기 크기를 기다리는 중</output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage = document.querySelector('#stage'),
+        canvas = document.querySelector('canvas'),
+        output = document.querySelector('output'),
+        error = document.querySelector('#error');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 50);
+      camera.position.set(0, 0, 6);
+      camera.lookAt(0, 0, 0);
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setPixelRatio(1);
+      const ownedGeometry = new Set(),
+        ownedMaterial = new Set(),
+        ownedTargets = new Set();
+      const ownMesh = (mesh) => {
+        ownedGeometry.add(mesh.geometry);
+        ownedMaterial.add(mesh.material);
+        return mesh;
+      };
+      const events = new AbortController();
+      let disposed = false;
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute(
+        'position',
+        new THREE.Float32BufferAttribute(
+          [-1, -1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0],
+          3,
+        ),
+      );
+
+      const material = new THREE.MeshBasicMaterial({ color: '#2563eb' });
+      scene.add(ownMesh(new THREE.Mesh(geometry, material)));
+      function report() {
+        output.textContent =
+          '정점: ' +
+          geometry.getAttribute('position').count +
+          ' / 인덱스: ' +
+          (geometry.index?.count ?? 0) +
+          ' / 삼각형: ' +
+          (geometry.index?.count ?? geometry.getAttribute('position').count) / 3 +
+          ' / CSS: ' +
+          stage.clientWidth +
+          ' × ' +
+          stage.clientHeight +
+          ' / buffer: ' +
+          canvas.width +
+          ' × ' +
+          canvas.height;
+      }
+      function draw() {
+        if (disposed || !stage.clientWidth || !stage.clientHeight) return;
+        renderer.render(scene, camera);
+        report();
+      }
+      // 지원 코드: 숨김 중에는 기다리고 표시되면 버퍼와 카메라를 맞춥니다.
+      function resizeScene() {
+        const w = stage.clientWidth,
+          h = stage.clientHeight;
+        if (!w || !h || disposed) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        draw();
+      }
+      document.querySelector('#applyIndices').addEventListener(
+        'click',
+        () => {
+          const parts = document.querySelector('#indices').value.split(','),
+            values = parts.map(Number),
+            count = geometry.getAttribute('position').count;
+          if (
+            parts.some((p) => !p.trim()) ||
+            values.length % 3 !== 0 ||
+            values.some((i) => !Number.isInteger(i) || i < 0 || i >= count)
+          ) {
+            error.textContent =
+              '각 인덱스는 0 이상 정점 수 미만의 정수이고 세 개씩 묶여야 합니다.';
+            return;
+          }
+          error.textContent = '';
+          geometry.setIndex(values);
+          draw();
+        },
+        { signal: events.signal },
+      );
+      const observer = new ResizeObserver(resizeScene);
+      observer.observe(stage);
+      resizeScene();
+      // 이 HTML이 소유한 자원과 이벤트를 한 번씩 정리합니다.
+      function cleanup() {
+        if (disposed) return;
+        disposed = true;
+        observer.disconnect();
+        events.abort();
+        renderer.setAnimationLoop(null);
+        for (const target of ownedTargets) target.dispose();
+        for (const geometry of ownedGeometry) geometry.dispose();
+        for (const material of ownedMaterial) material.dispose();
+        renderer.dispose();
+        scene.clear();
+        output.textContent = '정리 완료';
+      }
+      document
+        .querySelector('#cleanup')
+        .addEventListener('click', cleanup, { signal: events.signal });
+      window.addEventListener('pagehide', cleanup, { once: true, signal: events.signal });
+    </script>
+  </body>
+</html>

@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { readLearningContent } from '../../scripts/learning-content.mjs'
 
 const fixture = '/tests/browser/threejs-learning.html'
 const editorState = (page) =>
@@ -2917,11 +2918,15 @@ export async function runRoadmap(page, base) {
     assert.equal(await rows.count(), 28)
     assert.equal(
       await roadmap.locator('li[data-readiness="planned"]').count(),
-      24,
+      readLearningContent().roadmapKo.entries.filter(
+        (entry) => entry.readiness === 'planned',
+      ).length,
     )
     assert.equal(
       await roadmap.locator('li[data-readiness="verified"]').count(),
-      4,
+      readLearningContent().roadmapKo.entries.filter(
+        (entry) => entry.readiness === 'verified',
+      ).length,
     )
     assert.equal(await rows.nth(13).getAttribute('data-unit-id'), 'threejs-02')
     assert.equal(await rows.nth(27).getAttribute('data-unit-id'), 'threejs-03')

@@ -526,6 +526,254 @@
         "axes-helper",
         "euler-order"
       ]
+    },
+    {
+      "unitId": "threejs-step-05",
+      "prerequisiteIds": ["threejs-01", "threejs-step-04"],
+      "introduction": "position 배열을 직접 만들고 정점 수와 삼각형 수를 구별합니다. 숫자를 바꾸기 전 예상하고 실제 그림과 수치를 필기에 기록하세요. 각 예제는 독립 HTML입니다.",
+      "steps": [
+        {
+          "title": "배열로 삼각형 만들기",
+          "explanation": "Float32BufferAttribute의 두 번째 인자 3은 한 정점의 x,y,z 성분 수입니다. 배열의 9개 성분을 3으로 나누면 position.count=3입니다. 시작 코드에서 topY=0.2를 1로 바꾸고 위쪽 정점과 삼각형의 면적을 비교하세요. setAttribute는 이름 position에 이 속성을 연결합니다.",
+          "solutionExplanation": "정점 수는 그대로이고 위쪽 정점만 움직입니다. index가 null이면 연속한 세 정점이 한 삼각형입니다. Float32BufferAttribute는 숫자 배열을 GPU에 전달할 부동소수점 배열로 보관합니다.",
+          "expected": "정점 3, index 없음, 삼각형 1. topY는 0.2에서 1로 바뀝니다.",
+          "hints": ["topY 상수를 찾으세요.", "itemSize는 3을 유지하세요."],
+          "questions": ["itemSize를 2로 잘못 주면 count는 어떻게 달라지나요?"],
+          "id": "threejs-step-05-attributes",
+          "starterPath": "src/labs/threejs-step-05/steps/attributes.html",
+          "solutionPath": "src/labs/threejs-step-05/solutions/attributes.html"
+        },
+        {
+          "title": "정점 네 개로 두 면 연결하기",
+          "explanation": "시작 예제는 정점 여섯 개로 사각형을 만듭니다. 두 모서리의 좌표가 중복됩니다. 완성 예제처럼 정점 네 개와 setIndex([0,1,2,0,2,3])로 같은 두 면을 만드세요. 번호는 0부터 시작합니다. 각 번호를 그림에 적고 배열과 대조하세요. HTML 인덱스 배열에 0,1,99를 넣고 적용해 오류 뒤 이전 모양이 유지되는지 확인하세요. 마지막 값은 position.count보다 작아야 합니다. 처음 배열을 다시 입력하면 복구됩니다.",
+          "solutionExplanation": "index.count=6은 저장한 정점이 여섯 개라는 뜻이 아닙니다. 인덱스 세 개가 한 면이므로 두 면입니다. 좌표가 같아도 UV나 normal이 다른 경계에서는 정점을 나눠야 합니다.",
+          "expected": "시작 예제는 정점 6·index 없음, 완성 예제는 정점 4·index 6입니다. 둘 다 두 삼각형의 사각형입니다.",
+          "hints": [
+            "완성 예제의 position 배열은 12성분입니다.",
+            "0,1,2와 0,2,3을 연결하세요."
+          ],
+          "questions": ["index.count와 position.count는 각각 무엇을 세나요?"],
+          "id": "threejs-step-05-index",
+          "starterPath": "src/labs/threejs-step-05/steps/index.html",
+          "solutionPath": "src/labs/threejs-step-05/solutions/index.html"
+        },
+        {
+          "title": "범위를 검사하고 정점 갱신하기",
+          "explanation": "정점 번호는 0~2, y는 -2~2를 받습니다. 번호 4를 적용해 오류 뒤에도 이전 삼각형이 남는지 확인하세요. 이어 번호 2, y=0.2를 적용합니다. 시작 예제는 CPU 배열만 바뀌어 그림이 그대로입니다. notifyGpu=false를 true로 고치세요.",
+          "solutionExplanation": "setY는 배열을 수정합니다. needsUpdate=true가 GPU 재전송을 지시하고 version이 증가합니다. boundingSphere도 다시 계산해 이전 경계가 남지 않게 합니다. 잘못된 번호나 빈 값은 수정 전에 거부합니다.",
+          "expected": "번호 4는 오류로 거부되고 상태는 유지됩니다. 올바른 정점 수정은 CPU와 그림에 함께 반영되고 version이 증가합니다.",
+          "hints": [
+            "setY 다음의 needsUpdate를 확인하세요.",
+            "notifyGpu를 true로 바꾸세요."
+          ],
+          "questions": ["CPU 값만 바뀌었을 때 무엇이 빠졌나요?"],
+          "id": "threejs-step-05-update",
+          "starterPath": "src/labs/threejs-step-05/steps/update.html",
+          "solutionPath": "src/labs/threejs-step-05/solutions/update.html"
+        }
+      ],
+      "apiIds": ["buffer-attributes", "buffer-index", "attribute-update"]
+    },
+    {
+      "unitId": "threejs-step-06",
+      "prerequisiteIds": ["threejs-step-05"],
+      "introduction": "삼각형의 앞면과 빛 계산에 쓰는 법선을 따로 비교합니다. 카메라와 조명은 고정하고 한 조건씩 바꾸세요.",
+      "steps": [
+        {
+          "title": "인덱스 순서와 앞면",
+          "explanation": "카메라는 +Z에서 원점을 봅니다. 시작 예제의 [0,2,1]은 이 시점에서 시계 방향이라 FrontSide 면이 보이지 않습니다. [0,1,2]로 바꿔 보세요. computeVertexNormals의 normal.z도 -1에서 +1로 바뀌는지 확인합니다.",
+          "solutionExplanation": "앞면 판정은 정점 연결 순서로 정합니다. 법선만 뒤집어도 사라진 앞면이 복구되지는 않습니다. 여기서는 조명과 무관한 MeshBasicMaterial을 써서 면 방향만 분리해 봅니다.",
+          "expected": "시작 면은 보이지 않고 normal.z=-1, 완성 면은 보이며 normal.z=1입니다.",
+          "hints": [
+            "정점 위치는 그대로 두세요.",
+            "setIndex의 두 번째와 세 번째 번호를 교환하세요."
+          ],
+          "questions": ["법선과 앞면 판정은 어떻게 다른가요?"],
+          "id": "threejs-step-06-winding",
+          "starterPath": "src/labs/threejs-step-06/steps/winding.html",
+          "solutionPath": "src/labs/threejs-step-06/solutions/winding.html"
+        },
+        {
+          "title": "법선이 없는 조명 표면",
+          "explanation": "시작 예제는 네 정점과 여섯 index로 접힌 두 면을 만듭니다. normal 속성이 없지만 r186은 MeshLambertMaterial에 평면 음영을 자동 적용하므로 면은 보입니다. calculateNormals=false를 true로 바꾸고 공유한 모서리의 밝기 연결과 normal.count를 비교하세요.",
+          "solutionExplanation": "computeVertexNormals는 공유 정점에 인접한 두 면의 기여를 누적하고 정규화합니다. normal.count는 4이며 첫 법선은 대략 (-0.192,-0.192,0.962)입니다. normal 없음이 항상 검은 표면을 뜻하지는 않습니다. r186의 자동 평면 음영과 정점 법선 보간의 차이를 관찰하세요.",
+          "expected": "normal.count 0→4, 공유 정점의 법선은 대략 (-0.192,-0.192,0.962)이며 접힌 면의 음영 연결이 바뀝니다.",
+          "hints": [
+            "calculateNormals를 찾으세요.",
+            "geometry.computeVertexNormals() 호출 조건을 바꾸세요."
+          ],
+          "questions": ["광원을 바꾸지 않았는데 왜 밝기가 바뀌나요?"],
+          "id": "threejs-step-06-normals",
+          "starterPath": "src/labs/threejs-step-06/steps/normals.html",
+          "solutionPath": "src/labs/threejs-step-06/solutions/normals.html"
+        },
+        {
+          "title": "공유 정점의 부드러운 음영",
+          "explanation": "구의 정점과 조명을 유지하고 flatShading만 true에서 false로 바꿉니다. 시작 예제는 삼각형 경계마다 밝기가 끊기고 완성 예제는 법선을 보간해 부드럽습니다. computeVertexNormals는 index로 공유한 정점에 인접 면의 기여를 합칩니다.",
+          "solutionExplanation": "flatShading은 평평한 면 법선을 셰이더에서 계산합니다. false는 정점 법선을 보간합니다. BoxGeometry처럼 좌표가 같아도 정점 번호가 분리된 경계는 computeVertexNormals만으로 매끈해지지 않습니다. 생성 후 flatShading을 바꾸면 material.needsUpdate=true도 필요합니다.",
+          "expected": "정점·index 수와 첫 법선은 같고 flatShading만 true→false로 바뀌며 삼각형 경계의 음영이 달라집니다.",
+          "hints": [
+            "구의 분할 수는 유지하세요.",
+            "flatShading만 false로 바꾸세요."
+          ],
+          "questions": [
+            "같은 위치의 정점을 나누면 법선 평균에 어떤 영향이 있나요?"
+          ],
+          "id": "threejs-step-06-smooth",
+          "starterPath": "src/labs/threejs-step-06/steps/smooth.html",
+          "solutionPath": "src/labs/threejs-step-06/solutions/smooth.html"
+        }
+      ],
+      "apiIds": ["buffer-normals", "material-flat"]
+    },
+    {
+      "unitId": "threejs-step-07",
+      "prerequisiteIds": ["threejs-step-05", "threejs-step-06"],
+      "introduction": "Mesh 두 개가 어떤 자원을 공유하는지 ===로 확인합니다. 물체 변환, geometry 배열 수정, material 수정을 나눠 예측하세요.",
+      "steps": [
+        {
+          "title": "같은 자원을 참조하는 두 물체",
+          "explanation": "a와 b는 서로 다른 Mesh이지만 geometry와 material은 같습니다. 시작 예제의 stretch=1을 1.5로 바꾸면 a.geometry.scale이 두 상자를 모두 길게 만듭니다. a.position.x만 바꿀 때는 b의 위치가 그대로인지도 비교하세요.",
+          "solutionExplanation": "geometry.scale은 공유한 정점 배열을 수정합니다. Mesh의 position과 scale은 각 Object3D의 변환이므로 공유 geometry 자체를 수정하지 않습니다. output은 boundingBox의 실제 높이와 참조 동등성을 표시합니다.",
+          "expected": "geometry와 material은 같은 참조입니다. 두 높이가 1에서 1.5로 함께 변하지만 중심 x=-1,1은 유지됩니다.",
+          "hints": [
+            "stretch 상수만 바꾸세요.",
+            "a.geometry.scale(1,stretch,1)을 확인하세요."
+          ],
+          "questions": ["a.scale.y와 a.geometry.scale은 무엇이 다른가요?"],
+          "id": "threejs-step-07-shared",
+          "starterPath": "src/labs/threejs-step-07/steps/shared.html",
+          "solutionPath": "src/labs/threejs-step-07/solutions/shared.html"
+        },
+        {
+          "title": "Mesh.clone의 공유 경계",
+          "explanation": "b=a.clone()은 Mesh를 복제하지만 geometry와 material 참조는 유지합니다. 시작 예제에서 b.geometry.scale과 b.material.color.set은 a까지 바꿉니다. isolate=false를 true로 바꿔 geometry.clone과 material.clone을 먼저 연결하세요.",
+          "solutionExplanation": "자원을 따로 복제하면 b만 높이 1.6, 주황색이 됩니다. a는 높이 1, 파란색입니다. geometry.clone은 속성 배열도 복사합니다. 재질에 texture가 있다면 material.clone만으로 texture까지 독립 복제되지는 않지만 이번 예제는 texture를 쓰지 않습니다.",
+          "expected": "시작 예제는 두 참조 true·둘 다 높이 1.6/주황, 완성 예제는 false·a 높이 1/파랑·b 높이 1.6/주황입니다.",
+          "hints": [
+            "isolate 조건에서 두 자원을 모두 복제하세요.",
+            "복제는 수정 전에 하세요."
+          ],
+          "questions": [
+            "Mesh.clone만으로 자원이 독립하지 않는 이유는 무엇인가요?"
+          ],
+          "id": "threejs-step-07-clone",
+          "starterPath": "src/labs/threejs-step-07/steps/clone.html",
+          "solutionPath": "src/labs/threejs-step-07/solutions/clone.html"
+        },
+        {
+          "title": "재질만 분리해서 변경하기",
+          "explanation": "geometry는 공유하고 b.material만 복제해 색을 따로 바꿉니다. separateMaterial=false를 true로 바꾸세요. b를 주황색으로 바꾼 뒤에도 a가 파란색인지, geometry===는 여전히 true인지 확인합니다.",
+          "solutionExplanation": "필요한 자원만 복제하면 공유 도형을 유지하면서 색만 독립합니다. 공유와 독립은 Mesh 전체의 성질이 아니라 참조별 선택입니다. 정리 함수는 Set에 모은 자원을 한 번씩 해제하므로 공유 자원을 중복 dispose하지 않습니다. 정리 버튼 뒤에는 다시 실행해야 합니다.",
+          "expected": "완성 예제는 geometry 공유 true, material 공유 false이며 a는 파랑·b는 주황입니다. 두 높이는 1입니다.",
+          "hints": [
+            "geometry.clone은 추가하지 마세요.",
+            "색을 바꾸기 전에 b.material을 복제하세요."
+          ],
+          "questions": ["색만 분리할 때 geometry도 복제해야 하나요?"],
+          "id": "threejs-step-07-independent",
+          "starterPath": "src/labs/threejs-step-07/steps/independent.html",
+          "solutionPath": "src/labs/threejs-step-07/solutions/independent.html"
+        }
+      ],
+      "apiIds": ["mesh-clone", "resource-clone"]
+    },
+    {
+      "unitId": "threejs-step-08",
+      "prerequisiteIds": ["threejs-01", "threejs-step-04", "threejs-step-06"],
+      "introduction": "같은 구와 MeshLambertMaterial로 조명 세 종류를 비교합니다. MeshBasicMaterial은 이 조명에 반응하지 않습니다. 입력 하나씩 바꾸고 그림의 밝은 부분이 어디인지 기록하세요.",
+      "steps": [
+        {
+          "title": "환경광의 균일한 밝기",
+          "explanation": "시작 예제는 AmbientLight 강도 0이라 검은 구가 보입니다. intensity=1로 바꾸고 같은 값을 HTML 입력으로도 적용하세요. 조명 position을 바꿔도 환경광에는 방향이 없어 음영의 방향이 생기지 않습니다.",
+          "solutionExplanation": "환경광은 모든 방향에 같은 색과 강도를 더합니다. 재질의 파란색은 보이지만 구의 입체 굴곡은 방향광 때보다 읽기 어렵습니다. AmbientLight는 그림자를 만들지 않습니다. intensity는 음수가 아닌 값으로 제한했습니다.",
+          "expected": "강도 0→1에서 구가 밝아지고 특정 방향의 하이라이트는 생기지 않습니다.",
+          "hints": [
+            "intensity 상수를 찾으세요.",
+            "강도 0과 1만 먼저 비교하세요."
+          ],
+          "questions": ["환경광의 위치를 바꾸면 구의 밝은 쪽이 바뀌나요?"],
+          "id": "threejs-step-08-ambient",
+          "starterPath": "src/labs/threejs-step-08/steps/ambient.html",
+          "solutionPath": "src/labs/threejs-step-08/solutions/ambient.html"
+        },
+        {
+          "title": "방향광의 position과 target",
+          "explanation": "방향광은 (2,2,3)에서 target을 봅니다. targetX=0을 4로 바꿔 밝은 쪽의 이동을 확인하세요. 광원의 position은 그대로입니다. HTML 입력으로도 target.x를 바꿉니다. scene.add(light.target)이 있어야 target의 월드 변환이 갱신됩니다.",
+          "solutionExplanation": "빛의 진행 방향은 target.position-light.position입니다. output은 그 벡터를 정규화해 읽습니다. 광원의 rotation은 이 방향을 정하지 않습니다. 이 실험에서는 target과 light 모두 Scene 바로 아래라 local/world 좌표가 같습니다.",
+          "expected": "광원 위치 (2,2,3)은 유지되고 target.x가 0→4로 바뀌며 방향 x 성분의 부호와 구의 밝은 쪽이 바뀝니다.",
+          "hints": [
+            "light.position은 유지하세요.",
+            "light.target.position.x만 바꾸세요."
+          ],
+          "questions": ["rotation만 바꿔도 같은 결과가 나올까요?"],
+          "id": "threejs-step-08-directional",
+          "starterPath": "src/labs/threejs-step-08/steps/directional.html",
+          "solutionPath": "src/labs/threejs-step-08/solutions/directional.html"
+        },
+        {
+          "title": "점광원 거리와 밝기",
+          "explanation": "PointLight의 강도 20, decay=2를 유지합니다. z=4를 2로 바꾸고 구 앞면이 밝아지는지 비교하세요. 입력은 1.5~8만 받아 광원이 구 안에 들어가지 않게 합니다. 위치가 밝기와 입사 방향을 함께 바꾸므로 환경광과 구별하세요.",
+          "solutionExplanation": "distance=0은 감쇠가 없다는 뜻이 아니라 최대 거리 제한이 없다는 뜻입니다. decay=2에서 거리가 멀수록 빛은 약해집니다. 재질, 구의 곡면, 출력 색 변환도 관측 픽셀에 영향을 주므로 z를 반으로 줄였다고 모든 픽셀이 정확히 네 배 밝아지지는 않습니다.",
+          "expected": "강도와 decay는 유지되고 z=4→2에서 앞면이 밝아집니다. distance는 0입니다.",
+          "hints": ["pointZ 상수를 찾으세요.", "intensity는 20을 유지하세요."],
+          "questions": ["distance=0과 intensity=0은 어떻게 다른가요?"],
+          "id": "threejs-step-08-point",
+          "starterPath": "src/labs/threejs-step-08/steps/point.html",
+          "solutionPath": "src/labs/threejs-step-08/solutions/point.html"
+        }
+      ],
+      "apiIds": ["ambient-light", "directional-target", "point-light"]
+    },
+    {
+      "unitId": "threejs-step-09",
+      "prerequisiteIds": ["threejs-step-07", "threejs-step-08"],
+      "introduction": "왼쪽 구를 기준으로 두고 오른쪽 구의 변수 하나만 바꿉니다. 카메라, 조명, 색, 도형은 같습니다. 환경 맵은 코드 안의 작은 방에서 만들므로 외부 HDR 파일이 필요 없습니다.",
+      "steps": [
+        {
+          "title": "거칠기만 바꾸어 비교하기",
+          "explanation": "두 구는 처음 roughness=.8, metalness=0, envMapIntensity=1입니다. 오른쪽의 roughness 상수를 .15로 바꾸세요. 왼쪽의 넓고 흐린 반사와 오른쪽의 좁고 선명한 반사를 비교합니다. HTML 입력도 오른쪽 거칠기만 바꿉니다.",
+          "solutionExplanation": "roughness는 0~1 범위에서 표면 반사의 퍼짐을 바꿉니다. 색이나 광원의 강도를 바꾸는 값이 아닙니다. PMREM은 거칠기에 맞는 환경 반사를 계산할 수 있게 미리 필터링합니다. 구를 더 매끈하게 보이게 해도 geometry 분할 수는 그대로입니다.",
+          "expected": "왼쪽 .8 유지, 오른쪽 .8→.15. metalness=0과 환경 강도 1은 유지되고 반사 모양이 달라집니다.",
+          "hints": [
+            "material.roughness에 넣는 상수를 찾으세요.",
+            "metalness는 0으로 유지하세요."
+          ],
+          "questions": ["거칠기와 구의 삼각형 수는 같은 개념인가요?"],
+          "id": "threejs-step-09-roughness",
+          "starterPath": "src/labs/threejs-step-09/steps/roughness.html",
+          "solutionPath": "src/labs/threejs-step-09/solutions/roughness.html"
+        },
+        {
+          "title": "금속성만 바꾸어 비교하기",
+          "explanation": "roughness=.8과 환경 강도 1을 고정합니다. 오른쪽 metalness=0을 1로 바꾸세요. 왼쪽 비금속과 오른쪽 금속의 반사색을 비교합니다. 색은 같은 #b98245이며 금속의 표면 반사에 이 색이 반영됩니다.",
+          "solutionExplanation": "metalness는 0이 비금속, 1이 금속입니다. 중간값은 혼합 표면 표현에 쓸 수 있습니다. 금속은 비금속처럼 확산광을 더하는 방식으로 밝아지지 않습니다. 밝기만 보고 금속성을 판단하지 말고 고정된 환경 반사와 색을 같이 관찰하세요.",
+          "expected": "왼쪽 metalness=0 유지, 오른쪽 0→1. 두 roughness=.8, 환경 강도 1입니다.",
+          "hints": [
+            "metalness만 바꾸세요.",
+            "두 구의 roughness가 같은지 output으로 확인하세요."
+          ],
+          "questions": ["금속을 어둡게 보이게 하는 원인에는 무엇이 있나요?"],
+          "id": "threejs-step-09-metalness",
+          "starterPath": "src/labs/threejs-step-09/steps/metalness.html",
+          "solutionPath": "src/labs/threejs-step-09/solutions/metalness.html"
+        },
+        {
+          "title": "환경 조명과 배경 구별하기",
+          "explanation": "두 구는 roughness=.8, metalness=0이며 같은 PMREM texture를 각 material.envMap에 연결했습니다. 오른쪽 envMapIntensity는 0입니다. environment 상수를 1로 바꿔 왼쪽과 맞추세요. 배경은 #edf2f7 그대로이며 환경 조명과 별개입니다.",
+          "solutionExplanation": "scene.environment는 envMap이 없는 표준 재질의 기본 환경을 공급하며 scene.environmentIntensity로 강도를 조절합니다. 여기서는 양 재질의 envMap을 명시해 오른쪽 material.envMapIntensity만 바꿉니다. PMREMGenerator.fromScene은 별도 장면을 캡처합니다. 생성기는 생성 직후 정리하고 공유한 반환 target은 마지막에 한 번 정리합니다.",
+          "expected": "오른쪽 환경 강도 0→1에서 두 구가 같은 조건이 됩니다. 배경색과 방향광은 그대로입니다.",
+          "hints": [
+            "environment 상수를 1로 바꾸세요.",
+            "scene.background는 건드리지 마세요."
+          ],
+          "questions": ["환경 맵과 화면 배경의 역할은 어떻게 다른가요?"],
+          "id": "threejs-step-09-environment",
+          "starterPath": "src/labs/threejs-step-09/steps/environment.html",
+          "solutionPath": "src/labs/threejs-step-09/solutions/environment.html"
+        }
+      ],
+      "apiIds": ["standard-pbr", "pmrem-scene"]
     }
   ],
   "apis": [
@@ -1239,6 +1487,268 @@
       "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
       "packageVersion": "0.186.1",
       "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "buffer-attributes",
+      "symbol": "BufferGeometry.setAttribute / BufferAttribute",
+      "description": "이름에 정점 속성을 연결합니다. count는 배열 길이를 itemSize로 나눈 값입니다.",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "position 등 속성 이름"
+        },
+        {
+          "name": "attribute",
+          "type": "BufferAttribute",
+          "description": "정점 데이터와 성분 수"
+        }
+      ],
+      "result": "setAttribute는 geometry 자신을 반환합니다.",
+      "cautions": ["position은 한 정점당 x,y,z 세 성분을 씁니다."],
+      "example": "geometry.setAttribute('position', new THREE.Float32BufferAttribute([0,0,0,1,0,0,0,1,0],3));",
+      "sourceUrl": "https://threejs.org/docs/pages/BufferGeometry.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "buffer-index",
+      "symbol": "BufferGeometry.setIndex",
+      "description": "삼각형마다 정점 번호 세 개를 지정합니다. null이면 연속한 정점을 사용합니다.",
+      "parameters": [
+        {
+          "name": "index",
+          "type": "Array<number> | BufferAttribute | null",
+          "description": "0부터 position.count-1 범위의 정수 번호"
+        }
+      ],
+      "result": "geometry 자신을 반환합니다.",
+      "cautions": ["범위 오류를 자동 수정하지 않습니다. 입력 전에 검사하세요."],
+      "example": "geometry.setIndex([0,1,2,0,2,3]);",
+      "sourceUrl": "https://threejs.org/docs/pages/BufferGeometry.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "attribute-update",
+      "symbol": "BufferAttribute.setY / needsUpdate",
+      "description": "setY로 CPU 성분을 수정한 뒤 needsUpdate=true로 GPU 전송을 요청합니다.",
+      "parameters": [
+        {
+          "name": "index, y",
+          "type": "number",
+          "description": "정점 번호와 새 y값"
+        }
+      ],
+      "result": "setY는 속성을 반환합니다. needsUpdate 설정은 version을 증가시킵니다.",
+      "cautions": [
+        "위치 수정 뒤 경계도 다시 계산하세요. needsUpdate의 읽기값으로 성공 여부를 판단하지 마세요."
+      ],
+      "example": "position.setY(2, .2); position.needsUpdate=true; geometry.computeBoundingSphere();",
+      "sourceUrl": "https://threejs.org/docs/pages/BufferAttribute.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "buffer-normals",
+      "symbol": "BufferGeometry.computeVertexNormals",
+      "description": "면의 정점에서 법선을 계산합니다. index가 있으면 공유 정점에 인접 면의 기여를 누적하고 정규화합니다.",
+      "parameters": [],
+      "result": "반환값 없이 normal 속성을 갱신합니다.",
+      "cautions": [
+        "중복된 정점 번호는 자동으로 합치지 않습니다. 앞면 연결 순서도 바꾸지 않습니다."
+      ],
+      "example": "geometry.computeVertexNormals();",
+      "sourceUrl": "https://threejs.org/docs/pages/BufferGeometry.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "material-flat",
+      "symbol": "MeshLambertMaterial.flatShading",
+      "description": "true이면 면 단위 법선을 쓰고 false이면 정점 법선을 보간합니다.",
+      "parameters": [
+        {
+          "name": "flatShading",
+          "type": "boolean",
+          "defaultValue": "false",
+          "description": "평면 음영 사용 여부"
+        }
+      ],
+      "result": "재질의 셰이더 음영 방식이 달라집니다.",
+      "cautions": [
+        "이미 컴파일한 뒤 바꾸면 material.needsUpdate=true가 필요합니다."
+      ],
+      "example": "material.flatShading=false; material.needsUpdate=true;",
+      "sourceUrl": "https://threejs.org/docs/pages/MeshLambertMaterial.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "mesh-clone",
+      "symbol": "Mesh.clone",
+      "description": "Mesh와 Object3D 변환을 복사하지만 geometry와 material 참조는 공유합니다.",
+      "parameters": [
+        {
+          "name": "recursive",
+          "type": "boolean",
+          "defaultValue": "true",
+          "description": "자식 Object3D도 복제할지 결정합니다."
+        }
+      ],
+      "result": "새 Mesh를 반환합니다.",
+      "cautions": ["독립 자원이 필요하면 자원을 별도로 clone하세요."],
+      "example": "const b=a.clone();",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "resource-clone",
+      "symbol": "BufferGeometry.clone / Material.clone",
+      "description": "도형 또는 재질을 새 인스턴스로 복제합니다.",
+      "parameters": [],
+      "result": "같은 종류의 새 자원을 반환합니다.",
+      "cautions": [
+        "재질이 사용하는 texture까지 독립 복사하지 않습니다. 공유 자원은 소유자가 한 번 해제하세요."
+      ],
+      "example": "b.geometry=a.geometry.clone(); b.material=a.material.clone();",
+      "sourceUrl": "https://threejs.org/docs/pages/Material.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "ambient-light",
+      "symbol": "AmbientLight",
+      "description": "방향 없이 장면 전체에 같은 색과 강도의 빛을 더합니다.",
+      "parameters": [
+        {
+          "name": "color",
+          "type": "Color | number | string",
+          "defaultValue": "0xffffff",
+          "description": "광원 색"
+        },
+        {
+          "name": "intensity",
+          "type": "number",
+          "defaultValue": "1",
+          "description": "광원 강도"
+        }
+      ],
+      "result": "새 환경광 객체입니다. scene.add로 연결하세요.",
+      "cautions": ["환경광은 그림자를 만들지 않습니다."],
+      "example": "scene.add(new THREE.AmbientLight(0xffffff,1));",
+      "sourceUrl": "https://threejs.org/docs/pages/AmbientLight.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "directional-target",
+      "symbol": "DirectionalLight.target",
+      "description": "position에서 target의 월드 위치로 향하는 평행광입니다.",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "Object3D",
+          "description": "기본 위치는 원점입니다."
+        }
+      ],
+      "result": "target 위치를 바꾸면 빛의 방향이 달라집니다.",
+      "cautions": [
+        "움직이는 target을 scene에 추가하세요. rotation은 방향을 정하지 않습니다."
+      ],
+      "example": "scene.add(light,light.target); light.target.position.x=4;",
+      "sourceUrl": "https://threejs.org/docs/pages/DirectionalLight.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "point-light",
+      "symbol": "PointLight",
+      "description": "한 점에서 모든 방향으로 빛을 내며 거리에 따라 감쇠합니다.",
+      "parameters": [
+        {
+          "name": "intensity",
+          "type": "number",
+          "defaultValue": "1",
+          "description": "칸델라 단위 광도"
+        },
+        {
+          "name": "distance",
+          "type": "number",
+          "defaultValue": "0",
+          "description": "0은 최대 거리 제한 없음"
+        },
+        {
+          "name": "decay",
+          "type": "number",
+          "defaultValue": "2",
+          "description": "거리 감쇠 지수"
+        }
+      ],
+      "result": "새 점광원 객체입니다.",
+      "cautions": ["distance=0에서도 거리 감쇠는 적용됩니다."],
+      "example": "const light=new THREE.PointLight(0xffffff,20,0,2);",
+      "sourceUrl": "https://threejs.org/docs/pages/PointLight.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "standard-pbr",
+      "symbol": "MeshStandardMaterial",
+      "description": "roughness와 metalness로 물리 기반 표면을 표현합니다.",
+      "parameters": [
+        {
+          "name": "roughness",
+          "type": "number",
+          "defaultValue": "1",
+          "description": "0~1, 반사의 퍼짐"
+        },
+        {
+          "name": "metalness",
+          "type": "number",
+          "defaultValue": "0",
+          "description": "0 비금속, 1 금속"
+        },
+        {
+          "name": "envMapIntensity",
+          "type": "number",
+          "defaultValue": "1",
+          "description": "재질에 적용하는 환경 맵 강도"
+        }
+      ],
+      "result": "새 표준 재질입니다.",
+      "cautions": [
+        "material.envMap이 없고 scene.environment를 쓰면 scene.environmentIntensity가 적용됩니다. 이 예제는 같은 envMap을 양 재질에 명시합니다."
+      ],
+      "example": "const material=new THREE.MeshStandardMaterial({roughness:.8,metalness:0});",
+      "sourceUrl": "https://threejs.org/docs/pages/MeshStandardMaterial.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "pmrem-scene",
+      "symbol": "PMREMGenerator.fromScene",
+      "description": "별도 장면을 캡처하고 거칠기별 환경 반사를 위해 필터링합니다.",
+      "parameters": [
+        {
+          "name": "scene",
+          "type": "Scene",
+          "description": "캡처할 별도 장면"
+        },
+        {
+          "name": "sigma",
+          "type": "number",
+          "defaultValue": "0",
+          "description": "추가 흐림 반경, rad"
+        }
+      ],
+      "result": "texture를 담은 WebGLRenderTarget을 반환합니다.",
+      "cautions": ["생성기와 반환 target은 각각 수명에 맞춰 dispose하세요."],
+      "example": "const target=pmrem.fromScene(room,0,.1,20,{size:64}); scene.environment=target.texture;",
+      "sourceUrl": "https://threejs.org/docs/pages/PMREMGenerator.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
     }
   ]
 }

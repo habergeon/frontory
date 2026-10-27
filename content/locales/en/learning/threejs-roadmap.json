@@ -64,7 +64,7 @@
       "topics": ["vertices", "triangles", "indices", "attributes"],
       "outcome": "Explain vertex counts and indices in a custom triangle and fix out-of-range values",
       "requiredCapabilities": ["Numeric array editing and error output"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-06",
@@ -75,7 +75,7 @@
         "Fixed lighting example and surface comparison",
         "lighting details come in unit 08"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-07",
@@ -83,7 +83,7 @@
       "topics": ["geometry/material sharing", "clone"],
       "outcome": "Reproduce when changing one object affects another",
       "requiredCapabilities": ["Object and resource reference output"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-08",
@@ -91,7 +91,7 @@
       "topics": ["ambient, directional and point lights", "position", "target"],
       "outcome": "Change light positions and targets and explain material response",
       "requiredCapabilities": ["HTML inputs for each light type"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-09",
@@ -101,7 +101,7 @@
       "requiredCapabilities": [
         "Comparison examples with fixed lighting and environment"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-10",
@@ -375,5 +375,5 @@
       "readiness": "planned"
     }
   ],
-  "sourceHash": "50d81c9341c49e6406794c84232ebd614787124a781e6cef6b0a98d950deda71"
+  "sourceHash": "5cb09709e85d36e19e515f917197eef4fe968b7088a721f2fe80ed5e4fbcce41"
 }

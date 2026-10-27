@@ -133,7 +133,7 @@ ID: `threejs-step-04`
 
 필요한 실습 기능: 단일 HTML·inline CSS·module JavaScript · Three.js·OrbitControls · 정렬·콘솔·저장
 
-### [05. 버퍼 지오메트리](units/05/README.md) · 개선 예정
+### [05. 버퍼 지오메트리](units/05/README.md) · 실습 검증 완료
 
 ID: `threejs-step-05`
 
@@ -145,7 +145,7 @@ ID: `threejs-step-05`
 
 필요한 실습 기능: 숫자 배열 편집·오류 출력
 
-### [06. 법선과 표면 방향](units/06/README.md) · 개선 예정
+### [06. 법선과 표면 방향](units/06/README.md) · 실습 검증 완료
 
 ID: `threejs-step-06`
 
@@ -157,7 +157,7 @@ ID: `threejs-step-06`
 
 필요한 실습 기능: 고정 조명 예제와 표면 비교; 조명 상세는 08에서 학습
 
-### [07. 공유 지오메트리와 복제](units/07/README.md) · 개선 예정
+### [07. 공유 지오메트리와 복제](units/07/README.md) · 실습 검증 완료
 
 ID: `threejs-step-07`
 
@@ -169,7 +169,7 @@ ID: `threejs-step-07`
 
 필요한 실습 기능: 객체·자원 참조 출력
 
-### [08. 조명 종류와 배치](units/08/README.md) · 개선 예정
+### [08. 조명 종류와 배치](units/08/README.md) · 실습 검증 완료
 
 ID: `threejs-step-08`
 
@@ -181,7 +181,7 @@ ID: `threejs-step-08`
 
 필요한 실습 기능: 광원별 HTML 조작 입력
 
-### [09. 거칠기와 금속성](units/09/README.md) · 개선 예정
+### [09. 거칠기와 금속성](units/09/README.md) · 실습 검증 완료
 
 ID: `threejs-step-09`
 

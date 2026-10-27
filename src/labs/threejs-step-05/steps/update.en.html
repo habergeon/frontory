@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Validate a vertex update</title>
+    <style>
+      body { margin:0; padding:12px; font:14px/1.5 system-ui,sans-serif; color:#172554; background:white; } #stage { width:480px; max-width:100%; height:260px; } canvas { display:block; width:100%; height:100%; } .controls { display:flex; flex-wrap:wrap; align-items:center; gap:8px; } input { width:110px; max-width:100%; } output { display:block; white-space:pre-wrap; overflow-wrap:anywhere; } #error { color:#b91c1c; } button { padding:6px; }
+    </style>
+  </head>
+  <body>
+    <h1>Validate a vertex update</h1>
+    <div class="controls">
+      <label>Vertex index <input id="vertex" type="number" value="2" /></label
+      ><label
+        >y <input id="height" type="number" value="0.2" step="0.1" /></label
+      ><button id="apply">Apply</button
+      ><button id="cleanup">Release resources</button>
+    </div>
+    <p id="error" role="status"></p>
+    <div id="stage">
+      <canvas aria-label="Validate a vertex update"></canvas>
+    </div>
+    <output>Waiting for visible preview size</output>
+    <script type="module">
+      import * as THREE from 'three';
+      const stage = document.querySelector('#stage'),
+        canvas = document.querySelector('canvas'),
+        output = document.querySelector('output'),
+        error = document.querySelector('#error');
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#edf2f7');
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 50);
+      camera.position.set(0, 0, 6);
+      camera.lookAt(0, 0, 0);
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setPixelRatio(1);
+      const ownedGeometry = new Set(),
+        ownedMaterial = new Set(),
+        ownedTargets = new Set();
+      const ownMesh = (mesh) => {
+        ownedGeometry.add(mesh.geometry);
+        ownedMaterial.add(mesh.material);
+        return mesh;
+      };
+      const events = new AbortController();
+      let disposed = false;
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute(
+        'position',
+        new THREE.Float32BufferAttribute([-1, -1, 0, 1, -1, 0, 0, 1, 0], 3),
+      );
+      const material = new THREE.MeshBasicMaterial({ color: '#2563eb' });
+      const mesh = ownMesh(new THREE.Mesh(geometry, material));
+      scene.add(mesh);
+      const notifyGpu = false;
+      function report() {
+        output.textContent =
+          'vertices: ' +
+          geometry.getAttribute('position').count +
+          ' / topY: ' +
+          geometry.getAttribute('position').getY(2) +
+          ' / version: ' +
+          geometry.getAttribute('position').version +
+          ' / CSS: ' +
+          stage.clientWidth +
+          ' × ' +
+          stage.clientHeight +
+          ' / buffer: ' +
+          canvas.width +
+          ' × ' +
+          canvas.height;
+      }
+      function draw() {
+        if (disposed || !stage.clientWidth || !stage.clientHeight) return;
+        renderer.render(scene, camera);
+        report();
+      }
+      // Support: wait while hidden, then fit the drawing buffer and camera.
+      function resizeScene() {
+        const w = stage.clientWidth,
+          h = stage.clientHeight;
+        if (!w || !h || disposed) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        draw();
+      }
+      document.querySelector('#apply').addEventListener(
+        'click',
+        () => {
+          const raw = document.querySelector('#vertex').value,
+            value = document.querySelector('#height').value,
+            i = Number(raw),
+            y = Number(value),
+            p = geometry.getAttribute('position');
+          if (
+            !raw.trim() ||
+            !value.trim() ||
+            !Number.isInteger(i) ||
+            i < 0 ||
+            i >= p.count ||
+            !Number.isFinite(y) ||
+            y < -2 ||
+            y > 2
+          ) {
+            error.textContent = 'Vertex index must be 0–2 and y must be finite within -2–2.';
+            return;
+          }
+          error.textContent = '';
+          p.setY(i, y);
+          if (notifyGpu) p.needsUpdate = true;
+          geometry.computeBoundingSphere();
+          draw();
+        },
+        { signal: events.signal },
+      );
+      const observer = new ResizeObserver(resizeScene);
+      observer.observe(stage);
+      resizeScene();
+      // Release resources and events owned by this HTML exactly once.
+      function cleanup() {
+        if (disposed) return;
+        disposed = true;
+        observer.disconnect();
+        events.abort();
+        renderer.setAnimationLoop(null);
+        for (const target of ownedTargets) target.dispose();
+        for (const geometry of ownedGeometry) geometry.dispose();
+        for (const material of ownedMaterial) material.dispose();
+        renderer.dispose();
+        scene.clear();
+        output.textContent = 'Resources released';
+      }
+      document
+        .querySelector('#cleanup')
+        .addEventListener('click', cleanup, { signal: events.signal });
+      window.addEventListener('pagehide', cleanup, { once: true, signal: events.signal });
+    </script>
+  </body>
+</html>

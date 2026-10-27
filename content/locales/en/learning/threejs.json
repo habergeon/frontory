@@ -526,6 +526,249 @@
         "axes-helper",
         "euler-order"
       ]
+    },
+    {
+      "unitId": "threejs-step-05",
+      "prerequisiteIds": ["threejs-01", "threejs-step-04"],
+      "introduction": "Build position arrays and distinguish vertices from triangles. Predict each change and record actual images and numbers in the site notes. Every example is independent HTML.",
+      "steps": [
+        {
+          "title": "Build a triangle from attributes",
+          "explanation": "The second Float32BufferAttribute argument, 3, is the number of components x,y,z per vertex. Nine components give position.count=3. Change topY from 0.2 to 1 and compare the top corner and triangle area. setAttribute attaches the attribute under position.",
+          "solutionExplanation": "The vertex count stays fixed while the top corner moves. With a null index, every three consecutive positions form one triangle. Float32BufferAttribute stores a floating-point array for the GPU.",
+          "expected": "3 vertices, no index, 1 triangle; topY changes from 0.2 to 1.",
+          "hints": ["Find the topY constant.", "Keep itemSize at 3."],
+          "questions": ["How would the count change with itemSize=2?"],
+          "id": "threejs-step-05-attributes",
+          "starterPath": "src/labs/threejs-step-05/steps/attributes.html",
+          "solutionPath": "src/labs/threejs-step-05/solutions/attributes.html"
+        },
+        {
+          "title": "Connect two faces with four vertices",
+          "explanation": "The starter uses six positions for a square, duplicating two corners. Use four vertices and setIndex([0,1,2,0,2,3]) as in the solution to build the same faces. Sketch the zero-based vertex numbers and compare them with the arrays. Enter 0,1,99 in the HTML index-array field and apply it: the error must preserve the previous shape. Every index must be below position.count. Reapply the original array to recover.",
+          "solutionExplanation": "index.count=6 does not mean six stored vertices. Three indices make one face, so there are two faces. Corners with different UVs or normals still need separate vertices.",
+          "expected": "Starter: 6 vertices, no index. Solution: 4 vertices, 6 indices. Both show a two-triangle square.",
+          "hints": [
+            "The solution position array has 12 components.",
+            "Connect 0,1,2 and 0,2,3."
+          ],
+          "questions": ["What do index.count and position.count count?"],
+          "id": "threejs-step-05-index",
+          "starterPath": "src/labs/threejs-step-05/steps/index.html",
+          "solutionPath": "src/labs/threejs-step-05/solutions/index.html"
+        },
+        {
+          "title": "Validate a vertex update",
+          "explanation": "Accept vertex numbers 0–2 and y from -2 to 2. Apply vertex 4 and verify the previous triangle survives the error. Then apply vertex 2 with y=0.2. The starter changes the CPU array but leaves the rendered shape stale. Change notifyGpu=false to true.",
+          "solutionExplanation": "setY modifies the array. needsUpdate=true requests GPU upload and increments version. Recompute boundingSphere to avoid stale bounds. Reject invalid indices and empty input before mutation.",
+          "expected": "Vertex 4 is rejected without mutation. A valid edit updates CPU and image and increments version.",
+          "hints": [
+            "Inspect needsUpdate after setY.",
+            "Set notifyGpu to true."
+          ],
+          "questions": ["What is missing when only the CPU value changes?"],
+          "id": "threejs-step-05-update",
+          "starterPath": "src/labs/threejs-step-05/steps/update.html",
+          "solutionPath": "src/labs/threejs-step-05/solutions/update.html"
+        }
+      ],
+      "apiIds": ["buffer-attributes", "buffer-index", "attribute-update"]
+    },
+    {
+      "unitId": "threejs-step-06",
+      "prerequisiteIds": ["threejs-step-05"],
+      "introduction": "Compare triangle facing separately from the normals used for lighting. Keep camera and lighting fixed while changing one condition.",
+      "steps": [
+        {
+          "title": "Index order and front faces",
+          "explanation": "The camera looks from +Z toward the origin. The starter [0,2,1] is clockwise from this view, so its FrontSide face is invisible. Change it to [0,1,2]. Check that computeVertexNormals also changes normal.z from -1 to +1.",
+          "solutionExplanation": "Vertex order determines facing. Flipping only a normal does not restore a culled face. MeshBasicMaterial isolates facing from lighting in this experiment.",
+          "expected": "Starter is invisible with normal.z=-1; solution is visible with normal.z=1.",
+          "hints": [
+            "Keep the positions fixed.",
+            "Swap the second and third indices."
+          ],
+          "questions": ["How do normals differ from facing?"],
+          "id": "threejs-step-06-winding",
+          "starterPath": "src/labs/threejs-step-06/steps/winding.html",
+          "solutionPath": "src/labs/threejs-step-06/solutions/winding.html"
+        },
+        {
+          "title": "Light a surface with missing normals",
+          "explanation": "The starter uses four vertices and six indices for two folded faces. It has no normal attribute, but r186 automatically falls back to flat shading for MeshLambertMaterial, so the faces remain visible. Set calculateNormals=false to true and compare shading across the shared edge and normal.count.",
+          "solutionExplanation": "computeVertexNormals accumulates adjacent-face contributions at shared vertices and normalizes them. normal.count becomes 4; the first normal is approximately (-0.192,-0.192,0.962). Missing normals do not necessarily mean black surfaces. Compare the r186 flat fallback against interpolated vertex normals.",
+          "expected": "normal.count changes 0→4; the shared vertex normal is about (-0.192,-0.192,0.962), and shading across the fold changes.",
+          "hints": [
+            "Find calculateNormals.",
+            "Enable the computeVertexNormals call."
+          ],
+          "questions": ["Why does brightness change without moving the light?"],
+          "id": "threejs-step-06-normals",
+          "starterPath": "src/labs/threejs-step-06/steps/normals.html",
+          "solutionPath": "src/labs/threejs-step-06/solutions/normals.html"
+        },
+        {
+          "title": "Smooth shading across shared vertices",
+          "explanation": "Keep the sphere geometry and light fixed; change only flatShading from true to false. The starter has abrupt brightness changes across triangles; the solution interpolates normals smoothly. computeVertexNormals accumulates adjacent face contributions at indexed shared vertices.",
+          "solutionExplanation": "flatShading derives face normals in the shader. false interpolates vertex normals. Duplicated corners such as BoxGeometry edges remain split even after computeVertexNormals. Changing flatShading after compilation also requires material.needsUpdate=true.",
+          "expected": "Vertex/index counts and first normal stay fixed; only flatShading true→false changes shading across triangle boundaries.",
+          "hints": [
+            "Keep sphere segmentation fixed.",
+            "Change only flatShading to false."
+          ],
+          "questions": ["How do duplicated vertices affect normal averaging?"],
+          "id": "threejs-step-06-smooth",
+          "starterPath": "src/labs/threejs-step-06/steps/smooth.html",
+          "solutionPath": "src/labs/threejs-step-06/solutions/smooth.html"
+        }
+      ],
+      "apiIds": ["buffer-normals", "material-flat"]
+    },
+    {
+      "unitId": "threejs-step-07",
+      "prerequisiteIds": ["threejs-step-05", "threejs-step-06"],
+      "introduction": "Use === to inspect which resources two Mesh objects share. Predict object transforms separately from geometry and material edits.",
+      "steps": [
+        {
+          "title": "Two objects sharing resources",
+          "explanation": "a and b are distinct Mesh objects sharing geometry and material. Change stretch=1 to 1.5: a.geometry.scale stretches both boxes. Also compare changing only a.position.x, which leaves b in place.",
+          "solutionExplanation": "geometry.scale changes the shared vertex array. Mesh position and scale are per-Object3D transforms and do not mutate geometry. The output reports actual bounding-box heights and reference equality.",
+          "expected": "Geometry/material references are shared. Both heights change from 1 to 1.5 while centers stay at x=-1,1.",
+          "hints": [
+            "Change only stretch.",
+            "Inspect a.geometry.scale(1,stretch,1)."
+          ],
+          "questions": ["How does a.scale.y differ from a.geometry.scale?"],
+          "id": "threejs-step-07-shared",
+          "starterPath": "src/labs/threejs-step-07/steps/shared.html",
+          "solutionPath": "src/labs/threejs-step-07/solutions/shared.html"
+        },
+        {
+          "title": "Inspect Mesh.clone resource sharing",
+          "explanation": "b=a.clone() creates another Mesh but retains geometry and material references. In the starter, b.geometry.scale and b.material.color.set also affect a. Set isolate=false to true to assign geometry.clone and material.clone first.",
+          "solutionExplanation": "Cloning resources makes only b orange and 1.6 high; a stays blue and 1 high. geometry.clone also copies attribute arrays. A material clone would still share textures, but this example uses no textures.",
+          "expected": "Starter: both references true, both orange/height 1.6. Solution: false, a blue/height 1, b orange/height 1.6.",
+          "hints": [
+            "Clone both resources in the isolate branch.",
+            "Clone before editing."
+          ],
+          "questions": ["Why does Mesh.clone retain shared resources?"],
+          "id": "threejs-step-07-clone",
+          "starterPath": "src/labs/threejs-step-07/steps/clone.html",
+          "solutionPath": "src/labs/threejs-step-07/solutions/clone.html"
+        },
+        {
+          "title": "Separate only the material",
+          "explanation": "Keep geometry shared and clone only b.material for independent color. Set separateMaterial=false to true. After changing b to orange, verify a stays blue and geometry=== remains true.",
+          "solutionExplanation": "Clone only the resource requiring independence. Sharing is a per-reference choice. Cleanup uses Sets to dispose each shared resource once. Run the example again after pressing Release resources.",
+          "expected": "Solution shares geometry but not material: a blue, b orange, both heights 1.",
+          "hints": [
+            "Do not add geometry.clone.",
+            "Clone b.material before changing its color."
+          ],
+          "questions": ["Must geometry also be cloned to separate color?"],
+          "id": "threejs-step-07-independent",
+          "starterPath": "src/labs/threejs-step-07/steps/independent.html",
+          "solutionPath": "src/labs/threejs-step-07/solutions/independent.html"
+        }
+      ],
+      "apiIds": ["mesh-clone", "resource-clone"]
+    },
+    {
+      "unitId": "threejs-step-08",
+      "prerequisiteIds": ["threejs-01", "threejs-step-04", "threejs-step-06"],
+      "introduction": "Compare three light types using the same sphere and MeshLambertMaterial. MeshBasicMaterial does not react to these lights. Change one input at a time and record the bright region.",
+      "steps": [
+        {
+          "title": "Uniform ambient light",
+          "explanation": "The starter AmbientLight intensity is 0, leaving a black sphere. Change intensity to 1 and apply it through the HTML input too. Moving the light position cannot create directional shading for ambient light.",
+          "solutionExplanation": "Ambient light contributes equally in all directions. The blue material becomes visible, but curvature is less distinct than under directional lighting. AmbientLight cannot cast shadows. This input restricts intensity to nonnegative values.",
+          "expected": "Intensity 0→1 brightens the sphere without a directional highlight.",
+          "hints": [
+            "Find the intensity constant.",
+            "Compare intensities 0 and 1 first."
+          ],
+          "questions": ["Does moving ambient light shift the bright side?"],
+          "id": "threejs-step-08-ambient",
+          "starterPath": "src/labs/threejs-step-08/steps/ambient.html",
+          "solutionPath": "src/labs/threejs-step-08/solutions/ambient.html"
+        },
+        {
+          "title": "Directional position and target",
+          "explanation": "The directional light at (2,2,3) points toward its target. Change targetX from 0 to 4 and observe the bright side move while the light position stays fixed. The HTML input also edits target.x. Add light.target to the scene so its world transform updates.",
+          "solutionExplanation": "The light travels along target.position-light.position. The output normalizes that vector. Light rotation does not define its direction. Both objects are direct Scene children here, so local and world positions match.",
+          "expected": "Light position stays (2,2,3); target.x changes 0→4, flipping the direction x sign and moving the bright side.",
+          "hints": [
+            "Keep light.position fixed.",
+            "Change only light.target.position.x."
+          ],
+          "questions": ["Would changing only rotation have the same effect?"],
+          "id": "threejs-step-08-directional",
+          "starterPath": "src/labs/threejs-step-08/steps/directional.html",
+          "solutionPath": "src/labs/threejs-step-08/solutions/directional.html"
+        },
+        {
+          "title": "Point-light distance and brightness",
+          "explanation": "Keep PointLight intensity=20 and decay=2. Change z from 4 to 2 and compare front-face brightness. The input accepts 1.5–8 so the light stays outside the sphere. Position changes both attenuation and incidence direction, unlike ambient light.",
+          "solutionExplanation": "distance=0 removes the range cutoff, not attenuation. With decay=2, light weakens with distance. Material, curvature, and output conversion affect pixels, so halving z does not make every displayed pixel exactly four times brighter.",
+          "expected": "Intensity and decay stay fixed; z=4→2 brightens the front face. distance stays 0.",
+          "hints": ["Find pointZ.", "Keep intensity at 20."],
+          "questions": ["How do distance=0 and intensity=0 differ?"],
+          "id": "threejs-step-08-point",
+          "starterPath": "src/labs/threejs-step-08/steps/point.html",
+          "solutionPath": "src/labs/threejs-step-08/solutions/point.html"
+        }
+      ],
+      "apiIds": ["ambient-light", "directional-target", "point-light"]
+    },
+    {
+      "unitId": "threejs-step-09",
+      "prerequisiteIds": ["threejs-step-07", "threejs-step-08"],
+      "introduction": "Keep the left sphere as a reference and change one variable on the right. Camera, lights, color, and geometry match. The environment is generated from a small coded room; no external HDR is required.",
+      "steps": [
+        {
+          "title": "Compare only roughness",
+          "explanation": "Both spheres begin at roughness=.8, metalness=0, envMapIntensity=1. Change the right roughness constant to .15. Compare the broad blurred reflection on the left with the sharper reflection on the right. The HTML input also changes only right roughness.",
+          "solutionExplanation": "roughness in 0–1 changes the spread of reflection, not base color or light intensity. PMREM prefilters environment lighting for different roughness values. The geometry segmentation remains fixed.",
+          "expected": "Left stays .8; right changes .8→.15. metalness=0 and environment intensity=1 stay fixed while reflection shape changes.",
+          "hints": [
+            "Find the constant assigned to material.roughness.",
+            "Keep metalness at 0."
+          ],
+          "questions": ["Is roughness the same as sphere triangle count?"],
+          "id": "threejs-step-09-roughness",
+          "starterPath": "src/labs/threejs-step-09/steps/roughness.html",
+          "solutionPath": "src/labs/threejs-step-09/solutions/roughness.html"
+        },
+        {
+          "title": "Compare only metalness",
+          "explanation": "Fix roughness=.8 and environment intensity=1. Change right metalness from 0 to 1. Compare reflection color between the dielectric on the left and metal on the right. Both use #b98245; for the metal this color tints surface reflection.",
+          "solutionExplanation": "metalness=0 is dielectric and 1 is metal; intermediate values can represent mixed surfaces. Metal does not brighten through dielectric diffuse response. Judge the reflection and color under fixed lighting, rather than brightness alone.",
+          "expected": "Left metalness stays 0, right changes 0→1. Both roughness values stay .8 and environment intensity stays 1.",
+          "hints": [
+            "Change only metalness.",
+            "Check equal roughness values in output."
+          ],
+          "questions": ["What can make a metal appear dark?"],
+          "id": "threejs-step-09-metalness",
+          "starterPath": "src/labs/threejs-step-09/steps/metalness.html",
+          "solutionPath": "src/labs/threejs-step-09/solutions/metalness.html"
+        },
+        {
+          "title": "Separate environment light from background",
+          "explanation": "Both spheres use roughness=.8 and metalness=0 and explicitly share the same PMREM texture in material.envMap. The right envMapIntensity starts at 0. Set environment to 1 to match the left. The visible #edf2f7 background is separate from environment lighting.",
+          "solutionExplanation": "scene.environment supplies a default environment for standard materials without an envMap; scene.environmentIntensity controls that default. Here both materials have an explicit envMap so only right material.envMapIntensity changes. PMREMGenerator.fromScene captures a separate scene. Dispose the generator after generation and the shared returned target once at final cleanup.",
+          "expected": "Right environment intensity 0→1 makes both spheres match. Background and directional light stay fixed.",
+          "hints": ["Set environment to 1.", "Keep scene.background fixed."],
+          "questions": [
+            "How do environment maps and visible backgrounds differ?"
+          ],
+          "id": "threejs-step-09-environment",
+          "starterPath": "src/labs/threejs-step-09/steps/environment.html",
+          "solutionPath": "src/labs/threejs-step-09/solutions/environment.html"
+        }
+      ],
+      "apiIds": ["standard-pbr", "pmrem-scene"]
     }
   ],
   "apis": [
@@ -808,16 +1051,8 @@
           "type": "number",
           "description": "Target world X. An overload accepts a single Vector3."
         },
-        {
-          "name": "y",
-          "type": "number",
-          "description": "Target world Y."
-        },
-        {
-          "name": "z",
-          "type": "number",
-          "description": "Target world Z."
-        }
+        { "name": "y", "type": "number", "description": "Target world Y." },
+        { "name": "z", "type": "number", "description": "Target world Z." }
       ],
       "result": "No return value. Changes camera rotation without moving its position.",
       "cautions": [
@@ -1239,9 +1474,271 @@
       "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
       "packageVersion": "0.186.1",
       "checkedAt": "2026-10-26"
+    },
+    {
+      "id": "buffer-attributes",
+      "symbol": "BufferGeometry.setAttribute / BufferAttribute",
+      "description": "Attach a vertex attribute by name. count is array length divided by itemSize.",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Attribute name such as position"
+        },
+        {
+          "name": "attribute",
+          "type": "BufferAttribute",
+          "description": "Vertex data and component size"
+        }
+      ],
+      "result": "setAttribute returns the geometry.",
+      "cautions": ["Positions use three components per vertex."],
+      "example": "geometry.setAttribute('position', new THREE.Float32BufferAttribute([0,0,0,1,0,0,0,1,0],3));",
+      "sourceUrl": "https://threejs.org/docs/pages/BufferGeometry.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "buffer-index",
+      "symbol": "BufferGeometry.setIndex",
+      "description": "Specify three vertex indices per triangle. null uses consecutive vertices.",
+      "parameters": [
+        {
+          "name": "index",
+          "type": "Array<number> | BufferAttribute | null",
+          "description": "Integer indices from 0 through position.count-1"
+        }
+      ],
+      "result": "Returns the geometry.",
+      "cautions": [
+        "Out-of-range indices are not repaired automatically. Validate first."
+      ],
+      "example": "geometry.setIndex([0,1,2,0,2,3]);",
+      "sourceUrl": "https://threejs.org/docs/pages/BufferGeometry.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "attribute-update",
+      "symbol": "BufferAttribute.setY / needsUpdate",
+      "description": "Modify a CPU component with setY, then set needsUpdate=true to request GPU upload.",
+      "parameters": [
+        {
+          "name": "index, y",
+          "type": "number",
+          "description": "Vertex index and new y component"
+        }
+      ],
+      "result": "setY returns the attribute. Setting needsUpdate increments version.",
+      "cautions": [
+        "Recompute bounds after position edits. Do not inspect a needsUpdate getter as confirmation."
+      ],
+      "example": "position.setY(2, .2); position.needsUpdate=true; geometry.computeBoundingSphere();",
+      "sourceUrl": "https://threejs.org/docs/pages/BufferAttribute.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "buffer-normals",
+      "symbol": "BufferGeometry.computeVertexNormals",
+      "description": "Calculate normals from faces; indexed geometry accumulates adjacent-face contributions at shared vertices and normalizes them.",
+      "parameters": [],
+      "result": "Updates the normal attribute without returning a value.",
+      "cautions": ["Does not merge duplicate vertices or change winding."],
+      "example": "geometry.computeVertexNormals();",
+      "sourceUrl": "https://threejs.org/docs/pages/BufferGeometry.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "material-flat",
+      "symbol": "MeshLambertMaterial.flatShading",
+      "description": "Use face normals when true and interpolate vertex normals when false.",
+      "parameters": [
+        {
+          "name": "flatShading",
+          "type": "boolean",
+          "defaultValue": "false",
+          "description": "Whether to use flat shading"
+        }
+      ],
+      "result": "Changes the material shading mode.",
+      "cautions": [
+        "After compilation, changing it requires material.needsUpdate=true."
+      ],
+      "example": "material.flatShading=false; material.needsUpdate=true;",
+      "sourceUrl": "https://threejs.org/docs/pages/MeshLambertMaterial.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "mesh-clone",
+      "symbol": "Mesh.clone",
+      "description": "Copy the Mesh and Object3D transforms while retaining geometry and material references.",
+      "parameters": [
+        {
+          "name": "recursive",
+          "type": "boolean",
+          "defaultValue": "true",
+          "description": "Whether to clone child Object3D objects too."
+        }
+      ],
+      "result": "Returns a new Mesh.",
+      "cautions": [
+        "Clone resources separately when independent edits are needed."
+      ],
+      "example": "const b=a.clone();",
+      "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "resource-clone",
+      "symbol": "BufferGeometry.clone / Material.clone",
+      "description": "Create a new geometry or material instance.",
+      "parameters": [],
+      "result": "Returns a new resource of the same type.",
+      "cautions": [
+        "Material clones do not independently clone textures. Dispose shared resources once through their owner."
+      ],
+      "example": "b.geometry=a.geometry.clone(); b.material=a.material.clone();",
+      "sourceUrl": "https://threejs.org/docs/pages/Material.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "ambient-light",
+      "symbol": "AmbientLight",
+      "description": "Add light equally throughout the scene without direction.",
+      "parameters": [
+        {
+          "name": "color",
+          "type": "Color | number | string",
+          "defaultValue": "0xffffff",
+          "description": "Light color"
+        },
+        {
+          "name": "intensity",
+          "type": "number",
+          "defaultValue": "1",
+          "description": "Light strength"
+        }
+      ],
+      "result": "A new ambient light; add it to the scene.",
+      "cautions": ["Ambient lights do not cast shadows."],
+      "example": "scene.add(new THREE.AmbientLight(0xffffff,1));",
+      "sourceUrl": "https://threejs.org/docs/pages/AmbientLight.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "directional-target",
+      "symbol": "DirectionalLight.target",
+      "description": "Parallel light pointing from position to target world position.",
+      "parameters": [
+        {
+          "name": "target",
+          "type": "Object3D",
+          "description": "Its default position is the origin."
+        }
+      ],
+      "result": "Changing the target changes light direction.",
+      "cautions": [
+        "Add the target to the scene. Rotation does not define direction."
+      ],
+      "example": "scene.add(light,light.target); light.target.position.x=4;",
+      "sourceUrl": "https://threejs.org/docs/pages/DirectionalLight.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "point-light",
+      "symbol": "PointLight",
+      "description": "Emit light from one point in all directions with distance attenuation.",
+      "parameters": [
+        {
+          "name": "intensity",
+          "type": "number",
+          "defaultValue": "1",
+          "description": "Luminous intensity in candela"
+        },
+        {
+          "name": "distance",
+          "type": "number",
+          "defaultValue": "0",
+          "description": "0 means no range cutoff"
+        },
+        {
+          "name": "decay",
+          "type": "number",
+          "defaultValue": "2",
+          "description": "Distance decay exponent"
+        }
+      ],
+      "result": "A new point light.",
+      "cautions": ["Distance attenuation still applies when distance=0."],
+      "example": "const light=new THREE.PointLight(0xffffff,20,0,2);",
+      "sourceUrl": "https://threejs.org/docs/pages/PointLight.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "standard-pbr",
+      "symbol": "MeshStandardMaterial",
+      "description": "Represent a physically based surface using roughness and metalness.",
+      "parameters": [
+        {
+          "name": "roughness",
+          "type": "number",
+          "defaultValue": "1",
+          "description": "0–1, reflection spread"
+        },
+        {
+          "name": "metalness",
+          "type": "number",
+          "defaultValue": "0",
+          "description": "0 dielectric, 1 metal"
+        },
+        {
+          "name": "envMapIntensity",
+          "type": "number",
+          "defaultValue": "1",
+          "description": "Environment-map strength for this material"
+        }
+      ],
+      "result": "A new standard material.",
+      "cautions": [
+        "Without material.envMap, scene.environment uses scene.environmentIntensity. These examples explicitly assign the same envMap to both materials."
+      ],
+      "example": "const material=new THREE.MeshStandardMaterial({roughness:.8,metalness:0});",
+      "sourceUrl": "https://threejs.org/docs/pages/MeshStandardMaterial.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
+    },
+    {
+      "id": "pmrem-scene",
+      "symbol": "PMREMGenerator.fromScene",
+      "description": "Capture a scene and prefilter it for roughness-dependent environment reflections.",
+      "parameters": [
+        { "name": "scene", "type": "Scene", "description": "Scene to capture" },
+        {
+          "name": "sigma",
+          "type": "number",
+          "defaultValue": "0",
+          "description": "Additional blur radius in radians"
+        }
+      ],
+      "result": "Returns a WebGLRenderTarget containing the texture.",
+      "cautions": [
+        "Dispose the generator and returned target according to their separate lifetimes."
+      ],
+      "example": "const target=pmrem.fromScene(room,0,.1,20,{size:64}); scene.environment=target.texture;",
+      "sourceUrl": "https://threejs.org/docs/pages/PMREMGenerator.html",
+      "packageVersion": "three@0.186.1",
+      "checkedAt": "2026-10-27"
     }
   ],
-  "sourceHash": "77dfa6b7d662bd2efdefe108f7d5de4b502144fd1e3bb7b198bdfcb14c9048f0",
+  "sourceHash": "b50be82cfaa3f8975ff249de0cc84f88ca906aa8f323f63348b97556e926a124",
   "codeSourceHashes": {
     "src/labs/threejs-01/example.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
     "src/labs/threejs-01/steps/canvas.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
@@ -1288,6 +1785,41 @@
     "src/labs/threejs-step-04/steps/hinge.html": "06caa39a74f8b2f266e8f0bb15d27fdd29eb283abb13d96a53a12754476bb540",
     "src/labs/threejs-step-04/solutions/hinge.html": "4494c02b7f4116b090ebceeb8ef39d3d5d0b12c672a400b2101bd071fcd0acf0",
     "src/labs/threejs-step-04/steps/euler-supplement.html": "aed3511c2e2e21ce5c57ec3b20e4d75d80a8395423397c5db3916ccbb688d5ac",
-    "src/labs/threejs-step-04/solutions/euler-supplement.html": "737c7f226bde0855384a0006a50374b28c44c87b2399ed980edd857c5022e8c7"
+    "src/labs/threejs-step-04/solutions/euler-supplement.html": "737c7f226bde0855384a0006a50374b28c44c87b2399ed980edd857c5022e8c7",
+    "src/labs/threejs-step-05/steps/attributes.html": "e285beef3f933a074cbbac6c1f30d9d0bfee900d78582ffbf920a6489b346764",
+    "src/labs/threejs-step-05/solutions/attributes.html": "564d8732831a9ae35c1e4f81800f2ee07a3d560c08da9f8d51461a610b08daad",
+    "src/labs/threejs-step-05/steps/index.html": "84a2ac910dae990c5bc409ba2c8421c1c52020070d306a3f981e557a527f955e",
+    "src/labs/threejs-step-05/solutions/index.html": "044fdf8e777d4e02cce0ea0e4e5e664d9acb5f2bf371ab4b30aeaeb7411b5afb",
+    "src/labs/threejs-step-05/steps/update.html": "34985198a642fe57014ddb842b78da29f412704d762c0e94238e90a462ff3d40",
+    "src/labs/threejs-step-05/solutions/update.html": "d2ca7c5c6ddd3508e53cc9eb064d5c72414113678b02333669d77a1b3d89ba9d",
+    "src/labs/threejs-step-05/example.html": "e285beef3f933a074cbbac6c1f30d9d0bfee900d78582ffbf920a6489b346764",
+    "src/labs/threejs-step-06/steps/winding.html": "4525cb7eae5850471f5749efafaacd8f4b43d2158bf25060559558bc75be51e6",
+    "src/labs/threejs-step-06/solutions/winding.html": "644d57c9b4469f6d967e66b66d6453d2e1f5c0821c6ac54b8e2f44d087a2b927",
+    "src/labs/threejs-step-06/steps/normals.html": "c69bda8c98653766e07f8c55d965b9dc936df40f152835f6e81a6c62292f47e4",
+    "src/labs/threejs-step-06/solutions/normals.html": "aefc4cecc9b608cd4fc7acbe196f3e9f5399da1049f9e001d4e6de665dc05f0b",
+    "src/labs/threejs-step-06/steps/smooth.html": "4668cac6fbcac99c90a88ab5d54d0892f823c2574d6bc8fb0c76548dd195819d",
+    "src/labs/threejs-step-06/solutions/smooth.html": "41239e67eca7ad3b5c87557a395f3bc53de0a8e3982a1cce4d4118c3a26b1379",
+    "src/labs/threejs-step-06/example.html": "4525cb7eae5850471f5749efafaacd8f4b43d2158bf25060559558bc75be51e6",
+    "src/labs/threejs-step-07/steps/shared.html": "4d9477fb1e36ecd8618676cd852fff18e89161f0cf009a1d0a86e3162eb5efe3",
+    "src/labs/threejs-step-07/solutions/shared.html": "73ebbfd5c97673104e7e324e174677ade093062d199c123117553e9cd1f52519",
+    "src/labs/threejs-step-07/steps/clone.html": "5d199867e2ea3200778ebfdb5c96289e1fa7dcccde7e9dee84e15a338d6913d4",
+    "src/labs/threejs-step-07/solutions/clone.html": "3b949c81f80e3ad03c0ee8c682faafca0e06f6a1187c1465e4e925ff215a10c4",
+    "src/labs/threejs-step-07/steps/independent.html": "676b2223a9d5c1d7e5ec7645088ce5ecb6eea8e4740f8377ce143c3c97e82b4b",
+    "src/labs/threejs-step-07/solutions/independent.html": "804e52416e31c38211d30e99a1f412c70081c79d0c5d0a264daabc8d69b82631",
+    "src/labs/threejs-step-07/example.html": "4d9477fb1e36ecd8618676cd852fff18e89161f0cf009a1d0a86e3162eb5efe3",
+    "src/labs/threejs-step-08/steps/ambient.html": "5fe1a3f36ddfc0b41ec89f6830f9138112afc9a2dd25a4582fb6ba51622f1151",
+    "src/labs/threejs-step-08/solutions/ambient.html": "c82a0872e3e1dce2381d89ca145306d976f6862ebfde1d49cd778d558e0c3748",
+    "src/labs/threejs-step-08/steps/directional.html": "03aafb06106748584cd8b647ed18397c0b495bc507a414e8155ccb083786a33e",
+    "src/labs/threejs-step-08/solutions/directional.html": "b35e3d7ea18ad8ea2e9ac5612034f304b501a5d65d7486e4d436582562252626",
+    "src/labs/threejs-step-08/steps/point.html": "899e6172d590329022e9f16c0a110f741e69ef3137f1633ed8ae5043c4b17655",
+    "src/labs/threejs-step-08/solutions/point.html": "ad1da82fe4a409159a25d28a9f36192d1e64bcdae56094659880e725ccdfa10b",
+    "src/labs/threejs-step-08/example.html": "5fe1a3f36ddfc0b41ec89f6830f9138112afc9a2dd25a4582fb6ba51622f1151",
+    "src/labs/threejs-step-09/steps/roughness.html": "8ed6a4c4d6894f0e1f57a5bd8cb0cd771f9b29b77dd5f8515e29a06725b51209",
+    "src/labs/threejs-step-09/solutions/roughness.html": "06d437e08d73e0448ca3469123ffb1a1893087a86b89b6e0fc368a2c8bb304c1",
+    "src/labs/threejs-step-09/steps/metalness.html": "a0a9b727338c6ff17c153db96b63f1383a7e61a93489e7d621250eb744d10ada",
+    "src/labs/threejs-step-09/solutions/metalness.html": "e08d514a432c1cdd36f087253f4e867d4559533a916244b0a8650a7bb24726dc",
+    "src/labs/threejs-step-09/steps/environment.html": "580037b0978af2c72fe067eb34f7078d8d34e6befde732f134b21695901a8c3c",
+    "src/labs/threejs-step-09/solutions/environment.html": "421415d32d95d82f2bb2651fe6f021b0da35c3e64fad33874c55f722cb218dbd",
+    "src/labs/threejs-step-09/example.html": "8ed6a4c4d6894f0e1f57a5bd8cb0cd771f9b29b77dd5f8515e29a06725b51209"
   }
 }

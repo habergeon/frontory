@@ -60,7 +60,7 @@
       "topics": ["정점·삼각형·인덱스·attribute"],
       "outcome": "직접 만든 삼각형의 정점 수와 인덱스를 설명하고 범위 오류 수정",
       "requiredCapabilities": ["숫자 배열 편집·오류 출력"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-06",
@@ -70,7 +70,7 @@
       "requiredCapabilities": [
         "고정 조명 예제와 표면 비교; 조명 상세는 08에서 학습"
       ],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-07",
@@ -78,7 +78,7 @@
       "topics": ["geometry/material 공유와 clone"],
       "outcome": "한 물체의 변경이 다른 물체에 영향을 주는 조건 재현",
       "requiredCapabilities": ["객체·자원 참조 출력"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-08",
@@ -86,7 +86,7 @@
       "topics": ["환경광·방향광·점광원", "position·target"],
       "outcome": "광원 위치와 target을 바꾸고 재질 반응 설명",
       "requiredCapabilities": ["광원별 HTML 조작 입력"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-09",
@@ -94,7 +94,7 @@
       "topics": ["PBR 기초", "roughness·metalness"],
       "outcome": "같은 조명에서 두 변수를 따로 바꿔 비교",
       "requiredCapabilities": ["고정 조명·환경 조건의 비교 예제"],
-      "readiness": "planned"
+      "readiness": "verified"
     },
     {
       "unitId": "threejs-step-10",

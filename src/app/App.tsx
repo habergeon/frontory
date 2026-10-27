@@ -31,8 +31,8 @@ export function App() {
   const { locale, setLocale } = useLocale()
   const copy = messages[locale]
   const [selected, setSelected] = useState(fromHash)
-  const contained = selected?.seriesId === 'threejs' && selected.day <= 4
   const learning = selected ? getLessonLearning(selected.id, locale) : null
+  const contained = selected?.seriesId === 'threejs' && !!learning
   const localizedUnit = selected && getLocalizedUnit(locale, selected.id)
   useEffect(() => {
     document.documentElement.lang = locale

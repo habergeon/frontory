@@ -25,32 +25,32 @@
   "threejs-step-05": {
     "readingSource": "/examples-en/threejs-step-05/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-05/example.js"]
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-05/example.html"]
   },
   "threejs-step-06": {
     "readingSource": "/examples-en/threejs-step-06/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-06/example.js"]
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-06/example.html"]
   },
   "threejs-step-07": {
     "readingSource": "/examples-en/threejs-step-07/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-07/example.js"]
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-07/example.html"]
   },
   "threejs-step-08": {
     "readingSource": "/examples-en/threejs-step-08/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-08/example.js"]
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-08/example.html"]
   },
   "threejs-step-09": {
     "readingSource": "/examples-en/threejs-step-09/example.js",
     "mode": "browser",
-    "note": "편집 가능한 브라우저 실험입니다. 측정값은 현재 기기와 브라우저에 따라 달라집니다.",
-    "files": ["src/labs/threejs-step-09/example.js"]
+    "note": "사이트 안에서 HTML 시작 예제를 편집·실행합니다. 단계별 안내와 API 참고를 읽고 실제 결과를 필기에 남기세요.",
+    "files": ["src/labs/threejs-step-09/example.html"]
   },
   "threejs-step-10": {
     "readingSource": "/examples-en/threejs-step-10/example.js",

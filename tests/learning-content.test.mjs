@@ -36,7 +36,7 @@ test('integrated HTML lesson documents keep every required task inside the site'
     assert.match(second, expected)
     assert.doesNotMatch(second, excluded)
     const future = fs.readFileSync(
-      prefix + '/graphics/threejs/units/05/README.md',
+      prefix + '/graphics/threejs/units/10/README.md',
       'utf8',
     )
     assert.match(
@@ -158,7 +158,7 @@ test('browser lookup adapter exposes optional data without a Node filesystem dep
           : '../../content/locales/en/learning/threejs-roadmap.json',
       ),
     )
-    invalidRoadmap.entries[4].readiness = 'verified'
+    invalidRoadmap.entries[9].readiness = 'verified'
     const other = { exports: {} }
     assert.throws(
       () =>
@@ -173,7 +173,7 @@ test('browser lookup adapter exposes optional data without a Node filesystem dep
           other.exports,
           other,
         ),
-      /Verified roadmap unit has no lesson: threejs-step-05/,
+      /Verified roadmap unit has no lesson: threejs-step-10/,
     )
   }
   assert.match(
@@ -220,6 +220,9 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
       'src/labs/threejs-step-02/example.html',
       'src/labs/threejs-step-03/example.html',
       'src/labs/threejs-step-04/example.html',
+      ...[5, 6, 7, 8, 9].map(
+        (n) => 'src/labs/threejs-step-0' + n + '/example.html',
+      ),
       ...original.ko.lessons.flatMap((l) =>
         l.steps.flatMap((s) => [s.starterPath, s.solutionPath]),
       ),
@@ -250,7 +253,7 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
       structuredClone(original.roadmapEn),
     ]
     roadmaps.forEach((data) => {
-      data.entries[4].readiness = 'verified'
+      data.entries[9].readiness = 'verified'
     })
     roadmaps[1].sourceHash = sourceHash(roadmaps[0])
     roadmapFiles.forEach((file, i) =>
@@ -258,7 +261,7 @@ test('localized HTML selects distinct bytes and rejects missing/stale code fresh
     )
     assert.throws(
       () => readLearningContent(root),
-      /Verified roadmap unit has no lesson: threejs-step-05/,
+      /Verified roadmap unit has no lesson: threejs-step-10/,
     )
     roadmapFiles.forEach((file, i) =>
       fs.writeFileSync(
@@ -364,7 +367,12 @@ test('generated source links select localized HTML while unconverted JavaScript 
       ['threejs-step-02', 'units/02', locale === 'ko' ? 'html' : 'en.html'],
       ['threejs-step-03', 'units/03', locale === 'ko' ? 'html' : 'en.html'],
       ['threejs-step-04', 'units/04', locale === 'ko' ? 'html' : 'en.html'],
-      ['threejs-step-05', 'units/05', 'js'],
+      ...[5, 6, 7, 8, 9].map((n) => [
+        'threejs-step-0' + n,
+        'units/0' + n,
+        locale === 'ko' ? 'html' : 'en.html',
+      ]),
+      ['threejs-step-10', 'units/10', 'js'],
     ]) {
       const file = root + '/labs/graphics/threejs/' + doc + '/README.md'
       const text = fs.readFileSync(file, 'utf8')

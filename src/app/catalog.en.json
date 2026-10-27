@@ -3418,55 +3418,65 @@
       "day": 5,
       "week": 1,
       "title": "Buffer Geometry",
-      "goal": "Distinguish the vertex count from the triangle count. Avoid indices outside the valid range.",
+      "goal": "3 vertices, no index, 1 triangle; topY changes from 0.2 to 1. Starter: 6 vertices, no index. Solution: 4 vertices, 6 indices. Both show a two-triangle square. Vertex 4 is rejected without mutation. A valid edit updates CPU and image and increments version.",
       "docPath": "/docs/en/labs/graphics/threejs/units/05/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-05/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run HTML inside the site. Compare actual images and numbers for each step and record your observations in the site notes."
     },
     {
       "id": "threejs-step-06",
       "day": 6,
       "week": 1,
       "title": "Normals and Surface Orientation",
-      "goal": "Compare geometry with and without normals. Create flat and smooth boundaries as intended.",
+      "goal": "Starter is invisible with normal.z=-1; solution is visible with normal.z=1. normal.count changes 0→4; the shared vertex normal is about (-0.192,-0.192,0.962), and shading across the fold changes. Vertex/index counts and first normal stay fixed; only flatShading true→false changes shading across triangle boundaries.",
       "docPath": "/docs/en/labs/graphics/threejs/units/06/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-06/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run HTML inside the site. Compare actual images and numbers for each step and record your observations in the site notes."
     },
     {
       "id": "threejs-step-07",
       "day": 7,
       "week": 1,
       "title": "Shared Geometry and Cloning",
-      "goal": "Reproduce the difference between shared and independent materials. Record the material owner.",
+      "goal": "Geometry/material references are shared. Both heights change from 1 to 1.5 while centers stay at x=-1,1. Starter: both references true, both orange/height 1.6. Solution: false, a blue/height 1, b orange/height 1.6. Solution shares geometry but not material: a blue, b orange, both heights 1.",
       "docPath": "/docs/en/labs/graphics/threejs/units/07/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-07/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run HTML inside the site. Compare actual images and numbers for each step and record your observations in the site notes."
     },
     {
       "id": "threejs-step-08",
       "day": 8,
       "week": 2,
       "title": "Light Types and Placement",
-      "goal": "Distinguish the light position from its target. Explain the material response when lights are off.",
+      "goal": "Intensity 0→1 brightens the sphere without a directional highlight. Light position stays (2,2,3); target.x changes 0→4, flipping the direction x sign and moving the bright side. Intensity and decay stay fixed; z=4→2 brightens the front face. distance stays 0.",
       "docPath": "/docs/en/labs/graphics/threejs/units/08/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-08/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run HTML inside the site. Compare actual images and numbers for each step and record your observations in the site notes."
     },
     {
       "id": "threejs-step-09",
       "day": 9,
       "week": 2,
       "title": "Roughness and Metalness",
-      "goal": "Compare the two material variables independently. Record the lighting conditions.",
+      "goal": "Left stays .8; right changes .8→.15. metalness=0 and environment intensity=1 stay fixed while reflection shape changes. Left metalness stays 0, right changes 0→1. Both roughness values stay .8 and environment intensity stays 1. Right environment intensity 0→1 makes both spheres match. Background and directional light stay fixed.",
       "docPath": "/docs/en/labs/graphics/threejs/units/09/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-09/example.js",
-      "exampleNote": "This is an editable browser experiment. Measurements vary with the current device and browser."
+      "exampleNote": "Edit and run HTML inside the site. Compare actual images and numbers for each step and record your observations in the site notes."
     },
     {
       "id": "threejs-step-10",

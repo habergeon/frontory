@@ -3177,9 +3177,11 @@
       "day": 5,
       "week": 1,
       "title": "버퍼 지오메트리",
-      "goal": "정점 수와 삼각형 수를 구별한다. 인덱스 범위를 벗어난 값을 넣지 않는다.",
+      "goal": "정점 3, index 없음, 삼각형 1. topY는 0.2에서 1로 바뀝니다. 시작 예제는 정점 6·index 없음, 완성 예제는 정점 4·index 6입니다. 둘 다 두 삼각형의 사각형입니다. 번호 4는 오류로 거부되고 상태는 유지됩니다. 올바른 정점 수정은 CPU와 그림에 함께 반영되고 version이 증가합니다.",
       "docPath": "/docs/labs/graphics/threejs/units/05/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-05/example.js"
     },
     {
@@ -3187,9 +3189,11 @@
       "day": 6,
       "week": 1,
       "title": "법선과 표면 방향",
-      "goal": "법선이 없는 경우와 있는 경우를 비교한다. 평면 경계와 부드러운 경계를 의도대로 만든다.",
+      "goal": "시작 면은 보이지 않고 normal.z=-1, 완성 면은 보이며 normal.z=1입니다. normal.count 0→4, 공유 정점의 법선은 대략 (-0.192,-0.192,0.962)이며 접힌 면의 음영 연결이 바뀝니다. 정점·index 수와 첫 법선은 같고 flatShading만 true→false로 바뀌며 삼각형 경계의 음영이 달라집니다.",
       "docPath": "/docs/labs/graphics/threejs/units/06/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-06/example.js"
     },
     {
@@ -3197,9 +3201,11 @@
       "day": 7,
       "week": 1,
       "title": "공유 지오메트리와 복제",
-      "goal": "공유와 독립 재질의 차이를 재현한다. 재질 소유자를 기록한다.",
+      "goal": "geometry와 material은 같은 참조입니다. 두 높이가 1에서 1.5로 함께 변하지만 중심 x=-1,1은 유지됩니다. 시작 예제는 두 참조 true·둘 다 높이 1.6/주황, 완성 예제는 false·a 높이 1/파랑·b 높이 1.6/주황입니다. 완성 예제는 geometry 공유 true, material 공유 false이며 a는 파랑·b는 주황입니다. 두 높이는 1입니다.",
       "docPath": "/docs/labs/graphics/threejs/units/07/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-07/example.js"
     },
     {
@@ -3207,9 +3213,11 @@
       "day": 8,
       "week": 2,
       "title": "조명 종류와 배치",
-      "goal": "광원 위치와 target을 구별한다. 광원을 껐을 때 재질 반응을 설명한다.",
+      "goal": "강도 0→1에서 구가 밝아지고 특정 방향의 하이라이트는 생기지 않습니다. 광원 위치 (2,2,3)은 유지되고 target.x가 0→4로 바뀌며 방향 x 성분의 부호와 구의 밝은 쪽이 바뀝니다. 강도와 decay는 유지되고 z=4→2에서 앞면이 밝아집니다. distance는 0입니다.",
       "docPath": "/docs/labs/graphics/threejs/units/08/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-08/example.js"
     },
     {
@@ -3217,9 +3225,11 @@
       "day": 9,
       "week": 2,
       "title": "거칠기와 금속성",
-      "goal": "두 재질 변수를 독립적으로 비교한다. 광원 조건을 기록한다.",
+      "goal": "왼쪽 .8 유지, 오른쪽 .8→.15. metalness=0과 환경 강도 1은 유지되고 반사 모양이 달라집니다. 왼쪽 metalness=0 유지, 오른쪽 0→1. 두 roughness=.8, 환경 강도 1입니다. 오른쪽 환경 강도 0→1에서 두 구가 같은 조건이 됩니다. 배경색과 방향광은 그대로입니다.",
       "docPath": "/docs/labs/graphics/threejs/units/09/README.md",
       "seriesId": "threejs",
+      "sourceLanguage": "html",
+      "runtimeProfile": "threejs",
       "exampleReadingSource": "/examples-en/threejs-step-09/example.js"
     },
     {

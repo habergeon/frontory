@@ -135,7 +135,7 @@ Completion task: Build spin and orbit motions and predict position changes
 
 Required practice capabilities: Single HTML document, inline CSS and module JavaScript · Three.js and OrbitControls · formatting, console and saving
 
-### [05. Buffer Geometry](units/05/README.md) · Improvements planned
+### [05. Buffer Geometry](units/05/README.md) · Practice verified
 
 ID: `threejs-step-05`
 
@@ -147,7 +147,7 @@ Completion task: Explain vertex counts and indices in a custom triangle and fix 
 
 Required practice capabilities: Numeric array editing and error output
 
-### [06. Normals and Surface Orientation](units/06/README.md) · Improvements planned
+### [06. Normals and Surface Orientation](units/06/README.md) · Practice verified
 
 ID: `threejs-step-06`
 
@@ -159,7 +159,7 @@ Completion task: Compare missing normals and edge handling
 
 Required practice capabilities: Fixed lighting example and surface comparison · lighting details come in unit 08
 
-### [07. Shared Geometry and Cloning](units/07/README.md) · Improvements planned
+### [07. Shared Geometry and Cloning](units/07/README.md) · Practice verified
 
 ID: `threejs-step-07`
 
@@ -171,7 +171,7 @@ Completion task: Reproduce when changing one object affects another
 
 Required practice capabilities: Object and resource reference output
 
-### [08. Light Types and Placement](units/08/README.md) · Improvements planned
+### [08. Light Types and Placement](units/08/README.md) · Practice verified
 
 ID: `threejs-step-08`
 
@@ -183,7 +183,7 @@ Completion task: Change light positions and targets and explain material respons
 
 Required practice capabilities: HTML inputs for each light type
 
-### [09. Roughness and Metalness](units/09/README.md) · Improvements planned
+### [09. Roughness and Metalness](units/09/README.md) · Practice verified
 
 ID: `threejs-step-09`
 

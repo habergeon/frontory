@@ -126,7 +126,7 @@
       "sourceHash": "607a5573a911835246de94993341a95cd0764fcc95d58a2f0f42f584a02975f9",
       "values": {
         "title": "Buffer Geometry",
-        "prerequisites": "Review the preceding geometry and lighting concepts. Each HTML runs independently; no previous result file is required.",
+        "prerequisites": "Review coordinates and parent transforms from units 01 and 04. Each HTML runs independently; no previous result file is required.",
         "environment": "Edit independent HTML inside the site. The site supplies three@0.186.1; no installation or external server is required.",
         "concepts.0.title": "Vertex Attributes",
         "concepts.0.explanation": "BufferGeometry groups arrays such as position and normal. itemSize is the number of components in one vertex.",

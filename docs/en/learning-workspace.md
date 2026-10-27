@@ -1,5 +1,7 @@
 # Using the Frontory learning workspace and storage
 
+All 28 units provide independent HTML practice and step examples in Korean and English. Implementation readiness `verified` means unit execution and content review are complete; learner progress is separate. The deployed production baseline is `0338dbe857265441d76d12b073170e24ac794cb5`. The subsequent 24-unit expansion is locally validated and has not been pushed or deployed. Chromium/SwiftShader validation does not establish behavior on real devices or every GPU, or learner assessment.
+
 ## Getting started
 
 Open **Browse series** in Frontory and choose a technology to study. Select a stage, read the learning document, complete the exercises, and take notes. If you are new, try changing the cube color or camera position in the first WebGL scene. You can learn in the browser without installation or login.

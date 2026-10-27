@@ -2611,7 +2611,7 @@
       "cautions": ["position은 한 정점당 x,y,z 세 성분을 씁니다."],
       "example": "geometry.setAttribute('position', new THREE.Float32BufferAttribute([0,0,0,1,0,0,0,1,0],3));",
       "sourceUrl": "https://threejs.org/docs/pages/BufferGeometry.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2629,7 +2629,7 @@
       "cautions": ["범위 오류를 자동 수정하지 않습니다. 입력 전에 검사하세요."],
       "example": "geometry.setIndex([0,1,2,0,2,3]);",
       "sourceUrl": "https://threejs.org/docs/pages/BufferGeometry.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2649,7 +2649,7 @@
       ],
       "example": "position.setY(2, .2); position.needsUpdate=true; geometry.computeBoundingSphere();",
       "sourceUrl": "https://threejs.org/docs/pages/BufferAttribute.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2663,7 +2663,7 @@
       ],
       "example": "geometry.computeVertexNormals();",
       "sourceUrl": "https://threejs.org/docs/pages/BufferGeometry.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2684,7 +2684,7 @@
       ],
       "example": "material.flatShading=false; material.needsUpdate=true;",
       "sourceUrl": "https://threejs.org/docs/pages/MeshLambertMaterial.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2703,7 +2703,7 @@
       "cautions": ["독립 자원이 필요하면 자원을 별도로 clone하세요."],
       "example": "const b=a.clone();",
       "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2717,7 +2717,7 @@
       ],
       "example": "b.geometry=a.geometry.clone(); b.material=a.material.clone();",
       "sourceUrl": "https://threejs.org/docs/pages/Material.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2742,7 +2742,7 @@
       "cautions": ["환경광은 그림자를 만들지 않습니다."],
       "example": "scene.add(new THREE.AmbientLight(0xffffff,1));",
       "sourceUrl": "https://threejs.org/docs/pages/AmbientLight.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2762,7 +2762,7 @@
       ],
       "example": "scene.add(light,light.target); light.target.position.x=4;",
       "sourceUrl": "https://threejs.org/docs/pages/DirectionalLight.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2793,7 +2793,7 @@
       "cautions": ["distance=0에서도 거리 감쇠는 적용됩니다."],
       "example": "const light=new THREE.PointLight(0xffffff,20,0,2);",
       "sourceUrl": "https://threejs.org/docs/pages/PointLight.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2826,7 +2826,7 @@
       ],
       "example": "const material=new THREE.MeshStandardMaterial({roughness:.8,metalness:0});",
       "sourceUrl": "https://threejs.org/docs/pages/MeshStandardMaterial.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2850,7 +2850,7 @@
       "cautions": ["생성기와 반환 target은 각각 수명에 맞춰 dispose하세요."],
       "example": "const target=pmrem.fromScene(room,0,.1,20,{size:64}); scene.environment=target.texture;",
       "sourceUrl": "https://threejs.org/docs/pages/PMREMGenerator.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {

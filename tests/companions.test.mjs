@@ -66,7 +66,7 @@ test('companion inventory covers original paths and every actual English artifac
       })
     }),
   )
-  assert.equal(learningSources.size, 92)
+  assert.equal(learningSources.size, 440)
   assert.deepEqual(
     actual.filter((file) => learningSources.has(file)),
     [...learningSources].sort(),

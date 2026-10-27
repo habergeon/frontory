@@ -16,7 +16,7 @@ const lessons = JSON.parse(
 ).lessons
 const expressions = {
   10: `({uv:Array.from(uv.array),width:geometry.parameters.width*mesh.scale.x,status,repeat:current?.repeat.toArray(),wrap:current?.wrapS,image:current?[current.image.width,current.image.height]:null,textures:ownedTextures.size,urls:urls.size,map:material.map===current})`,
-  11: `({input:texture.colorSpace,output:renderer.outputColorSpace,byte:texture.image.data[1],roughness:material.roughness??null,roughnessMap:material.roughnessMap===texture,center:Array.from(pixels.slice((Math.floor(canvas.height/2)*canvas.width+Math.floor(canvas.width/2))*4,(Math.floor(canvas.height/2)*canvas.width+Math.floor(canvas.width/2))*4+3))})`,
+  11: `({input:typeof texture==='undefined'?null:texture.colorSpace,output:renderer.outputColorSpace,byte:typeof texture==='undefined'?null:texture.image.data[1],linear:material.color.toArray(),roughness:material.roughness??null,roughnessMap:typeof texture!=='undefined'&&material.roughnessMap===texture,center:Array.from(pixels.slice((Math.floor(canvas.height/2)*canvas.width+Math.floor(canvas.width/2))*4,(Math.floor(canvas.height/2)*canvas.width+Math.floor(canvas.width/2))*4+3))})`,
   12: `({cast:caster.castShadow,receive:floor.receiveShadow,enabled:renderer.shadowMap.enabled,lightCast:light.castShadow,extent:shadowCamera.right,mapSize:light.shadow.mapSize.toArray(),map:light.shadow.map?[light.shadow.map.width,light.shadow.map.height]:null,helper:helper.visible,unitsPerTexel:(shadowCamera.right-shadowCamera.left)/light.shadow.mapSize.x})`,
   13: `({pointer:pointer.toArray(),hits:hits.map(h=>({name:h.object.name,distance:h.distance})),selected:selected?.name??null,colors:[backMaterial.color.getHexString(),frontMaterial.color.getHexString()],canvasRelative,nearest,clearOnMiss})`,
 }
@@ -348,7 +348,8 @@ export async function runGroup(page, base, unitId) {
           if (kind === 'starter') baselines.set(baselineKey, desktop)
           if (n === 11) {
             const solution = kind === 'solution'
-            assert.equal(desktop.actual.byte, 128)
+            if (!step.id.endsWith('output'))
+              assert.equal(desktop.actual.byte, 128)
             const target = step.id.endsWith('data-map') ? 'none' : 'srgb'
             if (step.id.endsWith('color-map')) {
               assert.equal(desktop.actual.input, solution ? 'srgb' : '')
@@ -363,6 +364,8 @@ export async function runGroup(page, base, unitId) {
               assert.equal(desktop.actual.roughnessMap, true)
             }
             if (step.id.endsWith('output')) {
+              assert.deepEqual(desktop.actual.linear, [0.5, 0.5, 0.5])
+              assert.equal(desktop.actual.byte, null)
               assert.equal(
                 desktop.actual.output,
                 solution ? 'srgb' : 'srgb-linear',

@@ -2330,6 +2330,8 @@ body.rotation.order = 'YXZ';
 
 Units 01–04 have passed verification of the required in-site exercises. Planned improvements for units 05–28 mean existing lessons remain available, while verification that their exercises can be completed inside the site is still pending. This status is separate from your learning progress.
 
+All 28 units provide independent HTML practice and step examples in Korean and English. Implementation readiness `verified` means unit execution and content review are complete; learner progress is separate. The deployed production baseline is `0338dbe857265441d76d12b073170e24ac794cb5`. The subsequent 24-unit expansion is locally validated and has not been pushed or deployed. Chromium/SwiftShader validation does not establish behavior on real devices or every GPU, or learner assessment.
+
 ### [01. Scene Graphs and Cameras](../../01-foundations/README.md) · Practice verified
 
 ID: `threejs-01`

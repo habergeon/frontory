@@ -24,7 +24,7 @@ for (const kind of ['framework', 'graphics', 'gpu', 'engineering']) {
         if (typeof file === 'string' && path.dirname(path.resolve(file)) === path.resolve('content/examples')) {
           const metadata = JSON.parse(text)
           originals.set(path.resolve(file), metadata)
-          return JSON.stringify(Object.fromEntries([...Object.entries(metadata).map(([id, item]) => [id, id.includes('-step-') ? { ...item, note: 'stale generated note' } : item]), ['obsolete-unit', { mode: 'browser', note: 'obsolete' }]]))
+          return JSON.stringify(Object.fromEntries([...Object.entries(metadata).map(([id, item]) => [id, id.includes('-step-') && !item.files?.some(file => file.endsWith('.html')) ? { ...item, note: 'stale generated note' } : item]), ['obsolete-unit', { mode: 'browser', note: 'obsolete' }]]))
         }
         return text
       }

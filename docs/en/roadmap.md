@@ -1,5 +1,7 @@
 # Frontory roadmap
 
+All 28 units provide independent HTML practice and step examples in Korean and English. Implementation readiness `verified` means unit execution and content review are complete; learner progress is separate. The deployed production baseline is `0338dbe857265441d76d12b073170e24ac794cb5`. The subsequent 24-unit expansion is locally validated and has not been pushed or deployed. Chromium/SwiftShader validation does not establish behavior on real devices or every GPU, or learner assessment.
+
 [Technology map of 23 series](labs/README.md) · [WebGL: 28 units in progress](labs/graphics/webgl/README.md) · [Practice and storage guide](learning-workspace.md)
 
 ## Choosing a learning path

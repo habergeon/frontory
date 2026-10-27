@@ -728,9 +728,8 @@ Working .5 stays fixed; linear→srgb output changes approximately 128→188. No
   <body>
     <h1>Working color and output color</h1>
     <p>
-      Original 2×2 RGBA [128,128,128,255] asset. In the color step it encodes an
-      sRGB image; in the data step its green=128/255 encodes roughness. The
-      output step displays Linear-sRGB .5.
+      Material color uses Linear-sRGB components [0.5, 0.5, 0.5]. Compare the
+      rendered result when output color space changes.
     </p>
     <div class="controls">
       <label
@@ -771,17 +770,6 @@ Working .5 stays fixed; linear→srgb output changes approximately 128→188. No
       };
       const events = new AbortController();
       let disposed = false;
-      const pixels = new Uint8Array([
-        128, 128, 128, 255, 128, 128, 128, 255, 128, 128, 128, 255, 128, 128, 128,
-        255,
-      ]);
-      const texture = new THREE.DataTexture(pixels, 2, 2);
-      texture.magFilter = texture.minFilter = THREE.NearestFilter;
-      ownedTextures.add(texture);
-      const inputSpace = 'none';
-      texture.colorSpace =
-        inputSpace === 'srgb' ? THREE.SRGBColorSpace : THREE.NoColorSpace;
-      texture.needsUpdate = true;
       const geometry = new THREE.PlaneGeometry(3.6, 2.4);
       const material = new THREE.MeshBasicMaterial({
         color: new THREE.Color(0.5, 0.5, 0.5),
@@ -802,14 +790,10 @@ Working .5 stays fixed; linear→srgb output changes approximately 128→188. No
       );
       function report() {
         output.textContent =
-          'input: ' +
-          (texture.colorSpace || 'NoColorSpace') +
+          'material linear RGB: ' +
+          material.color.toArray().join(', ') +
           ' / working: Linear-sRGB / output: ' +
-          renderer.outputColorSpace +
-          ' / source byte: ' +
-          pixels[1] +
-          ' / roughness: ' +
-          (material.roughness ?? '—');
+          renderer.outputColorSpace;
       }
       function draw() {
         if (disposed || !stage.clientWidth || !stage.clientHeight) return;
@@ -882,9 +866,8 @@ Three.js performs lighting and color calculations in Linear-sRGB. outputColorSpa
   <body>
     <h1>Working color and output color</h1>
     <p>
-      Original 2×2 RGBA [128,128,128,255] asset. In the color step it encodes an
-      sRGB image; in the data step its green=128/255 encodes roughness. The
-      output step displays Linear-sRGB .5.
+      Material color uses Linear-sRGB components [0.5, 0.5, 0.5]. Compare the
+      rendered result when output color space changes.
     </p>
     <div class="controls">
       <label
@@ -925,17 +908,6 @@ Three.js performs lighting and color calculations in Linear-sRGB. outputColorSpa
       };
       const events = new AbortController();
       let disposed = false;
-      const pixels = new Uint8Array([
-        128, 128, 128, 255, 128, 128, 128, 255, 128, 128, 128, 255, 128, 128, 128,
-        255,
-      ]);
-      const texture = new THREE.DataTexture(pixels, 2, 2);
-      texture.magFilter = texture.minFilter = THREE.NearestFilter;
-      ownedTextures.add(texture);
-      const inputSpace = 'none';
-      texture.colorSpace =
-        inputSpace === 'srgb' ? THREE.SRGBColorSpace : THREE.NoColorSpace;
-      texture.needsUpdate = true;
       const geometry = new THREE.PlaneGeometry(3.6, 2.4);
       const material = new THREE.MeshBasicMaterial({
         color: new THREE.Color(0.5, 0.5, 0.5),
@@ -956,14 +928,10 @@ Three.js performs lighting and color calculations in Linear-sRGB. outputColorSpa
       );
       function report() {
         output.textContent =
-          'input: ' +
-          (texture.colorSpace || 'NoColorSpace') +
+          'material linear RGB: ' +
+          material.color.toArray().join(', ') +
           ' / working: Linear-sRGB / output: ' +
-          renderer.outputColorSpace +
-          ' / source byte: ' +
-          pixels[1] +
-          ' / roughness: ' +
-          (material.roughness ?? '—');
+          renderer.outputColorSpace;
       }
       function draw() {
         if (disposed || !stage.clientWidth || !stage.clientHeight) return;

@@ -12,7 +12,7 @@ Stage: Scene Coordinates, Cameras, and Geometry · Editable example · Storage I
 
 ## Prerequisites
 
-Review the preceding geometry and lighting concepts. Each HTML runs independently; no previous result file is required.
+Review coordinates and parent transforms from units 01 and 04. Each HTML runs independently; no previous result file is required.
 
 ## Key concepts and explanations
 
@@ -949,7 +949,7 @@ setAttribute returns the geometry.
 geometry.setAttribute('position', new THREE.Float32BufferAttribute([0,0,0,1,0,0,0,1,0],3));
 ```
 
-[BufferGeometry.setAttribute / BufferAttribute](https://threejs.org/docs/pages/BufferGeometry.html) · three@three@0.186.1 · 2026-10-27
+[BufferGeometry.setAttribute / BufferAttribute](https://threejs.org/docs/pages/BufferGeometry.html) · three@0.186.1 · 2026-10-27
 
 ### API · BufferGeometry.setIndex
 
@@ -965,7 +965,7 @@ Returns the geometry.
 geometry.setIndex([0,1,2,0,2,3]);
 ```
 
-[BufferGeometry.setIndex](https://threejs.org/docs/pages/BufferGeometry.html) · three@three@0.186.1 · 2026-10-27
+[BufferGeometry.setIndex](https://threejs.org/docs/pages/BufferGeometry.html) · three@0.186.1 · 2026-10-27
 
 ### API · BufferAttribute.setY / needsUpdate
 
@@ -981,7 +981,7 @@ setY returns the attribute. Setting needsUpdate increments version.
 position.setY(2, .2); position.needsUpdate=true; geometry.computeBoundingSphere();
 ```
 
-[BufferAttribute.setY / needsUpdate](https://threejs.org/docs/pages/BufferAttribute.html) · three@three@0.186.1 · 2026-10-27
+[BufferAttribute.setY / needsUpdate](https://threejs.org/docs/pages/BufferAttribute.html) · three@0.186.1 · 2026-10-27
 
 ## Next learning
 

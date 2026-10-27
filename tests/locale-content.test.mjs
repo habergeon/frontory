@@ -634,6 +634,36 @@ test('complete mode accepts 23 translated series and 644 units only with all req
       path.join(root, file),
     )
   }
+  // This translation-only fixture intentionally has no learning lessons.
+  // Keep that state isolated from the production course's verified readiness.
+  const fixtureRoadmap = JSON.parse(
+    fs.readFileSync(
+      path.join(root, 'content/learning/threejs-roadmap.json'),
+      'utf8',
+    ),
+  )
+  const fixtureEnglishRoadmap = JSON.parse(
+    fs.readFileSync(
+      path.join(root, 'content/locales/en/learning/threejs-roadmap.json'),
+      'utf8',
+    ),
+  )
+  for (const roadmap of [fixtureRoadmap, fixtureEnglishRoadmap])
+    for (const entry of roadmap.entries) entry.readiness = 'planned'
+  fixtureEnglishRoadmap.sourceHash = sourceHash(fixtureRoadmap)
+  write('content/learning/threejs-roadmap.json', fixtureRoadmap)
+  write(
+    'content/locales/en/learning/threejs-roadmap.json',
+    fixtureEnglishRoadmap,
+  )
+  const fixtureCurriculum = JSON.parse(
+    fs.readFileSync(path.join(root, 'content/curricula/threejs.json'), 'utf8'),
+  )
+  for (const unit of fixtureCurriculum.units) {
+    delete unit.sourceLanguage
+    delete unit.runtimeProfile
+  }
+  write('content/curricula/threejs.json', fixtureCurriculum)
   const learning = { lessons: [], apis: [] }
   write('content/learning/threejs.json', learning)
   write('content/locales/en/learning/threejs.json', {

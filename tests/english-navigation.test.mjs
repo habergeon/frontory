@@ -67,11 +67,11 @@ test('all 644 readings and 111 companion execution guides are reachable from the
   const korean = read('docs/examples.md') + read('docs/examples-expanded.md')
   assert.equal(
     catalog.units.filter((unit) => unit.sourceLanguage === 'html').length,
-    4,
+    28,
   )
   assert.equal(
     catalog.units.filter((unit) => unit.sourceLanguage !== 'html').length,
-    640,
+    616,
   )
   for (const unit of catalog.units) {
     assert.ok(

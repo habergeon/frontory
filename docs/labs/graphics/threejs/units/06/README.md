@@ -834,7 +834,7 @@ flatShading은 평평한 면 법선을 셰이더에서 계산합니다. false는
 geometry.computeVertexNormals();
 ```
 
-[BufferGeometry.computeVertexNormals](https://threejs.org/docs/pages/BufferGeometry.html) · three@three@0.186.1 · 2026-10-27
+[BufferGeometry.computeVertexNormals](https://threejs.org/docs/pages/BufferGeometry.html) · three@0.186.1 · 2026-10-27
 
 ### API · MeshLambertMaterial.flatShading
 
@@ -850,7 +850,7 @@ true이면 면 단위 법선을 쓰고 false이면 정점 법선을 보간합니
 material.flatShading=false; material.needsUpdate=true;
 ```
 
-[MeshLambertMaterial.flatShading](https://threejs.org/docs/pages/MeshLambertMaterial.html) · three@three@0.186.1 · 2026-10-27
+[MeshLambertMaterial.flatShading](https://threejs.org/docs/pages/MeshLambertMaterial.html) · three@0.186.1 · 2026-10-27
 
 ## 다음 학습
 

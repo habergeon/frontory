@@ -1092,8 +1092,9 @@ error→ready with an 8×8 sample. Inputs survive decode errors and sample recov
     <h1>Image loading and recovery</h1>
     <p>
       Uses an original 8×8 quadrant PNG. Selected files exist only in this
-      running preview and are excluded from backups. Re-run or reload starts the
-      sample; select your file again.
+      running preview and are excluded from backups. This starter intentionally
+      begins with a loading failure, including after re-run or reload. Use
+      Sample recovery or select your file again.
     </p>
     <div class="controls">
       <button id="apply">Apply</button

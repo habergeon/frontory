@@ -996,7 +996,7 @@ A new ambient light; add it to the scene.
 scene.add(new THREE.AmbientLight(0xffffff,1));
 ```
 
-[AmbientLight](https://threejs.org/docs/pages/AmbientLight.html) · three@three@0.186.1 · 2026-10-27
+[AmbientLight](https://threejs.org/docs/pages/AmbientLight.html) · three@0.186.1 · 2026-10-27
 
 ### API · DirectionalLight.target
 
@@ -1012,7 +1012,7 @@ Changing the target changes light direction.
 scene.add(light,light.target); light.target.position.x=4;
 ```
 
-[DirectionalLight.target](https://threejs.org/docs/pages/DirectionalLight.html) · three@three@0.186.1 · 2026-10-27
+[DirectionalLight.target](https://threejs.org/docs/pages/DirectionalLight.html) · three@0.186.1 · 2026-10-27
 
 ### API · PointLight
 
@@ -1030,7 +1030,7 @@ A new point light.
 const light=new THREE.PointLight(0xffffff,20,0,2);
 ```
 
-[PointLight](https://threejs.org/docs/pages/PointLight.html) · three@three@0.186.1 · 2026-10-27
+[PointLight](https://threejs.org/docs/pages/PointLight.html) · three@0.186.1 · 2026-10-27
 
 ## Next learning
 

@@ -842,7 +842,7 @@ Updates the normal attribute without returning a value.
 geometry.computeVertexNormals();
 ```
 
-[BufferGeometry.computeVertexNormals](https://threejs.org/docs/pages/BufferGeometry.html) · three@three@0.186.1 · 2026-10-27
+[BufferGeometry.computeVertexNormals](https://threejs.org/docs/pages/BufferGeometry.html) · three@0.186.1 · 2026-10-27
 
 ### API · MeshLambertMaterial.flatShading
 
@@ -858,7 +858,7 @@ Changes the material shading mode.
 material.flatShading=false; material.needsUpdate=true;
 ```
 
-[MeshLambertMaterial.flatShading](https://threejs.org/docs/pages/MeshLambertMaterial.html) · three@three@0.186.1 · 2026-10-27
+[MeshLambertMaterial.flatShading](https://threejs.org/docs/pages/MeshLambertMaterial.html) · three@0.186.1 · 2026-10-27
 
 ## Next learning
 

@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { auditConsole } from '../tests/browser/threejs-console-audit.js'
 import { once } from 'node:events'
 import { fork, spawn, spawnSync } from 'node:child_process'
 import { mkdtemp, rm, writeFile } from 'node:fs/promises'
@@ -253,6 +254,7 @@ if (!args.includes('--worker')) {
           viewport: { width: 1440, height: 900 },
         })
         const page = await context.newPage()
+        await auditConsole(page, evidence)
         page.setDefaultTimeout(20_000)
         let fixtureName = null
         page.on('pageerror', (error) =>
@@ -283,6 +285,7 @@ if (!args.includes('--worker')) {
           evidence.console.push({
             case: name,
             fixture: fixtureName,
+            at: Date.now(),
             type: message.type(),
             classification,
             location,
@@ -355,6 +358,14 @@ if (!args.includes('--worker')) {
     ).filter(alive)
     if (evidence.cleanup.remainingOwnedProcesses.length)
       failure ??= Error('Owned processes remain')
+    evidence.diagnostics = {
+      expected: evidence.console.filter(
+        (entry) => entry.classification !== 'unclassified',
+      ),
+      unclassified: evidence.console.filter(
+        (entry) => entry.classification === 'unclassified',
+      ),
+    }
     if (failure) evidence.failure = { message: failure.message }
     publish()
     try {

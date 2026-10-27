@@ -1249,7 +1249,7 @@ roughness와 metalness로 물리 기반 표면을 표현합니다.
 const material=new THREE.MeshStandardMaterial({roughness:.8,metalness:0});
 ```
 
-[MeshStandardMaterial](https://threejs.org/docs/pages/MeshStandardMaterial.html) · three@three@0.186.1 · 2026-10-27
+[MeshStandardMaterial](https://threejs.org/docs/pages/MeshStandardMaterial.html) · three@0.186.1 · 2026-10-27
 
 ### API · PMREMGenerator.fromScene
 
@@ -1266,7 +1266,7 @@ texture를 담은 WebGLRenderTarget을 반환합니다.
 const target=pmrem.fromScene(room,0,.1,20,{size:64}); scene.environment=target.texture;
 ```
 
-[PMREMGenerator.fromScene](https://threejs.org/docs/pages/PMREMGenerator.html) · three@three@0.186.1 · 2026-10-27
+[PMREMGenerator.fromScene](https://threejs.org/docs/pages/PMREMGenerator.html) · three@0.186.1 · 2026-10-27
 
 ## 다음 학습
 

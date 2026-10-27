@@ -720,9 +720,8 @@ roughnessMap은 green 채널을 material.roughness에 곱합니다. NoColorSpace
   <body>
     <h1>작업 색과 출력 색</h1>
     <p>
-      직접 만든 2×2 RGBA [128,128,128,255] 자산입니다. 색 단계는 sRGB 색
-      이미지로, 수치 단계는 green=128/255 거칠기 데이터로 정의합니다. 출력
-      단계는 Linear-sRGB .5를 표시합니다.
+      재질 색의 Linear-sRGB 성분은 [0.5, 0.5, 0.5]입니다. 출력 색 공간을 바꿔
+      실제 그림을 비교하세요.
     </p>
     <div class="controls">
       <label
@@ -760,17 +759,6 @@ roughnessMap은 green 채널을 material.roughness에 곱합니다. NoColorSpace
       };
       const events = new AbortController();
       let disposed = false;
-      const pixels = new Uint8Array([
-        128, 128, 128, 255, 128, 128, 128, 255, 128, 128, 128, 255, 128, 128, 128,
-        255,
-      ]);
-      const texture = new THREE.DataTexture(pixels, 2, 2);
-      texture.magFilter = texture.minFilter = THREE.NearestFilter;
-      ownedTextures.add(texture);
-      const inputSpace = 'none';
-      texture.colorSpace =
-        inputSpace === 'srgb' ? THREE.SRGBColorSpace : THREE.NoColorSpace;
-      texture.needsUpdate = true;
       const geometry = new THREE.PlaneGeometry(3.6, 2.4);
       const material = new THREE.MeshBasicMaterial({
         color: new THREE.Color(0.5, 0.5, 0.5),
@@ -791,14 +779,10 @@ roughnessMap은 green 채널을 material.roughness에 곱합니다. NoColorSpace
       );
       function report() {
         output.textContent =
-          'input: ' +
-          (texture.colorSpace || 'NoColorSpace') +
+          'material linear RGB: ' +
+          material.color.toArray().join(', ') +
           ' / working: Linear-sRGB / output: ' +
-          renderer.outputColorSpace +
-          ' / source byte: ' +
-          pixels[1] +
-          ' / roughness: ' +
-          (material.roughness ?? '—');
+          renderer.outputColorSpace;
       }
       function draw() {
         if (disposed || !stage.clientWidth || !stage.clientHeight) return;
@@ -871,9 +855,8 @@ Three.js의 조명·색 계산은 Linear-sRGB 작업 공간을 씁니다. output
   <body>
     <h1>작업 색과 출력 색</h1>
     <p>
-      직접 만든 2×2 RGBA [128,128,128,255] 자산입니다. 색 단계는 sRGB 색
-      이미지로, 수치 단계는 green=128/255 거칠기 데이터로 정의합니다. 출력
-      단계는 Linear-sRGB .5를 표시합니다.
+      재질 색의 Linear-sRGB 성분은 [0.5, 0.5, 0.5]입니다. 출력 색 공간을 바꿔
+      실제 그림을 비교하세요.
     </p>
     <div class="controls">
       <label
@@ -911,17 +894,6 @@ Three.js의 조명·색 계산은 Linear-sRGB 작업 공간을 씁니다. output
       };
       const events = new AbortController();
       let disposed = false;
-      const pixels = new Uint8Array([
-        128, 128, 128, 255, 128, 128, 128, 255, 128, 128, 128, 255, 128, 128, 128,
-        255,
-      ]);
-      const texture = new THREE.DataTexture(pixels, 2, 2);
-      texture.magFilter = texture.minFilter = THREE.NearestFilter;
-      ownedTextures.add(texture);
-      const inputSpace = 'none';
-      texture.colorSpace =
-        inputSpace === 'srgb' ? THREE.SRGBColorSpace : THREE.NoColorSpace;
-      texture.needsUpdate = true;
       const geometry = new THREE.PlaneGeometry(3.6, 2.4);
       const material = new THREE.MeshBasicMaterial({
         color: new THREE.Color(0.5, 0.5, 0.5),
@@ -942,14 +914,10 @@ Three.js의 조명·색 계산은 Linear-sRGB 작업 공간을 씁니다. output
       );
       function report() {
         output.textContent =
-          'input: ' +
-          (texture.colorSpace || 'NoColorSpace') +
+          'material linear RGB: ' +
+          material.color.toArray().join(', ') +
           ' / working: Linear-sRGB / output: ' +
-          renderer.outputColorSpace +
-          ' / source byte: ' +
-          pixels[1] +
-          ' / roughness: ' +
-          (material.roughness ?? '—');
+          renderer.outputColorSpace;
       }
       function draw() {
         if (disposed || !stage.clientWidth || !stage.clientHeight) return;

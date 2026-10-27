@@ -1,5 +1,7 @@
 # Frontory 로드맵
 
+28개 단원 모두 한국어·영어의 독립 HTML 실습과 단계별 예제를 제공합니다. 구현 상태 `verified`는 단원별 실행·내용 검토를 마쳤다는 뜻이며 사용자의 학습 완료와는 별개입니다. 운영에 배포한 기준 커밋은 `0338dbe857265441d76d12b073170e24ac794cb5`입니다. 이후 24개 단원 확장은 로컬 검증 범위이며 아직 원격 push·배포하지 않았습니다. Chromium/SwiftShader 검증은 실제 기기·모든 GPU의 동작이나 실제 학습자 평가를 보장하지 않습니다.
+
 [23개 시리즈 기술 지도](labs/README.md) · [진행 중인 WebGL 28단위](labs/graphics/webgl/README.md) · [실습·저장 사용법](learning-workspace.md)
 
 ## 학습 경로 선택

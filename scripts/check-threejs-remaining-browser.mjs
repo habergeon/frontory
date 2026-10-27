@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { auditConsole } from '../tests/browser/threejs-console-audit.js'
 import { existsSync as fsExists } from 'node:fs'
 import { once } from 'node:events'
 import { fork, spawn, spawnSync } from 'node:child_process'
@@ -11,8 +12,8 @@ const args = process.argv.slice(2)
 const selected = args[args.indexOf('--group') + 1]
 const groups = ['05-09', '10-13', '14-18', '19-22', '23-28']
 assert.ok(
-  [...groups, 'all'].includes(selected),
-  'Use --group 05-09|10-13|14-18|19-22|23-28|all',
+  [...groups, 'all', 'integration'].includes(selected),
+  'Use --group 05-09|10-13|14-18|19-22|23-28|all|integration',
 )
 const unitId =
   selected === 'all'
@@ -203,17 +204,27 @@ if (!args.includes('--worker')) {
       ).processInfo.map((item) => item.id)
       publish()
       const jobs = []
-      for (const group of selected === 'all' ? groups : [selected]) {
+      for (const group of selected === 'all'
+        ? groups
+        : selected === 'integration'
+          ? []
+          : [selected]) {
         const file = path.resolve(
           'tests/browser/threejs-remaining-' + group + '.js',
         )
-        if (selected === 'all' && !fsExists(file)) continue
+        assert.ok(fsExists(file), 'Missing registered group: ' + group)
         const { runGroup } = await import(pathToFileURL(file).href)
         jobs.push([
           group,
           (page, base) => runGroup(page, base, unitId),
           totalMs,
         ])
+      }
+      if (selected === 'all' || selected === 'integration') {
+        if (selected === 'all') assert.equal(jobs.length, groups.length)
+        const { runGroup } =
+          await import('../tests/browser/threejs-course-integration.js')
+        jobs.push(['course-integration', runGroup, totalMs])
       }
       assert.ok(jobs.length > 0, 'No registered groups')
       for (const [name, run, budgetMs, lessonId] of jobs) {
@@ -223,6 +234,10 @@ if (!args.includes('--worker')) {
           viewport: { width: 1440, height: 900 },
         })
         const page = await context.newPage()
+        await auditConsole(page, evidence)
+        page.on('crash', () => {
+          evidence.pageCrash = { case: name, at: Date.now() }
+        })
         page.setDefaultTimeout(20_000)
         let fixtureName = null
         page.on('pageerror', (error) =>
@@ -253,6 +268,7 @@ if (!args.includes('--worker')) {
           evidence.console.push({
             case: name,
             fixture: fixtureName,
+            at: Date.now(),
             type: message.type(),
             classification,
             location,
@@ -280,9 +296,33 @@ if (!args.includes('--worker')) {
           )
           result.status = 'PASS'
         } catch (error) {
+          try {
+            evidence.failurePageState = await bounded(
+              () =>
+                page.evaluate(() => ({
+                  url: location.href,
+                  title: document.title,
+                  selected: location.hash,
+                  tab: document.querySelector('[role=tab][aria-selected=true]')
+                    ?.textContent,
+                  editor: !!document.querySelector('.monaco-editor'),
+                  documentPanel: !!document.querySelector('.document-reader'),
+                  body: document.body.innerText.slice(0, 4000),
+                })),
+              3000,
+              'Failure DOM',
+            )
+          } catch (captureError) {
+            evidence.failurePageStateError = captureError.message
+          }
           await page
-            .screenshot({ path: output.replace(/.json$/, '-failure.png') })
-            .catch(() => {})
+            .screenshot({
+              path: output.replace(/.json$/, '-failure.png'),
+              timeout: 5000,
+            })
+            .catch((captureError) => {
+              evidence.screenshotFailure = captureError.message
+            })
           result.status = 'FAIL'
           result.failure = error.message
           throw error
@@ -320,6 +360,14 @@ if (!args.includes('--worker')) {
     ).filter(alive)
     if (evidence.cleanup.remainingOwnedProcesses.length)
       failure ??= Error('Owned processes remain')
+    evidence.diagnostics = {
+      expected: evidence.console.filter(
+        (entry) => entry.classification !== 'unclassified',
+      ),
+      unclassified: evidence.console.filter(
+        (entry) => entry.classification === 'unclassified',
+      ),
+    }
     if (failure) evidence.failure = { message: failure.message }
     publish()
     try {

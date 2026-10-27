@@ -943,7 +943,7 @@ setAttribute는 geometry 자신을 반환합니다.
 geometry.setAttribute('position', new THREE.Float32BufferAttribute([0,0,0,1,0,0,0,1,0],3));
 ```
 
-[BufferGeometry.setAttribute / BufferAttribute](https://threejs.org/docs/pages/BufferGeometry.html) · three@three@0.186.1 · 2026-10-27
+[BufferGeometry.setAttribute / BufferAttribute](https://threejs.org/docs/pages/BufferGeometry.html) · three@0.186.1 · 2026-10-27
 
 ### API · BufferGeometry.setIndex
 
@@ -959,7 +959,7 @@ geometry 자신을 반환합니다.
 geometry.setIndex([0,1,2,0,2,3]);
 ```
 
-[BufferGeometry.setIndex](https://threejs.org/docs/pages/BufferGeometry.html) · three@three@0.186.1 · 2026-10-27
+[BufferGeometry.setIndex](https://threejs.org/docs/pages/BufferGeometry.html) · three@0.186.1 · 2026-10-27
 
 ### API · BufferAttribute.setY / needsUpdate
 
@@ -975,7 +975,7 @@ setY는 속성을 반환합니다. needsUpdate 설정은 version을 증가시킵
 position.setY(2, .2); position.needsUpdate=true; geometry.computeBoundingSphere();
 ```
 
-[BufferAttribute.setY / needsUpdate](https://threejs.org/docs/pages/BufferAttribute.html) · three@three@0.186.1 · 2026-10-27
+[BufferAttribute.setY / needsUpdate](https://threejs.org/docs/pages/BufferAttribute.html) · three@0.186.1 · 2026-10-27
 
 ## 다음 학습
 

@@ -884,7 +884,7 @@ Mesh와 Object3D 변환을 복사하지만 geometry와 material 참조는 공유
 const b=a.clone();
 ```
 
-[Mesh.clone](https://threejs.org/docs/pages/Object3D.html) · three@three@0.186.1 · 2026-10-27
+[Mesh.clone](https://threejs.org/docs/pages/Object3D.html) · three@0.186.1 · 2026-10-27
 
 ### API · BufferGeometry.clone / Material.clone
 
@@ -898,7 +898,7 @@ const b=a.clone();
 b.geometry=a.geometry.clone(); b.material=a.material.clone();
 ```
 
-[BufferGeometry.clone / Material.clone](https://threejs.org/docs/pages/Material.html) · three@three@0.186.1 · 2026-10-27
+[BufferGeometry.clone / Material.clone](https://threejs.org/docs/pages/Material.html) · three@0.186.1 · 2026-10-27
 
 ## 다음 학습
 

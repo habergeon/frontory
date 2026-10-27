@@ -986,7 +986,7 @@ distance=0은 감쇠가 없다는 뜻이 아니라 최대 거리 제한이 없�
 scene.add(new THREE.AmbientLight(0xffffff,1));
 ```
 
-[AmbientLight](https://threejs.org/docs/pages/AmbientLight.html) · three@three@0.186.1 · 2026-10-27
+[AmbientLight](https://threejs.org/docs/pages/AmbientLight.html) · three@0.186.1 · 2026-10-27
 
 ### API · DirectionalLight.target
 
@@ -1002,7 +1002,7 @@ target 위치를 바꾸면 빛의 방향이 달라집니다.
 scene.add(light,light.target); light.target.position.x=4;
 ```
 
-[DirectionalLight.target](https://threejs.org/docs/pages/DirectionalLight.html) · three@three@0.186.1 · 2026-10-27
+[DirectionalLight.target](https://threejs.org/docs/pages/DirectionalLight.html) · three@0.186.1 · 2026-10-27
 
 ### API · PointLight
 
@@ -1020,7 +1020,7 @@ scene.add(light,light.target); light.target.position.x=4;
 const light=new THREE.PointLight(0xffffff,20,0,2);
 ```
 
-[PointLight](https://threejs.org/docs/pages/PointLight.html) · three@three@0.186.1 · 2026-10-27
+[PointLight](https://threejs.org/docs/pages/PointLight.html) · three@0.186.1 · 2026-10-27
 
 ## 다음 학습
 

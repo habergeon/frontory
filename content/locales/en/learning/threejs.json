@@ -2620,7 +2620,7 @@
       "cautions": ["Positions use three components per vertex."],
       "example": "geometry.setAttribute('position', new THREE.Float32BufferAttribute([0,0,0,1,0,0,0,1,0],3));",
       "sourceUrl": "https://threejs.org/docs/pages/BufferGeometry.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2640,7 +2640,7 @@
       ],
       "example": "geometry.setIndex([0,1,2,0,2,3]);",
       "sourceUrl": "https://threejs.org/docs/pages/BufferGeometry.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2660,7 +2660,7 @@
       ],
       "example": "position.setY(2, .2); position.needsUpdate=true; geometry.computeBoundingSphere();",
       "sourceUrl": "https://threejs.org/docs/pages/BufferAttribute.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2672,7 +2672,7 @@
       "cautions": ["Does not merge duplicate vertices or change winding."],
       "example": "geometry.computeVertexNormals();",
       "sourceUrl": "https://threejs.org/docs/pages/BufferGeometry.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2693,7 +2693,7 @@
       ],
       "example": "material.flatShading=false; material.needsUpdate=true;",
       "sourceUrl": "https://threejs.org/docs/pages/MeshLambertMaterial.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2714,7 +2714,7 @@
       ],
       "example": "const b=a.clone();",
       "sourceUrl": "https://threejs.org/docs/pages/Object3D.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2728,7 +2728,7 @@
       ],
       "example": "b.geometry=a.geometry.clone(); b.material=a.material.clone();",
       "sourceUrl": "https://threejs.org/docs/pages/Material.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2753,7 +2753,7 @@
       "cautions": ["Ambient lights do not cast shadows."],
       "example": "scene.add(new THREE.AmbientLight(0xffffff,1));",
       "sourceUrl": "https://threejs.org/docs/pages/AmbientLight.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2773,7 +2773,7 @@
       ],
       "example": "scene.add(light,light.target); light.target.position.x=4;",
       "sourceUrl": "https://threejs.org/docs/pages/DirectionalLight.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2804,7 +2804,7 @@
       "cautions": ["Distance attenuation still applies when distance=0."],
       "example": "const light=new THREE.PointLight(0xffffff,20,0,2);",
       "sourceUrl": "https://threejs.org/docs/pages/PointLight.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2837,7 +2837,7 @@
       ],
       "example": "const material=new THREE.MeshStandardMaterial({roughness:.8,metalness:0});",
       "sourceUrl": "https://threejs.org/docs/pages/MeshStandardMaterial.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -2863,7 +2863,7 @@
       ],
       "example": "const target=pmrem.fromScene(room,0,.1,20,{size:64}); scene.environment=target.texture;",
       "sourceUrl": "https://threejs.org/docs/pages/PMREMGenerator.html",
-      "packageVersion": "three@0.186.1",
+      "packageVersion": "0.186.1",
       "checkedAt": "2026-10-27"
     },
     {
@@ -3888,7 +3888,7 @@
       "checkedAt": "2026-10-27"
     }
   ],
-  "sourceHash": "a2a8720c1708314e7c6b01e295c1aa4d7de70f692ed85a193c4fea4968f88c0a",
+  "sourceHash": "2834537fda64520153b91583fd45e440f570d33959d071202f9ed5bd38aab88e",
   "codeSourceHashes": {
     "src/labs/threejs-01/example.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
     "src/labs/threejs-01/steps/canvas.html": "5b4812afa8553321e0973544320c09f584501675464010c91cf0c4351249841d",
@@ -3976,15 +3976,15 @@
     "src/labs/threejs-step-10/solutions/uv.html": "6b4d50d4e868d5d90cc445d571c2f12314e2fe2dd6c6c74dbac872485816073e",
     "src/labs/threejs-step-10/steps/repeat.html": "25db6e44fb847c4260c9b623e5757c3b53fab70d89038e5a460434774503588e",
     "src/labs/threejs-step-10/solutions/repeat.html": "baf528406d1ee7d518cd1a2caf21c4eb4e7c113909b89d1ce9391979e4c0e396",
-    "src/labs/threejs-step-10/steps/load-recovery.html": "a2a02837809b8902caa21643807362425fa94802af944074481d1d5c6e873853",
+    "src/labs/threejs-step-10/steps/load-recovery.html": "2ed3e9891e7b639d9ba0cbd53bb9057fd7789ec5a4c2279e9c2bdd305ac66cd5",
     "src/labs/threejs-step-10/solutions/load-recovery.html": "d98b0d1bc1fc06a78b3a5353543ed532847daa718e19a422da501b5581829e2d",
     "src/labs/threejs-step-11/example.html": "4e1b2c8caf24a8a6af4af09378a3520b356fbd77fbae91c5fd44514ed25d4bca",
     "src/labs/threejs-step-11/steps/color-map.html": "4e1b2c8caf24a8a6af4af09378a3520b356fbd77fbae91c5fd44514ed25d4bca",
     "src/labs/threejs-step-11/solutions/color-map.html": "aa2313ed4988f41edff202cc03147f692b5c8ed456e5829e1b89411d9ddc8621",
     "src/labs/threejs-step-11/steps/data-map.html": "878bba64b78c42941085c629b9ba126a6697c64a8f70dfe1571a10d52bc38d4c",
     "src/labs/threejs-step-11/solutions/data-map.html": "64c6b3cbd2379dc36e26ca92363578b3ce881bff8d3fbd2ac0f6145e58f1b37f",
-    "src/labs/threejs-step-11/steps/output.html": "f30fc111cdb6abfe84b6d46aaec358505439c71b7433df66dbafa1fe5e0048aa",
-    "src/labs/threejs-step-11/solutions/output.html": "a14de57791b0401a93cafff297ef8571991c63765be8d4ef41a1f77ebdfcc946",
+    "src/labs/threejs-step-11/steps/output.html": "265e2d0ee591caed35ca5e8d7b01c4f2ecdad82c145ce7e92b2692e506d33ac3",
+    "src/labs/threejs-step-11/solutions/output.html": "5ea2e9f9d4f72e9fdbbfdea6739778453d047e1281eaee455c958f1a72eb0176",
     "src/labs/threejs-step-12/example.html": "d2717d04c756108a9c40073e89e9462098cf643575ce16307225d5ad56dcea93",
     "src/labs/threejs-step-12/steps/flags.html": "d2717d04c756108a9c40073e89e9462098cf643575ce16307225d5ad56dcea93",
     "src/labs/threejs-step-12/solutions/flags.html": "e4c3c844ba41fbf8a3df0b9d189dfa90b3d594471a1efba0ae4b5c8e34b0c5ab",

@@ -34,8 +34,8 @@ const roadmapMarkdown = (locale, units, from) => {
     copy.explanation,
     '',
     locale === 'ko'
-      ? '28개 단원 모두 한국어·영어의 독립 HTML 실습과 단계별 예제를 제공합니다. 구현 상태 `verified`는 단원별 실행·내용 검토를 마쳤다는 뜻이며 사용자의 학습 완료와는 별개입니다. 운영에 배포한 기준 커밋은 `0338dbe857265441d76d12b073170e24ac794cb5`입니다. 이후 24개 단원 확장은 로컬 검증 범위이며 아직 원격 push·배포하지 않았습니다. Chromium/SwiftShader 검증은 실제 기기·모든 GPU의 동작이나 실제 학습자 평가를 보장하지 않습니다.'
-      : 'All 28 units provide independent HTML practice and step examples in Korean and English. Implementation readiness `verified` means unit execution and content review are complete; learner progress is separate. The deployed production baseline is `0338dbe857265441d76d12b073170e24ac794cb5`. The subsequent 24-unit expansion is locally validated and has not been pushed or deployed. Chromium/SwiftShader validation does not establish behavior on real devices or every GPU, or learner assessment.',
+      ? '28개 단원 모두 한국어·영어의 독립 HTML 실습과 단계별 예제를 제공합니다. 구현 상태 `verified`는 단원별 실행·내용 검토를 마쳤다는 뜻이며 사용자의 학습 완료와는 별개입니다. Chromium/SwiftShader 검증은 실제 기기·모든 GPU의 동작이나 실제 학습자 평가를 보장하지 않습니다.'
+      : 'All 28 units provide independent HTML practice and step examples in Korean and English. Implementation readiness `verified` means unit execution and content review are complete; learner progress is separate. Chromium/SwiftShader validation does not establish behavior on real devices or every GPU, or learner assessment.',
     '',
     ...entries.flatMap((entry, index) => {
       const unit = units.find((unit) => unit.id === entry.unitId)

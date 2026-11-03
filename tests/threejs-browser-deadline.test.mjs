@@ -72,6 +72,12 @@ for (const phase of ['launch', 'work', 'close', 'evidence']) {
               : /total deadline exceeded/,
         )
         assert.deepEqual(evidence.cleanup.remainingOwnedProcesses, [])
+        if (process.platform === 'win32' && phase === 'launch')
+          assert.deepEqual(
+            evidence.cleanup.treeKill,
+            { code: 0, signal: null },
+            'tree traversal must finish rather than being killed midway',
+          )
         if (phase === 'launch')
           assert.equal(
             evidence.browserProcesses,

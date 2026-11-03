@@ -20,6 +20,7 @@ const compiled = transformSync(
 function harness(mount) {
   const messages = [],
     frames = [],
+    nativeLogs = [],
     listeners = new Map()
   const parent = { postMessage: (message) => messages.push(message) }
   const module = { exports: {} }
@@ -30,6 +31,12 @@ function harness(mount) {
     parent,
     Error,
     Blob,
+    console: Object.fromEntries(
+      ['log', 'info', 'warn', 'error', 'debug'].map((level) => [
+        level,
+        (...args) => nativeLogs.push({ level, args }),
+      ]),
+    ),
     URL: { createObjectURL: () => 'blob:test', revokeObjectURL() {} },
     document: { getElementById: () => ({}) },
     requestAnimationFrame: (fn) => frames.push(fn),
@@ -44,6 +51,7 @@ function harness(mount) {
     messages,
     frames,
     listeners,
+    nativeLogs,
     start: module.exports.start,
   }
 }
@@ -202,4 +210,70 @@ test('English runtime preserves errors thrown by example code', async () => {
   })
   await h.start('', 'token', 'en')
   assert.equal(h.messages[0].message, '사용자 오류 SENTINEL')
+})
+
+test('legacy console forwards all levels with bounded safe values and preserves native calls', async () => {
+  const h = harness(() => () => {})
+  await h.start('', 'token')
+  const circular = {}
+  circular.self = circular
+  const broken = {
+    toJSON() {
+      throw new Error('cannot serialize')
+    },
+  }
+  for (const level of ['log', 'info', 'warn', 'error', 'debug'])
+    h.console[level]('hello', circular, 12n, broken)
+  h.console.log('x'.repeat(5000))
+  const logs = h.messages.filter((message) => message.status === 'console')
+  assert.equal(logs.length, 6)
+  assert.equal(h.nativeLogs.length, 6)
+  assert.equal(h.nativeLogs[0].args[1], circular)
+  for (const log of logs) {
+    assert.equal(log.token, 'token')
+    assert.equal(log.type, 'study-preview')
+    assert.ok(log.message.length <= 4000)
+  }
+  assert.equal(
+    logs[0].message,
+    'hello {"self":"[Circular]"} "12" [Unserializable]',
+  )
+  assert.equal(logs.at(-1).message.length, 4000)
+  h.listeners.get('pagehide')()
+  h.console.log('after dispose')
+  assert.equal(h.nativeLogs.length, 7)
+  assert.equal(
+    h.messages.filter((message) => message.status === 'console').length,
+    6,
+  )
+})
+
+test('long thrown and asynchronous legacy errors remain accepted by the preview length guard', async () => {
+  const h = harness(() => {
+    throw new Error('x'.repeat(4001))
+  })
+  await h.start('', 'token')
+  h.listeners.get('unhandledrejection')({
+    reason: 'y'.repeat(5000),
+    preventDefault() {},
+  })
+  h.listeners.get('error')({
+    error: {
+      toJSON() {
+        throw 0
+      },
+      toString() {
+        throw 0
+      },
+    },
+    preventDefault() {},
+  })
+  assert.deepEqual(
+    h.messages.map((message) => message.status),
+    ['error', 'error', 'error'],
+  )
+  assert.deepEqual(
+    h.messages.map((message) => message.message.length),
+    [4000, 4000, 16],
+  )
 })

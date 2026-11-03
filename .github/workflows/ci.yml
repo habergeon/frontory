@@ -16,4 +16,15 @@ jobs:
       - run: pnpm check:translations --complete
       - run: pnpm test
       - run: pnpm build
+      - run: pnpm check:initial-bundle
       - run: pnpm check:deploy
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm test:browser
+        env:
+          THREEJS_EVIDENCE: browser-smoke.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-smoke-evidence
+          path: browser-smoke.json
+          if-no-files-found: ignore

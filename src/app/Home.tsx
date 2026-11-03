@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { getCatalog } from './curriculum'
+import { getCatalog, hasUnitSource } from './curriculum'
 import { draftStore } from '../shared/drafts'
 import './home.css'
 import { useLocale } from '../i18n/LocaleProvider'
@@ -167,11 +167,7 @@ export function Home({ onSelect }: { onSelect: (id: string) => void }) {
             const lessons = units.filter((unit) => unit.seriesId === item.id)
             const records = lessons.map((unit) => ({
               unit,
-              ...draftStore.load(
-                unit.id,
-                unit.source ?? '',
-                unit.sourceLanguage,
-              ),
+              ...draftStore.inspect(unit.id, unit.sourceLanguage),
             }))
             const completed = records.filter(
               (record) => record.draft.progress === 'completed',
@@ -197,11 +193,11 @@ export function Home({ onSelect }: { onSelect: (id: string) => void }) {
                   </p>
                   <small>
                     {message(locale, 'exampleCounts', {
-                      exampleCount: lessons.filter(
-                        (unit) => unit.source !== undefined,
+                      exampleCount: lessons.filter((unit) =>
+                        hasUnitSource(unit),
                       ).length,
                       documentCount: lessons.filter(
-                        (unit) => unit.source === undefined,
+                        (unit) => !hasUnitSource(unit),
                       ).length,
                     })}
                   </small>

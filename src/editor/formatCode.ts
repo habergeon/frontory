@@ -257,7 +257,7 @@ async function htmlPass(source: string, original: boolean) {
 
 export async function formatCode(
   code: string,
-  language: CodeLanguage,
+  language: CodeLanguage | 'css',
 ): Promise<string> {
   let source = code
   for (let pass = 0; pass < 3; pass++) {
@@ -266,10 +266,12 @@ export async function formatCode(
       next =
         language === 'html'
           ? await htmlPass(source, pass === 0)
-          : await format(
-              source,
-              language === 'typescript' ? 'typescript' : 'babel',
-            )
+          : language === 'css'
+            ? await formatCss(source)
+            : await format(
+                source,
+                language === 'typescript' ? 'typescript' : 'babel',
+              )
     } catch (cause) {
       if (cause instanceof CodeFormatError) throw cause
       throw new CodeFormatError(

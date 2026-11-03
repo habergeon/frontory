@@ -6,6 +6,9 @@ src/preview/runtime.generated.js
 # Temporary workspace and execution evidence.
 _workspace/
 .superpowers/
+.gstack/browse.json
+.gstack/claude-available.json
+.playwright-mcp/
 
 # pnpm owns the lockfile format.
 pnpm-lock.yaml

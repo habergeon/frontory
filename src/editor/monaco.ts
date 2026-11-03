@@ -1,5 +1,6 @@
 import * as monaco from 'monaco-editor'
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker.js?worker'
+import CssWorker from 'monaco-editor/esm/vs/language/css/css.worker.js?worker'
 import HtmlWorker from 'monaco-editor/esm/vs/language/html/html.worker.js?worker'
 import TypeScriptWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker.js?worker'
 
@@ -7,9 +8,11 @@ self.MonacoEnvironment = {
   getWorker(_id, label) {
     return label === 'typescript' || label === 'javascript'
       ? new TypeScriptWorker()
-      : label === 'html'
-        ? new HtmlWorker()
-        : new EditorWorker()
+      : label === 'css'
+        ? new CssWorker()
+        : label === 'html'
+          ? new HtmlWorker()
+          : new EditorWorker()
   },
 }
 for (const defaults of [
@@ -41,10 +44,12 @@ for (const defaults of [
     'file:///study-context.d.ts',
   )
 }
-// Explicit formatter owns both document actions; never run HTML's default printer.
-monaco.html.htmlDefaults.setModeConfiguration({
-  ...monaco.html.htmlDefaults.modeConfiguration,
-  documentFormattingEdits: false,
-  documentRangeFormattingEdits: false,
-})
+// Explicit formatter preserves sensitive HTML spans and CSS custom properties.
+for (const defaults of [monaco.html.htmlDefaults, monaco.css.cssDefaults]) {
+  defaults.setModeConfiguration({
+    ...defaults.modeConfiguration,
+    documentFormattingEdits: false,
+    documentRangeFormattingEdits: false,
+  })
+}
 export { monaco }

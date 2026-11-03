@@ -1,14 +1,19 @@
 import { SeriesRoadmap } from './SeriesRoadmap'
 import { useEffect, useRef, useState } from 'react'
 import { UnitPagination } from './UnitPagination'
-import { getCatalog, getLocalizedUnit, type Unit } from './curriculum'
+import {
+  getCatalog,
+  getLocalizedUnit,
+  hasUnitSource,
+  type Unit,
+} from './curriculum'
 import { draftStore } from '../shared/drafts'
 import { useLocale } from '../i18n/LocaleProvider'
 import { categoryLabels, message, messages } from '../i18n/messages'
 
 const statusOf = (unit: Unit) =>
-  draftStore.load(unit.id, unit.source ?? '', unit.sourceLanguage).draft
-    .progress ?? 'not-started'
+  draftStore.inspect(unit.id, unit.sourceLanguage).draft.progress ??
+  'not-started'
 const labelsFor = (copy: typeof messages.ko | typeof messages.en) => ({
   'not-started': copy.notStarted,
   'in-progress': copy.inProgress,
@@ -133,7 +138,7 @@ function SeriesDialog({
                 {item.id === 'playwright'
                   ? copy.externalTestSource
                   : message(locale, 'linkedExampleCount', {
-                      count: lessons.filter((unit) => unit.source !== undefined)
+                      count: lessons.filter((unit) => hasUnitSource(unit))
                         .length,
                     })}
               </span>
@@ -300,7 +305,7 @@ export function LearningNavigator({
                 <strong>{unit.title}</strong>
                 <small>
                   {labels[statusOf(unit)]} ·{' '}
-                  {unit.source === undefined
+                  {!hasUnitSource(unit)
                     ? copy.documentNotes
                     : copy.executablePractice}
                 </small>

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { auditConsole } from '../tests/browser/threejs-console-audit.js'
 import { once } from 'node:events'
-import { fork, spawn, spawnSync } from 'node:child_process'
+import { fork, spawn } from 'node:child_process'
 import { mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
@@ -12,6 +12,7 @@ const selected = args[args.indexOf('--case') + 1]
 assert.ok(
   [
     'all',
+    'smoke',
     'storage',
     'runtime',
     'format',
@@ -20,7 +21,7 @@ assert.ok(
     'lesson-01',
     'lessons-02-04',
   ].includes(selected),
-  'Use --case all|storage|runtime|format|learning|roadmap|lesson-01|lessons-02-04',
+  'Use --case all|smoke|storage|runtime|format|learning|roadmap|lesson-01|lessons-02-04',
 )
 const totalMs = Number(
   process.env.THREEJS_TIMEOUT_MS ?? (selected === 'all' ? 1_200_000 : 120_000),
@@ -71,16 +72,32 @@ if (!args.includes('--worker')) {
     ending = true
     clearTimeout(deadline)
     // A second bound includes forced termination and emergency evidence writing.
-    setTimeout(() => process.exit(1), 2_000)
+    let treeKiller
+    setTimeout(() => {
+      if (treeKiller?.exitCode === null) treeKiller.kill('SIGKILL')
+      process.exit(1)
+    }, 2_000)
     evidence.failure = { message: reason }
     const owned = [child.pid, ...(evidence.browserProcesses ?? [])]
     if (process.platform === 'win32') {
-      if (alive(child.pid))
-        spawnSync('taskkill', ['/PID', String(child.pid), '/T', '/F'], {
-          windowsHide: true,
-          timeout: 1_000,
-          stdio: 'ignore',
-        })
+      if (alive(child.pid)) {
+        // Do not kill taskkill halfway through traversal: unreported launch
+        // descendants would be orphaned. The supervisor's 2s bound still applies.
+        treeKiller = spawn(
+          'taskkill',
+          ['/PID', String(child.pid), '/T', '/F'],
+          {
+            windowsHide: true,
+            stdio: 'ignore',
+          },
+        )
+        try {
+          const [code, signal] = await once(treeKiller, 'exit')
+          evidence.cleanup.treeKill = { code, signal }
+        } catch (error) {
+          evidence.cleanup.treeKill = { error: error.message }
+        }
+      }
       for (const pid of owned.filter(alive)) {
         try {
           process.kill(pid, 'SIGKILL')
@@ -180,17 +197,18 @@ if (!args.includes('--worker')) {
       } = await import('../tests/browser/threejs-learning.js')
       const { runHtmlRuntimeFixtures } =
         await import('../tests/browser/html-runtime.js')
-      const playwright =
-        process.env.PLAYWRIGHT_MODULE ??
-        'C:/Users/johjh/AppData/Local/npm-cache/_npx/9833c18b2d85bc59/node_modules/playwright/index.mjs'
-      const executablePath =
-        process.env.CHROMIUM_PATH ??
-        'C:/Users/johjh/AppData/Local/Temp/frontory-e05-browser-NYfuH6/chromium-1248/chrome-win64/chrome.exe'
-      const { chromium } = await import(pathToFileURL(playwright).href)
+      const { runRegressionSmoke } =
+        await import('../tests/browser/regression-smoke.mjs')
+      const { chromium } = await import(
+        process.env.PLAYWRIGHT_MODULE
+          ? pathToFileURL(process.env.PLAYWRIGHT_MODULE).href
+          : 'playwright'
+      )
+      const executablePath = process.env.CHROMIUM_PATH
       cache = await mkdtemp(path.join(tmpdir(), 'frontory-threejs-'))
       server = await createServer({
         cacheDir: cache,
-        server: { host: '127.0.0.1', port: 0 },
+        server: { host: '127.0.0.1', port: 0, watch: null },
         logLevel: 'error',
       })
       await server.listen()
@@ -229,6 +247,7 @@ if (!args.includes('--worker')) {
               [
                 selected,
                 {
+                  smoke: runRegressionSmoke,
                   storage: runStorage,
                   runtime: runRuntime,
                   format: runFormat,

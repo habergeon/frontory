@@ -23,7 +23,7 @@ import { localizePath, practicePath } from '../i18n/locale'
 import { localizedDocPath, parseDocumentPath } from './documents'
 
 const Workspace = lazy(() =>
-  import('./Workspace').then((module) => ({ default: module.Workspace })),
+  import('./SourceWorkspace').then((module) => ({ default: module.Workspace })),
 )
 const fromHash = () =>
   units.find((unit) => unit.id === window.location.hash.slice(1)) ?? null
@@ -47,6 +47,9 @@ export function App() {
   const documentPath = documentRequest?.path ?? null
   const setDocumentPath = (path: string | null) =>
     setDocumentRequest(path ? { path, locale } : null)
+  useLayoutEffect(() => {
+    setDocumentRequest(null)
+  }, [selected?.id])
   useEffect(() => {
     setDocumentRequest((current) =>
       current && current.locale !== locale

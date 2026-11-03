@@ -1,5 +1,5 @@
 import { useLocale } from '../i18n/LocaleProvider'
-import { message, messages, learningMessages } from '../i18n/messages'
+import { message, messages } from '../i18n/messages'
 import {
   lazy,
   useEffect,
@@ -11,12 +11,7 @@ import {
   useState,
   type Ref,
 } from 'react'
-import {
-  draftStore,
-  type Draft,
-  type CodeLanguage,
-  type LearningProgress,
-} from '../shared/drafts'
+import { draftStore, type Draft, type LearningProgress } from '../shared/drafts'
 import type { PreviewInput } from '../preview/types'
 import type { CodeEditorHandle, Compilation } from '../editor/CodeEditor'
 import { MarkdownView } from '../shared/MarkdownView'
@@ -28,7 +23,7 @@ type Panel = (typeof panels)[number] | 'reading'
 export interface WorkspaceHandle {
   focusCode: () => void
 }
-const CodeEditor = lazy(() => import('../editor/CodeEditor'))
+const CodeEditor = lazy(() => import('../editor/SourceFilesEditor'))
 export function Workspace({
   unit,
   onProgressChange,
@@ -101,17 +96,16 @@ export function Workspace({
   const latestDraft = useRef(draft)
   latestDraft.current = draft
   const language = draft.language ?? 'javascript'
-  const checked =
-    compilation?.source === draft.code && compilation.language === language
   const notice =
-    !checked || (!compilation?.error && compilation?.output === null)
+    !compilation || (!compilation.error && compilation.output === null)
       ? text.checkingCode
       : compilation?.error
         ? text.invalidCode
         : undefined
   const save = (next: Draft) => {
-    latestDraft.current = next
-    setSaved(draftStore.save(unit.id, next))
+    const result = draftStore.save(unit.id, next)
+    latestDraft.current = result.draft
+    setSaved(result)
   }
   const reset = () => {
     if (unit.source !== undefined) {
@@ -307,7 +301,11 @@ export function Workspace({
             }
           >
             {reading(
-              (example) => editorHandle.current?.replace(example),
+              (example) => {
+                editorHandle.current?.replace(example)
+                focusRequested.current = true
+                choosePanel('code')
+              },
               () => choosePanel('notes'),
             )}
           </section>
@@ -368,21 +366,6 @@ export function Workspace({
           <div className="editor-caption">
             {unit.source !== undefined ? (
               <>
-                <label htmlFor="code-language">{text.codeLanguage}</label>
-                <select
-                  id="code-language"
-                  value={language}
-                  onChange={(event) =>
-                    save({
-                      ...draft,
-                      language: event.target.value as CodeLanguage,
-                    })
-                  }
-                >
-                  <option value="javascript">JavaScript</option>
-                  <option value="typescript">TypeScript</option>
-                  <option value="html">HTML</option>
-                </select>
                 <span>{text.editorCaption}</span>
               </>
             ) : (
@@ -397,18 +380,15 @@ export function Workspace({
                 ref={editorHandle}
                 wrap={wrapCode}
                 value={draft.code}
+                files={draft.files}
+                original={unit.source}
                 language={language}
                 unitId={unit.id}
-                onChange={(replacement) =>
+                onChange={(replacement) => {
+                  setCompilation(null)
                   save({ ...latestDraft.current, ...replacement })
-                }
+                }}
                 onCompile={(result) => {
-                  const current = latestDraft.current
-                  if (
-                    result.source !== current.code ||
-                    result.language !== (current.language ?? 'javascript')
-                  )
-                    return
                   setCompilation(result)
                   if (result.output !== null)
                     setExecutable({
@@ -429,9 +409,9 @@ export function Workspace({
           )}
           <p className="panel-hint">
             {unit.source !== undefined
-              ? language === 'html'
-                ? learningMessages[locale].htmlRuntimeHint
-                : text.mountHint
+              ? locale === 'ko'
+                ? 'HTML은 구조, CSS는 스타일, JavaScript는 동작을 편집합니다. 원본 복원은 세 파일을 되돌리고 필기는 유지합니다.'
+                : 'Edit structure in HTML, styles in CSS, and behavior in JavaScript. Restore resets all three files and keeps your notes.'
               : text.separateCodeHint}
           </p>
         </section>

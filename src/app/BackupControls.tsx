@@ -1,7 +1,13 @@
 import { useLocale } from '../i18n/LocaleProvider'
 import { message, messages, type MessageParams } from '../i18n/messages'
 import { useRef, useState } from 'react'
-import { units, legacyUnitIds, v2UnitIds, getLocalizedUnit } from './curriculum'
+import {
+  units,
+  legacyUnitIds,
+  v2UnitIds,
+  getLocalizedUnit,
+  loadUnitSource,
+} from './curriculum'
 import { draftStore } from '../shared/drafts'
 import {
   BackupValidationError,
@@ -58,9 +64,12 @@ export function BackupControls({
   const [notice, setMessage] = useState<Notice | null>(null)
   const [error, setError] = useState<Notice | null>(null)
   const [reading, setReading] = useState(false)
-  const download = () => {
+  const [preparing, setPreparing] = useState(false)
+  const download = async () => {
+    setPreparing(true)
     setError(null)
     try {
+      await Promise.all(units.map((unit) => loadUnitSource(unit)))
       let warnings = 0
       const backup: StudyBackup = {
         format: 'frontory',
@@ -103,6 +112,8 @@ export function BackupControls({
       if (warnings) setError({ key: 'exportWarnings', count: warnings })
     } catch (cause) {
       setError(failure(cause))
+    } finally {
+      setPreparing(false)
     }
   }
   const read = async (file?: File) => {
@@ -128,9 +139,11 @@ export function BackupControls({
       if (current === request.current) setReading(false)
     }
   }
-  const restore = () => {
+  const restore = async () => {
     if (!pending) return
+    setPreparing(true)
     try {
+      await Promise.all(units.map((unit) => loadUnitSource(unit)))
       draftStore.replaceAll(
         mergeBackupDrafts(
           pending,
@@ -148,14 +161,21 @@ export function BackupControls({
       setMessage({ key: 'restoreCompleted' })
     } catch {
       setError({ key: 'restoreFailed' })
+    } finally {
+      setPreparing(false)
     }
   }
   return (
     <section className="backup-controls" aria-label={text.backup}>
       <div className="backup-toolbar">
         <strong>{text.backup}</strong>
-        <button onClick={download}>{text.exportJson}</button>
-        <button disabled={reading} onClick={() => input.current?.click()}>
+        <button disabled={preparing} onClick={download}>
+          {text.exportJson}
+        </button>
+        <button
+          disabled={reading || preparing}
+          onClick={() => input.current?.click()}
+        >
           {text.importJson}
         </button>
         <input
@@ -198,8 +218,11 @@ export function BackupControls({
                 pending.selectedUnitId,
             })}
           </p>
-          <button onClick={restore}>{text.confirmRestore}</button>
+          <button disabled={preparing} onClick={restore}>
+            {text.confirmRestore}
+          </button>
           <button
+            disabled={preparing}
             onClick={() => {
               setPending(null)
               setError(null)

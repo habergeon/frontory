@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { units, type Unit } from './curriculum'
+import { units, hasUnitSource, type Unit } from './curriculum'
 import { practiceGuide } from './guideContent'
 import { MarkdownView } from '../shared/MarkdownView'
 import type { Locale } from '../i18n/locale'
@@ -77,7 +77,7 @@ export function PracticeGuide({
       </header>
       <p className="practice-guide-scope" role="note">
         <strong>{copy.executionScope}</strong>{' '}
-        {unit.source === undefined
+        {!hasUnitSource(unit)
           ? copy.documentPractice
           : unit.exampleMode === 'external'
             ? copy.externalExecutionScope
@@ -130,7 +130,7 @@ export function PracticeGuide({
           )}
           <footer>
             <p>
-              {unit.source !== undefined
+              {hasUnitSource(unit)
                 ? copy.executableGuideHint
                 : copy.documentGuideHint}
             </p>

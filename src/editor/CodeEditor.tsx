@@ -8,7 +8,8 @@ import {
   type Ref,
 } from 'react'
 import { monaco } from './monaco'
-import type { CodeLanguage } from '../shared/drafts'
+import type { CodeLanguage as DraftLanguage } from '../shared/drafts'
+type CodeLanguage = DraftLanguage | 'css'
 import { CodeFormatError, formatCode } from './formatCode'
 
 export interface Compilation {
@@ -24,32 +25,41 @@ export interface EditorReplacement {
 export interface CodeEditorHandle {
   // Native Undo covers text replacements, including identical nonempty text.
   // An empty-to-empty language-only replacement has no native text Undo entry.
-  replace: (replacement: EditorReplacement) => void
+  replace: (
+    replacement: EditorReplacement,
+    onHistory?: (direction: 'undo' | 'redo') => void,
+  ) => void
   format: () => Promise<void>
 }
 interface Props {
   ref?: Ref<CodeEditorHandle>
   wrap: boolean
+  syntaxOnly?: boolean
+  formatOnLoad?: boolean
   value: string
   language: CodeLanguage
   unitId: string
   onChange: (replacement: EditorReplacement) => void
+  onDisplayChange?: (replacement: EditorReplacement) => void
   onCompile: (result: Compilation) => void
 }
 
 export default function CodeEditor({
   ref,
   wrap,
+  syntaxOnly = false,
+  formatOnLoad = false,
   value,
   language,
   unitId,
   onChange,
+  onDisplayChange,
   onCompile,
 }: Props) {
   const { locale } = useLocale()
   const text = messages[locale]
   const [status, setStatus] = useState<
-    'loading' | 'waiting' | 'invalid' | 'valid' | 'failed' | 'html'
+    'loading' | 'waiting' | 'invalid' | 'valid' | 'failed' | 'html' | 'css'
   >('loading')
   const [failure, setFailure] = useState<{ details: string; emit: boolean }>({
     details: '',
@@ -58,8 +68,11 @@ export default function CodeEditor({
   const [formatFailure, setFormatFailure] = useState('')
   const host = useRef<HTMLDivElement>(null)
   const editor = useRef<monaco.editor.IStandaloneCodeEditor | null>(null)
-  const callbacks = useRef({ onChange, onCompile })
-  callbacks.current = { onChange, onCompile }
+  const callbacks = useRef({ onChange, onCompile, onDisplayChange })
+  callbacks.current = { onChange, onCompile, onDisplayChange }
+  const syntaxOnlyRef = useRef(syntaxOnly)
+  syntaxOnlyRef.current = syntaxOnly
+  const checkedSyntaxOnly = useRef(syntaxOnly)
   const controller = useRef<{
     replace: CodeEditorHandle['replace']
     format: CodeEditorHandle['format']
@@ -69,7 +82,8 @@ export default function CodeEditor({
   useImperativeHandle(
     ref,
     () => ({
-      replace: (next) => controller.current?.replace(next),
+      replace: (next, onHistory) =>
+        controller.current?.replace(next, onHistory),
       format: async () => {
         await controller.current?.format()
       },
@@ -91,6 +105,9 @@ export default function CodeEditor({
       lineNumbers: 'on',
       scrollBeyondLastLine: false,
       tabSize: 2,
+      insertSpaces: true,
+      detectIndentation: false,
+      autoIndent: 'full',
       ariaLabel: messages[locale].sourceCode,
       theme: 'vs',
       fixedOverflowWidgets: true,
@@ -99,12 +116,14 @@ export default function CodeEditor({
       renderValidationDecorations: 'on',
       occurrencesHighlight: 'off',
     })
+    model.updateOptions({ tabSize: 2, indentSize: 2, insertSpaces: true })
     editor.current = instance
     let timer: number | undefined
     let sequence = 0
     let formatSequence = 0
     let disposed = false
     let replacing = false
+    let displayOnly = false
     let previousVersion = model.getAlternativeVersionId()
     // Alternative versions identify native Undo boundaries, never asynchronous freshness.
     const boundaries: Array<{
@@ -112,6 +131,7 @@ export default function CodeEditor({
       after: number
       beforeLanguage: CodeLanguage
       afterLanguage: CodeLanguage
+      onHistory?: (direction: 'undo' | 'redo') => void
     }> = []
     currentLanguage.current = language
     const select = (next: CodeLanguage) => {
@@ -134,8 +154,8 @@ export default function CodeEditor({
       setStatus('waiting')
       setIssues([])
       monaco.editor.setModelMarkers(model, 'study-check', [])
-      if (language === 'html') {
-        setStatus('html')
+      if (language === 'html' || language === 'css') {
+        setStatus(language)
         callbacks.current.onCompile({
           source,
           language,
@@ -158,7 +178,9 @@ export default function CodeEditor({
           const worker = await factory(uri)
           const [syntax, semantic] = await Promise.all([
             worker.getSyntacticDiagnostics(uri.toString()),
-            worker.getSemanticDiagnostics(uri.toString()),
+            syntaxOnlyRef.current
+              ? Promise.resolve([])
+              : worker.getSemanticDiagnostics(uri.toString()),
           ])
           if (stale()) return
           const flatten = (
@@ -240,11 +262,15 @@ export default function CodeEditor({
         }
       }, 600)
     }
-    const notify = () =>
-      callbacks.current.onChange({
+    const notify = () => {
+      const notifyChange = displayOnly
+        ? callbacks.current.onDisplayChange
+        : callbacks.current.onChange
+      notifyChange?.({
         code: model.getValue(),
         language: currentLanguage.current,
       })
+    }
     const prepareFormat = async (token?: monaco.CancellationToken) => {
       const request = ++formatSequence
       const version = model.getVersionId()
@@ -266,7 +292,7 @@ export default function CodeEditor({
         // Keep the model EOL; the pure formatter still uses common LF options.
         const code = formatted.replace(/\r\n|\r|\n/g, model.getEOL())
         if (code === source) return null
-        return { code, language }
+        return { code, language, stale }
       } catch (error) {
         if (!stale()) {
           const position =
@@ -281,23 +307,27 @@ export default function CodeEditor({
     }
     const applyFormat = async (token?: monaco.CancellationToken) => {
       const next = await prepareFormat(token)
-      if (next) controller.current?.replace(next)
+      if (next && !next.stale()) controller.current?.replace(next)
     }
-    const providers = ['html', 'javascript', 'typescript'].map((language) =>
-      monaco.languages.registerDocumentFormattingEditProvider(language, {
-        async provideDocumentFormattingEdits(target, _options, token) {
-          if (target !== model) return []
-          const next = await prepareFormat(token)
-          return next
-            ? [
-                {
-                  range: model.getFullModelRange(),
-                  text: next.code,
-                },
-              ]
-            : []
-        },
-      }),
+    const providers = ['html', 'javascript', 'typescript', 'css'].map(
+      (language) =>
+        monaco.languages.registerDocumentFormattingEditProvider(
+          { language, scheme: uri.scheme, pattern: uri.path },
+          {
+            async provideDocumentFormattingEdits(target, _options, token) {
+              if (target !== model) return []
+              const next = await prepareFormat(token)
+              return next && !next.stale()
+                ? [
+                    {
+                      range: model.getFullModelRange(),
+                      text: next.code,
+                    },
+                  ]
+                : []
+            },
+          },
+        ),
     )
     controller.current = {
       format: applyFormat,
@@ -305,7 +335,7 @@ export default function CodeEditor({
         select(next)
         validate()
       },
-      replace: (next) => {
+      replace: (next, onHistory) => {
         if (
           next.code === model.getValue() &&
           next.language === currentLanguage.current
@@ -326,6 +356,7 @@ export default function CodeEditor({
           after,
           beforeLanguage,
           afterLanguage: next.language,
+          onHistory,
         })
         previousVersion = after
         replacing = false
@@ -349,11 +380,21 @@ export default function CodeEditor({
         select(
           event.isUndoing ? boundary.beforeLanguage : boundary.afterLanguage,
         )
+      boundary?.onHistory?.(event.isUndoing ? 'undo' : 'redo')
       previousVersion = next
       notify()
       validate()
     })
     validate()
+    if (formatOnLoad)
+      void (async () => {
+        const next = await prepareFormat()
+        if (next && !next.stale()) {
+          displayOnly = true
+          controller.current?.replace(next)
+          displayOnly = false
+        }
+      })()
     return () => {
       disposed = true
       sequence++
@@ -374,9 +415,13 @@ export default function CodeEditor({
     editor.current?.updateOptions({ ariaLabel: messages[locale].sourceCode })
   }, [locale, language, unitId])
   useEffect(() => {
-    if (currentLanguage.current !== language)
+    if (
+      currentLanguage.current !== language ||
+      checkedSyntaxOnly.current !== syntaxOnly
+    )
       controller.current?.select(language)
-  }, [language])
+    checkedSyntaxOnly.current = syntaxOnly
+  }, [language, syntaxOnly])
   return (
     <div className="code-workbench">
       {formatFailure && (
@@ -390,15 +435,21 @@ export default function CodeEditor({
           ? text.preparingLanguageService
           : status === 'waiting'
             ? text.waitingForCheck
-            : status === 'html'
-              ? text.htmlSourceReady
-              : status === 'invalid'
-                ? message(locale, 'editorErrorCount', { count: issues.length })
-                : status === 'valid'
-                  ? text.codeCheckPassed
-                  : message(locale, 'languageServiceError', {
-                      error: failure.emit ? text.emitFailed : failure.details,
-                    })}
+            : status === 'css'
+              ? locale === 'ko'
+                ? 'CSS 적용 준비 완료'
+                : 'CSS ready'
+              : status === 'html'
+                ? text.htmlSourceReady
+                : status === 'invalid'
+                  ? message(locale, 'editorErrorCount', {
+                      count: issues.length,
+                    })
+                  : status === 'valid'
+                    ? text.codeCheckPassed
+                    : message(locale, 'languageServiceError', {
+                        error: failure.emit ? text.emitFailed : failure.details,
+                      })}
       </div>
       {issues.length > 0 && (
         <ul className="code-issues" aria-label={text.codeIssues}>

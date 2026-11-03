@@ -61,7 +61,7 @@ export function parseBackup(
     )
       throw new BackupValidationError('invalid-units')
     seen.add(entry.id)
-    const { code, notes, updatedAt, language, progress } = entry.draft
+    const { code, notes, updatedAt, language, progress, files } = entry.draft
     if (updatedAt !== '' && !Number.isFinite(Date.parse(updatedAt)))
       throw new BackupValidationError('invalid-time')
     return {
@@ -73,6 +73,7 @@ export function parseBackup(
         updatedAt,
         language: language ?? ('javascript' as const),
         ...(progress ? { progress } : {}),
+        ...(files ? { files: { ...files } } : {}),
       },
     }
   })

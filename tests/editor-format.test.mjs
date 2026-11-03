@@ -181,6 +181,24 @@ test('CRLF template raw and string values survive standalone LF formatting', asy
   )
 })
 
+test('standalone CSS preserves custom properties and string values with stable two-space indentation', async () => {
+  const source =
+    '.a{--tokens:  a  b  ;--multi: first\n  second  ;content:"  keep  ";color:red}'
+  const output = await formatCode(source, 'css')
+  assert.deepEqual(declarations(output), declarations(source))
+  assert.ok(output.includes('\n  color: red'))
+  assert.ok(output.includes("content: '  keep  '"))
+  assert.equal(await formatCode(output, 'css'), output)
+  await assert.rejects(
+    () => formatCode('.a {\n  content: "unterminated\n}', 'css'),
+    (error) => {
+      assert.ok(error instanceof CodeFormatError)
+      assert.deepEqual(error.position, { line: 2, column: 12 })
+      return true
+    },
+  )
+})
+
 test('nonconverging formatting stops at three passes and intermediate errors omit original position', () => {
   for (const mode of ['unstable', 'later-error']) {
     const script = `

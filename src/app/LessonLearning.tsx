@@ -4,7 +4,6 @@ import type { Locale } from '../i18n/locale'
 import { learningMessages } from '../i18n/messages'
 import { MarkdownView } from '../shared/MarkdownView'
 import { getLocalizedUnit } from './curriculum'
-import { localizedDocPath } from './documents'
 import {
   getApiReference,
   readLearningCode,
@@ -71,9 +70,7 @@ export function LessonLearning({
                 <button
                   key={id}
                   className="text-link"
-                  onClick={() =>
-                    onDocument(localizedDocPath(locale, unit.docPath))
-                  }
+                  onClick={() => onDocument(unit.docPath)}
                 >
                   {unit.title}
                 </button>

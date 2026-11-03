@@ -6,6 +6,9 @@ import { generateSearchPages, homeFallback } from './scripts/search-pages.mjs'
 
 export default defineConfig({
   appType: 'mpa',
+  // Lesson/download HTML is content, not an app entry. Keep browser fixtures
+  // discoverable without crawling the entire archive and local reports.
+  optimizeDeps: { entries: ['index.html', 'tests/browser/*.html'] },
   plugins: [
     react(),
     {

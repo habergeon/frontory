@@ -14,6 +14,100 @@ function fixture() {
     setItem: (key, value) => data.set(key, value),
   }
 }
+test('saving after a corrupt read preserves the original bytes and session edits', () => {
+  for (const key of [draftKey('a'), 'web-gl-study:all:v1']) {
+    const storage = fixture()
+    storage.setItem(key, '{broken')
+    const store = createDraftStore(() => storage)
+    const initial = store.begin('a', 'original', 'ko').draft
+    const result = store.save('a', { ...initial, code: 'session edit' })
+    assert.ok(result.warning)
+    assert.equal(storage.getItem(key), '{broken')
+    assert.equal(store.load('a', '').draft.code, 'session edit')
+  }
+})
+
+test('code edits preserve newer notes and progress from another tab, including snapshots', () => {
+  for (const snapshot of [false, true]) {
+    const storage = fixture()
+    const initial = {
+      version: 1,
+      code: 'original',
+      notes: 'old',
+      updatedAt: '',
+    }
+    storage.setItem(
+      snapshot ? 'web-gl-study:all:v1' : draftKey('a'),
+      JSON.stringify(snapshot ? { a: initial } : initial),
+    )
+    const a = createDraftStore(() => storage)
+    const b = createDraftStore(() => storage)
+    const stale = a.begin('a', 'original', 'ko').draft
+    b.save('a', {
+      ...b.load('a', '').draft,
+      notes: 'new valuable notes',
+      progress: 'completed',
+    })
+    const saved = a.save('a', { ...stale, code: 'local code' })
+    assert.equal(saved.draft.notes, 'new valuable notes')
+    assert.equal(saved.draft.progress, 'completed')
+    assert.equal(saved.draft.code, 'local code')
+    const fresh = createDraftStore(() => storage).load('a', '').draft
+    assert.deepEqual(fresh, saved.draft)
+  }
+})
+
+test('note edits preserve the imported code, files and language as one group', () => {
+  const storage = fixture()
+  const a = createDraftStore(() => storage)
+  const initial = a.begin('a', 'old source', 'ko').draft
+  const b = createDraftStore(() => storage)
+  const imported = {
+    ...initial,
+    code: '<p>new</p>',
+    language: 'html',
+    notes: 'imported notes',
+    progress: 'completed',
+    files: {
+      html: '<p>new</p>',
+      css: '',
+      javascript: '',
+      mode: 'document',
+      scriptLanguage: 'typescript',
+    },
+  }
+  b.replaceAll({ a: imported })
+  const result = a.save('a', { ...initial, notes: 'local notes' })
+  assert.equal(result.draft.code, imported.code)
+  assert.equal(result.draft.language, imported.language)
+  assert.deepEqual(result.draft.files, imported.files)
+  assert.equal(result.draft.notes, 'local notes')
+  assert.equal(result.draft.progress, 'completed')
+})
+
+test('retry after a failed merged save preserves subsequent external notes', () => {
+  const storage = fixture()
+  let fail = false
+  const a = createDraftStore(() => ({
+    ...storage,
+    setItem(key, value) {
+      if (fail) throw Error('quota')
+      storage.setItem(key, value)
+    },
+  }))
+  const b = createDraftStore(() => storage)
+  const initial = a.begin('a', 'original', 'ko').draft
+  b.save('a', { ...initial, notes: 'external first' })
+  fail = true
+  const failed = a.save('a', { ...initial, code: 'local code' })
+  assert.equal(failed.warning, 'write-failed')
+  b.save('a', { ...b.load('a', '').draft, notes: 'external latest' })
+  fail = false
+  const retried = a.save('a', failed.draft)
+  assert.equal(retried.warning, null)
+  assert.equal(retried.draft.code, 'local code')
+  assert.equal(retried.draft.notes, 'external latest')
+})
 test('unit drafts stay separate and survive a fresh store', () => {
   const storage = fixture()
   const store = createDraftStore(() => storage)

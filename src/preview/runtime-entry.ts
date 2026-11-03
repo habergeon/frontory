@@ -22,12 +22,42 @@ export async function start(
   let cleanup: (() => void) | undefined
   let closed = false
   let failed = false
-  const send = (status: string, message = '') =>
-    parent.postMessage({ type: 'study-preview', token, status, message }, '*')
+  const send = (status: string, message = '', extra: object = {}) => {
+    if (!closed || status === 'disposed')
+      parent.postMessage(
+        { type: 'study-preview', token, status, message, ...extra },
+        '*',
+      )
+  }
+  const summarize = (value: unknown): string => {
+    try {
+      if (value instanceof Error) return value.message.slice(0, 4000)
+      if (typeof value === 'string') return value.slice(0, 4000)
+      const seen = new WeakSet<object>()
+      return (
+        JSON.stringify(value, (_key, item: unknown) => {
+          if (typeof item === 'bigint') return String(item)
+          if (typeof item === 'object' && item !== null) {
+            if (seen.has(item)) return '[Circular]'
+            seen.add(item)
+          }
+          return item
+        }) ?? String(value)
+      ).slice(0, 4000)
+    } catch {
+      return '[Unserializable]'
+    }
+  }
+  for (const level of ['log', 'info', 'warn', 'error', 'debug'] as const) {
+    const originalConsole = console[level].bind(console)
+    console[level] = (...args: unknown[]) => {
+      originalConsole(...args)
+      send('console', args.map(summarize).join(' ').slice(0, 4000), { level })
+    }
+  }
   const report = (error: unknown) => {
     failed = true
-    if (!closed)
-      send('error', error instanceof Error ? error.message : String(error))
+    if (!closed) send('error', summarize(error))
   }
   const dispose = () => {
     if (closed) return

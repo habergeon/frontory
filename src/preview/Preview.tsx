@@ -1,13 +1,10 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import type { Locale } from '../i18n/locale'
 import { messages } from '../i18n/messages'
-import runtime from './runtime.generated.js?raw'
+import { loadRuntime } from './loadRuntime'
 import { createPreviewDocument } from './document'
 import { createHtmlPreviewDocument } from './html-document'
 import type { PreviewInput } from './types'
-import core from './three-core.generated.js?raw'
-import controls from './three-controls.generated.js?raw'
-import gltf from './three-gltf.generated.js?raw'
 import { ConsoleOutput, type ConsoleItem } from './ConsoleOutput'
 
 interface Frame {
@@ -44,6 +41,8 @@ export function Preview({
   const iframe = useRef<HTMLIFrameElement>(null)
   const active = useRef<Frame | null>(null)
   const [frame, setFrame] = useState<Frame | null>(null)
+  const [retry, setRetry] = useState(0)
+  const [loadFailed, setLoadFailed] = useState(false)
   const [result, setResult] = useState<{
     token: string
     status: string
@@ -61,6 +60,7 @@ export function Preview({
       if (disposedListener)
         window.removeEventListener('message', disposedListener)
     }
+    let runtime: Awaited<ReturnType<typeof loadRuntime>>
     const replace = () => {
       clear()
       if (cancelled) return
@@ -70,13 +70,8 @@ export function Preview({
         token,
         document:
           kind === 'html'
-            ? createHtmlPreviewDocument(
-                code,
-                token,
-                locale,
-                profile === 'threejs' ? { core, controls, gltf } : {},
-              )
-            : createPreviewDocument(code, token, runtime, locale),
+            ? createHtmlPreviewDocument(code, token, locale, runtime.modules)
+            : createPreviewDocument(code, token, runtime.legacy!, locale),
         input: { code, kind, profile },
         revision,
         locale,
@@ -85,7 +80,21 @@ export function Preview({
       setConsoleItems([])
       setFrame(next)
     }
-    const timer = window.setTimeout(() => {
+    const timer = window.setTimeout(async () => {
+      setLoadFailed(false)
+      try {
+        runtime = await loadRuntime(
+          kind === 'html'
+            ? profile === 'threejs'
+              ? 'threejs'
+              : 'html'
+            : 'legacy',
+        )
+      } catch {
+        if (!cancelled) setLoadFailed(true)
+        return
+      }
+      if (cancelled) return
       const previous = active.current
       const target = iframe.current?.contentWindow
       if (!previous || !target) {
@@ -111,7 +120,7 @@ export function Preview({
       window.clearTimeout(timer)
       clear()
     }
-  }, [code, kind, profile, revision, blocked])
+  }, [code, kind, profile, revision, blocked, retry])
   useLayoutEffect(() => {
     if (!frame) return
     const element = iframe.current
@@ -169,15 +178,24 @@ export function Preview({
       <div className="preview-status" role="status">
         {blocked
           ? text.webgl2Unavailable
-          : (notice ??
-            (pending
-              ? text.applyingCode
-              : current?.status === 'ready'
-                ? text.running
-                : current?.status === 'error'
-                  ? text.runtimeError
-                  : text.preparingScene))}
+          : loadFailed
+            ? locale === 'ko'
+              ? '미리보기에 필요한 파일을 불러오지 못했습니다.'
+              : 'Could not load the files needed for the preview.'
+            : (notice ??
+              (pending
+                ? text.applyingCode
+                : current?.status === 'ready'
+                  ? text.running
+                  : current?.status === 'error'
+                    ? text.runtimeError
+                    : text.preparingScene))}
       </div>
+      {loadFailed && !blocked && (
+        <button type="button" onClick={() => setRetry((value) => value + 1)}>
+          {locale === 'ko' ? '미리보기 다시 시도' : 'Retry preview'}
+        </button>
+      )}
       <div className="canvas-shell">
         {frame && !blocked && (
           <iframe

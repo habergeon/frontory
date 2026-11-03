@@ -1,4 +1,4 @@
-import { getCatalog, type Unit } from './curriculum'
+import { getCatalog, hasUnitSource, type Unit } from './curriculum'
 import { useLocale } from '../i18n/LocaleProvider'
 import { messages } from '../i18n/messages'
 
@@ -25,7 +25,7 @@ export function UnitPagination({
         {copy.previousUnit}
       </button>
       <span>
-        {selected.source === undefined
+        {!hasUnitSource(selected)
           ? copy.documentPracticeAvailable
           : selected.exampleMode === 'external' ||
               selected.seriesId === 'playwright'
